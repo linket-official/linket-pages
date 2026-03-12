@@ -1,1 +1,1071 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LINKet｜你的品牌入口與合作起點</title>
+<meta name="description" content="LINKet 透過 NFC 數位名片與品牌 Landing Page，幫助品牌、店家與創作者更清楚地被理解、被聯絡，也更容易展開合作。">
+<meta property="og:title" content="LINKet｜你的品牌入口與合作起點">
+<meta property="og:description" content="不只是數位名片，是你的品牌入口與合作起點。已服務 50+ 品牌。">
+<meta property="og:image" content="https://linket.app/home/og-image.jpg">
+<link rel="icon" href="/home/favicon.png">
+<link rel="apple-touch-icon" href="/home/apple-touch-icon.png">
+<meta property="og:url" content="https://linket.app/home">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Cormorant+Garamond:wght@400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#0a0a0c;--bg2:#111114;--bg3:#18181c;
+  --card:rgba(255,255,255,.04);--card2:rgba(255,255,255,.07);
+  --b:rgba(255,255,255,.08);--b2:rgba(255,255,255,.14);
+  --blue:#3b8eff;--blue2:#5ba3ff;
+  --text:#f0f0f4;--muted:rgba(240,240,244,.72);--muted2:rgba(240,240,244,.42);
+  --r:12px;
+  --sake-red:#E8573A;--sake-blue:#2B4DA8;
+}
+html{font-size:16px;scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans TC',sans-serif;font-weight:400;overflow-x:hidden;}
 
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.fade{opacity:0;animation:fadeUp .6s ease forwards;}
+.f1{animation-delay:.1s}.f2{animation-delay:.22s}.f3{animation-delay:.36s}.f4{animation-delay:.5s}.f5{animation-delay:.64s}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* HERO */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:5rem 1.5rem 3rem;text-align:center;overflow:hidden;}
+.hero-glow{position:absolute;width:600px;height:600px;top:-100px;left:50%;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(59,142,255,.12) 0%,transparent 70%);pointer-events:none;}
+.hero-line{position:absolute;top:0;left:50%;transform:translateX(-50%);width:1px;height:120px;background:linear-gradient(to bottom,transparent,rgba(59,142,255,.4),transparent);}
+.pill{display:inline-flex;align-items:center;gap:.45rem;padding:.32rem .85rem;border:1px solid rgba(59,142,255,.3);border-radius:50px;font-size:.68rem;letter-spacing:.14em;color:var(--blue2);margin-bottom:1.6rem;background:rgba(59,142,255,.06);}
+.pill::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 6px var(--blue);animation:blink 2s ease-in-out infinite;}
+.hero h1{font-family:'Noto Sans TC',sans-serif;font-size:clamp(1.7rem,7vw,2.8rem);font-weight:700;line-height:1.4;letter-spacing:.06em;color:#fff;margin-bottom:1rem;}
+.hero h1 em{font-style:normal;color:var(--blue2);}
+.hero-sub{font-size:.82rem;color:var(--muted);line-height:1.9;letter-spacing:.05em;max-width:340px;margin:0 auto 2rem;}
+.stat-row{display:flex;align-items:center;justify-content:center;gap:2rem;margin-bottom:2.5rem;}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;color:#fff;line-height:1;}
+.stat-num span{font-size:1rem;color:var(--blue2);}
+.stat-label{font-size:.62rem;letter-spacing:.12em;color:var(--muted2);margin-top:.2rem;}
+.stat-div{width:1px;height:32px;background:var(--b2);}
+.hero-cta{display:flex;flex-direction:column;gap:.7rem;width:100%;max-width:320px;margin:0 auto;}
+
+/* BUTTONS */
+.btn{display:block;padding:.9rem 1.4rem;border-radius:50px;text-decoration:none;font-size:.8rem;letter-spacing:.14em;text-align:center;transition:all .2s;font-weight:400;}
+.btn-blue{background:var(--blue);color:#fff;box-shadow:0 0 24px rgba(59,142,255,.25);}
+.btn-blue:hover{background:var(--blue2);box-shadow:0 0 32px rgba(59,142,255,.4);}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--b2);}
+.btn-ghost:hover{border-color:rgba(255,255,255,.3);background:var(--card2);}
+.btn-sake{
+  background:linear-gradient(135deg,var(--sake-red),#d44a2e);
+  color:#fff;
+  font-family:'Noto Sans TC',sans-serif;
+  letter-spacing:.18em;
+  box-shadow:0 0 28px rgba(232,87,58,.3);
+  border:none;
+  position:relative;overflow:hidden;
+}
+.btn-sake::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.12),transparent);
+}
+.btn-sake:hover{
+  background:linear-gradient(135deg,#f0613f,var(--sake-red));
+  box-shadow:0 0 40px rgba(232,87,58,.5);
+  transform:translateY(-1px);
+}
+.btn-ghost:hover{border-color:rgba(255,255,255,.3);background:var(--card2);}
+
+/* SECTIONS */
+.section{padding:4rem 1.5rem;max-width:480px;margin:0 auto;}
+.sec-label{font-size:.62rem;letter-spacing:.22em;color:var(--blue);text-transform:uppercase;margin-bottom:.7rem;}
+.sec-title{font-family:'Noto Sans TC',sans-serif;font-size:clamp(1.3rem,5vw,1.8rem);font-weight:500;letter-spacing:.08em;color:#fff;line-height:1.5;margin-bottom:.8rem;}
+.sec-body{font-size:.9rem;color:var(--muted);line-height:1.95;letter-spacing:.04em;}
+.divider{width:100%;height:1px;background:linear-gradient(to right,transparent,var(--b2),transparent);}
+
+/* PAIN */
+.pain-grid{display:flex;flex-direction:column;gap:.5rem;margin-top:1.6rem;}
+.pain-item{display:flex;align-items:flex-start;gap:.75rem;padding:.8rem 1rem;background:var(--card);border:1px solid var(--b);border-radius:8px;font-size:.88rem;color:var(--muted);line-height:1.6;letter-spacing:.04em;transition:border-color .2s,background .2s;}
+.pain-item:hover{border-color:var(--b2);background:var(--card2);}
+.pain-icon{font-size:1rem;flex-shrink:0;margin-top:.05rem;}
+
+/* VALUE */
+.value-grid{display:flex;flex-direction:column;gap:.6rem;margin-top:1.6rem;}
+.value-card{padding:1.2rem;background:var(--card);border:1px solid var(--b);border-radius:var(--r);transition:border-color .2s,background .2s;}
+.value-card:hover{border-color:rgba(59,142,255,.25);background:var(--card2);}
+.value-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:rgba(59,142,255,.25);line-height:1;margin-bottom:.5rem;}
+.value-title{font-family:'Noto Sans TC',sans-serif;font-size:.95rem;font-weight:700;color:#fff;letter-spacing:.06em;margin-bottom:.35rem;}
+.value-body{font-size:.85rem;color:var(--muted);line-height:1.8;letter-spacing:.03em;}
+
+/* PLANS */
+.plan-compare{font-size:.7rem;color:var(--muted2);text-align:center;letter-spacing:.06em;margin-bottom:1.2rem;padding:.6rem 1rem;background:rgba(59,142,255,.05);border:1px solid rgba(59,142,255,.12);border-radius:8px;line-height:1.7;}
+.plan-compare strong{color:var(--blue2);}
+.plan-card{margin-bottom:.8rem;border:1px solid var(--b);border-radius:var(--r);overflow:hidden;transition:border-color .25s;}
+.plan-card:hover{border-color:rgba(59,142,255,.3);}
+.plan-card.featured{border-color:rgba(59,142,255,.35);}
+.plan-head{padding:1.1rem 1.2rem .9rem;background:var(--bg3);border-bottom:1px solid var(--b);}
+.plan-head-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:.25rem;}
+.plan-tag{font-size:.62rem;letter-spacing:.16em;color:var(--blue);padding:.18rem .55rem;border:1px solid rgba(59,142,255,.3);border-radius:4px;text-transform:uppercase;}
+.plan-tag.hot{background:rgba(59,142,255,.12);color:var(--blue2);border-color:rgba(59,142,255,.4);}
+.plan-name{font-family:'Noto Sans TC',sans-serif;font-size:1.05rem;font-weight:700;color:#fff;letter-spacing:.06em;margin-bottom:.2rem;}
+.plan-tagline{font-size:.82rem;color:var(--muted);letter-spacing:.04em;line-height:1.5;}
+.plan-price-row{display:flex;align-items:baseline;gap:.5rem;margin-top:.7rem;}
+.plan-orig{font-size:.8rem;color:var(--muted2);text-decoration:line-through;}
+.plan-price{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;color:var(--blue2);line-height:1;}
+.plan-price-unit{font-size:.7rem;color:var(--muted2);}
+.plan-body{padding:1rem 1.2rem 1.2rem;}
+.plan-target{font-size:.82rem;color:var(--muted);line-height:1.7;margin-bottom:.9rem;padding-bottom:.8rem;border-bottom:1px solid var(--b);}
+.plan-features{list-style:none;margin-bottom:1rem;}
+.plan-features li{display:flex;align-items:flex-start;gap:.5rem;font-size:.86rem;color:var(--muted);line-height:1.7;letter-spacing:.03em;padding:.22rem 0;}
+.plan-features li::before{content:'✓';color:var(--blue);flex-shrink:0;font-size:.7rem;margin-top:.15rem;}
+.plan-features li.no{color:var(--muted2);}
+.plan-features li.no::before{content:'✕';color:var(--muted2);}
+.plan-period{font-size:.65rem;color:var(--muted2);letter-spacing:.08em;text-align:center;margin-bottom:.9rem;}
+
+/* CASES */
+.case-stat-row{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:1.6rem;}
+.case-stat{padding:1rem;background:var(--card);border:1px solid var(--b);border-radius:var(--r);text-align:center;}
+.case-stat-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:#fff;line-height:1;}
+.case-stat-num span{font-size:1rem;color:var(--blue2);}
+.case-stat-label{font-size:.62rem;letter-spacing:.1em;color:var(--muted2);margin-top:.3rem;}
+.case-card{margin-bottom:.7rem;padding:1.1rem 1.2rem;background:var(--card);border:1px solid var(--b);border-radius:var(--r);transition:border-color .2s,background .2s;text-decoration:none;display:block;}
+.case-card:hover{border-color:rgba(59,142,255,.25);background:var(--card2);}
+.case-card-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem;}
+.case-brand{font-family:'Noto Sans TC',sans-serif;font-size:.9rem;font-weight:700;color:#fff;letter-spacing:.06em;}
+.case-plan-badge{font-size:.58rem;letter-spacing:.1em;color:var(--blue);padding:.15rem .5rem;border:1px solid rgba(59,142,255,.25);border-radius:4px;}
+.case-desc{font-size:.82rem;color:var(--muted);line-height:1.7;letter-spacing:.03em;}
+.case-url{font-size:.62rem;color:var(--muted2);letter-spacing:.04em;margin-top:.4rem;}
+.case-more{text-align:center;font-size:.7rem;color:var(--muted2);letter-spacing:.08em;margin-top:.8rem;line-height:1.8;}
+
+/* WALLET */
+.wallet-wrap{margin-top:1.4rem;margin-bottom:1.2rem;}
+.wallet-tabs{display:flex;gap:.5rem;margin-bottom:1.2rem;}
+.wallet-tab{flex:1;padding:.55rem;border:1px solid var(--b);border-radius:8px;background:var(--card);font-size:.75rem;color:var(--muted);letter-spacing:.06em;text-align:center;cursor:pointer;transition:all .2s;}
+.wallet-tab.active{border-color:var(--blue);color:var(--blue2);background:rgba(59,142,255,.08);}
+
+.wallet-row{display:flex;align-items:flex-start;gap:.75rem;}
+
+.wallet-stack-wrap{flex:1;position:relative;padding-bottom:160px;margin-bottom:-160px;}
+.wallet-stack{
+  position:relative;
+  overflow:visible;
+  transition:height .55s cubic-bezier(.76,0,.24,1);
+  cursor:pointer;
+}
+.wallet-stack.open{cursor:default;}
+
+/* tap hint overlay shown when collapsed */
+.wallet-tap-hint{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  z-index:99;pointer-events:none;
+  opacity:1;transition:opacity .3s;
+}
+.wallet-tap-hint.hidden{opacity:0;}
+.wallet-tap-badge{
+  background:rgba(59,142,255,.18);
+  border:1px solid rgba(59,142,255,.4);
+  border-radius:50px;
+  padding:.4rem 1rem;
+  font-size:.72rem;color:var(--blue2);letter-spacing:.1em;
+  backdrop-filter:blur(6px);
+}
+
+.wcard-wrap{
+  position:absolute;left:0;right:0;
+  transition:top .55s cubic-bezier(.76,0,.24,1);
+}
+.wcard{
+  border-radius:16px;overflow:hidden;
+  transition:transform .55s cubic-bezier(.76,0,.24,1),
+             box-shadow .3s ease,
+             opacity .3s ease;
+  will-change:transform;
+  background-size:cover;
+  background-position:center top;
+  cursor:pointer;
+}
+/* info drawer slides out below card */
+.wcard-info{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .45s cubic-bezier(.76,0,.24,1), opacity .35s ease;
+  opacity:0;
+  background:var(--bg3);
+  border:1px solid var(--b2);
+  border-top:none;
+  border-radius:0 0 14px 14px;
+}
+.wcard-info.visible{
+  max-height:140px;
+  opacity:1;
+}
+.wcard-info-inner{
+  padding:.85rem 1.1rem .9rem;
+  display:flex;align-items:center;justify-content:space-between;gap:.8rem;
+}
+.wcard-info-text{}
+.wcard-brand{font-family:'Noto Sans TC',sans-serif;font-size:.88rem;font-weight:700;color:#fff;letter-spacing:.06em;margin-bottom:.2rem;}
+.wcard-desc{font-size:.72rem;color:var(--muted);line-height:1.6;letter-spacing:.03em;}
+.wcard-url{font-size:.6rem;color:var(--muted2);letter-spacing:.04em;margin-top:.2rem;}
+.wcard-link{
+  flex-shrink:0;font-size:.7rem;color:var(--blue2);
+  text-decoration:none;border:1px solid rgba(59,142,255,.3);
+  border-radius:20px;padding:.3rem .85rem;letter-spacing:.07em;
+  transition:all .2s;white-space:nowrap;
+}
+.wcard-link:hover{background:rgba(59,142,255,.15);border-color:rgba(59,142,255,.6);}
+
+.wc-0{background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),url("https://raw.githubusercontent.com/TonyLin1994code/linket.net/2141fe748e729d58a8357a52623bfefb87ea7b94/cases%3Atony-thumb.jpg") center/cover no-repeat;}
+.wc-1{background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),url("https://raw.githubusercontent.com/TonyLin1994code/linket.net/2141fe748e729d58a8357a52623bfefb87ea7b94/cases%3Amumu-thumb.jpg") center/cover no-repeat;}
+.wc-2{background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),url("https://raw.githubusercontent.com/TonyLin1994code/linket.net/2141fe748e729d58a8357a52623bfefb87ea7b94/cases%3Azouke-thumb.jpg") center/cover no-repeat;}
+.wc-3{background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),url("https://raw.githubusercontent.com/TonyLin1994code/linket.net/2141fe748e729d58a8357a52623bfefb87ea7b94/cases%3Afeisrealm-thumb.jpg") center/cover no-repeat;}
+.wc-4{background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),url("https://raw.githubusercontent.com/TonyLin1994code/linket.net/2141fe748e729d58a8357a52623bfefb87ea7b94/cases%3Aasmrt-thumb.jpg") center/cover no-repeat;}
+.wc-5{background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),url("https://raw.githubusercontent.com/TonyLin1994code/linket.net/2141fe748e729d58a8357a52623bfefb87ea7b94/cases%3Alanjue-thumb.png") center/cover no-repeat;}
+.wc-l0{background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),url("https://raw.githubusercontent.com/TonyLin1994code/linket.net/2141fe748e729d58a8357a52623bfefb87ea7b94/cases%3Abella-spa-thumb.png") center/cover no-repeat;}
+.wc-l1{background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),url("https://raw.githubusercontent.com/TonyLin1994code/linket.net/2141fe748e729d58a8357a52623bfefb87ea7b94/cases%3Amu-ai-cake-thumb.png") center/cover no-repeat;}
+.wc-l2{background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),url("https://raw.githubusercontent.com/TonyLin1994code/linket.net/2141fe748e729d58a8357a52623bfefb87ea7b94/cases%3Ahills-valleys-thumb.png") center/cover no-repeat;}
+.wc-l3{background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),url("https://raw.githubusercontent.com/TonyLin1994code/linket.net/2141fe748e729d58a8357a52623bfefb87ea7b94/cases%3Amikijiabeauty-thumb.jpg") center/cover no-repeat;}
+.wc-l4{background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),url("https://raw.githubusercontent.com/TonyLin1994code/linket.net/2141fe748e729d58a8357a52623bfefb87ea7b94/cases%3Aaeter-design-thumb.jpg") center/cover no-repeat;}
+.wc-l5{background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),url("https://raw.githubusercontent.com/TonyLin1994code/linket.net/2141fe748e729d58a8357a52623bfefb87ea7b94/cases%3Ameixi-horticulture-farm-thumb.jpg") center/cover no-repeat;}
+
+/* side collapse button */
+.wallet-ctrl{
+  display:flex;flex-direction:column;align-items:center;gap:.5rem;
+  padding-top:.3rem;flex-shrink:0;
+}
+.wallet-ctrl-btn{
+  width:34px;height:34px;border-radius:50%;
+  border:1px solid var(--b2);background:var(--card2);
+  color:var(--muted);font-size:.9rem;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all .25s;flex-shrink:0;
+  user-select:none;
+}
+.wallet-ctrl-btn:hover{border-color:var(--blue);color:var(--blue2);background:rgba(59,142,255,.1);}
+.wallet-ctrl-label{font-size:.6rem;color:var(--muted2);letter-spacing:.06em;text-align:center;line-height:1.5;}
+
+
+/* HERO WALLET */
+.hero-wallet{
+  width:100%;max-width:360px;
+  margin:2rem auto 0;
+}
+.hero-wallet .wallet-tabs{margin-bottom:.9rem;}
+.hero-wallet .wallet-tab{font-size:.7rem;padding:.45rem;}
+.hero-wallet-label{
+  font-size:.62rem;letter-spacing:.16em;color:var(--muted2);
+  text-align:center;margin-bottom:.7rem;text-transform:uppercase;
+}
+/* ACTIVITY BANNER */
+.activity-banner{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:1.1rem 1.3rem;
+  background:linear-gradient(135deg,rgba(59,142,255,.12),rgba(91,163,255,.06));
+  border:1px solid rgba(59,142,255,.3);
+  border-radius:var(--r);
+  text-decoration:none;
+  transition:border-color .2s,background .2s;
+}
+.activity-banner:hover{border-color:rgba(59,142,255,.55);background:rgba(59,142,255,.16);}
+.ab-label{font-size:.6rem;letter-spacing:.18em;color:var(--blue2);text-transform:uppercase;margin-bottom:.25rem;}
+.ab-title{font-size:.9rem;color:#fff;font-family:'Noto Sans TC',sans-serif;letter-spacing:.06em;line-height:1.4;}
+.ab-sub{font-size:.75rem;color:var(--muted);letter-spacing:.04em;margin-top:.2rem;}
+.ab-arrow{font-size:1.3rem;flex-shrink:0;color:var(--blue2);}
+
+/* WHO */
+.who-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:1.4rem;}
+.who-card{padding:1rem .9rem;background:var(--card);border:1px solid var(--b);border-radius:var(--r);}
+.who-icon{font-size:1.3rem;margin-bottom:.4rem;}
+.who-title{font-size:.82rem;color:#fff;letter-spacing:.06em;margin-bottom:.3rem;font-family:'Noto Sans TC',sans-serif;font-weight:700;}
+.who-body{font-size:.78rem;color:var(--muted);line-height:1.7;}
+
+/* BELIEF */
+.belief-block{padding:2rem 1.4rem;background:linear-gradient(135deg,var(--bg2),var(--bg3));border:1px solid var(--b2);border-radius:var(--r);text-align:center;margin-top:1.4rem;}
+.belief-quote{font-family:'Noto Sans TC',sans-serif;font-size:1.05rem;font-weight:500;color:#fff;line-height:1.7;letter-spacing:.04em;margin-bottom:1rem;}
+.belief-body{font-size:.85rem;color:var(--muted);line-height:1.95;letter-spacing:.04em;}
+
+/* FINAL CTA */
+.final-cta{padding:3.5rem 1.5rem 4rem;text-align:center;max-width:480px;margin:0 auto;}
+.final-cta h2{font-family:'Noto Sans TC',sans-serif;font-size:clamp(1.2rem,5vw,1.6rem);font-weight:700;letter-spacing:.1em;color:#fff;line-height:1.6;margin-bottom:.8rem;}
+.final-cta p{font-size:.78rem;color:var(--muted);line-height:1.9;letter-spacing:.04em;margin-bottom:2rem;}
+.final-btn-group{display:flex;flex-direction:column;gap:.7rem;}
+.final-note{font-size:.65rem;color:var(--muted2);letter-spacing:.08em;margin-top:1rem;}
+
+/* FOOTER */
+.footer{padding:1.5rem 1.5rem 2rem;border-top:1px solid var(--b);text-align:center;font-size:.65rem;color:var(--muted2);letter-spacing:.1em;}
+
+/* ═══════════════════════════════
+   INTRO ANIMATION
+═══════════════════════════════ */
+.hero{overflow:hidden;}
+
+/* Hero content hidden until intro done */
+.hero-content{
+  max-width:400px;width:100%;
+  opacity:0;
+  transition:opacity .7s ease .2s;
+}
+.hero-content.visible{opacity:1;}
+
+/* Intro stage - full-screen overlay on hero */
+#intro-stage{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  z-index:10;
+  pointer-events:none;
+}
+
+/* ── ACT 1: CARDS ── */
+.intro-card{
+  position:absolute;
+  width:260px;height:140px;
+  border-radius:16px;
+  padding:1.1rem 1.2rem .9rem;
+  display:flex;flex-direction:column;justify-content:space-between;
+  will-change:transform,opacity;
+  box-shadow:0 12px 40px rgba(0,0,0,.6);
+}
+
+
+/* ── ACT 2: PHONE ── */
+#intro-phone{
+  position:absolute;
+  width:260px;height:460px;
+  border-radius:36px;
+  background:linear-gradient(160deg,#1a1a22,#0d0d14);
+  border:2px solid rgba(255,255,255,.15);
+  box-shadow:0 20px 60px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.08);
+  display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+  overflow:hidden;
+  opacity:0;
+  will-change:transform,opacity;
+}
+#intro-phone::before{
+  content:'';
+  position:absolute;top:10px;
+  width:80px;height:8px;
+  background:rgba(255,255,255,.15);
+  border-radius:4px;
+  flex-shrink:0;
+}
+.phone-screen{
+  position:absolute;
+  inset:30px 10px 10px;
+  border-radius:22px;
+  background:#0a0a0c;
+  overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.phone-screen-content{
+  width:100%;padding:.6rem .5rem;
+  opacity:0;
+  transition:opacity .4s ease;
+  text-align:center;
+}
+.phone-screen-content.show{opacity:1;}
+.psc-brand{font-family:'Noto Sans TC',sans-serif;font-size:1rem;font-weight:700;color:#fff;letter-spacing:.06em;margin-bottom:.3rem;}
+.psc-url{font-size:.75rem;color:var(--blue2);letter-spacing:.04em;margin-bottom:.4rem;}
+.psc-bars{display:flex;flex-direction:column;gap:.2rem;}
+.psc-bar{height:7px;border-radius:2px;background:rgba(255,255,255,.12);}
+.psc-bar:first-child{width:80%;}
+.psc-bar:nth-child(2){width:60%;}
+.psc-bar:nth-child(3){width:70%;}
+
+/* NFC pulse ring */
+#nfc-ring{
+  position:absolute;
+  width:80px;height:80px;
+  border-radius:50%;
+  border:2px solid var(--blue);
+  opacity:0;
+  pointer-events:none;
+  transform:scale(.5);
+}
+
+/* NFC notification pill */
+#nfc-notif{
+  position:absolute;
+  top:30px;
+  background:rgba(20,20,30,.92);
+  border:1px solid rgba(59,142,255,.4);
+  border-radius:12px;
+  padding:.5rem .85rem;
+  display:flex;align-items:center;gap:.5rem;
+  opacity:0;
+  pointer-events:none;
+  backdrop-filter:blur(8px);
+  white-space:nowrap;
+}
+.nfc-icon{font-size:.9rem;}
+.nfc-text{font-size:.68rem;color:#fff;letter-spacing:.06em;}
+.nfc-sub{font-size:.58rem;color:var(--blue2);}
+
+@keyframes nfcPulse{
+  0%{transform:scale(.5);opacity:.8;}
+  100%{transform:scale(2.5);opacity:0;}
+}
+@keyframes nfcPulse2{
+  0%{transform:scale(.5);opacity:.6;}
+  100%{transform:scale(3.2);opacity:0;}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-line"></div>
+  <!-- INTRO STAGE -->
+  <div id="intro-stage">
+    <!-- Act 1 cards -->
+    <div class="intro-card wc-0" id="ic-tony" style="transform:translateY(8px) scale(.98);z-index:3;"></div>
+    <div class="intro-card wc-1" id="ic-mumu" style="transform:translateY(16px) scale(.965);z-index:2;"></div>
+    <div class="intro-card wc-5" id="ic-sake" style="transform:translateY(24px) scale(.95);z-index:1;"></div>
+
+    <!-- Act 2 phone -->
+    <div id="intro-phone" style="transform:translateX(300px);">
+      <div class="phone-screen">
+        <img id="phone-content" src="https://raw.githubusercontent.com/TonyLin1994code/linket.net/2141fe748e729d58a8357a52623bfefb87ea7b94/tony-screen.png" alt="Tony Design Studio" style="width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;transition:opacity .4s ease;border-radius:14px;">
+      </div>
+    </div>
+
+    <!-- NFC effects -->
+    <div id="nfc-ring"></div>
+    <div id="nfc-notif">
+      <span class="nfc-icon">📲</span>
+      <div><div class="nfc-text">NFC 已感應</div><div class="nfc-sub">Tony Design Studio</div></div>
+    </div>
+  </div>
+
+  <!-- HERO MAIN CONTENT (hidden until intro done) -->
+  <div class="hero-content" id="hero-content" style="max-width:400px;width:100%;">
+    <div class="fade f1" style="margin-bottom:1.4rem;">
+      <img src="/home/logo.svg" alt="LINKet" style="height:clamp(140px,28vw,220px);width:auto;display:block;margin:0 auto;">
+    </div>
+    <div class="pill fade f1" style="animation-delay:.18s;">品牌入口 × 數位連結 × 合作起點</div>
+    <h1 class="fade f2">不只是數位名片<br>是你的<em>品牌入口</em>與合作起點</h1>
+    <p class="hero-sub fade f3">LINKet 透過 NFC 數位名片與品牌 Landing Page，<br>幫助品牌、店家與創作者<br>更清楚地被理解、被聯絡，也更容易展開合作。</p>
+    <div class="stat-row fade f4">
+      <div class="stat-item">
+        <div class="stat-num">50<span>+</span></div>
+        <div class="stat-label">服務品牌</div>
+      </div>
+      <div class="stat-div"></div>
+      <div class="stat-item">
+        <div class="stat-num">21</div>
+        <div class="stat-label">正式方案客戶</div>
+      </div>
+      <div class="stat-div"></div>
+      <div class="stat-item">
+        <div class="stat-num">2025</div>
+        <div class="stat-label">創立年份</div>
+      </div>
+    </div>
+    <div class="hero-cta fade f5">
+      <a href="https://tonylin1994code.github.io/sake-order-page/" target="_blank" class="btn btn-sake">微醺連結｜活動限定</a>
+      <a href="https://lin.ee/p1hVirP" target="_blank" class="btn btn-blue">立即預約品牌諮詢</a>
+      <a href="#plans" class="btn btn-ghost">查看服務方案</a>
+    </div>
+  </div><!-- /hero-content -->
+</section>
+
+<div class="divider"></div>
+
+<section class="section">
+  <div class="sec-label">Pain Points</div>
+  <h2 class="sec-title">你的品牌不是沒有價值<br>而是入口太亂</h2>
+  <p class="sec-body">你可能已經有 Instagram、LINE、作品集、表單、官網，但對第一次接觸你的人來說，資訊往往是分散的。</p>
+  <div class="pain-grid">
+    <div class="pain-item"><span class="pain-icon">🔗</span>社群很多，但別人不知道該從哪裡認識你</div>
+    <div class="pain-item"><span class="pain-icon">🔄</span>每次都要重新介紹自己在做什麼</div>
+    <div class="pain-item"><span class="pain-icon">📄</span>紙本名片交換後，很快就被忘記</div>
+    <div class="pain-item"><span class="pain-icon">📦</span>有作品、有服務，卻沒有一個清楚入口</div>
+    <div class="pain-item"><span class="pain-icon">❓</span>客戶對你有興趣，卻不知道怎麼開始合作</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section">
+  <div class="sec-label">What We Do</div>
+  <h2 class="sec-title">LINKet 是什麼？</h2>
+  <p class="sec-body">LINKet 是一套幫助品牌建立數位入口與合作橋樑的服務系統。從 NFC 數位名片到完整品牌頁，依照你的經營階段提供對應方案。</p>
+  <div class="value-grid">
+    <div class="value-card">
+      <div class="value-num">01</div>
+      <div class="value-title">更快被理解</div>
+      <div class="value-body">把品牌介紹、服務內容、聯絡方式整理成一個清楚入口，讓別人不用花時間猜你在做什麼。</div>
+    </div>
+    <div class="value-card">
+      <div class="value-num">02</div>
+      <div class="value-title">更自然被連結</div>
+      <div class="value-body">透過 NFC 感應與數位頁面，讓每一次交換資訊都更輕鬆，也更容易留下下一步。</div>
+    </div>
+    <div class="value-card">
+      <div class="value-num">03</div>
+      <div class="value-title">更容易延續合作</div>
+      <div class="value-body">不只是一次性的頁面交付，而是從接觸、理解，到後續追蹤與優化的完整合作基礎。</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="plans">
+  <div class="sec-label">Service Plans</div>
+  <h2 class="sec-title">選擇適合你<br>品牌階段的方案</h2>
+  <p class="sec-body" style="margin-bottom:1.4rem;">每個品牌所在的階段不同。有人需要先有一個清楚入口，有人需要更完整的品牌呈現，也有人已準備打造能承接商機的品牌頁。</p>
+
+  <div class="plan-compare">
+    <strong>Light</strong> 幫你先上場 ·
+    <strong>Plus</strong> 幫你更完整被看見 ·
+    <strong>Pro</strong> 把品牌入口做成商機承接頁面
+  </div>
+
+  <div class="plan-card">
+    <div class="plan-head">
+      <div class="plan-head-row"><div class="plan-tag">Light · 體驗版</div></div>
+      <div class="plan-name">LINKet Light</div>
+      <div class="plan-tagline">一頁整合，讓你簡單登場</div>
+      <div class="plan-price-row">
+        <span class="plan-orig">$9,000</span>
+        <span class="plan-price">$6,000</span>
+        <span class="plan-price-unit">NT$</span>
+      </div>
+    </div>
+    <div class="plan-body">
+      <div class="plan-target">適合剛起步、預算有限，想先建立數位名片與品牌入口的你。</div>
+      <ul class="plan-features">
+        <li>整合 3 個連結按鈕模組（IG / LINE / 聯絡方式）</li>
+        <li>附 NFC 實體小卡 ×1</li>
+        <li>初版設計 + 1 次文字修改</li>
+        <li>品牌頁面使用期限 6 個月</li>
+        <li>第二年起維護費 NT$2,000 / 年</li>
+        <li class="no">不含封面設計</li>
+        <li class="no">不含作品展示區</li>
+      </ul>
+      <div class="plan-period">📅 使用期限 6 個月</div>
+      <a href="https://lin.ee/p1hVirP" target="_blank" class="btn btn-ghost">先從 Light 開始</a>
+    </div>
+  </div>
+
+  <div class="plan-card featured">
+    <div class="plan-head">
+      <div class="plan-head-row"><div class="plan-tag hot">Plus · 標準版 ★ 最多人選</div></div>
+      <div class="plan-name">LINKet Plus</div>
+      <div class="plan-tagline">更完整的品牌呈現，讓人不只看見你，更記得你</div>
+      <div class="plan-price-row">
+        <span class="plan-orig">$15,000</span>
+        <span class="plan-price">$10,000</span>
+        <span class="plan-price-unit">NT$</span>
+      </div>
+    </div>
+    <div class="plan-body">
+      <div class="plan-target">適合想提升第一印象、清楚展示服務的創業者、業務、接案者、講師與個人品牌。</div>
+      <ul class="plan-features">
+        <li>整合 5 個連結按鈕模組</li>
+        <li>附 NFC + QR CODE 實體卡 ×1 + 實體小卡 ×1</li>
+        <li>初版設計 + 2 次修改</li>
+        <li>設計風格升級（封面設計 + 印刷風格一致性）</li>
+        <li>可加設作品區／商品區模組 1 頁</li>
+        <li>品牌頁面使用期限 12 個月</li>
+        <li>第二年起維護費 NT$2,000 / 年</li>
+      </ul>
+      <div class="plan-period">📅 使用期限 12 個月</div>
+      <a href="https://lin.ee/p1hVirP" target="_blank" class="btn btn-blue">了解 Plus 方案</a>
+    </div>
+  </div>
+
+  <div class="plan-card">
+    <div class="plan-head">
+      <div class="plan-head-row"><div class="plan-tag">Pro · 團隊版</div></div>
+      <div class="plan-name">LINKet Pro</div>
+      <div class="plan-tagline">一頁就像你的品牌網站，不只是名片，而是行動商機入口</div>
+      <div class="plan-price-row">
+        <span class="plan-orig">$21,000</span>
+        <span class="plan-price">$16,000</span>
+        <span class="plan-price-unit">NT$</span>
+      </div>
+    </div>
+    <div class="plan-body">
+      <div class="plan-target">適合品牌創辦人、企業業務與團隊、講者、餐飲與服務業主，打造屬於你的微型品牌網站。</div>
+      <ul class="plan-features">
+        <li>整合 8 個連結按鈕模組</li>
+        <li>附 NFC + QR CODE 實體卡 ×2 + 實體小卡 ×2</li>
+        <li>初版設計 + 2 次修改</li>
+        <li>量身定制頁面設計（品牌原有識別系統）</li>
+        <li>可加設作品區／商品區模組 3 頁</li>
+        <li>品牌頁面使用期限 18 個月</li>
+        <li>第二年起維護費 NT$2,000 / 年</li>
+      </ul>
+      <div class="plan-period">📅 使用期限 18 個月</div>
+      <a href="https://lin.ee/p1hVirP" target="_blank" class="btn btn-ghost">預約 Pro 諮詢</a>
+    </div>
+  </div>
+
+  <div style="margin-top:1rem;padding:1rem 1.1rem;background:var(--card);border:1px solid var(--b);border-radius:var(--r);">
+    <div style="font-size:.72rem;color:var(--muted);line-height:1.8;letter-spacing:.04em;">
+      💡 <strong style="color:var(--text);">還不確定適合哪一版？</strong><br>
+      我們可以依照你的品牌現況、預算與需求一起判斷最適合的方案。不用一開始就選最貴，選適合的比較重要。
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="cases">
+  <div class="sec-label">Results</div>
+  <h2 class="sec-title">已協助 50+ 品牌<br>建立清楚的數位入口</h2>
+  <p class="sec-body" style="margin-bottom:1.4rem;">從個人品牌、內容工作室，到在地店家與創業品牌，涵蓋設計、餐飲、健康、金融、教育各產業。</p>
+
+  <div class="case-stat-row">
+    <div class="case-stat">
+      <div class="case-stat-num">21</div>
+      <div class="case-stat-label">正式方案客戶</div>
+    </div>
+    <div class="case-stat">
+      <div class="case-stat-num">31<span>+</span></div>
+      <div class="case-stat-label">Light 體驗用戶</div>
+    </div>
+  </div>
+
+  <!-- WALLET UI -->
+  <div class="wallet-wrap">
+    <div class="wallet-tabs">
+      <div class="wallet-tab active" onclick="switchTab('plus')">標準版 Plus / VIP</div>
+      <div class="wallet-tab" onclick="switchTab('light')">體驗版 Light</div>
+    </div>
+    <div class="wallet-row">
+      <div class="wallet-stack-wrap">
+        <div class="wallet-stack" id="wallet-stack">
+          <div class="wallet-tap-hint" id="wallet-tap-hint">
+            <div class="wallet-tap-badge">點一下展開所有品牌</div>
+          </div>
+        </div>
+      </div>
+      <div class="wallet-ctrl">
+        <div class="wallet-ctrl-btn" id="wallet-ctrl-btn" onclick="walletToggle()" title="展開／收合">▲</div>
+        <div class="wallet-ctrl-label" id="wallet-ctrl-label">展開</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="case-more">以及更多品牌正在使用 LINKet<br>涵蓋店家、設計工作室、個人品牌、健康產業、金融服務、教育</div>
+  <div style="height:160px;"></div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section">
+  <div class="sec-label">Who It's For</div>
+  <h2 class="sec-title">LINKet 特別適合<br>這些正在經營品牌的人</h2>
+  <div class="who-grid">
+    <div class="who-card">
+      <div class="who-icon">👤</div>
+      <div class="who-title">個人品牌</div>
+      <div class="who-body">有服務、有內容，但不知道怎麼整理成清楚品牌入口</div>
+    </div>
+    <div class="who-card">
+      <div class="who-icon">☕</div>
+      <div class="who-title">店家 / 餐飲</div>
+      <div class="who-body">品牌資訊、聯絡方式與導流入口不夠集中</div>
+    </div>
+    <div class="who-card">
+      <div class="who-icon">🎨</div>
+      <div class="who-title">工作室 / 創作者</div>
+      <div class="who-body">需要更專業的第一印象，降低重複介紹自己的成本</div>
+    </div>
+    <div class="who-card">
+      <div class="who-icon">📈</div>
+      <div class="who-title">長期經營者</div>
+      <div class="who-body">不只想做一頁，而是建立可持續優化的品牌基礎</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section">
+  <div class="sec-label">Our Belief</div>
+  <h2 class="sec-title">好的連結<br>不只是交換，而是延續</h2>
+  <div class="belief-block">
+    <div class="belief-quote">"讓每一次接觸，<br>不只是交換資訊，而是合作的開始。"</div>
+    <div class="belief-body">
+      LINKet 更在意的是：當一個人第一次接觸你之後，<br>
+      他能不能快速知道你是誰、你在做什麼、你能提供什麼，<br>
+      以及怎麼與你開始下一步。<br><br>
+      幫助品牌把分散的資訊與合作入口整理好，<br>
+      讓每一次接觸，都更有機會變成真正的連結。
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<div class="final-cta">
+  <h2>想讓你的品牌<br>更好被理解，也更容易開始合作？</h2>
+  <p>無論你是想先建立第一個品牌入口、升級更完整的品牌頁，<br>或進一步討論長期維護與優化合作，都可以從 LINKet 開始。</p>
+  <div class="final-btn-group">
+    <a href="https://tonylin1994code.github.io/sake-order-page/" target="_blank" class="btn btn-sake">微醺連結｜活動限定</a>
+    <a href="https://lin.ee/p1hVirP" target="_blank" class="btn btn-blue">立即預約品牌諮詢</a>
+    <a href="#plans" class="btn btn-ghost">查看服務方案</a>
+  </div>
+  <div class="final-note">讓每一次接觸，不只是交換資訊，而是合作的開始。</div>
+
+</div>
+
+<div class="divider"></div>
+<footer class="footer">
+  <img src="/home/logo.svg" alt="LINKet" style="height:22px;width:auto;opacity:.5;display:block;margin:0 auto .6rem;">
+  <div>Design by LINKet · linket.net</div>
+</footer>
+
+
+<script>
+/* ═══════════════════════════════
+   INTRO ANIMATION SEQUENCER
+═══════════════════════════════ */
+function preloadImages(urls, callback) {
+  var loaded = 0;
+  var total = urls.length;
+  if (total === 0) { callback(); return; }
+  urls.forEach(function(url) {
+    var img = new Image();
+    img.onload = img.onerror = function() {
+      loaded++;
+      if (loaded >= total) callback();
+    };
+    img.src = url;
+  });
+}
+
+function introAnimate() {
+  var tony  = document.getElementById('ic-tony');
+  var mumu  = document.getElementById('ic-mumu');
+  var sake  = document.getElementById('ic-sake');
+  var phone = document.getElementById('intro-phone');
+  var ring  = document.getElementById('nfc-ring');
+  var notif = document.getElementById('nfc-notif');
+  var pContent = document.getElementById('phone-content');
+  var stage = document.getElementById('intro-stage');
+  var heroContent = document.getElementById('hero-content');
+
+  function ease(el, props, duration, delay) {
+    return new Promise(function(resolve) {
+      setTimeout(function() {
+        el.style.transition = 'transform ' + duration + 'ms cubic-bezier(.76,0,.24,1), opacity ' + duration + 'ms ease';
+        Object.keys(props).forEach(function(k){ el.style[k] = props[k]; });
+        setTimeout(resolve, duration + 10);
+      }, delay || 0);
+    });
+  }
+
+  // ACT 1a (0ms): Cards already stacked — pause so user sees them
+  // ACT 1b (600ms): Fan out / spread
+  setTimeout(function() {
+    tony.style.transition = 'transform .55s cubic-bezier(.76,0,.24,1), opacity .4s ease';
+    mumu.style.transition = 'transform .55s cubic-bezier(.76,0,.24,1), opacity .4s ease';
+    sake.style.transition = 'transform .55s cubic-bezier(.76,0,.24,1), opacity .4s ease';
+    tony.style.transform = 'translateY(-30px) scale(1)';
+    mumu.style.transform = 'translateY(20px) scale(.97)';
+    sake.style.transform = 'translateY(70px) scale(.94)';
+  }, 2800);
+
+  // ACT 1c (1200ms): Tony flies up center, others sink + fade
+  setTimeout(function() {
+    tony.style.transition = 'transform .6s cubic-bezier(.34,1.46,.64,1), opacity .4s ease';
+    tony.style.transform = 'translateY(-80px) scale(1.04)';
+    tony.style.zIndex = 5;
+
+    mumu.style.transition = 'transform .5s cubic-bezier(.4,0,.2,1), opacity .4s ease';
+    mumu.style.transform = 'translateY(140px) scale(.9)';
+    mumu.style.opacity = '0';
+
+    sake.style.transition = 'transform .5s cubic-bezier(.4,0,.2,1), opacity .4s ease';
+    sake.style.transform = 'translateY(200px) scale(.85)';
+    sake.style.opacity = '0';
+  }, 3400);
+
+  // ACT 2a (1900ms): Phone slides in from right
+  setTimeout(function() {
+    phone.style.transition = 'transform .55s cubic-bezier(.34,1.3,.64,1), opacity .4s ease';
+    phone.style.opacity = '1';
+    phone.style.transform = 'translateX(140px)';
+  }, 4200);
+
+  // ACT 2b (2500ms): NFC pulse ring appears between card and phone
+  setTimeout(function() {
+    ring.style.left = '50%';
+    ring.style.top = '50%';
+    ring.style.marginLeft = '-40px';
+    ring.style.marginTop = '-40px';
+    ring.style.animation = 'nfcPulse .7s ease-out forwards';
+
+    // second ring slightly delayed
+    setTimeout(function() {
+      var ring2 = ring.cloneNode();
+      ring2.id = 'nfc-ring2';
+      ring2.style.animation = 'nfcPulse2 .8s ease-out forwards';
+      document.getElementById('intro-stage').appendChild(ring2);
+    }, 150);
+  }, 4900);
+
+  // ACT 2c (2700ms): NFC notification pill drops in
+  setTimeout(function() {
+    notif.style.transition = 'transform .4s cubic-bezier(.34,1.46,.64,1), opacity .3s ease';
+    notif.style.opacity = '1';
+    notif.style.transform = 'translateY(0)';
+    notif.style.top = '22%';
+  }, 5100);
+
+  // ACT 2d (3100ms): Tony card slides away right, phone moves center
+  setTimeout(function() {
+    tony.style.transition = 'transform .5s cubic-bezier(.4,0,.2,1), opacity .35s ease';
+    tony.style.transform = 'translateX(200px) translateY(-80px) scale(.95)';
+    tony.style.opacity = '0';
+
+    notif.style.transition = 'opacity .3s ease';
+    notif.style.opacity = '0';
+
+    phone.style.transition = 'transform .6s cubic-bezier(.76,0,.24,1)';
+    phone.style.transform = 'translateX(0) scale(1.03)';
+  }, 5500);
+
+  // ACT 2e (3700ms): Phone screen lights up with brand page
+  setTimeout(function() {
+    phone.style.transition = 'transform .3s ease';
+    phone.style.transform = 'translateX(0) scale(1)';
+    if (pContent) pContent.style.opacity = '1';
+  }, 6100);
+
+  // ACT 3 (4500ms): Phone flies up, stage fades, hero content appears
+  setTimeout(function() {
+    phone.style.transition = 'transform .6s cubic-bezier(.4,0,.2,1), opacity .45s ease';
+    phone.style.transform = 'translateY(-400px) scale(.9)';
+    phone.style.opacity = '0';
+  }, 6900);
+
+  setTimeout(function() {
+    stage.style.transition = 'opacity .4s ease';
+    stage.style.opacity = '0';
+    stage.style.pointerEvents = 'none';
+    heroContent.classList.add('visible');
+  }, 7400);
+
+  setTimeout(function() {
+    stage.style.display = 'none';
+  }, 8000);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Position notif initially above viewport for drop-in
+  var notif = document.getElementById('nfc-notif');
+  if (notif) { notif.style.top = '5%'; notif.style.transform = 'translateY(-20px)'; }
+
+  preloadImages(['https://raw.githubusercontent.com/TonyLin1994code/linket.net/2141fe748e729d58a8357a52623bfefb87ea7b94/cases%3Atony-thumb.jpg', 'https://raw.githubusercontent.com/TonyLin1994code/linket.net/2141fe748e729d58a8357a52623bfefb87ea7b94/cases%3Amumu-thumb.jpg', 'https://raw.githubusercontent.com/TonyLin1994code/linket.net/2141fe748e729d58a8357a52623bfefb87ea7b94/cases%3Alanjue-thumb.png'], function() {
+    introAnimate();
+  });
+});
+</script>
+
+<script>
+var PLUS_CARDS = [
+  {brand:'Tony Design Studio', desc:'設計、顧問與專案內容多元。整合後讓合作說明更清楚，長期優化核心案例。', url:'linket.net/tonydesignstudio', plan:'VIP', color:'wc-0'},
+  {brand:'MuMu Cafe', desc:'品牌具有溫度與風格，需要集中可延續的數位入口，讓實體交流與數位連結自然接軌。', url:'linket.net/mumucafe', plan:'VIP', color:'wc-1'},
+  {brand:'坐客咖啡｜Zouke', desc:'在地品牌需要清楚的對外入口，整合後讓實體接觸與數位延伸更有連續性。', url:'linket.net/zouke-cafe', plan:'Plus', color:'wc-2'},
+  {brand:'妃之境｜身心靈瑜伽', desc:'服務內容多元，品牌身份容易分散。整合後讓客戶更快理解服務方向。', url:'linket.net/feisrealm', plan:'Plus', color:'wc-3'},
+  {brand:'ASMRT 永康健康管理', desc:'健康管理領域需要專業且清晰的品牌入口，讓有需求的客戶一目了然。', url:'linket.net/asmrt-puli', plan:'Plus', color:'wc-4'},
+  {brand:'嵐爵私選｜日本酒選品', desc:'高端選品氣質，需要讓品味與服務在第一次接觸時就清晰傳遞。', url:'linket.net/lanjue-sake', plan:'Plus', color:'wc-5'},
+];
+var LIGHT_CARDS = [
+  {brand:'貝拉美學 SPA', desc:'美學護膚品牌，需要清晰的預約與聯絡入口。', url:'linket.net/bella-spa', plan:'Light', color:'wc-l0'},
+  {brand:'沐艾甜點 mu ai cake', desc:'手作甜點品牌，整合訂購與品牌介紹的第一個數位入口。', url:'linket.net/mu-ai-cake', plan:'Light', color:'wc-l1'},
+  {brand:'有山有谷 & 有余哲學', desc:'個人品牌整合哲學與生活風格，讓受眾快速理解品牌核心。', url:'linket.net/hills-valleys', plan:'Light', color:'wc-l2'},
+  {brand:'資生堂｜美學專家 張嘉嘉', desc:'美妝美學專家建立個人數位名片，讓客戶快速連結預約。', url:'linket.net/mikijiabeauty', plan:'Light', color:'wc-l3'},
+  {brand:'念也設計｜AETER Ltd.', desc:'設計公司建立清晰品牌入口，讓合作洽詢更流暢。', url:'linket.net/aeter-design', plan:'Light', color:'wc-l4'},
+  {brand:'眉溪園藝農場', desc:'在地農場品牌，整合聯絡方式與品牌故事的數位入口。', url:'linket.net/meixi-horticulture-farm', plan:'Light', color:'wc-l5'},
+];
+
+var CARD_H  = 148;
+var PEEK    = 18;
+var GAP     = 12;
+var DRAWER_H = 120;
+var EASE    = 'cubic-bezier(.76,0,.24,1)';
+
+/* single source of truth */
+var wallets = {
+  cases: { open: false, tab: 'plus', expanded: -1 },
+  hero:  { open: false, tab: 'plus', expanded: -1 },
+};
+
+/* ── render ── */
+function renderWallet(id, animate) {
+  var state  = wallets[id];
+  var stackId = id === 'cases' ? 'wallet-stack'     : 'hero-wallet-stack';
+  var hintId  = id === 'cases' ? 'wallet-tap-hint'  : 'hero-wallet-hint';
+  var btnId   = id === 'cases' ? 'wallet-ctrl-btn'  : 'hero-ctrl-btn';
+  var lblId   = id === 'cases' ? null                : 'hero-ctrl-label';
+  var cards   = state.tab === 'plus' ? PLUS_CARDS : LIGHT_CARDS;
+  var n       = cards.length;
+
+  var stack = document.getElementById(stackId);
+  if (!stack) return;
+
+  var baseH  = n * CARD_H + (n - 1) * GAP;
+  var totalH = state.open
+    ? baseH + (state.expanded >= 0 ? DRAWER_H : 0)
+    : CARD_H + (n - 1) * PEEK;
+
+  /* animate height */
+  stack.style.transition = animate ? 'height .55s ' + EASE : 'none';
+  stack.style.height     = totalH + 'px';
+  stack.classList.toggle('open', state.open);
+
+  /* hint / ctrl */
+  var hint = document.getElementById(hintId);
+  if (hint) hint.classList.toggle('hidden', state.open);
+  var btn = document.getElementById(btnId);
+  if (btn) btn.textContent = state.open ? '▲' : '▼';
+  var lbl = document.getElementById(lblId);
+  if (lbl) lbl.textContent = state.open ? '收合' : '展開';
+
+  /* ── remove stale cards ── */
+  stack.querySelectorAll('.wcard-wrap').forEach(function(el) { el.remove(); });
+
+  /* ── build cards ── */
+  for (var i = 0; i < n; i++) {
+    (function(idx) {
+      var c = cards[idx];
+      var isExpanded = state.open && state.expanded === idx;
+
+      /* top */
+      var topPx = state.open
+        ? idx * (CARD_H + GAP) + (state.expanded >= 0 && idx > state.expanded ? DRAWER_H : 0)
+        : idx * PEEK;
+
+      /* wrap — handles top-position animation */
+      var wrap = document.createElement('div');
+      wrap.className = 'wcard-wrap';
+      wrap.style.position   = 'absolute';
+      wrap.style.left       = '0';
+      wrap.style.right      = '0';
+      wrap.style.zIndex     = n - idx;
+      wrap.style.transition = animate ? 'top .55s ' + EASE : 'none';
+      wrap.style.top        = topPx + 'px';
+
+      /* card face */
+      var el = document.createElement('div');
+      el.className  = 'wcard ' + c.color;
+      el.style.height       = CARD_H + 'px';
+      el.style.borderRadius = isExpanded ? '16px 16px 0 0' : '16px';
+      el.style.transform    = (state.open || idx === 0) ? 'none' : 'scale(' + (1 - idx * 0.015) + ')';
+      el.style.boxShadow    = state.open ? '0 8px 28px rgba(0,0,0,.5)' : '0 4px 16px rgba(0,0,0,.5)';
+      el.style.cursor       = 'pointer';
+      el.style.transition   = animate
+        ? 'transform .55s ' + EASE + ', border-radius .3s ease, box-shadow .3s ease'
+        : 'none';
+
+      /* drawer */
+      var info = document.createElement('div');
+      info.className = 'wcard-info';
+      /* trigger CSS transition: set to visible after paint */
+      info.innerHTML =
+        '<div class="wcard-info-inner">' +
+          '<div class="wcard-info-text">' +
+            '<div class="wcard-brand">' + c.brand + '</div>' +
+            '<div class="wcard-desc">'  + c.desc  + '</div>' +
+            '<div class="wcard-url">'   + c.url   + '</div>' +
+          '</div>' +
+          '<a class="wcard-link" href="https://' + c.url + '" target="_blank">查看頁面 →</a>' +
+        '</div>';
+
+      wrap.appendChild(el);
+      wrap.appendChild(info);
+      stack.appendChild(wrap);
+
+      /* open drawer with rAF so CSS transition fires */
+      if (isExpanded) {
+        requestAnimationFrame(function() {
+          requestAnimationFrame(function() {
+            info.classList.add('visible');
+          });
+        });
+      }
+
+      /* ── click on card face ── */
+      el.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (!wallets[id].open) {
+          /* collapsed → open the wallet first */
+          wallets[id].open     = true;
+          wallets[id].expanded = -1;
+          renderWallet(id, true);
+        } else {
+          /* already open → toggle this card's drawer */
+          wallets[id].expanded = (wallets[id].expanded === idx) ? -1 : idx;
+          renderWallet(id, true);
+        }
+      });
+
+    })(i);
+  }
+}
+
+/* ── public API ── */
+function switchTab(tab) {
+  wallets.cases.tab = tab;
+  wallets.cases.open = false;
+  wallets.cases.expanded = -1;
+  document.querySelectorAll('.wallet-tabs:not(#hero-wallet-tabs) .wallet-tab').forEach(function(t, i) {
+    t.classList.toggle('active', (i === 0 && tab === 'plus') || (i === 1 && tab === 'light'));
+  });
+  renderWallet('cases', false);
+}
+
+function walletToggle() {
+  wallets.cases.open     = !wallets.cases.open;
+  wallets.cases.expanded = -1;
+  renderWallet('cases', true);
+}
+
+function heroSwitchTab(tab) {
+  wallets.hero.tab = tab;
+  wallets.hero.open = false;
+  wallets.hero.expanded = -1;
+  document.querySelectorAll('#hero-wallet-tabs .wallet-tab').forEach(function(t, i) {
+    t.classList.toggle('active', (i === 0 && tab === 'plus') || (i === 1 && tab === 'light'));
+  });
+  renderWallet('hero', false);
+}
+
+function heroWalletToggle() {
+  wallets.hero.open     = !wallets.hero.open;
+  wallets.hero.expanded = -1;
+  renderWallet('hero', true);
+}
+
+/* ── init ── */
+document.addEventListener('DOMContentLoaded', function() {
+  var stackEl = document.getElementById('wallet-stack');
+  if (stackEl) {
+    stackEl.addEventListener('click', function(e) {
+      if (e.target.closest('a'))      return;
+      if (e.target.closest('.wcard')) return;
+      if (!wallets.cases.open) walletToggle();
+    });
+  }
+  var heroEl = document.getElementById('hero-wallet-stack');
+  if (heroEl) {
+    heroEl.addEventListener('click', function(e) {
+      if (e.target.closest('a'))      return;
+      if (e.target.closest('.wcard')) return;
+      if (!wallets.hero.open) heroWalletToggle();
+    });
+  }
+  renderWallet('cases', false);
+  renderWallet('hero',  false);
+});
+</script>
+
+</body>
+</html>
