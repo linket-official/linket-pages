@@ -1,1 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大七 純米生酛｜嵐爵私選 × LINKet</title>
+<meta name="description" content="福島縣大七酒造，1752年創業，正統生酛造り，超扁平精米，燗酒為最高境界。270年不走捷徑的釀酒哲學。">
 
+<!-- OG Meta Tags -->
+<meta property="og:title" content="大七 純米生酛｜嵐爵私選 × LINKet">
+<meta property="og:description" content="福島縣大七酒造，1752年創業，正統生酛造り，超扁平精米，燗酒為最高境界。270年不走捷徑的釀酒哲學。">
+<meta property="og:image" content="https://linket.app/lanjue/daishichi/og-image.jpg">
+<meta property="og:url" content="https://linket.app/lanjue/daishichi">
+<meta property="og:type" content="website">
+
+<!-- Favicon -->
+<link rel="icon" href="/lanjue/daishichi/favicon.png">
+<link rel="apple-touch-icon" href="/lanjue/daishichi/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200;300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Shippori+Mincho+B1:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --washi:  #0e0b07;
+  --washi2: #1a1510;
+  --washi3: #241d14;
+  --gold:   #b5821a;
+  --gold2:  #d4a83a;
+  --gold3:  #f0d898;
+  --ember:  #c87832;
+  --cream:  #f2ede4;
+  --ink:    #080604;
+  --inkm:   #2a2218;
+  --inkf:   #7a6a50;
+  --warm:   rgba(181,130,26,.15);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Serif TC',serif;background:var(--washi);color:var(--cream);overflow-x:hidden;}
+
+/* ── TICKER ── */
+.ticker{overflow:hidden;white-space:nowrap;border-bottom:1px solid rgba(181,130,26,.15);padding:.6rem 0;background:var(--washi);}
+.ticker-track{display:inline-flex;animation:tick 28s linear infinite;}
+.ticker-track span{font-family:'Shippori Mincho B1',serif;font-weight:500;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;padding:0 1.4rem;color:rgba(242,237,228,.4);}
+.ticker-track span.ac{color:var(--gold);}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── HERO ── */
+#hero{
+  position:relative;width:100%;min-height:100svh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  overflow:hidden;
+  background:radial-gradient(ellipse 80% 70% at 50% 25%, #2a1e0e 0%, #0e0b07 55%, #060402 100%);
+}
+
+/* Ink wash horizontal bands — like calligraphy strokes */
+.ink-bands{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;}
+.ink-band{
+  position:absolute;left:-10%;width:120%;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(181,130,26,.06),rgba(181,130,26,.12),rgba(181,130,26,.06),transparent);
+  animation:bandshift var(--dur,14s) ease-in-out var(--d,0s) infinite alternate;
+}
+@keyframes bandshift{from{transform:translateY(0) scaleX(.9);opacity:.4;}to{transform:translateY(8px) scaleX(1.05);opacity:1;}}
+
+/* Gold ember glow rings */
+.ember{position:absolute;border-radius:50%;pointer-events:none;z-index:1;}
+.ember-1{width:220px;height:220px;top:12%;left:8%;background:radial-gradient(circle,rgba(181,130,26,.09) 0%,transparent 70%);animation:emberpulse 7s ease-in-out infinite;}
+.ember-2{width:140px;height:140px;top:55%;right:6%;background:radial-gradient(circle,rgba(200,120,50,.07) 0%,transparent 70%);animation:emberpulse 9s ease-in-out 3s infinite;}
+.ember-3{width:90px;height:90px;top:28%;right:22%;background:radial-gradient(circle,rgba(181,130,26,.12) 0%,transparent 70%);animation:emberpulse 5s ease-in-out 1.5s infinite;}
+@keyframes emberpulse{0%,100%{transform:scale(1);opacity:.5;}50%{transform:scale(1.4);opacity:1;}}
+
+/* Hero circle glow */
+.hero-circle{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-60%);
+  width:clamp(240px,62vw,400px);height:clamp(240px,62vw,400px);
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(181,130,26,.1) 0%,rgba(181,130,26,.03) 40%,transparent 70%);
+  border:1px solid rgba(181,130,26,.07);
+  z-index:1;pointer-events:none;
+  animation:goldglow 6s ease-in-out infinite;
+}
+@keyframes goldglow{0%,100%{box-shadow:0 0 50px rgba(181,130,26,.06);}50%{box-shadow:0 0 100px rgba(181,130,26,.18);}}
+
+/* Bottle */
+.hero-bottle-full{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;width:100%;padding:5rem 0 8rem;}
+.hero-bottle-full img{
+  width:clamp(180px,46vw,300px);height:auto;object-fit:contain;
+  filter:drop-shadow(0 20px 50px rgba(0,0,0,.8)) drop-shadow(0 0 30px rgba(181,130,26,.22));
+  animation:breathe 8s ease-in-out infinite;
+}
+/* Bottle placeholder */
+.bottle-ph{
+  width:clamp(140px,34vw,220px);
+  aspect-ratio:1/3.4;
+  background:linear-gradient(170deg,#2a2015 0%,#1a1208 50%,#201810 100%);
+  border:1px solid rgba(181,130,26,.25);
+  border-radius:6px 6px 4px 4px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 20px 60px rgba(0,0,0,.7),0 0 30px rgba(181,130,26,.1);
+  animation:breathe 8s ease-in-out infinite;
+}
+.bottle-ph span{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.72rem;letter-spacing:.15em;color:rgba(181,130,26,.35);text-align:center;line-height:1.8;}
+@keyframes breathe{0%,100%{transform:translateY(0) rotate(-.5deg);}50%{transform:translateY(-14px) rotate(.5deg);}}
+
+/* Name block */
+.hero-name-block{position:absolute;bottom:0;left:0;right:0;z-index:3;padding:3.5rem 1.6rem 2.4rem;background:linear-gradient(transparent,rgba(6,4,2,.97) 55%);display:flex;flex-direction:column;gap:.5rem;}
+.hname-big{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:clamp(3rem,17vw,7.5rem);color:var(--cream);letter-spacing:.06em;line-height:.9;text-shadow:0 0 60px rgba(181,130,26,.25);}
+.hname-gold{color:var(--gold);}
+.hname-row{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1rem;padding-top:.6rem;border-top:1px solid rgba(181,130,26,.2);}
+.hname-jp{font-family:'Noto Serif TC',serif;font-weight:200;font-size:clamp(.75rem,3vw,1rem);letter-spacing:.28em;color:rgba(181,130,26,.7);}
+.hname-en{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(.85rem,3.5vw,1.1rem);letter-spacing:.2em;color:rgba(242,237,228,.45);}
+.hname-sep{color:var(--gold);font-size:.7rem;}
+.hero-slogan{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(.78rem,3vw,.98rem);letter-spacing:.16em;line-height:2;color:rgba(242,237,228,.45);margin-top:.3rem;}
+.hero-scroll-hint{display:flex;align-items:center;gap:.5rem;margin-top:.8rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.72rem;letter-spacing:.2em;color:rgba(181,130,26,.3);}
+.scroll-dot{width:20px;height:1px;background:rgba(181,130,26,.25);}
+
+/* ── SECTIONS ── */
+.sec{padding:4rem 1.4rem;background:var(--washi2);}
+.sec+.sec{border-top:1px solid rgba(181,130,26,.08);}
+.eyebrow{display:flex;align-items:center;gap:.6rem;margin-bottom:2rem;}
+.eyebrow h2{font-family:'Shippori Mincho B1',serif;font-weight:700;font-size:clamp(.95rem,4vw,1.3rem);letter-spacing:.18em;color:var(--cream);}
+.eyebrow span{color:var(--gold);font-weight:900;font-size:1.1rem;}
+
+/* ── ABOUT / NARRATIVE ── */
+#about{background:var(--washi2);}
+.about-body p{font-family:'Noto Serif TC',serif;font-weight:200;font-size:clamp(.82rem,3vw,.95rem);line-height:3;letter-spacing:.08em;color:rgba(242,237,228,.65);}
+.about-body p strong{color:var(--gold2);font-weight:300;}
+.photo-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin:1.8rem 0;}
+.photo-box{border-radius:4px;overflow:hidden;aspect-ratio:3/4;position:relative;background:var(--washi3);}
+.photo-box img{width:100%;height:100%;object-fit:cover;filter:saturate(.15)contrast(1.15)brightness(.8);transition:filter .5s;}
+.photo-box:hover img{filter:saturate(.4)contrast(1.1)brightness(.88);}
+.photo-box::after{content:'';position:absolute;inset:0;background:rgba(181,130,26,.05);mix-blend-mode:screen;pointer-events:none;}
+.photo-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:.72rem;letter-spacing:.12em;color:rgba(181,130,26,.25);font-family:'Cormorant Garamond',serif;font-style:italic;}
+
+/* ── SPECS ── */
+#specs{background:linear-gradient(180deg,var(--washi) 0%,var(--washi2) 100%);}
+.ring-wrap{display:flex;align-items:center;justify-content:center;margin-bottom:1.6rem;}
+.ring-chart{position:relative;width:clamp(100px,30vw,140px);height:clamp(100px,30vw,140px);}
+.ring-chart svg{width:100%;height:100%;}
+.ring-val{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:clamp(1.6rem,6vw,2.4rem);color:var(--gold);text-shadow:0 0 20px rgba(181,130,26,.4);}
+.ring-val span{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.65rem;letter-spacing:.2em;color:var(--inkf);margin-top:.2rem;}
+.spec-table{width:100%;border-collapse:collapse;}
+.spec-table tr{border-bottom:1px solid rgba(181,130,26,.08);}
+.spec-table td{padding:.85rem 0;vertical-align:top;}
+.spec-table td:first-child{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.72rem;letter-spacing:.18em;color:rgba(181,130,26,.55);width:34%;padding-top:1rem;}
+.spec-table td:last-child{font-family:'Noto Serif TC',serif;font-size:.88rem;font-weight:300;line-height:1.7;color:rgba(242,237,228,.78);}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.8rem;}
+.tag{border:1px solid rgba(181,130,26,.35);color:var(--gold2);font-family:'Cormorant Garamond',serif;font-size:.78rem;letter-spacing:.12em;padding:.28rem .72rem;transition:background .2s,color .2s;cursor:default;}
+.tag:hover{background:var(--gold);color:var(--washi);}
+
+/* ── SENSORY ── */
+#sensory{background:var(--washi2);}
+.spotify-label{font-family:'Shippori Mincho B1',serif;font-weight:500;font-size:.76rem;letter-spacing:.2em;color:rgba(181,130,26,.65);margin-bottom:.7rem;}
+.food-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:1.2rem;}
+.food-box{border-radius:4px;overflow:hidden;position:relative;aspect-ratio:3/4;background:var(--washi3);}
+.food-box img{width:100%;height:100%;object-fit:cover;filter:saturate(.15)contrast(1.15)brightness(.78);transition:filter .5s,transform .5s;}
+.food-box:hover img{filter:saturate(.45)brightness(.88);transform:scale(1.04);}
+.food-box::after{content:'';position:absolute;inset:0;background:rgba(181,130,26,.04);mix-blend-mode:screen;pointer-events:none;}
+.food-lbl{position:absolute;bottom:0;left:0;right:0;padding:.5rem .7rem;background:linear-gradient(transparent,rgba(6,4,2,.9));font-family:'Noto Serif TC',serif;font-weight:200;font-size:.65rem;letter-spacing:.14em;color:rgba(242,237,228,.8);}
+.food-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;background:var(--washi3);}
+
+/* ── INSIGHT ── */
+#insight{background:var(--ink);padding:5rem 1.4rem;position:relative;overflow:hidden;}
+#insight::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(181,130,26,.09) 0%,transparent 70%);pointer-events:none;z-index:0;}
+#insight .eyebrow{position:relative;z-index:1;}
+#insight .eyebrow h2{color:rgba(181,130,26,.8);}
+.i-q{position:relative;z-index:1;font-family:'Noto Serif TC',serif;font-weight:200;font-size:clamp(.72rem,2.8vw,.88rem);line-height:3;letter-spacing:.08em;color:rgba(242,237,228,.6);}
+.i-q em{font-style:normal;color:var(--gold2);}
+
+/* ── FOOTER ── */
+#footer{background:linear-gradient(170deg,var(--washi2) 0%,var(--washi) 100%);padding:4rem 1.4rem 3.5rem;}
+.f-big{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:clamp(2.8rem,13vw,7rem);line-height:.92;letter-spacing:.04em;color:var(--cream);margin-bottom:.15em;}
+.f-big .ac{color:var(--gold);}
+.f-venues{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;border-top:1px solid rgba(181,130,26,.15);border-bottom:1px solid rgba(181,130,26,.15);padding:1.4rem 0;margin:1.8rem 0;}
+.f-venue-item{display:flex;flex-direction:column;gap:.3rem;padding:.6rem;border-right:1px solid rgba(181,130,26,.08);}
+.f-venue-item:last-child{border-right:none;}
+.f-venue-date{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:clamp(.95rem,3.5vw,1.4rem);letter-spacing:.06em;color:var(--gold);}
+.f-venue-name{font-family:'Noto Serif TC',serif;font-weight:700;font-size:clamp(.72rem,2.6vw,.92rem);letter-spacing:.08em;color:rgba(242,237,228,.9);line-height:1.6;}
+@media(max-width:600px){
+  .f-venues{grid-template-columns:1fr;gap:0;}
+  .f-venue-item{flex-direction:row;align-items:center;justify-content:space-between;border-right:none;border-bottom:1px solid rgba(181,130,26,.1);padding:.9rem .4rem;}
+  .f-venue-item:last-child{border-bottom:none;}
+  .f-venue-date{font-size:1.05rem;min-width:3.2rem;}
+  .f-venue-name{font-size:.88rem;flex:1;padding:0 .6rem;}
+}
+.f-btns{display:flex;flex-direction:column;gap:.7rem;max-width:360px;}
+.btn-fill{display:block;text-align:center;padding:.95rem 1.4rem;font-family:'Cormorant Garamond',serif;font-size:.88rem;letter-spacing:.18em;text-decoration:none;border:none;cursor:pointer;transition:background .2s,color .2s;}
+.btn-fill.gold{background:var(--gold);color:var(--washi);}
+.btn-fill.gold:hover{background:var(--gold2);}
+.btn-fill.dark{background:rgba(255,255,255,.05);color:var(--cream);border:1px solid rgba(181,130,26,.28);}
+.btn-fill.dark:hover{background:rgba(181,130,26,.14);}
+.btn-fill.outline{background:transparent;color:var(--gold2);border:1.5px solid rgba(181,130,26,.38);}
+.btn-fill.outline:hover{background:rgba(181,130,26,.1);}
+.f-fine{margin-top:2.5rem;padding-top:1rem;border-top:1px solid rgba(181,130,26,.08);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem;align-items:flex-end;}
+.f-brand{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.72rem;letter-spacing:.22em;color:rgba(181,130,26,.45);}
+.f-nav{display:flex;gap:1.2rem;list-style:none;}
+.f-nav a{font-family:'Cormorant Garamond',serif;font-size:.72rem;letter-spacing:.15em;color:rgba(181,130,26,.45);text-decoration:none;text-transform:uppercase;}
+
+.venue-follow{display:inline-block;font-family:'Noto Sans TC',sans-serif;font-weight:500;font-size:.65rem;letter-spacing:.14em;color:var(--washi);background:var(--gold);text-decoration:none;padding:.3rem .75rem;border-radius:2px;margin-top:.3rem;transition:background .2s,transform .15s;}
+.venue-follow:hover{background:var(--gold2);transform:translateY(-1px);}
+@media(max-width:600px){.venue-follow{margin-top:0;white-space:nowrap;}}
+
+.legal-bar{background:#000;color:#fff;text-align:center;padding:1rem 1.4rem;font-family:'Noto Serif TC',serif;font-weight:200;font-size:1rem;letter-spacing:.14em;line-height:2.2;}
+.partner-bar{background:#000;display:flex;align-items:center;justify-content:center;gap:clamp(1.2rem,4vw,3rem);padding:1.6rem 1.4rem;border-top:1px solid rgba(255,255,255,.08);}
+.partner-logo{display:flex;align-items:center;opacity:.7;transition:opacity .2s,transform .2s;flex-shrink:0;}
+.partner-logo:hover{opacity:1;transform:scale(1.06);}
+.partner-logo img{height:clamp(11px,2vw,18px);width:auto;filter:brightness(0) invert(1);}
+@media(max-width:480px){.partner-bar{gap:clamp(.8rem,3vw,1.6rem);padding:1.2rem .8rem;flex-wrap:wrap;}.partner-logo img{height:10px;}}
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>15–16% ABV</span><span class="ac">✦</span>
+    <span>福島縣大七酒造</span><span class="ac">✦</span>
+    <span>生酛造り</span><span class="ac">✦</span>
+    <span>JUNMAI KIMOTO</span><span class="ac">✦</span>
+    <span>超扁平精米</span><span class="ac">✦</span>
+    <span>SINCE 1752</span><span class="ac">✦</span>
+    <span>1年熟成</span><span class="ac">✦</span>
+    <span>燗酒の最高境界</span><span class="ac">✦</span>
+    <span>15–16% ABV</span><span class="ac">✦</span>
+    <span>福島縣大七酒造</span><span class="ac">✦</span>
+    <span>生酛造り</span><span class="ac">✦</span>
+    <span>JUNMAI KIMOTO</span><span class="ac">✦</span>
+    <span>超扁平精米</span><span class="ac">✦</span>
+    <span>SINCE 1752</span><span class="ac">✦</span>
+    <span>1年熟成</span><span class="ac">✦</span>
+    <span>燗酒の最高境界</span><span class="ac">✦</span>
+  </div>
+</div>
+
+<!-- §1 HERO -->
+<section id="hero">
+  <div class="ink-bands">
+    <div class="ink-band" style="top:18%;--dur:16s;--d:0s;"></div>
+    <div class="ink-band" style="top:42%;--dur:20s;--d:3s;"></div>
+    <div class="ink-band" style="top:67%;--dur:13s;--d:1.5s;"></div>
+    <div class="ink-band" style="top:83%;--dur:18s;--d:5s;"></div>
+  </div>
+  <div class="ember ember-1"></div>
+  <div class="ember ember-2"></div>
+  <div class="ember ember-3"></div>
+  <div class="hero-circle"></div>
+
+  <!-- Bottle -->
+  <div class="hero-bottle-full">
+    <!-- 【圖片待補】酒瓶去背圖 -->
+    <!-- <img src="YOUR_BOTTLE_URL" alt="大七純米生酛"> -->
+    <div class="bottle-ph">
+      <span>酒瓶圖<br>待補</span>
+    </div>
+  </div>
+
+  <div class="hero-name-block">
+    <div class="hname-big">純米<span class="hname-gold">生</span>酛</div>
+    <div class="hname-row">
+      <span class="hname-jp">じゅんまい・きもと</span>
+      <span class="hname-sep">✦</span>
+      <span class="hname-en">Junmai Kimoto · Daishichi</span>
+    </div>
+    <p class="hero-slogan">1752年，三倍的時間，只為釀出一支誠實的酒。</p>
+    <div class="hero-scroll-hint">
+      <span class="scroll-dot"></span>
+      <span>Scroll</span>
+    </div>
+  </div>
+</section>
+
+<!-- §2 ABOUT / NARRATIVE -->
+<section id="about" class="sec">
+  <div class="eyebrow">
+    <h2>關於純米生酛</h2><span>✦</span>
+  </div>
+  <div class="about-body">
+    <p>請想像一座冬日的<strong>福島蔵元</strong>。零下的氣溫中，杜氏和蔵人們徹夜輪班，以木棒在半切桶中研磨蒸米與水，這道工序叫做「<strong>山卸</strong>」。這是1700年確立的技法，是在沒有任何現代設備輔助之前，人類釀出最純粹清酒的唯一方式。大七酒造270年來從未放棄它。</p>
+    <p>別的蔵早已改用速釀酛，省下三分之二的時間和人工。大七選擇繼續走這條漫長的路。因為他們相信：<strong>誠實的等待，才能換來誠實的酒</strong>。</p>
+  </div>
+  <div class="photo-row">
+    <div class="photo-box">
+      <!-- 【圖片待補】酒造/釀造場景 -->
+      <!-- <img src="YOUR_JAPAN_IMG_1" alt="福島酒蔵"> -->
+      <div class="photo-ph">釀造場景<br>待補</div>
+    </div>
+    <div class="photo-box">
+      <!-- 【圖片待補】二本松山景 -->
+      <!-- <img src="YOUR_JAPAN_IMG_2" alt="二本松山景"> -->
+      <div class="photo-ph">二本松<br>待補</div>
+    </div>
+  </div>
+</section>
+
+<!-- §3 SENSORY -->
+<section id="sensory" class="sec">
+  <div class="eyebrow">
+    <h2>聽覺與味覺</h2><span>✦</span>
+  </div>
+
+  <p class="spotify-label">🎵 點燃一支燗，讓音樂帶你進入二本松的冬夜</p>
+  <!-- 【YouTube 待補】嵐爵或大七相關影片 -->
+  <!-- <iframe width="100%" height="215" src="YOUR_YOUTUBE_URL" frameborder="0" allowfullscreen style="border-radius:12px;display:block;"></iframe> -->
+  <div style="width:100%;height:215px;background:var(--washi3);border-radius:12px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(181,130,26,.12);">
+    <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.8rem;letter-spacing:.15em;color:rgba(181,130,26,.3);">YouTube 影片 待補</span>
+  </div>
+
+  <div class="food-grid">
+    <div class="food-box">
+      <!-- 【圖片待補】燒烤或肉料理 -->
+      <!-- <img src="YOUR_FOOD_1" alt="燒烤"> -->
+      <div class="food-placeholder">🥩</div>
+      <p class="food-lbl">燒烤・和牛</p>
+    </div>
+    <div class="food-box">
+      <!-- 【圖片待補】鍋物或日式料理 -->
+      <!-- <img src="YOUR_FOOD_2" alt="鍋物"> -->
+      <div class="food-placeholder">🍲</div>
+      <p class="food-lbl">鍋物・發酵食</p>
+    </div>
+  </div>
+</section>
+
+<!-- §4 SPECS -->
+<section id="specs" class="sec">
+  <div class="eyebrow">
+    <h2>職人與工法</h2><span>✦</span>
+  </div>
+
+  <div class="ring-wrap">
+    <div class="ring-chart">
+      <svg viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(181,130,26,.08)" stroke-width="8"/>
+        <circle cx="60" cy="60" r="50" fill="none" stroke="url(#goldGrad)" stroke-width="8"
+          stroke-dasharray="283" stroke-dashoffset="30"
+          stroke-linecap="round"
+          transform="rotate(-90 60 60)"/>
+        <defs>
+          <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#b5821a"/>
+            <stop offset="100%" stop-color="#f0d898"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <div class="ring-val">15%<span>alc/vol</span></div>
+    </div>
+  </div>
+
+  <table class="spec-table">
+    <tr><td>酒名</td><td>大七 純米生酛 <em style="font-family:'Cormorant Garamond',serif;font-style:italic;color:rgba(181,130,26,.55);font-size:.8rem;">Junmai Kimoto</em></td></tr>
+    <tr><td>產地</td><td>日本福島縣二本松市</td></tr>
+    <tr><td>酒造</td><td>大七酒造（創業1752年）</td></tr>
+    <tr><td>米種</td><td>五百萬石 × チヨニシキ（69%・超扁平精米）</td></tr>
+    <tr><td>酒精濃度</td><td>15–16%</td></tr>
+    <tr><td>日本酒度</td><td>+3</td></tr>
+    <tr><td>酸度</td><td>1.8</td></tr>
+    <tr><td>釀造工法</td><td>生酛造り（耗時為速釀酛的3倍）・1年熟成・協會7號酵母</td></tr>
+    <tr><td>風味</td><td>白桃・奶油乳脂・礦物感・米旨味・悠長餘韻</td></tr>
+    <tr><td>適飲溫度</td><td>冷飲10–15°C皆宜，<strong>燗酒（40–45°C）為最高境界</strong></td></tr>
+    <tr><td>醒酒建議</td><td>開瓶後靜置約 20 分鐘，讓厚實酒體與空氣接觸，層次緩緩展開</td></tr>
+    <tr><td>售價</td><td>（待定）</td></tr>
+  </table>
+
+  <div class="tags">
+    <span class="tag">生酛造り</span>
+    <span class="tag">白桃香</span>
+    <span class="tag">奶油乳脂</span>
+    <span class="tag">米旨味</span>
+    <span class="tag">燗酒推薦</span>
+    <span class="tag">食中酒</span>
+    <span class="tag">1年熟成</span>
+  </div>
+</section>
+
+<!-- §5 INSIGHT -->
+<section id="insight">
+  <div class="eyebrow">
+    <h2>品牌思考題</h2><span>✦</span>
+  </div>
+  <p class="i-q">
+    在追求快速轉化的商業浪潮中，<br>
+    你的品牌是否有一個<br>
+    「<em>不隨波逐流</em>」的硬核心？<br><br>
+    那些最耗時、最笨拙的堅持，<br>
+    是否反而成了你<br>
+    最難被取代的<em>護城河</em>？
+  </p>
+</section>
+
+<!-- §6 FOOTER -->
+<section id="footer">
+  <div class="f-big">微醺<br>連結<span class="ac">。</span></div>
+
+  <div class="f-venues">
+    <div class="f-venue-item">
+      <span class="f-venue-date">3 / 30</span>
+      <span class="f-venue-name">MuMu 咖啡</span>
+      <a href="https://linket.net/mumucafe" target="_blank" class="venue-follow">追蹤 →</a>
+    </div>
+    <div class="f-venue-item">
+      <span class="f-venue-date">4 / 07</span>
+      <span class="f-venue-name">山上山下<br>埔里店</span>
+      <a href="https://www.instagram.com/3s3s.tw" target="_blank" class="venue-follow">追蹤 →</a>
+    </div>
+    <div class="f-venue-item">
+      <span class="f-venue-date">4 / 11</span>
+      <span class="f-venue-name">坐客咖啡</span>
+      <a href="https://linket.net/zouke-cafe" target="_blank" class="venue-follow">追蹤 →</a>
+    </div>
+  </div>
+
+  <div class="f-btns">
+    <a href="https://forms.gle/fD3LVGXcFnMQswRJ6" target="_blank" class="btn-fill gold">📅 預約下一場微醺</a>
+    <a href="https://lin.ee/AzqxpRa" target="_blank" class="btn-fill dark">🍶 立即聯繫嵐爵私選下單</a>
+    <a href="https://lin.ee/19k6X29" target="_blank" class="btn-fill outline">💳 LINKet 品牌數位化服務</a>
+  </div>
+
+  <div class="f-fine">
+    <span class="f-brand">純米生酛 JUNMAI KIMOTO · DAISHICHI</span>
+    <ul class="f-nav">
+      <li><a href="#about">關於</a></li>
+      <li><a href="#specs">工法</a></li>
+      <li><a href="#sensory">搭配</a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 聯名品牌 LOGO 列 -->
+<div class="partner-bar">
+  <a href="https://lin.ee/19k6X29" target="_blank" class="partner-logo">
+    <img src="/home/assets/logo-lanjue.svg" alt="嵐爵">
+  </a>
+  <a href="https://linket.net/mumucafe" target="_blank" class="partner-logo">
+    <img src="/home/assets/logo-mumu.svg" alt="MuMu咖啡">
+  </a>
+  <a href="https://linket.net/zouke-cafe" target="_blank" class="partner-logo">
+    <img src="/home/assets/logo-zuoke.svg" alt="坐客咖啡">
+  </a>
+  <a href="https://www.instagram.com/3s3s.tw" target="_blank" class="partner-logo">
+    <img src="/home/assets/logo-emo.svg" alt="山上山下">
+  </a>
+  <a href="https://lin.ee/19k6X29" target="_blank" class="partner-logo">
+    <img src="/home/assets/logo-linket.svg" alt="LINKet">
+  </a>
+</div>
+
+<!-- 法規警語 -->
+<div class="legal-bar">
+  飲酒勿開車｜未滿十八歲者，禁止飲酒｜本品牌不販賣酒予未滿十八歲者｜飲酒過量有害健康
+</div>
+
+<script>
+// Ink band subtle shift on scroll
+let lastY = 0;
+window.addEventListener('scroll',()=>{
+  const y = window.scrollY;
+  const delta = y - lastY;
+  document.querySelectorAll('.ink-band').forEach((b,i)=>{
+    const curr = parseFloat(b.style.top);
+    b.style.transform = `translateY(${delta * (i%2===0?0.03:-0.02)}px)`;
+  });
+  lastY = y;
+},{passive:true});
+</script>
+
+</body>
+</html>
