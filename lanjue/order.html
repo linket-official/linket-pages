@@ -482,7 +482,7 @@ img{display:block;}
 .btn-main.line-btn:hover{background:#05b34c;}
 .btn-sub{display:block;width:100%;padding:.65rem;background:transparent;color:var(--text2);border:1px solid var(--border);font-family:'Syne',sans-serif;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;border-radius:var(--r);transition:border-color .2s,color .2s;text-align:center;text-decoration:none;}
 .btn-sub:hover{border-color:var(--gold-border);color:var(--ink);}
-.spacer-bottom{height:110px;}
+.spacer-bottom{height:120px;}
 
 /* FLOAT LINE */
 .float-line{position:fixed;right:1rem;bottom:90px;z-index:300;width:48px;height:48px;background:#06c755;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(6,199,85,.35);text-decoration:none;font-size:1.3rem;transition:transform .2s;}
@@ -560,7 +560,7 @@ img{display:block;}
       <div class="prod-inner">
         <div class="prod-img-wrap">
           <div class="prod-img-placeholder" id="ph-sekishoku" style="display:none;">🍶</div>
-          <img id="img-sekishoku" alt="赤紅酵母">
+          <img id="img-sekishoku" src="/lanjue/sekishoku/sekishoku-bottle.png" alt="赤紅酵母" style="display:none;">
         </div>
         <div class="prod-body">
           <div class="prod-meta"><span class="prod-origin">山形縣</span><div class="prod-type-dot"></div><span class="prod-type">純米大吟釀</span></div>
@@ -587,7 +587,7 @@ img{display:block;}
       <div class="prod-inner">
         <div class="prod-img-wrap">
           <div class="prod-img-placeholder" id="ph-yumebotaru" style="display:none;">🍶</div>
-          <img id="img-yumebotaru" alt="夢螢">
+          <img id="img-yumebotaru" src="/lanjue/yumebotaru/yumebotaru-bottle.png" alt="夢螢" style="display:none;">
         </div>
         <div class="prod-body">
           <div class="prod-meta"><span class="prod-origin">福岡縣</span><div class="prod-type-dot"></div><span class="prod-type">純米吟釀</span></div>
@@ -614,7 +614,7 @@ img{display:block;}
       <div class="prod-inner">
         <div class="prod-img-wrap">
           <div class="prod-img-placeholder" id="ph-kokage" style="display:none;">🍶</div>
-          <img id="img-kokage" alt="木陰之魚">
+          <img id="img-kokage" src="/lanjue/kokage/kokage-bottle.png" alt="木陰之魚" style="display:none;">
         </div>
         <div class="prod-body">
           <div class="prod-meta"><span class="prod-origin">岡山縣</span><div class="prod-type-dot"></div><span class="prod-type">低酒精純米</span></div>
@@ -872,13 +872,17 @@ document.getElementById('h-logo-linket').src = LINKET_LOGO;
 function setupImg(imgId, phId, src) {
   var img = document.getElementById(imgId);
   var ph  = document.getElementById(phId);
-  img.src = src;
+  if (!img.src || img.src === window.location.href) { img.src = src; }
   img.onload  = function() { ph.style.display = 'none'; img.style.display = 'block'; };
   img.onerror = function() { img.style.display = 'none'; ph.style.display  = 'flex';  };
+  if (img.complete && img.naturalWidth > 0) { ph.style.display = 'none'; img.style.display = 'block'; }
 }
 setupImg('img-sekishoku',  'ph-sekishoku',  PRODUCTS.sekishoku.img);
 setupImg('img-yumebotaru', 'ph-yumebotaru', PRODUCTS.yumebotaru.img);
 setupImg('img-kokage',     'ph-kokage',     PRODUCTS.kokage.img);
+
+window.addEventListener('resize', updateSpacers);
+window.addEventListener('load',   updateSpacers);
 
 /* ── HELPERS ── */
 function getTotals() {
@@ -898,6 +902,27 @@ function updateCartBar() {
   else             { badge.classList.remove('show'); document.getElementById('cart-bar').classList.remove('show'); }
   document.getElementById('cart-bar-count').textContent  = '已選 ' + t.items + ' 項';
   document.getElementById('cart-bar-total').textContent  = t.total.toLocaleString();
+  updateSpacers();
+}
+
+function updateSpacers() {
+  var cartBar    = document.getElementById('cart-bar');
+  var cartH      = (cartBar && cartBar.classList.contains('show')) ? cartBar.offsetHeight : 0;
+  var actionBars = document.querySelectorAll('.action-bar');
+  var actionH    = 0;
+  for (var i = 0; i < actionBars.length; i++) {
+    var ab = actionBars[i];
+    var abStyle = window.getComputedStyle(ab);
+    if (abStyle.position === 'fixed' && abStyle.display !== 'none') {
+      actionH = ab.offsetHeight;
+      break;
+    }
+  }
+  var totalH = Math.max(cartH, actionH) + cartH + 16;
+  var spacers = document.querySelectorAll('.spacer-bottom');
+  for (var j = 0; j < spacers.length; j++) {
+    spacers[j].style.height = totalH + 'px';
+  }
 }
 
 function setStep(n) {
@@ -916,6 +941,7 @@ function setStep(n) {
   }
   if (n !== 1) document.getElementById('cart-bar').classList.remove('show');
   else updateCartBar();
+  updateSpacers();
   window.scrollTo(0, 0);
 }
 
