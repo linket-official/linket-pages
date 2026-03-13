@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>尾瀬雪融 隱藏酒｜嵐爵私選 × LINKet</title>
+<meta name="description" content="龍神酒造限定釀造，純米大吟釀 隱し酒。完熟蘋果香氣、圓潤飽滿甜感、俐落柑橘系酸度。真正的實力，從不需要大聲喧嘩。">
+
+<!-- OG Meta Tags -->
+<meta property="og:title" content="尾瀬雪融 隱藏酒｜嵐爵私選 × LINKet">
+<meta property="og:description" content="龍神酒造限定釀造，純米大吟釀 隱し酒。完熟蘋果香氣、圓潤飽滿甜感、俐落柑橘系酸度。">
+<meta property="og:image" content="https://linket.app/lanjue/kakushi/og-image.jpg">
+<meta property="og:url" content="https://linket.app/lanjue/kakushi">
+<meta property="og:type" content="website">
+
+<!-- Favicon -->
+<link rel="icon" href="/lanjue/kakushi/favicon.png">
+<link rel="apple-touch-icon" href="/lanjue/kakushi/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600;700;800&family=Noto+Serif+TC:wght@200;300;400;600&family=Cormorant+Garamond:ital,wght@0,400;1,300;1,400&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  /* 深琥珀×暗金色系 */
+  --deep:#2C1E14;       /* 深琥珀底 */
+  --deep2:#1a1108;      /* 更深 */
+  --gold:#C9A84C;       /* 金色主調 */
+  --gold2:#F8E8C1;      /* 淡金・酒標色 */
+  --gold3:#8B6914;      /* 暗金 */
+  --amber:#3D2B18;      /* 中間調 */
+  --ink:#0d0a06;
+  --white:#FFFFFF;
+  --paper:var(--deep);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Noto Serif TC',serif;
+  background:var(--deep);
+  color:var(--gold2);
+  overflow-x:hidden;
+}
+
+/* ── TICKER ── */
+.ticker{
+  overflow:hidden;white-space:nowrap;
+  border-bottom:1px solid rgba(201,168,76,.2);
+  padding:.55rem 0;
+  background:var(--deep2);
+}
+.ticker-track{display:inline-flex;animation:tick 28s linear infinite;}
+.ticker-track span{
+  font-family:'Shippori Mincho B1',serif;font-weight:600;
+  font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;
+  padding:0 1.4rem;color:rgba(248,232,193,.55);
+}
+.ticker-track span.ac{color:var(--gold);}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── HERO ── */
+#hero{
+  position:relative;
+  width:100%;min-height:100svh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  overflow:hidden;
+  background:radial-gradient(ellipse 90% 80% at 50% 30%, #3D2B18 0%, #2C1E14 45%, #1a1108 100%);
+}
+
+/* 聚光燈效果 */
+#hero::before{
+  content:'';
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 40% 55% at 50% 38%,
+      rgba(201,168,76,.13) 0%,
+      rgba(201,168,76,.05) 40%,
+      transparent 70%);
+  pointer-events:none;z-index:1;
+}
+
+/* 金色幾何線條 — SVG 裝飾 */
+.geo-lines{
+  position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.18;
+}
+
+/* 霧氣感環狀光暈 */
+.hero-rings{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-52%);
+  z-index:1;pointer-events:none;
+  width:clamp(280px,80vw,480px);
+  height:clamp(280px,80vw,480px);
+}
+.ring{
+  position:absolute;inset:0;border-radius:50%;
+  border:1px solid rgba(201,168,76,.12);
+  animation:ringOut 5s ease-out infinite;
+}
+.ring:nth-child(2){inset:-28px;animation-delay:1.7s;border-color:rgba(201,168,76,.07);}
+.ring:nth-child(3){inset:-56px;animation-delay:3.4s;border-color:rgba(201,168,76,.04);}
+@keyframes ringOut{
+  0%{opacity:.5;transform:scale(.88);}
+  100%{opacity:0;transform:scale(1.12);}
+}
+
+/* 菱形標記 */
+.kakushi-badge{
+  position:absolute;
+  top:clamp(2.2rem,8vw,4.5rem);
+  left:50%;transform:translateX(-50%);
+  z-index:4;
+  width:clamp(68px,18vw,100px);
+  height:clamp(68px,18vw,100px);
+  background:rgba(248,232,193,.92);
+  clip-path:polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:.1rem;
+  backdrop-filter:blur(4px);
+}
+.kakushi-badge .k-kanji{
+  font-family:'Shippori Mincho B1',serif;font-weight:800;
+  font-size:clamp(.78rem,3.5vw,1.15rem);
+  color:var(--deep2);
+  letter-spacing:.06em;
+  line-height:1.1;
+  text-align:center;
+}
+.kakushi-badge .k-sub{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:clamp(.35rem,1.4vw,.48rem);
+  letter-spacing:.14em;color:rgba(44,30,20,.55);
+}
+
+/* 瓶身 */
+.hero-bottle-full{
+  position:relative;z-index:2;
+  display:flex;align-items:center;justify-content:center;
+  width:100%;
+  padding:5.5rem 0 8.5rem;
+}
+.hero-bottle-full img{
+  width:clamp(200px,48vw,310px);
+  height:auto;object-fit:contain;
+  filter:
+    drop-shadow(0 40px 90px rgba(0,0,0,.75))
+    drop-shadow(0 0 60px rgba(201,168,76,.18));
+  animation:bob 8s ease-in-out infinite;
+}
+@keyframes bob{
+  0%,100%{transform:translateY(0)rotate(-.6deg)}
+  50%{transform:translateY(-16px)rotate(.6deg)}
+}
+
+/* Hero 文字區 */
+.hero-name-block{
+  position:absolute;
+  bottom:0;left:0;right:0;z-index:3;
+  padding:3.5rem 1.6rem 2.4rem;
+  background:linear-gradient(transparent, rgba(13,8,2,.94) 55%);
+  display:flex;flex-direction:column;
+  align-items:center;text-align:center;gap:.5rem;
+}
+.hname-big{
+  font-family:'Shippori Mincho B1',serif;font-weight:800;
+  font-size:clamp(2.8rem,14vw,7rem);
+  color:var(--gold2);
+  letter-spacing:.1em;line-height:.95;
+  text-shadow:0 2px 32px rgba(0,0,0,.5);
+}
+.hname-big .ac{color:var(--gold);}
+.hname-row{
+  display:flex;flex-wrap:wrap;align-items:center;
+  justify-content:center;gap:.4rem .9rem;
+  padding-top:.6rem;
+  border-top:1px solid rgba(201,168,76,.2);
+}
+.hname-jp{
+  font-family:'Noto Serif TC',serif;font-weight:200;
+  font-size:clamp(.72rem,2.8vw,.92rem);
+  letter-spacing:.28em;color:rgba(248,232,193,.55);
+}
+.hname-en{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:clamp(.82rem,3.2vw,1.05rem);
+  letter-spacing:.2em;color:rgba(201,168,76,.7);
+}
+.hname-sep{color:var(--gold);font-size:.65rem;}
+.hero-slogan-overlay{
+  font-family:'Noto Serif TC',serif;font-weight:200;
+  font-size:clamp(.68rem,2.6vw,.85rem);
+  letter-spacing:.2em;line-height:2.2;
+  color:rgba(248,232,193,.45);
+  margin-top:.2rem;
+}
+.hero-scroll-hint{
+  display:flex;align-items:center;gap:.5rem;
+  margin-top:.7rem;
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.68rem;letter-spacing:.2em;color:rgba(201,168,76,.3);
+}
+.scroll-dot{width:20px;height:1px;background:rgba(201,168,76,.25);}
+
+/* ── 共用 SECTIONS ── */
+.sec{
+  padding:4rem 1.4rem;
+  background:var(--deep);
+  border-top:1px solid rgba(201,168,76,.1);
+}
+.content-wrap{max-width:680px;margin:0 auto;}
+.eyebrow{display:flex;align-items:center;gap:.6rem;margin-bottom:2rem;}
+.eyebrow h2{
+  font-family:'Shippori Mincho B1',serif;font-weight:700;
+  font-size:clamp(.92rem,4vw,1.25rem);
+  letter-spacing:.18em;color:var(--gold2);
+}
+.eyebrow span{color:var(--gold);font-weight:900;font-size:1.05rem;}
+.divider{height:1px;background:linear-gradient(90deg,var(--gold),transparent);width:60px;margin:1.5rem 0;}
+
+/* ── §2 ABOUT ── */
+#about .about-body p{
+  font-weight:200;
+  font-size:clamp(.82rem,3vw,.95rem);
+  line-height:2.8;letter-spacing:.07em;
+  color:rgba(248,232,193,.72);
+}
+#about .about-body p strong{color:var(--gold);font-weight:400;}
+
+.photo-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin:1.8rem 0;}
+.photo-box{border-radius:3px;overflow:hidden;aspect-ratio:3/4;position:relative;background:var(--amber);}
+.photo-box img{width:100%;height:100%;object-fit:cover;filter:saturate(.3)contrast(1.05)sepia(.3);transition:filter .4s;}
+.photo-box:hover img{filter:saturate(.6)sepia(.15);}
+.photo-box::after{content:'';position:absolute;inset:0;background:rgba(201,168,76,.08);mix-blend-mode:overlay;pointer-events:none;}
+.food-placeholder{
+  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  font-size:3rem;
+  background:linear-gradient(135deg,var(--amber),var(--deep));
+}
+
+/* ── §3 SPECS ── */
+#specs{background:linear-gradient(180deg,#1e1509 0%,var(--deep) 100%);}
+.big-pct{
+  font-family:'Shippori Mincho B1',serif;font-weight:800;
+  font-size:clamp(5rem,22vw,11rem);
+  color:rgba(201,168,76,.15);
+  line-height:.85;letter-spacing:-.02em;
+}
+.big-pct-sub{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.82rem;letter-spacing:.3em;
+  color:rgba(248,232,193,.35);
+  margin-bottom:1.8rem;
+}
+.spec-table{width:100%;border-collapse:collapse;}
+.spec-table tr{border-bottom:1px solid rgba(201,168,76,.1);}
+.spec-table td{padding:.85rem 0;vertical-align:top;}
+.spec-table td:first-child{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.72rem;letter-spacing:.18em;
+  color:rgba(201,168,76,.5);width:34%;padding-top:1rem;
+}
+.spec-table td:last-child{
+  font-family:'Noto Serif TC',serif;
+  font-size:.88rem;font-weight:300;line-height:1.8;
+  color:rgba(248,232,193,.82);
+}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.8rem;}
+.tag{
+  border:1px solid rgba(201,168,76,.4);
+  color:rgba(201,168,76,.8);
+  font-family:'Cormorant Garamond',serif;
+  font-size:.78rem;letter-spacing:.12em;
+  padding:.28rem .72rem;
+  transition:background .2s,color .2s;cursor:default;
+}
+.tag:hover{background:rgba(201,168,76,.15);}
+
+/* 職人故事敘述 */
+.craft-story{
+  margin-top:1.8rem;padding:1.4rem;
+  border-left:2px solid var(--gold3);
+  background:rgba(201,168,76,.04);
+}
+.craft-story p{
+  font-size:clamp(.78rem,2.8vw,.88rem);
+  line-height:2.6;font-weight:200;
+  letter-spacing:.07em;color:rgba(248,232,193,.65);
+}
+.craft-story p strong{color:var(--gold);font-weight:400;}
+
+/* ── §4 SENSORY ── */
+#sensory{background:var(--deep2);}
+.spotify-label{
+  font-family:'Shippori Mincho B1',serif;font-weight:600;
+  font-size:.75rem;letter-spacing:.18em;
+  color:rgba(201,168,76,.6);margin-bottom:.7rem;
+}
+.music-bar{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(201,168,76,.15);
+  border-radius:4px;padding:1.2rem;
+  display:flex;align-items:center;gap:1rem;
+  margin-bottom:1.2rem;
+}
+.play-btn{
+  width:44px;height:44px;
+  background:var(--gold3);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;flex-shrink:0;text-decoration:none;
+}
+.music-copy h4{
+  font-family:'Shippori Mincho B1',serif;font-weight:600;
+  font-size:.82rem;letter-spacing:.12em;
+  color:var(--gold2);margin-bottom:.25rem;
+}
+.music-copy p{
+  font-size:.65rem;letter-spacing:.1em;
+  color:rgba(201,168,76,.5);
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+}
+.food-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:1.4rem;}
+.food-box{
+  border-radius:3px;overflow:hidden;
+  position:relative;aspect-ratio:3/4;
+  background:var(--amber);
+}
+.food-box img{
+  width:100%;height:100%;object-fit:cover;
+  filter:saturate(.25)contrast(1.05)sepia(.3);
+  transition:filter .5s,transform .5s;
+}
+.food-box:hover img{filter:saturate(.55)sepia(.1);transform:scale(1.04);}
+.food-box::after{content:'';position:absolute;inset:0;background:rgba(201,168,76,.06);mix-blend-mode:overlay;pointer-events:none;}
+.food-lbl{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:.45rem .6rem;
+  background:linear-gradient(transparent,rgba(13,8,2,.85));
+  font-family:'Noto Serif TC',serif;font-weight:300;
+  font-size:.63rem;letter-spacing:.14em;
+  color:rgba(248,232,193,.82);
+}
+
+/* ── §5 INSIGHT ── */
+#insight{
+  background:linear-gradient(160deg, #1a1108 0%, #2C1E14 60%, #0d0a06 100%);
+  padding:5rem 1.4rem;
+}
+.insight-label{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.7rem;letter-spacing:.28em;
+  color:rgba(201,168,76,.4);margin-bottom:2.2rem;
+  text-transform:uppercase;
+}
+.i-q{
+  font-family:'Noto Serif TC',serif;font-weight:200;
+  font-size:clamp(.78rem,3vw,.95rem);
+  line-height:3.2;letter-spacing:.1em;
+  color:rgba(248,232,193,.65);
+}
+.i-q em{font-style:normal;color:var(--gold);}
+.i-quote-mark{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(4rem,16vw,8rem);
+  line-height:.8;color:rgba(201,168,76,.12);
+  margin-bottom:-.8rem;
+}
+
+/* ── FOOTER ── */
+#footer{
+  background:var(--deep2);
+  padding:4rem 1.4rem 3.5rem;
+  border-top:1px solid rgba(201,168,76,.12);
+}
+.f-big{
+  font-family:'Shippori Mincho B1',serif;font-weight:800;
+  font-size:clamp(2.6rem,12vw,6.5rem);
+  line-height:.92;letter-spacing:.04em;
+  color:var(--gold2);margin-bottom:.15em;
+}
+.f-big .ac{color:var(--gold);}
+.f-venues{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;
+  border-top:1px solid rgba(201,168,76,.12);
+  border-bottom:1px solid rgba(201,168,76,.12);
+  padding:1.4rem 0;margin:1.8rem 0;
+}
+.f-venue-item{display:flex;flex-direction:column;gap:.3rem;padding:.6rem;border-right:1px solid rgba(201,168,76,.08);}
+.f-venue-item:last-child{border-right:none;}
+.f-venue-date{
+  font-family:'Shippori Mincho B1',serif;font-weight:800;
+  font-size:clamp(.92rem,3.2vw,1.35rem);
+  letter-spacing:.06em;color:var(--gold);
+}
+.f-venue-name{
+  font-family:'Noto Serif TC',serif;font-weight:700;
+  font-size:clamp(.7rem,2.5vw,.9rem);
+  letter-spacing:.08em;
+  color:rgba(248,232,193,.75);line-height:1.6;
+}
+@media(max-width:600px){
+  .f-venues{grid-template-columns:1fr;gap:0;}
+  .f-venue-item{flex-direction:row;align-items:center;justify-content:space-between;border-right:none;border-bottom:1px solid rgba(201,168,76,.08);padding:.9rem .4rem;}
+  .f-venue-item:last-child{border-bottom:none;}
+  .f-venue-date{font-size:1.05rem;min-width:3.2rem;}
+  .f-venue-name{font-size:.88rem;flex:1;padding:0 .6rem;}
+}
+.f-btns{display:flex;flex-direction:column;gap:.7rem;max-width:360px;}
+.btn-fill{
+  display:block;text-align:center;
+  padding:.95rem 1.4rem;
+  font-family:'Cormorant Garamond',serif;
+  font-size:.88rem;letter-spacing:.18em;
+  text-decoration:none;border:none;cursor:pointer;
+  transition:background .2s,color .2s,border-color .2s;
+}
+.btn-fill.gold{background:var(--gold3);color:var(--gold2);}
+.btn-fill.gold:hover{background:var(--gold);}
+.btn-fill.dark{background:rgba(255,255,255,.05);color:var(--gold2);border:1px solid rgba(201,168,76,.25);}
+.btn-fill.dark:hover{background:rgba(201,168,76,.12);}
+.btn-fill.outline{background:transparent;color:rgba(248,232,193,.6);border:1px solid rgba(201,168,76,.2);}
+.btn-fill.outline:hover{border-color:rgba(201,168,76,.5);color:var(--gold2);}
+.f-fine{
+  margin-top:2.5rem;padding-top:1rem;
+  border-top:1px solid rgba(201,168,76,.1);
+  display:flex;flex-wrap:wrap;justify-content:space-between;
+  gap:.6rem;align-items:flex-end;
+}
+.f-brand{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.7rem;letter-spacing:.22em;
+  color:rgba(201,168,76,.35);
+}
+.f-warn{
+  width:100%;font-family:'Noto Serif TC',serif;
+  font-size:.56rem;letter-spacing:.1em;
+  color:rgba(248,232,193,.2);margin-top:.2rem;
+}
+.f-nav{display:flex;gap:1.2rem;list-style:none;}
+.f-nav a{
+  font-family:'Cormorant Garamond',serif;
+  font-size:.7rem;letter-spacing:.15em;
+  color:rgba(201,168,76,.35);text-decoration:none;text-transform:uppercase;
+}
+.f-nav a:hover{color:var(--gold);}
+
+/* ── VENUE FOLLOW ── */
+.venue-follow{
+  display:inline-block;font-family:'Noto Sans TC',sans-serif;
+  font-weight:500;font-size:.62rem;letter-spacing:.12em;
+  color:var(--deep2);background:var(--gold3);
+  text-decoration:none;padding:.28rem .65rem;
+  border-radius:2px;margin-top:.3rem;
+  transition:background .2s,transform .15s;
+}
+.venue-follow:hover{background:var(--gold);transform:translateY(-1px);}
+@media(max-width:600px){.venue-follow{margin-top:0;white-space:nowrap;}}
+
+/* ── PARTNER BAR ── */
+.partner-bar{
+  background:#000;
+  display:flex;align-items:center;justify-content:center;
+  gap:clamp(1.2rem,4vw,3rem);
+  padding:1.6rem 1.4rem;
+  border-top:1px solid rgba(201,168,76,.08);
+}
+.partner-logo{display:flex;align-items:center;opacity:.6;transition:opacity .2s,transform .2s;flex-shrink:0;}
+.partner-logo:hover{opacity:1;transform:scale(1.06);}
+.partner-logo img{height:clamp(11px,2vw,18px);width:auto;filter:brightness(0) invert(1);}
+@media(max-width:480px){
+  .partner-bar{gap:clamp(.8rem,3vw,1.6rem);padding:1.2rem .8rem;flex-wrap:wrap;}
+  .partner-logo img{height:10px;}
+}
+
+/* ── LEGAL BAR ── */
+.legal-bar{
+  background:#000;color:rgba(255,255,255,.55);
+  text-align:center;padding:.9rem 1.4rem;
+  font-family:'Noto Serif TC',serif;font-weight:200;
+  font-size:.58rem;letter-spacing:.14em;line-height:2.2;
+}
+
+/* ── DESKTOP RWD ── */
+@media(min-width:800px){
+  .sec{padding:5rem 2rem;}
+  #insight{padding:6rem 2rem;}
+  #footer{padding:5rem 2rem 4rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>16% JUNMAI DAIGINJO</span><span class="ac">◆</span>
+    <span>群馬縣龍神酒造</span><span class="ac">◆</span>
+    <span>生詰・限定釀造</span><span class="ac">◆</span>
+    <span>KAKUSHI-ZAKE</span><span class="ac">◆</span>
+    <span>完熟蘋果香氣</span><span class="ac">◆</span>
+    <span>隱し酒</span><span class="ac">◆</span>
+    <span>16% JUNMAI DAIGINJO</span><span class="ac">◆</span>
+    <span>群馬縣龍神酒造</span><span class="ac">◆</span>
+    <span>生詰・限定釀造</span><span class="ac">◆</span>
+    <span>KAKUSHI-ZAKE</span><span class="ac">◆</span>
+    <span>完熟蘋果香氣</span><span class="ac">◆</span>
+    <span>隱し酒</span><span class="ac">◆</span>
+  </div>
+</div>
+
+<!-- §1 HERO -->
+<section id="hero">
+
+  <!-- 金色幾何線條 SVG -->
+  <svg class="geo-lines" viewBox="0 0 400 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <line x1="50" y1="0" x2="350" y2="700" stroke="#C9A84C" stroke-width=".5"/>
+    <line x1="350" y1="0" x2="50" y2="700" stroke="#C9A84C" stroke-width=".5"/>
+    <line x1="200" y1="0" x2="200" y2="700" stroke="#C9A84C" stroke-width=".3"/>
+    <rect x="120" y="200" width="160" height="160" transform="rotate(45 200 280)" fill="none" stroke="#C9A84C" stroke-width=".6"/>
+    <rect x="100" y="180" width="200" height="200" transform="rotate(45 200 280)" fill="none" stroke="#C9A84C" stroke-width=".3"/>
+    <line x1="0" y1="280" x2="400" y2="280" stroke="#C9A84C" stroke-width=".3"/>
+    <line x1="0" y1="420" x2="400" y2="420" stroke="#C9A84C" stroke-width=".2"/>
+  </svg>
+
+  <!-- 菱形「隱し酒」標記 -->
+  <div class="kakushi-badge">
+    <span class="k-kanji">隱し<br>酒</span>
+    <span class="k-sub">限定釀造</span>
+  </div>
+
+  <!-- 光暈漣漪 -->
+  <div class="hero-rings">
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+  </div>
+
+  <!-- 酒瓶 -->
+  <div class="hero-bottle-full">
+    <img
+      src="/lanjue/kakushi/kakushi-bottle.png"
+      alt="尾瀬雪融 隱藏酒"
+      onerror="this.style.display='none'"
+    >
+  </div>
+
+  <!-- 標題文字區 -->
+  <div class="hero-name-block">
+    <div class="hname-big">尾瀬<span class="ac">雪</span>融</div>
+    <div class="hname-row">
+      <span class="hname-jp">おぜのゆきどけ</span>
+      <span class="hname-sep">◆</span>
+      <span class="hname-en">Oze no Yukidoke</span>
+    </div>
+    <p class="hero-slogan-overlay">真正的實力，從不需要大聲喧嘩。</p>
+    <div class="hero-scroll-hint">
+      <span class="scroll-dot"></span>
+      <span>Scroll</span>
+    </div>
+  </div>
+</section>
+
+<!-- §2 ABOUT -->
+<section id="about" class="sec">
+  <div class="content-wrap">
+    <div class="eyebrow">
+      <h2>隱世之作</h2><span>◆</span>
+    </div>
+    <div class="about-body">
+      <p>這是一瓶連<strong>酒造都想私藏</strong>的限定釀造。推開神祕的「隱藏酒」大門，迎面而來的是如<strong>完熟蘋果</strong>般的華麗香氣。它不走大眾路線，而是以 <strong>16% 的厚實酒體</strong>，包裹著圓潤柔順的甜味，最後由柑橘系的酸度畫下俐落句點。</p>
+      <p style="margin-top:1.4rem;">它象徵著那些平日低調經營，卻在產品力與細節上追求極致的品牌——<strong>不張揚，但一旦出手，必屬經典。</strong></p>
+    </div>
+
+    <div class="photo-row">
+      <div class="photo-box">
+        <img
+          src="/lanjue/kakushi/japan-1.jpg"
+          alt="尾瀬の大自然"
+          loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=\'food-placeholder\'>🏔️</div>'"
+        >
+      </div>
+      <div class="photo-box">
+        <img
+          src="/lanjue/kakushi/japan-2.jpg"
+          alt="龍神酒造"
+          loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=\'food-placeholder\'>🍶</div>'"
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §3 SPECS 職人與工法 -->
+<section id="specs" class="sec">
+  <div class="content-wrap">
+    <div class="eyebrow">
+      <h2>職人與工法</h2><span>◆</span>
+    </div>
+
+    <div class="big-pct">16%</div>
+    <p class="big-pct-sub">Alcohol by Volume · 純米大吟釀</p>
+
+    <table class="spec-table">
+      <tr>
+        <td>酒名</td>
+        <td>尾瀬の雪どけ 純米大吟釀 隱し酒 <em style="font-family:'Cormorant Garamond',serif;font-style:italic;color:rgba(201,168,76,.5);font-size:.78rem;">Kakushi-zake</em></td>
+      </tr>
+      <tr>
+        <td>產地・酒造</td>
+        <td>日本群馬縣｜龍神酒造株式会社</td>
+      </tr>
+      <tr>
+        <td>精米步合</td>
+        <td>50%（純米大吟釀等級）</td>
+      </tr>
+      <tr>
+        <td>酒精濃度</td>
+        <td>16%（具備更強的結構感與酒體厚度）</td>
+      </tr>
+      <tr>
+        <td>釀造工法</td>
+        <td>生詰・火入処理（保留酒液最圓潤、穩定的熟成感）</td>
+      </tr>
+      <tr>
+        <td>風味特徵</td>
+        <td>華麗的蘋果香氣・圓潤飽滿的甜度・俐落的柑橘系酸感</td>
+      </tr>
+      <tr>
+        <td>適飲溫度</td>
+        <td>5°C – 12°C（冰飲至微涼，釋放完熟甜味）</td>
+      </tr>
+      <tr>
+        <td>醒酒建議</td>
+        <td>開瓶後建議靜置 10 分鐘，讓果香完全甦醒</td>
+      </tr>
+    </table>
+
+    <div class="craft-story">
+      <p>採「<strong>生詰</strong>」處理，在酒液最圓潤穩定的熟成時點封瓶，精準鎖住那一瞬間的完美平衡。這是一款追求「<strong>Fruity &amp; Juicy</strong>」極致平衡的限量作品——不多，不少，恰到好處。</p>
+    </div>
+
+    <div class="tags">
+      <span class="tag">完熟蘋果</span>
+      <span class="tag">圓潤甜感</span>
+      <span class="tag">柑橘系酸度</span>
+      <span class="tag">Fruity &amp; Juicy</span>
+      <span class="tag">生詰限定</span>
+    </div>
+  </div>
+</section>
+
+<!-- §4 SENSORY 聽覺與味覺 -->
+<section id="sensory" class="sec">
+  <div class="content-wrap">
+    <div class="eyebrow">
+      <h2>聽覺與味覺</h2><span>◆</span>
+    </div>
+
+    <p class="spotify-label">🎵 按下 Play，讓厚實的律動填滿杯中</p>
+
+    <!-- YouTube 音樂推薦 — Soul Jazz / Deep House -->
+    <div class="music-bar">
+      <a href="https://www.youtube.com/results?search_query=soul+jazz+deep+house+playlist" target="_blank" class="play-btn">▶</a>
+      <div class="music-copy">
+        <h4>Soul Jazz / Deep House</h4>
+        <p>厚實律動感・如同隱し酒的酒體層次</p>
+      </div>
+    </div>
+
+    <div class="food-grid">
+      <div class="food-box">
+        <img
+          src="/lanjue/kakushi/food-unaju.jpg"
+          alt="鰻魚飯"
+          loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=\'food-placeholder\'>🍱</div><p class=\'food-lbl\'>鰻魚飯・油脂豐腴</p>'"
+        >
+        <p class="food-lbl">鰻魚飯・油脂豐腴</p>
+      </div>
+      <div class="food-box">
+        <img
+          src="/lanjue/kakushi/food-cheese.jpg"
+          alt="熟成起司"
+          loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=\'food-placeholder\'>🧀</div><p class=\'food-lbl\'>熟成起司・風味共鳴</p>'"
+        >
+        <p class="food-lbl">熟成起司・風味共鳴</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §5 INSIGHT 品牌思考題 -->
+<section id="insight">
+  <div class="content-wrap">
+    <p class="insight-label">The Brand Insight</p>
+    <div class="i-quote-mark">"</div>
+    <div class="eyebrow">
+      <h2>品牌思考題</h2><span>◆</span>
+    </div>
+    <p class="i-q">
+      在資訊透明的時代，<br>
+      你的品牌是否保有一個<em>讓人驚艷的亮點</em>？<br><br>
+      當客戶以為已經<em>看透你</em>的時候，<br>
+      你是否還有一個<em>深藏不露的底牌</em>，<br>
+      能讓他們再次驚艷？<br><br>
+      真正的實力，<em>從不需要大聲喧嘩。</em>
+    </p>
+  </div>
+</section>
+
+<!-- §6 FOOTER -->
+<section id="footer">
+  <div class="content-wrap">
+    <div class="f-big">微醺<br>連結<span class="ac">。</span></div>
+
+    <div class="f-venues">
+      <div class="f-venue-item">
+        <span class="f-venue-date">3 / 30</span>
+        <span class="f-venue-name">MuMu 咖啡</span>
+        <a href="https://linket.net/mumucafe" target="_blank" class="venue-follow">追蹤 →</a>
+      </div>
+      <div class="f-venue-item">
+        <span class="f-venue-date">4 / 07</span>
+        <span class="f-venue-name">山上山下<br>埔里店</span>
+        <a href="https://www.instagram.com/3s3s.tw" target="_blank" class="venue-follow">追蹤 →</a>
+      </div>
+      <div class="f-venue-item">
+        <span class="f-venue-date">4 / 11</span>
+        <span class="f-venue-name">坐客咖啡</span>
+        <a href="https://linket.net/zouke-cafe" target="_blank" class="venue-follow">追蹤 →</a>
+      </div>
+    </div>
+
+    <div class="f-btns">
+      <a href="https://forms.gle/fD3LVGXcFnMQswRJ6" target="_blank" class="btn-fill gold">📅 預約下一場微醺</a>
+      <a href="https://lin.ee/UgaIhG7" target="_blank" class="btn-fill dark">🍶 立即聯繫嵐爵私選下單</a>
+      <a href="https://lin.ee/19k6X29" target="_blank" class="btn-fill outline">💳 LINKet 品牌數位化服務</a>
+    </div>
+
+    <div class="f-fine">
+      <span class="f-brand">尾瀬雪融 隱し酒 · OZENOYUKIDOKE KAKUSHI-ZAKE</span>
+      <ul class="f-nav">
+        <li><a href="#about">關於</a></li>
+        <li><a href="#specs">工法</a></li>
+        <li><a href="#sensory">搭配</a></li>
+      </ul>
+      <p class="f-warn">禾味國際有限公司 台灣總代理｜本品牌嚴格遵守台灣菸酒管理法相關規定</p>
+    </div>
+  </div>
+</section>
+
+<!-- 聯名品牌 LOGO 列 -->
+<div class="partner-bar">
+  <a href="https://lin.ee/19k6X29" target="_blank" class="partner-logo">
+    <img src="/home/assets/logo-lanjue.svg" alt="嵐爵">
+  </a>
+  <a href="https://linket.net/mumucafe" target="_blank" class="partner-logo">
+    <img src="/home/assets/logo-mumu.svg" alt="MuMu咖啡">
+  </a>
+  <a href="https://linket.net/zouke-cafe" target="_blank" class="partner-logo">
+    <img src="/home/assets/logo-zuoke.svg" alt="坐客咖啡">
+  </a>
+  <a href="https://www.instagram.com/3s3s.tw" target="_blank" class="partner-logo">
+    <img src="/home/assets/logo-emo.svg" alt="山上山下">
+  </a>
+  <a href="https://lin.ee/19k6X29" target="_blank" class="partner-logo">
+    <img src="/home/assets/logo-linket.svg" alt="LINKet">
+  </a>
+</div>
+
+<!-- 法規警語 -->
+<div class="legal-bar">
+  飲酒勿開車｜未滿十八歲者，禁止飲酒｜本品牌不販賣酒予未滿十八歲者｜飲酒過量有害健康
+</div>
+
+</body>
+</html>
