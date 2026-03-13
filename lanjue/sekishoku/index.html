@@ -110,7 +110,8 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--white);color:var(--i
   position:absolute;bottom:0;left:0;right:0;z-index:3;
   padding:3rem 1.6rem 2.2rem;
   background:linear-gradient(transparent,rgba(255,248,248,.97) 55%);
-  display:flex;flex-direction:column;gap:.4rem;
+  display:flex;flex-direction:column;
+  align-items:center;text-align:center;gap:.4rem;
 }
 .hname-big{
   font-family:'Bebas Neue',sans-serif;
@@ -119,7 +120,8 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--white);color:var(--i
 }
 .hname-red{color:var(--crimson);}
 .hname-row{
-  display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .8rem;
+  display:flex;flex-wrap:wrap;align-items:center;
+  justify-content:center;gap:.4rem .8rem;
   padding-top:.5rem;border-top:2px solid var(--ink);margin-top:.2rem;
 }
 .hname-jp{font-family:'Noto Sans TC',sans-serif;font-weight:100;font-size:clamp(.72rem,2.8vw,.9rem);letter-spacing:.28em;color:var(--inkm);}
@@ -143,6 +145,7 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--white);color:var(--i
 .sec-dark{background:var(--ink);}
 .sec-pink{background:var(--pink);}
 .sec+.sec{border-top:2px solid var(--ink);}
+.content-wrap{max-width:680px;margin:0 auto;}
 .eyebrow{display:flex;align-items:center;gap:.6rem;margin-bottom:2rem;}
 .eyebrow h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.1rem,5vw,1.6rem);letter-spacing:.22em;color:var(--ink);}
 .eyebrow-dark h2{color:var(--pink);}
@@ -258,7 +261,7 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--white);color:var(--i
 @media(max-width:600px){.venue-follow{margin-top:0;white-space:nowrap;}}
 
 /* LEGAL BAR */
-.legal-bar{background:#000;color:#fff;text-align:center;padding:1rem 1.4rem;font-family:'Noto Sans TC',sans-serif;font-weight:300;font-size:1rem;letter-spacing:.12em;line-height:2.2;}
+.legal-bar{background:#000;color:rgba(255,255,255,.55);text-align:center;padding:.9rem 1.4rem;font-family:'Noto Sans TC',sans-serif;font-weight:300;font-size:.58rem;letter-spacing:.12em;line-height:2.2;}
 
 /* PARTNER BAR */
 .partner-bar{background:#000;display:flex;align-items:center;justify-content:center;gap:clamp(1.2rem,4vw,3rem);padding:1.6rem 1.4rem;border-top:1px solid rgba(255,255,255,.08);}
@@ -268,6 +271,13 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--white);color:var(--i
 @media(max-width:480px){
   .partner-bar{gap:clamp(.8rem,3vw,1.6rem);padding:1.2rem .8rem;flex-wrap:wrap;}
   .partner-logo img{height:10px;}
+}
+
+/* ── DESKTOP RWD ── */
+@media(min-width:800px){
+  .sec{padding:5rem 2rem;}
+  #insight{padding:6rem 2rem;}
+  #footer{padding:5rem 2rem 4rem;}
 }
 </style>
 </head>
@@ -318,10 +328,11 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--white);color:var(--i
       <span>Scroll</span>
     </div>
   </div>
+</div>
 </section>
 
 <!-- §2 ABOUT -->
-<section id="about" class="sec">
+<section id="about" class="sec"><div class="content-wrap">
   <div class="eyebrow">
     <h2>關於赤紅酵母</h2><span>✦</span>
   </div>
@@ -346,6 +357,7 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--white);color:var(--i
       >
     </div>
   </div>
+</div>
 </section>
 
 <!-- §3 SENSORY (moved above specs) -->
@@ -377,10 +389,11 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--white);color:var(--i
       <p class="food-lbl">莓果甜點</p>
     </div>
   </div>
+</div>
 </section>
 
 <!-- §4 SPECS -->
-<section id="specs" class="sec">
+<section id="specs" class="sec"><div class="content-wrap">
   <div class="eyebrow eyebrow-dark">
     <h2>職人與工法</h2><span>✦</span>
   </div>
@@ -422,10 +435,11 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--white);color:var(--i
     <span class="tag">天然粉紅</span>
     <span class="tag">低酒精輕盈</span>
   </div>
+</div>
 </section>
 
 <!-- §5 INSIGHT -->
-<section id="insight" class="sec">
+<section id="insight" class="sec"><div class="content-wrap">
   <div class="eyebrow">
     <h2>品牌思考題</h2><span>✦</span>
   </div>
@@ -436,10 +450,11 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--white);color:var(--i
     鮮為人知、卻極具生命力的<em>「發酵核心」</em>，<br><br>
     足以顛覆市場的<em>既定印象</em>？
   </p>
+</div>
 </section>
 
 <!-- §6 FOOTER -->
-<section id="footer">
+<section id="footer"><div class="content-wrap">
   <div class="f-big">微醺<br>連結<span class="ac">。</span></div>
 
   <div class="f-venues">
@@ -474,6 +489,7 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--white);color:var(--i
       <li><a href="#sensory">搭配</a></li>
     </ul>
   </div>
+</div>
 </section>
 
 <!-- 聯名品牌 LOGO 列 -->
