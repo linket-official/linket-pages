@@ -5,15 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>夢螢｜嵐爵私選 × LINKet</title>
 <meta name="description" content="來自福岡縣大賀酒造，福岡夢酵母釀造，酒精9%，甜酸可口如螢火蟲閃爍的夏夜。嵐爵私選微醺連結活動限定酒款。">
-
-<!-- OG Meta Tags -->
 <meta property="og:title" content="夢螢｜嵐爵私選 × LINKet">
 <meta property="og:description" content="來自福岡縣大賀酒造，福岡夢酵母釀造，酒精9%，甜酸可口如螢火蟲閃爍的夏夜。嵐爵私選微醺連結活動限定酒款。">
 <meta property="og:image" content="https://linket.app/lanjue/yumebotaru/og-image.jpg">
 <meta property="og:url" content="https://linket.app/lanjue/yumebotaru">
 <meta property="og:type" content="website">
-
-<!-- Favicon -->
 <link rel="icon" href="/lanjue/yumebotaru/favicon.png">
 <link rel="apple-touch-icon" href="/lanjue/yumebotaru/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,7 +28,6 @@
   --inkf:#8899AA;
   --cream:#F8F2E4;
   --white:#FFFFFF;
-  --glow:rgba(201,168,76,.18);
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -47,53 +42,37 @@ body{font-family:'Noto Serif TC',serif;background:var(--night);color:var(--cream
 
 /* ── HERO ── */
 #hero{
-  position:relative;
-  width:100%;min-height:100svh;
+  position:relative;width:100%;min-height:100svh;
   display:flex;flex-direction:column;
   align-items:center;justify-content:center;
   overflow:hidden;
   background:radial-gradient(ellipse 90% 80% at 50% 30%, #1B2E4A 0%, #0D1B2A 60%, #060E18 100%);
 }
-
-/* Firefly particles */
 .fireflies{position:absolute;inset:0;z-index:1;pointer-events:none;}
 .ff{
-  position:absolute;
-  width:3px;height:3px;border-radius:50%;
-  background:var(--firefly);
-  box-shadow:0 0 6px 2px rgba(255,229,102,.6);
-  animation:ffloat var(--dur,8s) ease-in-out var(--delay,0s) infinite;
-  opacity:0;
+  position:absolute;width:3px;height:3px;border-radius:50%;
+  background:var(--firefly);box-shadow:0 0 6px 2px rgba(255,229,102,.6);
+  animation:ffloat var(--dur,8s) ease-in-out var(--delay,0s) infinite;opacity:0;
 }
 @keyframes ffloat{
   0%{opacity:0;transform:translate(0,0);}
-  15%{opacity:.9;}
-  50%{opacity:.4;transform:translate(var(--tx,20px),var(--ty,-40px));}
-  85%{opacity:.8;}
-  100%{opacity:0;transform:translate(var(--tx2,10px),var(--ty2,-80px));}
+  15%{opacity:.9;}50%{opacity:.4;transform:translate(var(--tx,20px),var(--ty,-40px));}
+  85%{opacity:.8;}100%{opacity:0;transform:translate(var(--tx2,10px),var(--ty2,-80px));}
 }
-
-/* Gold bokeh rings */
 .bokeh{position:absolute;border-radius:50%;pointer-events:none;z-index:1;}
 .bokeh-1{width:180px;height:180px;top:15%;left:10%;background:radial-gradient(circle,rgba(201,168,76,.08) 0%,transparent 70%);animation:pulse 6s ease-in-out infinite;}
 .bokeh-2{width:120px;height:120px;top:60%;right:8%;background:radial-gradient(circle,rgba(201,168,76,.06) 0%,transparent 70%);animation:pulse 8s ease-in-out 2s infinite;}
 .bokeh-3{width:80px;height:80px;top:30%;right:20%;background:radial-gradient(circle,rgba(255,229,102,.1) 0%,transparent 70%);animation:pulse 5s ease-in-out 1s infinite;}
 @keyframes pulse{0%,100%{transform:scale(1);opacity:.6;}50%{transform:scale(1.3);opacity:1;}}
-
-/* Hero circle glow behind bottle */
 .hero-circle{
-  position:absolute;top:50%;left:50%;
-  transform:translate(-50%,-58%);
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-58%);
   width:clamp(260px,68vw,420px);height:clamp(260px,68vw,420px);
   border-radius:50%;
   background:radial-gradient(circle,rgba(201,168,76,.12) 0%,rgba(201,168,76,.04) 40%,transparent 70%);
-  border:1px solid rgba(201,168,76,.08);
-  z-index:1;pointer-events:none;
+  border:1px solid rgba(201,168,76,.08);z-index:1;pointer-events:none;
   animation:glowpulse 5s ease-in-out infinite;
 }
 @keyframes glowpulse{0%,100%{box-shadow:0 0 40px rgba(201,168,76,.08);}50%{box-shadow:0 0 80px rgba(201,168,76,.18);}}
-
-/* Bottle photo */
 .hero-bottle-full{
   position:relative;z-index:2;
   display:flex;align-items:center;justify-content:center;
@@ -106,12 +85,13 @@ body{font-family:'Noto Serif TC',serif;background:var(--night);color:var(--cream
 }
 @keyframes bob{0%,100%{transform:translateY(0)rotate(-.6deg);}50%{transform:translateY(-16px)rotate(.6deg);}}
 
-/* Name block */
+/* ▼ 版型修正：hero 文字區置中 */
 .hero-name-block{
   position:absolute;bottom:0;left:0;right:0;z-index:3;
   padding:3.5rem 1.6rem 2.4rem;
   background:linear-gradient(transparent,rgba(6,14,24,.96) 55%);
-  display:flex;flex-direction:column;gap:.5rem;
+  display:flex;flex-direction:column;
+  align-items:center;text-align:center;gap:.5rem;
 }
 .hname-big{
   font-family:'Shippori Mincho B1',serif;font-weight:800;
@@ -121,7 +101,8 @@ body{font-family:'Noto Serif TC',serif;background:var(--night);color:var(--cream
 }
 .hname-gold{color:var(--gold);}
 .hname-row{
-  display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1rem;
+  display:flex;flex-wrap:wrap;align-items:center;
+  justify-content:center;gap:.5rem 1rem;
   padding-top:.6rem;border-top:1px solid rgba(201,168,76,.2);
 }
 .hname-jp{font-family:'Noto Serif TC',serif;font-weight:200;font-size:clamp(.75rem,3vw,1rem);letter-spacing:.28em;color:rgba(201,168,76,.75);}
@@ -142,12 +123,16 @@ body{font-family:'Noto Serif TC',serif;background:var(--night);color:var(--cream
 /* ── SECTIONS ── */
 .sec{padding:4rem 1.4rem;background:var(--night2);}
 .sec+.sec{border-top:1px solid rgba(201,168,76,.08);}
+
+/* ▼ 版型修正：680px content-wrap */
+.content-wrap{max-width:680px;margin:0 auto;}
+
 .eyebrow{display:flex;align-items:center;gap:.6rem;margin-bottom:2rem;}
 .eyebrow h2{font-family:'Shippori Mincho B1',serif;font-weight:700;font-size:clamp(.95rem,4vw,1.3rem);letter-spacing:.18em;color:var(--cream);}
 .eyebrow span{color:var(--gold);font-weight:900;font-size:1.1rem;}
 .divider{height:1px;background:linear-gradient(90deg,var(--gold),transparent);width:60px;margin:1.5rem 0;opacity:.4;}
 
-/* ── ABOUT / NARRATIVE ── */
+/* ── ABOUT ── */
 #about{background:var(--night2);}
 .about-body p{
   font-family:'Noto Serif TC',serif;font-weight:200;
@@ -160,6 +145,7 @@ body{font-family:'Noto Serif TC',serif;background:var(--night);color:var(--cream
 .photo-box img{width:100%;height:100%;object-fit:cover;filter:saturate(.2)contrast(1.1)brightness(.85);transition:filter .5s;}
 .photo-box:hover img{filter:saturate(.5)contrast(1.05)brightness(.9);}
 .photo-box::after{content:'';position:absolute;inset:0;background:rgba(201,168,76,.06);mix-blend-mode:screen;pointer-events:none;}
+.food-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;background:var(--night3);}
 
 /* ── SPECS ── */
 #specs{background:linear-gradient(180deg,var(--night) 0%,var(--night2) 100%);}
@@ -193,38 +179,18 @@ body{font-family:'Noto Serif TC',serif;background:var(--night);color:var(--cream
 .food-box:hover img{filter:saturate(.55)brightness(.9);transform:scale(1.04);}
 .food-box::after{content:'';position:absolute;inset:0;background:rgba(201,168,76,.05);mix-blend-mode:screen;pointer-events:none;}
 .food-lbl{position:absolute;bottom:0;left:0;right:0;padding:.5rem .7rem;background:linear-gradient(transparent,rgba(6,14,24,.88));font-family:'Noto Serif TC',serif;font-weight:200;font-size:.65rem;letter-spacing:.14em;color:rgba(248,242,228,.8);}
-.food-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;background:var(--night3);}
 
 /* ── INSIGHT ── */
-#insight{
-  background:var(--ink);
-  padding:5rem 1.4rem;
-  position:relative;overflow:hidden;
-}
-#insight::before{
-  content:'';position:absolute;
-  top:50%;left:50%;transform:translate(-50%,-50%);
-  width:300px;height:300px;border-radius:50%;
-  background:radial-gradient(circle,rgba(201,168,76,.1) 0%,transparent 70%);
-  pointer-events:none;z-index:0;
-}
+#insight{background:var(--ink);padding:5rem 1.4rem;position:relative;overflow:hidden;}
+#insight::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.1) 0%,transparent 70%);pointer-events:none;z-index:0;}
 #insight .eyebrow{position:relative;z-index:1;}
 #insight .eyebrow h2{color:rgba(201,168,76,.85);}
-.i-q{
-  position:relative;z-index:1;
-  font-family:'Noto Serif TC',serif;font-weight:200;
-  font-size:clamp(.72rem,2.8vw,.88rem);line-height:3;letter-spacing:.08em;
-  color:rgba(248,242,228,.65);
-}
+.i-q{position:relative;z-index:1;font-family:'Noto Serif TC',serif;font-weight:200;font-size:clamp(.72rem,2.8vw,.88rem);line-height:3;letter-spacing:.08em;color:rgba(248,242,228,.65);}
 .i-q em{font-style:normal;color:var(--gold2);}
 
 /* ── FOOTER ── */
 #footer{background:linear-gradient(170deg,var(--night2) 0%,var(--night) 100%);padding:4rem 1.4rem 3.5rem;}
-.f-big{
-  font-family:'Shippori Mincho B1',serif;font-weight:800;
-  font-size:clamp(2.8rem,13vw,7rem);line-height:.92;letter-spacing:.04em;
-  color:var(--cream);margin-bottom:.15em;
-}
+.f-big{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:clamp(2.8rem,13vw,7rem);line-height:.92;letter-spacing:.04em;color:var(--cream);margin-bottom:.15em;}
 .f-big .ac{color:var(--gold);}
 .f-venues{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;border-top:1px solid rgba(201,168,76,.15);border-bottom:1px solid rgba(201,168,76,.15);padding:1.4rem 0;margin:1.8rem 0;}
 .f-venue-item{display:flex;flex-direction:column;gap:.3rem;padding:.6rem;border-right:1px solid rgba(201,168,76,.08);}
@@ -252,16 +218,10 @@ body{font-family:'Noto Serif TC',serif;background:var(--night);color:var(--cream
 .f-nav{display:flex;gap:1.2rem;list-style:none;}
 .f-nav a{font-family:'Cormorant Garamond',serif;font-size:.72rem;letter-spacing:.15em;color:rgba(201,168,76,.5);text-decoration:none;text-transform:uppercase;}
 
-/* AMBIENT BTN */
-#amb{position:fixed;bottom:1.2rem;right:1.2rem;z-index:300;width:38px;height:38px;border-radius:50%;border:1px solid rgba(201,168,76,.3);background:rgba(13,27,42,.8);backdrop-filter:blur(8px);font-size:.85rem;cursor:pointer;display:flex;align-items:center;justify-content:center;}
-
-/* VENUE FOLLOW LINK */
+/* VENUE FOLLOW */
 .venue-follow{display:inline-block;font-family:'Noto Sans TC',sans-serif;font-weight:500;font-size:.65rem;letter-spacing:.14em;color:var(--night);background:var(--gold);text-decoration:none;padding:.3rem .75rem;border-radius:2px;margin-top:.3rem;transition:background .2s,transform .15s;}
 .venue-follow:hover{background:var(--gold2);transform:translateY(-1px);}
 @media(max-width:600px){.venue-follow{margin-top:0;white-space:nowrap;}}
-
-/* LEGAL BAR */
-.legal-bar{background:#000;color:#fff;text-align:center;padding:1rem 1.4rem;font-family:'Noto Serif TC',serif;font-weight:200;font-size:1rem;letter-spacing:.14em;line-height:2.2;}
 
 /* PARTNER BAR */
 .partner-bar{background:#000;display:flex;align-items:center;justify-content:center;gap:clamp(1.2rem,4vw,3rem);padding:1.6rem 1.4rem;border-top:1px solid rgba(255,255,255,.08);}
@@ -272,11 +232,19 @@ body{font-family:'Noto Serif TC',serif;background:var(--night);color:var(--cream
   .partner-bar{gap:clamp(.8rem,3vw,1.6rem);padding:1.2rem .8rem;flex-wrap:wrap;}
   .partner-logo img{height:10px;}
 }
+
+/* LEGAL BAR */
+.legal-bar{background:#000;color:rgba(255,255,255,.55);text-align:center;padding:.9rem 1.4rem;font-family:'Noto Serif TC',serif;font-weight:200;font-size:.58rem;letter-spacing:.14em;line-height:2.2;}
+
+/* ── DESKTOP RWD ── */
+@media(min-width:800px){
+  .sec{padding:5rem 2rem;}
+  #insight{padding:6rem 2rem;}
+  #footer{padding:5rem 2rem 4rem;}
+}
 </style>
 </head>
 <body>
-
-
 
 <!-- TICKER -->
 <div class="ticker">
@@ -298,26 +266,15 @@ body{font-family:'Noto Serif TC',serif;background:var(--night);color:var(--cream
 
 <!-- §1 HERO -->
 <section id="hero">
-  <!-- Bokeh glows -->
   <div class="bokeh bokeh-1"></div>
   <div class="bokeh bokeh-2"></div>
   <div class="bokeh bokeh-3"></div>
-
-  <!-- Firefly particles -->
   <div class="fireflies" id="fireflies"></div>
-
-  <!-- Circle glow behind bottle -->
   <div class="hero-circle"></div>
-
-  <!-- Bottle -->
   <div class="hero-bottle-full">
-    <img
-      src="/lanjue/yumebotaru/yumebotaru-bottle.png"
-      alt="夢螢 Yumebotaru"
-    >
+    <img src="/lanjue/yumebotaru/yumebotaru-bottle.png" alt="夢螢 Yumebotaru"
+      onerror="this.style.display='none'">
   </div>
-
-  <!-- Name overlay -->
   <div class="hero-name-block">
     <div class="hname-big">夢<span class="hname-gold">螢</span></div>
     <div class="hname-row">
@@ -326,218 +283,164 @@ body{font-family:'Noto Serif TC',serif;background:var(--night);color:var(--cream
       <span class="hname-en">Yumebotaru</span>
     </div>
     <p class="hero-slogan">在黑夜中閃爍的，是未曾熄滅的初心。</p>
-    <div class="hero-scroll-hint">
-      <span class="scroll-dot"></span>
-      <span>Scroll</span>
-    </div>
+    <div class="hero-scroll-hint"><span class="scroll-dot"></span><span>Scroll</span></div>
   </div>
 </section>
 
-<!-- §2 ABOUT / NARRATIVE -->
+<!-- §2 ABOUT -->
 <section id="about" class="sec">
-  <div class="eyebrow">
-    <h2>關於夢螢</h2><span>✦</span>
-  </div>
-  <div class="about-body">
-    <p>請閉上眼，想像自己站在<strong>福岡筑紫野</strong>的田野間。立春剛過，空氣中還帶著一絲涼意，遠處隱約傳來溪流聲。這支酒是為了迎接<strong>螢火蟲季節</strong>而生的限定禮物。輕啜一口，你會感覺到像是在月光下閃爍的微光，那種<strong>甜酸交織的清新</strong>，正是一場關於夏天的夢境開始。</p>
-  </div>
-  <div class="photo-row">
-    <div class="photo-box">
-      <img
-        src="/lanjue/yumebotaru/japan-night-1.jpg"
-        alt="日本夏夜風景"
-        loading="lazy"
-        onerror="this.parentElement.innerHTML='<div class=\'food-placeholder\'>🌙</div>'"
-      >
+  <div class="content-wrap">
+    <div class="eyebrow"><h2>關於夢螢</h2><span>✦</span></div>
+    <div class="about-body">
+      <p>請閉上眼，想像自己站在<strong>福岡筑紫野</strong>的田野間。立春剛過，空氣中還帶著一絲涼意，遠處隱約傳來溪流聲。這支酒是為了迎接<strong>螢火蟲季節</strong>而生的限定禮物。輕啜一口，你會感覺到像是在月光下閃爍的微光，那種<strong>甜酸交織的清新</strong>，正是一場關於夏天的夢境開始。</p>
     </div>
-    <div class="photo-box">
-      <img
-        src="/lanjue/yumebotaru/japan-night-2.jpg"
-        alt="日本螢火蟲田野"
-        loading="lazy"
-        onerror="this.parentElement.innerHTML='<div class=\'food-placeholder\'>✨</div>'"
-      >
+    <div class="photo-row">
+      <div class="photo-box">
+        <img src="/lanjue/yumebotaru/japan-night-1.jpg" alt="日本夏夜風景" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=\'food-placeholder\'>🌙</div>'">
+      </div>
+      <div class="photo-box">
+        <img src="/lanjue/yumebotaru/japan-night-2.jpg" alt="日本螢火蟲田野" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=\'food-placeholder\'>✨</div>'">
+      </div>
     </div>
   </div>
 </section>
 
-<!-- §3 SENSORY (moved above specs) -->
+<!-- §3 SENSORY -->
 <section id="sensory" class="sec">
-  <div class="eyebrow">
-    <h2>聽覺與味覺</h2><span>✦</span>
-  </div>
-
-  <div class="spotify-wrap">
-    <p class="spotify-label">🎵 聽見夢想閃爍的聲音</p>
-    <iframe width="100%" height="215" src="https://www.youtube.com/embed/S8I0MdfBvbs?si=U2rQEyTaRyTiIIj7&controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius:12px;display:block;"></iframe>
-  </div>
-
-  <div class="food-grid">
-    <div class="food-box">
-      <img
-        src="/lanjue/yumebotaru/food-seafood.jpg"
-        alt="海鮮沙拉"
-        loading="lazy"
-        onerror="this.parentElement.innerHTML='<div class=\'food-placeholder\'>🥗</div><p class=\'food-lbl\'>海鮮沙拉</p>'"
-      >
-      <p class="food-lbl">海鮮沙拉</p>
+  <div class="content-wrap">
+    <div class="eyebrow"><h2>聽覺與味覺</h2><span>✦</span></div>
+    <div class="spotify-wrap">
+      <p class="spotify-label">🎵 聽見夢想閃爍的聲音</p>
+      <iframe width="100%" height="215" src="https://www.youtube.com/embed/S8I0MdfBvbs?si=U2rQEyTaRyTiIIj7&controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius:12px;display:block;"></iframe>
     </div>
-    <div class="food-box">
-      <img
-        src="/lanjue/yumebotaru/food-sashimi.jpg"
-        alt="生魚片"
-        loading="lazy"
-        onerror="this.parentElement.innerHTML='<div class=\'food-placeholder\'>🐟</div><p class=\'food-lbl\'>生魚片・輕起司</p>'"
-      >
-      <p class="food-lbl">生魚片・輕起司</p>
+    <div class="food-grid">
+      <div class="food-box">
+        <img src="/lanjue/yumebotaru/food-seafood.jpg" alt="海鮮沙拉" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=\'food-placeholder\'>🥗</div><p class=\'food-lbl\'>海鮮沙拉</p>'">
+        <p class="food-lbl">海鮮沙拉</p>
+      </div>
+      <div class="food-box">
+        <img src="/lanjue/yumebotaru/food-sashimi.jpg" alt="生魚片" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=\'food-placeholder\'>🐟</div><p class=\'food-lbl\'>生魚片・輕起司</p>'">
+        <p class="food-lbl">生魚片・輕起司</p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- §4 SPECS -->
 <section id="specs" class="sec">
-  <div class="eyebrow">
-    <h2>職人與工法</h2><span>✦</span>
-  </div>
-
-  <!-- Glowing ring chart -->
-  <div class="ring-wrap">
-    <div class="ring-chart">
-      <svg viewBox="0 0 120 120">
-        <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(201,168,76,.08)" stroke-width="8"/>
-        <circle cx="60" cy="60" r="50" fill="none" stroke="url(#goldGrad)" stroke-width="8"
-          stroke-dasharray="283" stroke-dashoffset="54"
-          stroke-linecap="round"
-          transform="rotate(-90 60 60)"/>
-        <defs>
-          <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#C9A84C"/>
-            <stop offset="100%" stop-color="#F5E6B8"/>
-          </linearGradient>
-        </defs>
-      </svg>
-      <div class="ring-val">9%<span>alc/vol</span></div>
+  <div class="content-wrap">
+    <div class="eyebrow"><h2>職人與工法</h2><span>✦</span></div>
+    <div class="ring-wrap">
+      <div class="ring-chart">
+        <svg viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(201,168,76,.08)" stroke-width="8"/>
+          <circle cx="60" cy="60" r="50" fill="none" stroke="url(#goldGrad)" stroke-width="8"
+            stroke-dasharray="283" stroke-dashoffset="54" stroke-linecap="round" transform="rotate(-90 60 60)"/>
+          <defs>
+            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#C9A84C"/><stop offset="100%" stop-color="#F5E6B8"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="ring-val">9%<span>alc/vol</span></div>
+      </div>
     </div>
-  </div>
-
-  <table class="spec-table">
-    <tr><td>酒名</td><td>大賀 夢螢 <em style="font-family:'Cormorant Garamond',serif;font-style:italic;color:rgba(201,168,76,.6);font-size:.8rem;">Yumebotaru</em></td></tr>
-    <tr><td>產地</td><td>日本福岡縣</td></tr>
-    <tr><td>酒造</td><td>大賀酒造</td></tr>
-    <tr><td>米種</td><td>福岡縣產「夢一献」</td></tr>
-    <tr><td>酒精濃度</td><td>9%</td></tr>
-    <tr><td>釀造工法</td><td>使用「福岡夢酵母 1 號」，以極低溫發酵保留米香中的花果清甜</td></tr>
-    <tr><td>風味</td><td>甜酸可口、輕盈透徹，清新米香與優雅的花香尾韻</td></tr>
-    <tr><td>適飲溫度</td><td>10°C – 15°C（微涼即可，溫度稍回升能讓花香更盛）</td></tr>
-    <tr><td>醒酒時間</td><td>開瓶後建議靜置 10–20 分鐘，讓香氣從「夢境」中甦醒</td></tr>
-  </table>
-
-  <div class="tags">
-    <span class="tag">甜酸可口</span>
-    <span class="tag">清新米香</span>
-    <span class="tag">花香尾韻</span>
-    <span class="tag">輕盈透徹</span>
-    <span class="tag">低溫發酵</span>
+    <table class="spec-table">
+      <tr><td>酒名</td><td>大賀 夢螢 <em style="font-family:'Cormorant Garamond',serif;font-style:italic;color:rgba(201,168,76,.6);font-size:.8rem;">Yumebotaru</em></td></tr>
+      <tr><td>產地</td><td>日本福岡縣</td></tr>
+      <tr><td>酒造</td><td>大賀酒造</td></tr>
+      <tr><td>米種</td><td>福岡縣產「夢一献」</td></tr>
+      <tr><td>酒精濃度</td><td>9%</td></tr>
+      <tr><td>釀造工法</td><td>使用「福岡夢酵母 1 號」，以極低溫發酵保留米香中的花果清甜</td></tr>
+      <tr><td>風味</td><td>甜酸可口、輕盈透徹，清新米香與優雅的花香尾韻</td></tr>
+      <tr><td>適飲溫度</td><td>10°C – 15°C（微涼即可，溫度稍回升能讓花香更盛）</td></tr>
+      <tr><td>醒酒時間</td><td>開瓶後建議靜置 10–20 分鐘，讓香氣從「夢境」中甦醒</td></tr>
+    </table>
+    <div class="tags">
+      <span class="tag">甜酸可口</span>
+      <span class="tag">清新米香</span>
+      <span class="tag">花香尾韻</span>
+      <span class="tag">輕盈透徹</span>
+      <span class="tag">低溫發酵</span>
+    </div>
   </div>
 </section>
 
 <!-- §5 INSIGHT -->
 <section id="insight">
-  <div class="eyebrow">
-    <h2>品牌思考題</h2><span>✦</span>
+  <div class="content-wrap">
+    <div class="eyebrow"><h2>品牌思考題</h2><span>✦</span></div>
+    <p class="i-q">
+      夢想雖然細微如<em>螢火</em>，<br>
+      但在黑夜中卻最具<em>方向感</em>。<br><br>
+      你的品牌在那片商務黑夜中，<br>
+      是為了指引<em>誰</em>？<br><br>
+      你的「<em>光</em>」又是什麼？
+    </p>
   </div>
-  <p class="i-q">
-    夢想雖然細微如<em>螢火</em>，<br>
-    但在黑夜中卻最具<em>方向感</em>。<br><br>
-    你的品牌在那片商務黑夜中，<br>
-    是為了指引<em>誰</em>？<br><br>
-    你的「<em>光</em>」又是什麼？
-  </p>
 </section>
 
 <!-- §6 FOOTER -->
 <section id="footer">
-  <div class="f-big">微醺<br>連結<span class="ac">。</span></div>
-
-  <div class="f-venues">
-    <div class="f-venue-item">
-      <span class="f-venue-date">3 / 30</span>
-      <span class="f-venue-name">MuMu 咖啡</span>
-      <a href="https://linket.net/mumucafe" target="_blank" class="venue-follow">追蹤 →</a>
+  <div class="content-wrap">
+    <div class="f-big">微醺<br>連結<span class="ac">。</span></div>
+    <div class="f-venues">
+      <div class="f-venue-item">
+        <span class="f-venue-date">3 / 30</span>
+        <span class="f-venue-name">MuMu 咖啡</span>
+        <a href="https://linket.net/mumucafe" target="_blank" class="venue-follow">追蹤 →</a>
+      </div>
+      <div class="f-venue-item">
+        <span class="f-venue-date">4 / 07</span>
+        <span class="f-venue-name">山上山下<br>埔里店</span>
+        <a href="https://www.instagram.com/3s3s.tw" target="_blank" class="venue-follow">追蹤 →</a>
+      </div>
+      <div class="f-venue-item">
+        <span class="f-venue-date">4 / 11</span>
+        <span class="f-venue-name">坐客咖啡</span>
+        <a href="https://linket.net/zouke-cafe" target="_blank" class="venue-follow">追蹤 →</a>
+      </div>
     </div>
-    <div class="f-venue-item">
-      <span class="f-venue-date">4 / 07</span>
-      <span class="f-venue-name">山上山下<br>埔里店</span>
-      <a href="https://www.instagram.com/3s3s.tw" target="_blank" class="venue-follow">追蹤 →</a>
+    <div class="f-btns">
+      <a href="https://forms.gle/fD3LVGXcFnMQswRJ6" target="_blank" class="btn-fill gold">📅 預約下一場微醺</a>
+      <a href="https://lin.ee/UgaIhG7" target="_blank" class="btn-fill dark">🍶 立即聯繫嵐爵私選下單</a>
+      <a href="https://lin.ee/19k6X29" target="_blank" class="btn-fill outline">💳 LINKet 品牌數位化服務</a>
     </div>
-    <div class="f-venue-item">
-      <span class="f-venue-date">4 / 11</span>
-      <span class="f-venue-name">坐客咖啡</span>
-      <a href="https://linket.net/zouke-cafe" target="_blank" class="venue-follow">追蹤 →</a>
+    <div class="f-fine">
+      <span class="f-brand">夢螢 YUMEBOTARU</span>
+      <ul class="f-nav">
+        <li><a href="#about">關於</a></li>
+        <li><a href="#specs">工法</a></li>
+        <li><a href="#sensory">搭配</a></li>
+      </ul>
     </div>
-  </div>
-
-  <div class="f-btns">
-    <a href="https://forms.gle/fD3LVGXcFnMQswRJ6" target="_blank" class="btn-fill gold">📅 預約下一場微醺</a>
-    <a href="https://lin.ee/UgaIhG7" target="_blank" class="btn-fill dark">🍶 立即聯繫嵐爵私選下單</a>
-    <a href="https://lin.ee/19k6X29" target="_blank" class="btn-fill outline">💳 LINKet 品牌數位化服務</a>
-  </div>
-
-  <div class="f-fine">
-    <span class="f-brand">夢螢 YUMEBOTARU</span>
-    <ul class="f-nav">
-      <li><a href="#about">關於</a></li>
-      <li><a href="#specs">工法</a></li>
-      <li><a href="#sensory">搭配</a></li>
-    </ul>
   </div>
 </section>
 
-<!-- 聯名品牌 LOGO 列 -->
 <div class="partner-bar">
-  <a href="https://lin.ee/19k6X29" target="_blank" class="partner-logo">
-    <img src="/home/assets/logo-lanjue.svg" alt="嵐爵">
-  </a>
-  <a href="https://linket.net/mumucafe" target="_blank" class="partner-logo">
-    <img src="/home/assets/logo-mumu.svg" alt="MuMu咖啡">
-  </a>
-  <a href="https://linket.net/zouke-cafe" target="_blank" class="partner-logo">
-    <img src="/home/assets/logo-zuoke.svg" alt="坐客咖啡">
-  </a>
-  <a href="https://www.instagram.com/3s3s.tw" target="_blank" class="partner-logo">
-    <img src="/home/assets/logo-emo.svg" alt="山上山下">
-  </a>
-  <a href="https://lin.ee/19k6X29" target="_blank" class="partner-logo">
-    <img src="/home/assets/logo-linket.svg" alt="LINKet">
-  </a>
+  <a href="https://lin.ee/19k6X29" target="_blank" class="partner-logo"><img src="/home/assets/logo-lanjue.svg" alt="嵐爵"></a>
+  <a href="https://linket.net/mumucafe" target="_blank" class="partner-logo"><img src="/home/assets/logo-mumu.svg" alt="MuMu咖啡"></a>
+  <a href="https://linket.net/zouke-cafe" target="_blank" class="partner-logo"><img src="/home/assets/logo-zuoke.svg" alt="坐客咖啡"></a>
+  <a href="https://www.instagram.com/3s3s.tw" target="_blank" class="partner-logo"><img src="/home/assets/logo-emo.svg" alt="山上山下"></a>
+  <a href="https://lin.ee/19k6X29" target="_blank" class="partner-logo"><img src="/home/assets/logo-linket.svg" alt="LINKet"></a>
 </div>
 
-<!-- 法規警語 -->
 <div class="legal-bar">
   飲酒勿開車｜未滿十八歲者，禁止飲酒｜本品牌不販賣酒予未滿十八歲者｜飲酒過量有害健康
 </div>
 
 <script>
-// Generate fireflies
 const container = document.getElementById('fireflies');
-for(let i = 0; i < 28; i++){
-  const ff = document.createElement('div');
-  ff.className = 'ff';
-  ff.style.cssText = `
-    left:${Math.random()*100}%;
-    top:${20 + Math.random()*70}%;
-    --dur:${6 + Math.random()*8}s;
-    --delay:${Math.random()*6}s;
-    --tx:${(Math.random()-0.5)*60}px;
-    --ty:${-20 - Math.random()*60}px;
-    --tx2:${(Math.random()-0.5)*40}px;
-    --ty2:${-60 - Math.random()*40}px;
-    width:${2 + Math.random()*2}px;
-    height:${2 + Math.random()*2}px;
-  `;
+for(let i=0;i<28;i++){
+  const ff=document.createElement('div');
+  ff.className='ff';
+  ff.style.cssText=`left:${Math.random()*100}%;top:${20+Math.random()*70}%;--dur:${6+Math.random()*8}s;--delay:${Math.random()*6}s;--tx:${(Math.random()-.5)*60}px;--ty:${-20-Math.random()*60}px;--tx2:${(Math.random()-.5)*40}px;--ty2:${-60-Math.random()*40}px;width:${2+Math.random()*2}px;height:${2+Math.random()*2}px;`;
   container.appendChild(ff);
 }
 </script>
-
 </body>
 </html>
