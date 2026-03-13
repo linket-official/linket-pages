@@ -173,8 +173,18 @@ body{font-family:'Noto Serif TC',serif;background:var(--mint);color:var(--ink);o
   100%{opacity:0;transform:scale(1.15);}
 }
 
+/* ── 桌機內容容器：680px 置中，手機全寬 ── */
+.content-wrap{
+  max-width:680px;
+  margin:0 auto;
+  width:100%;
+}
+
 /* SECTIONS — mint background */
 .sec{padding:4rem 1.4rem;background:var(--mint);}
+@media(min-width:700px){
+  .sec{padding:5rem 2rem;}
+}
 .sec+.sec{border-top:1px solid rgba(0,105,92,.12);}
 .eyebrow{display:flex;align-items:center;gap:.6rem;margin-bottom:2rem;}
 .eyebrow h2{font-family:'Shippori Mincho B1',serif;font-weight:700;font-size:clamp(.95rem,4vw,1.3rem);letter-spacing:.18em;color:var(--ink);}
@@ -232,6 +242,7 @@ body{font-family:'Noto Serif TC',serif;background:var(--mint);color:var(--ink);o
 
 /* INSIGHT */
 #insight{background:var(--ink);padding:4rem 1.4rem;}
+@media(min-width:700px){#insight{padding:5rem 2rem;}}
 #insight .eyebrow h2{color:var(--mint2);font-family:'Shippori Mincho B1',serif;}
 #insight .eyebrow span{color:var(--acc);}
 .insight-inner{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;}
@@ -243,6 +254,7 @@ body{font-family:'Noto Serif TC',serif;background:var(--mint);color:var(--ink);o
 
 /* FOOTER */
 #footer{background:linear-gradient(150deg,var(--mint) 0%,var(--white) 100%);padding:4rem 1.4rem 3.5rem;}
+@media(min-width:700px){#footer{padding:5rem 2rem 4rem;}}
 .f-big{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:clamp(2.8rem,13vw,7rem);line-height:.92;letter-spacing:.04em;color:var(--ink);margin-bottom:.15em;}
 .f-big .ac{color:var(--acc);}
 .f-venues{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;border-top:1px solid rgba(0,105,92,.15);border-bottom:1px solid rgba(0,105,92,.15);padding:1.4rem 0;margin:1.8rem 0;}
@@ -353,6 +365,7 @@ body{font-family:'Noto Serif TC',serif;background:var(--mint);color:var(--ink);o
 
 <!-- §2 ABOUT -->
 <section id="about" class="sec">
+  <div class="content-wrap">
   <div class="eyebrow">
     <h2>關於木陰之魚</h2><span>✦</span>
   </div>
@@ -378,10 +391,12 @@ body{font-family:'Noto Serif TC',serif;background:var(--mint);color:var(--ink);o
       >
     </div>
   </div>
+  </div>
 </section>
 
 <!-- §3 SENSORY (moved above specs) -->
 <section id="sensory" class="sec">
+  <div class="content-wrap">
   <div class="eyebrow">
     <h2>聽覺與味覺</h2><span>✦</span>
   </div>
@@ -411,10 +426,12 @@ body{font-family:'Noto Serif TC',serif;background:var(--mint);color:var(--ink);o
       <p class="food-lbl">清爽沙拉・開胃酒</p>
     </div>
   </div>
+  </div>
 </section>
 
 <!-- §4 SPECS -->
 <section id="specs" class="sec">
+  <div class="content-wrap">
   <div class="eyebrow">
     <h2>職人與工法</h2><span>✦</span>
   </div>
@@ -440,10 +457,12 @@ body{font-family:'Noto Serif TC',serif;background:var(--mint);color:var(--ink);o
     <span class="tag">輕盈甜潤</span>
     <span class="tag">極致果酸</span>
   </div>
+  </div>
 </section>
 
 <!-- §5 INSIGHT -->
 <section id="insight">
+  <div class="content-wrap">
   <div class="eyebrow">
     <h2>品牌思考題</h2><span>✦</span>
   </div>
@@ -453,10 +472,12 @@ body{font-family:'Noto Serif TC',serif;background:var(--mint);color:var(--ink);o
     你的品牌，<br>為客戶提供了什麼樣的「<em>樹蔭</em>」？<br><br>
     你解決了他們生活中<br>哪一種難以言喻的「<em>燥熱</em>」？
   </p>
+  </div>
 </section>
 
 <!-- §6 FOOTER -->
 <section id="footer">
+  <div class="content-wrap">
   <div class="f-big">微醺<br>連結<span class="ac">。</span></div>
 
   <div class="f-venues">
@@ -490,6 +511,7 @@ body{font-family:'Noto Serif TC',serif;background:var(--mint);color:var(--ink);o
       <li><a href="#specs">工法</a></li>
       <li><a href="#sensory">搭配</a></li>
     </ul>
+  </div>
   </div>
 </section>
 
