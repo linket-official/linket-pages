@@ -37,15 +37,67 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{font-size:16px;-webkit-text-size-adjust:100%;}
-body{background:var(--paper);color:var(--text);font-family:'Noto Sans TC',sans-serif;font-weight:300;min-height:100vh;overflow-x:hidden;}
+body{background:#0d0d0d;color:var(--text);font-family:'Noto Sans TC',sans-serif;font-weight:300;min-height:100vh;overflow-x:hidden;}
 input,textarea,select{font-family:'Noto Sans TC',sans-serif;font-size:.88rem;}
 button{cursor:pointer;font-family:'Noto Sans TC',sans-serif;}
 img{display:block;}
 
-.page-wrap{max-width:480px;margin:0 auto;min-height:100vh;background:var(--paper);position:relative;}
+.page-wrap{max-width:480px;margin:0 auto;min-height:100vh;background:#111;position:relative;}
+
+/* ── 桌機 RWD：800px 以上展開，商品多欄排列 ── */
+@media(min-width:800px){
+  .page-wrap{
+    max-width:1000px;
+    box-shadow:0 0 80px rgba(0,0,0,.5);
+  }
+  /* LINKet 方案也改 2 欄 */
+  .plans-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1rem;
+    padding:1rem 1.4rem;
+  }
+  /* 購物車、表單頁面單欄居中 */
+  #step-2,#step-3,#step-4{
+    max-width:600px;
+    margin:0 auto;
+    width:100%;
+  }
+  /* action bar 桌機版跟隨內容，不 fixed */
+  .action-bar{
+    position:static !important;
+    transform:none !important;
+    width:100% !important;
+    max-width:100% !important;
+    border-top:1px solid var(--border2);
+  }
+  .cart-bar{
+    max-width:900px;
+    left:50%;
+    transform:translateX(-50%);
+  }
+}
+
+/* ── 法規警語（header 內） ── */
+.legal-strip{
+  background:#000;
+  color:rgba(255,255,255,.55);
+  text-align:center;
+  padding:.32rem 1rem;
+  font-family:'Noto Sans TC',sans-serif;
+  font-weight:300;
+  font-size:.58rem;
+  letter-spacing:.1em;
+  line-height:1.6;
+  grid-column:1/-1;
+}
+
+/* ── 底部法規警語（移除，改放 header 下方） ── */
+.legal-bar{display:none;}
 
 /* HEADER */
-.site-header{background:var(--ink);padding:1rem 1.2rem .85rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.site-header{background:var(--ink);position:sticky;top:0;z-index:200;display:flex;flex-direction:column;}
+.header-main{padding:1rem 1.2rem .85rem;display:flex;align-items:center;justify-content:space-between;}
 .header-logos{display:flex;align-items:center;gap:.7rem;}
 .header-logos img{height:17px;mix-blend-mode:screen;opacity:.95;}
 .header-sep{width:1px;height:14px;background:rgba(255,255,255,.2);}
@@ -56,50 +108,258 @@ img{display:block;}
 .cart-badge.show{display:flex;}
 
 /* STEPS */
-.steps{background:var(--paper2);border-bottom:1px solid var(--border2);padding:.7rem 1.2rem;display:flex;align-items:center;justify-content:center;}
-.step-item{display:flex;align-items:center;gap:.3rem;font-family:'Syne',sans-serif;font-size:.58rem;letter-spacing:.1em;color:var(--text3);transition:color .3s;}
+.steps{background:#0d0d0d;border-bottom:1px solid rgba(255,255,255,.07);padding:.7rem 1.2rem;display:flex;align-items:center;justify-content:center;}
+.step-item{display:flex;align-items:center;gap:.3rem;font-family:'Syne',sans-serif;font-size:.58rem;letter-spacing:.1em;color:rgba(255,255,255,.25);transition:color .3s;}
 .step-item.active{color:var(--gold);}
-.step-item.done{color:var(--text2);}
+.step-item.done{color:rgba(255,255,255,.5);}
 .step-dot{width:20px;height:20px;border-radius:50%;border:1.5px solid currentColor;display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;flex-shrink:0;}
-.step-item.active .step-dot{background:var(--gold);border-color:var(--gold);color:#fff;}
-.step-item.done .step-dot{background:var(--ink);border-color:var(--ink);color:#fff;}
-.step-connector{width:24px;height:1px;background:var(--border);margin:0 .4rem;flex-shrink:0;}
+.step-item.active .step-dot{background:var(--gold);border-color:var(--gold);color:#000;}
+.step-item.done .step-dot{background:rgba(255,255,255,.5);border-color:rgba(255,255,255,.5);color:#000;}
+.step-connector{width:24px;height:1px;background:rgba(255,255,255,.1);margin:0 .4rem;flex-shrink:0;}
 
 /* SECTION HEAD */
-.section-head{padding:1.4rem 1.2rem .6rem;border-bottom:1px solid var(--border2);}
-.section-head h2{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;letter-spacing:.04em;color:var(--ink);margin-bottom:.1rem;}
-.section-head p{font-size:.75rem;color:var(--text3);letter-spacing:.04em;}
+.section-head{padding:1.4rem 1.2rem .6rem;border-bottom:1px solid rgba(255,255,255,.07);}
+.section-head h2{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;letter-spacing:.04em;color:rgba(255,255,255,.9);margin-bottom:.1rem;}
+.section-head p{font-size:.75rem;color:rgba(255,255,255,.35);letter-spacing:.04em;}
 
 /* CAT TABS */
-.cat-tabs{display:flex;border-bottom:1px solid var(--border);padding:0 1.2rem;background:var(--paper);gap:.5rem;}
-.cat-tab{font-family:'Noto Sans TC',sans-serif;font-size:.88rem;font-weight:500;padding:1rem 1.2rem;color:var(--text3);background:none;border:none;border-bottom:3px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s;white-space:nowrap;flex:1;text-align:center;}
+.cat-tabs{display:flex;border-bottom:1px solid rgba(255,255,255,.07);padding:0 1.2rem;background:#111;gap:.5rem;}
+.cat-tab{font-family:'Noto Sans TC',sans-serif;font-size:.88rem;font-weight:500;padding:1rem 1.2rem;color:rgba(255,255,255,.3);background:none;border:none;border-bottom:3px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s;white-space:nowrap;flex:1;text-align:center;}
 .cat-tab.active{color:var(--gold);border-bottom-color:var(--gold);}
-.cat-tab:hover{color:var(--text);}
+.cat-tab:hover{color:rgba(255,255,255,.7);}
 
-/* PRODUCT CARDS */
-.products-list{padding:.8rem 1.2rem;display:flex;flex-direction:column;gap:.8rem;}
-.prod-card{background:#fff;border:1px solid var(--border2);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);transition:box-shadow .2s,border-color .2s;}
-.prod-card:hover{box-shadow:var(--shadow2);border-color:var(--border);}
-.prod-card.in-cart{border-color:var(--gold-border);background:rgba(184,151,90,.05);}
-.prod-inner{display:flex;align-items:stretch;}
-.prod-img-wrap{width:90px;height:120px;flex-shrink:0;background:var(--paper2);display:flex;align-items:center;justify-content:center;overflow:hidden;}
-.prod-img-wrap img{width:100%;height:100%;object-fit:contain;padding:6px;}
-.prod-img-placeholder{font-size:2rem;}
-.prod-body{flex:1;padding:.85rem .9rem .85rem .75rem;display:flex;flex-direction:column;gap:.2rem;}
-.prod-meta{display:flex;align-items:center;gap:.4rem;margin-bottom:.15rem;}
-.prod-origin{font-family:'Syne',sans-serif;font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text3);}
-.prod-type-dot{width:3px;height:3px;border-radius:50%;background:var(--gold);flex-shrink:0;}
-.prod-type{font-size:.52rem;letter-spacing:.08em;color:var(--gold);}
-.prod-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:400;color:var(--ink);line-height:1.2;}
-.prod-name-en{font-family:'Cormorant Garamond',serif;font-size:.72rem;font-style:italic;color:var(--text3);letter-spacing:.06em;}
-.prod-flavor{font-size:.72rem;color:var(--text2);line-height:1.5;margin-top:.2rem;letter-spacing:.02em;}
-.prod-tags{display:flex;flex-wrap:wrap;gap:.25rem;margin-top:.3rem;}
-.prod-tag{font-size:.55rem;letter-spacing:.08em;padding:.15rem .45rem;border:1px solid var(--border);color:var(--text3);border-radius:2px;}
-.prod-footer{display:flex;align-items:center;justify-content:space-between;padding:.6rem .9rem .7rem .75rem;border-top:1px solid var(--border2);background:rgba(250,249,246,.5);}
-.prod-price{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:500;color:var(--ink);letter-spacing:.02em;}
-.prod-price span{font-size:.7rem;font-weight:300;color:var(--text3);margin-right:.15rem;}
-.prod-link{font-size:.6rem;letter-spacing:.1em;color:var(--accent);text-decoration:none;display:flex;align-items:center;gap:.25rem;border-bottom:1px solid rgba(37,53,134,.2);padding-bottom:1px;transition:color .2s;}
-.prod-link:hover{color:var(--accent2);}
+/* ══ PRODUCT CARDS — 精緻重設計 ══ */
+
+/* 各酒色彩變數 */
+#card-sekishoku{--pc-bg:#1a0a0a;--pc-circle:rgba(192,57,43,.28);--pc-accent:#C0392B;--pc-accent2:#e74c3c;--pc-tag-border:rgba(192,57,43,.35);--pc-tag-c:rgba(253,232,232,.7);--pc-text:rgba(255,255,255,.85);--pc-sub:rgba(255,255,255,.45);}
+#card-yumebotaru{--pc-bg:#060d16;--pc-circle:rgba(201,168,76,.2);--pc-accent:#C9A84C;--pc-accent2:#e2c06a;--pc-tag-border:rgba(201,168,76,.35);--pc-tag-c:rgba(201,168,76,.8);--pc-text:rgba(255,255,255,.85);--pc-sub:rgba(255,255,255,.4);}
+#card-kokage{--pc-bg:#041412;--pc-circle:rgba(0,105,92,.3);--pc-accent:#00897B;--pc-accent2:#26a69a;--pc-tag-border:rgba(0,137,123,.35);--pc-tag-c:rgba(178,223,219,.8);--pc-text:rgba(255,255,255,.85);--pc-sub:rgba(255,255,255,.4);}
+
+/* 手機：橫向名片 */
+.products-list{
+  padding:.8rem 1rem;
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+}
+.prod-card{
+  background:var(--pc-bg,var(--ink));
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 8px 32px rgba(0,0,0,.3);
+  transition:box-shadow .3s,transform .3s,border-color .3s;
+  position:relative;
+}
+.prod-card:hover{
+  box-shadow:0 16px 48px rgba(0,0,0,.4);
+  transform:translateY(-2px);
+  border-color:rgba(255,255,255,.15);
+}
+.prod-card.in-cart{
+  border-color:var(--pc-accent,var(--gold));
+  box-shadow:0 0 0 1px var(--pc-accent,var(--gold)),0 12px 40px rgba(0,0,0,.35);
+}
+
+/* 手機橫向 layout */
+.prod-inner{
+  display:flex;
+  align-items:center;
+  gap:0;
+  min-height:160px;
+}
+
+/* 圖片區：圓形色塊 */
+.prod-img-wrap{
+  width:130px;
+  min-width:130px;
+  height:160px;
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:visible;
+}
+/* 圓形色塊 */
+.prod-img-wrap::before{
+  content:'';
+  position:absolute;
+  width:110px;
+  height:110px;
+  border-radius:50%;
+  background:var(--pc-circle,rgba(255,255,255,.08));
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  filter:blur(2px);
+}
+.prod-img-wrap img{
+  position:relative;
+  z-index:1;
+  width:80px;
+  height:130px;
+  object-fit:contain;
+  filter:drop-shadow(0 8px 24px rgba(0,0,0,.5));
+}
+.prod-img-placeholder{font-size:2.5rem;position:relative;z-index:1;}
+
+/* 文字區 */
+.prod-body{
+  flex:1;
+  padding:1.2rem 1rem 1rem .4rem;
+  display:flex;
+  flex-direction:column;
+  gap:.25rem;
+  min-width:0;
+}
+.prod-meta{
+  display:flex;
+  align-items:center;
+  gap:.4rem;
+  margin-bottom:.2rem;
+}
+.prod-origin{
+  font-family:'Syne',sans-serif;
+  font-size:.5rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--pc-sub,rgba(255,255,255,.4));
+}
+.prod-type-dot{
+  width:2px;height:2px;border-radius:50%;
+  background:var(--pc-accent,var(--gold));flex-shrink:0;
+}
+.prod-type{
+  font-size:.5rem;
+  letter-spacing:.1em;
+  color:var(--pc-accent,var(--gold));
+}
+.prod-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.4rem;
+  font-weight:500;
+  color:var(--pc-text,#fff);
+  line-height:1.1;
+  letter-spacing:.04em;
+}
+.prod-name-en{
+  font-family:'Cormorant Garamond',serif;
+  font-size:.7rem;
+  font-style:italic;
+  color:var(--pc-sub,rgba(255,255,255,.4));
+  letter-spacing:.08em;
+  margin-top:.1rem;
+}
+.prod-flavor{
+  font-size:.7rem;
+  color:var(--pc-text,rgba(255,255,255,.7));
+  opacity:.7;
+  line-height:1.6;
+  margin-top:.35rem;
+  letter-spacing:.02em;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.prod-tags{
+  display:flex;flex-wrap:wrap;gap:.2rem;margin-top:.4rem;
+}
+.prod-tag{
+  font-size:.5rem;
+  letter-spacing:.08em;
+  padding:.12rem .4rem;
+  border:1px solid var(--pc-tag-border,rgba(255,255,255,.2));
+  color:var(--pc-tag-c,rgba(255,255,255,.5));
+  border-radius:2px;
+}
+
+/* 底部 footer */
+.prod-footer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:.7rem 1rem .8rem 1rem;
+  border-top:1px solid rgba(255,255,255,.07);
+  background:rgba(0,0,0,.2);
+}
+.prod-price{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.2rem;
+  font-weight:500;
+  color:var(--pc-text,#fff);
+  letter-spacing:.02em;
+}
+.prod-price span{
+  font-size:.65rem;
+  font-weight:300;
+  color:var(--pc-sub,rgba(255,255,255,.4));
+  margin-right:.15rem;
+}
+.prod-link{
+  font-size:.58rem;
+  letter-spacing:.1em;
+  color:var(--pc-accent,var(--gold));
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:.2rem;
+  border-bottom:1px solid var(--pc-tag-border,rgba(255,255,255,.2));
+  padding-bottom:1px;
+  transition:color .2s,border-color .2s;
+  margin-top:.2rem;
+}
+.prod-link:hover{color:var(--pc-accent2,#fff);}
+
+/* ── 桌機：垂直卡片，三欄並列 ── */
+@media(min-width:800px){
+  .products-list{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1.2rem;
+    padding:1.2rem 1.4rem;
+    align-items:start;
+  }
+  .prod-inner{
+    flex-direction:column;
+    align-items:center;
+    min-height:unset;
+  }
+  /* 圖片區垂直：方形比例 */
+  .prod-img-wrap{
+    width:100%;
+    height:200px;
+    min-width:unset;
+    border-bottom:1px solid rgba(255,255,255,.06);
+  }
+  .prod-img-wrap::before{
+    width:140px;
+    height:140px;
+  }
+  .prod-img-wrap img{
+    width:75px;
+    height:155px;
+  }
+  /* 文字區置中 */
+  .prod-body{
+    padding:1.1rem 1rem .8rem;
+    align-items:center;
+    text-align:center;
+  }
+  .prod-meta{justify-content:center;}
+  .prod-tags{justify-content:center;}
+  .prod-flavor{
+    -webkit-line-clamp:3;
+    text-align:center;
+  }
+  /* footer 置中 */
+  .prod-footer{
+    flex-direction:column;
+    align-items:center;
+    gap:.6rem;
+    padding:.85rem 1rem 1rem;
+  }
+}
 
 /* QTY */
 .qty-control{display:flex;align-items:center;}
@@ -257,15 +517,18 @@ img{display:block;}
 
 <!-- HEADER -->
 <header class="site-header">
-  <div class="header-logos">
-    <img id="h-logo-lanjue" alt="嵐爵">
-    <div class="header-sep"></div>
-    <img id="h-logo-linket" alt="LINKet">
+  <div class="header-main">
+    <div class="header-logos">
+      <img id="h-logo-lanjue" alt="嵐爵">
+      <div class="header-sep"></div>
+      <img id="h-logo-linket" alt="LINKet">
+    </div>
+    <div class="header-title">活動選購</div>
+    <button class="cart-btn" id="cart-toggle" aria-label="購物車">
+      🛒<span class="cart-badge" id="cart-badge">0</span>
+    </button>
   </div>
-  <div class="header-title">活動選購</div>
-  <button class="cart-btn" id="cart-toggle" aria-label="購物車">
-    🛒<span class="cart-badge" id="cart-badge">0</span>
-  </button>
+  <div class="legal-strip">飲酒勿開車｜未滿十八歲者，禁止飲酒｜本品牌不販賣酒予未滿十八歲者｜飲酒過量有害健康</div>
 </header>
 
 <!-- STEPS -->
@@ -542,7 +805,7 @@ img{display:block;}
     <div class="success-sub">請完成以下步驟，<br>Tony 會盡快與你確認訂單與付款方式。</div>
   </div>
   <div class="success-steps">
-    <div class="success-step"><div class="success-step-num">1</div><div class="success-step-text">點擊下方「<strong>下載訂單圖片</strong>」，儲存到相簿</div></div>
+    <div class="success-step"><div class="success-step-num">1</div><div class="success-step-text">點擊「<strong>下載訂單圖片</strong>」— iPhone 用戶長按圖片儲存到相簿，Android／電腦直接下載</div></div>
     <div class="success-step"><div class="success-step-num">2</div><div class="success-step-text">點擊「<strong>加入 LINKet LINE</strong>」，加好友後傳送訂單圖片</div></div>
     <div class="success-step"><div class="success-step-num">3</div><div class="success-step-text">Tony 將在 LINE 上確認訂單並提供<strong>付款方式</strong></div></div>
   </div>
@@ -557,6 +820,11 @@ img{display:block;}
 </div>
 
 </div><!-- /page-wrap -->
+
+<!-- 法規警語 -->
+<div class="legal-bar">
+  飲酒勿開車｜未滿十八歲者，禁止飲酒｜本品牌不販賣酒予未滿十八歲者｜飲酒過量有害健康
+</div>
 
 <!-- OFF-SCREEN ORDER CARD -->
 <div id="order-card"></div>
@@ -634,7 +902,11 @@ function updateCartBar() {
 
 function setStep(n) {
   currentStep = n;
-  for (var i = 1; i <= 4; i++) document.getElementById('step-' + i).style.display = (i === n) ? 'block' : 'none';
+  for (var i = 1; i <= 4; i++) {
+    var el = document.getElementById('step-' + i);
+    if (!el) continue;
+    el.style.display = (i === n) ? 'block' : 'none';
+  }
   var stepEls = document.querySelectorAll('.step-item');
   for (var s = 0; s < stepEls.length; s++) {
     var num = parseInt(stepEls[s].getAttribute('data-step'));
@@ -1045,6 +1317,8 @@ function downloadOrder() {
   btn.textContent = '⏳ 生成中…';
   btn.disabled = true;
 
+  var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
   inlineOrderCardImages()
     .then(function() {
       return html2canvas(document.getElementById('order-card'), {
@@ -1053,12 +1327,33 @@ function downloadOrder() {
       });
     })
     .then(function(canvas) {
-      var a = document.createElement('a');
-      a.download = orderData.orderId + '.png';
-      a.href = canvas.toDataURL('image/png');
-      a.click();
-      btn.textContent = '✓ 已下載！請傳送至 LINE';
-      btn.style.background = '#2d6a4f';
+      if (isIOS) {
+        /* iOS Safari 不支援 <a download>，改開新分頁讓用戶長按儲存 */
+        var dataUrl = canvas.toDataURL('image/jpeg', 0.92);
+        var win = window.open('', '_blank');
+        win.document.write(
+          '<html><head><title>訂單圖片</title>' +
+          '<meta name="viewport" content="width=device-width,initial-scale=1">' +
+          '<style>body{margin:0;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;}' +
+          'img{max-width:100%;height:auto;}' +
+          'p{color:#fff;font-size:14px;text-align:center;margin:16px 8px;line-height:1.8;font-family:sans-serif;opacity:.7;}' +
+          '</style></head><body>' +
+          '<img src="' + dataUrl + '" alt="訂單圖片">' +
+          '<p>長按圖片 → 儲存到相簿<br>再傳送到 LINE 完成訂單</p>' +
+          '</body></html>'
+        );
+        win.document.close();
+        btn.textContent = '✓ 已開啟圖片，請長按儲存';
+        btn.style.background = '#2d6a4f';
+      } else {
+        /* 桌機 / Android：直接下載 JPG */
+        var a = document.createElement('a');
+        a.download = orderData.orderId + '.jpg';
+        a.href = canvas.toDataURL('image/jpeg', 0.92);
+        a.click();
+        btn.textContent = '✓ 已下載！請傳送至 LINE';
+        btn.style.background = '#2d6a4f';
+      }
     })
     .catch(function() {
       btn.textContent = '⬇ 重新下載';
