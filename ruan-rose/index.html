@@ -1,1 +1,1028 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>阮二哥玫瑰園 ｜ LINKet Light #33</title>
+<meta name="description" content="埔里第三代花農・阮家獨有桃紅色系迷你玫瑰">
+<meta property="og:title" content="阮二哥玫瑰園 ｜ LINKet Light">
+<meta property="og:description" content="埔里第三代花農・阮家獨有桃紅色系迷你玫瑰">
+<meta property="og:image" content="https://linket.app/ruan-rose/og-image.jpg">
+<meta property="og:url" content="https://linket.app/ruan-rose">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<script async src="//www.instagram.com/embed.js"></script>
+<!--
+  ╔════════════════════════════════════════════════════════════╗
+  ║  LINKet Light  Template v2.2 · #33 阮二哥玫瑰園                              ║
+  ║  linket.net · Design by LINKet                            ║
+  ╠════════════════════════════════════════════════════════════╣
+  ║  RWD 規則                                                  ║
+  ║  手機（≤600px）：Hero 單欄，按鈕全幅撐滿                    ║
+  ║  桌機（>600px）：整頁滿版背景，內容置中 max-width:900px     ║
+  ║                  Hero 雙欄，左240px固定，右flex:1           ║
+  ║                  按鈕 max-width:220px，左對齊               ║
+  ╠════════════════════════════════════════════════════════════╣
+  ║  STRUCTURE                                                 ║
+  ║  ① top-badge   — 滿版sticky（TODO:換PNG/SVG）              ║
+  ║  ② hero        — 滿版背景，.inner 限寬                      ║
+  ║  ③ watermark   — 滿版背景，.inner 限寬                      ║
+  ║  ④ content     — 滿版背景，.inner 限寬                      ║
+  ║  ⑤ ig-section  — 滿版背景，桌機兩欄                         ║
+  ║  ⑥ footer-btns — 滿版背景                                  ║
+  ║  ⑦ back-btn                                               ║
+  ║  ⑧ design-by   — 滿版（TODO:換PNG/SVG）                    ║
+  ╠════════════════════════════════════════════════════════════╣
+  ║  CUSTOMIZATION CHECKLIST                                   ║
+  ║  [ ] :root 色系 token（全頁換色只改這裡）                   ║
+  ║  [ ] --r 圓角：50px 花卉款 / 6px 工藝款                     ║
+  ║  [ ] hero-logo img src（PNG）                              ║
+  ║  [ ] hero-avatar img src（PNG，個人款用）                   ║
+  ║  [ ] 品牌名 / slogan / hashtag / 補充資料                   ║
+  ║  [ ] 社群 SVG（currentColor 自動跟父層色）                  ║
+  ║  [ ] hero-btn 文字/href/層級（.p1 .p2 .ghost .qr）         ║
+  ║  [ ] watermark data-wm 英文水印大字                        ║
+  ║  [ ] content sections 內容                                 ║
+  ║  [ ] ig handle / location / 實拍照                         ║
+  ║  [ ] footer-btn 文字/href                                  ║
+  ║  [ ] og:image / og:url 上線後更新                          ║
+  ╚════════════════════════════════════════════════════════════╝
+-->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
 
+/* ══════════════════════════════════════════════
+   DESIGN TOKENS — 換色系只改這裡
+   --r：50px 花卉/溫柔  |  6px 工藝/農業
+   ══════════════════════════════════════════ */
+:root{
+  --c1    : #ff999b;   /* 主色 桃紅 */
+  --c2    : #c04060;   /* 深色 深玫 */
+  --c3    : #e06070;   /* 中色 中玫 */
+  --c4    : #ff999b;   /* 強調 桃粉 */
+  --c5    : #fff0f2;   /* 極淺背景 */
+  --cbtn1 : rgba(255,255,255,.92);
+  --cbtn1t: #c04060;
+  --ctxt  : #3a1520;
+  --ctxts : rgba(58,21,32,.62);
+  --ccard : rgba(255,255,255,.75);
+  --r     : 50px;      /* 花卉款圓潤 */
+  --mw    : 900px;
+  --sp    : 2.4rem 1.4rem;
+}
+
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+
+body{
+  font-family:'Noto Serif TC',serif;
+  background:var(--c5);
+  color:var(--ctxt);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* 共用限寬居中 */
+.inner{
+  max-width:var(--mw);
+  margin:0 auto;
+}
+
+
+/* ══════════════════════════════════════════════
+   ① TOP BADGE
+   TODO: 換成 LINKet PNG/SVG 品牌導流 banner
+   ══════════════════════════════════════════ */
+a.top-badge{
+  display:block; width:100%;
+  background:#fff; text-align:center;
+  padding:.46rem 1rem;
+  font-size:.74rem; letter-spacing:.05em;
+  text-decoration:none;
+  border-bottom:1px solid rgba(0,0,0,.06);
+  position:sticky; top:0; z-index:100;
+  box-shadow:0 1px 8px rgba(0,0,0,.07);
+}
+.t-lin{ font-weight:700; color:#111; }
+.t-ket{ font-weight:700; color:#2979ff; }
+.t-light{ font-weight:400; color:#999; }
+.t-no{ font-weight:300; color:var(--c4); letter-spacing:.08em; }
+
+
+/* ══════════════════════════════════════════════
+   ② HERO — 滿版背景
+   ══════════════════════════════════════════ */
+.hero{
+  width:100%;
+  background: url('ruan-hero-bg.jpg') center center / cover no-repeat;
+  position:relative; overflow:hidden;
+}
+.hero::before{
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(155deg,
+    rgba(255,180,185,.82) 0%,
+    rgba(220,80,100,.75) 45%,
+    rgba(160,30,60,.85) 100%);
+  z-index:1;
+}
+.hero-texture{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  pointer-events:none; opacity:.07; z-index:2;
+}
+.hero-glow{
+  position:absolute; inset:0; z-index:2;
+  background:
+    radial-gradient(ellipse 80% 55% at 50% 0%,rgba(255,255,255,.28) 0%,transparent 65%),
+    radial-gradient(ellipse 40% 30% at 92% 92%,rgba(138,26,40,.22) 0%,transparent 55%);
+  pointer-events:none;
+}
+.hero .inner{ position:relative; z-index:3; }
+
+/* 雙欄容器：左右等寬 */
+.hero-cols{
+  display:flex; flex-direction:row;
+  align-items:stretch; min-height:460px;
+}
+
+/* 左欄：等寬 flex:1，物件置中對齊欄中軸 */
+.hero-left{
+  flex:1 1 0;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:space-evenly;
+  padding:2rem 1.4rem;
+  gap:0; text-align:center;
+  border-right:1px solid rgba(255,255,255,.14);
+}
+/* 左欄各元素：精確間距，不依賴 gap */
+.hero-logo{ margin-bottom:.5rem; }
+.hero-company{ margin-bottom:.6rem; }
+.hero-avatar{ margin-bottom:.9rem; }
+.hero-name{ margin-bottom:.15rem; }
+.hero-role{ margin-bottom:.6rem; }
+.hero-slogan{ margin-bottom:.55rem; }
+.hero-tags{ margin-bottom:.5rem; }
+.hero-logo{
+  width:76px; height:76px; border-radius:50%;
+  overflow:hidden; border:2px solid rgba(255,255,255,.62);
+  box-shadow:0 4px 18px rgba(0,0,0,.2);
+  background:rgba(255,255,255,.14); flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+}
+.hero-logo img{ width:100%; height:100%; object-fit:cover; }
+.hero-company{
+  font-size:.58rem; font-weight:300;
+  letter-spacing:.18em; text-indent:.18em;
+  color:rgba(255,255,255,.6); text-transform:uppercase;
+}
+.hero-avatar{
+  width:88px; height:88px; border-radius:50%; overflow:hidden;
+  border:2.5px solid rgba(255,255,255,.58);
+  box-shadow:0 6px 22px rgba(0,0,0,.22);
+  flex-shrink:0; background:rgba(255,255,255,.1);
+  display:flex; align-items:center; justify-content:center;
+}
+.hero-avatar img{ width:100%; height:100%; object-fit:cover; }
+.hero-name{
+  font-size:1.05rem; font-weight:700;
+  letter-spacing:.2em; text-indent:.2em;
+  color:#fff; text-shadow:0 2px 10px rgba(0,0,0,.18); line-height:1.25;
+}
+.hero-role{
+  font-size:.59rem; font-weight:300;
+  letter-spacing:.15em; text-indent:.15em;
+  color:rgba(255,255,255,.74);
+}
+.hero-slogan{
+  font-size:.67rem; font-weight:400;
+  letter-spacing:.07em; color:#fff; line-height:1.85;
+  text-shadow:0 1px 6px rgba(0,0,0,.12);
+}
+.hero-tags{
+  display:flex; justify-content:center;
+  gap:.26rem; flex-wrap:wrap; margin-top:.25rem;
+}
+.h-tag{
+  background:rgba(255,255,255,.18);
+  border:1px solid rgba(255,255,255,.4);
+  border-radius:var(--r);
+  padding:.13rem .52rem;
+  font-size:.50rem; letter-spacing:.07em; color:#fff; white-space:nowrap;
+}
+.hero-meta{
+  font-size:.55rem; color:rgba(255,255,255,.60);
+  letter-spacing:.08em; line-height:1.75;
+  text-align:center; margin-top:.18rem;
+}
+.hero-meta span{ display:block; }
+
+/* 右欄：等寬 flex:1，物件置中對齊欄中軸，按鈕不超過欄寬 */
+.hero-right{
+  flex:1 1 0; display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  padding:2rem 1.4rem;
+  gap:0; min-width:0;
+}
+/* icon 列：置中對齊右欄中軸，16px 間距，底部 18px 到 P1 */
+.hero-icons{
+  display:flex; justify-content:center;
+  gap:1rem; margin-bottom:1.125rem;
+  width:100%;
+}
+.hero-icon-link{
+  width:36px; height:36px; border-radius:50%;
+  border:1.5px solid rgba(255,255,255,.52);
+  background:rgba(255,255,255,.11);
+  display:flex; align-items:center; justify-content:center;
+  text-decoration:none; color:#fff;
+  transition:background .2s; flex-shrink:0;
+}
+.hero-icon-link:hover{ background:rgba(255,255,255,.26); }
+.hero-icon-link svg{ width:16px; height:16px; }
+
+/* 按鈕基礎：桌機限制最大寬度，不超出欄位 */
+.hero-btn{
+  display:flex;
+  align-items:center; justify-content:center;
+  width:100%; max-width:320px;
+  border-radius:var(--r);
+  font-family:'Noto Serif TC',serif;
+  font-size:.72rem; font-weight:400;
+  letter-spacing:.10em; text-decoration:none;
+  text-align:center; line-height:1.3;
+  padding:.70rem .9rem;
+  transition:opacity .2s,background .2s;
+  white-space:nowrap;
+  margin-bottom:1rem;
+}
+.hero-btn:hover{ opacity:.80; }
+
+.hero-btn.p1{
+  background:var(--cbtn1); border:2px solid transparent;
+  color:var(--cbtn1t); font-weight:600;
+  margin-bottom:1rem;
+}
+.hero-btn.p2{
+  background:rgba(255,255,255,.28);
+  border:1.5px solid rgba(255,255,255,.72);
+  color:#fff; font-weight:500;
+  margin-bottom:1.5rem;
+}
+.hero-btn.ghost{
+  background:transparent;
+  border:1.5px solid rgba(255,255,255,.42);
+  color:rgba(255,255,255,.84); font-size:.68rem;
+  margin-bottom:1rem;
+}
+.hero-btn.ghost:last-of-type{
+  margin-bottom:1.5rem;
+}
+/* QR：約44%，置中，固定最末 */
+.hero-btn.qr{
+  width:44%; max-width:160px;
+  align-self:center;
+  background:transparent;
+  border:1.5px solid rgba(255,255,255,.28);
+  color:rgba(255,255,255,.60);
+  font-size:.58rem; letter-spacing:.16em;
+  padding:.46rem .65rem;
+  margin-bottom:0;
+}
+.hero-btn.qr:hover{ background:rgba(255,255,255,.09); }
+
+
+/* ══════════════════════════════════════════════
+   RWD
+   手機（≤600px）單欄全幅  |  桌機（>600px）雙欄
+   ══════════════════════════════════════════ */
+@media(max-width:600px){
+  .hero-cols{ flex-direction:column; min-height:auto; }
+  .hero-left{
+    flex:unset; width:100%;
+    border-right:none; border-bottom:1px solid rgba(255,255,255,.12);
+    padding:2rem 1.4rem 1.6rem;
+    justify-content:center; gap:.45rem;
+  }
+  /* 手機：覆蓋桌機各元素 margin，改回 gap 統一控制 */
+  .hero-logo,.hero-company,.hero-avatar,
+  .hero-name,.hero-role,.hero-slogan,
+  .hero-tags{ margin-bottom:0; }
+  .hero-right{
+    padding:1.4rem 1rem 1.8rem;
+    align-items:center;
+  }
+  .hero-icons{ justify-content:center; gap:.75rem; margin-bottom:1rem; }
+  /* 手機按鈕：90% 寬置中，不超出邊框 */
+  .hero-btn{
+    width:90%; max-width:90%;
+    font-size:.74rem; padding:.76rem 1rem;
+  }
+  /* QR 手機：50% 寬 */
+  .hero-btn.qr{ width:50%; max-width:50%; font-size:.62rem; }
+  .sec-btn{ max-width:100%; }
+  .footer-btn{ max-width:100%; }
+}
+
+
+/* ══════════════════════════════════════════════
+   ③ WATERMARK — 滿版背景
+   ══════════════════════════════════════════ */
+.watermark{
+  width:100%;
+  background:linear-gradient(180deg,var(--c1) 0%,var(--c2) 100%);
+  text-align:center; overflow:hidden; position:relative;
+}
+.watermark .inner{
+  padding:1.7rem 1.4rem 1.5rem; position:relative;
+}
+.watermark .inner::before{
+  content:attr(data-wm);
+  position:absolute; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Cormorant Garamond',serif;
+  font-size:5rem; font-weight:300; letter-spacing:.2em;
+  color:rgba(255,255,255,.07); white-space:nowrap; pointer-events:none;
+}
+.wm-main{
+  font-size:1.4rem; font-weight:700;
+  letter-spacing:.26em; text-indent:.26em;
+  color:rgba(255,255,255,.88); position:relative;
+}
+.wm-sub{
+  font-family:'Cormorant Garamond',serif;
+  font-size:.56rem; font-weight:300;
+  letter-spacing:.34em; text-indent:.34em;
+  color:rgba(255,255,255,.40); text-transform:uppercase;
+  display:block; margin-top:.35rem; position:relative;
+}
+
+
+/* ══════════════════════════════════════════════
+   ④ CONTENT — 滿版背景，.inner 限寬
+   ══════════════════════════════════════════ */
+.section{ width:100%; background:var(--c5); }
+.section.alt{ background:#fff; }
+.section.dark{ background:linear-gradient(180deg,var(--c2) 0%,var(--c3) 100%); }
+.section.mid{ background:var(--c3); }
+.section .inner{ padding:var(--sp); }
+
+.sec-label{
+  font-family:'Cormorant Garamond',serif;
+  font-size:.60rem; font-weight:300;
+  letter-spacing:.38em; text-indent:.38em;
+  color:var(--c4); text-transform:uppercase; margin-bottom:1.1rem;
+}
+.section.dark .sec-label,
+.section.mid  .sec-label{ color:rgba(255,255,255,.48); }
+
+.info-card{
+  background:var(--ccard);
+  border-radius:calc(var(--r)*.34);
+  padding:1.5rem 1.4rem 1.7rem; margin-bottom:.85rem;
+  border:1px solid rgba(255,255,255,.55);
+  box-shadow:0 2px 12px rgba(0,0,0,.05);
+}
+.section.dark .info-card{
+  background:rgba(255,255,255,.09); border-color:rgba(255,255,255,.16);
+}
+.card-heading{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.25rem; font-weight:400; font-style:italic;
+  color:var(--c2); letter-spacing:.04em; margin-bottom:.9rem;
+}
+.card-heading::after{ content:' |'; font-style:normal; font-weight:300; color:var(--c4); opacity:.5; }
+.section.dark .card-heading{ color:rgba(255,255,255,.85); }
+.card-body{ font-size:.82rem; font-weight:300; color:var(--ctxts); line-height:2.1; letter-spacing:.05em; }
+.section.dark .card-body{ color:rgba(255,255,255,.74); }
+.card-body p+p{ margin-top:.8rem; }
+.card-body strong{ font-weight:700; color:var(--ctxt); }
+.section.dark .card-body strong{ color:#fff; }
+
+.pull-quote{
+  font-family:'Cormorant Garamond',serif; font-style:italic;
+  font-size:.80rem; line-height:2.0; letter-spacing:.06em;
+  color:var(--c2); border-left:2.5px solid var(--c4);
+  padding-left:.9rem; margin-top:1rem; opacity:.85;
+}
+
+.sec-btn-wrap{
+  display:flex; flex-direction:column; gap:.5rem;
+  margin-top:1.2rem; align-items:flex-start;
+}
+.sec-btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  max-width:220px; width:100%; border-radius:var(--r);
+  padding:.70rem 1rem;
+  font-family:'Noto Serif TC',serif; font-size:.74rem; font-weight:400;
+  letter-spacing:.10em; text-decoration:none; text-align:center;
+  transition:opacity .2s;
+}
+.sec-btn:hover{ opacity:.78; }
+.sec-btn.solid{ background:var(--c2); color:#fff; border:none; }
+.sec-btn.outline{ background:transparent; border:1.5px solid var(--c2); color:var(--c2); }
+.section.dark .sec-btn.solid{
+  background:rgba(255,255,255,.18); border:1.5px solid rgba(255,255,255,.52); color:#fff;
+}
+.section.dark .sec-btn.outline{ border-color:rgba(255,255,255,.40); color:rgba(255,255,255,.80); }
+
+.spec-bar{
+  display:flex; gap:.75rem; align-items:flex-start;
+  background:rgba(255,255,255,.55); border:1px solid rgba(192,64,96,.10);
+  border-radius:10px; padding:.9rem 1rem; margin-top:.8rem;
+}
+.spec-icon{ font-size:1.1rem; flex-shrink:0; margin-top:.1rem; }
+.spec-body{ font-size:.76rem; line-height:1.9; color:var(--ctxts); letter-spacing:.05em; }
+.spec-body strong{ font-weight:700; color:var(--ctxt); }
+
+.grid-2x2{ display:grid; grid-template-columns:1fr 1fr; gap:.65rem; }
+.grid-card{
+  background:var(--ccard); border-radius:calc(var(--r)*.3);
+  padding:.9rem .85rem 1rem; border:1px solid rgba(255,255,255,.55);
+}
+.gc-title{ font-size:.78rem; font-weight:700; color:var(--ctxt); letter-spacing:.08em; margin-bottom:.22rem; }
+.gc-sub{ font-family:'Cormorant Garamond',serif; font-size:.57rem; color:var(--c4); letter-spacing:.2em; text-transform:uppercase; margin-bottom:.32rem; }
+.gc-body{ font-size:.70rem; line-height:1.85; color:var(--ctxts); letter-spacing:.04em; }
+
+.hscroll{ overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; margin:0 -1.4rem; padding:.2rem 1.4rem .8rem; }
+.hscroll::-webkit-scrollbar{ display:none; }
+.hscroll-track{ display:flex; gap:.65rem; width:max-content; }
+.hscroll-card{ width:165px; flex-shrink:0; background:var(--ccard); border-radius:calc(var(--r)*.3); padding:1rem .9rem 1.1rem; border:1px solid rgba(255,255,255,.55); }
+.hsc-title{ font-size:.78rem; font-weight:700; color:var(--ctxt); letter-spacing:.1em; margin-bottom:.32rem; }
+.hsc-body{ font-size:.70rem; line-height:1.85; color:var(--ctxts); letter-spacing:.04em; }
+
+.timeline{ display:flex; flex-direction:column; }
+.t-step{ display:flex; gap:.85rem; align-items:flex-start; padding:.9rem 0; border-bottom:1px solid rgba(192,64,96,.08); }
+.t-step:last-child{ border-bottom:none; }
+.t-num{ font-family:'Cormorant Garamond',serif; font-size:.59rem; font-weight:300; letter-spacing:.18em; color:var(--c4); min-width:46px; padding-top:.15rem; flex-shrink:0; }
+.t-title{ font-size:.80rem; font-weight:700; color:var(--ctxt); letter-spacing:.08em; margin-bottom:.22rem; }
+.t-body{ font-size:.76rem; line-height:2.0; color:var(--ctxts); letter-spacing:.05em; }
+
+
+/* ══════════════════════════════════════════════
+   ⑤ ROSE PARALLAX SECTION
+   ══════════════════════════════════════════ */
+.rose-parallax-section{ width:100%; overflow:hidden; }
+.rp-stage{ position:relative; height:300vh; }
+.rp-sticky{
+  position:sticky; top:0; height:100vh; overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--c5);
+}
+.rp-rose-wrap{
+  position:absolute; top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  will-change:transform;
+}
+.rp-rose-img{
+  height:min(92vh,560px); width:auto;
+  display:block; user-select:none; pointer-events:none;
+}
+.rp-ann-layer{ position:absolute; inset:0; pointer-events:none; }
+.rp-ann{
+  position:absolute; display:flex; align-items:center;
+  opacity:0; transition:opacity .55s ease, transform .55s ease;
+}
+.rp-ann.left{ flex-direction:row; transform:translateX(-10px); }
+.rp-ann.right{ flex-direction:row-reverse; transform:translateX(10px); }
+.rp-ann.vis{ opacity:1; transform:translateX(0); }
+.rp-dot{ width:6px; height:6px; border-radius:50%; background:var(--c2); flex-shrink:0; }
+.rp-line{ height:1px; width:clamp(20px,4vw,40px); background:rgba(192,64,96,.35); flex-shrink:0; }
+.rp-box{
+  padding:6px 10px; border:0.5px solid rgba(192,64,96,.25);
+  border-radius:10px; background:rgba(255,240,242,.92);
+}
+.rp-ann.right .rp-box{ text-align:right; }
+.rp-lbl{ font-size:9px; letter-spacing:.14em; color:var(--c2); font-family:'Cormorant Garamond',serif; text-transform:uppercase; }
+.rp-val{ font-size:13px; font-weight:500; color:var(--ctxt); font-family:'Noto Serif TC',serif; margin-top:1px; line-height:1.4; }
+.rp-sub{ font-size:10px; color:var(--ctxts); font-family:'Noto Serif TC',serif; margin-top:2px; line-height:1.5; }
+.rp-cue{
+  position:absolute; bottom:28px; left:50%; transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:6px;
+  transition:opacity .4s;
+}
+.rp-cue span{ font-size:10px; letter-spacing:.18em; color:var(--ctxts); font-family:'Cormorant Garamond',serif; }
+.rp-cue-line{ width:1px; height:28px; background:var(--c3); opacity:.4; animation:rpPulse 2s ease-in-out infinite; }
+@keyframes rpPulse{0%,100%{opacity:.15;}50%{opacity:.55;}}
+
+
+/* ══════════════════════════════════════════════
+   ⑥ IG EMBED SECTION
+   ══════════════════════════════════════════ */
+.ig-section{ width:100%; background:var(--c5); }
+.ig-section .inner{ padding:2.4rem 1.4rem 2rem; }
+.ig-section-label{
+  font-family:'Cormorant Garamond',serif; font-size:.57rem; font-weight:300;
+  letter-spacing:.36em; text-indent:.36em; color:var(--ctxts);
+  text-transform:uppercase; margin-bottom:1.4rem;
+}
+.ig-embed-grid{ display:grid; grid-template-columns:1fr; gap:1rem; }
+@media(min-width:601px){
+  .ig-embed-grid{ grid-template-columns:1fr 1fr; gap:1.2rem; }
+}
+.ig-embed-wrap{ width:100%; min-width:0; }
+.ig-embed-wrap .instagram-media{
+  margin:0 !important; width:100% !important;
+  min-width:0 !important; max-width:100% !important;
+}
+.ig-follow-wrap{ margin-top:1.4rem; display:flex; justify-content:center; }
+.ig-follow-btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  border:1.5px solid var(--c2); border-radius:var(--r);
+  padding:.72rem 2rem; font-family:'Noto Serif TC',serif;
+  font-size:.72rem; letter-spacing:.1em; color:var(--c2);
+  text-decoration:none; transition:background .2s, color .2s;
+}
+.ig-follow-btn:hover{ background:var(--c2); color:#fff; }
+
+
+/* ══════════════════════════════════════════════
+   ⑥ FOOTER BTNS — 滿版
+   ══════════════════════════════════════════ */
+.footer-btns{ width:100%; background:var(--c2); }
+.footer-btns .inner{ padding:.7rem 1rem 1.3rem; display:flex; flex-direction:column; align-items:center; gap:.5rem; }
+.footer-btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  max-width:320px; width:90%; border-radius:var(--r);
+  padding:.86rem 1.2rem;
+  font-family:'Noto Serif TC',serif; font-size:.76rem; font-weight:400;
+  letter-spacing:.13em; text-decoration:none; text-align:center; transition:opacity .2s;
+}
+.footer-btn:hover{ opacity:.78; }
+.footer-btn.p1{ background:rgba(255,255,255,.20); border:1.5px solid rgba(255,255,255,.68); color:#fff; font-weight:500; }
+.footer-btn.ghost{ background:transparent; border:1.5px solid rgba(255,255,255,.33); color:rgba(255,255,255,.74); font-size:.72rem; }
+
+
+/* ══════════════════════════════════════════════
+   ⑦ BACK BTN
+   ══════════════════════════════════════════ */
+.back-btn-wrap{ background:var(--c2); }
+.back-btn-wrap .inner{ padding:0 1rem 1.6rem; display:flex; justify-content:center; }
+.back-btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  border:1.5px solid rgba(255,255,255,.26); border-radius:60px;
+  padding:.62rem 2rem;
+  font-family:'Noto Serif TC',serif; font-size:.67rem; font-weight:300;
+  letter-spacing:.22em; color:rgba(255,255,255,.52);
+  text-decoration:none; text-transform:uppercase; transition:background .2s;
+}
+.back-btn:hover{ background:rgba(255,255,255,.08); }
+
+
+/* ══════════════════════════════════════════════
+   ⑧ DESIGN BY
+   TODO: 換成 LINKet PNG/SVG 品牌標
+   ══════════════════════════════════════════ */
+a.design-by{
+  display:block; width:100%; background:#000; text-align:center;
+  padding:.52rem; font-size:.58rem; letter-spacing:.18em;
+  color:rgba(255,255,255,.30); text-decoration:none;
+}
+.db-lin{ color:rgba(255,255,255,.50); font-weight:700; }
+.db-ket{ color:#2979ff; font-weight:700; }
+
+
+/* Scroll Reveal */
+.reveal{ opacity:0; transform:translateY(14px); transition:opacity .5s ease,transform .5s ease; }
+.reveal.visible{ opacity:1; transform:none; }
+
+</style>
+</head>
+<body id="top">
+
+
+<!-- ════════════════════════
+     ① TOP BADGE（滿版sticky）
+     TODO: 換成 LINKet PNG/SVG banner
+     ════════════════════ -->
+<a class="top-badge" href="https://linket.net/home">
+  <span class="t-lin">LIN</span><span class="t-ket">Ket</span>&nbsp;<span class="t-light">Light</span>
+  &ensp;<span class="t-no">#33</span>
+</a>
+
+
+<!-- ════════════════════════
+     ② HERO（滿版背景）
+     左欄：Logo→公司名(非必要)→頭像(個人款)→
+           姓名→職稱→Slogan(非必要)→
+           Hashtag→補充資料(非必要)
+     右欄：icon列→.p1→.p2→.ghost×N→.qr
+     ════════════════════ -->
+<div class="hero">
+  <svg class="hero-texture" viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <g fill="none" stroke="white" stroke-width="0.7">
+      <circle cx="100" cy="120" r="55"/><circle cx="100" cy="120" r="32"/><circle cx="100" cy="120" r="11"/>
+      <line x1="45" y1="120" x2="155" y2="120"/><line x1="100" y1="65" x2="100" y2="175"/>
+      <line x1="61" y1="81" x2="139" y2="159"/><line x1="139" y1="81" x2="61" y2="159"/>
+      <circle cx="800" cy="400" r="72"/><circle cx="800" cy="400" r="44"/><circle cx="800" cy="400" r="16"/>
+      <line x1="728" y1="400" x2="872" y2="400"/><line x1="800" y1="328" x2="800" y2="472"/>
+      <line x1="749" y1="349" x2="851" y2="451"/><line x1="851" y1="349" x2="749" y2="451"/>
+      <circle cx="450" cy="260" r="85" stroke-dasharray="4 8"/>
+      <circle cx="450" cy="260" r="118" stroke-dasharray="2 10" opacity=".3"/>
+      <circle cx="450" cy="260" r="6" fill="white" stroke="none" opacity=".45"/>
+      <circle cx="750" cy="80" r="28" stroke-dasharray="3 6"/>
+      <circle cx="150" cy="440" r="38" stroke-dasharray="3 6"/>
+    </g>
+  </svg>
+  <div class="hero-glow"></div>
+
+  <div class="inner">
+    <div class="hero-cols">
+
+      <!-- 左欄：身份識別 -->
+      <div class="hero-left">
+
+        <!-- 1. Logo PNG -->
+        <div class="hero-logo">
+          <img src="ruan-logo.png" alt="阮二哥玫瑰園">
+        </div>
+
+        <!-- 2. 公司名 -->
+        <div class="hero-company">Ruan Rose Garden</div>
+
+        <!-- 3. 姓名 + 職稱 -->
+        <div class="hero-name">阮二哥玫瑰園</div>
+        <div class="hero-role">埔里 · 第三代花農</div>
+
+        <!-- 5. Slogan（非必要）-->
+        <div class="hero-slogan">阮家獨有桃紅色系迷你玫瑰<br>產地直送・花藝師首選</div>
+
+        <!-- 6. Hashtag -->
+        <div class="hero-tags">
+          <span class="h-tag"># 迷你玫瑰</span>
+          <span class="h-tag"># 阮家獨有桃紅</span>
+          <span class="h-tag"># 產地直送</span>
+          <span class="h-tag"># 埔里花農</span>
+        </div>
+
+        <!-- 7. 補充資料（非必要，依版面平衡取捨）-->
+        <!--
+        <div class="hero-meta">
+          <span>📍 地址 · 城市</span>
+          <span>📞 +886 0X-XXXX-XXXX</span>
+          <span>🕐 Mon–Fri 09:00–18:00</span>
+        </div>
+        -->
+
+      </div><!-- /hero-left -->
+
+      <!-- 右欄：社群 + 按鈕 -->
+      <div class="hero-right">
+
+        <!-- 社群 icon（SVG currentColor，父層 color 控色）-->
+        <div class="hero-icons">
+          <a class="hero-icon-link" href="https://www.facebook.com/Duckminirose/?locale=zh_TW" target="_blank" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+          <a class="hero-icon-link" href="https://www.instagram.com/duckminiroses/" target="_blank" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="4.5"/>
+              <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a class="hero-icon-link" href="https://www.threads.com/@duckminiroses" target="_blank" aria-label="Threads">
+            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+              <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.473 12.01v-.017c.027-3.579.877-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.018 5.145.8 7.135 2.321 1.9 1.454 3.204 3.472 3.875 6.01l-2.012.54c-1.137-4.23-4.138-6.38-8.986-6.408-3.046.02-5.389.977-6.965 2.843-1.498 1.775-2.253 4.298-2.278 7.5.025 3.198.78 5.72 2.278 7.5 1.576 1.864 3.92 2.822 6.965 2.843h.006c2.653-.017 4.697-.726 6.077-2.109.968-.965 1.582-2.28 1.826-3.91h-7.9v-1.978h9.99c0 .338.006.668.012.993.02 1.106-.053 2.178-.22 3.195-.446 2.71-1.572 4.756-3.352 6.087C17.344 23.18 14.94 24 12.186 24z"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- 按鈕：.p1→.p2→.ghost→.qr（固定最末）-->
+        <a class="hero-btn p1"    href="https://www.facebook.com/Duckminirose/?locale=zh_TW" target="_blank">詢購 &amp; 合作 ｜ FACEBOOK</a>
+        <a class="hero-btn p2"    href="https://www.instagram.com/duckminiroses/" target="_blank">追蹤花園日常 ｜ INSTAGRAM</a>
+        <a class="hero-btn ghost" href="https://www.threads.com/@duckminiroses" target="_blank">動態分享 ｜ THREADS</a>
+        <a class="hero-btn qr"    href="ruan-rose-qr.html" target="_blank">⊞&ensp;QR CODE</a>
+
+      </div><!-- /hero-right -->
+
+    </div><!-- /hero-cols -->
+  </div><!-- /inner -->
+</div><!-- /hero -->
+
+
+<!-- ════════════════════════
+     ③ WATERMARK DIVIDER
+     ════════════════════ -->
+<div class="watermark">
+  <div class="inner" data-wm="RUAN ROSE">
+    <div class="wm-main">阮二哥玫瑰園</div>
+    <span class="wm-sub">Mini Rose Garden · Puli · Est. 3rd Gen</span>
+  </div>
+</div>
+
+
+<!-- ════════════════════════
+     ④ CONTENT SECTIONS
+     各區滿版背景，.inner 限寬
+     ════════════════════ -->
+
+<!-- 品牌故事 -->
+<div class="section" id="about">
+  <div class="inner">
+    <div class="sec-label">About</div>
+
+    <div class="info-card reveal">
+      <div class="card-heading">埔里第三代・迷你玫瑰專業農</div>
+      <div class="card-body">
+        <p>阮家自日治時期深耕埔里花卉產業，歷經菊花、滿天星、康乃馨等各時代主流花種，至今三代從未缺席。現由兄弟阮惟鳴、阮惟朋共同經營，<strong>主力種植迷你玫瑰（小輪玫瑰）</strong>，年供貨台北、台中、彰化、台南、高雄各大花市。</p>
+        <p>阮家栽培的桃紅色迷你玫瑰為<strong>母親意外發現的自然變異品種</strong>，父親嚴拒外人購枝扦插，至今仍為阮家獨有色系。現有品種包含桃紅、淺粉、白色、正紅，持續開發中。</p>
+      </div>
+    </div>
+
+    <div class="info-card reveal">
+      <div class="card-heading">產品規格</div>
+      <div class="card-body">
+        <p><strong>花種</strong>　迷你玫瑰（小輪玫瑰）・薔薇科多年生</p>
+        <p><strong>花徑</strong>　約 3 公分，一莖可開 3–10 朵</p>
+        <p><strong>切枝分級</strong>　特級 75cm（5–6 苞）｜65 / 55 / 45 / 35 cm 共五級</p>
+        <p><strong>觀賞壽命</strong>　勤加照顧可達 7 天以上（一般玫瑰僅 3–5 天）</p>
+        <p><strong>適用場景</strong>　大型花禮裝飾花材・桌花・頭花・胸花・乾燥花・迷你花束</p>
+      </div>
+    </div>
+
+    <div class="info-card reveal">
+      <div class="card-heading">供貨 &amp; 合作方式</div>
+      <div class="card-body">
+        <p><strong>花市批發</strong>　台北、台中、彰化、台南、高雄各地花市每日穩定供貨</p>
+        <p><strong>花店批發</strong>　接受花店定期批發，量大可議</p>
+        <p><strong>私人詢購</strong>　婚禮用花、活動大量採購歡迎洽詢</p>
+        <p><strong>聯繫方式</strong>　Facebook 私訊 / Instagram DM</p>
+      </div>
+    </div>
+
+    <div class="spec-bar reveal">
+      <div class="spec-icon">📍</div>
+      <div class="spec-body">
+        <strong>產地</strong>　南投縣埔里鎮・海拔 450m<br>
+        <strong>優勢</strong>　颱風少、濕度適中、土壤條件優越，台灣迷你玫瑰最重要種植據點
+      </div>
+    </div>
+
+    <div class="sec-btn-wrap reveal">
+      <a class="sec-btn solid" href="#features">玫瑰品種 →</a>
+    </div>
+  </div>
+</div>
+
+<!-- 玫瑰品種 -->
+<div class="section alt" id="features">
+  <div class="inner">
+    <div class="sec-label">Rose Varieties</div>
+    <div class="grid-2x2">
+      <div class="grid-card reveal">
+        <div class="gc-title">桃紅色</div>
+        <div class="gc-sub">Coral Pink · 阮家獨有</div>
+        <div class="gc-body">母親意外發現的自然變異品種，父親嚴拒外人扦插以保留獨有色系。花色濃豔細緻，是阮家招牌。</div>
+      </div>
+      <div class="grid-card reveal">
+        <div class="gc-title">淺粉色</div>
+        <div class="gc-sub">Soft Pink</div>
+        <div class="gc-body">清新溫柔，日常色系中最受歡迎，適合各類花禮、桌花與婚禮裝飾搭配。</div>
+      </div>
+      <div class="grid-card reveal">
+        <div class="gc-title">白色</div>
+        <div class="gc-sub">Pure White</div>
+        <div class="gc-body">純潔典雅，百搭不敗。婚禮花藝、高端桌花的定番選擇，可與任何色系混搭。</div>
+      </div>
+      <div class="grid-card reveal">
+        <div class="gc-title">正紅色</div>
+        <div class="gc-sub">Classic Red</div>
+        <div class="gc-body">經典深紅，色彩飽滿，節慶花禮視覺張力最強，情人節與年節用量最大。</div>
+      </div>
+    </div>
+    <div class="spec-bar reveal" style="margin-top:1rem;">
+      <div class="spec-icon">🌱</div>
+      <div class="spec-body">
+        <strong>品種持續開發中</strong>　以上為目前主力供應色系，如需確認最新品種請直接洽詢。
+      </div>
+    </div>
+    <div class="sec-btn-wrap reveal">
+      <a class="sec-btn outline" href="#phases">玫瑰園四季 →</a>
+    </div>
+  </div>
+</div>
+
+<!-- 玫瑰園四季 -->
+<div class="section" id="phases">
+  <div class="inner">
+    <div class="sec-label">Seasons</div>
+    <div class="hscroll">
+      <div class="hscroll-track">
+        <div class="hscroll-card">
+          <div class="hsc-title">🌸 春季</div>
+          <div class="hsc-body">3–5 月 ⭐ 最優　日夜溫差大，玫瑰生長最漂亮，花色飽滿、花苞數量最多，品質與產量俱佳。</div>
+        </div>
+        <div class="hscroll-card">
+          <div class="hsc-title">☀️ 夏季</div>
+          <div class="hsc-body">6–8 月 需費心　溫室內動輒 40°C，玫瑰開花困難，花農需特別費心照顧，產量較低。</div>
+        </div>
+        <div class="hscroll-card">
+          <div class="hsc-title">🍂 秋季</div>
+          <div class="hsc-body">9–11 月 ⭐ 最優　與春季同為最佳時節，溫差適中，產量穩定，花色與香氣均達高峰。</div>
+        </div>
+        <div class="hscroll-card">
+          <div class="hsc-title">❄️ 冬季</div>
+          <div class="hsc-body">12–2 月 品質好　生長速度較慢，但花朵質感細緻，需注意濕度過高易引發灰黴病。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 處理工序 -->
+<div class="section dark" id="process">
+  <div class="inner">
+    <div class="sec-label">How it Works</div>
+    <div class="timeline">
+      <div class="t-step reveal">
+        <div class="t-num">Step 01</div>
+        <div>
+          <div class="t-title" style="color:#fff;">摘除頂芽 · 均衡養分</div>
+          <div class="t-body" style="color:rgba(255,255,255,.72);">迷你玫瑰需先摘除最先生長的頂芽，使花朵養分可以平均分散至所有花苞，確保每枝都能開出均勻飽滿的花朵。</div>
+        </div>
+      </div>
+      <div class="t-step reveal">
+        <div class="t-num">Step 02</div>
+        <div>
+          <div class="t-title" style="color:#fff;">等級分類 · 品質把關</div>
+          <div class="t-body" style="color:rgba(255,255,255,.72);">依花苞數量（5–6 苞為特級）與枝幹長度（35–75cm）分為五個等級，每一枝都由花農親手篩選。</div>
+        </div>
+      </div>
+      <div class="t-step reveal">
+        <div class="t-num">Step 03</div>
+        <div>
+          <div class="t-title" style="color:#fff;">清晨採收 · 鎖住鮮度</div>
+          <div class="t-body" style="color:rgba(255,255,255,.72);">在溫度最低的清晨進行採收，保持花朵的水分與活力。花苞一旦開放就失去商業價值，時機把握至關重要。</div>
+        </div>
+      </div>
+      <div class="t-step reveal">
+        <div class="t-num">Step 04</div>
+        <div>
+          <div class="t-title" style="color:#fff;">冷水保鮮 · 延長壽命</div>
+          <div class="t-body" style="color:rgba(255,255,255,.72);">採收後立即插入冷水保鮮，適當保水讓花朵壽命延長至 7 天以上，是一般玫瑰的 2 倍。</div>
+        </div>
+      </div>
+      <div class="t-step reveal">
+        <div class="t-num">Step 05</div>
+        <div>
+          <div class="t-title" style="color:#fff;">直送花市 · 全台供貨</div>
+          <div class="t-body" style="color:rgba(255,255,255,.72);">台北、台中、彰化、台南、高雄各地花市均有穩定供貨，也接受花店批發與私人詢購合作。</div>
+        </div>
+      </div>
+    </div>
+    <div class="sec-btn-wrap reveal" style="margin-top:1.4rem;">
+      <a class="sec-btn solid" href="https://www.facebook.com/Duckminirose/?locale=zh_TW" target="_blank">詢購 &amp; 合作 →</a>
+      <a class="sec-btn outline" href="#top">回到頁首</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════
+     ⑤ ROSE PARALLAX（玫瑰產品地圖）
+     ════════════════════ -->
+<div class="rose-parallax-section">
+  <div class="rp-stage" id="rpStage">
+    <div class="rp-sticky" id="rpSticky">
+      <div class="rp-rose-wrap" id="rpRose">
+        <img src="ruan-rose-single.png" alt="阮二哥玫瑰園 迷你玫瑰" class="rp-rose-img">
+      </div>
+      <div class="rp-ann-layer" id="rpAnns"></div>
+      <div class="rp-cue" id="rpCue">
+        <span>S C R O L L</span>
+        <div class="rp-cue-line"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════
+     ⑥ IG SECTION（真實嵌入）
+     ════════════════════ -->
+<div class="ig-section">
+  <div class="inner">
+    <div class="ig-section-label">Instagram · @duckminiroses</div>
+    <div class="ig-embed-grid">
+
+      <div class="ig-embed-wrap reveal">
+        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DU-aY7xEv5p/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
+      </div>
+
+      <div class="ig-embed-wrap reveal">
+        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DHQBbVwzS9T/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
+      </div>
+
+      <div class="ig-embed-wrap reveal">
+        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DDN52C7T0B5/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
+      </div>
+
+      <div class="ig-embed-wrap reveal">
+        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DAIi5oOTHDc/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
+      </div>
+
+    </div>
+    <div class="ig-follow-wrap">
+      <a class="ig-follow-btn" href="https://www.instagram.com/duckminiroses/" target="_blank">追蹤 @duckminiroses →</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════
+     ⑥ FOOTER BTNS
+     ════════════════════ -->
+<div class="footer-btns">
+  <div class="inner">
+    <a class="footer-btn p1"    href="https://www.facebook.com/Duckminirose/?locale=zh_TW" target="_blank">詢購 &amp; 合作 ｜ FACEBOOK</a>
+    <a class="footer-btn ghost" href="https://www.instagram.com/duckminiroses/" target="_blank">追蹤花園日常 ｜ INSTAGRAM</a>
+  </div>
+</div>
+
+
+<!-- ════════════════════════
+     ⑦ BACK BTN
+     ════════════════════ -->
+<div class="back-btn-wrap">
+  <div class="inner">
+    <a class="back-btn" href="#top">&lt;&lt; BACK TO PAGE &lt;&lt;</a>
+  </div>
+</div>
+
+
+<!-- ════════════════════════
+     ⑧ DESIGN BY
+     TODO: 換成 LINKet PNG/SVG
+     ════════════════════ -->
+<a class="design-by" href="https://linket.net/home">
+  Design by &nbsp;<span class="db-lin">LIN</span><span class="db-ket">Ket</span>
+</a>
+
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+<script>
+/* ── 玫瑰視差 ── */
+(function(){
+  const annData = [
+    {pct:.10, side:'right', cx:'58%', cy:'10%', label:'BLOOM',      val:'花徑約 3 cm',       sub:'一莖可開 3–10 朵'},
+    {pct:.24, side:'left',  cx:'4%',  cy:'22%', label:'COLOR',      val:'阮家獨有桃紅',      sub:'自然變異・父親守護獨有色系'},
+    {pct:.38, side:'right', cx:'58%', cy:'36%', label:'VASE LIFE',  val:'7 天以上',           sub:'一般玫瑰僅 3–5 天'},
+    {pct:.52, side:'left',  cx:'4%',  cy:'52%', label:'GRADE',      val:'五等級分類',         sub:'35 / 45 / 55 / 65 / 75 cm'},
+    {pct:.66, side:'right', cx:'58%', cy:'66%', label:'HARVEST',    val:'清晨採收',           sub:'採後立即冷水保鮮'},
+    {pct:.80, side:'left',  cx:'4%',  cy:'80%', label:'SUPPLY',     val:'全台五大花市',       sub:'台北・台中・彰化・台南・高雄'},
+  ];
+
+  const layer = document.getElementById('rpAnns');
+  if(!layer) return;
+
+  annData.forEach((d, i) => {
+    const el = document.createElement('div');
+    el.className = 'rp-ann ' + d.side;
+    el.id = 'rpa' + i;
+    el.style.left = d.cx; el.style.top = d.cy;
+    const box = `<div class="rp-box"><div class="rp-lbl">${d.label}</div><div class="rp-val">${d.val}</div><div class="rp-sub">${d.sub}</div></div>`;
+    const line = `<div class="rp-line"></div>`;
+    const dot  = `<div class="rp-dot"></div>`;
+    el.innerHTML = d.side === 'left' ? dot+line+box : box+line+dot;
+    layer.appendChild(el);
+  });
+
+  const stage = document.getElementById('rpStage');
+  const rose  = document.getElementById('rpRose');
+  const cue   = document.getElementById('rpCue');
+  if(!stage || !rose) return;
+
+  function onScroll(){
+    const rect     = stage.getBoundingClientRect();
+    const scrolled = Math.max(0, -rect.top);
+    const total    = stage.offsetHeight - window.innerHeight;
+    const pct      = Math.min(1, scrolled / Math.max(total, 1));
+
+    rose.style.transform = `translate(-50%, calc(-50% + ${scrolled * -0.28}px))`;
+    if(cue) cue.style.opacity = pct > .04 ? '0' : '1';
+
+    annData.forEach((d, i) => {
+      const el = document.getElementById('rpa' + i);
+      if(!el) return;
+      const show = pct >= d.pct - 0.03 && pct <= d.pct + 0.22;
+      el.classList.toggle('vis', show);
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
+</body>
+</html>
