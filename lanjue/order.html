@@ -2,6 +2,14 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-29J2988Y8J');
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>嵐爵私選 微醺連結｜活動下單</title>
 <meta name="description" content="嵐爵私選微醺連結活動酒款下單頁。木陰之魚、夢螢、赤紅酵母，現貨選購，LINE 下單快速出貨。">
@@ -814,7 +822,7 @@ img{display:block;}
   <div class="spacer-bottom"></div>
   <div class="action-bar">
     <button class="btn-main gold" id="btn-download">⬇ 下載訂單圖片</button>
-    <a href="https://lin.ee/AzqxpRa" target="_blank" class="btn-main line-btn">加入 LINKet 官方 LINE →</a>
+    <a href="https://lin.ee/AzqxpRa" target="_blank" class="btn-main line-btn" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'order'});">加入 LINKet 官方 LINE →</a>
     <button class="btn-sub" id="btn-reset">重新選購</button>
   </div>
 </div>
@@ -830,7 +838,7 @@ img{display:block;}
 <div id="order-card"></div>
 
 <!-- FLOATING LINE -->
-<a href="https://lin.ee/AzqxpRa" target="_blank" class="float-line">💬</a>
+<a href="https://lin.ee/AzqxpRa" target="_blank" class="float-line" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'order'});">💬</a>
 
 <!-- CART BAR -->
 <div class="cart-bar" id="cart-bar">
