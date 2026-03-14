@@ -2,6 +2,14 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-29J2988Y8J');
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>尾瀬雪融 隱藏酒｜嵐爵私選 × LINKet</title>
 <meta name="description" content="龍神酒造限定釀造，純米大吟釀 隱し酒。完熟蘋果香氣、圓潤飽滿甜感、俐落柑橘系酸度。真正的實力，從不需要大聲喧嘩。">
@@ -712,7 +720,7 @@ body{
       <div class="f-venue-item">
         <span class="f-venue-date">3 / 30</span>
         <span class="f-venue-name">MuMu 咖啡</span>
-        <a href="https://linket.net/mumucafe" target="_blank" class="venue-follow">追蹤 →</a>
+        <a href="https://linket.net/mumucafe" target="_blank" class="venue-follow" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'kakushi'});">追蹤 →</a>
       </div>
       <div class="f-venue-item">
         <span class="f-venue-date">4 / 07</span>
@@ -722,14 +730,14 @@ body{
       <div class="f-venue-item">
         <span class="f-venue-date">4 / 11</span>
         <span class="f-venue-name">坐客咖啡</span>
-        <a href="https://linket.net/zouke-cafe" target="_blank" class="venue-follow">追蹤 →</a>
+        <a href="https://linket.net/zouke-cafe" target="_blank" class="venue-follow" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'kakushi'});">追蹤 →</a>
       </div>
     </div>
 
     <div class="f-btns">
-      <a href="https://forms.gle/fD3LVGXcFnMQswRJ6" target="_blank" class="btn-fill gold">📅 預約下一場微醺</a>
-      <a href="https://lin.ee/UgaIhG7" target="_blank" class="btn-fill dark">🍶 立即聯繫嵐爵私選下單</a>
-      <a href="https://lin.ee/19k6X29" target="_blank" class="btn-fill outline">💳 LINKet 品牌數位化服務</a>
+      <a href="https://forms.gle/fD3LVGXcFnMQswRJ6" target="_blank" class="btn-fill gold" onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'kakushi'});">📅 預約下一場微醺</a>
+      <a href="https://lin.ee/UgaIhG7" target="_blank" class="btn-fill dark" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'kakushi'});">🍶 立即聯繫嵐爵私選下單</a>
+      <a href="https://lin.ee/19k6X29" target="_blank" class="btn-fill outline" onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'kakushi'});">💳 LINKet 品牌數位化服務</a>
     </div>
 
     <div class="f-fine">
@@ -746,19 +754,19 @@ body{
 
 <!-- 聯名品牌 LOGO 列 -->
 <div class="partner-bar">
-  <a href="https://lin.ee/19k6X29" target="_blank" class="partner-logo">
+  <a href="https://lin.ee/19k6X29" target="_blank" class="partner-logo" onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'kakushi'});">
     <img src="/home/assets/logo-lanjue.svg" alt="嵐爵">
   </a>
-  <a href="https://linket.net/mumucafe" target="_blank" class="partner-logo">
+  <a href="https://linket.net/mumucafe" target="_blank" class="partner-logo" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'kakushi'});">
     <img src="/home/assets/logo-mumu.svg" alt="MuMu咖啡">
   </a>
-  <a href="https://linket.net/zouke-cafe" target="_blank" class="partner-logo">
+  <a href="https://linket.net/zouke-cafe" target="_blank" class="partner-logo" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'kakushi'});">
     <img src="/home/assets/logo-zuoke.svg" alt="坐客咖啡">
   </a>
   <a href="https://www.instagram.com/3s3s.tw" target="_blank" class="partner-logo">
     <img src="/home/assets/logo-emo.svg" alt="山上山下">
   </a>
-  <a href="https://lin.ee/19k6X29" target="_blank" class="partner-logo">
+  <a href="https://lin.ee/19k6X29" target="_blank" class="partner-logo" onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'kakushi'});">
     <img src="/home/assets/logo-linket.svg" alt="LINKet">
   </a>
 </div>
