@@ -2,226 +2,307 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-29J2988Y8J');
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>夢螢｜嵐爵私選 × LINKet</title>
-<meta name="description" content="來自福岡縣大賀酒造，福岡夢酵母釀造，酒精9%，甜酸可口如螢火蟲閃爍的夏夜。嵐爵私選微醺連結活動限定酒款。">
-<meta property="og:title" content="夢螢｜嵐爵私選 × LINKet">
-<meta property="og:description" content="來自福岡縣大賀酒造，福岡夢酵母釀造，酒精9%，甜酸可口如螢火蟲閃爍的夏夜。嵐爵私選微醺連結活動限定酒款。">
-<meta property="og:image" content="https://linket.app/lanjue/yumebotaru/og-image.jpg">
-<meta property="og:url" content="https://linket.app/lanjue/yumebotaru">
+<title>木陰之魚｜嵐爵私選 × LINKet</title>
+<meta name="description" content="來自岡山縣嘉美心酒造，白桃酵母釀造，酒精僅8%，酸甜清爽如樹蔭下的微風。嵐爵私選微醺連結活動限定酒款。">
+
+<!-- OG Meta Tags -->
+<meta property="og:title" content="木陰之魚｜嵐爵私選 × LINKet">
+<meta property="og:description" content="來自岡山縣嘉美心酒造，白桃酵母釀造，酒精僅8%，酸甜清爽如樹蔭下的微風。嵐爵私選微醺連結活動限定酒款。">
+<meta property="og:image" content="https://linket.app/lanjue/kokage/og-image.jpg">
+<meta property="og:url" content="https://linket.app/lanjue/kokage">
 <meta property="og:type" content="website">
-<link rel="icon" href="/lanjue/yumebotaru/favicon.png">
-<link rel="apple-touch-icon" href="/lanjue/yumebotaru/apple-touch-icon.png">
+
+<!-- Favicon -->
+<link rel="icon" href="/lanjue/kokage/favicon.png">
+<link rel="apple-touch-icon" href="/lanjue/kokage/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200;300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Shippori+Mincho+B1:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600;700;800&family=Noto+Serif+TC:wght@200;300;400;600&family=Cormorant+Garamond:ital,wght@0,400;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --night:#0D1B2A;
-  --night2:#1B263B;
-  --night3:#243447;
-  --gold:#C9A84C;
-  --gold2:#E8C96A;
-  --gold3:#F5E6B8;
-  --firefly:#FFE566;
-  --ink:#0A1628;
-  --inkm:#2C3E55;
-  --inkf:#8899AA;
-  --cream:#F8F2E4;
+  /* 三色系統：薄荷底 + 墨色 + 深海青強調 */
+  --mint:#E0F2F1;
+  --mint2:#B2DFDB;
+  --mint3:#80CBC4;
+  --acc:#00695C;   /* 深海青強調色 */
+  --acc2:#004D40;
+  --ink:#0D1F1D;   /* 墨色主文 */
+  --inkm:#1a3330;
+  --inkf:#7AADA8;
+  --paper:#E0F2F1; /* 底色統一用薄荷系 */
   --white:#FFFFFF;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{font-family:'Noto Serif TC',serif;background:var(--night);color:var(--cream);overflow-x:hidden;}
+body{font-family:'Noto Serif TC',serif;background:var(--mint);color:var(--ink);overflow-x:hidden;}
 
-/* ── TICKER ── */
-.ticker{overflow:hidden;white-space:nowrap;border-bottom:1px solid rgba(201,168,76,.15);padding:.6rem 0;background:var(--night);}
-.ticker-track{display:inline-flex;animation:tick 26s linear infinite;}
-.ticker-track span{font-family:'Shippori Mincho B1',serif;font-weight:500;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;padding:0 1.4rem;color:rgba(248,242,228,.45);}
-.ticker-track span.ac{color:var(--gold);}
+/* NAV removed */
+
+/* Hero circle backdrop */
+.hero-circle{
+  position:absolute;
+  top:50%; left:50%;
+  transform:translate(-50%,-60%);
+  width:clamp(280px,75vw,460px);
+  height:clamp(280px,75vw,460px);
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(128,203,196,.18) 0%, rgba(0,105,92,.12) 50%, transparent 75%);
+  z-index:1;
+  pointer-events:none;
+}
+
+/* TICKER */
+.ticker{overflow:hidden;white-space:nowrap;border-bottom:1px solid rgba(0,105,92,.18);padding:.6rem 0;background:var(--mint);}
+.ticker-track{display:inline-flex;animation:tick 22s linear infinite;}
+.ticker-track span{font-family:'Shippori Mincho B1',serif;font-weight:600;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;padding:0 1.4rem;color:var(--ink);}
+.ticker-track span.ac{color:var(--acc);}
 @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* ── HERO ── */
+/* ══ HERO: FULL-BLEED BOTTLE ══ */
 #hero{
-  position:relative;width:100%;min-height:100svh;
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
+  position:relative;
+  width:100%;
+  min-height:100svh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
   overflow:hidden;
-  background:radial-gradient(ellipse 90% 80% at 50% 30%, #1B2E4A 0%, #0D1B2A 60%, #060E18 100%);
+  background:linear-gradient(170deg, #0d2220 0%, #1a3a36 35%, #00695C 70%, #1a4a42 100%);
 }
-.fireflies{position:absolute;inset:0;z-index:1;pointer-events:none;}
-.ff{
-  position:absolute;width:3px;height:3px;border-radius:50%;
-  background:var(--firefly);box-shadow:0 0 6px 2px rgba(255,229,102,.6);
-  animation:ffloat var(--dur,8s) ease-in-out var(--delay,0s) infinite;opacity:0;
+
+/* Mint wash overlay */
+#hero::before{
+  content:'';
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 70% at 50% 40%, rgba(224,242,241,.08) 0%, transparent 70%);
+  pointer-events:none;z-index:1;
 }
-@keyframes ffloat{
-  0%{opacity:0;transform:translate(0,0);}
-  15%{opacity:.9;}50%{opacity:.4;transform:translate(var(--tx,20px),var(--ty,-40px));}
-  85%{opacity:.8;}100%{opacity:0;transform:translate(var(--tx2,10px),var(--ty2,-80px));}
-}
-.bokeh{position:absolute;border-radius:50%;pointer-events:none;z-index:1;}
-.bokeh-1{width:180px;height:180px;top:15%;left:10%;background:radial-gradient(circle,rgba(201,168,76,.08) 0%,transparent 70%);animation:pulse 6s ease-in-out infinite;}
-.bokeh-2{width:120px;height:120px;top:60%;right:8%;background:radial-gradient(circle,rgba(201,168,76,.06) 0%,transparent 70%);animation:pulse 8s ease-in-out 2s infinite;}
-.bokeh-3{width:80px;height:80px;top:30%;right:20%;background:radial-gradient(circle,rgba(255,229,102,.1) 0%,transparent 70%);animation:pulse 5s ease-in-out 1s infinite;}
-@keyframes pulse{0%,100%{transform:scale(1);opacity:.6;}50%{transform:scale(1.3);opacity:1;}}
-.hero-circle{
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-58%);
-  width:clamp(260px,68vw,420px);height:clamp(260px,68vw,420px);
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(201,168,76,.12) 0%,rgba(201,168,76,.04) 40%,transparent 70%);
-  border:1px solid rgba(201,168,76,.08);z-index:1;pointer-events:none;
-  animation:glowpulse 5s ease-in-out infinite;
-}
-@keyframes glowpulse{0%,100%{box-shadow:0 0 40px rgba(201,168,76,.08);}50%{box-shadow:0 0 80px rgba(201,168,76,.18);}}
+
+/* Real product photo — full height */
 .hero-bottle-full{
-  position:relative;z-index:2;
-  display:flex;align-items:center;justify-content:center;
-  width:100%;padding:5rem 0 8rem;
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  padding: 5rem 0 8rem;
 }
 .hero-bottle-full img{
-  width:clamp(200px,50vw,320px);height:auto;object-fit:contain;
-  filter:drop-shadow(0 24px 60px rgba(0,0,0,.7)) drop-shadow(0 0 40px rgba(201,168,76,.2));
-  animation:bob 7s ease-in-out infinite;
+  width: clamp(220px, 52vw, 340px);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 32px 80px rgba(0,0,0,.6)) drop-shadow(0 0 50px rgba(128,203,196,.15));
+  animation: bob 7s ease-in-out infinite;
 }
-@keyframes bob{0%,100%{transform:translateY(0)rotate(-.6deg);}50%{transform:translateY(-16px)rotate(.6deg);}}
+@keyframes bob{0%,100%{transform:translateY(0)rotate(-.8deg)}50%{transform:translateY(-18px)rotate(.8deg)}}
 
-/* ▼ 版型修正：hero 文字區置中 */
+/* Name stack — overlaid at bottom of hero */
 .hero-name-block{
-  position:absolute;bottom:0;left:0;right:0;z-index:3;
-  padding:3.5rem 1.6rem 2.4rem;
-  background:linear-gradient(transparent,rgba(6,14,24,.96) 55%);
-  display:flex;flex-direction:column;
-  align-items:center;text-align:center;gap:.5rem;
+  position:absolute;
+  bottom:0; left:0; right:0;
+  z-index:3;
+  padding: 3rem 1.6rem 2.2rem;
+  background:linear-gradient(transparent, rgba(13,31,29,.92) 60%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap:.5rem;
 }
 .hname-big{
-  font-family:'Shippori Mincho B1',serif;font-weight:800;
+  font-family:'Shippori Mincho B1',serif;
+  font-weight:800;
   font-size:clamp(3.2rem,18vw,8rem);
-  color:var(--cream);letter-spacing:.08em;line-height:.9;
-  text-shadow:0 0 40px rgba(201,168,76,.3);
+  color:var(--white);
+  letter-spacing:.08em;
+  line-height:.9;
+  text-shadow:0 2px 24px rgba(0,0,0,.4);
 }
-.hname-gold{color:var(--gold);}
 .hname-row{
-  display:flex;flex-wrap:wrap;align-items:center;
-  justify-content:center;gap:.5rem 1rem;
-  padding-top:.6rem;border-top:1px solid rgba(201,168,76,.2);
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.5rem 1rem;
+  padding-top:.6rem;
+  border-top:1px solid rgba(255,255,255,.15);
 }
-.hname-jp{font-family:'Noto Serif TC',serif;font-weight:200;font-size:clamp(.75rem,3vw,1rem);letter-spacing:.28em;color:rgba(201,168,76,.75);}
-.hname-en{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(.85rem,3.5vw,1.1rem);letter-spacing:.2em;color:rgba(248,242,228,.5);}
-.hname-sep{color:var(--gold);font-size:.7rem;}
-.hero-slogan{
+.hname-jp{
+  font-family:'Noto Serif TC',serif;font-weight:200;
+  font-size:clamp(.75rem,3vw,1rem);
+  letter-spacing:.28em;color:var(--mint2);
+}
+.hname-en{
   font-family:'Cormorant Garamond',serif;font-style:italic;
-  font-size:clamp(.78rem,3vw,.98rem);letter-spacing:.16em;line-height:2;
-  color:rgba(248,242,228,.5);margin-top:.3rem;
+  font-size:clamp(.85rem,3.5vw,1.1rem);
+  letter-spacing:.2em;color:rgba(255,255,255,.6);
+}
+.hname-sep{color:var(--acc);font-size:.7rem;}
+.hero-slogan-overlay{
+  font-family:'Noto Serif TC',serif;font-weight:200;
+  font-size:clamp(.7rem,2.8vw,.88rem);
+  letter-spacing:.18em;line-height:2;
+  color:rgba(255,255,255,.55);
+  margin-top:.3rem;
 }
 .hero-scroll-hint{
-  display:flex;align-items:center;gap:.5rem;margin-top:.8rem;
+  display:flex;align-items:center;gap:.5rem;
+  margin-top:.8rem;
   font-family:'Cormorant Garamond',serif;font-style:italic;
-  font-size:.72rem;letter-spacing:.2em;color:rgba(201,168,76,.35);
+  font-size:.72rem;letter-spacing:.2em;color:rgba(255,255,255,.35);
 }
-.scroll-dot{width:20px;height:1px;background:rgba(201,168,76,.3);}
+.scroll-dot{
+  width:20px;height:1px;background:rgba(255,255,255,.3);
+}
 
-/* ── SECTIONS ── */
-.sec{padding:4rem 1.4rem;background:var(--night2);}
-.sec+.sec{border-top:1px solid rgba(201,168,76,.08);}
+/* Ripple rings around bottle */
+.hero-rings{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  z-index:1;pointer-events:none;
+  width:clamp(260px,70vw,400px);
+  height:clamp(260px,70vw,400px);
+}
+.ring{
+  position:absolute;inset:0;
+  border-radius:50%;
+  border:1px solid rgba(128,203,196,.15);
+  animation:ringOut 4s ease-out infinite;
+}
+.ring:nth-child(2){inset:-20px;animation-delay:1.3s;}
+.ring:nth-child(3){inset:-40px;animation-delay:2.6s;}
+@keyframes ringOut{
+  0%{opacity:.4;transform:scale(.9);}
+  100%{opacity:0;transform:scale(1.15);}
+}
 
-/* ▼ 版型修正：680px content-wrap */
-.content-wrap{max-width:680px;margin:0 auto;}
+/* ── 桌機內容容器：680px 置中，手機全寬 ── */
+.content-wrap{
+  max-width:680px;
+  margin:0 auto;
+  width:100%;
+}
 
+/* SECTIONS — mint background */
+.sec{padding:4rem 1.4rem;background:var(--mint);}
+@media(min-width:700px){
+  .sec{padding:5rem 2rem;}
+}
+.sec+.sec{border-top:1px solid rgba(0,105,92,.12);}
 .eyebrow{display:flex;align-items:center;gap:.6rem;margin-bottom:2rem;}
-.eyebrow h2{font-family:'Shippori Mincho B1',serif;font-weight:700;font-size:clamp(.95rem,4vw,1.3rem);letter-spacing:.18em;color:var(--cream);}
-.eyebrow span{color:var(--gold);font-weight:900;font-size:1.1rem;}
-.divider{height:1px;background:linear-gradient(90deg,var(--gold),transparent);width:60px;margin:1.5rem 0;opacity:.4;}
+.eyebrow h2{font-family:'Shippori Mincho B1',serif;font-weight:700;font-size:clamp(.95rem,4vw,1.3rem);letter-spacing:.18em;color:var(--ink);}
+.eyebrow span{color:var(--acc);font-weight:900;font-size:1.1rem;}
+.divider{height:1px;background:linear-gradient(90deg,var(--acc),transparent);width:60px;margin:1.5rem 0;}
 
-/* ── ABOUT ── */
-#about{background:var(--night2);}
-.about-body p{
-  font-family:'Noto Serif TC',serif;font-weight:200;
-  font-size:clamp(.82rem,3vw,.95rem);line-height:3;letter-spacing:.08em;
-  color:rgba(248,242,228,.7);
-}
-.about-body p strong{color:var(--gold2);font-weight:300;}
-.photo-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin:1.8rem 0;}
-.photo-box{border-radius:4px;overflow:hidden;aspect-ratio:3/4;position:relative;background:var(--night3);}
-.photo-box img{width:100%;height:100%;object-fit:cover;filter:saturate(.2)contrast(1.1)brightness(.85);transition:filter .5s;}
-.photo-box:hover img{filter:saturate(.5)contrast(1.05)brightness(.9);}
-.photo-box::after{content:'';position:absolute;inset:0;background:rgba(201,168,76,.06);mix-blend-mode:screen;pointer-events:none;}
-.food-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;background:var(--night3);}
+/* ABOUT */
+#about{background:var(--mint);}
+.about-body p{font-weight:200;font-size:clamp(.82rem,3vw,.95rem);line-height:2.6;letter-spacing:.06em;color:var(--inkm);}
+.about-body p strong{color:var(--acc);font-weight:400;}
+.photo-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin:1.6rem 0;}
+.photo-box{border-radius:4px;overflow:hidden;aspect-ratio:3/4;position:relative;background:#b2dfdb;}
+.photo-box img{width:100%;height:100%;object-fit:cover;filter:saturate(.25)contrast(1.1);transition:filter .4s;}
+.photo-box:hover img{filter:saturate(.65);}
+.photo-box::after{content:'';position:absolute;inset:0;background:rgba(0,105,92,.12);mix-blend-mode:multiply;pointer-events:none;}
+/* Journey */
+.journey{margin-top:2rem;}
+.j-row{display:flex;gap:.8rem;align-items:stretch;min-height:52px;}
+.j-line{width:24px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;}
+.j-dot{width:8px;height:8px;border-radius:50%;background:var(--acc);flex-shrink:0;margin-top:3px;}
+.j-bar{flex:1;width:1px;background:linear-gradient(180deg,var(--acc),var(--mint2));}
+.j-row:last-child .j-bar{display:none;}
+.j-info{padding-bottom:1.6rem;}
+.j-day{font-family:'Shippori Mincho B1',serif;font-weight:700;font-size:clamp(.95rem,4vw,1.2rem);letter-spacing:.08em;line-height:1;}
+.j-place{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.75rem;letter-spacing:.18em;color:var(--inkf);margin-top:.25rem;}
 
-/* ── SPECS ── */
-#specs{background:linear-gradient(180deg,var(--night) 0%,var(--night2) 100%);}
-.ring-wrap{display:flex;align-items:center;justify-content:center;margin-bottom:1.6rem;}
-.ring-chart{position:relative;width:clamp(100px,30vw,140px);height:clamp(100px,30vw,140px);}
-.ring-chart svg{width:100%;height:100%;}
-.ring-val{
-  position:absolute;inset:0;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  font-family:'Shippori Mincho B1',serif;font-weight:800;
-  font-size:clamp(1.6rem,6vw,2.4rem);color:var(--gold);
-  text-shadow:0 0 20px rgba(201,168,76,.4);
-}
-.ring-val span{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.65rem;letter-spacing:.2em;color:var(--inkf);margin-top:.2rem;}
+/* SPECS */
+#specs{background:linear-gradient(180deg,var(--white) 0%,var(--mint) 100%);}
+.big8{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:clamp(5rem,24vw,11rem);color:var(--mint2);line-height:.85;letter-spacing:-.02em;mix-blend-mode:multiply;}
+.big8-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.85rem;letter-spacing:.3em;color:var(--inkm);margin-bottom:1.8rem;}
 .spec-table{width:100%;border-collapse:collapse;}
-.spec-table tr{border-bottom:1px solid rgba(201,168,76,.08);}
+.spec-table tr{border-bottom:1px solid rgba(0,105,92,.1);}
 .spec-table td{padding:.85rem 0;vertical-align:top;}
-.spec-table td:first-child{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.72rem;letter-spacing:.18em;color:rgba(201,168,76,.6);width:34%;padding-top:1rem;}
-.spec-table td:last-child{font-family:'Noto Serif TC',serif;font-size:.88rem;font-weight:300;line-height:1.7;color:rgba(248,242,228,.8);}
+.spec-table td:first-child{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.72rem;letter-spacing:.18em;color:var(--inkf);width:34%;padding-top:1rem;}
+.spec-table td:last-child{font-family:'Noto Serif TC',serif;font-size:.88rem;font-weight:300;line-height:1.7;}
 .tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.8rem;}
-.tag{border:1px solid rgba(201,168,76,.4);color:var(--gold2);font-family:'Cormorant Garamond',serif;font-size:.78rem;letter-spacing:.12em;padding:.28rem .72rem;transition:background .2s,color .2s;cursor:default;}
-.tag:hover{background:var(--gold);color:var(--night);}
+.tag{border:1px solid var(--acc);color:var(--acc);font-family:'Cormorant Garamond',serif;font-size:.78rem;letter-spacing:.12em;padding:.28rem .72rem;transition:background .2s,color .2s;cursor:default;}
+.tag:hover{background:var(--acc);color:var(--white);}
 
-/* ── SENSORY ── */
-#sensory{background:var(--night2);}
-.spotify-wrap{margin-bottom:1.4rem;}
-.spotify-label{font-family:'Shippori Mincho B1',serif;font-weight:500;font-size:.76rem;letter-spacing:.2em;color:rgba(201,168,76,.7);margin-bottom:.7rem;}
-.food-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:1.2rem;}
-.food-box{border-radius:4px;overflow:hidden;position:relative;aspect-ratio:3/4;background:var(--night3);}
-.food-box img{width:100%;height:100%;object-fit:cover;filter:saturate(.2)contrast(1.1)brightness(.8);transition:filter .5s,transform .5s;}
-.food-box:hover img{filter:saturate(.55)brightness(.9);transform:scale(1.04);}
-.food-box::after{content:'';position:absolute;inset:0;background:rgba(201,168,76,.05);mix-blend-mode:screen;pointer-events:none;}
-.food-lbl{position:absolute;bottom:0;left:0;right:0;padding:.5rem .7rem;background:linear-gradient(transparent,rgba(6,14,24,.88));font-family:'Noto Serif TC',serif;font-weight:200;font-size:.65rem;letter-spacing:.14em;color:rgba(248,242,228,.8);}
+/* SENSORY */
+#sensory{background:var(--mint);}
+.spotify-wrap{margin-bottom:1.2rem;}
+.spotify-label{font-family:'Shippori Mincho B1',serif;font-weight:600;font-size:.78rem;letter-spacing:.18em;color:var(--inkm);margin-bottom:.7rem;}
+.music-bar{background:var(--ink);border-radius:4px;padding:1.2rem;display:flex;align-items:center;gap:1rem;margin-bottom:1rem;}
+.play-btn{width:44px;height:44px;background:#1DB954;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;text-decoration:none;}
+.music-copy h4{font-family:'Shippori Mincho B1',serif;font-weight:600;font-size:.82rem;letter-spacing:.12em;color:var(--white);margin-bottom:.25rem;}
+.music-copy p{font-size:.65rem;letter-spacing:.1em;color:var(--mint3);font-family:'Cormorant Garamond',serif;font-style:italic;}
+.food-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
+.food-box{border-radius:4px;overflow:hidden;position:relative;aspect-ratio:3/4;background:#b2dfdb;}
+.food-box img{width:100%;height:100%;object-fit:cover;filter:saturate(.2)contrast(1.1);transition:filter .5s,transform .5s;}
+.food-box:hover img{filter:saturate(.6);transform:scale(1.04);}
+.food-box::after{content:'';position:absolute;inset:0;background:rgba(0,105,92,.1);mix-blend-mode:multiply;pointer-events:none;}
+.food-lbl{position:absolute;bottom:0;left:0;right:0;padding:.45rem .6rem;background:linear-gradient(transparent,rgba(13,31,29,.82));font-family:'Noto Serif TC',serif;font-weight:300;font-size:.65rem;letter-spacing:.14em;color:rgba(255,255,255,.88);}
+.food-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;background:linear-gradient(135deg,var(--mint2),var(--mint));}
 
-/* ── INSIGHT ── */
-#insight{background:var(--ink);padding:5rem 1.4rem;position:relative;overflow:hidden;}
-#insight::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.1) 0%,transparent 70%);pointer-events:none;z-index:0;}
-#insight .eyebrow{position:relative;z-index:1;}
-#insight .eyebrow h2{color:rgba(201,168,76,.85);}
-.i-q{position:relative;z-index:1;font-family:'Noto Serif TC',serif;font-weight:200;font-size:clamp(.72rem,2.8vw,.88rem);line-height:3;letter-spacing:.08em;color:rgba(248,242,228,.65);}
-.i-q em{font-style:normal;color:var(--gold2);}
+/* INSIGHT */
+#insight{background:var(--ink);padding:4rem 1.4rem;}
+@media(min-width:700px){#insight{padding:5rem 2rem;}}
+#insight .eyebrow h2{color:var(--mint2);font-family:'Shippori Mincho B1',serif;}
+#insight .eyebrow span{color:var(--acc);}
+.insight-inner{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;}
+.i-q{font-family:'Noto Serif TC',serif;font-weight:200;font-size:clamp(.72rem,2.8vw,.88rem);line-height:2.8;letter-spacing:.08em;color:rgba(255,255,255,.78);}
+.i-q em{font-style:normal;color:var(--mint3);}
+.insight-img{border-radius:8px;overflow:hidden;aspect-ratio:2/3;}
+.insight-img img{width:100%;height:100%;object-fit:cover;filter:saturate(.2)contrast(1.1);}
+.insight-img::after{content:'';display:block;}
 
-/* ── FOOTER ── */
-#footer{background:linear-gradient(170deg,var(--night2) 0%,var(--night) 100%);padding:4rem 1.4rem 3.5rem;}
-.f-big{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:clamp(2.8rem,13vw,7rem);line-height:.92;letter-spacing:.04em;color:var(--cream);margin-bottom:.15em;}
-.f-big .ac{color:var(--gold);}
-.f-venues{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;border-top:1px solid rgba(201,168,76,.15);border-bottom:1px solid rgba(201,168,76,.15);padding:1.4rem 0;margin:1.8rem 0;}
-.f-venue-item{display:flex;flex-direction:column;gap:.3rem;padding:.6rem;border-right:1px solid rgba(201,168,76,.08);}
+/* FOOTER */
+#footer{background:linear-gradient(150deg,var(--mint) 0%,var(--white) 100%);padding:4rem 1.4rem 3.5rem;}
+@media(min-width:700px){#footer{padding:5rem 2rem 4rem;}}
+.f-big{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:clamp(2.8rem,13vw,7rem);line-height:.92;letter-spacing:.04em;color:var(--ink);margin-bottom:.15em;}
+.f-big .ac{color:var(--acc);}
+.f-venues{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;border-top:1px solid rgba(0,105,92,.15);border-bottom:1px solid rgba(0,105,92,.15);padding:1.4rem 0;margin:1.8rem 0;}
+.f-venue-item{display:flex;flex-direction:column;gap:.3rem;padding:.6rem;border-right:1px solid rgba(0,105,92,.1);}
 .f-venue-item:last-child{border-right:none;}
-.f-venue-date{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:clamp(.95rem,3.5vw,1.4rem);letter-spacing:.06em;color:var(--gold);}
-.f-venue-name{font-family:'Noto Serif TC',serif;font-weight:700;font-size:clamp(.72rem,2.6vw,.92rem);letter-spacing:.08em;color:rgba(248,242,228,.92);line-height:1.6;}
+.f-venue-date{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:clamp(.95rem,3.5vw,1.4rem);letter-spacing:.06em;color:var(--acc);}
+.f-venue-name{font-family:'Noto Serif TC',serif;font-weight:700;font-size:clamp(.72rem,2.6vw,.92rem);letter-spacing:.08em;color:var(--ink);line-height:1.6;}
 @media(max-width:600px){
   .f-venues{grid-template-columns:1fr;gap:0;}
-  .f-venue-item{flex-direction:row;align-items:center;justify-content:space-between;border-right:none;border-bottom:1px solid rgba(201,168,76,.1);padding:.9rem .4rem;}
+  .f-venue-item{flex-direction:row;align-items:center;justify-content:space-between;border-right:none;border-bottom:1px solid rgba(0,105,92,.1);padding:.9rem .4rem;}
   .f-venue-item:last-child{border-bottom:none;}
   .f-venue-date{font-size:1.05rem;min-width:3.2rem;}
   .f-venue-name{font-size:.88rem;flex:1;padding:0 .6rem;}
 }
 .f-btns{display:flex;flex-direction:column;gap:.7rem;max-width:360px;}
 .btn-fill{display:block;text-align:center;padding:.95rem 1.4rem;font-family:'Cormorant Garamond',serif;font-size:.88rem;letter-spacing:.18em;text-decoration:none;border:none;cursor:pointer;transition:background .2s,color .2s;}
-.btn-fill.gold{background:var(--gold);color:var(--night);}
-.btn-fill.gold:hover{background:var(--gold2);}
-.btn-fill.dark{background:rgba(255,255,255,.06);color:var(--cream);border:1px solid rgba(201,168,76,.3);}
-.btn-fill.dark:hover{background:rgba(201,168,76,.15);}
-.btn-fill.outline{background:transparent;color:var(--gold2);border:1.5px solid rgba(201,168,76,.4);}
-.btn-fill.outline:hover{background:rgba(201,168,76,.1);}
-.f-fine{margin-top:2.5rem;padding-top:1rem;border-top:1px solid rgba(201,168,76,.08);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem;align-items:flex-end;}
-.f-brand{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.72rem;letter-spacing:.22em;color:rgba(201,168,76,.5);}
-.f-warn{width:100%;font-family:'Noto Serif TC',serif;font-size:.56rem;letter-spacing:.1em;color:rgba(248,242,228,.2);margin-top:.2rem;}
+.btn-fill.dark{background:var(--ink);color:var(--mint);}
+.btn-fill.dark:hover{background:var(--acc2);}
+.btn-fill.green{background:var(--acc);color:var(--white);}
+.btn-fill.green:hover{background:var(--acc2);}
+.btn-fill.outline{background:transparent;color:var(--ink);border:1.5px solid var(--ink);}
+.btn-fill.outline:hover{background:var(--ink);color:var(--mint);}
+.f-fine{margin-top:2.5rem;padding-top:1rem;border-top:1px solid rgba(0,105,92,.1);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem;align-items:flex-end;}
+.f-brand{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.72rem;letter-spacing:.22em;color:var(--inkf);}
+.f-warn{width:100%;font-family:'Noto Serif TC',serif;font-size:.56rem;letter-spacing:.1em;color:rgba(13,31,29,.3);margin-top:.2rem;}
 .f-nav{display:flex;gap:1.2rem;list-style:none;}
-.f-nav a{font-family:'Cormorant Garamond',serif;font-size:.72rem;letter-spacing:.15em;color:rgba(201,168,76,.5);text-decoration:none;text-transform:uppercase;}
+.f-nav a{font-family:'Cormorant Garamond',serif;font-size:.72rem;letter-spacing:.15em;color:var(--inkf);text-decoration:none;text-transform:uppercase;}
 
-/* VENUE FOLLOW */
-.venue-follow{display:inline-block;font-family:'Noto Sans TC',sans-serif;font-weight:500;font-size:.65rem;letter-spacing:.14em;color:var(--night);background:var(--gold);text-decoration:none;padding:.3rem .75rem;border-radius:2px;margin-top:.3rem;transition:background .2s,transform .15s;}
-.venue-follow:hover{background:var(--gold2);transform:translateY(-1px);}
+/* AMBIENT BTN */
+#amb{position:fixed;bottom:1.2rem;right:1.2rem;z-index:300;width:38px;height:38px;border-radius:50%;border:1px solid rgba(128,203,196,.4);background:rgba(13,31,29,.7);backdrop-filter:blur(8px);font-size:.85rem;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+
+/* VENUE FOLLOW LINK */
+.venue-follow{display:inline-block;font-family:'Noto Sans TC',sans-serif;font-weight:500;font-size:.65rem;letter-spacing:.14em;color:#fff;background:var(--acc);text-decoration:none;padding:.3rem .75rem;border-radius:2px;margin-top:.3rem;transition:background .2s,transform .15s;}
+.venue-follow:hover{background:var(--acc2);transform:translateY(-1px);}
 @media(max-width:600px){.venue-follow{margin-top:0;white-space:nowrap;}}
+
+/* LEGAL BAR */
+.legal-bar{background:#000;color:#fff;text-align:center;padding:1rem 1.4rem;font-family:'Noto Serif TC',serif;font-weight:200;font-size:1rem;letter-spacing:.14em;line-height:2.2;}
 
 /* PARTNER BAR */
 .partner-bar{background:#000;display:flex;align-items:center;justify-content:center;gap:clamp(1.2rem,4vw,3rem);padding:1.6rem 1.4rem;border-top:1px solid rgba(255,255,255,.08);}
@@ -232,215 +313,244 @@ body{font-family:'Noto Serif TC',serif;background:var(--night);color:var(--cream
   .partner-bar{gap:clamp(.8rem,3vw,1.6rem);padding:1.2rem .8rem;flex-wrap:wrap;}
   .partner-logo img{height:10px;}
 }
-
-/* LEGAL BAR */
-.legal-bar{background:#000;color:rgba(255,255,255,.55);text-align:center;padding:.9rem 1.4rem;font-family:'Noto Serif TC',serif;font-weight:200;font-size:.58rem;letter-spacing:.14em;line-height:2.2;}
-
-/* ── DESKTOP RWD ── */
-@media(min-width:800px){
-  .sec{padding:5rem 2rem;}
-  #insight{padding:6rem 2rem;}
-  #footer{padding:5rem 2rem 4rem;}
-}
 </style>
 </head>
 <body>
 
+
+
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-track">
-    <span>9% ABV</span><span class="ac">✦</span>
-    <span>福岡縣大賀酒造</span><span class="ac">✦</span>
-    <span>福岡夢酵母1號</span><span class="ac">✦</span>
-    <span>YUMEBOTARU</span><span class="ac">✦</span>
-    <span>低溫發酵</span><span class="ac">✦</span>
-    <span>夏夜螢光</span><span class="ac">✦</span>
-    <span>9% ABV</span><span class="ac">✦</span>
-    <span>福岡縣大賀酒造</span><span class="ac">✦</span>
-    <span>福岡夢酵母1號</span><span class="ac">✦</span>
-    <span>YUMEBOTARU</span><span class="ac">✦</span>
-    <span>低溫發酵</span><span class="ac">✦</span>
-    <span>夏夜螢光</span><span class="ac">✦</span>
+    <span>8% LOW ABV</span><span class="ac">✦</span>
+    <span>岡山縣嘉美心酒造</span><span class="ac">✦</span>
+    <span>一段式釀造</span><span class="ac">✦</span>
+    <span>KOKAGE NO SAKANA</span><span class="ac">✦</span>
+    <span>極致果酸</span><span class="ac">✦</span>
+    <span>夏日清涼</span><span class="ac">✦</span>
+    <span>8% LOW ABV</span><span class="ac">✦</span>
+    <span>岡山縣嘉美心酒造</span><span class="ac">✦</span>
+    <span>一段式釀造</span><span class="ac">✦</span>
+    <span>KOKAGE NO SAKANA</span><span class="ac">✦</span>
+    <span>極致果酸</span><span class="ac">✦</span>
+    <span>夏日清涼</span><span class="ac">✦</span>
   </div>
 </div>
 
-<!-- §1 HERO -->
+<!-- §1 HERO — FULL BLEED BOTTLE -->
 <section id="hero">
-  <div class="bokeh bokeh-1"></div>
-  <div class="bokeh bokeh-2"></div>
-  <div class="bokeh bokeh-3"></div>
-  <div class="fireflies" id="fireflies"></div>
-  <div class="hero-circle"></div>
-  <div class="hero-bottle-full">
-    <img src="/lanjue/yumebotaru/yumebotaru-bottle.png" alt="夢螢 Yumebotaru"
-      onerror="this.style.display='none'">
+  <!-- Ripple rings -->
+  <div class="hero-rings">
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
   </div>
+
+  <!-- Circle backdrop behind bottle -->
+  <div class="hero-circle"></div>
+
+  <!-- Real product photo -->
+  <div class="hero-bottle-full">
+    <img
+      src="/lanjue/kokage/kokage-bottle.png"
+      alt="木陰之魚 Kokage no Sakana"
+    >
+  </div>
+
+  <!-- Name + slogan overlay at bottom -->
   <div class="hero-name-block">
-    <div class="hname-big">夢<span class="hname-gold">螢</span></div>
+    <div class="hname-big">木陰之魚</div>
     <div class="hname-row">
-      <span class="hname-jp">ゆめぼたる</span>
+      <span class="hname-jp">こかげのさかな</span>
       <span class="hname-sep">✦</span>
-      <span class="hname-en">Yumebotaru</span>
+      <span class="hname-en">Kokage no Sakana</span>
     </div>
-    <p class="hero-slogan">在黑夜中閃爍的，是未曾熄滅的初心。</p>
-    <div class="hero-scroll-hint"><span class="scroll-dot"></span><span>Scroll</span></div>
+    <p class="hero-slogan-overlay">在繁忙的流域中，為靈魂找一片清涼的樹蔭。</p>
+    <div class="hero-scroll-hint">
+      <span class="scroll-dot"></span>
+      <span>Scroll</span>
+    </div>
   </div>
 </section>
 
 <!-- §2 ABOUT -->
 <section id="about" class="sec">
   <div class="content-wrap">
-    <div class="eyebrow"><h2>關於夢螢</h2><span>✦</span></div>
-    <div class="about-body">
-      <p>請閉上眼，想像自己站在<strong>福岡筑紫野</strong>的田野間。立春剛過，空氣中還帶著一絲涼意，遠處隱約傳來溪流聲。這支酒是為了迎接<strong>螢火蟲季節</strong>而生的限定禮物。輕啜一口，你會感覺到像是在月光下閃爍的微光，那種<strong>甜酸交織的清新</strong>，正是一場關於夏天的夢境開始。</p>
+  <div class="eyebrow">
+    <h2>關於木陰之魚</h2><span>✦</span>
+  </div>
+  <div class="about-body">
+    <p>夏日正午的陽光有些刺眼，你轉身走進一片<strong>幽靜的綠蔭</strong>。聽，那是溪水流過岩石的聲音。你像是一條躲在樹蔭下乘涼的小魚，在這裡找到了片刻寧靜。這口酒就像是掠過水面的<strong>微風</strong>，輕柔、酸甜，帶走了一整天的燥熱與煩憂。</p>
+  </div>
+
+  <div class="photo-row">
+    <div class="photo-box">
+      <img
+        src="/lanjue/kokage/japan-1.jpg"
+        alt="日本風景"
+        loading="lazy"
+        onerror="this.parentElement.innerHTML='<div class=\'food-placeholder\'>⛩️</div>'"
+      >
     </div>
-    <div class="photo-row">
-      <div class="photo-box">
-        <img src="/lanjue/yumebotaru/japan-night-1.jpg" alt="日本夏夜風景" loading="lazy"
-          onerror="this.parentElement.innerHTML='<div class=\'food-placeholder\'>🌙</div>'">
-      </div>
-      <div class="photo-box">
-        <img src="/lanjue/yumebotaru/japan-night-2.jpg" alt="日本螢火蟲田野" loading="lazy"
-          onerror="this.parentElement.innerHTML='<div class=\'food-placeholder\'>✨</div>'">
-      </div>
+    <div class="photo-box">
+      <img
+        src="/lanjue/kokage/japan-2.jpg"
+        alt="日本風景"
+        loading="lazy"
+        onerror="this.parentElement.innerHTML='<div class=\'food-placeholder\'>🏯</div>'"
+      >
     </div>
+  </div>
   </div>
 </section>
 
-<!-- §3 SENSORY -->
+<!-- §3 SENSORY (moved above specs) -->
 <section id="sensory" class="sec">
   <div class="content-wrap">
-    <div class="eyebrow"><h2>聽覺與味覺</h2><span>✦</span></div>
-    <div class="spotify-wrap">
-      <p class="spotify-label">🎵 聽見夢想閃爍的聲音</p>
-      <iframe width="100%" height="215" src="https://www.youtube.com/embed/S8I0MdfBvbs?si=U2rQEyTaRyTiIIj7&controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius:12px;display:block;"></iframe>
+  <div class="eyebrow">
+    <h2>聽覺與味覺</h2><span>✦</span>
+  </div>
+
+  <div class="spotify-wrap">
+    <p class="spotify-label">🎵 按下 Play，讓微風拂過耳際</p>
+    <iframe width="100%" height="215" src="https://www.youtube.com/embed/ZrGuLj4RY1g?si=H3HjGOxQCZTOUi9Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius:12px;display:block;"></iframe>
+  </div>
+
+  <div class="food-grid">
+    <div class="food-box">
+      <img
+        src="/lanjue/kokage/food-pasta.jpg"
+        alt="海鮮義大利麵"
+        loading="lazy"
+        onerror="this.parentElement.innerHTML='<div class=\'food-placeholder\'>🍝</div><p class=\'food-lbl\'>海鮮義大利麵</p>'"
+      >
+      <p class="food-lbl">海鮮義大利麵</p>
     </div>
-    <div class="food-grid">
-      <div class="food-box">
-        <img src="/lanjue/yumebotaru/food-seafood.jpg" alt="海鮮沙拉" loading="lazy"
-          onerror="this.parentElement.innerHTML='<div class=\'food-placeholder\'>🥗</div><p class=\'food-lbl\'>海鮮沙拉</p>'">
-        <p class="food-lbl">海鮮沙拉</p>
-      </div>
-      <div class="food-box">
-        <img src="/lanjue/yumebotaru/food-sashimi.jpg" alt="生魚片" loading="lazy"
-          onerror="this.parentElement.innerHTML='<div class=\'food-placeholder\'>🐟</div><p class=\'food-lbl\'>生魚片・輕起司</p>'">
-        <p class="food-lbl">生魚片・輕起司</p>
-      </div>
+    <div class="food-box">
+      <img
+        src="/lanjue/kokage/food-salad.jpg"
+        alt="清爽沙拉"
+        loading="lazy"
+        onerror="this.parentElement.innerHTML='<div class=\'food-placeholder\'>🥗</div><p class=\'food-lbl\'>清爽沙拉・開胃酒</p>'"
+      >
+      <p class="food-lbl">清爽沙拉・開胃酒</p>
     </div>
+  </div>
   </div>
 </section>
 
 <!-- §4 SPECS -->
 <section id="specs" class="sec">
   <div class="content-wrap">
-    <div class="eyebrow"><h2>職人與工法</h2><span>✦</span></div>
-    <div class="ring-wrap">
-      <div class="ring-chart">
-        <svg viewBox="0 0 120 120">
-          <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(201,168,76,.08)" stroke-width="8"/>
-          <circle cx="60" cy="60" r="50" fill="none" stroke="url(#goldGrad)" stroke-width="8"
-            stroke-dasharray="283" stroke-dashoffset="54" stroke-linecap="round" transform="rotate(-90 60 60)"/>
-          <defs>
-            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#C9A84C"/><stop offset="100%" stop-color="#F5E6B8"/>
-            </linearGradient>
-          </defs>
-        </svg>
-        <div class="ring-val">9%<span>alc/vol</span></div>
-      </div>
-    </div>
-    <table class="spec-table">
-      <tr><td>酒名</td><td>大賀 夢螢 <em style="font-family:'Cormorant Garamond',serif;font-style:italic;color:rgba(201,168,76,.6);font-size:.8rem;">Yumebotaru</em></td></tr>
-      <tr><td>產地</td><td>日本福岡縣</td></tr>
-      <tr><td>酒造</td><td>大賀酒造</td></tr>
-      <tr><td>米種</td><td>福岡縣產「夢一献」</td></tr>
-      <tr><td>酒精濃度</td><td>9%</td></tr>
-      <tr><td>釀造工法</td><td>使用「福岡夢酵母 1 號」，以極低溫發酵保留米香中的花果清甜</td></tr>
-      <tr><td>風味</td><td>甜酸可口、輕盈透徹，清新米香與優雅的花香尾韻</td></tr>
-      <tr><td>適飲溫度</td><td>10°C – 15°C（微涼即可，溫度稍回升能讓花香更盛）</td></tr>
-      <tr><td>醒酒時間</td><td>開瓶後建議靜置 10–20 分鐘，讓香氣從「夢境」中甦醒</td></tr>
-    </table>
-    <div class="tags">
-      <span class="tag">甜酸可口</span>
-      <span class="tag">清新米香</span>
-      <span class="tag">花香尾韻</span>
-      <span class="tag">輕盈透徹</span>
-      <span class="tag">低溫發酵</span>
-    </div>
+  <div class="eyebrow">
+    <h2>職人與工法</h2><span>✦</span>
+  </div>
+  <div class="big8">8%</div>
+  <p class="big8-sub">Alcohol by Volume · 低酒精</p>
+
+  <table class="spec-table">
+    <tr><td>酒名</td><td>嘉美心 木陰之魚 <em style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--inkf);font-size:.8rem;">Kokage no Sakana</em></td></tr>
+    <tr><td>產地</td><td>日本岡山縣</td></tr>
+    <tr><td>酒造</td><td>嘉美心酒造</td></tr>
+    <tr><td>米種</td><td>日本國產米</td></tr>
+    <tr><td>酒精濃度</td><td>8%</td></tr>
+    <tr><td>釀造工法</td><td>獨特「一段式釀造」，追求極致果酸。低酒精原酒技術，直接釀出白葡萄酒質感</td></tr>
+    <tr><td>風味</td><td>明亮柑橘系酸度，口感輕盈甜潤，非常適合不常喝酒精飲品的人</td></tr>
+    <tr><td>適飲溫度</td><td>5°C – 8°C（極冰狀態最能體現「木陰」的涼爽感）</td></tr>
+    <tr><td>醒酒時間</td><td>無需醒酒，開瓶即飲，最能保留鮮活的酸度</td></tr>
+  </table>
+
+  <div class="tags">
+    <span class="tag">白葡萄酒酸度</span>
+    <span class="tag">檸檬</span>
+    <span class="tag">柑橘系</span>
+    <span class="tag">輕盈甜潤</span>
+    <span class="tag">極致果酸</span>
+  </div>
   </div>
 </section>
 
 <!-- §5 INSIGHT -->
 <section id="insight">
   <div class="content-wrap">
-    <div class="eyebrow"><h2>品牌思考題</h2><span>✦</span></div>
-    <p class="i-q">
-      夢想雖然細微如<em>螢火</em>，<br>
-      但在黑夜中卻最具<em>方向感</em>。<br><br>
-      你的品牌在那片商務黑夜中，<br>
-      是為了指引<em>誰</em>？<br><br>
-      你的「<em>光</em>」又是什麼？
-    </p>
+  <div class="eyebrow">
+    <h2>品牌思考題</h2><span>✦</span>
+  </div>
+  <p class="i-q">
+    在大環境的烈日曝曬下，<br>
+    每個人都在尋求<em>喘息</em>。<br><br>
+    你的品牌，<br>為客戶提供了什麼樣的「<em>樹蔭</em>」？<br><br>
+    你解決了他們生活中<br>哪一種難以言喻的「<em>燥熱</em>」？
+  </p>
   </div>
 </section>
 
 <!-- §6 FOOTER -->
 <section id="footer">
   <div class="content-wrap">
-    <div class="f-big">微醺<br>連結<span class="ac">。</span></div>
-    <div class="f-venues">
-      <div class="f-venue-item">
-        <span class="f-venue-date">3 / 30</span>
-        <span class="f-venue-name">MuMu 咖啡</span>
-        <a href="https://linket.net/mumucafe" target="_blank" class="venue-follow">追蹤 →</a>
-      </div>
-      <div class="f-venue-item">
-        <span class="f-venue-date">4 / 07</span>
-        <span class="f-venue-name">山上山下<br>埔里店</span>
-        <a href="https://www.instagram.com/3s3s.tw" target="_blank" class="venue-follow">追蹤 →</a>
-      </div>
-      <div class="f-venue-item">
-        <span class="f-venue-date">4 / 11</span>
-        <span class="f-venue-name">坐客咖啡</span>
-        <a href="https://linket.net/zouke-cafe" target="_blank" class="venue-follow">追蹤 →</a>
-      </div>
+  <div class="f-big">微醺<br>連結<span class="ac">。</span></div>
+
+  <div class="f-venues">
+    <div class="f-venue-item">
+      <span class="f-venue-date">3 / 30</span>
+      <span class="f-venue-name">MuMu 咖啡</span>
+      <a href="https://linket.net/mumucafe" target="_blank" class="venue-follow">追蹤 →</a>
     </div>
-    <div class="f-btns">
-      <a href="https://forms.gle/fD3LVGXcFnMQswRJ6" target="_blank" class="btn-fill gold">📅 預約下一場微醺</a>
-      <a href="https://lin.ee/UgaIhG7" target="_blank" class="btn-fill dark">🍶 立即聯繫嵐爵私選下單</a>
-      <a href="https://lin.ee/19k6X29" target="_blank" class="btn-fill outline">💳 LINKet 品牌數位化服務</a>
+    <div class="f-venue-item">
+      <span class="f-venue-date">4 / 07</span>
+      <span class="f-venue-name">山上山下<br>埔里店</span>
+      <a href="https://www.instagram.com/3s3s.tw" target="_blank" class="venue-follow">追蹤 →</a>
     </div>
-    <div class="f-fine">
-      <span class="f-brand">夢螢 YUMEBOTARU</span>
-      <ul class="f-nav">
-        <li><a href="#about">關於</a></li>
-        <li><a href="#specs">工法</a></li>
-        <li><a href="#sensory">搭配</a></li>
-      </ul>
+    <div class="f-venue-item">
+      <span class="f-venue-date">4 / 11</span>
+      <span class="f-venue-name">坐客咖啡</span>
+      <a href="https://linket.net/zouke-cafe" target="_blank" class="venue-follow">追蹤 →</a>
     </div>
+  </div>
+
+  <div class="f-btns">
+    <a href="https://forms.gle/fD3LVGXcFnMQswRJ6" target="_blank" class="btn-fill green">📅 預約下一場微醺</a>
+    <a href="https://lin.ee/UgaIhG7" target="_blank" class="btn-fill dark">🍶 立即聯繫嵐爵私選下單</a>
+    <a href="https://lin.ee/19k6X29" target="_blank" class="btn-fill outline">💳 LINKet 品牌數位化服務</a>
+  </div>
+
+  <div class="f-fine">
+    <span class="f-brand">木陰之魚 KOKAGE NO SAKANA</span>
+    <ul class="f-nav">
+      <li><a href="#about">關於</a></li>
+      <li><a href="#specs">工法</a></li>
+      <li><a href="#sensory">搭配</a></li>
+    </ul>
+  </div>
   </div>
 </section>
 
+<!-- 聯名品牌 LOGO 列 -->
 <div class="partner-bar">
-  <a href="https://lin.ee/19k6X29" target="_blank" class="partner-logo"><img src="/home/assets/logo-lanjue.svg" alt="嵐爵"></a>
-  <a href="https://linket.net/mumucafe" target="_blank" class="partner-logo"><img src="/home/assets/logo-mumu.svg" alt="MuMu咖啡"></a>
-  <a href="https://linket.net/zouke-cafe" target="_blank" class="partner-logo"><img src="/home/assets/logo-zuoke.svg" alt="坐客咖啡"></a>
-  <a href="https://www.instagram.com/3s3s.tw" target="_blank" class="partner-logo"><img src="/home/assets/logo-emo.svg" alt="山上山下"></a>
-  <a href="https://lin.ee/19k6X29" target="_blank" class="partner-logo"><img src="/home/assets/logo-linket.svg" alt="LINKet"></a>
+  <a href="https://lin.ee/19k6X29" target="_blank" class="partner-logo">
+    <img src="/home/assets/logo-lanjue.svg" alt="嵐爵">
+  </a>
+  <a href="https://linket.net/mumucafe" target="_blank" class="partner-logo">
+    <img src="/home/assets/logo-mumu.svg" alt="MuMu咖啡">
+  </a>
+  <a href="https://linket.net/zouke-cafe" target="_blank" class="partner-logo">
+    <img src="/home/assets/logo-zuoke.svg" alt="坐客咖啡">
+  </a>
+  <a href="https://www.instagram.com/3s3s.tw" target="_blank" class="partner-logo">
+    <img src="/home/assets/logo-emo.svg" alt="山上山下">
+  </a>
+  <a href="https://lin.ee/19k6X29" target="_blank" class="partner-logo">
+    <img src="/home/assets/logo-linket.svg" alt="LINKet">
+  </a>
 </div>
 
+<!-- 法規警語 -->
 <div class="legal-bar">
   飲酒勿開車｜未滿十八歲者，禁止飲酒｜本品牌不販賣酒予未滿十八歲者｜飲酒過量有害健康
 </div>
 
 <script>
-const container = document.getElementById('fireflies');
-for(let i=0;i<28;i++){
-  const ff=document.createElement('div');
-  ff.className='ff';
-  ff.style.cssText=`left:${Math.random()*100}%;top:${20+Math.random()*70}%;--dur:${6+Math.random()*8}s;--delay:${Math.random()*6}s;--tx:${(Math.random()-.5)*60}px;--ty:${-20-Math.random()*60}px;--tx2:${(Math.random()-.5)*40}px;--ty2:${-60-Math.random()*40}px;width:${2+Math.random()*2}px;height:${2+Math.random()*2}px;`;
-  container.appendChild(ff);
-}
 </script>
+
 </body>
 </html>
