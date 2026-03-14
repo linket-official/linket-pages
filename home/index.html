@@ -14,6 +14,14 @@
 <meta property="og:type" content="website">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://linket.app/home">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-29J2988Y8J');
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -576,9 +584,9 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans TC',sans-seri
       </div>
     </div>
     <div class="hero-cta fade f5">
-      <a href="https://linket.app/lanjue/order" target="_blank" class="btn btn-sake">微醺連結｜活動限定</a>
-      <a href="https://lin.ee/p1hVirP" target="_blank" class="btn btn-blue">立即預約品牌諮詢</a>
-      <a href="#plans" class="btn btn-ghost">查看服務方案</a>
+      <a href="https://linket.app/lanjue/order" target="_blank" class="btn btn-sake" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'hero'});">微醺連結｜活動限定</a>
+      <a href="https://lin.ee/p1hVirP" target="_blank" class="btn btn-blue" onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'hero'});">立即預約品牌諮詢</a>
+      <a href="#plans" class="btn btn-ghost" onclick="gtag('event','click_plans',{'event_category':'CTA','event_label':'hero'});">查看服務方案</a>
     </div>
   </div><!-- /hero-content -->
 </section>
@@ -865,9 +873,9 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans TC',sans-seri
   <h2>你的品牌值得被看懂<br>而不只是被看見。</h2>
   <p>無論你是傳統產業想打開品牌知名度、農業品牌想建立直客關係、<br>還是服務型企業想讓合作洽詢更順暢，<br>都可以從一次品牌諮詢開始。</p>
   <div class="final-btn-group">
-    <a href="https://linket.app/lanjue/order" target="_blank" class="btn btn-sake">微醺連結｜活動限定</a>
-    <a href="https://lin.ee/p1hVirP" target="_blank" class="btn btn-blue">立即預約品牌諮詢</a>
-    <a href="#plans" class="btn btn-ghost">查看服務方案</a>
+    <a href="https://linket.app/lanjue/order" target="_blank" class="btn btn-sake" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'final'});">微醺連結｜活動限定</a>
+    <a href="https://lin.ee/p1hVirP" target="_blank" class="btn btn-blue" onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'final'});">立即預約品牌諮詢</a>
+    <a href="#plans" class="btn btn-ghost" onclick="gtag('event','click_plans',{'event_category':'CTA','event_label':'final'});">查看服務方案</a>
   </div>
   <div class="final-note">讓對的人看懂你，讓對的合作從此開始。</div>
 
