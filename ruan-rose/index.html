@@ -11,7 +11,7 @@
   gtag('config', 'G-29J2988Y8J');
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>阮二哥玫瑰園 ｜ LINKet Light #33</title>
+<title>阮二哥玫瑰園｜Ruan Rose Garden</title>
 <meta name="description" content="埔里第三代花農・阮家獨有桃紅色系迷你玫瑰">
 <meta property="og:title" content="阮二哥玫瑰園 ｜ LINKet Light">
 <meta property="og:description" content="埔里第三代花農・阮家獨有桃紅色系迷你玫瑰">
@@ -106,7 +106,7 @@ a.top-badge{
   display:block; width:100%;
   background:#fff; text-align:center;
   padding:.46rem 1rem;
-  font-size:.74rem; letter-spacing:.05em;
+  font-size:.875rem; letter-spacing:.05em;
   text-decoration:none;
   border-bottom:1px solid rgba(0,0,0,.06);
   position:sticky; top:0; z-index:100;
@@ -126,27 +126,24 @@ a.top-badge{
   background: url('ruan-hero-bg.jpg') center center / cover no-repeat;
   position:relative; overflow:hidden;
 }
-.hero::before{
-  content:''; position:absolute; inset:0;
-  background:linear-gradient(155deg,
-    rgba(255,180,185,.82) 0%,
-    rgba(220,80,100,.75) 45%,
-    rgba(160,30,60,.85) 100%);
-  z-index:1;
+@media(max-width:600px){
+  .hero{
+    background-image: none;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:'';
+    position:absolute; inset:0;
+    background: url('ruan-hero-bg.jpg') center center / cover no-repeat;
+    transform: rotate(90deg) scale(1.78);
+    transform-origin: center center;
+    z-index:0;
+    pointer-events:none;
+  }
 }
-.hero-texture{
-  position:absolute; inset:0;
-  width:100%; height:100%;
-  pointer-events:none; opacity:.07; z-index:2;
-}
-.hero-glow{
-  position:absolute; inset:0; z-index:2;
-  background:
-    radial-gradient(ellipse 80% 55% at 50% 0%,rgba(255,255,255,.28) 0%,transparent 65%),
-    radial-gradient(ellipse 40% 30% at 92% 92%,rgba(138,26,40,.22) 0%,transparent 55%);
-  pointer-events:none;
-}
-.hero .inner{ position:relative; z-index:3; }
+.hero-texture{ display:none; }
+.hero-glow{ display:none; }
+.hero .inner{ position:relative; z-index:2; }
 
 /* 雙欄容器：左右等寬 */
 .hero-cols{
@@ -164,23 +161,22 @@ a.top-badge{
   border-right:1px solid rgba(255,255,255,.14);
 }
 /* 左欄各元素：精確間距，不依賴 gap */
-.hero-logo{ margin-bottom:.5rem; }
+.hero-logo{ margin-bottom:3.125rem; padding:0 .5rem; } /* 50pt ≈ 3.125rem */
 .hero-company{ margin-bottom:.6rem; }
 .hero-avatar{ margin-bottom:.9rem; }
-.hero-name{ margin-bottom:.15rem; }
+.hero-name{ margin-bottom:5rem; } /* 80pt ≈ 5rem */
 .hero-role{ margin-bottom:.6rem; }
 .hero-slogan{ margin-bottom:.55rem; }
-.hero-tags{ margin-bottom:.5rem; }
+.hero-tags{ margin-bottom:.5rem; font-size:.75rem; } /* 10pt */
 .hero-logo{
-  width:76px; height:76px; border-radius:50%;
-  overflow:hidden; border:2px solid rgba(255,255,255,.62);
-  box-shadow:0 4px 18px rgba(0,0,0,.2);
-  background:rgba(255,255,255,.14); flex-shrink:0;
-  display:flex; align-items:center; justify-content:center;
+  width:100%; max-width:100%;
+  overflow:visible; border:none; border-radius:0;
+  box-shadow:none; background:transparent;
+  flex-shrink:0; padding:.75rem 0;
 }
-.hero-logo img{ width:100%; height:100%; object-fit:cover; }
+.hero-logo img{ width:100%; height:auto; object-fit:contain; display:block; }
 .hero-company{
-  font-size:.58rem; font-weight:300;
+  font-size:.6875rem; font-weight:300;
   letter-spacing:.18em; text-indent:.18em;
   color:rgba(255,255,255,.6); text-transform:uppercase;
 }
@@ -193,17 +189,17 @@ a.top-badge{
 }
 .hero-avatar img{ width:100%; height:100%; object-fit:cover; }
 .hero-name{
-  font-size:1.05rem; font-weight:700;
+  font-size:1.375rem; font-weight:700;
   letter-spacing:.2em; text-indent:.2em;
   color:#fff; text-shadow:0 2px 10px rgba(0,0,0,.18); line-height:1.25;
 }
 .hero-role{
-  font-size:.59rem; font-weight:300;
+  font-size:.75rem; font-weight:300;
   letter-spacing:.15em; text-indent:.15em;
   color:rgba(255,255,255,.74);
 }
 .hero-slogan{
-  font-size:.67rem; font-weight:400;
+  font-size:1rem; font-weight:400;
   letter-spacing:.07em; color:#fff; line-height:1.85;
   text-shadow:0 1px 6px rgba(0,0,0,.12);
 }
@@ -216,10 +212,10 @@ a.top-badge{
   border:1px solid rgba(255,255,255,.4);
   border-radius:var(--r);
   padding:.13rem .52rem;
-  font-size:.50rem; letter-spacing:.07em; color:#fff; white-space:nowrap;
+  font-size:.75rem; letter-spacing:.07em; color:#fff; white-space:nowrap;
 }
 .hero-meta{
-  font-size:.55rem; color:rgba(255,255,255,.60);
+  font-size:.75rem; color:rgba(255,255,255,.60);
   letter-spacing:.08em; line-height:1.75;
   text-align:center; margin-top:.18rem;
 }
@@ -235,19 +231,19 @@ a.top-badge{
 /* icon 列：置中對齊右欄中軸，16px 間距，底部 18px 到 P1 */
 .hero-icons{
   display:flex; justify-content:center;
-  gap:1rem; margin-bottom:1.125rem;
+  gap:1.25rem; margin-bottom:1.25rem;
   width:100%;
 }
 .hero-icon-link{
-  width:36px; height:36px; border-radius:50%;
-  border:1.5px solid rgba(255,255,255,.52);
-  background:rgba(255,255,255,.11);
+  width:44px; height:44px;
   display:flex; align-items:center; justify-content:center;
   text-decoration:none; color:#fff;
-  transition:background .2s; flex-shrink:0;
+  transition:opacity .2s; flex-shrink:0;
+  border-radius:0; background:transparent; border:none;
 }
-.hero-icon-link:hover{ background:rgba(255,255,255,.26); }
-.hero-icon-link svg{ width:16px; height:16px; }
+.hero-icon-link:hover{ opacity:.65; }
+.hero-icon-link svg,
+.hero-icon-link img{ width:28px; height:28px; display:block; }
 
 /* 按鈕基礎：桌機限制最大寬度，不超出欄位 */
 .hero-btn{
@@ -256,7 +252,7 @@ a.top-badge{
   width:100%; max-width:320px;
   border-radius:var(--r);
   font-family:'Noto Serif TC',serif;
-  font-size:.72rem; font-weight:400;
+  font-size:.875rem; font-weight:400;
   letter-spacing:.10em; text-decoration:none;
   text-align:center; line-height:1.3;
   padding:.70rem .9rem;
@@ -272,16 +268,15 @@ a.top-badge{
   margin-bottom:1rem;
 }
 .hero-btn.p2{
-  background:rgba(255,255,255,.28);
-  border:1.5px solid rgba(255,255,255,.72);
-  color:#fff; font-weight:500;
-  margin-bottom:1.5rem;
+  background:var(--cbtn1); border:2px solid transparent;
+  color:var(--cbtn1t); font-weight:600;
+  margin-bottom:1rem;
 }
 .hero-btn.ghost{
   background:transparent;
   border:1.5px solid rgba(255,255,255,.42);
-  color:rgba(255,255,255,.84); font-size:.68rem;
-  margin-bottom:1rem;
+  color:rgba(255,255,255,.84); font-size:1rem;
+  margin-bottom:.9375rem; /* 15pt */
 }
 .hero-btn.ghost:last-of-type{
   margin-bottom:1.5rem;
@@ -293,7 +288,7 @@ a.top-badge{
   background:transparent;
   border:1.5px solid rgba(255,255,255,.28);
   color:rgba(255,255,255,.60);
-  font-size:.58rem; letter-spacing:.16em;
+  font-size:.75rem; letter-spacing:.16em;
   padding:.46rem .65rem;
   margin-bottom:0;
 }
@@ -324,10 +319,10 @@ a.top-badge{
   /* 手機按鈕：90% 寬置中，不超出邊框 */
   .hero-btn{
     width:90%; max-width:90%;
-    font-size:.74rem; padding:.76rem 1rem;
+    font-size:.875rem; padding:.76rem 1rem;
   }
   /* QR 手機：50% 寬 */
-  .hero-btn.qr{ width:50%; max-width:50%; font-size:.62rem; }
+  .hero-btn.qr{ width:50%; max-width:50%; font-size:.75rem; }
   .sec-btn{ max-width:100%; }
   .footer-btn{ max-width:100%; }
 }
@@ -359,7 +354,7 @@ a.top-badge{
 }
 .wm-sub{
   font-family:'Cormorant Garamond',serif;
-  font-size:.56rem; font-weight:300;
+  font-size:.75rem; font-weight:300;
   letter-spacing:.34em; text-indent:.34em;
   color:rgba(255,255,255,.40); text-transform:uppercase;
   display:block; margin-top:.35rem; position:relative;
@@ -377,7 +372,7 @@ a.top-badge{
 
 .sec-label{
   font-family:'Cormorant Garamond',serif;
-  font-size:.60rem; font-weight:300;
+  font-size:.75rem; font-weight:300;
   letter-spacing:.38em; text-indent:.38em;
   color:var(--c4); text-transform:uppercase; margin-bottom:1.1rem;
 }
@@ -401,7 +396,7 @@ a.top-badge{
 }
 .card-heading::after{ content:' |'; font-style:normal; font-weight:300; color:var(--c4); opacity:.5; }
 .section.dark .card-heading{ color:rgba(255,255,255,.85); }
-.card-body{ font-size:.82rem; font-weight:300; color:var(--ctxts); line-height:2.1; letter-spacing:.05em; }
+.card-body{ font-size:1rem; font-weight:300; color:var(--ctxts); line-height:2.1; letter-spacing:.05em; }
 .section.dark .card-body{ color:rgba(255,255,255,.74); }
 .card-body p+p{ margin-top:.8rem; }
 .card-body strong{ font-weight:700; color:var(--ctxt); }
@@ -409,7 +404,7 @@ a.top-badge{
 
 .pull-quote{
   font-family:'Cormorant Garamond',serif; font-style:italic;
-  font-size:.80rem; line-height:2.0; letter-spacing:.06em;
+  font-size:1rem; line-height:2.0; letter-spacing:.06em;
   color:var(--c2); border-left:2.5px solid var(--c4);
   padding-left:.9rem; margin-top:1rem; opacity:.85;
 }
@@ -422,7 +417,7 @@ a.top-badge{
   display:inline-flex; align-items:center; justify-content:center;
   max-width:220px; width:100%; border-radius:var(--r);
   padding:.70rem 1rem;
-  font-family:'Noto Serif TC',serif; font-size:.74rem; font-weight:400;
+  font-family:'Noto Serif TC',serif; font-size:.875rem; font-weight:400;
   letter-spacing:.10em; text-decoration:none; text-align:center;
   transition:opacity .2s;
 }
@@ -440,7 +435,7 @@ a.top-badge{
   border-radius:10px; padding:.9rem 1rem; margin-top:.8rem;
 }
 .spec-icon{ font-size:1.1rem; flex-shrink:0; margin-top:.1rem; }
-.spec-body{ font-size:.76rem; line-height:1.9; color:var(--ctxts); letter-spacing:.05em; }
+.spec-body{ font-size:1rem; line-height:1.9; color:var(--ctxts); letter-spacing:.05em; }
 .spec-body strong{ font-weight:700; color:var(--ctxt); }
 
 .grid-2x2{ display:grid; grid-template-columns:1fr 1fr; gap:.65rem; }
@@ -448,43 +443,52 @@ a.top-badge{
   background:var(--ccard); border-radius:calc(var(--r)*.3);
   padding:.9rem .85rem 1rem; border:1px solid rgba(255,255,255,.55);
 }
-.gc-title{ font-size:.78rem; font-weight:700; color:var(--ctxt); letter-spacing:.08em; margin-bottom:.22rem; }
-.gc-sub{ font-family:'Cormorant Garamond',serif; font-size:.57rem; color:var(--c4); letter-spacing:.2em; text-transform:uppercase; margin-bottom:.32rem; }
-.gc-body{ font-size:.70rem; line-height:1.85; color:var(--ctxts); letter-spacing:.04em; }
+.gc-title{ font-size:1rem; font-weight:700; color:var(--ctxt); letter-spacing:.08em; margin-bottom:.22rem; }
+.gc-sub{ font-family:'Cormorant Garamond',serif; font-size:.75rem; color:var(--c4); letter-spacing:.2em; text-transform:uppercase; margin-bottom:.32rem; }
+.gc-body{ font-size:1rem; line-height:1.85; color:var(--ctxts); letter-spacing:.04em; }
 
 .hscroll{ overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; margin:0 -1.4rem; padding:.2rem 1.4rem .8rem; }
 .hscroll::-webkit-scrollbar{ display:none; }
 .hscroll-track{ display:flex; gap:.65rem; width:max-content; }
 .hscroll-card{ width:165px; flex-shrink:0; background:var(--ccard); border-radius:calc(var(--r)*.3); padding:1rem .9rem 1.1rem; border:1px solid rgba(255,255,255,.55); }
-.hsc-title{ font-size:.78rem; font-weight:700; color:var(--ctxt); letter-spacing:.1em; margin-bottom:.32rem; }
-.hsc-body{ font-size:.70rem; line-height:1.85; color:var(--ctxts); letter-spacing:.04em; }
+.hsc-title{ font-size:1rem; font-weight:700; color:var(--ctxt); letter-spacing:.1em; margin-bottom:.32rem; }
+.hsc-body{ font-size:1rem; line-height:1.85; color:var(--ctxts); letter-spacing:.04em; }
 
 .timeline{ display:flex; flex-direction:column; }
 .t-step{ display:flex; gap:.85rem; align-items:flex-start; padding:.9rem 0; border-bottom:1px solid rgba(192,64,96,.08); }
 .t-step:last-child{ border-bottom:none; }
-.t-num{ font-family:'Cormorant Garamond',serif; font-size:.59rem; font-weight:300; letter-spacing:.18em; color:var(--c4); min-width:46px; padding-top:.15rem; flex-shrink:0; }
-.t-title{ font-size:.80rem; font-weight:700; color:var(--ctxt); letter-spacing:.08em; margin-bottom:.22rem; }
-.t-body{ font-size:.76rem; line-height:2.0; color:var(--ctxts); letter-spacing:.05em; }
+.t-num{ font-family:'Cormorant Garamond',serif; font-size:.75rem; font-weight:300; letter-spacing:.18em; color:var(--c4); min-width:46px; padding-top:.15rem; flex-shrink:0; }
+.t-title{ font-size:1rem; font-weight:700; color:var(--ctxt); letter-spacing:.08em; margin-bottom:.22rem; }
+.t-body{ font-size:1rem; line-height:2.0; color:var(--ctxts); letter-spacing:.05em; }
 
 
 /* ══════════════════════════════════════════════
-   ⑤ ROSE PARALLAX SECTION
+   ② ROSE PARALLAX SECTION（重構穩定版）
    ══════════════════════════════════════════ */
-.rose-parallax-section{ width:100%; overflow:hidden; }
-.rp-stage{ position:relative; height:300vh; }
+.rose-parallax-section{ width:100%; }
+.rp-stage{
+  position:relative;
+  height:320vh;
+}
 .rp-sticky{
-  position:sticky; top:0; height:100vh; overflow:hidden;
+  position:sticky; top:0;
+  width:100%; height:100svh;
+  overflow:hidden;
   display:flex; align-items:center; justify-content:center;
   background:var(--c5);
 }
-.rp-rose-wrap{
-  position:absolute; top:50%; left:50%;
+.rp-rose-img{
+  position:absolute;
+  top:50%; left:50%;
   transform:translate(-50%,-50%);
+  height:min(92svh, 92vw * 2.4);
+  max-height:700px;
+  width:auto;
+  display:block; user-select:none; pointer-events:none;
   will-change:transform;
 }
-.rp-rose-img{
-  height:min(92vh,560px); width:auto;
-  display:block; user-select:none; pointer-events:none;
+@media(max-width:480px){
+  .rp-rose-img{ height:82svh; max-height:560px; }
 }
 .rp-ann-layer{ position:absolute; inset:0; pointer-events:none; }
 .rp-ann{
@@ -501,15 +505,15 @@ a.top-badge{
   border-radius:10px; background:rgba(255,240,242,.92);
 }
 .rp-ann.right .rp-box{ text-align:right; }
-.rp-lbl{ font-size:9px; letter-spacing:.14em; color:var(--c2); font-family:'Cormorant Garamond',serif; text-transform:uppercase; }
-.rp-val{ font-size:13px; font-weight:500; color:var(--ctxt); font-family:'Noto Serif TC',serif; margin-top:1px; line-height:1.4; }
-.rp-sub{ font-size:10px; color:var(--ctxts); font-family:'Noto Serif TC',serif; margin-top:2px; line-height:1.5; }
+.rp-lbl{ font-size:11px; letter-spacing:.14em; color:var(--c2); font-family:'Cormorant Garamond',serif; text-transform:uppercase; }
+.rp-val{ font-size:15px; font-weight:500; color:var(--ctxt); font-family:'Noto Serif TC',serif; margin-top:1px; line-height:1.4; }
+.rp-sub{ font-size:12px; color:var(--ctxts); font-family:'Noto Serif TC',serif; margin-top:2px; line-height:1.5; }
 .rp-cue{
   position:absolute; bottom:28px; left:50%; transform:translateX(-50%);
   display:flex; flex-direction:column; align-items:center; gap:6px;
   transition:opacity .4s;
 }
-.rp-cue span{ font-size:10px; letter-spacing:.18em; color:var(--ctxts); font-family:'Cormorant Garamond',serif; }
+.rp-cue span{ font-size:12px; letter-spacing:.18em; color:var(--ctxts); font-family:'Cormorant Garamond',serif; }
 .rp-cue-line{ width:1px; height:28px; background:var(--c3); opacity:.4; animation:rpPulse 2s ease-in-out infinite; }
 @keyframes rpPulse{0%,100%{opacity:.15;}50%{opacity:.55;}}
 
@@ -520,7 +524,7 @@ a.top-badge{
 .ig-section{ width:100%; background:var(--c5); }
 .ig-section .inner{ padding:2.4rem 1.4rem 2rem; }
 .ig-section-label{
-  font-family:'Cormorant Garamond',serif; font-size:.57rem; font-weight:300;
+  font-family:'Cormorant Garamond',serif; font-size:.75rem; font-weight:300;
   letter-spacing:.36em; text-indent:.36em; color:var(--ctxts);
   text-transform:uppercase; margin-bottom:1.4rem;
 }
@@ -538,7 +542,7 @@ a.top-badge{
   display:inline-flex; align-items:center; justify-content:center;
   border:1.5px solid var(--c2); border-radius:var(--r);
   padding:.72rem 2rem; font-family:'Noto Serif TC',serif;
-  font-size:.72rem; letter-spacing:.1em; color:var(--c2);
+  font-size:1rem; letter-spacing:.1em; color:var(--c2);
   text-decoration:none; transition:background .2s, color .2s;
 }
 .ig-follow-btn:hover{ background:var(--c2); color:#fff; }
@@ -553,12 +557,12 @@ a.top-badge{
   display:inline-flex; align-items:center; justify-content:center;
   max-width:320px; width:90%; border-radius:var(--r);
   padding:.86rem 1.2rem;
-  font-family:'Noto Serif TC',serif; font-size:.76rem; font-weight:400;
+  font-family:'Noto Serif TC',serif; font-size:1rem; font-weight:400;
   letter-spacing:.13em; text-decoration:none; text-align:center; transition:opacity .2s;
 }
 .footer-btn:hover{ opacity:.78; }
 .footer-btn.p1{ background:rgba(255,255,255,.20); border:1.5px solid rgba(255,255,255,.68); color:#fff; font-weight:500; }
-.footer-btn.ghost{ background:transparent; border:1.5px solid rgba(255,255,255,.33); color:rgba(255,255,255,.74); font-size:.72rem; }
+.footer-btn.ghost{ background:transparent; border:1.5px solid rgba(255,255,255,.33); color:rgba(255,255,255,.74); font-size:.875rem; }
 
 
 /* ══════════════════════════════════════════════
@@ -570,7 +574,7 @@ a.top-badge{
   display:inline-flex; align-items:center; justify-content:center;
   border:1.5px solid rgba(255,255,255,.26); border-radius:60px;
   padding:.62rem 2rem;
-  font-family:'Noto Serif TC',serif; font-size:.67rem; font-weight:300;
+  font-family:'Noto Serif TC',serif; font-size:.875rem; font-weight:300;
   letter-spacing:.22em; color:rgba(255,255,255,.52);
   text-decoration:none; text-transform:uppercase; transition:background .2s;
 }
@@ -583,12 +587,43 @@ a.top-badge{
    ══════════════════════════════════════════ */
 a.design-by{
   display:block; width:100%; background:#000; text-align:center;
-  padding:.52rem; font-size:.58rem; letter-spacing:.18em;
+  padding:.52rem; font-size:.75rem; letter-spacing:.18em;
   color:rgba(255,255,255,.30); text-decoration:none;
 }
 .db-lin{ color:rgba(255,255,255,.50); font-weight:700; }
 .db-ket{ color:#2979ff; font-weight:700; }
 
+
+
+/* ══════════════════════════════════════════════
+   COLOR SWATCH GRID
+   ══════════════════════════════════════════ */
+.color-grid{ display:grid; grid-template-columns:1fr 1fr; gap:.75rem; margin-top:.4rem; }
+.color-card{
+  background:var(--ccard); border-radius:calc(var(--r)*.5);
+  overflow:hidden; border:1px solid rgba(255,255,255,.45);
+}
+.color-swatch{ width:100%; height:80px; }
+.color-info{ padding:.7rem .8rem .8rem; }
+.color-name{
+  font-size:1rem; font-weight:700; color:var(--ctxt);
+  letter-spacing:.06em; margin-bottom:.2rem;
+  display:flex; align-items:baseline; gap:.4rem;
+}
+.color-sub{ font-size:.75rem; font-weight:300; color:var(--ctxts); letter-spacing:.1em; }
+.color-badge{
+  display:inline-block; font-size:.75rem; letter-spacing:.1em;
+  color:var(--c2); border:1px solid rgba(192,64,96,.35);
+  border-radius:20px; padding:.08rem .45rem; margin-bottom:.4rem;
+}
+.color-spec{ margin-bottom:.4rem; }
+.cs-row{ display:flex; align-items:baseline; gap:.35rem; line-height:1.7; }
+.cs-key{ font-size:.875rem; font-weight:500; color:var(--ctxts); letter-spacing:.08em; min-width:46px; }
+.cs-val{ font-size:.875rem; color:var(--ctxt); letter-spacing:.04em; font-family:'Cormorant Garamond',serif; }
+.color-desc{ font-size:.875rem; color:var(--ctxts); line-height:1.6; letter-spacing:.03em; border-top:1px solid rgba(192,64,96,.08); padding-top:.35rem; margin-top:.35rem; }
+@media(max-width:420px){
+  .color-grid{ grid-template-columns:1fr; }
+}
 
 /* Scroll Reveal */
 .reveal{ opacity:0; transform:translateY(14px); transition:opacity .5s ease,transform .5s ease; }
@@ -605,7 +640,7 @@ a.design-by{
      ════════════════════ -->
 <a class="top-badge" href="https://linket.net/home">
   <span class="t-lin">LIN</span><span class="t-ket">Ket</span>&nbsp;<span class="t-light">Light</span>
-  &ensp;<span class="t-no">#33</span>
+
 </a>
 
 
@@ -645,11 +680,7 @@ a.design-by{
           <img src="ruan-logo.png" alt="阮二哥玫瑰園">
         </div>
 
-        <!-- 2. 公司名 -->
-        <div class="hero-company">Ruan Rose Garden</div>
-
-        <!-- 3. 姓名 + 職稱 -->
-        <div class="hero-name">阮二哥玫瑰園</div>
+        <!-- 職稱 -->
         <div class="hero-role">埔里 · 第三代花農</div>
 
         <!-- 5. Slogan（非必要）-->
@@ -680,28 +711,22 @@ a.design-by{
         <!-- 社群 icon（SVG currentColor，父層 color 控色）-->
         <div class="hero-icons">
           <a class="hero-icon-link" href="https://www.facebook.com/Duckminirose/?locale=zh_TW" target="_blank" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-            </svg>
+            <img src="/home/assets/facebook.svg" alt="Facebook" style="filter:brightness(0) invert(1);opacity:.9;">
           </a>
           <a class="hero-icon-link" href="https://www.instagram.com/duckminiroses/" target="_blank" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="2" width="20" height="20" rx="5"/>
-              <circle cx="12" cy="12" r="4.5"/>
-              <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
-            </svg>
+            <img src="/home/assets/instagram.svg" alt="Instagram" style="filter:brightness(0) invert(1);opacity:.9;">
           </a>
           <a class="hero-icon-link" href="https://www.threads.com/@duckminiroses" target="_blank" aria-label="Threads">
-            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
-              <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.473 12.01v-.017c.027-3.579.877-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.018 5.145.8 7.135 2.321 1.9 1.454 3.204 3.472 3.875 6.01l-2.012.54c-1.137-4.23-4.138-6.38-8.986-6.408-3.046.02-5.389.977-6.965 2.843-1.498 1.775-2.253 4.298-2.278 7.5.025 3.198.78 5.72 2.278 7.5 1.576 1.864 3.92 2.822 6.965 2.843h.006c2.653-.017 4.697-.726 6.077-2.109.968-.965 1.582-2.28 1.826-3.91h-7.9v-1.978h9.99c0 .338.006.668.012.993.02 1.106-.053 2.178-.22 3.195-.446 2.71-1.572 4.756-3.352 6.087C17.344 23.18 14.94 24 12.186 24z"/>
-            </svg>
+            <img src="/home/assets/threads.svg" alt="Threads" style="filter:brightness(0) invert(1);opacity:.9;">
           </a>
         </div>
 
-        <!-- 按鈕：.p1→.p2→.ghost→.qr（固定最末）-->
+        <!-- 按鈕：重要(p1白底) → 一般(ghost白框透明) → QR -->
         <a class="hero-btn p1"    href="https://www.facebook.com/Duckminirose/?locale=zh_TW" target="_blank" onclick="gtag('event','click_fb_contact',{'event_category':'CTA','event_label':'ruan-rose'});">詢購 &amp; 合作 ｜ FACEBOOK</a>
-        <a class="hero-btn p2"    href="https://www.instagram.com/duckminiroses/" target="_blank" onclick="gtag('event','click_ig_follow',{'event_category':'CTA','event_label':'ruan-rose'});">追蹤花園日常 ｜ INSTAGRAM</a>
-        <a class="hero-btn ghost" href="https://www.threads.com/@duckminiroses" target="_blank" onclick="gtag('event','click_threads_follow',{'event_category':'CTA','event_label':'ruan-rose'});">動態分享 ｜ THREADS</a>
+        <a class="hero-btn p1"    href="https://www.instagram.com/duckminiroses/" target="_blank" onclick="gtag('event','click_ig_follow',{'event_category':'CTA','event_label':'ruan-rose'});">追蹤花園日常 ｜ INSTAGRAM</a>
+        <a class="hero-btn ghost" href="#rose-showcase">有關一隻玫瑰 ｜ ABOUT ROSE</a>
+        <a class="hero-btn ghost" href="#about">關於阮二哥 ｜ ABOUT US</a>
+        <a class="hero-btn ghost" href="#features">玫瑰的色彩 ｜ COLOR OF ROSE</a>
         <a class="hero-btn qr"    href="ruan-rose-qr.html" target="_blank">⊞&ensp;QR CODE</a>
 
       </div><!-- /hero-right -->
@@ -718,6 +743,23 @@ a.design-by{
   <div class="inner" data-wm="RUAN ROSE">
     <div class="wm-main">阮二哥玫瑰園</div>
     <span class="wm-sub">Mini Rose Garden · Puli · Est. 3rd Gen</span>
+  </div>
+</div>
+
+
+<!-- ════════════════════════
+     ② ROSE PARALLAX（玫瑰展示 · 第二區）
+     ════════════════════ -->
+<div class="rose-parallax-section" id="rose-showcase">
+  <div class="rp-stage" id="rpStage">
+    <div class="rp-sticky" id="rpSticky">
+      <img src="ruan-rose-single.png" alt="阮二哥玫瑰園 迷你玫瑰" class="rp-rose-img" id="rpRose">
+      <div class="rp-ann-layer" id="rpAnns"></div>
+      <div class="rp-cue" id="rpCue">
+        <span>S C R O L L</span>
+        <div class="rp-cue-line"></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -775,31 +817,70 @@ a.design-by{
   </div>
 </div>
 
-<!-- 玫瑰品種 -->
+<!-- 玫瑰品種 · 色票 -->
 <div class="section alt" id="features">
   <div class="inner">
-    <div class="sec-label">Rose Varieties</div>
-    <div class="grid-2x2">
-      <div class="grid-card reveal">
-        <div class="gc-title">桃紅色</div>
-        <div class="gc-sub">Coral Pink · 阮家獨有</div>
-        <div class="gc-body">母親意外發現的自然變異品種，父親嚴拒外人扦插以保留獨有色系。花色濃豔細緻，是阮家招牌。</div>
+    <div class="sec-label">Color of Rose</div>
+    <h2 class="sec-title" style="font-size:1rem;margin-bottom:1.4rem;">阮二哥玫瑰園的四個色系</h2>
+    <div class="color-grid">
+
+      <div class="color-card reveal">
+        <div class="color-swatch" style="background:#E8637A;"></div>
+        <div class="color-info">
+          <div class="color-name">桃紅色 <span class="color-sub">Coral Pink</span></div>
+          <div class="color-badge">阮家獨有</div>
+          <div class="color-spec">
+            <div class="cs-row"><span class="cs-key">HEX</span><span class="cs-val">#E8637A</span></div>
+            <div class="cs-row"><span class="cs-key">Pantone</span><span class="cs-val">185 C</span></div>
+            <div class="cs-row"><span class="cs-key">CMYK</span><span class="cs-val">0 / 57 / 31 / 9</span></div>
+            <div class="cs-row"><span class="cs-key">RGB</span><span class="cs-val">232 · 99 · 122</span></div>
+          </div>
+          <div class="color-desc">母親意外發現的自然變異品種，父親嚴拒外人扦插保留獨有色系。</div>
+        </div>
       </div>
-      <div class="grid-card reveal">
-        <div class="gc-title">淺粉色</div>
-        <div class="gc-sub">Soft Pink</div>
-        <div class="gc-body">清新溫柔，日常色系中最受歡迎，適合各類花禮、桌花與婚禮裝飾搭配。</div>
+
+      <div class="color-card reveal">
+        <div class="color-swatch" style="background:#F4B8C8;"></div>
+        <div class="color-info">
+          <div class="color-name">淺粉色 <span class="color-sub">Soft Pink</span></div>
+          <div class="color-spec">
+            <div class="cs-row"><span class="cs-key">HEX</span><span class="cs-val">#F4B8C8</span></div>
+            <div class="cs-row"><span class="cs-key">Pantone</span><span class="cs-val">706 C</span></div>
+            <div class="cs-row"><span class="cs-key">CMYK</span><span class="cs-val">0 / 28 / 17 / 4</span></div>
+            <div class="cs-row"><span class="cs-key">RGB</span><span class="cs-val">244 · 184 · 200</span></div>
+          </div>
+          <div class="color-desc">日常色系中最受歡迎，適合各類花禮、桌花與婚禮裝飾搭配。</div>
+        </div>
       </div>
-      <div class="grid-card reveal">
-        <div class="gc-title">白色</div>
-        <div class="gc-sub">Pure White</div>
-        <div class="gc-body">純潔典雅，百搭不敗。婚禮花藝、高端桌花的定番選擇，可與任何色系混搭。</div>
+
+      <div class="color-card reveal">
+        <div class="color-swatch" style="background:#F5EDE8; border:1px solid rgba(192,64,96,.15);"></div>
+        <div class="color-info">
+          <div class="color-name">白色 <span class="color-sub">Pure White</span></div>
+          <div class="color-spec">
+            <div class="cs-row"><span class="cs-key">HEX</span><span class="cs-val">#F5EDE8</span></div>
+            <div class="cs-row"><span class="cs-key">Pantone</span><span class="cs-val">9180 C</span></div>
+            <div class="cs-row"><span class="cs-key">CMYK</span><span class="cs-val">0 / 4 / 6 / 4</span></div>
+            <div class="cs-row"><span class="cs-key">RGB</span><span class="cs-val">245 · 237 · 232</span></div>
+          </div>
+          <div class="color-desc">純潔典雅，婚禮花藝、高端桌花首選，可與任何色系混搭。</div>
+        </div>
       </div>
-      <div class="grid-card reveal">
-        <div class="gc-title">正紅色</div>
-        <div class="gc-sub">Classic Red</div>
-        <div class="gc-body">經典深紅，色彩飽滿，節慶花禮視覺張力最強，情人節與年節用量最大。</div>
+
+      <div class="color-card reveal">
+        <div class="color-swatch" style="background:#C0253C;"></div>
+        <div class="color-info">
+          <div class="color-name">正紅色 <span class="color-sub">Classic Red</span></div>
+          <div class="color-spec">
+            <div class="cs-row"><span class="cs-key">HEX</span><span class="cs-val">#C0253C</span></div>
+            <div class="cs-row"><span class="cs-key">Pantone</span><span class="cs-val">200 C</span></div>
+            <div class="cs-row"><span class="cs-key">CMYK</span><span class="cs-val">0 / 81 / 69 / 25</span></div>
+            <div class="cs-row"><span class="cs-key">RGB</span><span class="cs-val">192 · 37 · 60</span></div>
+          </div>
+          <div class="color-desc">節慶花禮視覺張力最強，情人節與年節用量最大。</div>
+        </div>
       </div>
+
     </div>
     <div class="spec-bar reveal" style="margin-top:1rem;">
       <div class="spec-icon">🌱</div>
@@ -889,23 +970,7 @@ a.design-by{
 </div>
 
 
-<!-- ════════════════════════
-     ⑤ ROSE PARALLAX（玫瑰產品地圖）
-     ════════════════════ -->
-<div class="rose-parallax-section">
-  <div class="rp-stage" id="rpStage">
-    <div class="rp-sticky" id="rpSticky">
-      <div class="rp-rose-wrap" id="rpRose">
-        <img src="ruan-rose-single.png" alt="阮二哥玫瑰園 迷你玫瑰" class="rp-rose-img">
-      </div>
-      <div class="rp-ann-layer" id="rpAnns"></div>
-      <div class="rp-cue" id="rpCue">
-        <span>S C R O L L</span>
-        <div class="rp-cue-line"></div>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 
 <!-- ════════════════════════
@@ -982,54 +1047,65 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 <script>
 /* ── 玫瑰視差 ── */
 (function(){
-  const annData = [
+  const annData=[
     {pct:.10, side:'right', cx:'58%', cy:'10%', label:'BLOOM',      val:'花徑約 3 cm',       sub:'一莖可開 3–10 朵'},
     {pct:.24, side:'left',  cx:'4%',  cy:'22%', label:'COLOR',      val:'阮家獨有桃紅',      sub:'自然變異・父親守護獨有色系'},
-    {pct:.38, side:'right', cx:'58%', cy:'36%', label:'VASE LIFE',  val:'7 天以上',           sub:'一般玫瑰僅 3–5 天'},
+    {pct:.38, side:'right', cx:'58%', cy:'38%', label:'VASE LIFE',  val:'7 天以上',           sub:'一般玫瑰僅 3–5 天'},
     {pct:.52, side:'left',  cx:'4%',  cy:'52%', label:'GRADE',      val:'五等級分類',         sub:'35 / 45 / 55 / 65 / 75 cm'},
     {pct:.66, side:'right', cx:'58%', cy:'66%', label:'HARVEST',    val:'清晨採收',           sub:'採後立即冷水保鮮'},
     {pct:.80, side:'left',  cx:'4%',  cy:'80%', label:'SUPPLY',     val:'全台五大花市',       sub:'台北・台中・彰化・台南・高雄'},
   ];
 
-  const layer = document.getElementById('rpAnns');
+  const layer=document.getElementById('rpAnns');
   if(!layer) return;
 
-  annData.forEach((d, i) => {
-    const el = document.createElement('div');
-    el.className = 'rp-ann ' + d.side;
-    el.id = 'rpa' + i;
-    el.style.left = d.cx; el.style.top = d.cy;
-    const box = `<div class="rp-box"><div class="rp-lbl">${d.label}</div><div class="rp-val">${d.val}</div><div class="rp-sub">${d.sub}</div></div>`;
-    const line = `<div class="rp-line"></div>`;
-    const dot  = `<div class="rp-dot"></div>`;
-    el.innerHTML = d.side === 'left' ? dot+line+box : box+line+dot;
+  annData.forEach((d,i)=>{
+    const el=document.createElement('div');
+    el.className='rp-ann '+d.side;
+    el.id='rpa'+i;
+    el.style.left=d.cx; el.style.top=d.cy;
+    const box=`<div class="rp-box"><div class="rp-lbl">${d.label}</div><div class="rp-val">${d.val}</div><div class="rp-sub">${d.sub}</div></div>`;
+    const line=`<div class="rp-line"></div>`;
+    const dot =`<div class="rp-dot"></div>`;
+    el.innerHTML= d.side==='left' ? dot+line+box : box+line+dot;
     layer.appendChild(el);
   });
 
-  const stage = document.getElementById('rpStage');
-  const rose  = document.getElementById('rpRose');
-  const cue   = document.getElementById('rpCue');
-  if(!stage || !rose) return;
+  const stage=document.getElementById('rpStage');
+  const rose =document.getElementById('rpRose');
+  const cue  =document.getElementById('rpCue');
+  if(!stage||!rose) return;
+
+  /* 確保 stage 高度基於正確的 viewport */
+  function setStageHeight(){
+    stage.style.height = (window.innerHeight * 3.2) + 'px';
+  }
+  setStageHeight();
+  window.addEventListener('resize', setStageHeight, {passive:true});
 
   function onScroll(){
-    const rect     = stage.getBoundingClientRect();
-    const scrolled = Math.max(0, -rect.top);
-    const total    = stage.offsetHeight - window.innerHeight;
-    const pct      = Math.min(1, scrolled / Math.max(total, 1));
+    const rect    =stage.getBoundingClientRect();
+    const scrolled=Math.max(0,-rect.top);
+    const total   =stage.offsetHeight - window.innerHeight;
+    const pct     =Math.min(1, scrolled/Math.max(total,1));
 
-    rose.style.transform = `translate(-50%, calc(-50% + ${scrolled * -0.28}px))`;
-    if(cue) cue.style.opacity = pct > .04 ? '0' : '1';
+    /* 視差：玫瑰以 22% 速度向上飄（更柔和） */
+    const py=scrolled*-0.22;
+    rose.style.transform=`translate(-50%, calc(-50% + ${py}px))`;
 
-    annData.forEach((d, i) => {
-      const el = document.getElementById('rpa' + i);
+    if(cue) cue.style.opacity=pct>.04?'0':'1';
+
+    annData.forEach((d,i)=>{
+      const el=document.getElementById('rpa'+i);
       if(!el) return;
-      const show = pct >= d.pct - 0.03 && pct <= d.pct + 0.22;
-      el.classList.toggle('vis', show);
+      const show=pct>=d.pct-0.03&&pct<=d.pct+0.22;
+      el.classList.toggle('vis',show);
     });
   }
 
-  window.addEventListener('scroll', onScroll, {passive:true});
-  onScroll();
+  window.addEventListener('scroll',onScroll,{passive:true});
+  /* 首次渲染後才啟動，確保 layout 完成 */
+  requestAnimationFrame(()=>requestAnimationFrame(onScroll));
 })();
 </script>
 </body>
