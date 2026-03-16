@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<!-- V2 Version: 原料校正版 (格雷伯爵紅茶/紀州南高梅/佐賀天然泉水) -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-29J2988Y8J');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>天吹｜伯爵紅茶梅酒 Amabuki Earl Grey Umeshu × LINKet</title>
+<meta name="description" content="融合嚴選格雷伯爵紅茶、紀州南高梅與佐賀天然泉水。當優雅成為競爭力，連結便是一種享受。">
+
+<!-- OG Meta Tags -->
+<meta property="og:title" content="天吹｜伯爵紅茶梅酒 Amabuki Earl Grey Umeshu × LINKet">
+<meta property="og:description" content="融合嚴選格雷伯爵紅茶、紀州南高梅與佐賀天然泉水。當優雅成為競爭力，連結便是一種享受。">
+<meta property="og:image" content="https://linket.app/lanjue/amabuki-earlgrey/og-image.jpg">
+<meta property="og:url" content="https://linket.app/lanjue/amabuki-earlgrey">
+<meta property="og:type" content="website">
+
+<!-- Favicon -->
+<link rel="icon" href="/lanjue/amabuki-earlgrey/favicon.png">
+<link rel="apple-touch-icon" href="/lanjue/amabuki-earlgrey/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<!-- 引入英式典雅襯線體 Playfair Display 與思源宋體 -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 天吹伯爵紅茶梅酒 專屬色系：骨瓷白 + 紅茶棕 */
+  --bg:      #FFFAF0;      /* 骨瓷白 (內容底色) */
+  --bg2:     #F5EFE6;      /* 稍暗的骨瓷白 */
+  
+  --tea:     #8E443D;      /* 紅茶棕 (主色/Hero底色) */
+  --tea-dk:  #5C2B26;      /* 深紅茶棕 */
+  --tea-lt:  #B56158;      /* 亮紅茶棕 */
+  
+  --amber:   #D98852;      /* 琥珀金 (點綴光澤) */
+  
+  --ink:     #2D1F1D;      /* 深咖啡 (主文字) */
+  --inkm:    #634B48;      /* 內文咖啡灰 */
+  --inkf:    #9E827E;      /* 附註淺棕 */
+  
+  --line:    rgba(142,68,61,.15); /* 紅茶棕分隔線 */
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--ink);overflow-x:hidden;}
+
+/* TICKER */
+.ticker{overflow:hidden;white-space:nowrap;border-bottom:1px solid rgba(255,250,240,.2);padding:.8rem 0;background:var(--tea-dk);}
+.ticker-track{display:inline-flex;animation:tick 35s linear infinite;}
+.ticker-track span{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;font-size:.85rem;letter-spacing:.25em;text-transform:uppercase;padding:0 1.4rem;color:var(--bg2);}
+.ticker-track span.ac{color:var(--amber);font-style:normal;}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* HERO */
+#hero{
+  position:relative;width:100%;min-height:100svh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  overflow:hidden;
+  /* 琥珀色到紅茶棕的茶湯漸層 */
+  background:linear-gradient(145deg, #3A1A17 0%, #5C2B26 40%, #8E443D 100%);
+}
+
+/* Ceramic Line Art & Aroma Ripples (陶瓷線稿與佛手柑香氣波紋) */
+.sensory-fx{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.ceramic-line{
+  position:absolute;
+  border:1px solid rgba(255,250,240,.08);
+  border-radius:40% 60% 50% 50% / 50% 50% 60% 40%;
+  animation:spinCeramic 40s linear infinite;
+}
+.ceramic-line:nth-child(1){width:40vw;height:40vw;top:-10%;left:-10%;}
+.ceramic-line:nth-child(2){width:60vw;height:55vw;bottom:-20%;right:-10%;animation-direction:reverse;border-style:dashed;}
+
+.aroma-ripple{
+  position:absolute;
+  background:radial-gradient(ellipse at center, rgba(217,136,82,.15) 0%, transparent 70%);
+  border-radius:50%;
+  filter:blur(20px);
+  animation:floatAroma var(--dur,15s) ease-in-out infinite alternate var(--delay,0s);
+}
+.aroma-ripple:nth-child(3){width:30vw;height:40vw;bottom:10%;left:20%;--dur:12s;--delay:0s;}
+.aroma-ripple:nth-child(4){width:40vw;height:30vw;top:20%;right:15%;--dur:18s;--delay:-5s;background:radial-gradient(ellipse at center, rgba(255,250,240,.08) 0%, transparent 70%);}
+
+@keyframes spinCeramic{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+@keyframes floatAroma{0%{transform:translate(0,0) scale(1);opacity:.6;}100%{transform:translate(10vw,-10vh) scale(1.2);opacity:1;}}
+
+/* ABV / Spec Badge */
+.spec-badge{
+  position:absolute;top:2rem;right:1.6rem;z-index:4;
+  display:flex;flex-direction:column;align-items:center;
+  border:1px solid rgba(255,250,240,.2);
+  padding:.6rem .8rem;
+  background:rgba(92,43,38,.6);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  border-radius:2px;
+}
+.spec-score{font-family:'Playfair Display',serif;font-weight:700;font-style:italic;font-size:1.5rem;color:var(--bg);line-height:1;}
+.spec-label{font-family:'Noto Serif TC',serif;font-weight:400;font-size:.55rem;letter-spacing:.15em;color:var(--bg2);margin-top:.3rem;text-transform:uppercase;opacity:.8;}
+
+/* Bottle */
+.hero-bottle-full{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;width:100%;padding:4rem 0 9rem;}
+.hero-bottle-full img{
+  width:clamp(150px,38vw,260px);height:auto;object-fit:contain;
+  filter:drop-shadow(0 30px 50px rgba(0,0,0,.6)) drop-shadow(0 0 40px rgba(217,136,82,.2));
+  animation:elegantFloat 8s ease-in-out infinite alternate;
+}
+.bottle-ph{
+  width:clamp(130px,32vw,200px);
+  aspect-ratio:1/3.4;
+  background:linear-gradient(170deg,#FFFAF0 0%,#EAE3D5 100%);
+  border:1px solid rgba(142,68,61,.3);
+  border-radius:12px 12px 4px 4px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 20px 50px rgba(0,0,0,.5);
+  animation:elegantFloat 8s ease-in-out infinite alternate;
+  position:relative;
+  overflow:hidden;
+}
+.bottle-ph span{font-family:'Playfair Display',serif;font-weight:600;font-style:italic;font-size:.85rem;letter-spacing:.1em;color:var(--tea-dk);text-align:center;line-height:1.8;position:relative;z-index:2;}
+@keyframes elegantFloat{0%{transform:translateY(0);} 100%{transform:translateY(-12px);}}
+
+/* Name block */
+.hero-name-block{
+  position:absolute;bottom:0;left:0;right:0;z-index:3;
+  padding:4rem 1.6rem 2.4rem;
+  background:linear-gradient(transparent, rgba(45,31,29,.9) 40%, #2D1F1D 100%);
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:.6rem;
+}
+.hname-big{font-family:'Noto Serif TC',serif;font-weight:700;font-size:clamp(2.5rem,12vw,5.5rem);color:var(--bg);letter-spacing:.15em;line-height:1.1;text-shadow:0 5px 20px rgba(0,0,0,.6);}
+.hname-big span{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;color:var(--amber);font-size:1.1em;}
+.hname-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.5rem 1rem;padding-top:.8rem;border-top:1px solid rgba(255,250,240,.15);}
+.hname-jp{font-family:'Noto Serif TC',serif;font-weight:300;font-size:clamp(.8rem,3.2vw,1.05rem);letter-spacing:.25em;color:var(--bg2);opacity:.8;}
+.hname-en{font-family:'Playfair Display',serif;font-weight:600;font-style:italic;font-size:clamp(.8rem,3.2vw,1.05rem);letter-spacing:.15em;color:var(--bg);}
+.hname-sep{color:var(--amber);font-size:.7rem;}
+.hero-slogan{font-family:'Noto Serif TC',serif;font-weight:300;font-size:clamp(.85rem,3.5vw,1.1rem);letter-spacing:.2em;line-height:2;color:var(--bg);margin-top:.6rem;}
+.hero-scroll-hint{display:flex;align-items:center;gap:.5rem;margin-top:1.2rem;font-family:'Playfair Display',serif;font-style:italic;font-size:.65rem;letter-spacing:.25em;color:var(--bg2);text-transform:uppercase;opacity:.7;}
+.scroll-dot{width:20px;height:1px;background:var(--bg2);}
+
+/* SECTIONS */
+.sec{padding:5.5rem 1.4rem;background:var(--bg);}
+.sec-alt{background:var(--bg2);}
+.sec+.sec{border-top:1px solid var(--line);}
+.content-wrap{max-width:680px;margin:0 auto;}
+.eyebrow{display:flex;align-items:center;gap:.8rem;margin-bottom:2.5rem;}
+.eyebrow h2{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;font-size:clamp(1.3rem,5vw,1.8rem);letter-spacing:.1em;color:var(--tea-dk);}
+.eyebrow span{color:var(--tea-lt);font-weight:400;font-size:1.2rem;}
+
+/* ABOUT */
+.about-body p{font-family:'Noto Serif TC',serif;font-weight:400;font-size:clamp(.9rem,3.5vw,1.05rem);line-height:2.8;letter-spacing:.1em;color:var(--inkm);margin-bottom:1.8rem;}
+.about-body p:last-child{margin-bottom:0;}
+.about-body p strong{color:var(--tea-dk);font-weight:600;}
+.photo-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin:2.5rem 0;}
+.photo-box{border-radius:100px 100px 4px 4px;overflow:hidden;aspect-ratio:3/4;position:relative;background:var(--bg2);border:1px solid var(--line);}
+.photo-box img{width:100%;height:100%;object-fit:cover;filter:sepia(0.1) contrast(1.05) brightness(0.95);transition:transform 1.2s ease, filter 1.2s;}
+.photo-box:hover img{transform:scale(1.05); filter:sepia(0) contrast(1.1) brightness(1.05);}
+.photo-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2.5rem;}
+
+/* SPECS */
+#specs{background:linear-gradient(180deg,var(--bg2) 0%,var(--bg) 100%);}
+.ring-wrap{display:flex;align-items:center;justify-content:center;margin-bottom:2.5rem;}
+.ring-chart{position:relative;width:clamp(130px,38vw,170px);height:clamp(130px,38vw,170px);}
+.ring-chart svg{width:100%;height:100%;filter:drop-shadow(0 5px 15px rgba(142,68,61,.15));}
+.ring-val{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:clamp(2rem,7vw,2.8rem);color:var(--tea-dk);}
+.ring-val span{font-family:'Noto Serif TC',serif;font-weight:400;font-size:.65rem;letter-spacing:.15em;color:var(--inkf);margin-top:.2rem;text-transform:uppercase;font-style:normal;}
+.spec-table{width:100%;border-collapse:collapse;}
+.spec-table tr{border-bottom:1px solid var(--line);}
+.spec-table td{padding:1.4rem 0;vertical-align:top;}
+.spec-table td:first-child{font-family:'Noto Serif TC',serif;font-weight:600;font-size:.85rem;letter-spacing:.15em;color:var(--tea);width:32%;padding-top:1.5rem;}
+.spec-table td:last-child{font-family:'Noto Serif TC',serif;font-size:.95rem;font-weight:400;line-height:1.9;color:var(--inkm);}
+.tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2.5rem;}
+.tag{border:1px solid var(--tea-lt);color:var(--tea);font-family:'Noto Serif TC',serif;font-weight:400;font-size:.8rem;letter-spacing:.12em;padding:.4rem 1.2rem;transition:all .3s;cursor:default;border-radius:100px;background:var(--bg);}
+.tag:hover{background:var(--tea);color:var(--bg);border-color:var(--tea);}
+
+/* SENSORY */
+#sensory{background:var(--tea-dk);color:var(--bg);border-color:rgba(255,250,240,.1);}
+#sensory .eyebrow h2{color:var(--bg);}
+#sensory .eyebrow span{color:var(--amber);}
+.spotify-label{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:.95rem;letter-spacing:.1em;color:var(--bg2);margin-bottom:2rem;display:flex;align-items:center;gap:.6rem;opacity:.9;}
+.food-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:1.5rem;}
+.food-box{border-radius:100px 100px 4px 4px;overflow:hidden;position:relative;aspect-ratio:3/4;background:var(--tea);border:1px solid rgba(255,250,240,.1);}
+.food-box img{width:100%;height:100%;object-fit:cover;filter:contrast(1.05) brightness(.9);transition:transform 1s, filter 1s;}
+.food-box:hover img{transform:scale(1.05); filter:contrast(1.05) brightness(1.05);}
+.food-lbl{position:absolute;bottom:0;left:0;right:0;padding:1rem .8rem;background:linear-gradient(transparent,rgba(45,31,29,.95));font-family:'Noto Serif TC',serif;font-weight:400;font-size:.8rem;letter-spacing:.15em;color:var(--bg);text-align:center;}
+.food-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3.5rem;}
+
+/* INSIGHT */
+#insight{background:var(--bg);padding:8rem 1.4rem;position:relative;overflow:hidden;}
+#insight::before{content:'T';position:absolute;right:0;top:50%;transform:translateY(-50%);font-family:'Playfair Display',serif;font-weight:700;font-style:italic;font-size:clamp(16rem,60vw,30rem);color:var(--tea);opacity:.03;pointer-events:none;line-height:1;}
+.i-q{position:relative;z-index:1;font-family:'Noto Serif TC',serif;font-weight:400;font-size:clamp(1rem,4vw,1.35rem);line-height:2.8;letter-spacing:.15em;color:var(--tea-dk);}
+.i-q em{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;color:var(--amber);font-size:1.15em;letter-spacing:.1em;}
+
+/* FOOTER */
+#footer{background:linear-gradient(170deg,var(--bg2) 0%,var(--bg) 100%);padding:6rem 1.4rem 4rem;border-top:1px solid var(--line);}
+.f-big{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:clamp(2.8rem,13vw,6.5rem);line-height:.92;letter-spacing:.02em;color:var(--tea-dk);margin-bottom:.15em;}
+.f-big .ac{color:var(--amber);}
+.f-venues{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:1.6rem 0;margin:2.5rem 0;}
+.f-venue-item{display:flex;flex-direction:column;gap:.4rem;padding:.6rem;border-right:1px solid var(--line);}
+.f-venue-item:last-child{border-right:none;}
+.f-venue-date{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(1.1rem,4vw,1.6rem);letter-spacing:.05em;color:var(--tea-lt);}
+.f-venue-name{font-family:'Noto Serif TC',serif;font-weight:500;font-size:clamp(.8rem,3vw,1rem);letter-spacing:.1em;color:var(--inkm);line-height:1.6;}
+@media(max-width:600px){
+  .f-venues{grid-template-columns:1fr;gap:0;}
+  .f-venue-item{flex-direction:row;align-items:center;justify-content:space-between;border-right:none;border-bottom:1px solid var(--line);padding:1.2rem .4rem;}
+  .f-venue-item:last-child{border-bottom:none;}
+  .f-venue-date{min-width:3.5rem;}
+  .f-venue-name{flex:1;padding:0 .8rem;}
+}
+.venue-follow{display:inline-block;font-family:'Noto Serif TC',serif;font-weight:400;font-size:.7rem;letter-spacing:.15em;color:var(--bg);background:var(--tea);text-decoration:none;padding:.4rem 1.2rem;border-radius:100px;margin-top:.3rem;transition:all .3s;}
+.venue-follow:hover{background:var(--tea-dk);color:var(--bg);transform:translateY(-2px);box-shadow:0 4px 12px rgba(142,68,61,.2);}
+@media(max-width:600px){.venue-follow{margin-top:0;white-space:nowrap;}}
+
+.f-btns{display:flex;flex-direction:column;gap:1.2rem;max-width:400px;}
+.btn-fill{display:block;text-align:center;padding:1.2rem 1.4rem;font-family:'Noto Serif TC',serif;font-weight:500;font-size:.95rem;letter-spacing:.2em;text-decoration:none;border:none;cursor:pointer;transition:all .3s;border-radius:4px;}
+.btn-fill.primary{background:var(--tea-dk);color:var(--bg);}
+.btn-fill.primary:hover{background:var(--tea);box-shadow:0 10px 20px rgba(142,68,61,.15);}
+.btn-fill.dark{background:var(--bg);color:var(--tea-dk);border:1px solid rgba(142,68,61,.2);}
+.btn-fill.dark:hover{background:var(--bg2);color:var(--tea);}
+.btn-fill.outline{background:transparent;color:var(--tea-dk);border:1.5px solid var(--tea-dk);}
+.btn-fill.outline:hover{background:var(--tea-dk);color:var(--bg);}
+
+.f-fine{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.8rem;align-items:flex-end;}
+.f-brand{font-family:'Playfair Display',serif;font-weight:600;font-style:italic;font-size:.85rem;letter-spacing:.15em;color:var(--inkf);}
+.f-nav{display:flex;gap:1.5rem;list-style:none;}
+.f-nav a{font-family:'Noto Serif TC',serif;font-weight:400;font-size:.75rem;letter-spacing:.15em;color:var(--inkf);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+.f-nav a:hover{color:var(--tea);}
+
+/* PARTNER & LEGAL */
+.partner-bar{background:#2D1F1D;display:flex;align-items:center;justify-content:center;gap:clamp(1.5rem,5vw,4rem);padding:2rem 1.4rem;border-top:1px solid rgba(255,250,240,.05);}
+.partner-logo{display:flex;align-items:center;opacity:.5;transition:all .3s;flex-shrink:0;}
+.partner-logo:hover{opacity:1;transform:scale(1.1);}
+.partner-logo img{height:clamp(14px,2.5vw,22px);width:auto;filter:brightness(0) invert(1) sepia(0.2) hue-rotate(330deg) saturate(1) brightness(1.1);}
+@media(max-width:480px){.partner-bar{gap:clamp(1rem,4vw,2rem);padding:1.5rem .8rem;flex-wrap:wrap;}.partner-logo img{height:12px;}}
+.legal-bar{background:#1A1211;color:rgba(255,250,240,.3);text-align:center;padding:1.2rem 1.4rem;font-family:'Noto Serif TC',serif;font-weight:300;font-size:.65rem;letter-spacing:.15em;line-height:2.2;}
+
+/* DESKTOP RWD */
+@media(min-width:800px){
+  .sec{padding:7rem 2rem;}
+  #insight{padding:9rem 2rem;}
+  #footer{padding:8rem 2rem 5rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>9% ABV</span><span class="ac">✦</span>
+    <span>佐賀縣天吹酒造</span><span class="ac">✦</span>
+    <span>伯爵紅茶梅酒</span><span class="ac">✦</span>
+    <span>AMABUKI EARL GREY UMESHU</span><span class="ac">✦</span>
+    <span>佛手柑香氣</span><span class="ac">✦</span>
+    <span>英式優雅</span><span class="ac">✦</span>
+    <span>9% ABV</span><span class="ac">✦</span>
+    <span>佐賀縣天吹酒造</span><span class="ac">✦</span>
+    <span>伯爵紅茶梅酒</span><span class="ac">✦</span>
+    <span>AMABUKI EARL GREY UMESHU</span><span class="ac">✦</span>
+    <span>佛手柑香氣</span><span class="ac">✦</span>
+    <span>英式優雅</span><span class="ac">✦</span>
+  </div>
+</div>
+
+<!-- §1 HERO -->
+<section id="hero">
+  <!-- Ceramic & Aroma Fx -->
+  <div class="sensory-fx">
+    <div class="ceramic-line"></div>
+    <div class="ceramic-line"></div>
+    <div class="aroma-ripple"></div>
+    <div class="aroma-ripple"></div>
+  </div>
+
+  <!-- Spec Badge -->
+  <div class="spec-badge">
+    <div class="spec-score">9%</div>
+    <div class="spec-label">Alc / Vol</div>
+  </div>
+
+  <!-- Bottle -->
+  <div class="hero-bottle-full">
+    <img src="/lanjue/amabuki-earlgrey/amabuki-bottle.png" alt="天吹 伯爵紅茶梅酒" loading="eager"
+      onerror="this.outerHTML='<div class=\'bottle-ph\'><span>天吹<br>伯爵紅茶梅酒<br>酒瓶待補</span></div>'">
+  </div>
+
+  <div class="hero-name-block">
+    <div class="hname-big">天吹 <span>伯爵紅茶梅酒</span></div>
+    <div class="hname-row">
+      <span class="hname-jp">あまぶき こうちゃうめしゅ</span>
+      <span class="hname-sep">✦</span>
+      <span class="hname-en">Amabuki Earl Grey Umeshu</span>
+    </div>
+    <p class="hero-slogan">當優雅成為競爭力，連結便是一種享受。</p>
+    <div class="hero-scroll-hint">
+      <span class="scroll-dot"></span>
+      <span>Scroll</span>
+    </div>
+  </div>
+</section>
+
+<!-- §2 ABOUT / NARRATIVE -->
+<section id="about" class="sec"><div class="content-wrap">
+  <div class="eyebrow">
+    <h2>About Elegance</h2><span>✦</span>
+  </div>
+  <div class="about-body">
+    <p>這是一款懂得如何優雅轉型的酒。佛手柑與紅茶的英式高雅，巧妙揉合了日本南高梅的醇厚生命力，在透明的琥珀色茶湯中達到完美平衡。</p>
+    <p>它象徵著品牌具備<strong>「優雅轉型」</strong>的從容能力，能將生硬的商務對接，轉化為如同享用一頓頂級英式下午茶般、令人愉悅且舒心的質感體驗。</p>
+  </div>
+  <div class="photo-row">
+    <div class="photo-box">
+      <img src="/lanjue/amabuki-earlgrey/japan-1.jpg" alt="精緻陶瓷茶具" loading="lazy"
+        onerror="this.parentElement.innerHTML='<div class=\'photo-ph\'>🫖</div>'">
+    </div>
+    <div class="photo-box">
+      <img src="/lanjue/amabuki-earlgrey/japan-2.jpg" alt="紅茶湯琥珀光澤" loading="lazy"
+        onerror="this.parentElement.innerHTML='<div class=\'photo-ph\'>🍂</div>'">
+    </div>
+  </div>
+</div></section>
+
+<!-- §3 SPECS -->
+<section id="specs" class="sec"><div class="content-wrap">
+  <div class="eyebrow">
+    <h2>Craftsmanship</h2><span>✦</span>
+  </div>
+
+  <div class="ring-wrap">
+    <div class="ring-chart">
+      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(142,68,61,.1)" stroke-width="3"/>
+        <circle cx="60" cy="60" r="50" fill="none" stroke="url(#teaGrad)" stroke-width="3"
+          stroke-dasharray="314" stroke-dashoffset="285.74"
+          stroke-linecap="round"
+          transform="rotate(-90 60 60)"/>
+        <defs>
+          <linearGradient id="teaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#D98852"/>
+            <stop offset="100%" stop-color="#8E443D"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <div class="ring-val">9%<span>Alc / Vol</span></div>
+    </div>
+  </div>
+
+  <table class="spec-table">
+    <tr><td>酒名</td><td>天吹 伯爵紅茶梅酒</td></tr>
+    <tr><td>產地與酒造</td><td>佐賀縣｜天吹酒造</td></tr>
+    <tr><td>原料</td><td>嚴選格雷伯爵紅茶、紀州南高梅、佐賀天然泉水</td></tr>
+    <tr><td>酒精濃度</td><td><strong style="color:var(--tea-dk);font-weight:700;">9%</strong></td></tr>
+    <tr><td>工法</td><td>低溫萃取格雷伯爵紅茶精華，與熟成清酒梅酒細緻調和。</td></tr>
+    <tr><td>風味特徵</td><td>佛手柑的獨特柑橘香，茶單寧帶來的乾爽收尾。</td></tr>
+    <tr><td>文化特色</td><td>完美融合了西洋茶文化與東方釀造技術。</td></tr>
+    <tr><td>適飲溫度</td><td>微冷飲，或加入冰塊釋放茶香。</td></tr>
+  </table>
+
+  <div class="tags">
+    <span class="tag">格雷伯爵紅茶</span>
+    <span class="tag">紀州南高梅</span>
+    <span class="tag">佐賀天然泉水</span>
+    <span class="tag">佛手柑香氣</span>
+    <span class="tag">東西融合</span>
+    <span class="tag">優雅轉型</span>
+  </div>
+</div></section>
+
+<!-- §4 SENSORY -->
+<section id="sensory" class="sec sec-alt"><div class="content-wrap">
+  <div class="eyebrow">
+    <h2>Sensory Experience</h2><span>✦</span>
+  </div>
+  <p class="spotify-label">🎵 Smooth Jazz · Parisian Cafe Music</p>
+
+  <div class="food-grid">
+    <div class="food-box">
+      <img src="/lanjue/amabuki-earlgrey/food-1.jpg" alt="英式司康" loading="lazy"
+        onerror="this.parentElement.innerHTML='<div class=\'food-placeholder\'>🥐</div><p class=\'food-lbl\'>英式司康與果醬</p>'">
+      <p class="food-lbl">英式司康・下午茶絕配</p>
+    </div>
+    <div class="food-box">
+      <img src="/lanjue/amabuki-earlgrey/food-2.jpg" alt="輕便三明治" loading="lazy"
+        onerror="this.parentElement.innerHTML='<div class=\'food-placeholder\'>🥪</div><p class=\'food-lbl\'>輕食三明治</p>'">
+      <p class="food-lbl">輕便三明治・茶香解膩</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- §5 INSIGHT -->
+<section id="insight"><div class="content-wrap">
+  <div class="eyebrow">
+    <h2>The Insight</h2><span>✦</span>
+  </div>
+  <p class="i-q">
+    你的品牌是否能將<br>
+    繁雜的商務資訊，<br><br>
+    轉化為如同伯爵茶般、<br>
+    <em>優雅且具質感的對話體驗</em>？
+  </p>
+</div></section>
+
+<!-- §6 FOOTER -->
+<section id="footer"><div class="content-wrap">
+  <div class="f-big">微醺<br>連結<span class="ac">。</span></div>
+
+  <div class="f-venues">
+    <div class="f-venue-item">
+      <span class="f-venue-date">3 / 30</span>
+      <span class="f-venue-name">MuMu 咖啡</span>
+      <a href="https://linket.net/mumucafe" target="_blank" class="venue-follow" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'amabuki-earlgrey'});">追蹤 →</a>
+    </div>
+    <div class="f-venue-item">
+      <span class="f-venue-date">4 / 07</span>
+      <span class="f-venue-name">山上山下<br>埔里店</span>
+      <a href="https://www.instagram.com/3s3s.tw" target="_blank" class="venue-follow">追蹤 →</a>
+    </div>
+    <div class="f-venue-item">
+      <span class="f-venue-date">4 / 11</span>
+      <span class="f-venue-name">坐客咖啡</span>
+      <a href="https://linket.net/zouke-cafe" target="_blank" class="venue-follow" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'amabuki-earlgrey'});">追蹤 →</a>
+    </div>
+  </div>
+
+  <div class="f-btns">
+    <a href="https://forms.gle/fD3LVGXcFnMQswRJ6" target="_blank" class="btn-fill primary" onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'amabuki-earlgrey'});">📅 預約下一場微醺</a>
+    <a href="https://lin.ee/UgaIhG7" target="_blank" class="btn-fill dark" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'amabuki-earlgrey'});">🍶 立即聯繫嵐爵私選下單</a>
+    <a href="https://lin.ee/19k6X29" target="_blank" class="btn-fill outline" onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'amabuki-earlgrey'});">💳 LINKet 品牌數位化服務</a>
+  </div>
+
+  <div class="f-fine">
+    <span class="f-brand">AMABUKI EARL GREY UMESHU</span>
+    <ul class="f-nav">
+      <li><a href="#about">關於</a></li>
+      <li><a href="#specs">工法</a></li>
+      <li><a href="#sensory">搭配</a></li>
+    </ul>
+  </div>
+</div></section>
+
+<!-- 聯名品牌 LOGO 列 -->
+<div class="partner-bar">
+  <a href="https://lin.ee/19k6X29" target="_blank" class="partner-logo" onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'amabuki-earlgrey'});">
+    <img src="/home/assets/logo-lanjue.svg" alt="嵐爵">
+  </a>
+  <a href="https://linket.net/mumucafe" target="_blank" class="partner-logo" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'amabuki-earlgrey'});">
+    <img src="/home/assets/logo-mumu.svg" alt="MuMu咖啡">
+  </a>
+  <a href="https://linket.net/zouke-cafe" target="_blank" class="partner-logo" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'amabuki-earlgrey'});">
+    <img src="/home/assets/logo-zuoke.svg" alt="坐客咖啡">
+  </a>
+  <a href="https://www.instagram.com/3s3s.tw" target="_blank" class="partner-logo">
+    <img src="/home/assets/logo-emo.svg" alt="山上山下">
+  </a>
+  <a href="https://lin.ee/19k6X29" target="_blank" class="partner-logo" onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'amabuki-earlgrey'});">
+    <img src="/home/assets/logo-linket.svg" alt="LINKet">
+  </a>
+</div>
+
+<!-- 法規警語 -->
+<div class="legal-bar">
+  飲酒勿開車｜未滿十八歲者，禁止飲酒｜本品牌不販賣酒予未滿十八歲者｜飲酒過量有害健康
+</div>
+
+</body>
+</html>
