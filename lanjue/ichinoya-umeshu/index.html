@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
-<!-- V2 Version: 大吟釀基底 / 10% ABV 校正版 / Hero酒名修正 -->
+<!-- V2 Version: 大吟釀基底 / 10% ABV / 加入 YouTube 聽覺擴增 / 相對路徑防呆優化 -->
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
 <script>
@@ -18,13 +18,14 @@
 <!-- OG Meta Tags -->
 <meta property="og:title" content="市野屋｜大吟釀 本格梅酒 Daiginjo Umeshu × LINKet">
 <meta property="og:description" content="以最高規格大吟釀為基底，低溫浸泡南高梅，無人工添加。簡單，才是最高級的複雜。">
+<!-- OG Image 必須維持絕對路徑供社群平台抓取 -->
 <meta property="og:image" content="https://linket.app/lanjue/ichinoya-daiginjo-umeshu/og-image.jpg">
 <meta property="og:url" content="https://linket.app/lanjue/ichinoya-daiginjo-umeshu">
 <meta property="og:type" content="website">
 
-<!-- Favicon -->
-<link rel="icon" href="/lanjue/ichinoya-daiginjo-umeshu/favicon.png">
-<link rel="apple-touch-icon" href="/lanjue/ichinoya-daiginjo-umeshu/apple-touch-icon.png">
+<!-- Favicon (改用相對路徑防呆) -->
+<link rel="icon" href="./favicon.png">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <!-- 樸實、具備手工質感的黑體 -->
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
@@ -308,7 +309,7 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--ink)
 
   <!-- Bottle -->
   <div class="hero-bottle-full">
-    <img src="/lanjue/ichinoya-daiginjo-umeshu/ichinoya-bottle.png" alt="市野屋 大吟釀本格梅酒" loading="eager"
+    <img src="./ichinoya-bottle.png" alt="市野屋 大吟釀本格梅酒" loading="eager"
       onerror="this.outerHTML='<div class=\'bottle-ph\'><span>大吟釀<br>本格梅酒<br>酒瓶待補</span></div>'">
   </div>
 
@@ -338,11 +339,11 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--ink)
   </div>
   <div class="photo-row">
     <div class="photo-box">
-      <img src="/lanjue/ichinoya-daiginjo-umeshu/japan-1.jpg" alt="大吟釀清澈酒液" loading="lazy"
+      <img src="./japan-1.jpg" alt="大吟釀清澈酒液" loading="lazy"
         onerror="this.parentElement.innerHTML='<div class=\'photo-ph\'>🍶</div>'">
     </div>
     <div class="photo-box">
-      <img src="/lanjue/ichinoya-daiginjo-umeshu/japan-2.jpg" alt="梅子落入水花" loading="lazy"
+      <img src="./japan-2.jpg" alt="梅子落入水花" loading="lazy"
         onerror="this.parentElement.innerHTML='<div class=\'photo-ph\'>💦</div>'">
     </div>
   </div>
@@ -402,14 +403,16 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--ink)
   </div>
   <p class="spotify-label">🎵 Bossanova · Acoustic Jazz — 慵懶而純粹的不插電節奏</p>
 
+  <iframe width="100%" height="315" src="https://www.youtube.com/embed/MYPVQccHhAQ?si=sLgKRiMnY0TSoXW5&amp;start=40" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius: 4px; display: block; border: 1px solid rgba(230,204,0,.25); margin-bottom: 1.5rem;"></iframe>
+
   <div class="food-grid">
     <div class="food-box">
-      <img src="/lanjue/ichinoya-daiginjo-umeshu/food-1.jpg" alt="精緻滷味與串燒" loading="lazy"
+      <img src="./food-1.jpg" alt="精緻滷味與串燒" loading="lazy"
         onerror="this.parentElement.innerHTML='<div class=\'food-placeholder\'>🍢</div><p class=\'food-lbl\'>精緻滷味・串燒</p>'">
       <p class="food-lbl">滷味串燒・鹹甜交織</p>
     </div>
     <div class="food-box">
-      <img src="/lanjue/ichinoya-daiginjo-umeshu/food-2.jpg" alt="餐後酒" loading="lazy"
+      <img src="./food-2.jpg" alt="餐後酒" loading="lazy"
         onerror="this.parentElement.innerHTML='<div class=\'food-placeholder\'>🥃</div><p class=\'food-lbl\'>純粹的餐後酒</p>'">
       <p class="food-lbl">完美的餐後酒・純粹收尾</p>
     </div>
@@ -470,19 +473,19 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--ink)
 <!-- 聯名品牌 LOGO 列 -->
 <div class="partner-bar">
   <a href="https://lin.ee/19k6X29" target="_blank" class="partner-logo" onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'ichinoya-daiginjo-umeshu'});">
-    <img src="/home/assets/logo-lanjue.svg" alt="嵐爵">
+    <img src="../../home/assets/logo-lanjue.svg" alt="嵐爵">
   </a>
   <a href="https://linket.net/mumucafe" target="_blank" class="partner-logo" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'ichinoya-daiginjo-umeshu'});">
-    <img src="/home/assets/logo-mumu.svg" alt="MuMu咖啡">
+    <img src="../../home/assets/logo-mumu.svg" alt="MuMu咖啡">
   </a>
   <a href="https://linket.net/zouke-cafe" target="_blank" class="partner-logo" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'ichinoya-daiginjo-umeshu'});">
-    <img src="/home/assets/logo-zuoke.svg" alt="坐客咖啡">
+    <img src="../../home/assets/logo-zuoke.svg" alt="坐客咖啡">
   </a>
   <a href="https://www.instagram.com/3s3s.tw" target="_blank" class="partner-logo">
-    <img src="/home/assets/logo-emo.svg" alt="山上山下">
+    <img src="../../home/assets/logo-emo.svg" alt="山上山下">
   </a>
   <a href="https://lin.ee/19k6X29" target="_blank" class="partner-logo" onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'ichinoya-daiginjo-umeshu'});">
-    <img src="/home/assets/logo-linket.svg" alt="LINKet">
+    <img src="../../home/assets/logo-linket.svg" alt="LINKet">
   </a>
 </div>
 
