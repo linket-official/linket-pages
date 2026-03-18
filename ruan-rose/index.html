@@ -552,20 +552,27 @@ a.top-badge{
   position:absolute;
   top:50%; left:50%;
   transform:translate(-50%,-50%);
-  /* 修正B：高度縮小，確保不超出視口、比例正常 */
-  height:min(78svh, 55vw);
-  max-height:680px;
-  min-height:360px;
-  width:auto;
+  /*
+    圖片 600x1400，寬高比 1:2.33
+    目標：上下各留 40px，填滿 calc(100svh - 80px)
+    max-width 防止寬度超出螢幕
+  */
+  height: calc(100svh - 80px);
+  width: auto;
+  max-width: min(calc((100svh - 80px) / 2.33), 90vw);
+  max-height: none;
+  min-height: 0;
   display:block; user-select:none; pointer-events:none;
   will-change:transform;
   mix-blend-mode:multiply;
 }
+/* 行動版：螢幕窄時改以寬度為主，確保不超出螢幕 */
 @media(max-width:480px){
   .rp-rose-img{
-    height:min(68svh, 72vw);
-    max-height:520px;
-    min-height:280px;
+    width: min(88vw, calc((100svh - 80px) / 2.33));
+    height: auto;
+    max-width: 88vw;
+    max-height: calc(100svh - 80px);
   }
 }
 .rp-ann-layer{ position:absolute; inset:0; pointer-events:none; }
