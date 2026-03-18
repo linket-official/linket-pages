@@ -834,20 +834,14 @@ a.design-by{
 <div class="qr-modal-overlay" id="qrModal" onclick="closeQrModalOnBg(event)">
   <div class="qr-modal">
 
-    <!-- Logo：與 QRcode 同寬 200px，黑底用 screen 混合顯示 -->
     <img src="ruan-logo.svg"
          onerror="this.src='ruan-logo.png'"
          alt="阮二哥玫瑰園"
          class="qr-modal-logo">
 
-    <!-- QRcode：Google Charts API 自動產生此頁面的 QR -->
+    <!-- QRcode：qrcode.js 在瀏覽器端 canvas 動態產生 -->
     <div class="qr-modal-code">
-      <img
-        src="https://chart.googleapis.com/chart?chs=220x220&cht=qr&chl=https%3A%2F%2Flinket.app%2Fruan-rose&choe=UTF-8&chld=M|2"
-        alt="QR Code"
-        width="180"
-        height="180"
-        loading="lazy">
+      <div id="qrcode-canvas"></div>
     </div>
 
     <div class="qr-modal-url">linket.app/ruan-rose</div>
@@ -1141,11 +1135,39 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 
 <script>
-/* ── FIX #5: QR Modal ── */
+/* ── QR Code Modal ── */
+// 載入 qrcode.js（cdnjs，瀏覽器端 canvas 產生）
+let qrLoaded = false;
+let qrInstance = null;
+
+function loadQrLib(cb){
+  if(qrLoaded){ cb(); return; }
+  const s = document.createElement('script');
+  s.src = 'https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
+  s.onload = () => { qrLoaded = true; cb(); };
+  document.head.appendChild(s);
+}
+
+function renderQrCode(){
+  const el = document.getElementById('qrcode-canvas');
+  if(!el) return;
+  if(qrInstance){ return; } // 已產生過不重複
+  el.innerHTML = ''; // 清空
+  qrInstance = new QRCode(el, {
+    text: 'https://linket.app/ruan-rose',
+    width: 180,
+    height: 180,
+    colorDark: '#1a0608',   // 深色點：配合彈窗底色
+    colorLight: '#ffffff',  // 淺色背景：白色
+    correctLevel: QRCode.CorrectLevel.M
+  });
+}
+
 function openQrModal(){
   const modal = document.getElementById('qrModal');
   modal.classList.add('active');
   document.body.style.overflow = 'hidden';
+  loadQrLib(renderQrCode);
   gtag('event','click_qr_modal',{'event_category':'CTA','event_label':'ruan-rose'});
 }
 function closeQrModal(){
@@ -1227,7 +1249,10 @@ document.querySelectorAll('.hero-logo img, .qr-modal-logo').forEach(img => {
     const total   =stage.offsetHeight - window.innerHeight;
     const pct     =Math.min(1, scrolled/Math.max(total,1));
 
-    const py=scrolled*-0.18;
+    /* 視差：以 pct=0.5（區塊中點）為基準，
+       讓玫瑰在中點時正好垂直置中（py=0），
+       向上或向下滾動才偏移，偏移量縮小至 0.08 */
+    const py = (pct - 0.5) * total * -0.08;
     rose.style.transform=`translate(-50%, calc(-50% + ${py}px))`;
 
     if(cue) cue.style.opacity=pct>.04?'0':'1';
