@@ -195,19 +195,24 @@ a.top-badge{
 }
 .hero-icons{
   display:flex; justify-content:center;
-  gap:1.25rem; margin-bottom:1.25rem;
+  /* 修正A：加大間距配合更大的 icon */
+  gap:1.75rem; margin-bottom:1.4rem;
   width:100%;
 }
 .hero-icon-link{
-  width:44px; height:44px;
+  /* 修正A：容器加大 */
+  width:54px; height:54px;
   display:flex; align-items:center; justify-content:center;
-  text-decoration:none; color:#fff;
-  transition:opacity .2s; flex-shrink:0;
+  text-decoration:none;
+  transition:opacity .2s, transform .2s; flex-shrink:0;
   border-radius:0; background:transparent; border:none;
 }
-.hero-icon-link:hover{ opacity:.65; }
+.hero-icon-link:hover{ opacity:.72; transform:scale(1.08); }
 .hero-icon-link svg,
-.hero-icon-link img{ width:28px; height:28px; display:block; }
+.hero-icon-link img{
+  /* 修正A：28px → 42px（+50%）*/
+  width:42px; height:42px; display:block;
+}
 
 .hero-btn{
   display:flex;
@@ -529,13 +534,12 @@ a.top-badge{
    ══════════════════════════════════════════ */
 .rose-parallax-section{
   width:100%;
-  /* FIX #3: 確保此區塊在 watermark 之後正常開始，不被遮蓋 */
   position:relative;
   z-index:0;
 }
 .rp-stage{
   position:relative;
-  height:280vh; /* FIX #3: 原 320vh 改短，讓節奏更緊湊 */
+  height:280vh;
 }
 .rp-sticky{
   position:sticky; top:0;
@@ -548,21 +552,20 @@ a.top-badge{
   position:absolute;
   top:50%; left:50%;
   transform:translate(-50%,-50%);
-  /* FIX #3: 調整高度讓玫瑰正常比例呈現 */
-  height:min(90svh, 70vw);
-  max-height:800px;
-  min-height:400px;
+  /* 修正B：高度縮小，確保不超出視口、比例正常 */
+  height:min(78svh, 55vw);
+  max-height:680px;
+  min-height:360px;
   width:auto;
   display:block; user-select:none; pointer-events:none;
   will-change:transform;
-  /* FIX #3: 黑底 PNG 用 mix-blend-mode:multiply 反轉 */
   mix-blend-mode:multiply;
 }
 @media(max-width:480px){
   .rp-rose-img{
-    height:min(75svh, 80vw);
-    max-height:600px;
-    min-height:300px;
+    height:min(68svh, 72vw);
+    max-height:520px;
+    min-height:280px;
   }
 }
 .rp-ann-layer{ position:absolute; inset:0; pointer-events:none; }
@@ -570,19 +573,29 @@ a.top-badge{
   position:absolute; display:flex; align-items:center;
   opacity:0; transition:opacity .55s ease, transform .55s ease;
 }
-.rp-ann.left{ flex-direction:row; transform:translateX(-10px); }
-.rp-ann.right{ flex-direction:row-reverse; transform:translateX(10px); }
+/* 修正B：左側標籤靠近玫瑰（不靠螢幕邊），從玫瑰左側延伸出去 */
+.rp-ann.left{
+  flex-direction:row;
+  transform:translateX(-10px);
+  /* left 值改由 JS 動態設定，CSS 提供基礎 */
+}
+.rp-ann.right{
+  flex-direction:row-reverse;
+  transform:translateX(10px);
+}
 .rp-ann.vis{ opacity:1; transform:translateX(0); }
 .rp-dot{ width:6px; height:6px; border-radius:50%; background:var(--c2); flex-shrink:0; }
-.rp-line{ height:1px; width:clamp(20px,4vw,40px); background:rgba(192,64,96,.35); flex-shrink:0; }
+.rp-line{ height:1px; width:clamp(24px,5vw,48px); background:rgba(192,64,96,.35); flex-shrink:0; }
 .rp-box{
   padding:6px 10px; border:0.5px solid rgba(192,64,96,.25);
   border-radius:10px; background:rgba(255,240,242,.92);
+  max-width:140px;
 }
 .rp-ann.right .rp-box{ text-align:right; }
+.rp-ann.left  .rp-box{ text-align:left; }
 .rp-lbl{ font-size:11px; letter-spacing:.14em; color:var(--c2); font-family:'Cormorant Garamond',serif; text-transform:uppercase; }
-.rp-val{ font-size:15px; font-weight:500; color:var(--ctxt); font-family:'Noto Serif TC',serif; margin-top:1px; line-height:1.4; }
-.rp-sub{ font-size:12px; color:var(--ctxts); font-family:'Noto Serif TC',serif; margin-top:2px; line-height:1.5; }
+.rp-val{ font-size:14px; font-weight:500; color:var(--ctxt); font-family:'Noto Serif TC',serif; margin-top:1px; line-height:1.4; }
+.rp-sub{ font-size:11px; color:var(--ctxts); font-family:'Noto Serif TC',serif; margin-top:2px; line-height:1.5; }
 .rp-cue{
   position:absolute; bottom:28px; left:50%; transform:translateX(-50%);
   display:flex; flex-direction:column; align-items:center; gap:6px;
@@ -771,13 +784,14 @@ a.design-by{
 
         <div class="hero-icons">
           <a class="hero-icon-link" href="https://www.facebook.com/Duckminirose/?locale=zh_TW" target="_blank" aria-label="Facebook">
-            <img src="/home/assets/facebook.svg" alt="Facebook" style="filter:brightness(0) invert(1);opacity:.9;">
+            <!-- 修正A：移除 filter invert，白底黑圖原色顯示 -->
+            <img src="/home/assets/facebook.svg" alt="Facebook">
           </a>
           <a class="hero-icon-link" href="https://www.instagram.com/duckminiroses/" target="_blank" aria-label="Instagram">
-            <img src="/home/assets/instagram.svg" alt="Instagram" style="filter:brightness(0) invert(1);opacity:.9;">
+            <img src="/home/assets/instagram.svg" alt="Instagram">
           </a>
           <a class="hero-icon-link" href="https://www.threads.com/@duckminiroses" target="_blank" aria-label="Threads">
-            <img src="/home/assets/threads.svg" alt="Threads" style="filter:brightness(0) invert(1);opacity:.9;">
+            <img src="/home/assets/threads.svg" alt="Threads">
           </a>
         </div>
 
@@ -1150,15 +1164,19 @@ document.querySelectorAll('.hero-logo img, .qr-modal-logo').forEach(img => {
 </script>
 
 <script>
-/* ── FIX #3: 玫瑰視差（修正比例與遮蓋問題）── */
+/* ── 修正B: 玫瑰視差（標籤靠近玫瑰，不靠螢幕邊）── */
 (function(){
+  /* 修正B：cx/cy 改為以玫瑰為中心的相對位置
+     left  側：玫瑰左側，約 viewport 30% 處，向左延伸到標籤
+     right 側：玫瑰右側，約 viewport 58% 處，向右延伸到標籤
+     cy    ：玫瑰上（花苞約 15%）到下（莖底約 85%）分佈 */
   const annData=[
-    {pct:.10, side:'right', cx:'58%', cy:'10%', label:'BLOOM',      val:'花徑約 3 cm',       sub:'一莖可開 3–10 朵'},
-    {pct:.24, side:'left',  cx:'4%',  cy:'22%', label:'COLOR',      val:'阮家獨有桃紅',      sub:'自然變異・父親守護獨有色系'},
-    {pct:.38, side:'right', cx:'58%', cy:'38%', label:'VASE LIFE',  val:'7 天以上',           sub:'一般玫瑰僅 3–5 天'},
-    {pct:.52, side:'left',  cx:'4%',  cy:'52%', label:'GRADE',      val:'五等級分類',         sub:'35 / 45 / 55 / 65 / 75 cm'},
-    {pct:.66, side:'right', cx:'58%', cy:'66%', label:'HARVEST',    val:'清晨採收',           sub:'採後立即冷水保鮮'},
-    {pct:.80, side:'left',  cx:'4%',  cy:'80%', label:'SUPPLY',     val:'全台五大花市',       sub:'台北・台中・彰化・台南・高雄'},
+    {pct:.10, side:'right', cx:'56%', cy:'12%', label:'BLOOM',      val:'花徑約 3 cm',       sub:'一莖可開 3–10 朵'},
+    {pct:.24, side:'left',  cx:'16%', cy:'22%', label:'COLOR',      val:'阮家獨有桃紅',      sub:'自然變異・父親守護'},
+    {pct:.38, side:'right', cx:'56%', cy:'38%', label:'VASE LIFE',  val:'7 天以上',           sub:'一般玫瑰僅 3–5 天'},
+    {pct:.52, side:'left',  cx:'16%', cy:'54%', label:'GRADE',      val:'五等級分類',         sub:'35 / 45 / 55 / 65 / 75 cm'},
+    {pct:.66, side:'right', cx:'56%', cy:'68%', label:'HARVEST',    val:'清晨採收',           sub:'採後立即冷水保鮮'},
+    {pct:.80, side:'left',  cx:'16%', cy:'82%', label:'SUPPLY',     val:'全台五大花市',       sub:'台北・台中・彰化・台南・高雄'},
   ];
 
   const layer=document.getElementById('rpAnns');
@@ -1172,7 +1190,8 @@ document.querySelectorAll('.hero-logo img, .qr-modal-logo').forEach(img => {
     const box=`<div class="rp-box"><div class="rp-lbl">${d.label}</div><div class="rp-val">${d.val}</div><div class="rp-sub">${d.sub}</div></div>`;
     const line=`<div class="rp-line"></div>`;
     const dot =`<div class="rp-dot"></div>`;
-    el.innerHTML= d.side==='left' ? dot+line+box : box+line+dot;
+    /* 修正B：left 側也是 box+line+dot（從標籤向右指向玫瑰）*/
+    el.innerHTML= d.side==='left' ? box+line+dot : box+line+dot;
     layer.appendChild(el);
   });
 
