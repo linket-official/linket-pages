@@ -18,71 +18,33 @@
 <meta property="og:image" content="https://linket.app/ruan-rose/og-image.jpg">
 <meta property="og:url" content="https://linket.app/ruan-rose">
 <meta property="og:type" content="website">
-<link rel="icon" href="favicon.png">
-<link rel="apple-touch-icon" href="favicon.png">
+<link rel="icon" href="/ruan-rose/favicon.png">
+<link rel="apple-touch-icon" href="/ruan-rose/favicon.png">
 <script async src="//www.instagram.com/embed.js"></script>
-<!--
-  ╔════════════════════════════════════════════════════════════╗
-  ║  LINKet Light  Template v2.2 · #33 阮二哥玫瑰園                              ║
-  ║  linket.net · Design by LINKet                            ║
-  ╠════════════════════════════════════════════════════════════╣
-  ║  RWD 規則                                                  ║
-  ║  手機（≤600px）：Hero 單欄，按鈕全幅撐滿                    ║
-  ║  桌機（>600px）：整頁滿版背景，內容置中 max-width:900px     ║
-  ║                  Hero 雙欄，左240px固定，右flex:1           ║
-  ║                  按鈕 max-width:220px，左對齊               ║
-  ╠════════════════════════════════════════════════════════════╣
-  ║  STRUCTURE                                                 ║
-  ║  ① top-badge   — 滿版sticky（TODO:換PNG/SVG）              ║
-  ║  ② hero        — 滿版背景，.inner 限寬                      ║
-  ║  ③ watermark   — 滿版背景，.inner 限寬                      ║
-  ║  ④ content     — 滿版背景，.inner 限寬                      ║
-  ║  ⑤ ig-section  — 滿版背景，桌機兩欄                         ║
-  ║  ⑥ footer-btns — 滿版背景                                  ║
-  ║  ⑦ back-btn                                               ║
-  ║  ⑧ design-by   — 滿版（TODO:換PNG/SVG）                    ║
-  ╠════════════════════════════════════════════════════════════╣
-  ║  CUSTOMIZATION CHECKLIST                                   ║
-  ║  [ ] :root 色系 token（全頁換色只改這裡）                   ║
-  ║  [ ] --r 圓角：50px 花卉款 / 6px 工藝款                     ║
-  ║  [ ] hero-logo img src（PNG）                              ║
-  ║  [ ] hero-avatar img src（PNG，個人款用）                   ║
-  ║  [ ] 品牌名 / slogan / hashtag / 補充資料                   ║
-  ║  [ ] 社群 SVG（currentColor 自動跟父層色）                  ║
-  ║  [ ] hero-btn 文字/href/層級（.p1 .p2 .ghost .qr）         ║
-  ║  [ ] watermark data-wm 英文水印大字                        ║
-  ║  [ ] content sections 內容                                 ║
-  ║  [ ] ig handle / location / 實拍照                         ║
-  ║  [ ] footer-btn 文字/href                                  ║
-  ║  [ ] og:image / og:url 上線後更新                          ║
-  ╚════════════════════════════════════════════════════════════╝
--->
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 
 /* ══════════════════════════════════════════════
-   DESIGN TOKENS — 換色系只改這裡
-   --r：50px 花卉/溫柔  |  6px 工藝/農業
+   DESIGN TOKENS
    ══════════════════════════════════════════ */
 :root{
-  --c1    : #ff999b;   /* 主色 桃紅 */
-  --c2    : #c04060;   /* 深色 深玫 */
-  --c3    : #e06070;   /* 中色 中玫 */
-  --c4    : #ff999b;   /* 強調 桃粉 */
-  --c5    : #fff0f2;   /* 極淺背景 */
+  --c1    : #ff999b;
+  --c2    : #c04060;
+  --c3    : #e06070;
+  --c4    : #ff999b;
+  --c5    : #fff0f2;
   --cbtn1 : rgba(255,255,255,.92);
   --cbtn1t: #c04060;
   --ctxt  : #3a1520;
   --ctxts : rgba(58,21,32,.62);
   --ccard : rgba(255,255,255,.75);
-  --r     : 50px;      /* 花卉款圓潤 */
+  --r     : 50px;
   --mw    : 900px;
   --sp    : 2.4rem 1.4rem;
 }
 
 *,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
 html{ scroll-behavior:smooth; }
-
 body{
   font-family:'Noto Serif TC',serif;
   background:var(--c5);
@@ -90,17 +52,11 @@ body{
   min-height:100vh;
   overflow-x:hidden;
 }
-
-/* 共用限寬居中 */
-.inner{
-  max-width:var(--mw);
-  margin:0 auto;
-}
+.inner{ max-width:var(--mw); margin:0 auto; }
 
 
 /* ══════════════════════════════════════════════
    ① TOP BADGE
-   TODO: 換成 LINKet PNG/SVG 品牌導流 banner
    ══════════════════════════════════════════ */
 a.top-badge{
   display:block; width:100%;
@@ -119,7 +75,8 @@ a.top-badge{
 
 
 /* ══════════════════════════════════════════════
-   ② HERO — 滿版背景
+   ② HERO
+   FIX #2: 加深色遮罩提升文字對比度
    ══════════════════════════════════════════ */
 .hero{
   width:100%;
@@ -132,44 +89,57 @@ a.top-badge{
   z-index:0; pointer-events:none;
   display:block;
 }
-.hero-texture{ display:none; }
-.hero-glow{ display:none; }
+/* FIX #2: 深色遮罩，讓白色文字清晰可讀 */
+.hero-overlay{
+  position:absolute; inset:0;
+  background:linear-gradient(
+    135deg,
+    rgba(40,5,15,.72) 0%,
+    rgba(60,10,25,.55) 40%,
+    rgba(80,15,35,.65) 100%
+  );
+  z-index:1; pointer-events:none;
+}
 .hero .inner{ position:relative; z-index:2; }
 
-/* 雙欄容器：左右等寬 */
 .hero-cols{
   display:flex; flex-direction:row;
   align-items:stretch; min-height:460px;
 }
 
-/* 左欄：等寬 flex:1，物件置中對齊欄中軸 */
 .hero-left{
   flex:1 1 0;
   display:flex; flex-direction:column;
   align-items:center; justify-content:space-evenly;
   padding:2rem 1.4rem;
   gap:0; text-align:center;
-  border-right:1px solid rgba(255,255,255,.14);
+  border-right:1px solid rgba(255,255,255,.18);
 }
-/* 左欄各元素：精確間距，不依賴 gap */
-.hero-logo{ margin-bottom:3.125rem; padding:0 .5rem; } /* 50pt ≈ 3.125rem */
-.hero-company{ margin-bottom:.6rem; }
-.hero-avatar{ margin-bottom:.9rem; }
-.hero-name{ margin-bottom:5rem; } /* 80pt ≈ 5rem */
-.hero-role{ margin-bottom:.6rem; }
-.hero-slogan{ margin-bottom:.55rem; }
-.hero-tags{ margin-bottom:.5rem; font-size:.75rem; } /* 10pt */
+
+/* FIX #1: Logo 改用 SVG，且用 mix-blend-mode 讓黑底消失 */
 .hero-logo{
   width:60%; max-width:60%;
   overflow:visible; border:none; border-radius:0;
   box-shadow:none; background:transparent;
   flex-shrink:0; padding:.75rem 0;
+  margin-bottom:3.125rem;
 }
-.hero-logo img{ width:100%; height:auto; object-fit:contain; display:block; }
+/* PNG 黑底白字：用 mix-blend-mode:screen 讓黑底透明化 */
+.hero-logo img{
+  width:100%; height:auto; object-fit:contain; display:block;
+  mix-blend-mode: screen;
+  filter: brightness(1.1);
+}
+/* SVG 版本直接顯示 */
+.hero-logo .logo-svg{
+  width:100%; height:auto; display:block;
+}
+
 .hero-company{
   font-size:.6875rem; font-weight:300;
   letter-spacing:.18em; text-indent:.18em;
   color:rgba(255,255,255,.6); text-transform:uppercase;
+  margin-bottom:.6rem;
 }
 .hero-avatar{
   width:88px; height:88px; border-radius:50%; overflow:hidden;
@@ -177,26 +147,31 @@ a.top-badge{
   box-shadow:0 6px 22px rgba(0,0,0,.22);
   flex-shrink:0; background:rgba(255,255,255,.1);
   display:flex; align-items:center; justify-content:center;
+  margin-bottom:.9rem;
 }
 .hero-avatar img{ width:100%; height:100%; object-fit:cover; }
 .hero-name{
   font-size:1.375rem; font-weight:700;
   letter-spacing:.2em; text-indent:.2em;
   color:#fff; text-shadow:0 2px 10px rgba(0,0,0,.18); line-height:1.25;
+  margin-bottom:5rem;
 }
 .hero-role{
   font-size:.75rem; font-weight:300;
   letter-spacing:.15em; text-indent:.15em;
   color:rgba(255,255,255,.74);
+  margin-bottom:.6rem;
 }
 .hero-slogan{
   font-size:1rem; font-weight:400;
   letter-spacing:.07em; color:#fff; line-height:1.85;
-  text-shadow:0 1px 6px rgba(0,0,0,.12);
+  text-shadow:0 1px 6px rgba(0,0,0,.2);
+  margin-bottom:.55rem;
 }
 .hero-tags{
   display:flex; justify-content:center;
   gap:.26rem; flex-wrap:wrap; margin-top:.25rem;
+  margin-bottom:.5rem; font-size:.75rem;
 }
 .h-tag{
   background:rgba(255,255,255,.18);
@@ -212,14 +187,12 @@ a.top-badge{
 }
 .hero-meta span{ display:block; }
 
-/* 右欄：等寬 flex:1，物件置中對齊欄中軸，按鈕不超過欄寬 */
 .hero-right{
   flex:1 1 0; display:flex; flex-direction:column;
   align-items:center; justify-content:center;
   padding:2rem 1.4rem;
   gap:0; min-width:0;
 }
-/* icon 列：置中對齊右欄中軸，16px 間距，底部 18px 到 P1 */
 .hero-icons{
   display:flex; justify-content:center;
   gap:1.25rem; margin-bottom:1.25rem;
@@ -236,7 +209,6 @@ a.top-badge{
 .hero-icon-link svg,
 .hero-icon-link img{ width:28px; height:28px; display:block; }
 
-/* 按鈕基礎：桌機限制最大寬度，不超出欄位 */
 .hero-btn{
   display:flex;
   align-items:center; justify-content:center;
@@ -250,6 +222,7 @@ a.top-badge{
   transition:opacity .2s,background .2s;
   white-space:nowrap;
   margin-bottom:1rem;
+  cursor:pointer;
 }
 .hero-btn:hover{ opacity:.80; }
 
@@ -264,31 +237,129 @@ a.top-badge{
   margin-bottom:1rem;
 }
 .hero-btn.ghost{
-  background:transparent;
-  border:1.5px solid rgba(255,255,255,.42);
-  color:rgba(255,255,255,.84); font-size:1rem;
-  margin-bottom:.9375rem; /* 15pt */
+  background:rgba(255,255,255,.08);
+  border:1.5px solid rgba(255,255,255,.55);
+  color:#fff; font-size:1rem;
+  /* FIX #2: 加強按鈕邊框讓對比更明顯 */
+  text-shadow:0 1px 4px rgba(0,0,0,.3);
+  margin-bottom:.9375rem;
+  backdrop-filter:blur(4px);
 }
-.hero-btn.ghost:last-of-type{
-  margin-bottom:1.5rem;
-}
-/* QR：約44%，置中，固定最末 */
+.hero-btn.ghost:hover{ background:rgba(255,255,255,.18); }
+.hero-btn.ghost:last-of-type{ margin-bottom:1.5rem; }
+
+/* FIX #5: QR 按鈕樣式保留，點擊觸發 modal */
 .hero-btn.qr{
   width:44%; max-width:160px;
   align-self:center;
-  background:transparent;
-  border:1.5px solid rgba(255,255,255,.28);
-  color:rgba(255,255,255,.60);
+  background:rgba(255,255,255,.12);
+  border:1.5px solid rgba(255,255,255,.45);
+  color:rgba(255,255,255,.85);
   font-size:.75rem; letter-spacing:.16em;
   padding:.46rem .65rem;
   margin-bottom:0;
+  backdrop-filter:blur(4px);
 }
-.hero-btn.qr:hover{ background:rgba(255,255,255,.09); }
+.hero-btn.qr:hover{ background:rgba(255,255,255,.22); }
+
+
+/* ══════════════════════════════════════════════
+   FIX #5: QR CODE MODAL（品牌化彈窗）
+   ══════════════════════════════════════════ */
+.qr-modal-overlay{
+  display:none;
+  position:fixed; inset:0; z-index:999;
+  background:rgba(40,5,15,.82);
+  backdrop-filter:blur(8px);
+  align-items:center; justify-content:center;
+}
+.qr-modal-overlay.active{ display:flex; animation:fadeIn .25s ease; }
+@keyframes fadeIn{ from{opacity:0;} to{opacity:1;} }
+
+.qr-modal{
+  background:linear-gradient(160deg,#2a0a14 0%,#1a0608 100%);
+  border:1px solid rgba(255,153,155,.25);
+  border-radius:24px;
+  padding:2.5rem 2rem 2rem;
+  max-width:320px; width:90%;
+  display:flex; flex-direction:column; align-items:center;
+  box-shadow:0 24px 60px rgba(0,0,0,.55);
+  position:relative;
+}
+
+/* Modal 內的 Logo：黑底白字圖片用 screen 混合 */
+.qr-modal-logo{
+  width:120px; height:auto;
+  margin-bottom:1.4rem;
+  mix-blend-mode:screen;
+  filter:brightness(1.1);
+}
+
+.qr-modal-title{
+  font-family:'Noto Serif TC',serif;
+  font-size:1rem; font-weight:500;
+  letter-spacing:.22em; color:rgba(255,255,255,.88);
+  margin-bottom:.3rem; text-align:center;
+}
+.qr-modal-sub{
+  font-family:'Cormorant Garamond',serif;
+  font-size:.75rem; font-weight:300;
+  letter-spacing:.3em; color:rgba(255,153,155,.6);
+  text-transform:uppercase; margin-bottom:1.6rem;
+  text-align:center;
+}
+
+.qr-modal-code{
+  width:200px; height:200px;
+  background:#fff;
+  border-radius:16px;
+  display:flex; align-items:center; justify-content:center;
+  padding:12px;
+  box-shadow:0 4px 20px rgba(0,0,0,.3);
+  margin-bottom:1.2rem;
+  overflow:hidden;
+}
+.qr-modal-code img{
+  width:100%; height:100%; object-fit:contain;
+}
+/* QRcode SVG 用 Google Charts API 動態產生 */
+.qr-modal-code canvas,
+.qr-modal-code svg{ width:100%; height:100%; }
+
+.qr-modal-url{
+  font-family:'Cormorant Garamond',serif;
+  font-size:.75rem; letter-spacing:.12em;
+  color:rgba(255,153,155,.55);
+  margin-bottom:1.6rem; text-align:center;
+}
+
+.qr-modal-divider{
+  width:100%; height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,153,155,.2),transparent);
+  margin-bottom:1.4rem;
+}
+
+.qr-modal-hint{
+  font-size:.75rem; letter-spacing:.1em;
+  color:rgba(255,255,255,.35); text-align:center;
+  margin-bottom:1.4rem; line-height:1.7;
+}
+
+.qr-modal-close{
+  background:rgba(255,153,155,.12);
+  border:1px solid rgba(255,153,155,.25);
+  border-radius:50px;
+  padding:.52rem 2rem;
+  font-family:'Noto Serif TC',serif;
+  font-size:.875rem; letter-spacing:.18em;
+  color:rgba(255,153,155,.7);
+  cursor:pointer; transition:background .2s;
+}
+.qr-modal-close:hover{ background:rgba(255,153,155,.22); }
 
 
 /* ══════════════════════════════════════════════
    RWD
-   手機（≤600px）單欄全幅  |  桌機（>600px）雙欄
    ══════════════════════════════════════════ */
 @media(max-width:600px){
   .hero-cols{ flex-direction:column; min-height:auto; }
@@ -298,7 +369,6 @@ a.top-badge{
     padding:2rem 1.4rem 1.6rem;
     justify-content:center; gap:.45rem;
   }
-  /* 手機：覆蓋桌機各元素 margin，改回 gap 統一控制 */
   .hero-logo,.hero-company,.hero-avatar,
   .hero-name,.hero-role,.hero-slogan,
   .hero-tags{ margin-bottom:0; }
@@ -307,12 +377,10 @@ a.top-badge{
     align-items:center;
   }
   .hero-icons{ justify-content:center; gap:.75rem; margin-bottom:1rem; }
-  /* 手機按鈕：90% 寬置中，不超出邊框 */
   .hero-btn{
     width:90%; max-width:90%;
     font-size:.875rem; padding:.76rem 1rem;
   }
-  /* QR 手機：50% 寬 */
   .hero-btn.qr{ width:50%; max-width:50%; font-size:.75rem; }
   .sec-btn{ max-width:100%; }
   .footer-btn{ max-width:100%; }
@@ -320,7 +388,7 @@ a.top-badge{
 
 
 /* ══════════════════════════════════════════════
-   ③ WATERMARK — 滿版背景
+   ③ WATERMARK
    ══════════════════════════════════════════ */
 .watermark{
   width:100%;
@@ -353,7 +421,7 @@ a.top-badge{
 
 
 /* ══════════════════════════════════════════════
-   ④ CONTENT — 滿版背景，.inner 限寬
+   ④ CONTENT
    ══════════════════════════════════════════ */
 .section{ width:100%; background:var(--c5); }
 .section.alt{ background:#fff; }
@@ -454,12 +522,20 @@ a.top-badge{
 
 
 /* ══════════════════════════════════════════════
-   ② ROSE PARALLAX SECTION（重構穩定版）
+   FIX #3: 玫瑰視差區
+   問題：玫瑰圖是黑底非透明，且比例怪
+   修正：用 mix-blend-mode:screen 讓黑底透明化
+         調整 stage 高度與玫瑰顯示比例
    ══════════════════════════════════════════ */
-.rose-parallax-section{ width:100%; }
+.rose-parallax-section{
+  width:100%;
+  /* FIX #3: 確保此區塊在 watermark 之後正常開始，不被遮蓋 */
+  position:relative;
+  z-index:0;
+}
 .rp-stage{
   position:relative;
-  height:320vh;
+  height:280vh; /* FIX #3: 原 320vh 改短，讓節奏更緊湊 */
 }
 .rp-sticky{
   position:sticky; top:0;
@@ -472,18 +548,21 @@ a.top-badge{
   position:absolute;
   top:50%; left:50%;
   transform:translate(-50%,-50%);
-  height:min(180svh, 180vw);
-  max-height:1200px;
-  min-height:600px;
+  /* FIX #3: 調整高度讓玫瑰正常比例呈現 */
+  height:min(90svh, 70vw);
+  max-height:800px;
+  min-height:400px;
   width:auto;
   display:block; user-select:none; pointer-events:none;
   will-change:transform;
+  /* FIX #3: 黑底 PNG 用 mix-blend-mode:multiply 反轉 */
+  mix-blend-mode:multiply;
 }
 @media(max-width:480px){
   .rp-rose-img{
-    height:160svh;
-    max-height:900px;
-    min-height:500px;
+    height:min(75svh, 80vw);
+    max-height:600px;
+    min-height:300px;
   }
 }
 .rp-ann-layer{ position:absolute; inset:0; pointer-events:none; }
@@ -515,8 +594,68 @@ a.top-badge{
 
 
 /* ══════════════════════════════════════════════
-   ⑥ IG EMBED SECTION
+   FIX #4: 色票 section
+   問題：色票白底與頁面背景相同，沒有圖地關係
+   修正：section 改用淺玫瑰底，色票卡片加明顯邊框與陰影
    ══════════════════════════════════════════ */
+.section.features-section{
+  /* FIX #4: 改用稍深的背景，與白色色票卡片形成對比 */
+  background:linear-gradient(180deg, #ffe4e8 0%, #ffd0d6 100%);
+}
+
+.color-grid{ display:grid; grid-template-columns:1fr 1fr; gap:.75rem; margin-top:.4rem; }
+.color-card{
+  background:#fff; /* FIX #4: 明確白色，與粉底區分 */
+  border-radius:calc(var(--r)*.5);
+  overflow:hidden;
+  /* FIX #4: 加強邊框和陰影 */
+  border:1.5px solid rgba(192,64,96,.18);
+  box-shadow:0 4px 16px rgba(192,64,96,.12);
+  transition:transform .2s, box-shadow .2s;
+}
+.color-card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(192,64,96,.18);
+}
+.color-swatch{ width:100%; height:80px; }
+.color-info{ padding:.7rem .8rem .8rem; }
+.color-name{
+  font-size:1rem; font-weight:700; color:var(--ctxt);
+  letter-spacing:.06em; margin-bottom:.2rem;
+  display:flex; align-items:baseline; gap:.4rem;
+}
+.color-sub{ font-size:.75rem; font-weight:300; color:var(--ctxts); letter-spacing:.1em; }
+.color-badge{
+  display:inline-block; font-size:.75rem; letter-spacing:.1em;
+  color:var(--c2); border:1px solid rgba(192,64,96,.35);
+  border-radius:20px; padding:.08rem .45rem; margin-bottom:.4rem;
+}
+.color-spec{ margin-bottom:.4rem; }
+.cs-row{ display:flex; align-items:baseline; gap:.35rem; line-height:1.7; }
+.cs-key{ font-size:.875rem; font-weight:500; color:var(--ctxts); letter-spacing:.08em; min-width:46px; }
+.cs-val{ font-size:.875rem; color:var(--ctxt); letter-spacing:.04em; font-family:'Cormorant Garamond',serif; }
+.color-desc{ font-size:.875rem; color:var(--ctxts); line-height:1.6; letter-spacing:.03em; border-top:1px solid rgba(192,64,96,.08); padding-top:.35rem; margin-top:.35rem; }
+@media(max-width:420px){
+  .color-grid{ grid-template-columns:1fr; }
+}
+
+/* FIX #4: sec-label 在粉色底上需要調整 */
+.section.features-section .sec-label{
+  color:var(--c2);
+}
+.section.features-section .sec-title{
+  color:var(--ctxt);
+}
+.section.features-section .spec-bar{
+  background:rgba(255,255,255,.7);
+}
+.section.features-section .sec-btn.outline{
+  border-color:var(--c2); color:var(--c2);
+  background:rgba(255,255,255,.5);
+}
+
+
+/* IG SECTION */
 .ig-section{ width:100%; background:var(--c5); }
 .ig-section .inner{ padding:2.4rem 1.4rem 2rem; }
 .ig-section-label{
@@ -544,9 +683,7 @@ a.top-badge{
 .ig-follow-btn:hover{ background:var(--c2); color:#fff; }
 
 
-/* ══════════════════════════════════════════════
-   ⑥ FOOTER BTNS — 滿版
-   ══════════════════════════════════════════ */
+/* FOOTER */
 .footer-btns{ width:100%; background:var(--c2); }
 .footer-btns .inner{ padding:.7rem 1rem 1.3rem; display:flex; flex-direction:column; align-items:center; gap:.5rem; }
 .footer-btn{
@@ -560,10 +697,6 @@ a.top-badge{
 .footer-btn.p1{ background:rgba(255,255,255,.20); border:1.5px solid rgba(255,255,255,.68); color:#fff; font-weight:500; }
 .footer-btn.ghost{ background:transparent; border:1.5px solid rgba(255,255,255,.33); color:rgba(255,255,255,.74); font-size:.875rem; }
 
-
-/* ══════════════════════════════════════════════
-   ⑦ BACK BTN
-   ══════════════════════════════════════════ */
 .back-btn-wrap{ background:var(--c2); }
 .back-btn-wrap .inner{ padding:0 1rem 1.6rem; display:flex; justify-content:center; }
 .back-btn{
@@ -576,11 +709,6 @@ a.top-badge{
 }
 .back-btn:hover{ background:rgba(255,255,255,.08); }
 
-
-/* ══════════════════════════════════════════════
-   ⑧ DESIGN BY
-   TODO: 換成 LINKet PNG/SVG 品牌標
-   ══════════════════════════════════════════ */
 a.design-by{
   display:block; width:100%; background:#000; text-align:center;
   padding:.52rem; font-size:.75rem; letter-spacing:.18em;
@@ -588,38 +716,6 @@ a.design-by{
 }
 .db-lin{ color:rgba(255,255,255,.50); font-weight:700; }
 .db-ket{ color:#2979ff; font-weight:700; }
-
-
-
-/* ══════════════════════════════════════════════
-   COLOR SWATCH GRID
-   ══════════════════════════════════════════ */
-.color-grid{ display:grid; grid-template-columns:1fr 1fr; gap:.75rem; margin-top:.4rem; }
-.color-card{
-  background:var(--ccard); border-radius:calc(var(--r)*.5);
-  overflow:hidden; border:1px solid rgba(255,255,255,.45);
-}
-.color-swatch{ width:100%; height:80px; }
-.color-info{ padding:.7rem .8rem .8rem; }
-.color-name{
-  font-size:1rem; font-weight:700; color:var(--ctxt);
-  letter-spacing:.06em; margin-bottom:.2rem;
-  display:flex; align-items:baseline; gap:.4rem;
-}
-.color-sub{ font-size:.75rem; font-weight:300; color:var(--ctxts); letter-spacing:.1em; }
-.color-badge{
-  display:inline-block; font-size:.75rem; letter-spacing:.1em;
-  color:var(--c2); border:1px solid rgba(192,64,96,.35);
-  border-radius:20px; padding:.08rem .45rem; margin-bottom:.4rem;
-}
-.color-spec{ margin-bottom:.4rem; }
-.cs-row{ display:flex; align-items:baseline; gap:.35rem; line-height:1.7; }
-.cs-key{ font-size:.875rem; font-weight:500; color:var(--ctxts); letter-spacing:.08em; min-width:46px; }
-.cs-val{ font-size:.875rem; color:var(--ctxt); letter-spacing:.04em; font-family:'Cormorant Garamond',serif; }
-.color-desc{ font-size:.875rem; color:var(--ctxts); line-height:1.6; letter-spacing:.03em; border-top:1px solid rgba(192,64,96,.08); padding-top:.35rem; margin-top:.35rem; }
-@media(max-width:420px){
-  .color-grid{ grid-template-columns:1fr; }
-}
 
 /* Scroll Reveal */
 .reveal{ opacity:0; transform:translateY(14px); transition:opacity .5s ease,transform .5s ease; }
@@ -630,60 +726,37 @@ a.design-by{
 <body id="top">
 
 
-<!-- ════════════════════════
-     ① TOP BADGE（滿版sticky）
-     TODO: 換成 LINKet PNG/SVG banner
-     ════════════════════ -->
-<a class="top-badge" href="https://linket.net/home">
-  <span class="t-lin">LIN</span><span class="t-ket">Ket</span>&nbsp;<span class="t-light">Light</span>
-
+<!-- ① TOP BADGE -->
+<a class="top-badge" href="https://linket.app/home">
+  <span class="t-lin">LIN</span><span class="t-ket">Ket</span>&nbsp;<span class="t-light">Light</span>&nbsp;<span class="t-no">#33</span>
 </a>
 
 
-<!-- ════════════════════════
-     ② HERO（滿版背景）
-     左欄：Logo→公司名(非必要)→頭像(個人款)→
-           姓名→職稱→Slogan(非必要)→
-           Hashtag→補充資料(非必要)
-     右欄：icon列→.p1→.p2→.ghost×N→.qr
-     ════════════════════ -->
+<!-- ② HERO -->
 <div class="hero">
   <img src="ruan-hero-bg.jpg" alt="" class="hero-bg-img" aria-hidden="true">
-  <svg class="hero-texture" viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-    <g fill="none" stroke="white" stroke-width="0.7">
-      <circle cx="100" cy="120" r="55"/><circle cx="100" cy="120" r="32"/><circle cx="100" cy="120" r="11"/>
-      <line x1="45" y1="120" x2="155" y2="120"/><line x1="100" y1="65" x2="100" y2="175"/>
-      <line x1="61" y1="81" x2="139" y2="159"/><line x1="139" y1="81" x2="61" y2="159"/>
-      <circle cx="800" cy="400" r="72"/><circle cx="800" cy="400" r="44"/><circle cx="800" cy="400" r="16"/>
-      <line x1="728" y1="400" x2="872" y2="400"/><line x1="800" y1="328" x2="800" y2="472"/>
-      <line x1="749" y1="349" x2="851" y2="451"/><line x1="851" y1="349" x2="749" y2="451"/>
-      <circle cx="450" cy="260" r="85" stroke-dasharray="4 8"/>
-      <circle cx="450" cy="260" r="118" stroke-dasharray="2 10" opacity=".3"/>
-      <circle cx="450" cy="260" r="6" fill="white" stroke="none" opacity=".45"/>
-      <circle cx="750" cy="80" r="28" stroke-dasharray="3 6"/>
-      <circle cx="150" cy="440" r="38" stroke-dasharray="3 6"/>
-    </g>
-  </svg>
-  <div class="hero-glow"></div>
+  <!-- FIX #2: 深色遮罩層 -->
+  <div class="hero-overlay" aria-hidden="true"></div>
 
   <div class="inner">
     <div class="hero-cols">
 
-      <!-- 左欄：身份識別 -->
+      <!-- 左欄 -->
       <div class="hero-left">
 
-        <!-- 1. Logo PNG -->
+        <!-- FIX #1: Logo 優先用 SVG，備援用 PNG+screen混合 -->
         <div class="hero-logo">
-          <img src="ruan-logo.png" alt="阮二哥玫瑰園">
+          <!-- 嘗試 SVG，若不存在則用 PNG with mix-blend-mode:screen -->
+          <img src="ruan-logo.svg"
+               onerror="this.src='ruan-logo.png'"
+               alt="阮二哥玫瑰園"
+               class="logo-img">
         </div>
 
-        <!-- 職稱 -->
         <div class="hero-role">埔里 · 第三代花農</div>
 
-        <!-- 5. Slogan（非必要）-->
         <div class="hero-slogan">阮家獨有桃紅色系迷你玫瑰<br>產地直送・花藝師首選</div>
 
-        <!-- 6. Hashtag -->
         <div class="hero-tags">
           <span class="h-tag"># 迷你玫瑰</span>
           <span class="h-tag"># 阮家獨有桃紅</span>
@@ -691,21 +764,11 @@ a.design-by{
           <span class="h-tag"># 埔里花農</span>
         </div>
 
-        <!-- 7. 補充資料（非必要，依版面平衡取捨）-->
-        <!--
-        <div class="hero-meta">
-          <span>📍 地址 · 城市</span>
-          <span>📞 +886 0X-XXXX-XXXX</span>
-          <span>🕐 Mon–Fri 09:00–18:00</span>
-        </div>
-        -->
-
       </div><!-- /hero-left -->
 
-      <!-- 右欄：社群 + 按鈕 -->
+      <!-- 右欄 -->
       <div class="hero-right">
 
-        <!-- 社群 icon（SVG currentColor，父層 color 控色）-->
         <div class="hero-icons">
           <a class="hero-icon-link" href="https://www.facebook.com/Duckminirose/?locale=zh_TW" target="_blank" aria-label="Facebook">
             <img src="/home/assets/facebook.svg" alt="Facebook" style="filter:brightness(0) invert(1);opacity:.9;">
@@ -718,13 +781,16 @@ a.design-by{
           </a>
         </div>
 
-        <!-- 按鈕：重要(p1白底) → 一般(ghost白框透明) → QR -->
         <a class="hero-btn p1"    href="https://www.facebook.com/Duckminirose/?locale=zh_TW" target="_blank" onclick="gtag('event','click_fb_contact',{'event_category':'CTA','event_label':'ruan-rose'});">詢購 &amp; 合作 ｜ FACEBOOK</a>
         <a class="hero-btn p1"    href="https://www.instagram.com/duckminiroses/" target="_blank" onclick="gtag('event','click_ig_follow',{'event_category':'CTA','event_label':'ruan-rose'});">追蹤花園日常 ｜ INSTAGRAM</a>
         <a class="hero-btn ghost" href="#rose-showcase">有關一隻玫瑰 ｜ ABOUT ROSE</a>
         <a class="hero-btn ghost" href="#about">關於阮二哥 ｜ ABOUT US</a>
         <a class="hero-btn ghost" href="#features">玫瑰的色彩 ｜ COLOR OF ROSE</a>
-        <a class="hero-btn qr"    href="ruan-rose-qr.html" target="_blank">⊞&ensp;QR CODE</a>
+
+        <!-- FIX #5: QR 按鈕改為觸發 modal，移除外部連結 -->
+        <button class="hero-btn qr" onclick="openQrModal()" aria-label="顯示 QR Code">
+          ⊞&ensp;QR CODE
+        </button>
 
       </div><!-- /hero-right -->
 
@@ -733,9 +799,38 @@ a.design-by{
 </div><!-- /hero -->
 
 
-<!-- ════════════════════════
-     ③ WATERMARK DIVIDER
-     ════════════════════ -->
+<!-- FIX #5: QR Code Modal -->
+<div class="qr-modal-overlay" id="qrModal" onclick="closeQrModalOnBg(event)">
+  <div class="qr-modal">
+    <!-- Logo：黑底白字 PNG，用 mix-blend-mode:screen -->
+    <img src="ruan-logo.svg"
+         onerror="this.src='ruan-logo.png'"
+         alt="阮二哥玫瑰園"
+         class="qr-modal-logo">
+
+    <div class="qr-modal-title">阮二哥玫瑰園</div>
+    <div class="qr-modal-sub">Ruan Rose Garden</div>
+
+    <div class="qr-modal-code">
+      <!-- Google Charts API 動態產生 QRcode -->
+      <img
+        src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=https%3A%2F%2Flinket.app%2Fruan-rose&choe=UTF-8&chld=M|2"
+        alt="QR Code"
+        width="176"
+        height="176"
+        loading="lazy">
+    </div>
+
+    <div class="qr-modal-url">linket.app/ruan-rose</div>
+    <div class="qr-modal-divider"></div>
+    <div class="qr-modal-hint">掃描 QR Code<br>立即前往品牌頁面</div>
+
+    <button class="qr-modal-close" onclick="closeQrModal()">關 閉</button>
+  </div>
+</div>
+
+
+<!-- ③ WATERMARK -->
 <div class="watermark">
   <div class="inner" data-wm="RUAN ROSE">
     <div class="wm-main">阮二哥玫瑰園</div>
@@ -744,9 +839,7 @@ a.design-by{
 </div>
 
 
-<!-- ════════════════════════
-     ② ROSE PARALLAX（玫瑰展示 · 第二區）
-     ════════════════════ -->
+<!-- FIX #3: 玫瑰視差區，mix-blend-mode:multiply 處理黑底 -->
 <div class="rose-parallax-section" id="rose-showcase">
   <div class="rp-stage" id="rpStage">
     <div class="rp-sticky" id="rpSticky">
@@ -761,10 +854,7 @@ a.design-by{
 </div>
 
 
-<!-- ════════════════════════
-     ④ CONTENT SECTIONS
-     各區滿版背景，.inner 限寬
-     ════════════════════ -->
+<!-- ④ CONTENT SECTIONS -->
 
 <!-- 品牌故事 -->
 <div class="section" id="about">
@@ -814,11 +904,11 @@ a.design-by{
   </div>
 </div>
 
-<!-- 玫瑰品種 · 色票 -->
-<div class="section alt" id="features">
+<!-- FIX #4: 玫瑰色彩 section 改用 features-section class -->
+<div class="section features-section" id="features">
   <div class="inner">
     <div class="sec-label">Color of Rose</div>
-    <h2 class="sec-title" style="font-size:1rem;margin-bottom:1.4rem;">阮二哥玫瑰園的四個色系</h2>
+    <h2 class="sec-title" style="font-size:1rem;margin-bottom:1.4rem;color:var(--ctxt);">阮二哥玫瑰園的四個色系</h2>
     <div class="color-grid">
 
       <div class="color-card reveal">
@@ -851,7 +941,7 @@ a.design-by{
       </div>
 
       <div class="color-card reveal">
-        <div class="color-swatch" style="background:#F5EDE8; border:1px solid rgba(192,64,96,.15);"></div>
+        <div class="color-swatch" style="background:#F5EDE8; border-bottom:1px solid rgba(192,64,96,.1);"></div>
         <div class="color-info">
           <div class="color-name">白色 <span class="color-sub">Pure White</span></div>
           <div class="color-spec">
@@ -967,33 +1057,23 @@ a.design-by{
 </div>
 
 
-
-
-
-<!-- ════════════════════════
-     ⑥ IG SECTION（真實嵌入）
-     ════════════════════ -->
+<!-- IG SECTION -->
 <div class="ig-section">
   <div class="inner">
     <div class="ig-section-label">Instagram · @duckminiroses</div>
     <div class="ig-embed-grid">
-
       <div class="ig-embed-wrap reveal">
         <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DU-aY7xEv5p/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
       </div>
-
       <div class="ig-embed-wrap reveal">
         <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DHQBbVwzS9T/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
       </div>
-
       <div class="ig-embed-wrap reveal">
         <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DDN52C7T0B5/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
       </div>
-
       <div class="ig-embed-wrap reveal">
         <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DAIi5oOTHDc/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
       </div>
-
     </div>
     <div class="ig-follow-wrap">
       <a class="ig-follow-btn" href="https://www.instagram.com/duckminiroses/" target="_blank" onclick="gtag('event','click_ig_follow',{'event_category':'CTA','event_label':'ruan-rose'});">追蹤 @duckminiroses →</a>
@@ -1002,9 +1082,7 @@ a.design-by{
 </div>
 
 
-<!-- ════════════════════════
-     ⑥ FOOTER BTNS
-     ════════════════════ -->
+<!-- FOOTER -->
 <div class="footer-btns">
   <div class="inner">
     <a class="footer-btn p1"    href="https://www.facebook.com/Duckminirose/?locale=zh_TW" target="_blank" onclick="gtag('event','click_fb_contact',{'event_category':'CTA','event_label':'ruan-rose'});">詢購 &amp; 合作 ｜ FACEBOOK</a>
@@ -1012,27 +1090,19 @@ a.design-by{
   </div>
 </div>
 
-
-<!-- ════════════════════════
-     ⑦ BACK BTN
-     ════════════════════ -->
 <div class="back-btn-wrap">
   <div class="inner">
     <a class="back-btn" href="#top">&lt;&lt; BACK TO PAGE &lt;&lt;</a>
   </div>
 </div>
 
-
-<!-- ════════════════════════
-     ⑧ DESIGN BY
-     TODO: 換成 LINKet PNG/SVG
-     ════════════════════ -->
-<a class="design-by" href="https://linket.net/home">
+<a class="design-by" href="https://linket.app/home">
   Design by &nbsp;<span class="db-lin">LIN</span><span class="db-ket">Ket</span>
 </a>
 
 
 <script>
+/* ── Scroll Reveal ── */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); }
@@ -1042,7 +1112,45 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 
 <script>
-/* ── 玫瑰視差 ── */
+/* ── FIX #5: QR Modal ── */
+function openQrModal(){
+  const modal = document.getElementById('qrModal');
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  gtag('event','click_qr_modal',{'event_category':'CTA','event_label':'ruan-rose'});
+}
+function closeQrModal(){
+  document.getElementById('qrModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+function closeQrModalOnBg(e){
+  if(e.target === document.getElementById('qrModal')) closeQrModal();
+}
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape') closeQrModal();
+});
+</script>
+
+<script>
+/* ── FIX #1: Logo 黑底處理 ──
+   若 SVG 不存在，PNG 備援時加上 mix-blend-mode:screen
+   讓黑底透明化顯示白色文字 */
+document.querySelectorAll('.hero-logo img, .qr-modal-logo').forEach(img => {
+  img.addEventListener('error', function(){
+    // 已切換到 PNG 備援，確保樣式套用
+    this.style.mixBlendMode = 'screen';
+    this.style.filter = 'brightness(1.1)';
+  });
+  // 若已是 PNG（onerror 已觸發），直接套用
+  if(this && this.src && this.src.includes('.png')){
+    img.style.mixBlendMode = 'screen';
+    img.style.filter = 'brightness(1.1)';
+  }
+});
+</script>
+
+<script>
+/* ── FIX #3: 玫瑰視差（修正比例與遮蓋問題）── */
 (function(){
   const annData=[
     {pct:.10, side:'right', cx:'58%', cy:'10%', label:'BLOOM',      val:'花徑約 3 cm',       sub:'一莖可開 3–10 朵'},
@@ -1073,9 +1181,8 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   const cue  =document.getElementById('rpCue');
   if(!stage||!rose) return;
 
-  /* 確保 stage 高度基於正確的 viewport */
   function setStageHeight(){
-    stage.style.height = (window.innerHeight * 3.2) + 'px';
+    stage.style.height = (window.innerHeight * 2.8) + 'px';
   }
   setStageHeight();
   window.addEventListener('resize', setStageHeight, {passive:true});
@@ -1086,8 +1193,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     const total   =stage.offsetHeight - window.innerHeight;
     const pct     =Math.min(1, scrolled/Math.max(total,1));
 
-    /* 視差：玫瑰以 22% 速度向上飄（更柔和） */
-    const py=scrolled*-0.22;
+    const py=scrolled*-0.18;
     rose.style.transform=`translate(-50%, calc(-50% + ${py}px))`;
 
     if(cue) cue.style.opacity=pct>.04?'0':'1';
@@ -1101,7 +1207,6 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   }
 
   window.addEventListener('scroll',onScroll,{passive:true});
-  /* 首次渲染後才啟動，確保 layout 完成 */
   requestAnimationFrame(()=>requestAnimationFrame(onScroll));
 })();
 </script>
