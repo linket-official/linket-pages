@@ -748,8 +748,29 @@ a.design-by{
 .db-ket{ color:#2979ff; font-weight:700; }
 
 /* Scroll Reveal */
-.reveal{ opacity:0; transform:translateY(14px); transition:opacity .5s ease,transform .5s ease; }
+.reveal{
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity .5s ease, transform .5s ease;
+}
 .reveal.visible{ opacity:1; transform:none; }
+
+/* 色票卡片：位移縮到最小，避免手機滑入時跳動 */
+.color-card.reveal{
+  transform:translateY(5px);
+  transition:opacity .4s ease, transform .4s ease;
+}
+
+/* 色票卡片錯開出現，避免同幀觸發四次重繪 */
+.color-grid .color-card:nth-child(1).reveal{ transition-delay: 0ms; }
+.color-grid .color-card:nth-child(2).reveal{ transition-delay: 60ms; }
+.color-grid .color-card:nth-child(3).reveal{ transition-delay: 120ms; }
+.color-grid .color-card:nth-child(4).reveal{ transition-delay: 180ms; }
+
+/* 視差區底部加緩衝，讓 sticky 解除不那麼突兀 */
+.rose-parallax-section{
+  padding-bottom: 2px;
+}
 
 </style>
 </head>
