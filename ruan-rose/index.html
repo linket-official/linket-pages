@@ -269,85 +269,91 @@ a.top-badge{
 
 
 /* ══════════════════════════════════════════════
-   FIX #5: QR CODE MODAL（品牌化彈窗）
+   QR CODE MODAL（品牌化彈窗）
+   底色：品牌主色系 --c2 玫瑰深紅
    ══════════════════════════════════════════ */
 .qr-modal-overlay{
   display:none;
   position:fixed; inset:0; z-index:999;
-  background:rgba(40,5,15,.82);
-  backdrop-filter:blur(8px);
+  background:rgba(58,21,32,.75);
+  backdrop-filter:blur(10px);
   align-items:center; justify-content:center;
 }
 .qr-modal-overlay.active{ display:flex; animation:fadeIn .25s ease; }
-@keyframes fadeIn{ from{opacity:0;} to{opacity:1;} }
+@keyframes fadeIn{ from{opacity:0;transform:scale(.96);} to{opacity:1;transform:scale(1);} }
 
 .qr-modal{
-  background:linear-gradient(160deg,#2a0a14 0%,#1a0608 100%);
-  border:1px solid rgba(255,153,155,.25);
-  border-radius:24px;
-  padding:2.5rem 2rem 2rem;
-  max-width:320px; width:90%;
+  /* 底色與品牌主色同步：--c2 #c04060 到更深的玫瑰紅 */
+  background:linear-gradient(160deg, #c04060 0%, #8a1e38 55%, #5c0d22 100%);
+  border:1px solid rgba(255,200,210,.22);
+  border-radius:28px;
+  padding:2rem 2rem 1.8rem;
+  max-width:300px; width:88%;
   display:flex; flex-direction:column; align-items:center;
-  box-shadow:0 24px 60px rgba(0,0,0,.55);
+  box-shadow:0 28px 64px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.08);
   position:relative;
 }
 
-/* Modal 內的 Logo：黑底白字圖片用 screen 混合 */
+/* Logo：與 QRcode 同寬（200px），黑底用 screen 混合 */
 .qr-modal-logo{
-  width:120px; height:auto;
+  width:200px; height:auto;
   margin-bottom:1.4rem;
   mix-blend-mode:screen;
-  filter:brightness(1.1);
+  filter:brightness(1.15) contrast(1.05);
 }
 
-.qr-modal-title{
-  font-family:'Noto Serif TC',serif;
-  font-size:1rem; font-weight:500;
-  letter-spacing:.22em; color:rgba(255,255,255,.88);
-  margin-bottom:.3rem; text-align:center;
-}
-.qr-modal-sub{
-  font-family:'Cormorant Garamond',serif;
-  font-size:.75rem; font-weight:300;
-  letter-spacing:.3em; color:rgba(255,153,155,.6);
-  text-transform:uppercase; margin-bottom:1.6rem;
-  text-align:center;
-}
-
+/* QRcode 外框 */
 .qr-modal-code{
   width:200px; height:200px;
   background:#fff;
-  border-radius:16px;
+  border-radius:18px;
   display:flex; align-items:center; justify-content:center;
-  padding:12px;
-  box-shadow:0 4px 20px rgba(0,0,0,.3);
-  margin-bottom:1.2rem;
+  padding:10px;
+  box-shadow:0 6px 24px rgba(0,0,0,.35);
+  margin-bottom:1.1rem;
   overflow:hidden;
+  flex-shrink:0;
 }
 .qr-modal-code img{
-  width:100%; height:100%; object-fit:contain;
+  width:100%; height:100%; object-fit:contain; display:block;
 }
-/* QRcode SVG 用 Google Charts API 動態產生 */
-.qr-modal-code canvas,
-.qr-modal-code svg{ width:100%; height:100%; }
 
+/* URL 文字 */
 .qr-modal-url{
   font-family:'Cormorant Garamond',serif;
-  font-size:.75rem; letter-spacing:.12em;
-  color:rgba(255,153,155,.55);
-  margin-bottom:1.6rem; text-align:center;
+  font-size:.8125rem; letter-spacing:.14em;
+  color:rgba(255,220,228,.65);
+  margin-bottom:.9rem; text-align:center;
 }
 
+/* 分隔線 */
 .qr-modal-divider{
-  width:100%; height:1px;
-  background:linear-gradient(90deg,transparent,rgba(255,153,155,.2),transparent);
-  margin-bottom:1.4rem;
+  width:80%; height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,200,210,.25),transparent);
+  margin-bottom:.9rem;
 }
 
+/* 提示文字 */
 .qr-modal-hint{
   font-size:.75rem; letter-spacing:.1em;
-  color:rgba(255,255,255,.35); text-align:center;
-  margin-bottom:1.4rem; line-height:1.7;
+  color:rgba(255,220,228,.5); text-align:center;
+  margin-bottom:1.2rem; line-height:1.8;
+}
+
+/* 關閉按鈕 */
+.qr-modal-close{
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,200,210,.3);
+  border-radius:50px;
+  padding:.5rem 2.2rem;
+  font-family:'Noto Serif TC',serif;
+  font-size:.875rem; letter-spacing:.2em;
+  color:rgba(255,220,228,.8);
+  cursor:pointer; transition:background .2s, color .2s;
+}
+.qr-modal-close:hover{
+  background:rgba(255,255,255,.18);
+  color:#fff;
 }
 
 .qr-modal-close{
@@ -550,29 +556,33 @@ a.top-badge{
 }
 .rp-rose-img{
   position:absolute;
+  /* 修正2：置中對齊，不偏上 */
   top:50%; left:50%;
   transform:translate(-50%,-50%);
   /*
-    圖片 600x1400，寬高比 1:2.33
-    目標：上下各留 40px，填滿 calc(100svh - 80px)
-    max-width 防止寬度超出螢幕
+    修正1：桌機高度 +40%
+    原：calc(100svh - 80px) → 現：calc(100svh - 40px)（縮小留白）
+    再乘 1.4 → 實際讓玫瑰更大，但限制不超出視口
+    用 min() 確保不超出螢幕高度
   */
-  height: calc(100svh - 80px);
+  height: calc(100svh - 40px);
   width: auto;
-  max-width: min(calc((100svh - 80px) / 2.33), 90vw);
+  /* 寬度不超出螢幕 */
+  max-width: min(calc((100svh - 40px) / 2.33), 92vw);
   max-height: none;
   min-height: 0;
   display:block; user-select:none; pointer-events:none;
   will-change:transform;
   mix-blend-mode:multiply;
 }
-/* 行動版：螢幕窄時改以寬度為主，確保不超出螢幕 */
+/* 行動版 RWD */
 @media(max-width:480px){
   .rp-rose-img{
-    width: min(88vw, calc((100svh - 80px) / 2.33));
+    /* 行動版同樣置中，寬度自適應 */
+    width: min(90vw, calc((100svh - 40px) / 2.33));
     height: auto;
-    max-width: 88vw;
-    max-height: calc(100svh - 80px);
+    max-width: 90vw;
+    max-height: calc(100svh - 40px);
   }
 }
 .rp-ann-layer{ position:absolute; inset:0; pointer-events:none; }
@@ -748,7 +758,7 @@ a.design-by{
 
 <!-- ① TOP BADGE -->
 <a class="top-badge" href="https://linket.app/home">
-  <span class="t-lin">LIN</span><span class="t-ket">Ket</span>&nbsp;<span class="t-light">Light</span>&nbsp;<span class="t-no">#33</span>
+  <span class="t-lin">LIN</span><span class="t-ket">Ket</span>&nbsp;<span class="t-light">Light</span>
 </a>
 
 
@@ -820,31 +830,29 @@ a.design-by{
 </div><!-- /hero -->
 
 
-<!-- FIX #5: QR Code Modal -->
+<!-- QR Code Modal -->
 <div class="qr-modal-overlay" id="qrModal" onclick="closeQrModalOnBg(event)">
   <div class="qr-modal">
-    <!-- Logo：黑底白字 PNG，用 mix-blend-mode:screen -->
+
+    <!-- Logo：與 QRcode 同寬 200px，黑底用 screen 混合顯示 -->
     <img src="ruan-logo.svg"
          onerror="this.src='ruan-logo.png'"
          alt="阮二哥玫瑰園"
          class="qr-modal-logo">
 
-    <div class="qr-modal-title">阮二哥玫瑰園</div>
-    <div class="qr-modal-sub">Ruan Rose Garden</div>
-
+    <!-- QRcode：Google Charts API 自動產生此頁面的 QR -->
     <div class="qr-modal-code">
-      <!-- Google Charts API 動態產生 QRcode -->
       <img
-        src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=https%3A%2F%2Flinket.app%2Fruan-rose&choe=UTF-8&chld=M|2"
+        src="https://chart.googleapis.com/chart?chs=220x220&cht=qr&chl=https%3A%2F%2Flinket.app%2Fruan-rose&choe=UTF-8&chld=M|2"
         alt="QR Code"
-        width="176"
-        height="176"
+        width="180"
+        height="180"
         loading="lazy">
     </div>
 
     <div class="qr-modal-url">linket.app/ruan-rose</div>
     <div class="qr-modal-divider"></div>
-    <div class="qr-modal-hint">掃描 QR Code<br>立即前往品牌頁面</div>
+    <div class="qr-modal-hint">掃描 QR Code 前往品牌頁面</div>
 
     <button class="qr-modal-close" onclick="closeQrModal()">關 閉</button>
   </div>
@@ -1179,11 +1187,11 @@ document.querySelectorAll('.hero-logo img, .qr-modal-logo').forEach(img => {
      cy    ：玫瑰上（花苞約 15%）到下（莖底約 85%）分佈 */
   const annData=[
     {pct:.10, side:'right', cx:'56%', cy:'12%', label:'BLOOM',      val:'花徑約 3 cm',       sub:'一莖可開 3–10 朵'},
-    {pct:.24, side:'left',  cx:'16%', cy:'22%', label:'COLOR',      val:'阮家獨有桃紅',      sub:'自然變異・父親守護'},
+    {pct:.24, side:'left',  cx:'28%', cy:'22%', label:'COLOR',      val:'阮家獨有桃紅',      sub:'自然變異・父親守護'},
     {pct:.38, side:'right', cx:'56%', cy:'38%', label:'VASE LIFE',  val:'7 天以上',           sub:'一般玫瑰僅 3–5 天'},
-    {pct:.52, side:'left',  cx:'16%', cy:'54%', label:'GRADE',      val:'五等級分類',         sub:'35 / 45 / 55 / 65 / 75 cm'},
+    {pct:.52, side:'left',  cx:'28%', cy:'54%', label:'GRADE',      val:'五等級分類',         sub:'35 / 45 / 55 / 65 / 75 cm'},
     {pct:.66, side:'right', cx:'56%', cy:'68%', label:'HARVEST',    val:'清晨採收',           sub:'採後立即冷水保鮮'},
-    {pct:.80, side:'left',  cx:'16%', cy:'82%', label:'SUPPLY',     val:'全台五大花市',       sub:'台北・台中・彰化・台南・高雄'},
+    {pct:.80, side:'left',  cx:'28%', cy:'82%', label:'SUPPLY',     val:'全台五大花市',       sub:'台北・台中・彰化・台南・高雄'},
   ];
 
   const layer=document.getElementById('rpAnns');
