@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-29J2988Y8J');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>嵐爵私選 3/20 微醺連結｜選購</title>
+<meta name="description" content="嵐爵私選 3/20 品酒活動酒款選購。11款精選清酒與梅酒，選好後直接 LINE 下單。">
+<meta property="og:title" content="嵐爵私選 3/20 微醺連結｜選購">
+<meta property="og:description" content="11款精選，選好後直接 LINE 嵐爵下單。">
+<meta property="og:image" content="https://linket.app/lanjue/og-image.jpg">
+<meta property="og:url" content="https://linket.app/lanjue/order-lanjue">
+<meta property="og:type" content="website">
+<link rel="icon" href="/lanjue/favicon.png">
+<link rel="apple-touch-icon" href="/lanjue/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Sans+TC:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0d0d0d;--ink2:#1a1a1a;
+  --border:#e8e4de;--border2:#f0ede8;
+  --paper:#faf9f6;--paper2:#f5f3ef;--cream:#ede8df;
+  --gold:#b8975a;--gold2:#c9a96e;
+  --gold-dim:rgba(184,151,90,.15);--gold-border:rgba(184,151,90,.3);
+  --red:#8b2020;
+  --text:#1a1a1a;--text2:#5a5550;--text3:#8a867f;
+  --line-green:#06c755;
+  --r:4px;
+  --shadow:0 2px 16px rgba(0,0,0,.06);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;-webkit-text-size-adjust:100%;}
+body{background:#0d0d0d;color:var(--text);font-family:'Noto Sans TC',sans-serif;font-weight:300;min-height:100vh;overflow-x:hidden;}
+button{cursor:pointer;font-family:'Noto Sans TC',sans-serif;}
+img{display:block;}
+
+.page-wrap{max-width:480px;margin:0 auto;min-height:100vh;background:#111;position:relative;}
+
+@media(min-width:800px){
+  .page-wrap{max-width:960px;box-shadow:0 0 80px rgba(0,0,0,.5);}
+  .products-list{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1.2rem;
+    padding:1.2rem 1.4rem;
+    align-items:start;
+  }
+  .prod-inner{flex-direction:column;align-items:center;min-height:unset;}
+  .prod-img-wrap{width:100%;height:200px;min-width:unset;border-bottom:1px solid rgba(255,255,255,.06);}
+  .prod-img-wrap::before{width:140px;height:140px;}
+  .prod-img-wrap img{width:75px;height:155px;}
+  .prod-body{padding:1.1rem 1rem .8rem;align-items:center;text-align:center;}
+  .prod-meta{justify-content:center;}
+  .prod-tags{justify-content:center;}
+  .prod-flavor{-webkit-line-clamp:3;text-align:center;}
+  .prod-footer{flex-direction:column;align-items:center;gap:.6rem;padding:.85rem 1rem 1rem;}
+  .action-bar{position:static !important;transform:none !important;width:100% !important;max-width:100% !important;border-top:1px solid var(--border2);}
+  .cart-bar{max-width:900px;left:50%;transform:translateX(-50%);}
+  #step-2{max-width:600px;margin:0 auto;width:100%;}
+}
+
+/* HEADER */
+.site-header{background:var(--ink);position:sticky;top:0;z-index:200;display:flex;flex-direction:column;}
+.header-main{padding:1rem 1.2rem .85rem;display:flex;align-items:center;justify-content:space-between;}
+.header-logos{display:flex;align-items:center;gap:.7rem;}
+.header-logos img{height:17px;mix-blend-mode:screen;opacity:.95;}
+.header-sep{width:1px;height:14px;background:rgba(255,255,255,.2);}
+.header-title{font-family:'Syne',sans-serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.4);}
+.cart-btn{position:relative;background:var(--gold);border:none;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:background .2s;}
+.cart-btn:hover{background:var(--gold2);}
+.cart-badge{position:absolute;top:-3px;right:-3px;background:var(--red);color:#fff;font-size:.55rem;font-weight:700;width:16px;height:16px;border-radius:50%;display:none;align-items:center;justify-content:center;}
+.cart-badge.show{display:flex;}
+.legal-strip{background:#000;color:rgba(255,255,255,.55);text-align:center;padding:.32rem 1rem;font-family:'Noto Sans TC',sans-serif;font-weight:300;font-size:.58rem;letter-spacing:.1em;line-height:1.6;}
+
+/* STEPS — 簡化版 2步 */
+.steps{background:#0d0d0d;border-bottom:1px solid rgba(255,255,255,.07);padding:.7rem 1.2rem;display:flex;align-items:center;justify-content:center;}
+.step-item{display:flex;align-items:center;gap:.3rem;font-family:'Syne',sans-serif;font-size:.58rem;letter-spacing:.1em;color:rgba(255,255,255,.25);transition:color .3s;}
+.step-item.active{color:var(--gold);}
+.step-item.done{color:rgba(255,255,255,.5);}
+.step-dot{width:20px;height:20px;border-radius:50%;border:1.5px solid currentColor;display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;flex-shrink:0;}
+.step-item.active .step-dot{background:var(--gold);border-color:var(--gold);color:#000;}
+.step-item.done .step-dot{background:rgba(255,255,255,.5);border-color:rgba(255,255,255,.5);color:#000;}
+.step-connector{width:24px;height:1px;background:rgba(255,255,255,.1);margin:0 .4rem;flex-shrink:0;}
+
+/* SECTION HEAD */
+.section-head{padding:1.4rem 1.2rem .6rem;border-bottom:1px solid rgba(255,255,255,.07);}
+.section-head h2{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;letter-spacing:.04em;color:rgba(255,255,255,.9);margin-bottom:.1rem;}
+.section-head p{font-size:.75rem;color:rgba(255,255,255,.35);letter-spacing:.04em;}
+
+/* PRODUCT CARDS */
+.products-list{padding:.8rem 1rem;display:flex;flex-direction:column;gap:1rem;}
+
+/* 各酒色彩變數 */
+#card-yoshikawa{--pc-bg:#0a0a0d;--pc-circle:rgba(212,175,55,.22);--pc-accent:#D4AF37;--pc-accent2:#e8cc6a;--pc-tag-border:rgba(212,175,55,.35);--pc-tag-c:rgba(245,237,200,.8);--pc-text:rgba(255,255,255,.88);--pc-sub:rgba(255,255,255,.42);}
+#card-kamenoo{--pc-bg:#08080a;--pc-circle:rgba(201,168,76,.18);--pc-accent:#C9A84C;--pc-accent2:#ddb850;--pc-tag-border:rgba(201,168,76,.35);--pc-tag-c:rgba(245,237,200,.8);--pc-text:rgba(255,255,255,.88);--pc-sub:rgba(255,255,255,.4);}
+#card-daiginjo{--pc-bg:#0d0d10;--pc-circle:rgba(212,175,55,.2);--pc-accent:#D4AF37;--pc-accent2:#e8cc6a;--pc-tag-border:rgba(212,175,55,.3);--pc-tag-c:rgba(245,237,200,.75);--pc-text:rgba(255,255,255,.88);--pc-sub:rgba(255,255,255,.4);}
+#card-tene{--pc-bg:#0d0d08;--pc-circle:rgba(255,215,0,.2);--pc-accent:#FFD700;--pc-accent2:#ffe44d;--pc-tag-border:rgba(255,215,0,.35);--pc-tag-c:rgba(255,248,200,.85);--pc-text:rgba(255,255,255,.88);--pc-sub:rgba(255,255,255,.4);}
+#card-poco{--pc-bg:#1a1008;--pc-circle:rgba(139,69,19,.3);--pc-accent:#c8860a;--pc-accent2:#dba820;--pc-tag-border:rgba(200,134,10,.35);--pc-tag-c:rgba(245,220,160,.8);--pc-text:rgba(255,255,255,.88);--pc-sub:rgba(255,255,255,.4);}
+#card-suien{--pc-bg:#120104;--pc-circle:rgba(230,230,250,.15);--pc-accent:#E6E6FA;--pc-accent2:#bca8e8;--pc-tag-border:rgba(230,230,250,.25);--pc-tag-c:rgba(230,230,250,.85);--pc-text:rgba(255,255,255,.88);--pc-sub:rgba(255,255,255,.4);}
+#card-kimoto{--pc-bg:#2a1e0e;--pc-circle:rgba(200,150,10,.25);--pc-accent:#c8960a;--pc-accent2:#dba820;--pc-tag-border:rgba(200,150,10,.3);--pc-tag-c:rgba(245,228,160,.8);--pc-text:rgba(255,255,255,.88);--pc-sub:rgba(255,255,255,.4);}
+#card-nigori{--pc-bg:#eef6fa;--pc-circle:rgba(90,154,176,.3);--pc-accent:#3a7a96;--pc-accent2:#5a9ab0;--pc-tag-border:rgba(90,154,176,.3);--pc-tag-c:rgba(20,50,65,.75);--pc-text:rgba(15,35,50,.88);--pc-sub:rgba(20,50,65,.5);}
+#card-matcha{--pc-bg:#1e3329;--pc-circle:rgba(192,192,192,.2);--pc-accent:#C0C0C0;--pc-accent2:#d8d8d8;--pc-tag-border:rgba(192,192,192,.25);--pc-tag-c:rgba(240,245,242,.8);--pc-text:rgba(242,245,243,.88);--pc-sub:rgba(230,238,234,.45);}
+#card-earlgrey{--pc-bg:#fdf5e8;--pc-circle:rgba(142,68,61,.2);--pc-accent:#7a3830;--pc-accent2:#8e4840;--pc-tag-border:rgba(142,68,61,.25);--pc-tag-c:rgba(60,28,25,.72);--pc-text:rgba(40,20,18,.88);--pc-sub:rgba(80,40,38,.5);}
+#card-umeshu{--pc-bg:#2a3618;--pc-circle:rgba(230,204,0,.2);--pc-accent:#b8a000;--pc-accent2:#cdb800;--pc-tag-border:rgba(200,175,0,.3);--pc-tag-c:rgba(245,238,160,.85);--pc-text:rgba(242,245,240,.88);--pc-sub:rgba(230,238,225,.45);}
+
+.prod-card{background:var(--pc-bg,var(--ink));border:1px solid rgba(255,255,255,.07);border-radius:12px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.3);transition:box-shadow .3s,transform .3s,border-color .3s;position:relative;}
+.prod-card:hover{box-shadow:0 16px 48px rgba(0,0,0,.4);transform:translateY(-2px);border-color:rgba(255,255,255,.15);}
+.prod-card.in-cart{border-color:var(--pc-accent,var(--gold));box-shadow:0 0 0 1px var(--pc-accent,var(--gold)),0 12px 40px rgba(0,0,0,.35);}
+.prod-inner{display:flex;align-items:center;gap:0;min-height:160px;}
+.prod-img-wrap{width:130px;min-width:130px;height:160px;flex-shrink:0;display:flex;align-items:center;justify-content:center;position:relative;overflow:visible;}
+.prod-img-wrap::before{content:'';position:absolute;width:110px;height:110px;border-radius:50%;background:var(--pc-circle,rgba(255,255,255,.08));top:50%;left:50%;transform:translate(-50%,-50%);filter:blur(2px);}
+.prod-img-wrap img{position:relative;z-index:1;width:80px;height:130px;object-fit:contain;filter:drop-shadow(0 8px 24px rgba(0,0,0,.5));display:none;}
+.prod-img-placeholder{font-size:2.5rem;position:relative;z-index:1;}
+.prod-body{flex:1;padding:1.2rem 1rem 1rem .4rem;display:flex;flex-direction:column;gap:.25rem;min-width:0;}
+.prod-meta{display:flex;align-items:center;gap:.4rem;margin-bottom:.2rem;}
+.prod-origin{font-family:'Syne',sans-serif;font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;color:var(--pc-sub,rgba(255,255,255,.4));}
+.prod-type-dot{width:2px;height:2px;border-radius:50%;background:var(--pc-accent,var(--gold));flex-shrink:0;}
+.prod-type{font-size:.5rem;letter-spacing:.1em;color:var(--pc-accent,var(--gold));}
+.prod-name{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;color:var(--pc-text,#fff);line-height:1.1;letter-spacing:.04em;}
+.prod-name-en{font-family:'Cormorant Garamond',serif;font-size:.7rem;font-style:italic;color:var(--pc-sub,rgba(255,255,255,.4));letter-spacing:.08em;margin-top:.1rem;}
+.prod-flavor{font-size:.7rem;color:var(--pc-text,rgba(255,255,255,.7));opacity:.7;line-height:1.6;margin-top:.35rem;letter-spacing:.02em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.prod-tags{display:flex;flex-wrap:wrap;gap:.2rem;margin-top:.4rem;}
+.prod-tag{font-size:.5rem;letter-spacing:.08em;padding:.12rem .4rem;border:1px solid var(--pc-tag-border,rgba(255,255,255,.2));color:var(--pc-tag-c,rgba(255,255,255,.5));border-radius:2px;}
+.prod-footer{display:flex;align-items:center;justify-content:space-between;padding:.7rem 1rem .8rem 1rem;border-top:1px solid rgba(255,255,255,.07);background:rgba(0,0,0,.2);}
+.prod-price{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500;color:var(--pc-text,#fff);letter-spacing:.02em;}
+.prod-price span{font-size:.65rem;font-weight:300;color:var(--pc-sub,rgba(255,255,255,.4));margin-right:.15rem;}
+.prod-link{font-size:.58rem;letter-spacing:.1em;color:var(--pc-accent,var(--gold));text-decoration:none;display:flex;align-items:center;gap:.2rem;border-bottom:1px solid var(--pc-tag-border,rgba(255,255,255,.2));padding-bottom:1px;transition:color .2s;margin-top:.2rem;}
+.prod-link:hover{color:var(--pc-accent2,#fff);}
+
+/* QTY */
+.qty-control{display:flex;align-items:center;}
+.qty-btn{width:28px;height:28px;background:var(--paper2);border:1px solid var(--border);color:var(--ink);font-size:1rem;font-weight:500;display:flex;align-items:center;justify-content:center;transition:background .15s;border-radius:var(--r);-webkit-user-select:none;user-select:none;}
+.qty-btn:hover{background:var(--cream);border-color:var(--gold-border);}
+.qty-num{width:32px;text-align:center;font-family:'Syne',sans-serif;font-size:.82rem;font-weight:600;color:var(--ink);border-top:1px solid var(--border);border-bottom:1px solid var(--border);height:28px;display:flex;align-items:center;justify-content:center;background:#fff;}
+
+/* CART BAR */
+.cart-bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:var(--ink);padding:.9rem 1.2rem;display:none;align-items:center;justify-content:space-between;z-index:150;border-top:1px solid rgba(255,255,255,.1);}
+.cart-bar.show{display:flex;}
+.cart-bar-info{color:#fff;}
+.cart-bar-count{font-size:.65rem;letter-spacing:.1em;color:rgba(255,255,255,.5);margin-bottom:.1rem;}
+.cart-bar-total{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;}
+.cart-bar-total span{font-size:.75rem;font-weight:300;color:rgba(255,255,255,.5);margin-right:.15rem;}
+.cart-proceed-btn{background:var(--gold);color:var(--ink);border:none;padding:.65rem 1.4rem;font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;border-radius:var(--r);transition:background .2s;white-space:nowrap;}
+.cart-proceed-btn:hover{background:var(--gold2);}
+
+/* CART STEP 2 */
+.cart-items{padding:.8rem 1.2rem;display:flex;flex-direction:column;gap:.6rem;}
+.cart-item{background:#fff;border:1px solid var(--border2);border-radius:var(--r);padding:.75rem .9rem;display:flex;align-items:center;gap:.8rem;}
+.cart-item-img{width:42px;height:52px;border-radius:2px;background:var(--paper2);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.cart-item-img img{width:100%;height:100%;object-fit:contain;padding:3px;}
+.cart-item-img-placeholder{font-size:1.2rem;}
+.cart-item-info{flex:1;min-width:0;}
+.cart-item-name{font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--ink);margin-bottom:.08rem;}
+.cart-item-sub{font-size:.65rem;color:var(--text3);letter-spacing:.04em;}
+.cart-item-right{display:flex;flex-direction:column;align-items:flex-end;gap:.4rem;flex-shrink:0;}
+.cart-item-price{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:500;}
+.cart-item-remove{font-size:.6rem;color:var(--text3);background:none;border:none;text-decoration:underline;transition:color .2s;}
+.cart-item-remove:hover{color:var(--red);}
+.cart-summary{margin:0 1.2rem;border-top:1px solid var(--border);padding-top:.8rem;}
+.cart-row{display:flex;justify-content:space-between;font-size:.8rem;padding:.3rem 0;color:var(--text2);}
+.cart-row.total{border-top:1px solid var(--border);margin-top:.4rem;padding-top:.7rem;font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;color:var(--ink);}
+.cart-row.total span{font-size:.75rem;font-weight:300;color:var(--text3);margin-right:.2rem;}
+.cart-empty{text-align:center;padding:3rem 1.2rem;color:var(--text3);font-size:.85rem;line-height:2;}
+.cart-empty-icon{font-size:2rem;margin-bottom:.8rem;}
+
+/* LINE CTA BLOCK */
+.line-cta-block{margin:1.2rem 1.2rem .5rem;background:#f0fff4;border:1.5px solid #06c755;border-radius:var(--r);padding:1.2rem 1.2rem;}
+.line-cta-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:500;color:var(--ink);margin-bottom:.4rem;display:flex;align-items:center;gap:.5rem;}
+.line-cta-desc{font-size:.78rem;color:var(--text2);line-height:1.7;margin-bottom:1rem;}
+.line-cta-desc strong{color:var(--ink);}
+.btn-line-main{display:flex;align-items:center;justify-content:center;gap:.6rem;width:100%;padding:1rem 1.4rem;background:#06c755;color:#fff;border:none;font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;border-radius:var(--r);transition:background .2s;text-decoration:none;cursor:pointer;}
+.btn-line-main:hover{background:#05b34c;}
+.line-icon{font-size:1.3rem;}
+.line-hint{margin-top:.7rem;font-size:.7rem;color:var(--text3);text-align:center;line-height:1.6;}
+
+/* BUTTONS */
+.action-bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;padding:.8rem 1.2rem;background:var(--paper);border-top:1px solid var(--border2);z-index:150;display:flex;flex-direction:column;gap:.5rem;}
+.btn-main{display:block;width:100%;padding:.85rem;background:var(--ink);color:#fff;border:none;font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;border-radius:var(--r);transition:background .2s;text-align:center;text-decoration:none;}
+.btn-main.gold{background:var(--gold);color:var(--ink);}
+.btn-main.gold:hover{background:var(--gold2);}
+.btn-sub{display:block;width:100%;padding:.65rem;background:transparent;color:var(--text2);border:1px solid var(--border);font-family:'Syne',sans-serif;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;border-radius:var(--r);transition:border-color .2s,color .2s;text-align:center;text-decoration:none;}
+.btn-sub:hover{border-color:var(--gold-border);color:var(--ink);}
+.spacer-bottom{height:120px;}
+
+/* FLOAT LINE */
+.float-line{position:fixed;right:1rem;bottom:90px;z-index:300;width:48px;height:48px;background:#06c755;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(6,199,85,.35);text-decoration:none;font-size:1.3rem;transition:transform .2s;}
+.float-line:hover{transform:scale(1.08);}
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-main">
+    <div class="header-logos">
+      <img id="h-logo-lanjue" alt="嵐爵">
+      <div class="header-sep"></div>
+      <img id="h-logo-linket" alt="LINKet">
+    </div>
+    <div class="header-title">3 / 20 活動選購</div>
+    <button class="cart-btn" id="cart-toggle" aria-label="購物車">
+      🛒<span class="cart-badge" id="cart-badge">0</span>
+    </button>
+  </div>
+  <div class="legal-strip">飲酒勿開車｜未滿十八歲者，禁止飲酒｜本品牌不販賣酒予未滿十八歲者｜飲酒過量有害健康</div>
+</header>
+
+<!-- STEPS -->
+<div class="steps">
+  <div class="step-item active" data-step="1"><div class="step-dot">1</div><span>選購</span></div>
+  <div class="step-connector"></div>
+  <div class="step-item" data-step="2"><div class="step-dot">2</div><span>確認 & 下單</span></div>
+</div>
+
+<!-- STEP 1 -->
+<div id="step-1">
+  <div class="section-head">
+    <h2>3 / 20 精選酒款</h2>
+    <p>11款清酒 × 梅酒，選好後加入購物車，直接 LINE 嵐爵下單</p>
+  </div>
+
+  <div class="products-list">
+
+    <!-- 吉川山田錦 -->
+    <div class="prod-card" id="card-yoshikawa">
+      <div class="prod-inner">
+        <div class="prod-img-wrap">
+          <div class="prod-img-placeholder" id="ph-yoshikawa">🍶</div>
+          <img id="img-yoshikawa" src="/lanjue/kamonishiki-yoshikawa/kamonishiki-bottle.png" alt="吉川山田錦" style="display:none;">
+        </div>
+        <div class="prod-body">
+          <div class="prod-meta"><span class="prod-origin">新潟縣</span><div class="prod-type-dot"></div><span class="prod-type">純米大吟釀</span></div>
+          <div class="prod-name">吉川山田錦</div>
+          <div class="prod-name-en">Yoshikawa Yamadanishiki · 15% ABV</div>
+          <div class="prod-flavor">特A產區吉川山田錦，哈密瓜與水梨華麗果香，入口鮮活乾淨，尾韻透明優雅。</div>
+          <div class="prod-tags"><span class="prod-tag">特A產區</span><span class="prod-tag">山田錦</span><span class="prod-tag">華麗果香</span></div>
+        </div>
+      </div>
+      <div class="prod-footer">
+        <div>
+          <div class="prod-price"><span>NT$</span>2,280</div>
+          <a href="https://linket.app/lanjue/kamonishiki-yoshikawa/" target="_blank" class="prod-link">詳細介紹 →</a>
+        </div>
+        <div class="qty-control">
+          <button class="qty-btn" id="btn-yoshikawa-minus">−</button>
+          <div class="qty-num" id="qty-yoshikawa">0</div>
+          <button class="qty-btn" id="btn-yoshikawa-plus">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 龜之尾 -->
+    <div class="prod-card" id="card-kamenoo">
+      <div class="prod-inner">
+        <div class="prod-img-wrap">
+          <div class="prod-img-placeholder" id="ph-kamenoo">🍶</div>
+          <img id="img-kamenoo" src="/lanjue/kamonishiki-kamenoo/kamonishiki-bottle.png" alt="龜之尾" style="display:none;">
+        </div>
+        <div class="prod-body">
+          <div class="prod-meta"><span class="prod-origin">新潟縣</span><div class="prod-type-dot"></div><span class="prod-type">純米大吟釀</span></div>
+          <div class="prod-name">龜之尾</div>
+          <div class="prod-name-en">Kamenoo · 15% ABV</div>
+          <div class="prod-flavor">古老靈魂現代演化，完熟蘋果與柑橘香氣，口感鮮活具備深邃結構感，野性酸度迷人。</div>
+          <div class="prod-tags"><span class="prod-tag">古老靈魂</span><span class="prod-tag">野性酸度</span><span class="prod-tag">現代演化</span></div>
+        </div>
+      </div>
+      <div class="prod-footer">
+        <div>
+          <div class="prod-price"><span>NT$</span>2,180</div>
+          <a href="https://linket.app/lanjue/kamonishiki-kamenoo/" target="_blank" class="prod-link">詳細介紹 →</a>
+        </div>
+        <div class="qty-control">
+          <button class="qty-btn" id="btn-kamenoo-minus">−</button>
+          <div class="qty-num" id="qty-kamenoo">0</div>
+          <button class="qty-btn" id="btn-kamenoo-plus">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 黑澤大吟釀 -->
+    <div class="prod-card" id="card-daiginjo">
+      <div class="prod-inner">
+        <div class="prod-img-wrap">
+          <div class="prod-img-placeholder" id="ph-daiginjo">🍶</div>
+          <img id="img-daiginjo" src="/lanjue/daiginjo-kurosawa/daiginjo-kurosawa-bottle.png" alt="黑澤大吟釀" style="display:none;">
+        </div>
+        <div class="prod-body">
+          <div class="prod-meta"><span class="prod-origin">長野縣</span><div class="prod-type-dot"></div><span class="prod-type">純米大吟釀</span></div>
+          <div class="prod-name">黑澤大吟釀</div>
+          <div class="prod-name-en">Kurosawa Daiginjo · 15.5% ABV</div>
+          <div class="prod-flavor">BTI 92分，美山錦精米49%，極低溫長時發酵，淡雅花果香，輕盈順滑，辛口餘韻悠長。</div>
+          <div class="prod-tags"><span class="prod-tag">BTI 92分</span><span class="prod-tag">美山錦 49%</span><span class="prod-tag">輕盈順滑</span></div>
+        </div>
+      </div>
+      <div class="prod-footer">
+        <div>
+          <div class="prod-price"><span>NT$</span>1,980</div>
+          <a href="https://linket.app/lanjue/daiginjo-kurosawa/" target="_blank" class="prod-link">詳細介紹 →</a>
+        </div>
+        <div class="qty-control">
+          <button class="qty-btn" id="btn-daiginjo-minus">−</button>
+          <div class="qty-num" id="qty-daiginjo">0</div>
+          <button class="qty-btn" id="btn-daiginjo-plus">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 天衣 -->
+    <div class="prod-card" id="card-tene">
+      <div class="prod-inner">
+        <div class="prod-img-wrap">
+          <div class="prod-img-placeholder" id="ph-tene">🥂</div>
+          <img id="img-tene" src="/lanjue/wakabotan-tene/wakabotan-bottle.png" alt="天衣" style="display:none;">
+        </div>
+        <div class="prod-body">
+          <div class="prod-meta"><span class="prod-origin">大分縣</span><div class="prod-type-dot"></div><span class="prod-type">Sparkling Sake</span></div>
+          <div class="prod-name">天衣 Sparkling</div>
+          <div class="prod-name-en">Wakabotan Tene · 11% ABV</div>
+          <div class="prod-flavor">2025最高金賞，瓶內二次發酵，綿密氣泡感，淡雅花香，米香與果酸的極致平衡。</div>
+          <div class="prod-tags"><span class="prod-tag">2025最高金賞</span><span class="prod-tag">瓶內二次發酵</span><span class="prod-tag">綿密氣泡</span></div>
+        </div>
+      </div>
+      <div class="prod-footer">
+        <div>
+          <div class="prod-price"><span>NT$</span>2,280</div>
+          <a href="https://linket.app/lanjue/wakabotan-tene/" target="_blank" class="prod-link">詳細介紹 →</a>
+        </div>
+        <div class="qty-control">
+          <button class="qty-btn" id="btn-tene-minus">−</button>
+          <div class="qty-num" id="qty-tene">0</div>
+          <button class="qty-btn" id="btn-tene-plus">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paco -->
+    <div class="prod-card" id="card-poco">
+      <div class="prod-inner">
+        <div class="prod-img-wrap">
+          <div class="prod-img-placeholder" id="ph-poco">🍶</div>
+          <img id="img-poco" src="/lanjue/poco-a-poco/poco-a-poco-bottle.png" alt="Paco" style="display:none;">
+        </div>
+        <div class="prod-body">
+          <div class="prod-meta"><span class="prod-origin">長野縣</span><div class="prod-type-dot"></div><span class="prod-type">純米生原酒</span></div>
+          <div class="prod-name">Paco</div>
+          <div class="prod-name-en">19 poco a poco · 15% ABV</div>
+          <div class="prod-flavor">人心地精米45%，低溫緩慢發酵，完熟梨子飽滿多汁，微氣泡帶來清爽律動。</div>
+          <div class="prod-tags"><span class="prod-tag">純米生原酒</span><span class="prod-tag">完熟梨香</span><span class="prod-tag">微氣泡</span></div>
+        </div>
+      </div>
+      <div class="prod-footer">
+        <div>
+          <div class="prod-price"><span>NT$</span>1,680</div>
+          <a href="https://linket.app/lanjue/poco-a-poco/" target="_blank" class="prod-link">詳細介紹 →</a>
+        </div>
+        <div class="qty-control">
+          <button class="qty-btn" id="btn-poco-minus">−</button>
+          <div class="qty-num" id="qty-poco">0</div>
+          <button class="qty-btn" id="btn-poco-plus">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Suien -->
+    <div class="prod-card" id="card-suien">
+      <div class="prod-inner">
+        <div class="prod-img-wrap">
+          <div class="prod-img-placeholder" id="ph-suien">🍷</div>
+          <img id="img-suien" src="/lanjue/suien-wine-yeast/suien-bottle.png" alt="Suien" style="display:none;">
+        </div>
+        <div class="prod-body">
+          <div class="prod-meta"><span class="prod-origin">長野縣</span><div class="prod-type-dot"></div><span class="prod-type">純米吟釀 紅酒酵母</span></div>
+          <div class="prod-name">Suien</div>
+          <div class="prod-name-en">醉園 SUIEN · 13% ABV</div>
+          <div class="prod-flavor">大膽使用紅酒專用酵母，清酒骨架與葡萄酒靈魂，入口甘甜果酸交輝，餘韻悠長。</div>
+          <div class="prod-tags"><span class="prod-tag">紅酒酵母</span><span class="prod-tag">跨界變革</span><span class="prod-tag">果酸甘甜</span></div>
+        </div>
+      </div>
+      <div class="prod-footer">
+        <div>
+          <div class="prod-price"><span>NT$</span>1,680</div>
+          <a href="https://linket.app/lanjue/suien-wine-yeast/" target="_blank" class="prod-link">詳細介紹 →</a>
+        </div>
+        <div class="qty-control">
+          <button class="qty-btn" id="btn-suien-minus">−</button>
+          <div class="qty-num" id="qty-suien">0</div>
+          <button class="qty-btn" id="btn-suien-plus">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 黑澤生酛 -->
+    <div class="prod-card" id="card-kimoto">
+      <div class="prod-inner">
+        <div class="prod-img-wrap">
+          <div class="prod-img-placeholder" id="ph-kimoto">🍶</div>
+          <img id="img-kimoto" src="/lanjue/kimoto-kurosawa/kimoto-kurosawa-bottle.png" alt="黑澤生酛" style="display:none;">
+        </div>
+        <div class="prod-body">
+          <div class="prod-meta"><span class="prod-origin">長野縣</span><div class="prod-type-dot"></div><span class="prod-type">純米生酛</span></div>
+          <div class="prod-name">黑澤生酛</div>
+          <div class="prod-name-en">Kurosawa Kimoto · 15% ABV</div>
+          <div class="prod-flavor">BTI 94分，傳統生酛造り，天然乳酸發酵，奶油乳脂，堅果香氣，厚實飽滿。</div>
+          <div class="prod-tags"><span class="prod-tag">BTI 94分</span><span class="prod-tag">奶油乳脂</span><span class="prod-tag">常溫推薦</span></div>
+        </div>
+      </div>
+      <div class="prod-footer">
+        <div>
+          <div class="prod-price"><span>NT$</span>1,580</div>
+          <a href="https://linket.app/lanjue/kimoto-kurosawa/" target="_blank" class="prod-link">詳細介紹 →</a>
+        </div>
+        <div class="qty-control">
+          <button class="qty-btn" id="btn-kimoto-minus">−</button>
+          <div class="qty-num" id="qty-kimoto">0</div>
+          <button class="qty-btn" id="btn-kimoto-plus">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 黑澤濁酒 -->
+    <div class="prod-card" id="card-nigori">
+      <div class="prod-inner">
+        <div class="prod-img-wrap">
+          <div class="prod-img-placeholder" id="ph-nigori">🥛</div>
+          <img id="img-nigori" src="/lanjue/nigori-kurosawa/nigori-kurosawa-bottle.png" alt="黑澤濁酒" style="display:none;">
+        </div>
+        <div class="prod-body">
+          <div class="prod-meta"><span class="prod-origin">長野縣</span><div class="prod-type-dot"></div><span class="prod-type">にごり酒</span></div>
+          <div class="prod-name">黑澤濁酒</div>
+          <div class="prod-name-en">Kurosawa Nigori · 8% ABV</div>
+          <div class="prod-flavor">低酒精8%，粗濾保留米香，柑橘與西洋梨芬芳，奶昔般滑順，冰鎮飲用爽口加倍。</div>
+          <div class="prod-tags"><span class="prod-tag">低酒精 8%</span><span class="prod-tag">柑橘香</span><span class="prod-tag">奶昔質地</span></div>
+        </div>
+      </div>
+      <div class="prod-footer">
+        <div>
+          <div class="prod-price"><span>NT$</span>1,280</div>
+          <a href="https://linket.app/lanjue/nigori-kurosawa/" target="_blank" class="prod-link">詳細介紹 →</a>
+        </div>
+        <div class="qty-control">
+          <button class="qty-btn" id="btn-nigori-minus">−</button>
+          <div class="qty-num" id="qty-nigori">0</div>
+          <button class="qty-btn" id="btn-nigori-plus">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 本格梅酒 -->
+    <div class="prod-card" id="card-umeshu">
+      <div class="prod-inner">
+        <div class="prod-img-wrap">
+          <div class="prod-img-placeholder" id="ph-umeshu">🍑</div>
+          <img id="img-umeshu" src="/lanjue/ichinoya-umeshu/ichinoya-bottle.png" alt="本格梅酒" style="display:none;">
+        </div>
+        <div class="prod-body">
+          <div class="prod-meta"><span class="prod-origin">長野縣</span><div class="prod-type-dot"></div><span class="prod-type">大吟釀本格梅酒</span></div>
+          <div class="prod-name">本格梅酒</div>
+          <div class="prod-name-en">Ichinoya Umeshu · 10% ABV</div>
+          <div class="prod-flavor">大吟釀為基底，南高梅純手工釀造，絕無化學添加，細緻香氣與梅酸極致平衡。</div>
+          <div class="prod-tags"><span class="prod-tag">大吟釀基底</span><span class="prod-tag">南高梅</span><span class="prod-tag">純粹無添加</span></div>
+        </div>
+      </div>
+      <div class="prod-footer">
+        <div>
+          <div class="prod-price"><span>NT$</span>1,280</div>
+          <a href="https://linket.app/lanjue/ichinoya-umeshu/" target="_blank" class="prod-link">詳細介紹 →</a>
+        </div>
+        <div class="qty-control">
+          <button class="qty-btn" id="btn-umeshu-minus">−</button>
+          <div class="qty-num" id="qty-umeshu">0</div>
+          <button class="qty-btn" id="btn-umeshu-plus">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 天吹抹茶 -->
+    <div class="prod-card" id="card-matcha">
+      <div class="prod-inner">
+        <div class="prod-img-wrap">
+          <div class="prod-img-placeholder" id="ph-matcha">🍵</div>
+          <img id="img-matcha" src="/lanjue/amabuki-matcha/amabuki-bottle.png" alt="天吹抹茶" style="display:none;">
+        </div>
+        <div class="prod-body">
+          <div class="prod-meta"><span class="prod-origin">佐賀縣</span><div class="prod-type-dot"></div><span class="prod-type">京都抹茶梅酒</span></div>
+          <div class="prod-name">天吹抹茶</div>
+          <div class="prod-name-en">Amabuki Matcha · 9% ABV</div>
+          <div class="prod-flavor">京都千年抹茶 × 紀州南高梅 × 瀨振山天然泉水，微苦回甘，靜謐茶香，花酵母底蘊。</div>
+          <div class="prod-tags"><span class="prod-tag">京都抹茶</span><span class="prod-tag">花酵母</span><span class="prod-tag">微苦回甘</span></div>
+        </div>
+      </div>
+      <div class="prod-footer">
+        <div>
+          <div class="prod-price"><span>NT$</span>1,180</div>
+          <a href="https://linket.app/lanjue/amabuki-matcha/" target="_blank" class="prod-link">詳細介紹 →</a>
+        </div>
+        <div class="qty-control">
+          <button class="qty-btn" id="btn-matcha-minus">−</button>
+          <div class="qty-num" id="qty-matcha">0</div>
+          <button class="qty-btn" id="btn-matcha-plus">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 天吹伯爵 -->
+    <div class="prod-card" id="card-earlgrey">
+      <div class="prod-inner">
+        <div class="prod-img-wrap">
+          <div class="prod-img-placeholder" id="ph-earlgrey">🫖</div>
+          <img id="img-earlgrey" src="/lanjue/amabuki-earlgrey/amabuki-bottle.png" alt="天吹伯爵" style="display:none;">
+        </div>
+        <div class="prod-body">
+          <div class="prod-meta"><span class="prod-origin">佐賀縣</span><div class="prod-type-dot"></div><span class="prod-type">伯爵紅茶梅酒</span></div>
+          <div class="prod-name">天吹伯爵</div>
+          <div class="prod-name-en">Amabuki Earl Grey · 9% ABV</div>
+          <div class="prod-flavor">格雷伯爵紅茶 × 紀州南高梅 × 佐賀天然泉水，佛手柑獨特香氣，茶單寧乾爽收尾。</div>
+          <div class="prod-tags"><span class="prod-tag">伯爵紅茶</span><span class="prod-tag">佛手柑香</span><span class="prod-tag">優雅轉型</span></div>
+        </div>
+      </div>
+      <div class="prod-footer">
+        <div>
+          <div class="prod-price"><span>NT$</span>1,180</div>
+          <a href="https://linket.app/lanjue/amabuki-earlgrey/" target="_blank" class="prod-link">詳細介紹 →</a>
+        </div>
+        <div class="qty-control">
+          <button class="qty-btn" id="btn-earlgrey-minus">−</button>
+          <div class="qty-num" id="qty-earlgrey">0</div>
+          <button class="qty-btn" id="btn-earlgrey-plus">+</button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /products-list -->
+
+  <div class="spacer-bottom"></div>
+</div><!-- /step-1 -->
+
+<!-- STEP 2 -->
+<div id="step-2" style="display:none;">
+  <div class="section-head"><h2>確認選購清單</h2><p>確認品項後，點選 LINE 按鈕直接告知嵐爵完成下單</p></div>
+  <div class="cart-items" id="cart-items-list"></div>
+  <div class="cart-summary" id="cart-summary"></div>
+  <div class="cart-empty" id="cart-empty" style="display:none;"><div class="cart-empty-icon">🛒</div>購物車是空的<br>請回上一步選擇商品</div>
+
+  <!-- LINE CTA -->
+  <div class="line-cta-block" id="line-cta-wrap">
+    <div class="line-cta-title">💬 直接 LINE 嵐爵下單</div>
+    <div class="line-cta-desc">
+      點擊下方按鈕開啟 LINE，系統會自動帶入您的選購清單文字，<strong>直接傳送給嵐爵即可完成下單</strong>。
+    </div>
+    <a id="btn-line-order" href="https://lin.ee/UgaIhG7" target="_blank" class="btn-line-main"
+       onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'order-lanjue'});">
+      <span class="line-icon">💬</span>LINE 嵐爵下單
+    </a>
+    <div class="line-hint">點擊後將開啟 LINE，請複製購物清單傳送給嵐爵</div>
+  </div>
+
+  <div class="spacer-bottom"></div>
+  <div class="action-bar">
+    <button class="btn-sub" id="btn-back-to-1">← 繼續選購</button>
+  </div>
+</div>
+
+<!-- CART BAR -->
+<div class="cart-bar" id="cart-bar">
+  <div class="cart-bar-info">
+    <div class="cart-bar-count" id="cart-bar-count">已選 0 項</div>
+    <div class="cart-bar-total"><span>NT$</span><span id="cart-bar-total">0</span></div>
+  </div>
+  <button class="cart-proceed-btn" id="btn-cart-proceed">查看清單 →</button>
+</div>
+
+<!-- FLOAT LINE -->
+<a href="https://lin.ee/UgaIhG7" target="_blank" class="float-line"
+   onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'order-lanjue'});">💬</a>
+
+<script>
+(function(){
+'use strict';
+
+var PRODUCTS = {
+  yoshikawa: { name:'吉川山田錦', sub:'加茂錦 純米大吟釀', price:2280, img:'/lanjue/kamonishiki-yoshikawa/kamonishiki-bottle.png' },
+  kamenoo:   { name:'龜之尾',     sub:'加茂錦 純米大吟釀', price:2180, img:'/lanjue/kamonishiki-kamenoo/kamonishiki-bottle.png' },
+  daiginjo:  { name:'黑澤大吟釀', sub:'黑澤 純米大吟釀',   price:1980, img:'/lanjue/daiginjo-kurosawa/daiginjo-kurosawa-bottle.png' },
+  tene:      { name:'天衣 Sparkling', sub:'和香牡丹 Sparkling', price:2280, img:'/lanjue/wakabotan-tene/wakabotan-bottle.png' },
+  poco:      { name:'Paco',       sub:'19 poco a poco 純米生原酒', price:1680, img:'/lanjue/poco-a-poco/poco-a-poco-bottle.png' },
+  suien:     { name:'Suien',      sub:'醉園 純米吟釀',      price:1680, img:'/lanjue/suien-wine-yeast/suien-bottle.png' },
+  kimoto:    { name:'黑澤生酛',   sub:'黑澤 純米生酛',      price:1580, img:'/lanjue/kimoto-kurosawa/kimoto-kurosawa-bottle.png' },
+  nigori:    { name:'黑澤濁酒',   sub:'黑澤 にごり酒',      price:1280, img:'/lanjue/nigori-kurosawa/nigori-kurosawa-bottle.png' },
+  umeshu:    { name:'本格梅酒',   sub:'市野屋 大吟釀梅酒',  price:1280, img:'/lanjue/ichinoya-umeshu/ichinoya-bottle.png' },
+  matcha:    { name:'天吹抹茶',   sub:'天吹 京都抹茶梅酒',  price:1180, img:'/lanjue/amabuki-matcha/amabuki-bottle.png' },
+  earlgrey:  { name:'天吹伯爵',   sub:'天吹 伯爵紅茶梅酒',  price:1180, img:'/lanjue/amabuki-earlgrey/amabuki-bottle.png' }
+};
+
+var cart = {};
+Object.keys(PRODUCTS).forEach(function(k){ cart[k] = 0; });
+
+var currentStep = 1;
+
+// ── 圖片載入 ──
+function setupImg(id, phId, src) {
+  var img = document.getElementById(id);
+  var ph  = document.getElementById(phId);
+  if (!img) return;
+  img.onload  = function(){ ph.style.display='none'; img.style.display='block'; };
+  img.onerror = function(){ img.style.display='none'; ph.style.display='block'; };
+  img.src = src;
+  if (img.complete && img.naturalWidth > 0){ ph.style.display='none'; img.style.display='block'; }
+}
+Object.keys(PRODUCTS).forEach(function(k){
+  setupImg('img-'+k, 'ph-'+k, PRODUCTS[k].img);
+});
+
+// ── Logo 載入 ──
+(function(){
+  var logos = [
+    { id:'h-logo-lanjue', src:'/home/assets/logo-lanjue.svg' },
+    { id:'h-logo-linket', src:'/home/assets/logo-linket.svg' }
+  ];
+  logos.forEach(function(l){
+    var el = document.getElementById(l.id);
+    if(el) el.src = l.src;
+  });
+})();
+
+// ── 合計 ──
+function getTotals(){
+  var total=0, items=0;
+  Object.keys(cart).forEach(function(k){
+    total += PRODUCTS[k].price * cart[k];
+    items += cart[k];
+  });
+  return { total:total, items:items };
+}
+
+// ── Cart Bar ──
+function updateCartBar(){
+  var t = getTotals();
+  var badge = document.getElementById('cart-badge');
+  badge.textContent = t.items;
+  if(t.items > 0){ badge.classList.add('show'); document.getElementById('cart-bar').classList.add('show'); }
+  else { badge.classList.remove('show'); document.getElementById('cart-bar').classList.remove('show'); }
+  document.getElementById('cart-bar-count').textContent = '已選 '+t.items+' 項';
+  document.getElementById('cart-bar-total').textContent = t.total.toLocaleString();
+  updateSpacers();
+}
+
+function updateSpacers(){
+  var cartBar = document.getElementById('cart-bar');
+  var cartH = (cartBar && cartBar.classList.contains('show')) ? cartBar.offsetHeight : 0;
+  var spacers = document.querySelectorAll('.spacer-bottom');
+  for(var i=0;i<spacers.length;i++){ spacers[i].style.height = (cartH+24)+'px'; }
+}
+
+// ── QTY ──
+function changeQty(id, delta){
+  cart[id] = Math.max(0, cart[id]+delta);
+  document.getElementById('qty-'+id).textContent = cart[id];
+  if(cart[id]>0) document.getElementById('card-'+id).classList.add('in-cart');
+  else document.getElementById('card-'+id).classList.remove('in-cart');
+  updateCartBar();
+}
+
+// QTY 綁定
+Object.keys(PRODUCTS).forEach(function(k){
+  var btnP = document.getElementById('btn-'+k+'-plus');
+  var btnM = document.getElementById('btn-'+k+'-minus');
+  if(btnP) btnP.addEventListener('click', function(){ changeQty(k, 1); });
+  if(btnM) btnM.addEventListener('click', function(){ changeQty(k, -1); });
+});
+
+// ── Step 切換 ──
+function setStep(n){
+  currentStep = n;
+  document.getElementById('step-1').style.display = (n===1) ? 'block' : 'none';
+  document.getElementById('step-2').style.display = (n===2) ? 'block' : 'none';
+  var stepEls = document.querySelectorAll('.step-item');
+  for(var s=0;s<stepEls.length;s++){
+    var num = parseInt(stepEls[s].getAttribute('data-step'));
+    stepEls[s].classList.remove('active','done');
+    if(num===n) stepEls[s].classList.add('active');
+    else if(num<n) stepEls[s].classList.add('done');
+  }
+  if(n!==1) document.getElementById('cart-bar').classList.remove('show');
+  else updateCartBar();
+  updateSpacers();
+  window.scrollTo(0,0);
+}
+
+// ── 渲染 Step 2 ──
+function renderCartStep(){
+  var list = document.getElementById('cart-items-list');
+  var summary = document.getElementById('cart-summary');
+  var empty = document.getElementById('cart-empty');
+  var lineWrap = document.getElementById('line-cta-wrap');
+  var t = getTotals();
+  list.innerHTML = '';
+
+  if(t.items === 0){
+    empty.style.display='block';
+    lineWrap.style.display='none';
+    summary.innerHTML='';
+    return;
+  }
+  empty.style.display='none';
+  lineWrap.style.display='block';
+
+  // 組 LINE 訊息
+  var msgLines = ['🍶 嵐爵私選 3/20 活動選購清單\n'];
+  var lineTotal = 0;
+
+  Object.keys(cart).forEach(function(k){
+    if(cart[k]===0) return;
+    var p = PRODUCTS[k];
+    var subtotal = p.price * cart[k];
+    lineTotal += subtotal;
+    msgLines.push(p.name+' × '+cart[k]+' = NT$'+subtotal.toLocaleString());
+
+    // 渲染卡片
+    var div = document.createElement('div');
+    div.className = 'cart-item';
+    var imgEl = document.createElement('div');
+    imgEl.className = 'cart-item-img';
+    var img = document.createElement('img');
+    img.src = p.img;
+    img.onerror = function(){ imgEl.innerHTML='<div class="cart-item-img-placeholder">🍶</div>'; };
+    imgEl.appendChild(img);
+    div.innerHTML =
+      '<div class="cart-item-img"></div>'+
+      '<div class="cart-item-info">'+
+        '<div class="cart-item-name">'+p.name+'</div>'+
+        '<div class="cart-item-sub">'+p.sub+' × '+cart[k]+'</div>'+
+      '</div>'+
+      '<div class="cart-item-right">'+
+        '<div class="cart-item-price">NT$'+subtotal.toLocaleString()+'</div>'+
+        '<button class="cart-item-remove" data-id="'+k+'">移除</button>'+
+      '</div>';
+    var imgWrap = div.querySelector('.cart-item-img');
+    imgWrap.appendChild(img);
+    list.appendChild(div);
+  });
+
+  msgLines.push('\n合計：NT$'+lineTotal.toLocaleString());
+  msgLines.push('\n請確認後回覆，謝謝！');
+  var lineMsg = encodeURIComponent(msgLines.join('\n'));
+  document.getElementById('btn-line-order').href = 'https://line.me/R/oaMessage/@lanjue/?'+lineMsg;
+
+  // 移除按鈕事件
+  list.querySelectorAll('.cart-item-remove').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var id = this.getAttribute('data-id');
+      cart[id] = 0;
+      document.getElementById('qty-'+id).textContent = '0';
+      document.getElementById('card-'+id).classList.remove('in-cart');
+      updateCartBar();
+      renderCartStep();
+      if(getTotals().items===0) setStep(1);
+    });
+  });
+
+  // 合計
+  summary.innerHTML =
+    '<div class="cart-row"><span>商品小計</span><span>'+t.items+' 項</span></div>'+
+    '<div class="cart-row total"><span><span>NT$</span></span><span>'+t.total.toLocaleString()+'</span></div>';
+}
+
+// ── 事件綁定 ──
+document.getElementById('btn-cart-proceed').addEventListener('click', function(){
+  setStep(2); renderCartStep();
+});
+document.getElementById('cart-toggle').addEventListener('click', function(){
+  if(currentStep===1){ setStep(2); renderCartStep(); }
+  else setStep(1);
+});
+document.getElementById('btn-back-to-1').addEventListener('click', function(){ setStep(1); });
+
+window.addEventListener('resize', updateSpacers);
+window.addEventListener('load', updateSpacers);
+updateCartBar();
+
+})();
+</script>
+</div><!-- /page-wrap -->
+</body>
+</html>
