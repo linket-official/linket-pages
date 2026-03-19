@@ -253,19 +253,54 @@ a.top-badge{
 .hero-btn.ghost:hover{ background:rgba(255,255,255,.18); }
 .hero-btn.ghost:last-of-type{ margin-bottom:1.5rem; }
 
-/* FIX #5: QR 按鈕樣式保留，點擊觸發 modal */
+/* QR 與分享按鈕並排容器 */
+.hero-btn-row{
+  display:flex; gap:.65rem;
+  width:100%; justify-content:center;
+  margin-bottom:0;
+  animation: heroSlideUp .65s ease both;
+  animation-delay: 1.00s;
+  opacity:0;
+}
+
+/* FIX #5: QR 按鈕樣式 */
 .hero-btn.qr{
-  width:44%; max-width:160px;
+  flex:1; max-width:140px;
   align-self:center;
   background:rgba(255,255,255,.12);
   border:1.5px solid rgba(255,255,255,.45);
   color:rgba(255,255,255,.85);
-  font-size:.75rem; letter-spacing:.16em;
-  padding:.46rem .65rem;
+  font-size:.75rem; letter-spacing:.14em;
+  padding:.46rem .5rem;
   margin-bottom:0;
   backdrop-filter:blur(4px);
 }
 .hero-btn.qr:hover{ background:rgba(255,255,255,.22); }
+
+/* 分享按鈕：同 QR 按鈕樣式 */
+.hero-btn.share{
+  flex:1; max-width:140px;
+  align-self:center;
+  background:rgba(255,255,255,.12);
+  border:1.5px solid rgba(255,255,255,.45);
+  color:rgba(255,255,255,.85);
+  font-size:.75rem; letter-spacing:.14em;
+  padding:.46rem .5rem;
+  margin-bottom:0;
+  backdrop-filter:blur(4px);
+  cursor:pointer;
+  /* 不支援 Web Share API 時隱藏 */
+  display:none;
+}
+.hero-btn.share.visible{ display:flex; }
+.hero-btn.share:hover{ background:rgba(255,255,255,.22); }
+
+/* share icon SVG inline */
+.share-icon{
+  width:15px; height:15px;
+  margin-right:.35rem; flex-shrink:0;
+  fill:currentColor;
+}
 
 
 /* ══════════════════════════════════════════════
@@ -404,7 +439,6 @@ a.top-badge{
 .hero-right .hero-btn:nth-child(4){ animation-delay: .70s; }
 .hero-right .hero-btn:nth-child(5){ animation-delay: .80s; }
 .hero-right .hero-btn:nth-child(6){ animation-delay: .90s; }
-.hero-right .hero-btn:nth-child(7){ animation-delay:1.00s; }
 
 /* 低動畫偏好：尊重系統設定 */
 @media(prefers-reduced-motion: reduce){
@@ -883,10 +917,18 @@ a.design-by{
         <a class="hero-btn ghost" href="#about">關於阮二哥 ｜ ABOUT US</a>
         <a class="hero-btn ghost" href="#features">玫瑰的色彩 ｜ COLOR OF ROSE</a>
 
-        <!-- FIX #5: QR 按鈕改為觸發 modal，移除外部連結 -->
-        <button class="hero-btn qr" onclick="openQrModal()" aria-label="顯示 QR Code">
-          ⊞&ensp;QR CODE
-        </button>
+        <!-- QR + 分享 並排 -->
+        <div class="hero-btn-row">
+          <button class="hero-btn qr" onclick="openQrModal()" aria-label="顯示 QR Code">
+            ⊞&ensp;QR CODE
+          </button>
+          <button class="hero-btn share" id="shareBtn" onclick="shareThisPage()" aria-label="分享此頁面">
+            <svg class="share-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98M21 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm12 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+            </svg>
+            分&ensp;享
+          </button>
+        </div>
 
       </div><!-- /hero-right -->
 
@@ -1200,7 +1242,26 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 
 <script>
-/* ── QR Code Modal ── */
+/* ── Web Share API ── */
+(function(){
+  const btn = document.getElementById('shareBtn');
+  if(!btn) return;
+  // 只有支援 navigator.share 的瀏覽器才顯示分享按鈕
+  if(navigator.share){
+    btn.classList.add('visible');
+  }
+})();
+
+function shareThisPage(){
+  if(!navigator.share) return;
+  navigator.share({
+    title: '阮二哥玫瑰園 | Ruan Rose Garden',
+    text:  '埔里第三代花農・阮家獨有桃紅色系迷你玫瑰・產地直送',
+    url:   'https://linket.app/ruan-rose'
+  })
+  .then(()=> gtag('event','click_share',{'event_category':'CTA','event_label':'ruan-rose'}))
+  .catch(()=>{});
+}
 // 載入 qrcode.js（cdnjs，瀏覽器端 canvas 產生）
 let qrLoaded = false;
 let qrInstance = null;
