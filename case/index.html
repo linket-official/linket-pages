@@ -2,97 +2,89 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
 <title>LINKet Case｜數位名片夾</title>
-<meta name="description" content="收藏、管理你的 LINKet 數位名片">
+<meta name="description" content="收藏、管理你的數位名片">
 <meta property="og:title" content="LINKet Case｜數位名片夾">
 <meta property="og:description" content="掃描 QRcode 或貼入連結，收藏管理你的數位名片">
-<meta property="og:image" content="https://linket.app/case/og-image.jpg">
 <meta property="og:url" content="https://linket.app/case">
 <meta property="og:type" content="website">
 <link rel="icon" href="/home/favicon.png">
-<link rel="manifest" href="/case/manifest.json">
-<meta name="theme-color" content="#111111">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#0a0a0a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --accent:#2979ff;
   --accent2:#1a56db;
-  --bg:#0e0e0e;
-  --bg2:#1a1a1a;
-  --bg3:#242424;
-  --border:rgba(255,255,255,.08);
-  --border2:rgba(255,255,255,.14);
-  --text:#f0f0f0;
-  --text2:rgba(240,240,240,.55);
-  --text3:rgba(240,240,240,.3);
-  --card:#1e1e1e;
-  --r:14px;
-  --r-sm:8px;
-  --topbar:52px;
+  --bg:#0a0a0a;
+  --bg2:#161616;
+  --bg3:#222222;
+  --border:rgba(255,255,255,.07);
+  --border2:rgba(255,255,255,.13);
+  --text:#f2f2f2;
+  --text2:rgba(242,242,242,.5);
+  --text3:rgba(242,242,242,.28);
+  --r:20px;
+  --r-sm:10px;
+  --topbar:56px;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bot: env(safe-area-inset-bottom, 0px);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent;}
 body{
   font-family:'Noto Sans TC',sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  min-height:100vh;
-  overflow-x:hidden;
-  padding-bottom:env(safe-area-inset-bottom);
+  background:var(--bg);color:var(--text);
+  min-height:100svh;overflow-x:hidden;
+  padding-bottom:calc(var(--safe-bot) + 80px);
 }
 
 /* ── Top Bar ── */
 .topbar{
   position:sticky;top:0;z-index:100;
-  height:var(--topbar);
-  background:rgba(14,14,14,.92);
-  backdrop-filter:blur(16px);
+  height:calc(var(--topbar) + var(--safe-top));
+  padding-top:var(--safe-top);
+  background:rgba(10,10,10,.88);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
   border-bottom:1px solid var(--border);
   display:flex;align-items:center;justify-content:space-between;
-  padding:0 1rem;
+  padding-left:1.1rem;padding-right:1.1rem;
 }
 .topbar-brand{
   font-family:'Space Grotesk',sans-serif;
-  font-size:1.0625rem;font-weight:600;
-  letter-spacing:-.01em;color:var(--text);
-  text-decoration:none;display:flex;align-items:center;gap:.5rem;
+  font-size:1.125rem;font-weight:700;letter-spacing:-.02em;
+  color:var(--text);text-decoration:none;
 }
-.topbar-brand .lin{color:var(--text);}
 .topbar-brand .ket{color:var(--accent);}
-.topbar-brand .case{color:var(--text2);font-weight:400;}
-.topbar-count{
-  font-size:.75rem;color:var(--text3);
-  letter-spacing:.04em;
-}
+.topbar-brand .case-label{font-weight:400;color:var(--text2);font-size:.9rem;}
+.topbar-right{display:flex;align-items:center;gap:.6rem;}
+.topbar-count{font-size:.75rem;color:var(--text3);letter-spacing:.04em;}
 .topbar-add{
-  width:36px;height:36px;border-radius:50%;
-  background:var(--accent);border:none;
-  color:#fff;cursor:pointer;
+  width:34px;height:34px;border-radius:50%;
+  background:var(--accent);border:none;color:#fff;cursor:pointer;
   display:flex;align-items:center;justify-content:center;
-  transition:background .15s,transform .15s;
-  flex-shrink:0;
+  transition:background .15s,transform .1s;flex-shrink:0;
 }
-.topbar-add:hover{background:var(--accent2);transform:scale(1.06);}
-.topbar-add svg{width:18px;height:18px;}
+.topbar-add:active{transform:scale(.92);}
+.topbar-add svg{width:17px;height:17px;}
 
-/* ── Search & Filter ── */
+/* ── Search ── */
 .search-wrap{
-  padding:.75rem 1rem .5rem;
+  padding:.7rem 1.1rem .3rem;
   position:sticky;top:var(--topbar);z-index:90;
-  background:rgba(14,14,14,.9);
-  backdrop-filter:blur(12px);
+  background:rgba(10,10,10,.85);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
 }
 .search-box{
-  display:flex;align-items:center;gap:.6rem;
-  background:var(--bg3);
-  border:1px solid var(--border);
-  border-radius:var(--r-sm);
-  padding:.6rem .85rem;
+  display:flex;align-items:center;gap:.55rem;
+  background:var(--bg3);border:1px solid var(--border);
+  border-radius:12px;padding:.55rem .85rem;
   transition:border-color .15s;
 }
-.search-box:focus-within{border-color:var(--accent);}
-.search-box svg{width:16px;height:16px;flex-shrink:0;color:var(--text3);}
+.search-box:focus-within{border-color:rgba(41,121,255,.5);}
+.search-box svg{width:15px;height:15px;flex-shrink:0;color:var(--text3);}
 .search-input{
   background:transparent;border:none;outline:none;
   color:var(--text);font-family:'Noto Sans TC',sans-serif;
@@ -100,425 +92,413 @@ body{
 }
 .search-input::placeholder{color:var(--text3);}
 
-.filter-scroll{
-  overflow-x:auto;-webkit-overflow-scrolling:touch;
-  scrollbar-width:none;
-  display:flex;gap:.45rem;
-  padding:.6rem 1rem .4rem;
+/* ── Case Tabs (分類) ── */
+.case-tabs{
+  overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+  display:flex;gap:.45rem;padding:.65rem 1.1rem .5rem;
 }
-.filter-scroll::-webkit-scrollbar{display:none;}
-.filter-pill{
-  flex-shrink:0;
-  padding:.32rem .85rem;
-  border-radius:50px;
-  border:1px solid var(--border2);
-  background:transparent;
-  color:var(--text2);
-  font-size:.8125rem;font-family:'Noto Sans TC',sans-serif;
+.case-tabs::-webkit-scrollbar{display:none;}
+.case-tab{
+  flex-shrink:0;display:flex;align-items:center;gap:.35rem;
+  padding:.32rem .9rem;border-radius:50px;
+  border:1px solid var(--border2);background:transparent;
+  color:var(--text2);font-size:.8125rem;
+  font-family:'Noto Sans TC',sans-serif;
   cursor:pointer;transition:all .15s;white-space:nowrap;
 }
-.filter-pill.active{
-  background:var(--accent);border-color:var(--accent);
-  color:#fff;
+.case-tab .tab-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--tab-color, var(--text3));flex-shrink:0;
 }
-.filter-pill:hover:not(.active){border-color:var(--border2);color:var(--text);}
-
-/* ── Main Grid ── */
-.main{padding:.5rem 1rem 2rem;}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:.75rem;
+.case-tab.active{
+  background:var(--accent);border-color:var(--accent);color:#fff;
 }
-@media(min-width:540px){.grid{grid-template-columns:repeat(3,1fr);}}
-@media(min-width:900px){.grid{grid-template-columns:repeat(4,1fr);}}
+.case-tab.active .tab-dot{background:rgba(255,255,255,.7);}
 
-/* ── Card ── */
-.card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:var(--r);
-  overflow:hidden;
-  cursor:pointer;
-  transition:border-color .15s,transform .15s;
+/* ── Main ── */
+.main{padding:.6rem 1.1rem 1rem;}
+
+/* ── Wallet Stack ── */
+.wallet-section{margin-bottom:2rem;}
+.wallet-section-label{
+  font-size:.75rem;color:var(--text3);
+  letter-spacing:.06em;text-transform:uppercase;
+  margin-bottom:.85rem;padding-left:.1rem;
+}
+
+/* Apple Wallet 疊卡樣式 */
+.wallet-stack{
   position:relative;
+  /* 高度由卡片數量決定，JS動態設定 */
 }
-.card:hover{border-color:var(--border2);transform:translateY(-2px);}
-.card:active{transform:translateY(0);}
+.wallet-card{
+  position:absolute;left:0;right:0;
+  border-radius:var(--r);overflow:hidden;
+  cursor:pointer;
+  transition:transform .32s cubic-bezier(.4,0,.2,1),
+             box-shadow .32s ease;
+  will-change:transform;
+  transform-origin:top center;
+}
+.wallet-card.expanded-mode{
+  position:relative;margin-bottom:.75rem;
+  transform:none !important;
+}
 
-.card-img{
-  width:100%;aspect-ratio:16/9;
-  object-fit:cover;display:block;
-  background:var(--bg3);
+/* 卡片內容 */
+.wcard-inner{
+  width:100%;height:160px;
+  position:relative;overflow:hidden;
+  border-radius:var(--r);
 }
-.card-img-placeholder{
-  width:100%;aspect-ratio:16/9;
-  display:flex;align-items:center;justify-content:center;
+/* OG image 作為卡片背景 */
+.wcard-bg{
+  position:absolute;inset:0;
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .3s ease;
+}
+.wcard-card:hover .wcard-bg{transform:scale(1.03);}
+/* 無圖時的品牌色背景 */
+.wcard-color-bg{
+  position:absolute;inset:0;
+  background:var(--wcard-bg, var(--bg3));
+}
+/* 漸層遮罩（讓文字可讀）*/
+.wcard-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(
+    to bottom,
+    rgba(0,0,0,.08) 0%,
+    rgba(0,0,0,.55) 60%,
+    rgba(0,0,0,.82) 100%
+  );
+}
+/* 品牌識別（左上）*/
+.wcard-brand{
+  position:absolute;top:14px;left:16px;right:60px;
+  display:flex;align-items:center;gap:.5rem;
+}
+.wcard-favicon{
+  width:22px;height:22px;border-radius:5px;
+  background:rgba(255,255,255,.15);flex-shrink:0;
+  overflow:hidden;object-fit:cover;
+}
+.wcard-domain{
+  font-size:.75rem;color:rgba(255,255,255,.7);
   font-family:'Space Grotesk',sans-serif;
-  font-size:1.5rem;font-weight:600;
-  letter-spacing:-.02em;
-  color:rgba(255,255,255,.2);
-}
-
-.card-body{padding:.75rem .8rem .8rem;}
-.card-title{
-  font-size:.875rem;font-weight:500;
-  color:var(--text);line-height:1.4;
-  margin-bottom:.25rem;
-  display:-webkit-box;-webkit-line-clamp:2;
-  -webkit-box-orient:vertical;overflow:hidden;
-}
-.card-desc{
-  font-size:.75rem;color:var(--text2);
-  line-height:1.5;margin-bottom:.55rem;
-  display:-webkit-box;-webkit-line-clamp:2;
-  -webkit-box-orient:vertical;overflow:hidden;
-}
-.card-tags{
-  display:flex;gap:.3rem;flex-wrap:wrap;
-  margin-bottom:.5rem;
-}
-.tag{
-  font-size:.6875rem;padding:.15rem .45rem;
-  border-radius:50px;background:rgba(41,121,255,.15);
-  color:rgba(100,160,255,.9);border:1px solid rgba(41,121,255,.2);
-  white-space:nowrap;
-}
-.card-meta{
-  display:flex;align-items:center;justify-content:space-between;
-  gap:.4rem;
-}
-.card-url{
-  font-size:.6875rem;color:var(--text3);
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-  max-width:70%;
 }
-.card-date{font-size:.6875rem;color:var(--text3);flex-shrink:0;}
-
-.card-menu-btn{
-  position:absolute;top:.6rem;right:.6rem;
-  width:28px;height:28px;border-radius:50%;
-  background:rgba(0,0,0,.5);border:none;
-  color:rgba(255,255,255,.6);cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  opacity:0;transition:opacity .15s;
+/* 標籤（右上）*/
+.wcard-tags{
+  position:absolute;top:12px;right:14px;
+  display:flex;gap:.3rem;flex-wrap:wrap;justify-content:flex-end;
+}
+.wcard-tag{
+  font-size:.6875rem;padding:.1rem .45rem;
+  border-radius:50px;background:rgba(255,255,255,.15);
+  color:rgba(255,255,255,.85);
+  border:1px solid rgba(255,255,255,.2);white-space:nowrap;
   backdrop-filter:blur(4px);
 }
-.card:hover .card-menu-btn{opacity:1;}
-.card-menu-btn svg{width:14px;height:14px;}
+/* 主要文字（下方）*/
+.wcard-bottom{
+  position:absolute;bottom:14px;left:16px;right:16px;
+}
+.wcard-title{
+  font-size:1rem;font-weight:500;color:#fff;
+  line-height:1.35;margin-bottom:.2rem;
+  display:-webkit-box;-webkit-line-clamp:2;
+  -webkit-box-orient:vertical;overflow:hidden;
+  text-shadow:0 1px 4px rgba(0,0,0,.4);
+}
+.wcard-desc{
+  font-size:.75rem;color:rgba(255,255,255,.65);
+  line-height:1.4;
+  display:-webkit-box;-webkit-line-clamp:1;
+  -webkit-box-orient:vertical;overflow:hidden;
+}
+/* 展開鍵（右下）*/
+.wcard-expand-btn{
+  position:absolute;bottom:12px;right:14px;
+  background:rgba(255,255,255,.15);border:none;
+  border-radius:50%;width:28px;height:28px;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;color:rgba(255,255,255,.8);
+  backdrop-filter:blur(4px);
+  transition:background .15s;
+}
+.wcard-expand-btn:hover{background:rgba(255,255,255,.25);}
+.wcard-expand-btn svg{width:13px;height:13px;}
+
+/* 收起時的疊卡效果容器 */
+.stack-wrapper{
+  position:relative;cursor:pointer;
+  margin-bottom:1.5rem;
+}
 
 /* ── Empty State ── */
 .empty{
   display:flex;flex-direction:column;align-items:center;
-  justify-content:center;padding:4rem 2rem;text-align:center;
-  gap:1rem;
+  justify-content:center;padding:4rem 2rem;text-align:center;gap:1rem;
 }
 .empty-icon{
-  width:64px;height:64px;
-  border:2px solid var(--border2);border-radius:20px;
-  display:flex;align-items:center;justify-content:center;
-  color:var(--text3);margin-bottom:.5rem;
+  width:60px;height:60px;border:1.5px solid var(--border2);
+  border-radius:18px;display:flex;align-items:center;
+  justify-content:center;color:var(--text3);margin-bottom:.5rem;
 }
-.empty-icon svg{width:28px;height:28px;}
-.empty-title{font-size:1.0625rem;font-weight:500;color:var(--text);}
-.empty-sub{font-size:.875rem;color:var(--text2);line-height:1.6;max-width:260px;}
+.empty-icon svg{width:26px;height:26px;}
+.empty-title{font-size:1rem;font-weight:500;color:var(--text);}
+.empty-sub{font-size:.875rem;color:var(--text2);line-height:1.6;max-width:240px;}
 .empty-btn{
-  margin-top:.5rem;
-  padding:.7rem 1.6rem;border-radius:50px;
+  margin-top:.5rem;padding:.68rem 1.6rem;border-radius:50px;
   background:var(--accent);border:none;color:#fff;
-  font-family:'Noto Sans TC',sans-serif;
-  font-size:.9375rem;cursor:pointer;
-  transition:background .15s;
+  font-family:'Noto Sans TC',sans-serif;font-size:.9375rem;
+  cursor:pointer;transition:background .15s;
 }
-.empty-btn:hover{background:var(--accent2);}
+.empty-btn:active{background:var(--accent2);}
 
-/* ── Modal Overlay ── */
+/* ── Modals ── */
 .overlay{
-  display:none;
-  position:fixed;inset:0;z-index:200;
-  background:rgba(0,0,0,.7);
-  backdrop-filter:blur(8px);
+  display:none;position:fixed;inset:0;z-index:200;
+  background:rgba(0,0,0,.65);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
   align-items:flex-end;justify-content:center;
 }
 @media(min-width:600px){.overlay{align-items:center;}}
-.overlay.active{display:flex;animation:fadeIn .2s ease;}
-@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+.overlay.active{display:flex;animation:fadeIn .18s ease;}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
-/* ── Add Modal ── */
-.add-modal{
+.sheet{
   background:var(--bg2);
   border:1px solid var(--border2);
-  border-radius:20px 20px 0 0;
-  padding:1.5rem 1.25rem 2rem;
-  width:100%;max-width:480px;
-  animation:slideUp .25s ease;
+  border-radius:22px 22px 0 0;
+  padding:1.4rem 1.25rem calc(1.8rem + var(--safe-bot));
+  width:100%;max-width:500px;
+  animation:slideUp .22s ease;
 }
 @media(min-width:600px){
-  .add-modal{border-radius:20px;margin:1rem;}
+  .sheet{border-radius:22px;margin:1rem;padding-bottom:1.8rem;}
 }
-@keyframes slideUp{from{transform:translateY(40px);opacity:0;}to{transform:translateY(0);opacity:1;}}
+@keyframes slideUp{from{transform:translateY(36px);opacity:0}to{transform:none;opacity:1}}
 
-.modal-title{
+.sheet-title{
   font-family:'Space Grotesk',sans-serif;
-  font-size:1.0625rem;font-weight:600;
-  margin-bottom:1.25rem;
+  font-size:1.0625rem;font-weight:600;margin-bottom:1.2rem;
 }
-.modal-label{
-  font-size:.8125rem;color:var(--text2);
-  margin-bottom:.4rem;display:block;
+.sheet-label{
+  font-size:.8125rem;color:var(--text2);margin-bottom:.4rem;display:block;
 }
-.modal-input{
+.sheet-input{
   width:100%;background:var(--bg3);
   border:1px solid var(--border2);border-radius:var(--r-sm);
-  padding:.7rem .9rem;color:var(--text);
+  padding:.68rem .9rem;color:var(--text);
   font-family:'Noto Sans TC',sans-serif;font-size:.9375rem;
-  outline:none;transition:border-color .15s;
-  margin-bottom:1rem;
+  outline:none;transition:border-color .15s;margin-bottom:1rem;
 }
-.modal-input:focus{border-color:var(--accent);}
-.modal-btns{display:flex;gap:.6rem;margin-top:.25rem;}
+.sheet-input:focus{border-color:rgba(41,121,255,.6);}
+.sheet-btns{display:flex;gap:.6rem;}
 .btn-primary{
-  flex:1;padding:.72rem;border-radius:var(--r-sm);
+  flex:1;padding:.7rem;border-radius:var(--r-sm);
   background:var(--accent);border:none;color:#fff;
   font-family:'Noto Sans TC',sans-serif;font-size:.9375rem;
   cursor:pointer;transition:background .15s;font-weight:500;
 }
-.btn-primary:hover{background:var(--accent2);}
+.btn-primary:active{background:var(--accent2);}
 .btn-primary:disabled{background:var(--bg3);color:var(--text3);cursor:not-allowed;}
 .btn-ghost{
-  padding:.72rem 1.2rem;border-radius:var(--r-sm);
+  padding:.7rem 1.2rem;border-radius:var(--r-sm);
   background:transparent;border:1px solid var(--border2);
   color:var(--text2);font-family:'Noto Sans TC',sans-serif;
-  font-size:.9375rem;cursor:pointer;transition:border-color .15s;
+  font-size:.9375rem;cursor:pointer;
 }
-.btn-ghost:hover{border-color:var(--border2);color:var(--text);}
-
-.modal-or{
-  text-align:center;color:var(--text3);
-  font-size:.8125rem;margin:.75rem 0;
-  position:relative;
+.sheet-or{
+  text-align:center;color:var(--text3);font-size:.8125rem;margin:.8rem 0;
+  display:flex;align-items:center;gap:.75rem;
 }
-.modal-or::before,.modal-or::after{
-  content:'';position:absolute;top:50%;
-  width:40%;height:1px;background:var(--border);
-}
-.modal-or::before{left:0;}
-.modal-or::after{right:0;}
-
+.sheet-or::before,.sheet-or::after{content:'';flex:1;height:1px;background:var(--border);}
 .scan-btn{
-  width:100%;padding:.72rem;border-radius:var(--r-sm);
+  width:100%;padding:.7rem;border-radius:var(--r-sm);
   background:var(--bg3);border:1px solid var(--border2);
   color:var(--text);font-family:'Noto Sans TC',sans-serif;
   font-size:.9375rem;cursor:pointer;
   display:flex;align-items:center;justify-content:center;gap:.5rem;
-  transition:border-color .15s;
 }
-.scan-btn:hover{border-color:var(--border2);background:var(--bg3);}
-.scan-btn svg{width:18px;height:18px;flex-shrink:0;}
+.scan-btn svg{width:17px;height:17px;flex-shrink:0;}
 
-/* ── Camera Modal ── */
-.camera-modal{
-  background:var(--bg2);
-  border:1px solid var(--border2);
-  border-radius:20px 20px 0 0;
-  padding:1.25rem 1.25rem 2rem;
-  width:100%;max-width:480px;
-  animation:slideUp .25s ease;
+/* Camera sheet */
+.camera-sheet{
+  background:#000;
+  border-radius:22px 22px 0 0;
+  padding:0;width:100%;max-width:500px;
+  overflow:hidden;animation:slideUp .22s ease;
 }
-@media(min-width:600px){.camera-modal{border-radius:20px;margin:1rem;}}
+@media(min-width:600px){.camera-sheet{border-radius:22px;margin:1rem;}}
 #camera-video{
-  width:100%;border-radius:var(--r-sm);
-  background:#000;display:block;
-  max-height:340px;object-fit:cover;
+  width:100%;display:block;background:#000;
+  max-height:60svh;object-fit:cover;
 }
-.camera-hint{
-  text-align:center;color:var(--text2);
-  font-size:.8125rem;margin:.75rem 0 1rem;
+.camera-footer{
+  background:#111;padding:1rem 1.25rem calc(1.4rem + var(--safe-bot));
+  display:flex;flex-direction:column;align-items:center;gap:.75rem;
+}
+.camera-hint{font-size:.875rem;color:rgba(255,255,255,.5);}
+.camera-cancel{
+  padding:.6rem 2rem;border-radius:50px;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);
+  color:rgba(255,255,255,.7);font-family:'Noto Sans TC',sans-serif;
+  font-size:.875rem;cursor:pointer;
 }
 #scan-canvas{display:none;}
 
-/* ── Detail Modal ── */
-.detail-modal{
+/* Detail sheet */
+.detail-sheet{
   background:var(--bg2);
   border:1px solid var(--border2);
-  border-radius:20px 20px 0 0;
-  padding:1.25rem 1.25rem 2rem;
-  width:100%;max-width:480px;
-  animation:slideUp .25s ease;
-  max-height:90svh;overflow-y:auto;
+  border-radius:22px 22px 0 0;
+  width:100%;max-width:500px;
+  animation:slideUp .22s ease;
+  max-height:92svh;overflow-y:auto;
+  padding:1.25rem 1.25rem calc(1.8rem + var(--safe-bot));
 }
-@media(min-width:600px){.detail-modal{border-radius:20px;margin:1rem;}}
-.detail-img{
-  width:100%;aspect-ratio:16/9;
-  object-fit:cover;border-radius:var(--r-sm);
-  margin-bottom:1rem;background:var(--bg3);display:block;
-}
-.detail-img-placeholder{
-  width:100%;aspect-ratio:16/9;
-  border-radius:var(--r-sm);margin-bottom:1rem;
+@media(min-width:600px){.detail-sheet{border-radius:22px;margin:1rem;padding-bottom:1.8rem;}}
+.detail-card-preview{
+  width:100%;height:160px;border-radius:14px;
+  overflow:hidden;position:relative;margin-bottom:1rem;
   background:var(--bg3);
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Space Grotesk',sans-serif;
-  font-size:2rem;font-weight:600;color:rgba(255,255,255,.15);
 }
-.detail-title{
-  font-size:1.0625rem;font-weight:500;
-  margin-bottom:.4rem;line-height:1.4;
+.detail-card-preview img{
+  width:100%;height:100%;object-fit:cover;display:block;
 }
-.detail-desc{
-  font-size:.875rem;color:var(--text2);
-  line-height:1.6;margin-bottom:.85rem;
-}
+.detail-card-preview .wcard-overlay{border-radius:14px;}
+.detail-title{font-size:1rem;font-weight:500;margin-bottom:.35rem;line-height:1.4;}
+.detail-desc{font-size:.875rem;color:var(--text2);line-height:1.6;margin-bottom:.7rem;}
 .detail-url{
-  font-size:.8125rem;color:var(--accent);
-  word-break:break-all;margin-bottom:1rem;
-  text-decoration:none;display:block;
+  font-size:.8125rem;color:var(--accent);word-break:break-all;
+  text-decoration:none;display:block;margin-bottom:1rem;
 }
-.detail-url:hover{text-decoration:underline;}
-.detail-section-label{
-  font-size:.75rem;color:var(--text3);
-  letter-spacing:.06em;text-transform:uppercase;
-  margin-bottom:.5rem;margin-top:.85rem;
+.detail-url:active{opacity:.7;}
+.dlabel{
+  font-size:.7rem;color:var(--text3);letter-spacing:.06em;
+  text-transform:uppercase;margin-bottom:.45rem;margin-top:.8rem;
 }
-.tag-edit-wrap{
-  display:flex;flex-wrap:wrap;gap:.35rem;
-  margin-bottom:.25rem;
-}
-.tag-editable{
+.tag-wrap{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.25rem;}
+.tag-chip{
   display:flex;align-items:center;gap:.25rem;
-  padding:.2rem .55rem .2rem .6rem;
-  border-radius:50px;background:rgba(41,121,255,.15);
-  border:1px solid rgba(41,121,255,.2);
+  padding:.18rem .55rem .18rem .6rem;border-radius:50px;
+  background:rgba(41,121,255,.15);border:1px solid rgba(41,121,255,.2);
   font-size:.75rem;color:rgba(100,160,255,.9);
 }
-.tag-del{
+.tag-chip-del{
   background:transparent;border:none;cursor:pointer;
-  color:rgba(100,160,255,.6);padding:0;line-height:1;
-  font-size:.85rem;
+  color:rgba(100,160,255,.55);font-size:.9rem;padding:0;line-height:1;
 }
-.tag-add-input{
+.tag-add-inp{
   background:var(--bg3);border:1px solid var(--border2);
-  border-radius:50px;padding:.22rem .7rem;
+  border-radius:50px;padding:.2rem .7rem;
   color:var(--text);font-family:'Noto Sans TC',sans-serif;
-  font-size:.8125rem;outline:none;width:100px;
+  font-size:.8125rem;outline:none;width:90px;
   transition:border-color .15s;
 }
-.tag-add-input:focus{border-color:var(--accent);}
-.note-input{
+.tag-add-inp:focus{border-color:rgba(41,121,255,.5);}
+.note-inp{
   width:100%;background:var(--bg3);
   border:1px solid var(--border2);border-radius:var(--r-sm);
   padding:.65rem .85rem;color:var(--text);
   font-family:'Noto Sans TC',sans-serif;font-size:.875rem;
-  outline:none;resize:none;min-height:80px;
+  outline:none;resize:none;min-height:72px;
   transition:border-color .15s;line-height:1.6;
 }
-.note-input:focus{border-color:var(--accent);}
-.detail-actions{
-  display:flex;gap:.6rem;margin-top:1.25rem;
-}
+.note-inp:focus{border-color:rgba(41,121,255,.5);}
+.detail-actions{display:flex;gap:.6rem;margin-top:1.2rem;}
 .btn-open{
   flex:1;padding:.68rem;border-radius:var(--r-sm);
   background:var(--accent);border:none;color:#fff;
   font-family:'Noto Sans TC',sans-serif;font-size:.875rem;
-  cursor:pointer;transition:background .15s;
-  display:flex;align-items:center;justify-content:center;gap:.4rem;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.4rem;
 }
-.btn-open:hover{background:var(--accent2);}
-.btn-open svg{width:15px;height:15px;}
+.btn-open svg{width:14px;height:14px;}
 .btn-danger{
   padding:.68rem 1rem;border-radius:var(--r-sm);
-  background:transparent;border:1px solid rgba(220,53,69,.35);
-  color:rgba(220,53,69,.75);font-family:'Noto Sans TC',sans-serif;
-  font-size:.875rem;cursor:pointer;transition:all .15s;
+  background:transparent;border:1px solid rgba(220,53,69,.3);
+  color:rgba(220,53,69,.7);font-family:'Noto Sans TC',sans-serif;
+  font-size:.875rem;cursor:pointer;
 }
-.btn-danger:hover{background:rgba(220,53,69,.1);border-color:rgba(220,53,69,.6);}
 
-/* ── Toast ── */
+/* Toast */
 .toast{
-  position:fixed;bottom:calc(1.5rem + env(safe-area-inset-bottom));
+  position:fixed;
+  bottom:calc(1.25rem + var(--safe-bot));
   left:50%;transform:translateX(-50%);
-  background:var(--bg3);border:1px solid var(--border2);
-  border-radius:50px;padding:.55rem 1.25rem;
+  background:rgba(40,40,40,.95);
+  border:1px solid var(--border2);
+  border-radius:50px;padding:.5rem 1.2rem;
   font-size:.875rem;color:var(--text);
   white-space:nowrap;z-index:500;
-  animation:toastIn .2s ease;pointer-events:none;
-  box-shadow:0 8px 24px rgba(0,0,0,.4);
+  animation:toastIn .18s ease;pointer-events:none;
+  box-shadow:0 6px 24px rgba(0,0,0,.5);
+  backdrop-filter:blur(8px);
 }
-@keyframes toastIn{from{opacity:0;transform:translateX(-50%) translateY(10px);}to{opacity:1;transform:translateX(-50%) translateY(0);}}
+@keyframes toastIn{from{opacity:0;transform:translateX(-50%) translateY(8px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
 
-/* ── Loading Skeleton ── */
-.skeleton{
-  border-radius:var(--r);overflow:hidden;
-  background:var(--card);border:1px solid var(--border);
+/* Skeleton */
+.skeleton-card{
+  width:100%;height:160px;border-radius:var(--r);
+  background:var(--bg3);margin-bottom:.75rem;overflow:hidden;
 }
-.skeleton-img{
-  width:100%;aspect-ratio:16/9;
+.skeleton-shimmer{
+  width:100%;height:100%;
   background:linear-gradient(90deg,var(--bg3) 25%,var(--bg2) 50%,var(--bg3) 75%);
-  background-size:200% 100%;
-  animation:shimmer 1.4s infinite;
+  background-size:200% 100%;animation:shimmer 1.4s infinite;
 }
-.skeleton-body{padding:.75rem .8rem .8rem;}
-.skeleton-line{
-  height:12px;border-radius:4px;margin-bottom:.5rem;
-  background:linear-gradient(90deg,var(--bg3) 25%,var(--bg2) 50%,var(--bg3) 75%);
-  background-size:200% 100%;
-  animation:shimmer 1.4s infinite;
-}
-.skeleton-line.short{width:60%;}
-.skeleton-line.shorter{width:40%;}
-@keyframes shimmer{0%{background-position:200% 0;}100%{background-position:-200% 0;}}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
 </style>
 </head>
 <body>
 
-<!-- Top Bar -->
 <header class="topbar">
   <a class="topbar-brand" href="/home">
-    <span class="lin">LIN</span><span class="ket">Ket</span>&nbsp;<span class="case">Case</span>
+    <span>LIN<span class="ket">Ket</span></span>
+    <span class="case-label">&nbsp;Case</span>
   </a>
-  <span class="topbar-count" id="cardCount"></span>
-  <button class="topbar-add" onclick="openAddModal()" aria-label="新增名片">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-      <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
-    </svg>
-  </button>
+  <div class="topbar-right">
+    <span class="topbar-count" id="cardCount"></span>
+    <button class="topbar-add" onclick="openAddSheet()" aria-label="新增名片">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+      </svg>
+    </button>
+  </div>
 </header>
 
-<!-- Search -->
 <div class="search-wrap">
   <div class="search-box">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
       <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
     </svg>
     <input class="search-input" id="searchInput" type="text"
-           placeholder="搜尋品牌名稱、標籤、備註..."
-           oninput="renderCards()">
+      placeholder="搜尋名稱、標籤、備註..." oninput="render()">
   </div>
-  <div class="filter-scroll" id="filterScroll"></div>
 </div>
+<div class="case-tabs" id="caseTabs"></div>
 
-<!-- Main Grid -->
-<main class="main">
-  <div class="grid" id="grid"></div>
-</main>
+<main class="main" id="main"></main>
 
-<!-- ── 新增名片 Modal ── -->
+<!-- 新增 Sheet -->
 <div class="overlay" id="addOverlay" onclick="closeOnBg(event,'addOverlay')">
-  <div class="add-modal">
-    <div class="modal-title">新增名片</div>
-    <label class="modal-label">貼入 LINKet 連結</label>
-    <input class="modal-input" id="urlInput" type="url"
-           placeholder="https://linket.app/..."
-           onkeydown="if(event.key==='Enter')addByUrl()">
-    <div class="modal-btns">
-      <button class="btn-ghost" onclick="closeModal('addOverlay')">取消</button>
-      <button class="btn-primary" id="addUrlBtn" onclick="addByUrl()">加入名片夾</button>
+  <div class="sheet">
+    <div class="sheet-title">新增名片</div>
+    <label class="sheet-label">貼入網址</label>
+    <input class="sheet-input" id="urlInput" type="url"
+      placeholder="https://linket.app/..."
+      onkeydown="if(event.key==='Enter')addByUrl()">
+    <div class="sheet-btns">
+      <button class="btn-ghost" onclick="closeSheet('addOverlay')">取消</button>
+      <button class="btn-primary" id="addBtn" onclick="addByUrl()">加入名片夾</button>
     </div>
-    <div class="modal-or">或</div>
+    <div class="sheet-or">或</div>
     <button class="scan-btn" onclick="openCamera()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-        <rect x="2" y="2" width="7" height="7" rx="1.5"/>
-        <rect x="15" y="2" width="7" height="7" rx="1.5"/>
+        <rect x="2" y="2" width="7" height="7" rx="1.5"/><rect x="15" y="2" width="7" height="7" rx="1.5"/>
         <rect x="2" y="15" width="7" height="7" rx="1.5"/>
         <line x1="15" y1="15" x2="22" y2="15"/><line x1="22" y1="15" x2="22" y2="22"/>
         <line x1="15" y1="22" x2="22" y2="22"/><line x1="15" y1="15" x2="15" y2="22"/>
@@ -528,461 +508,474 @@ body{
   </div>
 </div>
 
-<!-- ── 相機掃描 Modal ── -->
+<!-- 相機 Sheet（無背景點擊關閉）-->
 <div class="overlay" id="cameraOverlay">
-  <div class="camera-modal">
-    <div class="modal-title" style="margin-bottom:.85rem;">掃描 QRcode</div>
-    <video id="camera-video" playsinline autoplay muted></video>
-    <canvas id="scan-canvas"></canvas>
-    <div class="camera-hint">將 QRcode 對準鏡頭</div>
-    <button class="btn-ghost" style="width:100%;" onclick="stopCamera()">取消</button>
+  <div class="camera-sheet">
+    <video id="camVideo" playsinline webkit-playsinline muted autoplay></video>
+    <canvas id="scanCanvas" style="display:none"></canvas>
+    <div class="camera-footer">
+      <div class="camera-hint" id="camHint">將 QRcode 對準鏡頭</div>
+      <button class="camera-cancel" onclick="stopCamera()">取消</button>
+    </div>
   </div>
 </div>
 
-<!-- ── 名片詳情 Modal ── -->
+<!-- 詳情 Sheet -->
 <div class="overlay" id="detailOverlay" onclick="closeOnBg(event,'detailOverlay')">
-  <div class="detail-modal" id="detailModal"></div>
+  <div class="detail-sheet" id="detailSheet"></div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jsqr/1.4.0/jsQR.min.js"></script>
 <script>
-const STORAGE_KEY = 'linket_case_v1';
-let activeFilter = '全部';
-let cameraStream = null;
-let scanInterval = null;
-let currentDetailId = null;
+/* ────────────────────────
+   State
+──────────────────────── */
+const STORE = 'linket_case_v1';
+let activeTag = '全部';
+let camStream = null;
+let rafId = null;
+let currentId = null;
+let isExpanded = false; // wallet 展開狀態
 
-/* ── Storage ── */
-function getCards(){
-  try{ return JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]'); }
-  catch(e){ return []; }
-}
-function saveCards(cards){ localStorage.setItem(STORAGE_KEY,JSON.stringify(cards)); }
+/* ────────────────────────
+   Storage
+──────────────────────── */
+const load = ()=>{ try{ return JSON.parse(localStorage.getItem(STORE)||'[]'); } catch(e){ return []; } };
+const save = c => localStorage.setItem(STORE, JSON.stringify(c));
 
-function addCard(card){
-  const cards = getCards();
-  if(cards.find(c=>c.url===card.url)) return {ok:false,reason:'dup'};
-  cards.unshift(card);
-  saveCards(cards);
-  return {ok:true};
-}
-function deleteCard(id){
-  saveCards(getCards().filter(c=>c.id!==id));
-}
-function updateCard(id,updates){
-  saveCards(getCards().map(c=>c.id===id?{...c,...updates}:c));
-}
+const addCard = c => {
+  const cards = load();
+  if(cards.find(x=>x.url===c.url)) return false;
+  cards.unshift(c); save(cards); return true;
+};
+const delCard = id => save(load().filter(c=>c.id!==id));
+const updCard = (id,u) => save(load().map(c=>c.id===id?{...c,...u}:c));
 
-/* ── Fetch OG info ── */
-async function fetchCardInfo(rawUrl){
+/* ────────────────────────
+   Fetch OG
+──────────────────────── */
+async function fetchOG(rawUrl){
   let url = rawUrl.trim();
-  if(!/^https?:\/\//i.test(url)) url = 'https://'+url;
+  if(!/^https?:\/\//i.test(url)) url='https://'+url;
 
-  const proxy = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
-  const res = await fetch(proxy,{signal:AbortSignal.timeout(10000)});
-  if(!res.ok) throw new Error('fetch failed');
-  const data = await res.json();
-  const html = data.contents||'';
+  const proxies=[
+    `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`,
+    `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`
+  ];
+  let html='';
+  for(const p of proxies){
+    try{
+      const r = await fetch(p,{signal:AbortSignal.timeout(8000)});
+      if(!r.ok) continue;
+      const ct = r.headers.get('content-type')||'';
+      html = ct.includes('json') ? (await r.json()).contents||'' : await r.text();
+      if(html.length>100) break;
+    } catch(e){ continue; }
+  }
 
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(html,'text/html');
-
-  const og = (prop)=>{
-    const el = doc.querySelector(`meta[property="${prop}"],meta[name="${prop}"]`);
-    return el?el.getAttribute('content'):'';
-  };
+  let title=url, desc='', image='', favicon='';
+  if(html){
+    const doc = new DOMParser().parseFromString(html,'text/html');
+    const og = k=>{const el=doc.querySelector(`meta[property="${k}"],meta[name="${k}"]`);return el?el.getAttribute('content'):''};
+    title = og('og:title')||doc.title||url;
+    desc  = og('og:description')||og('description')||'';
+    image = og('og:image')||'';
+    if(image && !/^https?:/.test(image)){
+      try{ const b=new URL(url); image=b.origin+(image.startsWith('/')?image:'/'+image); } catch(e){ image=''; }
+    }
+    // favicon
+    const fl=doc.querySelector('link[rel*="icon"]');
+    if(fl){ try{ const b=new URL(url); favicon=new URL(fl.getAttribute('href'),b.origin).href; } catch(e){} }
+    if(!favicon) try{ favicon=new URL(url).origin+'/favicon.ico'; } catch(e){}
+  }
 
   return {
-    id: Date.now().toString(36)+Math.random().toString(36).slice(2,6),
-    url,
-    title: og('og:title')||doc.title||url,
-    description: og('og:description')||'',
-    image: og('og:image')||'',
+    id: Date.now().toString(36)+Math.random().toString(36).slice(2,5),
+    url, title, desc, image, favicon,
     addedAt: new Date().toISOString(),
-    tags:[],
-    note:''
+    tags:[], note:''
   };
 }
 
-/* ── Add by URL ── */
-async function addByUrl(){
-  const input = document.getElementById('urlInput');
-  const btn = document.getElementById('addUrlBtn');
-  const url = input.value.trim();
-  if(!url) return;
-
-  btn.disabled=true; btn.textContent='擷取中...';
-
+/* ────────────────────────
+   Brand color from domain
+──────────────────────── */
+const DOMAIN_COLORS = {
+  'linket.app':'#2979ff','linket.net':'#2979ff',
+  'instagram.com':'#e1306c','facebook.com':'#1877f2',
+  'youtube.com':'#ff0000','threads.net':'#000',
+  'line.me':'#06c755','tiktok.com':'#010101',
+  'twitter.com':'#1da1f2','x.com':'#000',
+};
+function brandColor(url){
   try{
-    const card = await fetchCardInfo(url);
-    const result = addCard(card);
-    if(result.ok){
-      closeModal('addOverlay');
-      input.value='';
-      renderCards();
-      updateCount();
-      showToast('已加入名片夾');
-    } else {
-      showToast('此名片已存在');
-    }
-  } catch(e){
-    showToast('無法擷取頁面，請確認連結');
-  } finally {
-    btn.disabled=false; btn.textContent='加入名片夾';
-  }
+    const host = new URL(url).hostname.replace('www.','');
+    for(const [k,v] of Object.entries(DOMAIN_COLORS)) if(host.includes(k)) return v;
+  } catch(e){}
+  // 從 URL hash 生成顏色
+  let h=0; for(const c of url) h=(h*31+c.charCodeAt(0))&0xffffffff;
+  const hue = Math.abs(h)%360;
+  return `hsl(${hue},40%,22%)`;
 }
 
-/* ── Camera QR Scan ── */
-async function openCamera(){
-  closeModal('addOverlay');
-
-  // 先取得相機權限，成功後才顯示 modal
-  // 避免系統「允許相機」對話框關閉時誤觸 overlay click
-  try{
-    cameraStream = await navigator.mediaDevices.getUserMedia({
-      video:{ facingMode:'environment', width:{ideal:1280}, height:{ideal:720} }
-    });
-  } catch(e){
-    showToast('無法開啟相機，請允許相機權限');
-    return;
-  }
-
-  // 取得成功後再顯示 modal
-  document.getElementById('cameraOverlay').classList.add('active');
-
-  const video = document.getElementById('camera-video');
-  video.srcObject = cameraStream;
-
-  try{
-    await new Promise((resolve, reject)=>{
-      video.onplaying = resolve;
-      video.onerror  = reject;
-      video.play().catch(reject);
-      setTimeout(resolve, 3000);
-    });
-    startScan();
-  } catch(e){
-    stopCamera();
-    showToast('相機啟動失敗，請重試');
-  }
-}
-
-function startScan(){
-  if(typeof jsQR === 'undefined'){
-    stopCamera();
-    showToast('掃描模組載入失敗，請改用貼入連結');
-    return;
-  }
-  const video = document.getElementById('camera-video');
-  const canvas = document.getElementById('scan-canvas');
-  const ctx = canvas.getContext('2d');
-  let scanning = true;
-  let lastScan = 0;
-  function tick(now){
-    if(!scanning) return;
-    scanInterval = requestAnimationFrame(tick);
-    if(now - lastScan < 250) return;
-    lastScan = now;
-    if(!video.videoWidth || !video.videoHeight) return;
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
-    try{ ctx.drawImage(video, 0, 0, canvas.width, canvas.height); }
-    catch(e){ return; }
-    let imageData;
-    try{ imageData = ctx.getImageData(0, 0, canvas.width, canvas.height); }
-    catch(e){ return; }
-    const code = jsQR(imageData.data, imageData.width, imageData.height, {
-      inversionAttempts: 'dontInvert'
-    });
-    if(code && code.data){
-      scanning = false;
-      cancelAnimationFrame(scanInterval);
-      stopCamera();
-      handleScannedUrl(code.data);
-    }
-  }
-  scanInterval = requestAnimationFrame(tick);
-}
-
-function stopCamera(){
-  cancelAnimationFrame(scanInterval);
-  clearInterval(scanInterval);
-  if(cameraStream){
-    cameraStream.getTracks().forEach(t=>t.stop());
-    cameraStream=null;
-  }
-  closeModal('cameraOverlay');
-}
-
-async function handleScannedUrl(url){
-  showToast('掃描成功，擷取中...');
-  try{
-    const card = await fetchCardInfo(url);
-    const result = addCard(card);
-    if(result.ok){
-      renderCards(); updateCount();
-      showToast('已加入名片夾');
-    } else {
-      showToast('此名片已存在');
-    }
-  } catch(e){
-    showToast('無法擷取頁面資訊');
-  }
-}
-
-/* ── Render ── */
-function getFilteredCards(){
-  const q = document.getElementById('searchInput').value.trim().toLowerCase();
-  let cards = getCards();
-  if(activeFilter!=='全部'){
-    cards = cards.filter(c=>c.tags.includes(activeFilter));
-  }
-  if(q){
-    cards = cards.filter(c=>
-      c.title.toLowerCase().includes(q)||
-      c.description.toLowerCase().includes(q)||
-      c.tags.some(t=>t.toLowerCase().includes(q))||
-      (c.note||'').toLowerCase().includes(q)||
-      c.url.toLowerCase().includes(q)
-    );
-  }
+/* ────────────────────────
+   Render
+──────────────────────── */
+function filtered(){
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  let cards = load();
+  if(activeTag!=='全部') cards=cards.filter(c=>c.tags.includes(activeTag));
+  if(q) cards=cards.filter(c=>
+    [c.title,c.desc,...c.tags,c.note,c.url].some(s=>(s||'').toLowerCase().includes(q))
+  );
   return cards;
 }
 
-function getAllTags(){
-  const all = getCards().flatMap(c=>c.tags);
-  return [...new Set(all)].sort();
+function allTags(){ return[...new Set(load().flatMap(c=>c.tags))].sort(); }
+
+function renderTabs(){
+  const tags=['全部',...allTags()];
+  document.getElementById('caseTabs').innerHTML = tags.map(t=>`
+    <button class="case-tab${t===activeTag?' active':''}" onclick="setTag('${esc(t)}')" style="--tab-color:${t==='全部'?'var(--accent)':'#aaa'}">
+      <span class="tab-dot"></span>${esc(t)}
+    </button>`).join('');
 }
 
-function renderFilters(){
-  const tags = getAllTags();
-  const scroll = document.getElementById('filterScroll');
-  const filters = ['全部',...tags];
-  scroll.innerHTML = filters.map(t=>`
-    <button class="filter-pill${t===activeFilter?' active':''}"
-      onclick="setFilter('${t}')">${t}</button>
-  `).join('');
-}
+function setTag(t){ activeTag=t; renderTabs(); render(); }
 
-function setFilter(tag){
-  activeFilter = tag;
-  renderFilters();
-  renderCards();
-}
+function render(){
+  const cards = filtered();
+  const main = document.getElementById('main');
+  renderTabs();
+  updateCount();
 
-function renderCards(){
-  const grid = document.getElementById('grid');
-  const cards = getFilteredCards();
-  renderFilters();
-
-  if(cards.length===0){
-    const allCards = getCards();
-    if(allCards.length===0){
-      grid.innerHTML=`
-        <div class="empty" style="grid-column:1/-1">
-          <div class="empty-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-              <rect x="2" y="3" width="20" height="14" rx="2"/>
-              <path d="M8 21h8M12 17v4"/>
-            </svg>
-          </div>
-          <div class="empty-title">名片夾是空的</div>
-          <div class="empty-sub">掃描 QRcode 或貼入連結，開始收藏你的數位名片</div>
-          <button class="empty-btn" onclick="openAddModal()">+ 新增第一張名片</button>
-        </div>`;
-    } else {
-      grid.innerHTML=`
-        <div class="empty" style="grid-column:1/-1">
-          <div class="empty-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-            </svg>
-          </div>
-          <div class="empty-title">找不到結果</div>
-          <div class="empty-sub">試試其他關鍵字或標籤</div>
-        </div>`;
-    }
+  if(!cards.length){
+    const all=load();
+    main.innerHTML=`<div class="empty">
+      <div class="empty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+      <div class="empty-title">${all.length?'找不到結果':'名片夾是空的'}</div>
+      <div class="empty-sub">${all.length?'試試其他關鍵字':'掃描 QRcode 或貼入連結，開始收藏'}</div>
+      ${!all.length?`<button class="empty-btn" onclick="openAddSheet()">+ 新增第一張名片</button>`:''}
+    </div>`;
     return;
   }
 
-  grid.innerHTML = cards.map(c=>{
-    const domainMatch = c.url.match(/linket\.app\/([^/?#]+)/);
-    const shortUrl = domainMatch ? 'linket.app/'+domainMatch[1] : c.url.replace(/^https?:\/\//,'').split('/')[0];
-    const initials = (c.title||'?').slice(0,2);
-    const dateStr = new Date(c.addedAt).toLocaleDateString('zh-TW',{month:'short',day:'numeric'});
-    const imgHtml = c.image
-      ? `<img class="card-img" src="${escHtml(c.image)}" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`+
-        `<div class="card-img-placeholder" style="display:none">${escHtml(initials)}</div>`
-      : `<div class="card-img-placeholder">${escHtml(initials)}</div>`;
-    const tagsHtml = c.tags.length
-      ? `<div class="card-tags">${c.tags.map(t=>`<span class="tag">${escHtml(t)}</span>`).join('')}</div>`
-      : '';
-    return `
-      <div class="card" onclick="openDetail('${c.id}')">
-        ${imgHtml}
-        <div class="card-body">
-          <div class="card-title">${escHtml(c.title)}</div>
-          ${c.description?`<div class="card-desc">${escHtml(c.description)}</div>`:''}
-          ${tagsHtml}
-          <div class="card-meta">
-            <span class="card-url">${escHtml(shortUrl)}</span>
-            <span class="card-date">${dateStr}</span>
-          </div>
+  // Apple Wallet 風格：疊卡顯示，點擊展開
+  const STACK_OFFSET = 44; // 每張卡片露出的高度
+  const CARD_H = 160;
+
+  if(isExpanded){
+    // 展開：所有卡片正常排列
+    main.innerHTML=`
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.85rem;">
+        <div style="font-size:.75rem;color:var(--text3);letter-spacing:.06em;text-transform:uppercase;">
+          ${cards.length} 張名片
         </div>
-        <button class="card-menu-btn" onclick="event.stopPropagation();openDetail('${c.id}')" aria-label="詳情">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <circle cx="12" cy="5" r="1.2" fill="currentColor"/>
-            <circle cx="12" cy="12" r="1.2" fill="currentColor"/>
-            <circle cx="12" cy="19" r="1.2" fill="currentColor"/>
-          </svg>
+        <button onclick="collapseWallet()" style="background:transparent;border:none;color:var(--text2);font-size:.8125rem;cursor:pointer;font-family:'Noto Sans TC',sans-serif;">
+          收起
+        </button>
+      </div>
+      ${cards.map(c=>cardHTML(c,true)).join('')}`;
+  } else {
+    // 收疊：Apple Wallet 疊卡
+    const totalH = CARD_H + (cards.length-1)*STACK_OFFSET;
+    const cardsHTML = cards.map((c,i)=>{
+      const bg = brandColor(c.url);
+      const zIndex = cards.length-i;
+      const translateY = i===0 ? 0 : `${i*STACK_OFFSET}px`;
+      const scale = 1 - i*0.015;
+      return `<div class="wallet-card" id="wc-${c.id}"
+        style="z-index:${zIndex};transform:translateY(${translateY}) scale(${scale});top:0;"
+        onclick="${i===0?`openDetail('${c.id}')`:`expandWallet()`}">
+        ${cardInner(c)}
+      </div>`;
+    }).join('');
+
+    main.innerHTML=`
+      <div class="stack-wrapper" style="height:${totalH}px;" onclick="expandWallet()">
+        ${cardsHTML}
+      </div>
+      <div style="text-align:center;margin-top:.5rem;">
+        <button onclick="expandWallet()" style="background:transparent;border:none;color:var(--text3);font-size:.8125rem;cursor:pointer;font-family:'Noto Sans TC',sans-serif;padding:.25rem .75rem;">
+          查看全部 ${cards.length} 張 ↓
         </button>
       </div>`;
-  }).join('');
+  }
+}
+
+function expandWallet(){ isExpanded=true; render(); }
+function collapseWallet(){ isExpanded=false; render(); }
+
+function cardInner(c){
+  const bg = brandColor(c.url);
+  const imgPart = c.image
+    ? `<img class="wcard-bg" src="${esc(c.image)}" alt="" loading="lazy" onerror="this.style.display='none'">`
+    : '';
+  const faviconPart = c.favicon
+    ? `<img class="wcard-favicon" src="${esc(c.favicon)}" alt="" onerror="this.style.display='none'">`
+    : `<div class="wcard-favicon"></div>`;
+  let domain='';
+  try{ domain=new URL(c.url).hostname.replace('www.',''); } catch(e){}
+  const tags = c.tags.slice(0,2).map(t=>`<span class="wcard-tag">${esc(t)}</span>`).join('');
+  return `<div class="wcard-inner">
+    <div class="wcard-color-bg" style="--wcard-bg:${bg}"></div>
+    ${imgPart}
+    <div class="wcard-overlay"></div>
+    <div class="wcard-brand">${faviconPart}<span class="wcard-domain">${esc(domain)}</span></div>
+    ${tags?`<div class="wcard-tags">${tags}</div>`:''}
+    <div class="wcard-bottom">
+      <div class="wcard-title">${esc(c.title)}</div>
+      ${c.desc?`<div class="wcard-desc">${esc(c.desc)}</div>`:''}
+    </div>
+  </div>`;
+}
+
+function cardHTML(c,expanded=false){
+  return `<div style="margin-bottom:.75rem;border-radius:var(--r);overflow:hidden;cursor:pointer;"
+    onclick="openDetail('${c.id}')">
+    ${cardInner(c)}
+  </div>`;
 }
 
 function updateCount(){
-  const n = getCards().length;
-  document.getElementById('cardCount').textContent = n ? n+'  張名片' : '';
+  const n=load().length;
+  document.getElementById('cardCount').textContent=n?n+'張':'';
 }
 
-/* ── Detail Modal ── */
+/* ────────────────────────
+   Add
+──────────────────────── */
+function openAddSheet(){
+  document.getElementById('addOverlay').classList.add('active');
+  setTimeout(()=>document.getElementById('urlInput')?.focus(),300);
+}
+
+async function addByUrl(){
+  const input=document.getElementById('urlInput');
+  const btn=document.getElementById('addBtn');
+  let url=input.value.trim();
+  if(!url){ showToast('請輸入連結'); return; }
+  if(!/^https?:\/\//i.test(url)) url='https://'+url;
+  if(load().find(c=>c.url===url)){ showToast('此名片已存在'); return; }
+
+  btn.disabled=true; btn.textContent='擷取中...';
+  try{
+    const card=await fetchOG(url);
+    if(addCard(card)){
+      closeSheet('addOverlay'); input.value='';
+      isExpanded=false; render(); showToast('已加入名片夾');
+    } else showToast('此名片已存在');
+  } catch(e){
+    // fallback
+    const fb={id:Date.now().toString(36),url,title:url,desc:'',image:'',favicon:'',addedAt:new Date().toISOString(),tags:[],note:''};
+    if(addCard(fb)){
+      closeSheet('addOverlay'); input.value='';
+      isExpanded=false; render(); showToast('已加入（無法擷取資訊）');
+    }
+  } finally{ btn.disabled=false; btn.textContent='加入名片夾'; }
+}
+
+/* ────────────────────────
+   Camera — 修正版
+──────────────────────── */
+async function openCamera(){
+  closeSheet('addOverlay');
+
+  // 先取得權限再顯示 modal（避免系統對話框誤觸 overlay）
+  let stream;
+  try{
+    // 優先後鏡頭，失敗改任意鏡頭
+    try{
+      stream = await navigator.mediaDevices.getUserMedia({
+        video:{ facingMode:{exact:'environment'} }
+      });
+    } catch(e){
+      stream = await navigator.mediaDevices.getUserMedia({ video:true });
+    }
+  } catch(e){
+    showToast('請允許相機存取後再試');
+    return;
+  }
+
+  camStream=stream;
+  document.getElementById('cameraOverlay').classList.add('active');
+
+  const video=document.getElementById('camVideo');
+  video.srcObject=stream;
+
+  // iOS 需要手動呼叫 play()
+  try{ await video.play(); } catch(e){}
+
+  // 等有畫面再開始掃
+  await new Promise(res=>{
+    const check=()=>{ if(video.videoWidth>0) res(); else requestAnimationFrame(check); };
+    requestAnimationFrame(check);
+    setTimeout(res,4000); // 最長等4秒
+  });
+
+  startScan();
+}
+
+function startScan(){
+  if(typeof jsQR==='undefined'){
+    stopCamera(); showToast('掃描模組載入失敗，請改用貼入連結'); return;
+  }
+  const video=document.getElementById('camVideo');
+  const canvas=document.getElementById('scanCanvas');
+  const ctx=canvas.getContext('2d');
+  let last=0;
+
+  const tick=now=>{
+    rafId=requestAnimationFrame(tick);
+    if(now-last<250) return;
+    last=now;
+    if(!video.videoWidth) return;
+    canvas.width=video.videoWidth; canvas.height=video.videoHeight;
+    try{ ctx.drawImage(video,0,0); } catch(e){ return; }
+    let px;
+    try{ px=ctx.getImageData(0,0,canvas.width,canvas.height); } catch(e){ return; }
+    const code=jsQR(px.data,px.width,px.height,{inversionAttempts:'dontInvert'});
+    if(code?.data){ cancelAnimationFrame(rafId); stopCamera(); handleScan(code.data); }
+  };
+  rafId=requestAnimationFrame(tick);
+}
+
+function stopCamera(){
+  cancelAnimationFrame(rafId); rafId=null;
+  camStream?.getTracks().forEach(t=>t.stop()); camStream=null;
+  document.getElementById('cameraOverlay').classList.remove('active');
+}
+
+async function handleScan(url){
+  showToast('掃描成功，擷取中...');
+  try{
+    const card=await fetchOG(url);
+    if(addCard(card)){ isExpanded=false; render(); showToast('已加入名片夾'); }
+    else showToast('此名片已存在');
+  } catch(e){
+    const fb={id:Date.now().toString(36),url,title:url,desc:'',image:'',favicon:'',addedAt:new Date().toISOString(),tags:[],note:''};
+    if(addCard(fb)){ isExpanded=false; render(); showToast('已加入（無法擷取資訊）'); }
+  }
+}
+
+/* ────────────────────────
+   Detail
+──────────────────────── */
 function openDetail(id){
-  const card = getCards().find(c=>c.id===id);
-  if(!card) return;
-  currentDetailId = id;
-
-  const initials = (card.title||'?').slice(0,2);
-  const imgHtml = card.image
-    ? `<img class="detail-img" src="${escHtml(card.image)}" alt="" loading="lazy">`
-    : `<div class="detail-img-placeholder">${escHtml(initials)}</div>`;
-
-  const tagsHtml = [
-    ...card.tags.map((t,i)=>`
-      <span class="tag-editable">
-        ${escHtml(t)}
-        <button class="tag-del" onclick="removeTag(${i})" aria-label="移除標籤">×</button>
-      </span>`),
-    `<input class="tag-add-input" id="tagInput" placeholder="+ 標籤"
-      onkeydown="if(event.key==='Enter'||event.key===','){event.preventDefault();addTag();}"
-      maxlength="12">`
+  const c=load().find(x=>x.id===id);
+  if(!c) return;
+  currentId=id;
+  const bg=brandColor(c.url);
+  const imgPart=c.image?`<img src="${esc(c.image)}" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">`:'' ;
+  const tagsHtml=[
+    ...c.tags.map((t,i)=>`<span class="tag-chip">${esc(t)}<button class="tag-chip-del" onclick="rmTag(${i})">×</button></span>`),
+    `<input class="tag-add-inp" id="tagInp" placeholder="+ 標籤" maxlength="12"
+      onkeydown="if(event.key==='Enter'||event.key===','){event.preventDefault();addTag()}">`
   ].join('');
+  let domain='';try{domain=new URL(c.url).hostname.replace('www.','');}catch(e){}
+  const dateStr=new Date(c.addedAt).toLocaleDateString('zh-TW',{year:'numeric',month:'short',day:'numeric'});
 
-  document.getElementById('detailModal').innerHTML=`
-    ${imgHtml}
-    <div class="detail-title">${escHtml(card.title)}</div>
-    ${card.description?`<div class="detail-desc">${escHtml(card.description)}</div>`:''}
-    <a class="detail-url" href="${escHtml(card.url)}" target="_blank" rel="noopener">${escHtml(card.url)}</a>
-
-    <div class="detail-section-label">標籤</div>
-    <div class="tag-edit-wrap" id="tagWrap">${tagsHtml}</div>
-
-    <div class="detail-section-label">備註</div>
-    <textarea class="note-input" id="noteInput"
-      placeholder="認識場合、備忘事項..."
-      onblur="saveNote()">${escHtml(card.note||'')}</textarea>
-
+  document.getElementById('detailSheet').innerHTML=`
+    <div class="detail-card-preview" style="background:${bg}">
+      ${imgPart}<div class="wcard-overlay"></div>
+    </div>
+    <div class="detail-title">${esc(c.title)}</div>
+    ${c.desc?`<div class="detail-desc">${esc(c.desc)}</div>`:''}
+    <a class="detail-url" href="${esc(c.url)}" target="_blank" rel="noopener">${esc(c.url)}</a>
+    <div style="font-size:.75rem;color:var(--text3);margin-bottom:.85rem;">${esc(domain)}　·　${dateStr}</div>
+    <div class="dlabel">標籤</div>
+    <div class="tag-wrap" id="tagWrap">${tagsHtml}</div>
+    <div class="dlabel">備註</div>
+    <textarea class="note-inp" id="noteInp" placeholder="認識場合、備忘事項...">${esc(c.note||'')}</textarea>
     <div class="detail-actions">
-      <button class="btn-open" onclick="window.open('${escHtml(card.url)}','_blank')">
+      <button class="btn-open" onclick="window.open('${esc(c.url)}','_blank')">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
           <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
           <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
-        </svg>
-        開啟名片頁
+        </svg>開啟名片頁
       </button>
-      <button class="btn-danger" onclick="confirmDelete('${id}')">刪除</button>
+      <button class="btn-danger" onclick="doDelete('${id}')">刪除</button>
     </div>`;
-
   document.getElementById('detailOverlay').classList.add('active');
 }
 
 function addTag(){
-  const input = document.getElementById('tagInput');
-  const val = input.value.trim().replace(/,/g,'');
+  const inp=document.getElementById('tagInp');
+  const val=inp.value.trim().replace(/,/g,'');
   if(!val) return;
-  const card = getCards().find(c=>c.id===currentDetailId);
-  if(!card||card.tags.includes(val)) { input.value=''; return; }
-  updateCard(currentDetailId,{tags:[...card.tags,val]});
-  input.value='';
-  openDetail(currentDetailId);
-  renderCards();
+  const c=load().find(x=>x.id===currentId);
+  if(!c||c.tags.includes(val)){inp.value='';return;}
+  updCard(currentId,{tags:[...c.tags,val]});
+  inp.value=''; openDetail(currentId); render();
 }
 
-function removeTag(idx){
-  const card = getCards().find(c=>c.id===currentDetailId);
-  if(!card) return;
-  const tags = card.tags.filter((_,i)=>i!==idx);
-  updateCard(currentDetailId,{tags});
-  openDetail(currentDetailId);
-  renderCards();
+function rmTag(i){
+  const c=load().find(x=>x.id===currentId);
+  if(!c) return;
+  updCard(currentId,{tags:c.tags.filter((_,j)=>j!==i)});
+  openDetail(currentId); render();
 }
 
 function saveNote(){
-  const val = document.getElementById('noteInput')?.value||'';
-  if(currentDetailId) updateCard(currentDetailId,{note:val});
+  const val=document.getElementById('noteInp')?.value||'';
+  if(currentId) updCard(currentId,{note:val});
 }
 
-function confirmDelete(id){
-  if(!confirm('確定要刪除這張名片？')) return;
-  deleteCard(id);
-  closeModal('detailOverlay');
-  renderCards();
-  updateCount();
-  showToast('已刪除');
+function doDelete(id){
+  if(!confirm('確定刪除？')) return;
+  delCard(id); closeSheet('detailOverlay');
+  render(); showToast('已刪除');
 }
 
-/* ── Modal helpers ── */
-function openAddModal(){
-  document.getElementById('addOverlay').classList.add('active');
-  setTimeout(()=>document.getElementById('urlInput')?.focus(),300);
-}
-function closeModal(id){
+/* ────────────────────────
+   Sheet helpers
+──────────────────────── */
+function closeSheet(id){
   document.getElementById(id).classList.remove('active');
   if(id==='cameraOverlay') stopCamera();
-  if(id==='detailOverlay'){ saveNote(); currentDetailId=null; renderCards(); updateCount(); }
+  if(id==='detailOverlay'){ saveNote(); currentId=null; render(); }
 }
-function closeOnBg(e,id){
-  if(e.target.id===id) closeModal(id);
-}
+function closeOnBg(e,id){ if(e.target.id===id) closeSheet(id); }
 document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'){
-    ['detailOverlay','addOverlay','cameraOverlay'].forEach(id=>{
-      if(document.getElementById(id).classList.contains('active')) closeModal(id);
-    });
-  }
+  if(e.key==='Escape')['detailOverlay','addOverlay','cameraOverlay'].forEach(id=>{
+    if(document.getElementById(id).classList.contains('active')) closeSheet(id);
+  });
 });
 
-/* ── Toast ── */
-let toastTimer;
+/* ────────────────────────
+   Toast
+──────────────────────── */
+let toastT;
 function showToast(msg){
-  clearTimeout(toastTimer);
-  const existing = document.querySelector('.toast');
-  if(existing) existing.remove();
-  const el = document.createElement('div');
+  clearTimeout(toastT);
+  document.querySelector('.toast')?.remove();
+  const el=document.createElement('div');
   el.className='toast'; el.textContent=msg;
   document.body.appendChild(el);
-  toastTimer = setTimeout(()=>el.remove(),2200);
+  toastT=setTimeout(()=>el.remove(),2400);
 }
 
-/* ── URL param: ?add= ── */
-function checkAddParam(){
-  const url = new URL(location.href);
-  const addUrl = url.searchParams.get('add');
-  if(!addUrl) return;
+/* ────────────────────────
+   ?add= param
+──────────────────────── */
+function checkParam(){
+  const u=new URL(location.href);
+  const a=u.searchParams.get('add');
+  if(!a) return;
   history.replaceState({},'',location.pathname);
-  document.getElementById('urlInput').value = addUrl;
-  openAddModal();
-  setTimeout(addByUrl,400);
+  document.getElementById('urlInput').value=a;
+  openAddSheet();
+  setTimeout(addByUrl,500);
 }
 
-/* ── Utils ── */
-function escHtml(s){
-  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
+/* ────────────────────────
+   Utils
+──────────────────────── */
+function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
 
 /* ── Init ── */
-renderCards();
-updateCount();
-checkAddParam();
+render();
+checkParam();
 </script>
 </body>
 </html>
