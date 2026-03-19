@@ -636,54 +636,64 @@ function startScan(){
   const video=document.getElementById('camVideo');
   const canvas=document.getElementById('scanCanvas');
   const ctx=canvas.getContext('2d');
+  let done=false; // 防止重複觸發
 
-  /* 修正2：iOS 用 canvas imageData 傳給 BarcodeDetector，不直接傳 video */
-  const hasBD='BarcodeDetector' in window;
-  let detector=null;
-  if(hasBD){
-    try{detector=new BarcodeDetector({formats:['qr_code']});}catch(e){detector=null;}
+  function onFound(url){
+    if(done)return;
+    done=true;
+    cancelAnimationFrame(rafId);rafId=null;
+    stopCamera();
+    showScanLoading();
+    handleScan(url);
   }
 
+  /* ── 引擎一：jsQR（最可靠，先載入）── */
+  if(!window._jsqrLoaded){
+    window._jsqrLoaded=false;
+    const s=document.createElement('script');
+    s.src='https://cdnjs.cloudflare.com/ajax/libs/jsqr/1.4.0/jsQR.min.js';
+    s.onload=()=>{window._jsqrLoaded=true;};
+    s.onerror=()=>{window._jsqrLoaded=true;}; // 失敗也標記，不無限等待
+    document.head.appendChild(s);
+  }
+
+  /* ── 引擎二：BarcodeDetector（有就試，失敗靜默）── */
+  let detector=null;
+  if('BarcodeDetector' in window){
+    try{detector=new BarcodeDetector({formats:['qr_code']});}catch(e){}
+  }
+
+  /* ── 主迴圈：兩個引擎同時跑，誰先中誰贏 ── */
   let last=0;
   const tick=async now=>{
+    if(done)return;
     rafId=requestAnimationFrame(tick);
-    if(now-last<200)return;
+    if(now-last<150)return; // 每秒約 6~7 次掃描
     last=now;
     if(!video.videoWidth)return;
-    canvas.width=video.videoWidth;canvas.height=video.videoHeight;
+
+    // 把 video 畫到 canvas（兩個引擎共用同一幀）
+    canvas.width=video.videoWidth;
+    canvas.height=video.videoHeight;
     try{ctx.drawImage(video,0,0);}catch(e){return;}
 
+    // 引擎一：jsQR（用 ImageData）
+    if(window._jsqrLoaded && typeof jsQR!=='undefined'){
+      try{
+        const px=ctx.getImageData(0,0,canvas.width,canvas.height);
+        const code=jsQR(px.data,px.width,px.height,{inversionAttempts:'attemptBoth'});
+        if(code?.data){onFound(code.data);return;}
+      }catch(e){}
+    }
+
+    // 引擎二：BarcodeDetector（用 canvas element）
     if(detector){
-      /* 用 canvas element 傳入（iOS 相容性比 video 好）*/
       try{
         const codes=await detector.detect(canvas);
-        if(codes.length&&codes[0].rawValue){
-          cancelAnimationFrame(rafId);
-          stopCamera();
-          showScanLoading();
-          handleScan(codes[0].rawValue);
-          return;
-        }
-      }catch(e){}
-    } else {
-      /* 降級：動態載入 jsQR */
-      if(typeof jsQR==='undefined'){
-        if(!window._jsqrLoading){
-          window._jsqrLoading=true;
-          const s=document.createElement('script');
-          s.src='https://cdnjs.cloudflare.com/ajax/libs/jsqr/1.4.0/jsQR.min.js';
-          document.head.appendChild(s);
-        }
-        return;
-      }
-      let px;
-      try{px=ctx.getImageData(0,0,canvas.width,canvas.height);}catch(e){return;}
-      const code=jsQR(px.data,px.width,px.height,{inversionAttempts:'dontInvert'});
-      if(code?.data){
-        cancelAnimationFrame(rafId);
-        stopCamera();
-        showScanLoading();
-        handleScan(code.data);
+        if(codes.length&&codes[0].rawValue){onFound(codes[0].rawValue);return;}
+      }catch(e){
+        // 如果拋錯就把 detector 廢棄，不再嘗試
+        detector=null;
       }
     }
   };
