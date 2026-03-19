@@ -529,7 +529,7 @@ body{
 </div>
 
 <!-- ── 相機掃描 Modal ── -->
-<div class="overlay" id="cameraOverlay" onclick="closeOnBg(event,'cameraOverlay')">
+<div class="overlay" id="cameraOverlay">
   <div class="camera-modal">
     <div class="modal-title" style="margin-bottom:.85rem;">掃描 QRcode</div>
     <video id="camera-video" playsinline autoplay muted></video>
@@ -635,26 +635,35 @@ async function addByUrl(){
 /* ── Camera QR Scan ── */
 async function openCamera(){
   closeModal('addOverlay');
-  document.getElementById('cameraOverlay').classList.add('active');
 
+  // 先取得相機權限，成功後才顯示 modal
+  // 避免系統「允許相機」對話框關閉時誤觸 overlay click
   try{
     cameraStream = await navigator.mediaDevices.getUserMedia({
       video:{ facingMode:'environment', width:{ideal:1280}, height:{ideal:720} }
     });
-    const video = document.getElementById('camera-video');
-    video.srcObject = cameraStream;
-    // 等 video 開始播放才啟動掃描
+  } catch(e){
+    showToast('無法開啟相機，請允許相機權限');
+    return;
+  }
+
+  // 取得成功後再顯示 modal
+  document.getElementById('cameraOverlay').classList.add('active');
+
+  const video = document.getElementById('camera-video');
+  video.srcObject = cameraStream;
+
+  try{
     await new Promise((resolve, reject)=>{
       video.onplaying = resolve;
       video.onerror  = reject;
       video.play().catch(reject);
-      // 保險：3秒後強制繼續（部分裝置 onplaying 不觸發）
       setTimeout(resolve, 3000);
     });
     startScan();
   } catch(e){
     stopCamera();
-    showToast('無法開啟相機，請允許相機權限');
+    showToast('相機啟動失敗，請重試');
   }
 }
 
