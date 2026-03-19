@@ -370,6 +370,50 @@ a.top-badge{
 
 
 /* ══════════════════════════════════════════════
+   HERO 進場動畫
+   元素依序從下往上淡入，模擬影片中的進場效果
+   ══════════════════════════════════════════ */
+@keyframes heroSlideUp{
+  from{ opacity:0; transform:translateY(22px); }
+  to  { opacity:1; transform:translateY(0); }
+}
+
+/* 共用基礎：初始隱藏，動畫播完後保持終態 */
+.hero-logo,
+.hero-role,
+.hero-slogan,
+.hero-tags,
+.hero-icons,
+.hero-btn{
+  opacity:0;
+  animation: heroSlideUp .65s ease both;
+}
+
+/* 左欄：Logo → 職稱 → Slogan → Tags 依序出現 */
+.hero-logo  { animation-delay: .15s; }
+.hero-role  { animation-delay: .35s; }
+.hero-slogan{ animation-delay: .50s; }
+.hero-tags  { animation-delay: .62s; }
+
+/* 右欄：icons → 各按鈕逐一出現 */
+.hero-icons { animation-delay: .30s; }
+
+/* 按鈕群：依 nth-child 錯開，每顆間隔 0.1s */
+.hero-right .hero-btn:nth-child(2){ animation-delay: .50s; }
+.hero-right .hero-btn:nth-child(3){ animation-delay: .60s; }
+.hero-right .hero-btn:nth-child(4){ animation-delay: .70s; }
+.hero-right .hero-btn:nth-child(5){ animation-delay: .80s; }
+.hero-right .hero-btn:nth-child(6){ animation-delay: .90s; }
+.hero-right .hero-btn:nth-child(7){ animation-delay:1.00s; }
+
+/* 低動畫偏好：尊重系統設定 */
+@media(prefers-reduced-motion: reduce){
+  .hero-logo,.hero-role,.hero-slogan,.hero-tags,
+  .hero-icons,.hero-btn{ opacity:1; animation:none; }
+}
+
+
+/* ══════════════════════════════════════════════
    RWD
    ══════════════════════════════════════════ */
 @media(max-width:600px){
