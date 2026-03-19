@@ -639,11 +639,18 @@ async function openCamera(){
 
   try{
     cameraStream = await navigator.mediaDevices.getUserMedia({
-      video:{facingMode:'environment'}
+      video:{ facingMode:'environment', width:{ideal:1280}, height:{ideal:720} }
     });
     const video = document.getElementById('camera-video');
     video.srcObject = cameraStream;
-    await video.play();
+    // 等 video 開始播放才啟動掃描
+    await new Promise((resolve, reject)=>{
+      video.onplaying = resolve;
+      video.onerror  = reject;
+      video.play().catch(reject);
+      // 保險：3秒後強制繼續（部分裝置 onplaying 不觸發）
+      setTimeout(resolve, 3000);
+    });
     startScan();
   } catch(e){
     stopCamera();
@@ -652,25 +659,44 @@ async function openCamera(){
 }
 
 function startScan(){
+  if(typeof jsQR === 'undefined'){
+    stopCamera();
+    showToast('掃描模組載入失敗，請改用貼入連結');
+    return;
+  }
   const video = document.getElementById('camera-video');
   const canvas = document.getElementById('scan-canvas');
   const ctx = canvas.getContext('2d');
-
-  scanInterval = setInterval(()=>{
-    if(video.readyState !== video.HAVE_ENOUGH_DATA) return;
+  let scanning = true;
+  let lastScan = 0;
+  function tick(now){
+    if(!scanning) return;
+    scanInterval = requestAnimationFrame(tick);
+    if(now - lastScan < 250) return;
+    lastScan = now;
+    if(!video.videoWidth || !video.videoHeight) return;
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
-    ctx.drawImage(video,0,0,canvas.width,canvas.height);
-    const img = ctx.getImageData(0,0,canvas.width,canvas.height);
-    const code = jsQR(img.data,img.width,img.height);
+    try{ ctx.drawImage(video, 0, 0, canvas.width, canvas.height); }
+    catch(e){ return; }
+    let imageData;
+    try{ imageData = ctx.getImageData(0, 0, canvas.width, canvas.height); }
+    catch(e){ return; }
+    const code = jsQR(imageData.data, imageData.width, imageData.height, {
+      inversionAttempts: 'dontInvert'
+    });
     if(code && code.data){
+      scanning = false;
+      cancelAnimationFrame(scanInterval);
       stopCamera();
       handleScannedUrl(code.data);
     }
-  },200);
+  }
+  scanInterval = requestAnimationFrame(tick);
 }
 
 function stopCamera(){
+  cancelAnimationFrame(scanInterval);
   clearInterval(scanInterval);
   if(cameraStream){
     cameraStream.getTracks().forEach(t=>t.stop());
