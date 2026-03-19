@@ -525,8 +525,20 @@ body{
   <div class="detail-sheet" id="detailSheet"></div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jsqr/1.4.0/jsQR.min.js"></script>
 <script>
+/* jsQR 動態按需載入，不阻塞頁面 */
+let _jsQRReady = null;
+function loadJsQR(){
+  if(_jsQRReady) return _jsQRReady;
+  _jsQRReady = new Promise((resolve)=>{
+    const s=document.createElement('script');
+    s.src='https://cdnjs.cloudflare.com/ajax/libs/jsqr/1.4.0/jsQR.min.js';
+    s.onload=()=>resolve(true);
+    s.onerror=()=>resolve(false); // 失敗也 resolve，不 reject
+    document.head.appendChild(s);
+  });
+  return _jsQRReady;
+}
 /* ────────────────────────
    State
 ──────────────────────── */
@@ -817,27 +829,62 @@ async function openCamera(){
 }
 
 function startScan(){
-  if(typeof jsQR==='undefined'){
-    stopCamera(); showToast('掃描模組載入失敗，請改用貼入連結'); return;
-  }
   const video=document.getElementById('camVideo');
   const canvas=document.getElementById('scanCanvas');
   const ctx=canvas.getContext('2d');
-  let last=0;
 
-  const tick=now=>{
-    rafId=requestAnimationFrame(tick);
-    if(now-last<250) return;
-    last=now;
-    if(!video.videoWidth) return;
-    canvas.width=video.videoWidth; canvas.height=video.videoHeight;
-    try{ ctx.drawImage(video,0,0); } catch(e){ return; }
-    let px;
-    try{ px=ctx.getImageData(0,0,canvas.width,canvas.height); } catch(e){ return; }
-    const code=jsQR(px.data,px.width,px.height,{inversionAttempts:'dontInvert'});
-    if(code?.data){ cancelAnimationFrame(rafId); stopCamera(); handleScan(code.data); }
-  };
-  rafId=requestAnimationFrame(tick);
+  /* ── 掃描引擎選擇 ──
+     優先：BarcodeDetector（瀏覽器原生，Chrome/Android/iOS17+，零依賴）
+     降級：jsQR（動態載入，適用舊版瀏覽器）
+  ──────────────────── */
+  const useBarcodeDetector = ('BarcodeDetector' in window);
+
+  if(useBarcodeDetector){
+    // 原生 BarcodeDetector — 直接傳 video element，最可靠
+    const detector = new BarcodeDetector({ formats:['qr_code'] });
+    let scanning = true;
+
+    const tick = async ()=>{
+      if(!scanning) return;
+      if(video.videoWidth > 0){
+        try{
+          const codes = await detector.detect(video);
+          if(codes.length > 0 && codes[0].rawValue){
+            scanning = false;
+            stopCamera();
+            handleScan(codes[0].rawValue);
+            return;
+          }
+        } catch(e){}
+      }
+      rafId = requestAnimationFrame(()=>tick());
+    };
+    rafId = requestAnimationFrame(()=>tick());
+
+  } else {
+    // 降級：jsQR（canvas 逐幀掃描）
+    loadJsQR().then(loaded=>{
+      if(!loaded || typeof jsQR==='undefined'){
+        stopCamera();
+        showToast('此裝置不支援掃描，請改用貼入連結');
+        return;
+      }
+      let last=0;
+      const tick=now=>{
+        rafId=requestAnimationFrame(tick);
+        if(now-last<250) return;
+        last=now;
+        if(!video.videoWidth) return;
+        canvas.width=video.videoWidth; canvas.height=video.videoHeight;
+        try{ ctx.drawImage(video,0,0); } catch(e){ return; }
+        let px;
+        try{ px=ctx.getImageData(0,0,canvas.width,canvas.height); } catch(e){ return; }
+        const code=jsQR(px.data,px.width,px.height,{inversionAttempts:'dontInvert'});
+        if(code?.data){ cancelAnimationFrame(rafId); stopCamera(); handleScan(code.data); }
+      };
+      rafId=requestAnimationFrame(tick);
+    });
+  }
 }
 
 function stopCamera(){
