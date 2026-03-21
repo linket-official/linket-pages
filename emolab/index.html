@@ -48,7 +48,7 @@ src="https://www.facebook.com/tr?id=879311715156916&ev=PageView&noscript=1"
   --muted:rgba(245,239,224,.55);--muted2:rgba(245,239,224,.30);
   --b:rgba(200,169,106,.15);--b2:rgba(200,169,106,.28);
   --cbtn1:rgba(245,239,224,.94);--cbtn1t:#1C1410;
-  --r:6px;--mw:900px;
+  --r:100px;--mw:900px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
@@ -97,6 +97,8 @@ a.top-badge{display:block;width:100%;background:#fff;text-align:center;padding:.
 .hero-btn.ghost{background:transparent;border:1.5px solid rgba(245,239,224,.38);color:rgba(245,239,224,.82);margin-bottom:.9rem;}
 .hero-btn.ghost.accent{border-color:var(--rust);color:var(--rust);}
 .hero-btn.ghost.accent:hover{background:rgba(200,90,48,.12);}
+.hero-btn.talk-solid{background:var(--rust);border:1.5px solid var(--rust);color:#fff;font-weight:600;}
+.hero-btn.talk-solid:hover{background:var(--rust2);border-color:var(--rust2);}
 .hero-btn-row{display:flex;gap:.7rem;justify-content:center;width:100%;max-width:320px;margin-top:.3rem;}
 .hero-btn.qr,.hero-btn.share{flex:1;max-width:none;background:transparent;border:1.5px solid rgba(245,239,224,.22);color:rgba(245,239,224,.55);font-size:.75rem;letter-spacing:.14em;padding:.44rem .5rem;margin-bottom:0;}
 .hero-btn.qr:hover,.hero-btn.share:hover{background:rgba(245,239,224,.07);}
@@ -193,15 +195,31 @@ a.top-badge{display:block;width:100%;background:#fff;text-align:center;padding:.
 .brand-sub-info{margin-top:.7rem;border-top:1px solid var(--b);padding-top:.7rem;display:flex;flex-direction:column;gap:.5rem;}
 .brand-loc{font-weight:300;font-size:.82rem;line-height:1.9;letter-spacing:.05em;color:var(--muted2);}
 .brand-links{display:flex;flex-wrap:wrap;gap:.4rem;}
-.brand-link-tag{display:inline-block;padding:.22rem .65rem;font-size:.72rem;letter-spacing:.1em;color:var(--gold);border:1px solid rgba(200,169,106,.3);border-radius:var(--r);text-decoration:none;transition:border-color .2s,color .2s;}
+.brand-link-tag{display:inline-flex;align-items:center;gap:.32rem;padding:.22rem .65rem;font-size:.72rem;letter-spacing:.1em;color:var(--gold);border:1px solid rgba(200,169,106,.3);border-radius:var(--r);text-decoration:none;transition:border-color .2s,color .2s;}
+.brand-link-tag img{width:14px;height:14px;display:block;filter:brightness(0) saturate(100%) invert(71%) sepia(28%) saturate(480%) hue-rotate(6deg) brightness(95%) contrast(90%);}
 .brand-link-tag:hover{border-color:var(--gold);color:var(--cream);}
 /* BRAND VIDEO */
 .brand-video-wrap{display:flex;flex-direction:column;gap:.8rem;margin-top:.8rem;}
-.brand-video-wrap iframe{width:100%;aspect-ratio:16/9;border-radius:var(--r);border:none;}
+.brand-video-wrap iframe{width:100%;aspect-ratio:16/9;border-radius:0;border:none;}
 /* ABOUT VIDEO */
-.about-video{margin-top:2rem;border-radius:var(--r);overflow:hidden;}
+.about-video{margin-top:2rem;border-radius:0;overflow:hidden;}
 .about-video iframe{width:100%;aspect-ratio:16/9;border:none;display:block;}
 .about-quote{margin-top:1.2rem;opacity:.72;font-style:italic;letter-spacing:.08em;}
+/* BRAND BLOCK */
+.brand-block-header{margin-bottom:1.6rem;}
+/* STORE CARDS */
+.store-cards{display:flex;gap:1.2rem;flex-wrap:wrap;margin-top:1.6rem;}
+.store-card{flex:1 1 280px;background:var(--bg2);border:1px solid var(--b);border-radius:0;overflow:hidden;display:flex;flex-direction:column;}
+.store-card-photo{width:100%;height:180px;object-fit:cover;background:rgba(200,169,106,.06);display:flex;align-items:center;justify-content:center;font-size:.62rem;letter-spacing:.12em;color:rgba(200,169,106,.3);}
+.store-card-body{padding:1.2rem 1.2rem .8rem;display:flex;flex-direction:column;gap:.6rem;flex:1;}
+.store-card-name{font-family:'Noto Serif TC',serif;font-size:1.05rem;font-weight:700;letter-spacing:.1em;color:var(--cream);}
+.store-card-info{font-size:.82rem;line-height:1.8;color:var(--muted2);letter-spacing:.04em;}
+.store-card-links{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.2rem;}
+.store-card-btn{display:block;text-align:center;padding:.76rem 1rem;font-family:'Noto Serif TC',serif;font-size:1rem;font-weight:700;letter-spacing:.14em;text-decoration:none;background:var(--rust);color:#fff;border:1px solid var(--rust);border-radius:var(--r);margin-top:1rem;transition:background .2s,color .2s;}
+.store-card-btn:hover{background:var(--rust2);border-color:var(--rust2);}
+@media(max-width:600px){.store-cards{flex-direction:column;}}
+.brand-logo-placeholder{width:140px;height:56px;background:rgba(200,169,106,.08);border:1px dashed rgba(200,169,106,.25);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.6rem;letter-spacing:.12em;color:rgba(200,169,106,.3);margin-bottom:1rem;}
+.brand-photo-placeholder{width:100%;height:220px;background:rgba(200,169,106,.06);border:1px dashed rgba(200,169,106,.2);border-radius:0;display:flex;align-items:center;justify-content:center;font-size:.65rem;letter-spacing:.12em;color:rgba(200,169,106,.3);margin-bottom:1.6rem;}
 /* BRAND SCROLL */
 .brand-scroll-wrap{position:relative;overflow:hidden;}
 .brand-scroll{display:flex;gap:1.2rem;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:0 1.6rem 1.2rem;}
@@ -228,10 +246,6 @@ a.top-badge{display:block;width:100%;background:#fff;text-align:center;padding:.
 </style>
 </head>
 <body>
-
-<a class="top-badge" href="https://linket.app/home" target="_blank">
-  <span class="t-lin">LIN</span><span class="t-ket">Ket</span>&nbsp;<span class="t-light">Light</span>
-</a>
 
 <div class="ticker">
   <div class="ticker-track">
@@ -266,54 +280,49 @@ a.top-badge{display:block;width:100%;background:#fff;text-align:center;padding:.
         <div class="hero-icons">
           <a href="https://www.facebook.com/3s3s.tw/" target="_blank" class="hero-icon-link" aria-label="Facebook"
              onclick="gtag('event','click_fb_contact',{'event_category':'CTA','event_label':'emolab'});">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            <img src="/home/assets/facebook.svg" alt="Facebook" style="width:26px;height:26px;filter:brightness(0) invert(1);">
           </a>
           <a href="https://www.instagram.com/emolab.tw" target="_blank" class="hero-icon-link" aria-label="Instagram"
              onclick="gtag('event','click_ig_follow',{'event_category':'CTA','event_label':'emolab'});">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            <img src="/home/assets/instagram.svg" alt="Instagram" style="width:26px;height:26px;filter:brightness(0) invert(1);">
           </a>
-          <a href="https://line.me/R/ti/g2/N1FWq-hVJScFILC8L4QhtkDnApKRW6JV9SPbUA" target="_blank" class="hero-icon-link" aria-label="LINE 社群"
+          <a href="https://line.me/R/ti/g2/N1FWq-hVJScFILC8L4QhtkDnApKRW6JV9SPbUA" target="_blank" class="hero-icon-link" aria-label="LINE"
              onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'emolab'});">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+            <img src="/home/assets/line.svg" alt="LINE" style="width:26px;height:26px;filter:brightness(0) invert(1);">
           </a>
           <a href="https://www.threads.com/@emoclub.tw" target="_blank" class="hero-icon-link" aria-label="Threads"
              onclick="gtag('event','click_threads_follow',{'event_category':'CTA','event_label':'emolab'});">
-            <svg viewBox="0 0 192 192" fill="currentColor"><path d="M141.537 88.988a66.667 66.667 0 0 0-2.518-1.143c-1.482-27.307-16.403-42.94-41.457-43.1h-.34c-14.986 0-27.449 6.396-35.12 18.036l13.779 9.452c5.73-8.695 14.724-10.548 21.348-10.548h.229c8.249.053 14.474 2.452 18.503 7.129 2.932 3.405 4.893 8.111 5.864 14.05-7.314-1.243-15.224-1.626-23.68-1.14-23.82 1.371-39.134 15.264-38.105 34.568.522 9.792 5.4 18.216 13.735 23.719 7.047 4.652 16.124 6.927 25.557 6.412 12.458-.683 22.231-5.436 29.049-14.127 5.178-6.6 8.453-15.153 9.899-25.93 5.937 3.583 10.337 8.298 12.767 13.966 4.132 9.635 4.373 25.468-8.546 38.376-11.319 11.308-24.925 16.2-45.488 16.351-22.809-.169-40.06-7.484-51.275-21.742C35.236 139.966 29.808 120.682 29.605 96c.203-24.682 5.63-43.966 16.133-57.317C56.954 24.425 74.204 17.11 97.013 16.94c22.975.17 40.526 7.52 52.171 21.847 5.71 7.026 10.015 15.86 12.853 26.162l16.147-4.308c-3.44-12.68-8.853-23.606-16.219-32.668C147.036 9.607 125.202.195 97.07 0h-.113C68.882.195 47.292 9.643 33.479 28.054 21.24 44.407 14.952 67.494 14.734 96.043v.067c.218 28.548 6.506 51.636 18.745 68.047C47.292 182.356 68.882 191.804 96.957 192h.113c25.087-.189 42.654-6.727 57.062-21.12 18.98-18.963 18.464-42.392 12.186-56.864-4.216-9.831-12.48-17.879-24.781-23.028ZM98.44 129.507c-10.44.588-21.286-4.098-21.82-14.135-.397-7.442 5.296-15.745 22.461-16.735 1.966-.114 3.895-.169 5.79-.169 6.235 0 12.068.606 17.371 1.765-1.978 24.702-13.58 28.713-23.802 29.274Z"/></svg>
+            <img src="/home/assets/threads.svg" alt="Threads" style="width:26px;height:26px;filter:brightness(0) invert(1);">
           </a>
         </div>
 
         <a href="#about" class="hero-btn p1"
-           onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'emolab'});">
-          品牌介紹 ｜ ABOUT
-        </a>
-        <a href="https://emoer.noon360.com/mainssl/modules/MySpace/index.php?sn=emoer&pg=ZC9465728"
-           target="_blank" class="hero-btn ghost"
-           onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'emolab'});fbq('track','Lead');">
-          山上山下 ｜ 線上訂位
-        </a>
-        <a href="https://inline.app/booking/-NgrmCwylZHeHnWo1DLk:inline-live-3/-NgrmD8_-5OCPQQVDuFC"
-           target="_blank" class="hero-btn ghost"
-           onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'emolab'});fbq('track','Lead');">
-          桑心實驗室 ｜ 線上預約
-        </a>
-        <a href="tel:0905118977" class="hero-btn ghost"
-           onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'emolab'});fbq('track','Lead');">
-          桑心茶室 ｜ 電話預約
-        </a>
-        <a href="https://emoer.co/mainssl/modules/MySpace/index.php?sn=emoer&pg=ZC10502229"
-           target="_blank" class="hero-btn ghost"
-           onclick="gtag('event','click_menu',{'event_category':'CTA','event_label':'emolab'});fbq('track','ViewContent');">
-          查看菜單 ｜ MENU
+           onclick="gtag('event','click_about',{'event_category':'CTA','event_label':'emolab'});">
+          關於桑心｜About emo
         </a>
         <a href="https://line.me/R/ti/g2/N1FWq-hVJScFILC8L4QhtkDnApKRW6JV9SPbUA"
-           target="_blank" class="hero-btn ghost"
+           target="_blank" class="hero-btn p1"
            onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'emolab'});fbq('track','Lead');">
-          加入 LINE 社群
+          加入桑心小宇宙｜LINE Group
         </a>
-        <a href="https://linket.app/emolab/talk" target="_blank" class="hero-btn ghost accent"
+        <a href="https://linket.app/emolab/talk" target="_blank" class="hero-btn talk-solid"
            onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'emolab'});fbq('track','Lead');">
-          開店創業避坑交流 ｜ 3/25
+          開店創業避坑交流｜報名入口
         </a>
+
+        <a href="#emolab" class="hero-btn ghost"
+           onclick="gtag('event','click_brand',{'event_category':'CTA','event_label':'emolab'});">
+          桑心實驗室｜emo Lab
+        </a>
+        <a href="#emoclub" class="hero-btn ghost"
+           onclick="gtag('event','click_brand',{'event_category':'CTA','event_label':'emolab'});">
+          桑心合作社＆茶室｜emo Club
+        </a>
+        <a href="#3s3s" class="hero-btn ghost"
+           onclick="gtag('event','click_brand',{'event_category':'CTA','event_label':'emolab'});">
+          山上山下｜3S3S
+        </a>
+
         <div class="hero-btn-row">
           <button class="hero-btn qr" onclick="openQR()">QR CODE</button>
           <button class="hero-btn share" id="share-btn" style="display:none" onclick="shareThis()">分享</button>
@@ -322,12 +331,17 @@ a.top-badge{display:block;width:100%;background:#fff;text-align:center;padding:.
     </div>
   </div>
 </section>
+</section>
 
 <section id="about" class="sec reveal">
   <div class="eyebrow-row"><h2>關於桑心</h2><span>✦</span></div>
-  <p class="about-text">食物不只為飽足，更有情感的交會、故事的延續。</p>
-  <p class="about-text">桑心餐飲集團由埔里桃米山腳下一間低調鐵皮店出發，歷經六年，從一碗咖哩走出三個風格迥異的品牌——<strong>山上山下、桑心實驗室、桑心合作社與茶室</strong>。</p>
-  <p class="about-text">我們相信，美食不只是填飽肚子，更是日常的陪伴與療癒。每一道菜、每一杯飲品背後，都藏著對食材的講究、對空間的設計，以及對每一位來訪者最真誠的款待。</p>
+  <!-- ⬜ 品牌 LOGO 佔位，素材待補 -->
+  <div style="width:120px;height:60px;background:rgba(200,169,106,.12);border:1px dashed rgba(200,169,106,.3);border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:1.6rem;">
+    <span style="font-size:.65rem;letter-spacing:.1em;color:rgba(200,169,106,.4);">LOGO 待補</span>
+  </div>
+  <p class="about-text">一碗咖哩，一個返鄉的決定。</p>
+  <p class="about-text">從埔里桃米山腳出發，父親種的多肉植物成了品牌靈魂，記憶裡的豆花味道長成一整間合作社——六年，從一間低調鐵皮店走出<strong>三個風格迥異的品牌</strong>。</p>
+  <p class="about-text">山上山下的咖哩、桑心實驗室的沙漠秘境、桑心合作社的豆花甜品，每一間都是一個故事、一種陪伴。我們相信：<strong>食物是療癒，空間是連結，每一次造訪都值得被好好對待。</strong></p>
   <p class="about-text about-quote"><em>「獨特、療桑、社交，是我們的心。」</em></p>
   <div class="about-video reveal">
     <iframe src="https://www.youtube.com/embed/L1HPN_5eoik" title="emolab 桑心實驗室形象影片"
@@ -337,73 +351,173 @@ a.top-badge{display:block;width:100%;background:#fff;text-align:center;padding:.
 </section>
 <div class="sec-sep"></div>
 
-<section id="brands" style="background:var(--bg3);">
-  <div style="max-width:var(--mw);margin:0 auto;padding:4rem 0;">
-    <div style="padding:0 1.6rem 2rem;" class="reveal">
-      <div class="eyebrow-row"><h2>三大品牌</h2><span>✦</span></div>
-    </div>
-    <div class="brand-scroll-wrap"><div class="brand-scroll">
-      <div class="brand-card reveal">
-        <div class="brand-num">01 · MOUNTAIN</div>
-        <div class="brand-name-row"><span class="brand-name">山上山下</span><span class="brand-en">3S3S · Puli Taomi</span></div>
-        <div class="brand-desc">通往日月潭桃米山腳下，低調鐵皮店。山上山下旅程的起點，尋出一口屬於自己的深濃咖哩魂。既然我們無法改變現實，那就桑心吧——一碗被記住的咖哩。</div>
-        <div class="brand-sub-info">
-          <div class="brand-loc">📍 桃米店｜桃米路33-1號｜週一~日 11:00–18:30<br>📍 埔里店｜西安路一段92-2號｜週一~日 11:30–14:30 / 17:00–20:00</div>
-          <div class="brand-links">
-            <a href="https://www.facebook.com/3s3s.tw/" target="_blank" class="brand-link-tag">Facebook</a>
-            <a href="https://www.instagram.com/3s3s.tw/" target="_blank" class="brand-link-tag">Instagram</a>
-            <a href="https://maps.app.goo.gl/qvqcSqayXRsuxUjS8" target="_blank" class="brand-link-tag">地圖</a>
-          </div>
-        </div>
-        <a href="https://emoer.noon360.com/mainssl/modules/MySpace/index.php?sn=emoer&pg=ZC9465728"
-           target="_blank" class="brand-btn fill"
-           onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'emolab'});fbq('track','Lead');">線上訂位 →</a>
-      </div>
-      <div class="brand-card reveal">
-        <div class="brand-num">02 · LAB</div>
-        <div class="brand-name-row"><span class="brand-name">桑心實驗室</span><span class="brand-en">emo Lab</span></div>
-        <div class="brand-desc">hidden gem — 會呼吸的沙漠秘境。靈感來自父親，一位熱愛植物的農夫。實驗室用年輕語言，重新詮釋對自然的熱愛。以仙人掌、多肉、野生沙漠植栽構築空間，化韌性與美學為日常。情緒也要被好好對待。</div>
-        
-        <div class="brand-sub-info">
-          <div class="brand-loc">📍 每日 10:30–17:00（早午餐至14:30）｜公休：週三、週四｜Tel: 0919863964</div>
-          <div class="brand-links">
-            <a href="https://www.instagram.com/emolab.tw" target="_blank" class="brand-link-tag">Instagram</a>
-            <a href="https://maps.app.goo.gl/wnfcLf1oru9s7Lfy9" target="_blank" class="brand-link-tag">地圖</a>
-          </div>
-        </div>
-        <a href="https://inline.app/booking/-NgrmCwylZHeHnWo1DLk:inline-live-3/-NgrmD8_-5OCPQQVDuFC"
-           target="_blank" class="brand-btn fill"
-           onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'emolab'});fbq('track','Lead');">線上預約 →</a>
-      </div>
-      <div class="brand-card reveal">
-        <div class="brand-num">03 · CLUB & TEA</div>
-        <div class="brand-name-row"><span class="brand-name">桑心合作社・茶室</span><span class="brand-en">emo Club · Tea Room</span></div>
-        <div class="brand-desc">老味道的新日常。一碗豆花成午後歇腳、聊心事的據點。桂花酒釀花生豆花、紫米椰奶紅豆豆花、麵茶奶蓋茶飲、古法桂花酸梅湯——記憶風味加進甜品裡，做出屬於這個時代的「新台味」。相信，甜是一種陪伴。</div>
-        <div class="brand-sub-info">
-          <div class="brand-loc">📍 合作社桃米總店｜桃米路37-1號｜週六&日 11:00–18:00｜Tel: 0905118977<br>📍 桑心茶室 埔里店｜西安路一段92-1號｜週一~日 13:00–21:00｜Tel: 0910295396<br>（即將推出義式冰淇淋 × 台灣風味）</div>
-          <div class="brand-links">
-            <a href="https://www.instagram.com/emoclub.tw" target="_blank" class="brand-link-tag">Instagram</a>
-            <a href="https://www.threads.com/@emoclub.tw" target="_blank" class="brand-link-tag">Threads</a>
-            <a href="https://maps.app.goo.gl/VyWKRRDZLGBTjFjD6" target="_blank" class="brand-link-tag">合作社地圖</a>
-            <a href="https://maps.app.goo.gl/ysxLbK89E2VqzXUP8" target="_blank" class="brand-link-tag">茶室地圖</a>
-          </div>
-        </div>
-        <a href="tel:0905118977" class="brand-btn fill"
-           onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'emolab'});fbq('track','Lead');">電話預約 →</a>
+<!-- ══ 品牌一：桑心實驗室 ══ -->
+<section id="emolab" style="background:var(--bg3);">
+  <div class="sec inner" style="max-width:var(--mw);">
+    <div class="brand-block-header reveal">
+      <div class="brand-logo-placeholder">LOGO 待補</div>
+      <div class="brand-num">02 · LAB</div>
+      <div class="brand-name-row">
+        <span class="brand-name">桑心實驗室</span>
+        <span class="brand-en">emo Lab · coffee & burger</span>
       </div>
     </div>
+    <div class="brand-photo-placeholder reveal">品牌照片待補</div>
+    <div class="brand-desc reveal">
+      hidden gem — 會呼吸的沙漠秘境。靈感來自父親，一位熱愛植物的農夫。以仙人掌、多肉、野生旱生植物構築空間，融合露營風格與自然美學，化韌性與療癒為日常。精選排餐、特調咖啡、四季限定風味，每一杯都附上在地伴手禮的故事。埔里桃米必訪秘境，IG 9,400+ 追蹤。
     </div>
-    <div class="brand-scroll-hint">← 左右滑動查看全部品牌 →</div>
+    <div class="brand-sub-info reveal">
+      <div class="brand-loc">
+        📍 桃米路 37-1 號｜南投縣埔里鎮<br>
+        ⏰ 週一～週日 10:30–17:00（假日至 19:00）早午餐至 14:30<br>
+        🚫 公休：週三、週四<br>
+        📞 0919-863-964
+      </div>
+      <div class="brand-links">
+        <a href="https://www.instagram.com/emolab.tw" target="_blank" class="brand-link-tag"><img src="/home/assets/instagram.svg" alt="">Instagram</a>
+        <a href="https://maps.app.goo.gl/wnfcLf1oru9s7Lfy9" target="_blank" class="brand-link-tag"><img src="/home/assets/map.svg" alt="">Google Map</a>
+        <a href="https://emoer.co/mainssl/modules/MySpace/index.php?sn=emoer&pg=ZC10502229" target="_blank" class="brand-link-tag">查看菜單</a>
+      </div>
+    </div>
+    <a href="https://emolab.noon360.com/pg/Reservation"
+       target="_blank" class="brand-btn fill reveal"
+       onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'emolab'});fbq('track','Lead');">
+      線上預約 →
+    </a>
   </div>
 </section>
+
 <div class="sec-sep"></div>
 
-<section id="menu" class="sec reveal">
-  <div class="eyebrow-row"><h2>菜單</h2><span>✦</span></div>
-  <p class="menu-body">食材依季節調整，每次造訪都有新驚喜。</p>
-  <a href="https://emoer.co/mainssl/modules/MySpace/index.php?sn=emoer&pg=ZC10502229"
-     target="_blank" class="menu-cta"
-     onclick="gtag('event','click_menu',{'event_category':'CTA','event_label':'emolab'});fbq('track','ViewContent');">查看完整菜單 →</a>
+<!-- ══ 品牌二：桑心合作社 & 茶室 ══ -->
+<section id="emoclub" style="background:var(--bg2);">
+  <div class="sec inner" style="max-width:var(--mw);">
+    <div class="brand-block-header reveal">
+      <div class="brand-logo-placeholder">LOGO 待補</div>
+      <div class="brand-num">03 · CLUB &amp; TEA</div>
+      <div class="brand-name-row">
+        <span class="brand-name">桑心合作社・茶室</span>
+        <span class="brand-en">emo Club · Tea Room</span>
+      </div>
+    </div>
+    <div class="brand-photo-placeholder reveal">品牌照片待補</div>
+    <div class="brand-desc reveal">
+      桑心的我們，終將被食物治癒。老味道的新日常。招牌桂花酒釀花生豆花選用埔里農會桂花釀，紫米椰奶紅豆豆花、麵茶奶蓋茶飲、古法桂花酸梅湯——用在地南投農產做出屬於這個時代的新台味。相信，甜是一種陪伴。
+    </div>
+    <!-- 共用社群 -->
+    <div class="brand-links reveal" style="margin-bottom:.8rem;">
+      <a href="https://www.instagram.com/emoclub.tw" target="_blank" class="brand-link-tag"><img src="/home/assets/instagram.svg" alt="">Instagram</a>
+      <a href="https://www.threads.com/@emoclub.tw" target="_blank" class="brand-link-tag"><img src="/home/assets/threads.svg" alt="">Threads</a>
+    </div>
+    <!-- 店家卡片 -->
+    <div class="store-cards reveal">
+      <div class="store-card">
+        <!-- ⬜ 素材：brand-emoclub.jpg 900×500px -->
+        <div class="store-card-photo">桑心合作社照片待補</div>
+        <div class="store-card-body">
+          <div class="store-card-name">桑心合作社・桃米總店</div>
+          <div class="store-card-info">
+            📍 桃米路 37-1 號，埔里鎮<br>
+            ⏰ 週六、日 11:00–18:00<br>
+            📞 0905-118-977
+          </div>
+          <div class="store-card-links">
+            <a href="https://maps.app.goo.gl/VyWKRRDZLGBTjFjD6" target="_blank" class="brand-link-tag"><img src="/home/assets/map.svg" alt="">Google Map</a>
+          </div>
+          <a href="tel:0905118977" class="store-card-btn"
+             onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'emolab'});fbq('track','Lead');">
+            電話預約 →
+          </a>
+        </div>
+      </div>
+      <div class="store-card">
+        <!-- ⬜ 素材：brand-teatroom.jpg 900×500px -->
+        <div class="store-card-photo">桑心茶室照片待補</div>
+        <div class="store-card-body">
+          <div class="store-card-name">桑心茶室・埔里店</div>
+          <div class="store-card-info">
+            📍 西安路一段 92-1 號，埔里鎮<br>
+            ⏰ 週一～日 13:00–21:00<br>
+            📞 0910-295-396
+          </div>
+          <div class="store-card-links">
+            <a href="https://maps.app.goo.gl/ysxLbK89E2VqzXUP8" target="_blank" class="brand-link-tag"><img src="/home/assets/map.svg" alt="">Google Map</a>
+          </div>
+          <a href="tel:0910295396" class="store-card-btn"
+             onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'emolab'});fbq('track','Lead');">
+            電話預約 →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sec-sep"></div>
+
+<!-- ══ 品牌三：山上山下 ══ -->
+<section id="3s3s" style="background:var(--bg);">
+  <div class="sec inner" style="max-width:var(--mw);">
+    <div class="brand-block-header reveal">
+      <div class="brand-logo-placeholder">LOGO 待補</div>
+      <div class="brand-num">01 · MOUNTAIN</div>
+      <div class="brand-name-row">
+        <span class="brand-name">山上山下</span>
+        <span class="brand-en">sunshine-sunshine · 3S3S</span>
+      </div>
+    </div>
+    <div class="brand-photo-placeholder reveal">品牌照片待補</div>
+    <div class="brand-desc reveal">
+      通往日月潭桃米山腳，一間低調鐵皮店。返鄉創業的起點，用一碗深濃咖哩說一個在地的故事。既然我們無法改變現實，那就桑心吧——一碗被記住的咖哩，是夢開始的地方。
+    </div>
+    <!-- 共用社群 -->
+    <div class="brand-links reveal" style="margin-bottom:.8rem;">
+      <a href="https://www.facebook.com/3s3s.tw/" target="_blank" class="brand-link-tag"><img src="/home/assets/facebook.svg" alt="">Facebook</a>
+      <a href="https://www.instagram.com/3s3s.tw/" target="_blank" class="brand-link-tag"><img src="/home/assets/instagram.svg" alt="">Instagram</a>
+    </div>
+    <!-- 店家卡片 -->
+    <div class="store-cards reveal">
+      <div class="store-card">
+        <!-- ⬜ 素材：brand-3s3s-taomi.jpg 900×500px -->
+        <div class="store-card-photo">桃米店照片待補</div>
+        <div class="store-card-body">
+          <div class="store-card-name">山上山下・桃米店</div>
+          <div class="store-card-info">
+            📍 桃米路 33-1 號，埔里鎮<br>
+            ⏰ 週一～日 11:00–18:30<br>
+            📞 0974-032-894
+          </div>
+          <div class="store-card-links">
+            <a href="https://maps.app.goo.gl/qvqcSqayXRsuxUjS8" target="_blank" class="brand-link-tag"><img src="/home/assets/map.svg" alt="">Google Map</a>
+          </div>
+          <a href="https://emoer.noon360.com/mainssl/modules/MySpace/index.php?sn=emoer&pg=ZC9465728"
+             target="_blank" class="store-card-btn"
+             onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'emolab'});fbq('track','Lead');">
+            線上訂位 →
+          </a>
+        </div>
+      </div>
+      <div class="store-card">
+        <!-- ⬜ 素材：brand-3s3s-puli.jpg 900×500px -->
+        <div class="store-card-photo">埔里店照片待補</div>
+        <div class="store-card-body">
+          <div class="store-card-name">山上山下・埔里店</div>
+          <div class="store-card-info">
+            📍 西安路一段 92-2 號，埔里鎮<br>
+            ⏰ 週一～日 11:30–14:30 / 17:00–20:00<br>
+            📞 0910-295-397
+          </div>
+          <div class="store-card-links">
+            <a href="https://maps.app.goo.gl/QNRGBBmLjiFFV4mo6" target="_blank" class="brand-link-tag"><img src="/home/assets/map.svg" alt="">Google Map</a>
+          </div>
+          <a href="tel:0910295397" class="store-card-btn"
+             onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'emolab'});fbq('track','Lead');">
+            電話訂位 →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="talk-cta">
@@ -428,7 +542,7 @@ a.top-badge{display:block;width:100%;background:#fff;text-align:center;padding:.
       <a href="https://emoer.noon360.com/mainssl/modules/MySpace/index.php?sn=emoer&pg=ZC9465728"
          target="_blank" class="f-btn rust"
          onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'emolab'});fbq('track','Lead');">山上山下 ｜ 立即訂位</a>
-      <a href="https://inline.app/booking/-NgrmCwylZHeHnWo1DLk:inline-live-3/-NgrmD8_-5OCPQQVDuFC"
+      <a href="https://emolab.noon360.com/pg/Reservation"
          target="_blank" class="f-btn rust"
          onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'emolab'});fbq('track','Lead');">桑心實驗室 ｜ 立即預約</a>
       <a href="https://linket.app/emolab/talk" target="_blank" class="f-btn outline"
@@ -439,7 +553,6 @@ a.top-badge{display:block;width:100%;background:#fff;text-align:center;padding:.
       <ul class="f-nav">
         <li><a href="#about">關於</a></li>
         <li><a href="#brands">品牌</a></li>
-        <li><a href="#menu">菜單</a></li>
       </ul>
     </div>
   </div>
