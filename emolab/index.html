@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-29J2988Y8J');
+</script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '879311715156916');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=879311715156916&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>桑心餐飲｜emo Lab × 桑心實驗室 × 桑心茶室</title>
+<meta name="description" content="台中埔里餐飲集團，三大品牌各有風格。山上山下 emo Lab、桑心實驗室、桑心茶室，線上訂位立即預約。">
+<meta property="og:title" content="桑心餐飲｜emo Lab × 桑心實驗室 × 桑心茶室">
+<meta property="og:description" content="台中埔里餐飲集團，三大品牌各有風格，線上訂位立即預約。">
+<meta property="og:image" content="https://linket.app/emolab/og-image.jpg">
+<meta property="og:url" content="https://linket.app/emolab">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://linket.app/emolab">
+<link rel="icon" href="/home/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200;300;400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0e0b08;
+  --bg2:#1a1410;
+  --bg3:#241e16;
+  --rust:#8B3A1F;
+  --rust2:#A84828;
+  --rust3:#C85A30;
+  --gold:#C8A96A;
+  --gold2:#E0C070;
+  --cream:#F5EFE0;
+  --cream2:#EDE3C8;
+  --ink:#1C1410;
+  --muted:rgba(245,239,224,.55);
+  --muted2:rgba(245,239,224,.28);
+  --b:rgba(200,169,106,.15);
+  --b2:rgba(200,169,106,.28);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--cream);overflow-x:hidden;}
+
+/* TICKER */
+.ticker{overflow:hidden;white-space:nowrap;border-bottom:1px solid var(--b);padding:.55rem 0;background:var(--bg2);}
+.ticker-track{display:inline-flex;animation:tick 28s linear infinite;}
+.ticker-track span{font-size:.65rem;letter-spacing:.22em;padding:0 1.4rem;color:var(--muted);font-weight:300;}
+.ticker-track span.ac{color:var(--gold);}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* HERO */
+#hero{
+  position:relative;width:100%;min-height:100svh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:flex-end;
+  overflow:hidden;
+  background:#0e0b08;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('hero-bg.jpg') center/cover no-repeat;
+  opacity:.45;
+  z-index:0;
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(
+    to bottom,
+    rgba(14,11,8,.2) 0%,
+    rgba(14,11,8,.35) 40%,
+    rgba(14,11,8,.82) 75%,
+    rgba(14,11,8,.97) 100%
+  );
+  z-index:1;
+}
+.hero-content{
+  position:relative;z-index:2;
+  width:100%;max-width:680px;
+  padding:2.4rem 1.6rem 3rem;
+  display:flex;flex-direction:column;
+  align-items:flex-start;gap:.5rem;
+}
+.hero-eyebrow{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.72rem;letter-spacing:.28em;color:var(--gold);
+  margin-bottom:.4rem;
+}
+.hero-title{
+  font-size:clamp(2.6rem,13vw,5.2rem);font-weight:700;
+  line-height:.92;letter-spacing:.06em;color:var(--cream);
+}
+.hero-title .rust{color:var(--rust3);}
+.hero-sub{
+  font-weight:200;font-size:clamp(.78rem,3vw,.92rem);
+  letter-spacing:.18em;color:var(--muted);
+  margin-top:.6rem;line-height:2;
+}
+.hero-divider{
+  width:40px;height:1px;background:var(--rust3);
+  margin:.8rem 0;
+}
+.hero-tagline{
+  font-weight:200;font-size:clamp(.7rem,2.8vw,.82rem);
+  letter-spacing:.12em;color:var(--muted2);
+  line-height:2;
+}
+.hero-scroll{
+  display:flex;align-items:center;gap:.6rem;
+  margin-top:1.2rem;
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.7rem;letter-spacing:.18em;color:var(--muted2);
+}
+.scroll-line{width:24px;height:1px;background:var(--b2);}
+
+/* SECTIONS */
+.sec{padding:4rem 1.4rem;max-width:680px;margin:0 auto;}
+@media(min-width:700px){.sec{padding:5rem 2rem;}}
+.sec-full{padding:4rem 0;}
+.sec-full .sec-inner{max-width:680px;margin:0 auto;padding:0 1.4rem;}
+@media(min-width:700px){.sec-full .sec-inner{padding:0 2rem;}}
+
+.eyebrow-row{display:flex;align-items:center;gap:.6rem;margin-bottom:2rem;}
+.eyebrow-row h2{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:clamp(1rem,4vw,1.3rem);letter-spacing:.22em;color:var(--gold);
+}
+.eyebrow-row span{color:var(--rust3);font-size:.9rem;}
+.sec-divider{height:1px;background:linear-gradient(90deg,var(--rust3),transparent);width:48px;margin:1.4rem 0;}
+
+/* ABOUT */
+#about{border-top:1px solid var(--b);}
+.about-text{
+  font-weight:200;font-size:clamp(.82rem,3vw,.94rem);
+  line-height:2.6;letter-spacing:.06em;color:rgba(245,239,224,.78);
+}
+.about-text strong{color:var(--gold);font-weight:400;}
+
+/* BRANDS */
+#brands{background:var(--bg2);}
+.brand-grid{display:flex;flex-direction:column;gap:1px;background:var(--b);}
+.brand-card{
+  background:var(--bg2);
+  padding:1.8rem 1.4rem;
+  display:flex;flex-direction:column;gap:.6rem;
+  transition:background .2s;
+}
+.brand-card:hover{background:var(--bg3);}
+.brand-number{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.65rem;letter-spacing:.28em;color:var(--rust3);
+}
+.brand-name{
+  font-size:clamp(1.1rem,4.5vw,1.5rem);font-weight:700;
+  letter-spacing:.1em;color:var(--cream);
+  line-height:1.2;
+}
+.brand-en{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.78rem;letter-spacing:.2em;color:var(--muted2);
+}
+.brand-desc{
+  font-weight:200;font-size:clamp(.78rem,3vw,.88rem);
+  line-height:2.1;letter-spacing:.06em;
+  color:rgba(245,239,224,.65);
+  padding-top:.6rem;
+  border-top:1px solid var(--b);
+}
+.brand-btn{
+  display:inline-block;margin-top:.8rem;
+  padding:.72rem 1.4rem;
+  font-family:'Cormorant Garamond',serif;
+  font-size:.8rem;letter-spacing:.18em;
+  text-decoration:none;
+  border:1px solid var(--rust3);color:var(--rust3);
+  transition:background .2s,color .2s;
+  align-self:flex-start;
+}
+.brand-btn:hover{background:var(--rust3);color:var(--cream);}
+.brand-btn.fill{background:var(--rust3);color:var(--cream);border-color:var(--rust3);}
+.brand-btn.fill:hover{background:var(--rust2);}
+
+/* MENU */
+#menu{border-top:1px solid var(--b);}
+.menu-cta{
+  display:block;text-align:center;
+  padding:1.2rem 2rem;
+  font-family:'Cormorant Garamond',serif;
+  font-size:.88rem;letter-spacing:.22em;
+  text-decoration:none;
+  border:1px solid var(--b2);color:var(--muted);
+  transition:border-color .2s,color .2s;
+  max-width:320px;
+}
+.menu-cta:hover{border-color:var(--gold);color:var(--gold);}
+.menu-label{
+  font-weight:200;font-size:clamp(.76rem,2.8vw,.86rem);
+  line-height:2.2;letter-spacing:.08em;
+  color:var(--muted2);margin-bottom:1.4rem;
+}
+
+/* FOUNDER */
+#founder{background:var(--bg3);}
+.founder-inner{display:flex;flex-direction:column;gap:1.4rem;}
+.founder-quote{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:clamp(1rem,4vw,1.4rem);
+  letter-spacing:.08em;line-height:1.9;
+  color:var(--cream);
+}
+.founder-quote .rust{color:var(--rust3);}
+.founder-attr{
+  font-weight:200;font-size:.72rem;
+  letter-spacing:.18em;color:var(--muted2);
+}
+
+/* FOOTER */
+#footer{
+  background:var(--bg);
+  border-top:1px solid var(--b);
+  padding:3.5rem 1.4rem 3rem;
+}
+.footer-inner{max-width:680px;margin:0 auto;}
+.f-logo{
+  font-size:clamp(2.2rem,10vw,4rem);font-weight:700;
+  letter-spacing:.06em;line-height:.9;
+  color:var(--cream);margin-bottom:.3em;
+}
+.f-logo .dot{color:var(--rust3);}
+.f-tagline{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.72rem;letter-spacing:.22em;color:var(--muted2);
+  margin-bottom:2rem;
+}
+.f-btns{display:flex;flex-direction:column;gap:.65rem;max-width:360px;margin-bottom:2.5rem;}
+.f-btn{
+  display:block;text-align:center;
+  padding:.88rem 1.4rem;
+  font-family:'Cormorant Garamond',serif;
+  font-size:.84rem;letter-spacing:.16em;
+  text-decoration:none;
+  transition:background .2s,color .2s,border-color .2s;
+}
+.f-btn.rust{background:var(--rust3);color:var(--cream);border:1px solid var(--rust3);}
+.f-btn.rust:hover{background:var(--rust2);}
+.f-btn.outline{background:transparent;color:var(--cream);border:1px solid var(--b2);}
+.f-btn.outline:hover{border-color:var(--cream);}
+.f-fine{
+  display:flex;flex-wrap:wrap;justify-content:space-between;
+  align-items:center;gap:.6rem;
+  border-top:1px solid var(--b);
+  padding-top:1.2rem;
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.65rem;letter-spacing:.15em;color:var(--muted2);
+}
+.f-nav{display:flex;gap:1.2rem;list-style:none;}
+.f-nav a{color:var(--muted2);text-decoration:none;font-size:.65rem;letter-spacing:.12em;}
+.f-nav a:hover{color:var(--gold);}
+
+/* LEGAL */
+.legal-bar{
+  background:#000;color:rgba(255,255,255,.35);
+  text-align:center;padding:.8rem 1.4rem;
+  font-size:.62rem;letter-spacing:.12em;font-weight:300;line-height:2;
+}
+
+/* LINKET BADGE */
+.linket-bar{
+  background:var(--bg2);
+  display:flex;align-items:center;justify-content:center;
+  padding:.9rem 1.4rem;
+  border-top:1px solid var(--b);
+}
+.linket-bar a{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.62rem;letter-spacing:.18em;color:var(--muted2);
+  text-decoration:none;transition:color .2s;
+}
+.linket-bar a:hover{color:var(--gold);}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.visible{opacity:1;transform:none;}
+
+/* MOBILE */
+@media(max-width:600px){
+  .hero-content{align-items:flex-start;}
+  .brand-card{padding:1.6rem 1rem;}
+  #footer{padding:3rem 1rem 2.5rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>桑心餐飲集團</span><span class="ac">✦</span>
+    <span>山上山下 emo Lab</span><span class="ac">✦</span>
+    <span>桑心實驗室</span><span class="ac">✦</span>
+    <span>桑心茶室</span><span class="ac">✦</span>
+    <span>埔里・台中</span><span class="ac">✦</span>
+    <span>線上訂位</span><span class="ac">✦</span>
+    <span>桑心餐飲集團</span><span class="ac">✦</span>
+    <span>山上山下 emo Lab</span><span class="ac">✦</span>
+    <span>桑心實驗室</span><span class="ac">✦</span>
+    <span>桑心茶室</span><span class="ac">✦</span>
+    <span>埔里・台中</span><span class="ac">✦</span>
+    <span>線上訂位</span><span class="ac">✦</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content reveal">
+    <div class="hero-eyebrow">Sang Xin Dining Group</div>
+    <div class="hero-title">桑心<br>餐飲<span class="rust">。</span></div>
+    <div class="hero-divider"></div>
+    <div class="hero-sub">山上山下 × 桑心實驗室 × 桑心茶室</div>
+    <div class="hero-tagline">埔里・台中 / 在地職人餐飲，三種風格，一份用心</div>
+    <div class="hero-scroll">
+      <span class="scroll-line"></span>
+      <span>Scroll</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="sec reveal">
+  <div class="eyebrow-row">
+    <h2>關於桑心</h2><span>✦</span>
+  </div>
+  <p class="about-text">
+    桑心餐飲由創辦人<strong>黃竹鍵</strong>在埔里深耕多年，從一間店開始，逐步發展出三個風格各異的品牌。不追求連鎖規模，只在乎<strong>每一桌客人的真實體驗</strong>。從食材選擇到空間設計，每個細節都是對「用心」二字最直接的回答。
+  </p>
+</section>
+
+<!-- BRANDS -->
+<section id="brands" class="sec-full reveal">
+  <div class="sec-inner">
+    <div class="eyebrow-row">
+      <h2>三大品牌</h2><span>✦</span>
+    </div>
+  </div>
+  <div class="brand-grid">
+
+    <div class="brand-card">
+      <div class="brand-number">01</div>
+      <div class="brand-name">山上山下</div>
+      <div class="brand-en">emo Lab · Puli Taomi</div>
+      <div class="brand-desc">隱身埔里桃米的工業風獨立品牌，以咖啡與漢堡為核心，空間本身就是一場體驗。山的氛圍、水的流動，讓每次造訪都成為一段短暫的出走。</div>
+      <a href="https://emoer.noon360.com/mainssl/modules/MySpace/index.php?sn=emoer&pg=ZC9465728"
+         target="_blank" class="brand-btn fill"
+         onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'emolab'});fbq('track','Lead');">
+        線上訂位 →
+      </a>
+    </div>
+
+    <div class="brand-card">
+      <div class="brand-number">02</div>
+      <div class="brand-name">桑心實驗室</div>
+      <div class="brand-en">Sang Xin Lab</div>
+      <div class="brand-desc">以實驗精神對待每一道料理，食材與工法不斷嘗試與調整。不墨守成規，每個季節都可能出現讓你驚喜的新嘗試。這裡是廚師的實驗場，也是饕客的探索地。</div>
+      <a href="https://emolab.noon360.com/pg/Reservation"
+         target="_blank" class="brand-btn fill"
+         onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'emolab'});fbq('track','Lead');">
+        線上預約 →
+      </a>
+    </div>
+
+    <div class="brand-card">
+      <div class="brand-number">03</div>
+      <div class="brand-name">桑心茶室</div>
+      <div class="brand-en">Sang Xin Tea Room</div>
+      <div class="brand-desc">將台灣茶文化融入現代餐飲空間，一杯好茶不只是飲品，更是一種生活態度的選擇。在這裡，時間慢下來，你也可以慢下來。</div>
+      <a href="tel:" class="brand-btn"
+         onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'emolab'});fbq('track','Lead');">
+        電話預約 →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu" class="sec reveal">
+  <div class="eyebrow-row">
+    <h2>菜單</h2><span>✦</span>
+  </div>
+  <p class="menu-label">查看目前最新的餐點菜單，食材依季節調整，保持每次造訪的新鮮感。</p>
+  <a href="https://emoer.co/mainssl/modules/MySpace/index.php?sn=emoer&pg=ZC10502229"
+     target="_blank" class="menu-cta"
+     onclick="gtag('event','click_menu',{'event_category':'CTA','event_label':'emolab'});fbq('track','ViewContent');">
+    查看完整菜單 →
+  </a>
+</section>
+
+<!-- FOUNDER -->
+<section id="founder" class="sec-full reveal">
+  <div class="sec-inner">
+    <div class="eyebrow-row">
+      <h2>創辦人</h2><span>✦</span>
+    </div>
+    <div class="founder-inner">
+      <div class="founder-quote">
+        「開店不是為了<span class="rust">規模</span>，<br>
+        是為了讓更多人有機會<br>
+        嚐到真正<span class="rust">用心</span>做的東西。」
+      </div>
+      <div class="founder-attr">— 黃竹鍵，桑心餐飲創辦人</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="footer-inner">
+    <div class="f-logo">桑心<span class="dot">。</span></div>
+    <div class="f-tagline">Sang Xin Dining Group · Puli · Taichung</div>
+    <div class="f-btns">
+      <a href="https://emoer.noon360.com/mainssl/modules/MySpace/index.php?sn=emoer&pg=ZC9465728"
+         target="_blank" class="f-btn rust"
+         onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'emolab'});fbq('track','Lead');">
+        山上山下 ｜ 立即訂位
+      </a>
+      <a href="https://emolab.noon360.com/pg/Reservation"
+         target="_blank" class="f-btn rust"
+         onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'emolab'});fbq('track','Lead');">
+        桑心實驗室 ｜ 立即預約
+      </a>
+      <a href="https://linket.app/emolab-talk"
+         target="_blank" class="f-btn outline"
+         onclick="gtag('event','click_linket_service',{'event_category':'CTA','event_label':'emolab'});">
+        開店創業交流 ｜ 了解更多
+      </a>
+    </div>
+    <div class="f-fine">
+      <span>桑心餐飲集團 · 南投縣埔里鎮</span>
+      <ul class="f-nav">
+        <li><a href="#about">關於</a></li>
+        <li><a href="#brands">品牌</a></li>
+        <li><a href="#menu">菜單</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<div class="linket-bar">
+  <a href="https://linket.app/home" target="_blank">Design by LINKet · linket.app</a>
+</div>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  });
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
