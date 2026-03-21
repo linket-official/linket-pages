@@ -1,1 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>創業零到一的進行式 — Tony Lin × LINKet</title>
+<meta property="og:title" content="創業零到一的進行式 — Tony Lin">
+<meta property="og:url" content="https://linket.app/proposal/startup/">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-29J2988Y8J');gtag('event','view_proposal_startup',{'event_category':'proposal','event_label':'startup'});</script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+:root{--cr:#F5F0E8;--ink:#111;--i4:rgba(17,17,17,.4);--i1:rgba(17,17,17,.12);--r:1px solid #111;--rd:1px solid rgba(17,17,17,.2);}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--cr);}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--ink);}
+.sw{width:100vw;height:100vh;position:relative;overflow:hidden;}
+.sl{position:absolute;inset:0;background:var(--cr);opacity:0;transform:translateY(28px);transition:opacity .46s cubic-bezier(.4,0,.2,1),transform .46s cubic-bezier(.4,0,.2,1);pointer-events:none;overflow:hidden;display:flex;flex-direction:column;padding:40px 56px 32px;}
+.sl.active{opacity:1;transform:none;pointer-events:all;z-index:10;}
+.sl.exit{opacity:0;transform:translateY(-28px);pointer-events:none;z-index:5;transition:opacity .36s ease,transform .36s ease;}
+.nav{position:fixed;bottom:20px;right:28px;z-index:200;display:flex;align-items:center;gap:12px;}
+.nn{font-family:'DM Mono',monospace;font-size:10px;color:var(--i4);letter-spacing:.1em;}
+.nd{display:flex;gap:6px;align-items:center;}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--i4);cursor:pointer;transition:all .2s;}
+.dot.active{background:var(--ink);transform:scale(1.6);}
+.qfab{position:fixed;bottom:20px;left:28px;z-index:200;width:34px;height:34px;border:var(--r);background:var(--cr);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;}
+.qfab:hover{background:var(--ink);color:var(--cr);}
+.qov{display:none;position:fixed;inset:0;z-index:500;background:rgba(17,17,17,.72);backdrop-filter:blur(8px);align-items:center;justify-content:center;}
+.qov.open{display:flex;}
+.qmod{background:var(--cr);border:var(--r);padding:26px;max-width:250px;width:90%;display:flex;flex-direction:column;align-items:center;gap:12px;position:relative;}
+.qclose{position:absolute;top:10px;right:12px;background:none;border:none;cursor:pointer;font-size:1rem;color:var(--i4);}
+.wm{position:fixed;bottom:20px;left:72px;z-index:200;font-family:'DM Mono',monospace;font-size:9px;color:var(--i4);letter-spacing:.12em;}
+.wm a{color:var(--i4);text-decoration:none;}
+/* TYPE */
+.ki{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--i4);margin-bottom:8px;display:block;}
+.hd{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(3rem,8vw,7rem);line-height:.9;letter-spacing:-.02em;}
+.h1{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(2.2rem,5vw,4.2rem);line-height:.95;letter-spacing:-.02em;}
+.h2{font-family:'Noto Serif TC',serif;font-weight:700;font-size:clamp(1.2rem,2.4vw,1.9rem);line-height:1.1;}
+.bd{font-size:clamp(.95rem,1.35vw,1.1rem);line-height:1.72;color:var(--i4);}
+.ld{font-family:'Noto Serif TC',serif;font-size:clamp(1rem,1.5vw,1.2rem);line-height:1.62;color:var(--ink);}
+.mo{font-family:'DM Mono',monospace;}
+.cp{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--i4);}
+.rh{width:100%;height:1px;background:var(--ink);margin:12px 0;}
+.rl{width:100%;height:1px;background:var(--i1);margin:8px 0;}
+.tg{display:inline-block;border:var(--r);padding:3px 10px;font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;margin-right:4px;margin-bottom:4px;}
+.tgf{background:var(--ink);color:var(--cr);}
+.pq{border-left:3px solid var(--ink);padding-left:16px;font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(.95rem,1.5vw,1.2rem);line-height:1.5;}
+.hdr{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px;margin-bottom:10px;}
+.hdr span{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--i4);}
+/* MARQUEE */
+.mq{overflow:hidden;border-top:var(--r);border-bottom:var(--r);padding:8px 0;white-space:nowrap;}
+.mqi{display:inline-block;animation:mq 16s linear infinite;font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:900;letter-spacing:.02em;}
+.mqi span{margin:0 24px;opacity:.2;}
+.mqi span:nth-child(odd){opacity:1;}
+@keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
+/* ── P1 COVER ── */
+#s0{justify-content:space-between;}
+/* ── P2 ABOUT ── */
+#s1 .g2{display:grid;grid-template-columns:200px 1fr;gap:32px;flex:1;align-items:center;}
+.av{width:100%;aspect-ratio:4/5;background:var(--i1);border:var(--r);display:flex;align-items:center;justify-content:center;font-size:2.8rem;}
+.st2{display:grid;grid-template-columns:1fr 1fr;gap:1px;border:var(--r);margin-top:1px;}
+.sc{padding:9px 11px;border-right:var(--r);}
+.sc:last-child{border-right:none;}
+.sn{font-family:'DM Mono',monospace;font-size:1.4rem;font-weight:500;display:block;margin-bottom:2px;}
+
+/* ── P3 TIMELINE ── */
+#s2 .ga{display:grid;grid-template-columns:38% 1fr;gap:32px;flex:1;align-items:start;}
+.tlt{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;border:var(--r);margin-top:12px;}
+.ti{border-right:var(--r);padding:12px 10px;position:relative;}
+.ti:last-child{border-right:none;}
+.ti:nth-child(4),.ti:nth-child(5),.ti:nth-child(6){border-top:var(--r);}
+.ti-dot{width:8px;height:8px;border-radius:50%;background:var(--ink);margin-bottom:6px;}
+.ti-dot.op{background:var(--cr);border:1px solid var(--ink);}
+.ti-yr{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;color:var(--i4);margin-bottom:3px;}
+.ti-tt{font-family:'Noto Serif TC',serif;font-weight:700;font-size:.82rem;margin-bottom:3px;}
+.ti-de{font-size:.75rem;color:var(--i4);line-height:1.48;}
+.st3{display:grid;grid-template-columns:repeat(3,1fr);border:var(--r);}
+.sb{padding:14px 10px;text-align:center;border-right:var(--r);}
+.sb:last-child{border-right:none;}
+.sbig{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;line-height:1;}
+
+/* ── P4 LIFE DESIGN ── */
+#s3 .g2{display:grid;grid-template-columns:1fr 1fr;gap:24px;flex:1;align-items:start;}
+.mc{border:var(--r);padding:13px 16px;display:flex;gap:12px;}
+.mcn{font-family:'DM Mono',monospace;font-size:1.3rem;font-weight:500;opacity:.13;line-height:1;width:26px;flex-shrink:0;}
+.mct{font-family:'Noto Serif TC',serif;font-weight:700;font-size:.95rem;margin-bottom:3px;}
+.mcd{font-size:.85rem;color:var(--i4);line-height:1.55;}
+
+/* ── P5 LINKET ── */
+#s4 .bn{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(4.5rem,12vw,10rem);line-height:.88;letter-spacing:-.03em;text-align:center;}
+.f4{display:grid;grid-template-columns:repeat(4,1fr);border:var(--r);margin-top:14px;}
+.fc{padding:16px 14px;border-right:var(--r);}
+.fc:last-child{border-right:none;}
+.fl{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--i4);margin-bottom:5px;}
+.ft{font-family:'Noto Serif TC',serif;font-weight:700;font-size:.95rem;margin-bottom:5px;}
+.fd{font-size:.83rem;color:var(--i4);line-height:1.5;}
+
+/* ── P6 CASES ── */
+#s5 .cg{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;flex:1;align-items:start;}
+.cc{border-top:var(--r);padding-top:14px;}
+.cn{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--i4);margin-bottom:8px;}
+.ci{font-size:2.4rem;text-align:center;padding:16px;margin-bottom:10px;}
+.ci.ag{background:rgba(34,85,34,.07);}
+.ci.pr{background:rgba(17,17,85,.05);}
+.ci.sk{background:rgba(85,34,68,.06);}
+.cnm{font-family:'Noto Serif TC',serif;font-weight:700;font-size:1.1rem;line-height:1.2;margin-bottom:6px;}
+.cbd{font-size:.85rem;color:var(--i4);line-height:1.58;}
+.ctg{display:flex;flex-wrap:wrap;gap:3px;margin-top:7px;}
+.ctgi{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.07em;border:1px solid var(--i1);padding:2px 7px;color:var(--i4);}
+
+/* ── P7 PRINCIPLES ── */
+#s6 .g2{display:grid;grid-template-columns:1fr 1fr;gap:24px;flex:1;align-items:start;}
+.pr{border:var(--r);padding:16px 18px;display:flex;justify-content:space-between;gap:14px;}
+.prt{font-family:'Noto Serif TC',serif;font-weight:700;font-size:1rem;margin-bottom:4px;}
+.prd{font-size:.85rem;color:var(--i4);line-height:1.58;}
+.prn{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;opacity:.1;line-height:1;flex-shrink:0;}
+
+/* ── P8 BOOKS ── */
+#s7 .g2{display:grid;grid-template-columns:1fr 1fr;gap:24px;flex:1;align-items:start;}
+.bk{display:flex;gap:14px;padding:15px 0;border-bottom:var(--rd);}
+.bk:last-child{border-bottom:none;}
+.bc{width:48px;height:68px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.4rem;border:1px solid var(--i1);}
+.bt{font-family:'Noto Serif TC',serif;font-weight:700;font-size:.95rem;margin-bottom:2px;}
+.ib{border:var(--r);padding:22px;height:100%;display:flex;flex-direction:column;gap:18px;background:var(--ink);color:var(--cr);}
+
+@media(max-width:900px){
+  .sl{padding:28px 20px 22px;}
+  #s1 .g2,#s2 .ga,#s3 .g2,#s6 .g2,#s7 .g2{grid-template-columns:1fr;gap:18px;}
+  .f4{grid-template-columns:1fr 1fr;}
+  #s5 .cg{grid-template-columns:1fr 1fr;}
+  .nav{bottom:12px;right:16px;}
+  .qfab{bottom:12px;left:16px;}
+  .wm{display:none;}
+}
+@media(max-width:600px){
+  .f4,#s5 .cg,.st3{grid-template-columns:1fr;}
+  .tlt{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+<div class="sw">
+
+<!-- P1 · COVER -->
+<div class="sl active" id="s0">
+  <div class="hdr"><span>LINKET × 創業分享</span><span>2025 · 學生專場</span></div>
+  <div class="rh"></div>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:14px;">
+    <span class="ki">A Story in Progress</span>
+    <div class="hd">創業<br><em>零到一</em><br>的進行式</div>
+    <div class="rh" style="margin-top:16px;"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+      <div class="ld">不是一個成功故事。<br>是一個還在路上的人，如何找到重心。</div>
+      <div class="bd">離開職場 · 生命設計 · 設計生涯<br>餐飲顧問 · 創業歷程 · LINKet<br><span class="mo" style="font-size:.7rem;letter-spacing:.1em;display:block;margin-top:6px;">TONY LIN · @TONYLIN_1994</span></div>
+    </div>
+  </div>
+  <div class="rh"></div>
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+    <div><span class="tg tgf">學生專場</span><span class="tg">1H</span><span class="tg">生命設計</span><span class="tg">創業</span></div>
+    <span class="mo" style="font-size:9px;color:var(--i4);">← → 切換頁面</span>
+  </div>
+</div>
+
+<!-- P2 · ABOUT -->
+<div class="sl" id="s1">
+  <div class="hdr"><span>01 / About</span><span>林志昇 Tony Lin</span></div>
+  <div class="rh"></div>
+  <div class="g2" style="flex:1;">
+    <div>
+      <div class="av">👤</div>
+      <div class="st2" style="margin-top:1px;">
+        <div class="sc"><span class="sn">10+</span><span class="cp">年設計</span></div>
+        <div class="sc"><span class="sn">2025</span><span class="cp">LINKet</span></div>
+      </div>
+      <div style="padding:9px 11px;border:var(--r);border-top:none;"><span class="cp">埔里 · 南投 · 台灣</span></div>
+    </div>
+    <div style="display:flex;flex-direction:column;justify-content:center;gap:12px;">
+      <span class="ki">Who am I</span>
+      <div class="h1">設計師、<br>創業者、<br><em>探索者。</em></div>
+      <div class="rl"></div>
+      <p class="ld">我是林志昇 Tony，一個在埔里工作的獨立設計師，LINKet 創辦人。</p>
+      <p class="bd">10 年設計資歷，跨足品牌識別、空間展示、3D 視覺與印刷。2024 年主動選擇離開職場——嘗試了直銷、身心靈、餐飲顧問……繞了一圈，才發現設計一直在那裡等我。</p>
+      <div class="pq">"設計不只是我的職業，是我理解世界的語言。"</div>
+      <div><span class="tg">品牌設計</span><span class="tg">空間展示</span><span class="tg">3D 視覺</span><span class="tg">印刷</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- P3 · TIMELINE -->
+<div class="sl" id="s2">
+  <div class="hdr"><span>02 / Journey</span><span>工作歷程年表</span></div>
+  <div class="rh"></div>
+  <div class="ga">
+    <!-- 左：標題 -->
+    <div style="display:flex;flex-direction:column;justify-content:flex-start;gap:10px;">
+      <span class="ki">Timeline</span>
+      <div class="h1">一條<br><em>不直</em>的路</div>
+      <p class="bd" style="max-width:260px;">每一次換跑道，都不是失敗——是在用身體去搜尋自己是誰。</p>
+      <div class="st3" style="margin-top:8px;">
+        <div class="sb"><div class="sbig">10+</div><div class="cp" style="margin-top:3px;">年設計</div></div>
+        <div class="sb"><div class="sbig">3+</div><div class="cp" style="margin-top:3px;">個跑道</div></div>
+        <div class="sb"><div class="sbig">1</div><div class="cp" style="margin-top:3px;">個根</div></div>
+      </div>
+    </div>
+    <!-- 右：時間軸格狀 + 引言 -->
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div class="tlt">
+        <div class="ti"><div class="ti-dot"></div><div class="ti-yr">早期</div><div class="ti-tt">🎓 求學設計</div><div class="ti-de">離鄉學設計，累積品牌、空間、3D、印刷各領域實力</div></div>
+        <div class="ti"><div class="ti-dot"></div><div class="ti-yr">設計生涯</div><div class="ti-tt">🎨 10年資歷</div><div class="ti-de">服務各類品牌，建立完整設計思維與視覺語言體系</div></div>
+        <div class="ti"><div class="ti-dot"></div><div class="ti-yr">探索期</div><div class="ti-tt">🍽️ 餐飲顧問</div><div class="ti-de">設計思維跨入餐飲業，首次發現跨界無限可能</div></div>
+        <div class="ti"><div class="ti-dot"></div><div class="ti-yr">2024 / 02</div><div class="ti-tt">🚪 主動離職</div><div class="ti-de">不是被裁員，是主動選擇。只有一個感覺：這不是我的路</div></div>
+        <div class="ti"><div class="ti-dot"></div><div class="ti-yr">2024 迷霧</div><div class="ti-tt">🌫️ 身心靈</div><div class="ti-de">直銷、身心靈、自我療癒，每次嘗試讓答案更清晰</div></div>
+        <div class="ti"><div class="ti-dot op"></div><div class="ti-yr">2025 →</div><div class="ti-tt">⚡ LINKet</div><div class="ti-de">帶著所有經歷重新出發，比以前更清楚為什麼而做</div></div>
+      </div>
+      <div style="border:var(--r);padding:20px 22px;background:rgba(17,17,17,.04);">
+        <div class="pq" style="font-size:clamp(1rem,2vw,1.5rem);">"繞了一大圈才發現，設計一直在那裡等我。"</div>
+        <div class="cp" style="margin-top:10px;">— Tony Lin</div>
+      </div>
+      <div class="mq">
+        <div class="mqi">設計生涯 <span>·</span> 餐飲顧問 <span>·</span> 直銷嘗試 <span>·</span> 身心靈 <span>·</span> 自我療癒 <span>·</span> LINKet <span>·</span> 設計生涯 <span>·</span> 餐飲顧問 <span>·</span> 直銷嘗試 <span>·</span> 身心靈 <span>·</span> 自我療癒 <span>·</span> LINKet <span>·</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- P4 · LIFE DESIGN -->
+<div class="sl" id="s3">
+  <div class="hdr"><span>03 / Life Design</span><span>遇見生命設計</span></div>
+  <div class="rh"></div>
+  <div class="g2" style="flex:1;align-items:start;">
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <span class="ki">Stanford d.school</span>
+      <div class="h1">用設計思維<br>規劃<em>人生</em></div>
+      <p class="bd">把解決問題的設計方法論，應用在規劃自己的人生上。讓迷惘有了行動的框架。</p>
+      <div style="display:flex;flex-direction:column;gap:5px;margin-top:4px;">
+        <div class="mc"><div class="mcn">01</div><div><div class="mct">好時光日記</div><div class="mcd">記錄每天有能量或耗能的事。靠數據找出真正的興趣模式。</div></div></div>
+        <div class="mc"><div class="mcn">02</div><div><div class="mct">原型測試</div><div class="mcd">不要等「準備好」。先小規模嘗試，用真實反饋調整方向。</div></div></div>
+        <div class="mc"><div class="mcn">03</div><div><div class="mct">重力問題辨識</div><div class="mcd">區分「真正的限制」與「自設的牆」——很多障礙是可以移動的。</div></div></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div style="border:var(--r);padding:16px;display:flex;align-items:center;gap:14px;">
+        <span style="font-size:2.2rem;flex-shrink:0;">📖</span>
+        <div><div class="h2" style="font-size:1rem;margin-bottom:3px;">當自己的生命設計師</div><div class="cp" style="margin-bottom:6px;">Designing Your Life · Stanford d.school</div><div class="bd">史丹佛課程精華。讓迷惘有了方法論的支撐，不再用「找到答案」的方式思考人生。</div></div>
+      </div>
+      <div style="border:var(--r);padding:18px;background:rgba(17,17,17,.04);">
+        <span class="ki">My Insight</span>
+        <div class="pq">"我繞去直銷、身心靈、餐飲，不是迷失，<br>是在做原型測試。每一條路都讓我更清楚<br>自己不是什麼。"</div>
+        <div class="cp" style="margin-top:8px;">— Tony 的生命設計心得</div>
+      </div>
+      <div style="border:var(--r);padding:16px;">
+        <span class="ki">Core Question</span>
+        <div class="h2" style="font-size:clamp(.95rem,1.8vw,1.25rem);line-height:1.5;">什麼事情讓你做完之後<br>覺得更有能量，而不是更累？</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- P5 · LINKET -->
+<div class="sl" id="s4">
+  <div class="hdr"><span>04 / LINKet</span><span>找到根，出發</span></div>
+  <div class="rh"></div>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;">
+    <span class="ki" style="text-align:center;">Brand · Product · Mission</span>
+    <div class="bn">LINKet</div>
+    <div class="mo" style="font-size:.85rem;letter-spacing:.22em;text-transform:uppercase;color:var(--i4);text-align:center;">品牌連結基礎建設</div>
+  </div>
+  <div class="f4">
+    <div class="fc"><div class="fl">產品核心</div><div class="ft">數位名片 NFC</div><div class="fd">一碰手機，品牌完整呈現。告別紙名片，留下數位印記。</div></div>
+    <div class="fc"><div class="fl">服務對象</div><div class="ft">傳統製造 · 農業</div><div class="fd">讓長期被忽視的在地產業，站上市場舞台被看見。</div></div>
+    <div class="fc"><div class="fl">核心價值</div><div class="ft">連結 · 信任 · 在地根</div><div class="fd">協助品牌建立長期商業關係網絡，不只是設計。</div></div>
+    <div class="fc"><div class="fl">基地</div><div class="ft">埔里 · 南投</div><div class="fd">在地出發，服務全台傳統產業，把在地價值帶向更大的舞台。</div></div>
+  </div>
+  <div style="padding-top:12px;"><a href="https://linket.app" target="_blank" style="font-family:'DM Mono',monospace;font-size:.76rem;letter-spacing:.1em;color:var(--ink);text-decoration:none;border-bottom:var(--r);">linket.app →</a></div>
+</div>
+
+<!-- P6 · CASES -->
+<div class="sl" id="s5">
+  <div class="hdr"><span>05 / Cases</span><span>真實服務案例</span></div>
+  <div class="rh"></div>
+  <div style="margin-bottom:10px;">
+    <div class="h1" style="font-size:clamp(1.6rem,3.5vw,2.8rem);">發展在地的連結</div>
+    <p class="bd" style="margin-top:4px;">"傳統產業不缺技術，缺的是被世界看見的語言。"</p>
+  </div>
+  <div class="cg">
+    <div class="cc"><div class="cn">Case 01</div><div class="ci ag">🌹</div><div class="cp" style="margin-bottom:6px;">農業品牌 · 埔里</div><div class="cnm">玫瑰花農品牌建立</div><div class="cbd">在地花農長年只做批發，缺乏品牌識別。協助建立視覺系統與數位名片，讓消費者直接認識花農的故事。</div><div class="ctg"><span class="ctgi">品牌識別</span><span class="ctgi">數位名片</span><span class="ctgi">故事包裝</span></div></div>
+    <div class="cc"><div class="cn">Case 02</div><div class="ci pr">🏷️</div><div class="cp" style="margin-bottom:6px;">製造業 · 台南</div><div class="cnm">隆德印刷廠品牌優化</div><div class="cbd">台南老字號貼紙工廠，技術頂尖卻缺少品牌溝通能力。協助品牌化轉型，讓製造端專業被市場認識。</div><div class="ctg"><span class="ctgi">品牌定位</span><span class="ctgi">視覺優化</span><span class="ctgi">市場溝通</span></div></div>
+    <div class="cc"><div class="cn">Case 03</div><div class="ci sk">🍶</div><div class="cp" style="margin-bottom:6px;">精品品牌</div><div class="cnm">嵐爵私選清酒品牌</div><div class="cbd">精選日本清酒選品，從品牌命名到視覺識別全程規劃，打造高質感有個性的選酒品牌形象。</div><div class="ctg"><span class="ctgi">品牌命名</span><span class="ctgi">視覺識別</span><span class="ctgi">數位連結</span></div></div>
+  </div>
+  <div style="padding-top:10px;display:flex;gap:5px;flex-wrap:wrap;align-items:center;"><span class="cp">目前服務中：</span><span class="tg">玫瑰花農</span><span class="tg">香菇農場</span><span class="tg">百香果批發</span><span class="tg">香草農場</span></div>
+</div>
+
+<!-- P7 · PRINCIPLES -->
+<div class="sl" id="s6">
+  <div class="hdr"><span>06 / Principles</span><span>我的心法</span></div>
+  <div class="rh"></div>
+  <div class="g2" style="flex:1;align-items:start;">
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <span class="ki">Three Principles</span>
+      <div class="h1">讓我走到<br>這裡的<br><em>三個心法</em></div>
+      <div style="display:flex;flex-direction:column;gap:5px;margin-top:4px;">
+        <div class="pr"><div><div class="prt">先活著再說 — MVP 思維</div><div class="prd">最小可行版本先做出來，用真實反饋優化，而不是在腦中反覆設計。</div></div><div class="prn">01</div></div>
+        <div class="pr"><div><div class="prt">迷惘不是問題，沒行動才是</div><div class="prd">每一次嘗試都讓你更靠近自己。拿迷惘當理由停下來，才是真正的問題。</div></div><div class="prn">02</div></div>
+        <div class="pr"><div><div class="prt">找到根，其他才能長出來</div><div class="prd">你的根不是別人定義的，是自己走出來的。繞的那圈是必要的。</div></div><div class="prn">03</div></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div style="border:var(--r);padding:20px;background:rgba(17,17,17,.04);">
+        <span class="ki">給你的問題</span>
+        <div class="h2" style="font-size:clamp(1rem,1.8vw,1.3rem);line-height:1.58;margin-bottom:10px;">如果不用考慮錢，<br>你最想花時間做什麼？</div>
+        <p class="bd">這個問題沒有標準答案。但你現在的第一個念頭，值得你認真對待。</p>
+      </div>
+      <div style="border:var(--r);padding:18px;">
+        <span class="ki">現在進行式 — LINKet 的下一步</span>
+        <div style="display:flex;flex-direction:column;gap:7px;margin-top:8px;">
+          <div style="display:flex;gap:9px;font-size:.9rem;color:var(--i4);"><span class="mo" style="color:var(--ink);">→</span>加入商業社群（BNI），拓展傳統產業網絡</div>
+          <div style="display:flex;gap:9px;font-size:.9rem;color:var(--i4);"><span class="mo" style="color:var(--ink);">→</span>完善 LINKet 服務套餐，明確客群定位</div>
+          <div style="display:flex;gap:9px;font-size:.9rem;color:var(--i4);"><span class="mo" style="color:var(--ink);">→</span>持續用 Threads 建立在地品牌聲量</div>
+          <div style="display:flex;gap:9px;font-size:.9rem;color:var(--i4);"><span class="mo" style="color:var(--ink);">→</span>讓每個案例成為下一個案例的名片</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- P8 · BOOKS -->
+<div class="sl" id="s7">
+  <div class="hdr"><span>07 / Reading</span><span>推薦閱讀</span></div>
+  <div class="rh"></div>
+  <div class="g2" style="flex:1;align-items:start;">
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <span class="ki">Recommended Books</span>
+      <div class="h1" style="font-size:clamp(1.8rem,4vw,3.2rem);">這兩本書改變了我</div>
+      <p class="ld">不是給了答案，而是改變了我提問的方式。</p>
+      <div>
+        <div class="bk"><div class="bc">📘</div><div><div class="cp" style="margin-bottom:2px;">Book 01</div><div class="bt">極簡創業</div><div class="cp" style="margin-bottom:5px;">The Minimalist Entrepreneur · Sahil Lavingia</div><div class="bd">教你如何從「現有的受眾」開始建立事業。改變了我對「開始」的定義。</div></div></div>
+        <div class="bk"><div class="bc">📗</div><div><div class="cp" style="margin-bottom:2px;">Book 02</div><div class="bt">當自己的生命設計師</div><div class="cp" style="margin-bottom:5px;">Designing Your Life · Bill Burnett & Dave Evans</div><div class="bd">史丹佛 d.school 課程精華。讓迷惘有了方法論，不再用「找答案」的方式思考人生。</div></div></div>
+      </div>
+    </div>
+    <div class="ib">
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.15em;opacity:.45;margin-bottom:14px;">CORE INSIGHT</div>
+        <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.1rem,2vw,1.7rem);line-height:1.4;margin-bottom:18px;">"你不需要知道終點，<br>你只需要知道下一步。"</div>
+        <div style="font-size:.88rem;opacity:.6;line-height:1.82;">從《極簡創業》學到：先有受眾，再有產品。<br>從《生命設計師》學到：迷惘是正常的，行動才能解惑。<br><br>這兩個觀念，讓我在最不確定的時候，還能繼續前進。</div>
+      </div>
+      <div style="border-top:1px solid rgba(245,240,232,.18);padding-top:12px;margin-top:auto;">
+        <div style="font-family:'DM Mono',monospace;font-size:.62rem;opacity:.4;letter-spacing:.1em;margin-bottom:5px;">推薦給</div>
+        <div style="font-size:.85rem;opacity:.68;line-height:1.7;">正在迷惘的你 · 想創業但不知從哪開始 · 覺得走錯路的人</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- P9 · CLOSING -->
+<div class="sl" id="s8">
+  <div class="hdr"><span>08 / Fin</span><span>LINKet.app</span></div>
+  <div class="rh"></div>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:16px;">
+    <div class="mq">
+      <div class="mqi">創業 <span>·</span> 設計 <span>·</span> 生命設計 <span>·</span> 連結 <span>·</span> 在地 <span>·</span> LINKet <span>·</span> 創業 <span>·</span> 設計 <span>·</span> 生命設計 <span>·</span> 連結 <span>·</span> 在地 <span>·</span> LINKet <span>·</span></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:end;margin-top:8px;">
+      <div>
+        <span class="ki">Final Words</span>
+        <div class="hd" style="font-size:clamp(2.4rem,6.5vw,5.5rem);line-height:.92;">不是要你<br>去創業，<br>是要你開始<br><em>設計</em>自己<br>的生命。</div>
+      </div>
+      <div>
+        <p class="ld" style="margin-bottom:20px;">你現在走的每一步，都是素材。不管是迷惘、嘗試、還是繞路，都算數。</p>
+        <div class="rh"></div>
+        <div style="margin-top:14px;"><div class="cp" style="margin-bottom:6px;">Connect</div><div class="mo" style="font-size:.83rem;line-height:2;">Threads · @tonylin_1994<br>Web · linket.app</div></div>
+        <div style="margin-top:18px;display:flex;gap:12px;align-items:center;">
+          <div style="text-align:center;"><div style="width:82px;height:82px;border:var(--r);display:flex;align-items:center;justify-content:center;" id="qrc"></div><div class="cp" style="margin-top:4px;">linket.app</div></div>
+          <a href="https://linket.app" target="_blank" style="display:inline-block;border:var(--r);padding:11px 20px;font-family:'DM Mono',monospace;font-size:.76rem;letter-spacing:.1em;color:var(--cr);text-decoration:none;background:var(--ink);">linket.app →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rh"></div>
+  <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:5px;"><span class="cp">© 2025 Tony Lin · LINKet · Tony Design Studio</span><span class="cp">創業零到一的進行式</span></div>
+</div>
+
+</div>
+
+<div class="nav"><div class="nn" id="nc">01 / 09</div><div class="nd" id="nd"></div><span class="mo" style="font-size:9px;color:var(--i4);letter-spacing:.1em;">← →</span></div>
+<button class="qfab" onclick="openQ()" aria-label="QR">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="3" height="3"/><rect x="19" y="14" width="2" height="2"/><rect x="14" y="19" width="2" height="2"/><rect x="19" y="19" width="2" height="2"/></svg>
+</button>
+<div class="qov" id="qov" onclick="if(event.target===this)closeQ()">
+  <div class="qmod">
+    <button class="qclose" onclick="closeQ()">✕</button>
+    <div style="font-family:'Playfair Display',serif;font-weight:900;font-size:1.1rem;">LINKet</div>
+    <div id="qb"></div>
+    <div style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--i4);letter-spacing:.06em;">linket.app/proposal/startup</div>
+  </div>
+</div>
+<div class="wm">Powered by <a href="https://linket.app" target="_blank">LINKet.app</a></div>
+
+<script>
+const sls=Array.from(document.querySelectorAll('.sl')),tot=sls.length;
+let cur=0,busy=false;
+function goTo(i){
+  if(busy||i===cur||i<0||i>=tot)return;busy=true;
+  sls[cur].classList.remove('active');sls[cur].classList.add('exit');
+  sls[cur].style.transform=i>cur?'translateY(-28px)':'translateY(28px)';
+  const n=sls[i];n.style.transform=i>cur?'translateY(28px)':'translateY(-28px)';n.style.opacity='0';n.classList.add('active');
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{n.style.transition='opacity .46s cubic-bezier(.4,0,.2,1),transform .46s cubic-bezier(.4,0,.2,1)';n.style.transform='translateY(0)';n.style.opacity='1';}));
+  cur=i;upN();
+  setTimeout(()=>{sls.forEach(s=>{s.classList.remove('exit');s.style.transform='';});n.style.transition='';busy=false;},500);
+}
+function upN(){
+  document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===cur));
+  document.getElementById('nc').textContent=String(cur+1).padStart(2,'0')+' / '+String(tot).padStart(2,'0');
+}
+const nd=document.getElementById('nd');
+sls.forEach((_,i)=>{const d=document.createElement('div');d.className='dot'+(i===0?' active':'');d.onclick=()=>goTo(i);nd.appendChild(d);});
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key==='ArrowDown'){e.preventDefault();goTo(cur+1);}
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();goTo(cur-1);}
+});
+let ty=0;
+document.addEventListener('touchstart',e=>{ty=e.touches[0].clientY;},{passive:true});
+document.addEventListener('touchend',e=>{const dy=ty-e.changedTouches[0].clientY;if(Math.abs(dy)>40)dy>0?goTo(cur+1):goTo(cur-1);},{passive:true});
+const QU='https://linket.app/proposal/startup';
+let qi=false;
+function openQ(){
+  document.getElementById('qov').classList.add('open');
+  if(!qi){new QRCode(document.getElementById('qb'),{text:QU,width:178,height:178,colorDark:'#111',colorLight:'#F5F0E8',correctLevel:QRCode.CorrectLevel.M});qi=true;}
+  gtag('event','click_qr_startup',{'event_category':'engagement','event_label':'startup'});
+}
+function closeQ(){document.getElementById('qov').classList.remove('open');}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeQ();});
+window.addEventListener('load',()=>{new QRCode(document.getElementById('qrc'),{text:QU,width:72,height:72,colorDark:'#111',colorLight:'#F5F0E8',correctLevel:QRCode.CorrectLevel.L});});
+</script>
+</body>
+</html>
