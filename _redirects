@@ -2,6 +2,6 @@
 /home                    /home/index.html              200
 /case                    /case/index.html              200
 /case/*                  /case/index.html              200
-/emolab                  /emolab/index.html            200
 /emolab/talk             /emolab/talk.html             200
+/emolab                  /emolab/index.html            200
 /                        /home/                        301
