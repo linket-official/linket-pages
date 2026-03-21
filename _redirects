@@ -3,5 +3,7 @@
 /case                    /case/index.html              200
 /case/*                  /case/index.html              200
 /emolab/talk             /emolab/talk/index.html       200
-/emolab                  /emolab/index.html            200
+/emolab                  /emolab/index.html            
+/proposal/startup        /proposal/startup/index.html    200
+/proposal/threads        /proposal/threads/index.html    200
 /                        /home/                        301
