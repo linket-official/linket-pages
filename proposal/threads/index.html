@@ -1,1 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>用 AI 經營 Threads 自媒體 × LINKet</title>
+<meta property="og:title" content="用 AI 經營 Threads 自媒體 — Tony Lin">
+<meta property="og:url" content="https://linket.app/proposal/threads/">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-29J2988Y8J');gtag('event','view_proposal_threads',{'event_category':'proposal','event_label':'threads'});</script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+:root{--bg:#000;--w:#fff;--w6:rgba(255,255,255,.6);--w2:rgba(255,255,255,.2);--w08:rgba(255,255,255,.08);--br:1px solid #fff;--bd:1px solid rgba(255,255,255,.25);}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--w);}
+.sw{width:100vw;height:100vh;position:relative;overflow:hidden;}
+.sl{position:absolute;inset:0;padding:40px 56px 32px;display:flex;flex-direction:column;background:var(--bg);opacity:0;transform:translateY(36px);transition:opacity .44s cubic-bezier(.4,0,.2,1),transform .44s cubic-bezier(.4,0,.2,1);pointer-events:none;overflow:hidden;}
+.sl.active{opacity:1;transform:none;pointer-events:all;z-index:10;}
+.sl.ex{opacity:0;transform:translateY(-36px);pointer-events:none;z-index:5;transition:opacity .36s ease,transform .36s ease;}
+/* NAV */
+.nav{position:fixed;bottom:max(20px,env(safe-area-inset-bottom,20px));left:50%;transform:translateX(-50%);z-index:200;display:flex;align-items:center;gap:10px;border:var(--br);padding:9px 18px;background:var(--bg);}
+.nd{display:flex;gap:7px;align-items:center;}
+.dot{width:6px;height:6px;border:var(--br);border-radius:0;background:transparent;cursor:pointer;transition:background .2s;}
+.dot.active{background:var(--w);}
+.ni{font-family:'DM Mono',monospace;font-size:10px;color:var(--w6);letter-spacing:.12em;border-left:var(--bd);padding-left:10px;}
+/* QR */
+.qfab{position:fixed;bottom:max(20px,env(safe-area-inset-bottom,20px));left:24px;z-index:200;width:38px;height:38px;border:var(--br);background:transparent;color:var(--w);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;}
+.qfab:hover{background:var(--w);color:var(--bg);}
+.qov{display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.85);backdrop-filter:blur(8px);align-items:center;justify-content:center;}
+.qov.open{display:flex;}
+.qmod{background:var(--bg);border:var(--br);padding:28px;max-width:250px;width:90%;display:flex;flex-direction:column;align-items:center;gap:12px;position:relative;}
+.qclose{position:absolute;top:10px;right:12px;background:none;border:none;cursor:pointer;font-size:1rem;color:var(--w6);}
+.wm{position:fixed;bottom:68px;right:24px;font-family:'DM Mono',monospace;font-size:9px;color:rgba(255,255,255,.18);letter-spacing:.1em;z-index:100;}
+.wm a{color:rgba(255,255,255,.28);text-decoration:none;}
+/* TYPE */
+.lb{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--w6);margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.lb::before{content:'';width:24px;height:1px;background:var(--w);}
+h1{font-size:clamp(2.6rem,7.5vw,6.5rem);font-weight:900;line-height:.94;letter-spacing:-.02em;margin-bottom:18px;}
+h2{font-size:clamp(1.8rem,4.5vw,3.8rem);font-weight:900;line-height:1;letter-spacing:-.02em;margin-bottom:16px;}
+h3{font-size:clamp(.95rem,1.8vw,1.2rem);font-weight:700;margin-bottom:6px;}
+p{color:var(--w6);font-size:clamp(.88rem,1.3vw,1rem);line-height:1.72;}
+.ld{color:var(--w);font-size:clamp(1rem,1.6vw,1.2rem);line-height:1.65;}
+.mo{font-family:'DM Mono',monospace;}
+.rh{width:100%;height:1px;background:rgba(255,255,255,.25);margin:10px 0;}
+.hdr{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px;margin-bottom:10px;}
+.hdr span{font-family:'DM Mono',monospace;font-size:10px;color:var(--w6);letter-spacing:.14em;}
+.bx{border:var(--br);padding:20px;}
+.bxs{border:var(--br);padding:14px;}
+.bxt{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--w6);margin-bottom:10px;}
+.tg{display:inline-block;border:var(--bd);padding:3px 10px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.08em;color:var(--w6);margin-right:5px;margin-bottom:5px;}
+.tgs{background:var(--w);color:var(--bg);border-color:var(--w);}
+/* GRID */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:var(--br);}
 
+/* S0 COVER */
+#s0{justify-content:space-between;padding-top:64px;padding-bottom:56px;}
+.cr{width:100%;height:1px;background:var(--w);margin:24px 0;}
+/* S1 INSTRUCTOR */
+.ig{display:grid;grid-template-columns:220px 1fr;gap:32px;align-items:start;}
+.st3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:1px;}
+.sc{border:var(--br);padding:14px 10px;text-align:center;}
+.sc:not(:first-child){border-left:none;}
+.sn{font-family:'DM Mono',monospace;font-size:1.7rem;font-weight:500;display:block;margin-bottom:3px;}
+.sl2{font-size:.7rem;color:var(--w6);}
+.er{display:flex;gap:14px;padding:13px 0;border-bottom:var(--bd);}
+.er:last-child{border-bottom:none;}
+/* S2 WHY THREADS */
+.cmp{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.ctbl{display:grid;grid-template-columns:1.2fr repeat(4,1fr);border:var(--br);min-width:480px;}
+.cc{padding:11px 12px;border-right:var(--br);border-bottom:var(--br);font-size:.8rem;color:var(--w6);}
+.cc:last-child{border-right:none;}
+.cr2:last-child .cc{border-bottom:none;}
+.ch{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--w);background:var(--w08);}
+.ct{color:var(--w)!important;font-weight:700;}
+.cdm{color:rgba(255,255,255,.22);}
+/* S3 ALGORITHM */
+.al{display:flex;flex-direction:column;gap:1px;}
+.ai{display:flex;align-items:flex-start;gap:14px;border:var(--br);padding:12px 16px;border-bottom:none;}
+.al .ai:last-child{border-bottom:var(--br);}
+.aib{width:30px;height:30px;border:var(--br);display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0;}
+.ac{flex:1;}
+.ar{font-size:.9rem;font-weight:700;color:var(--w);margin-bottom:2px;}
+.ad{font-size:.83rem;color:var(--w6);line-height:1.52;}
+.at{font-family:'DM Mono',monospace;font-size:9px;padding:2px 7px;border:1px solid;white-space:nowrap;margin-top:3px;flex-shrink:0;align-self:flex-start;}
+.boost{border-color:var(--w);color:var(--w);}
+.kill{border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.32);}
+/* S4 AI FLOW */
+.fl{display:flex;flex-direction:column;gap:10px;}
+.fi{display:grid;grid-template-columns:40px 1fr;gap:14px;border:var(--br);padding:16px;}
+.fn{font-family:'DM Mono',monospace;font-size:1.35rem;font-weight:500;color:var(--w6);line-height:1;}
+.fp{margin-top:8px;border:var(--bd);padding:9px 11px;font-family:'DM Mono',monospace;font-size:.7rem;color:var(--w6);line-height:1.58;}
+.fp::before{content:'PROMPT → ';color:rgba(255,255,255,.28);font-size:.62rem;display:block;margin-bottom:3px;}
+/* S5 WORKSHOP — 4 cards no accordion */
+.wg{display:grid;grid-template-columns:1fr 1fr;gap:10px;flex:1;align-items:start;}
+.wc{border:var(--br);padding:16px;}
+.wn{font-family:'DM Mono',monospace;font-size:.72rem;border:var(--br);display:inline-block;padding:3px 8px;margin-bottom:10px;}
+.wt{font-size:.95rem;font-weight:700;margin-bottom:8px;}
+.ft2{width:100%;border-collapse:collapse;margin-top:8px;}
+.ft2 td{padding:6px 10px;border:var(--bd);font-size:.8rem;}
+.ft2 td:first-child{color:var(--w6);width:100px;}
+.ft2 .hn{color:rgba(255,255,255,.3);font-style:italic;font-size:.76rem;}
+.frm{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:8px;}
+.fp2{border:var(--br);padding:5px 12px;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--w6);}
+.mb{border:var(--bd);background:var(--w08);padding:11px;font-family:'DM Mono',monospace;font-size:.7rem;color:var(--w6);line-height:1.62;margin-top:8px;}
+/* S6 TIMER */
+.tmr{text-align:center;margin:16px 0;}
+.tn{font-family:'DM Mono',monospace;font-size:clamp(3.5rem,10vw,7.5rem);font-weight:500;letter-spacing:.04em;line-height:1;}
+.ts{font-family:'DM Mono',monospace;font-size:.88rem;color:var(--w6);margin-top:6px;}
+.br{display:flex;gap:10px;justify-content:center;margin-top:14px;}
+.btn{border:var(--br);padding:9px 22px;background:transparent;color:var(--w);font-family:'Noto Sans TC',sans-serif;font-size:.86rem;cursor:pointer;transition:all .2s;}
+.btn:hover,.btn.act{background:var(--w);color:var(--bg);}
+.tl2{display:flex;flex-direction:column;gap:7px;}
+.tk{display:flex;align-items:flex-start;gap:12px;border:var(--bd);padding:12px 14px;cursor:pointer;transition:border-color .2s;}
+.tk.dn{border-color:var(--w);}
+.tck{width:15px;height:15px;border:var(--br);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:.62rem;}
+.tk.dn .tck{background:var(--w);color:var(--bg);}
+.ttx{flex:1;font-size:.86rem;color:var(--w6);}
+.tk.dn .ttx{color:var(--w);}
+.ttm{font-family:'DM Mono',monospace;font-size:.7rem;color:rgba(255,255,255,.28);}
+/* S7 DATA */
+.dg{display:grid;grid-template-columns:1fr 1fr;gap:1px;}
+.dc{border:var(--br);padding:18px;}
+.dn2{font-family:'DM Mono',monospace;font-size:2rem;font-weight:500;display:block;margin-bottom:4px;line-height:1;}
+.dl{font-size:.78rem;color:var(--w6);margin-bottom:10px;}
+.db{height:2px;background:rgba(255,255,255,.14);}
+.df{height:100%;background:var(--w);transition:width 1.2s ease;}
+.dnote{font-size:.78rem;color:var(--w6);margin-top:8px;line-height:1.48;}
+/* S8 SYSTEM */
+.lr{display:grid;grid-template-columns:repeat(4,1fr);border:var(--br);}
+.lc{border-right:var(--br);padding:20px 14px;text-align:center;position:relative;}
+.lc:last-child{border-right:none;}
+.lc::after{content:'→';position:absolute;right:-11px;top:50%;transform:translateY(-50%);font-size:.88rem;color:var(--w6);z-index:2;}
+.lc:last-child::after{display:none;}
+.li{font-size:1.7rem;margin-bottom:10px;}
+.lc h3{font-size:.88rem;margin-bottom:5px;}
+.dly{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:1px;}
+.dlc{border:var(--br);padding:16px;}
+.dlt{font-family:'DM Mono',monospace;font-size:.76rem;color:var(--w6);margin-bottom:7px;}
+/* S9 SHARE */
+.cl{display:flex;flex-direction:column;border:var(--br);margin-top:20px;}
+.cli{display:flex;gap:14px;align-items:center;padding:12px 16px;border-bottom:var(--bd);font-size:.86rem;color:var(--w6);}
+.cli:last-child{border-bottom:none;}
+.cli::before{content:'□';font-family:'DM Mono',monospace;color:var(--w);flex-shrink:0;}
+/* S10 CLOSING */
+#s10{justify-content:space-between;}
+.cr3{width:100%;height:1px;background:rgba(255,255,255,.2);margin:22px 0;}
+.cb{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;}
+.ql{font-family:'DM Mono',monospace;font-size:.66rem;color:var(--w6);}
+.ll{display:inline-flex;align-items:center;gap:7px;border:var(--br);padding:9px 18px;color:var(--w);text-decoration:none;font-family:'DM Mono',monospace;font-size:.8rem;transition:all .2s;}
+.ll:hover{background:var(--w);color:var(--bg);}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .sl{padding:28px 20px 22px;}
+  h1{font-size:clamp(2rem,8vw,4rem);}
+  h2{font-size:clamp(1.6rem,6vw,2.8rem);}
+  .ig,.g2{grid-template-columns:1fr;}
+  .g3{grid-template-columns:1fr 1fr;}
+  .dg{grid-template-columns:1fr;}
+  .lr{grid-template-columns:1fr 1fr;}
+  .lc::after{display:none;}
+  .wg{grid-template-columns:1fr;}
+  .dly{grid-template-columns:1fr;}
+  .nav{width:calc(100% - 80px);}
+  .wm{display:none;}
+}
+@media(max-width:600px){
+  .g3,.st3{grid-template-columns:1fr;}
+  .lr{grid-template-columns:1fr;}
+  .nav{padding:8px 12px;gap:6px;}
+}
+</style>
+</head>
+<body>
+<div class="sw">
+
+<!-- S0 · COVER -->
+<div class="sl active" id="s0">
+  <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;">
+    <span class="mo" style="font-size:12px;letter-spacing:.2em;color:var(--w6);">LINKET × THREADS WORKSHOP</span>
+    <span class="mo" style="font-size:12px;color:var(--w6);">00 / 10</span>
+  </div>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
+    <div class="cr"></div>
+    <div class="mo" style="font-size:clamp(.9rem,2vw,1.3rem);color:var(--w6);letter-spacing:.05em;margin-bottom:8px;">@Threads × AI</div>
+    <h1>用 AI 經營<br>自媒體</h1>
+    <p class="ld" style="max-width:560px;">從零開始，到持續執行。<br>建立一套 AI 驅動的 Threads 自媒體運作系統。</p>
+    <div class="cr"></div>
+    <!-- 議程表 -->
+    <div style="display:grid;grid-template-columns:70px 1fr 90px;">
+      <div style="border:var(--br);border-right:none;border-bottom:none;padding:9px 11px;font-family:'DM Mono',monospace;font-size:.7rem;color:var(--w6);background:var(--w08);">時間</div>
+      <div style="border:var(--br);border-right:none;border-bottom:none;padding:9px 11px;font-family:'DM Mono',monospace;font-size:.7rem;color:var(--w6);background:var(--w08);">課程內容</div>
+      <div style="border:var(--br);border-bottom:none;padding:9px 11px;font-family:'DM Mono',monospace;font-size:.7rem;color:var(--w6);background:var(--w08);">模式</div>
+
+      <div style="border:var(--br);border-right:none;border-bottom:none;padding:9px 11px;"><span class="mo" style="font-size:.73rem;color:var(--w6);">0:00</span></div>
+      <div style="border:var(--br);border-right:none;border-bottom:none;padding:9px 11px;font-size:.82rem;">PART A · 概念 — 演算法 + AI 工具整合</div>
+      <div style="border:var(--br);border-bottom:none;padding:9px 11px;text-align:center;font-family:'DM Mono',monospace;font-size:.7rem;border:var(--br);border-bottom:none;">講授</div>
+
+      <div style="border:var(--br);border-right:none;border-bottom:none;padding:9px 11px;"><span class="mo" style="font-size:.73rem;color:var(--w6);">~0:25</span></div>
+      <div style="border:var(--br);border-right:none;border-bottom:none;padding:9px 11px;font-size:.82rem;">PART B · 實作引導 — 定位 + 腳本 + 貼文發想</div>
+      <div style="border:var(--br);border-bottom:none;padding:9px 11px;text-align:center;font-family:'DM Mono',monospace;font-size:.7rem;border:var(--br);border-bottom:none;">引導</div>
+
+      <div style="border:var(--br);border-right:none;border-bottom:none;padding:9px 11px;"><span class="mo" style="font-size:.73rem;color:var(--w6);">~0:50</span></div>
+      <div style="border:var(--br);border-right:none;border-bottom:none;padding:9px 11px;font-size:.82rem;">PART C · 學員手作 — 30 分鐘建立發文計劃</div>
+      <div style="border:var(--br);border-bottom:none;padding:9px 11px;text-align:center;font-family:'DM Mono',monospace;font-size:.7rem;border:var(--br);border-bottom:none;">手作</div>
+
+      <div style="border:var(--br);border-right:none;padding:9px 11px;"><span class="mo" style="font-size:.73rem;color:var(--w6);">~1:20</span></div>
+      <div style="border:var(--br);border-right:none;padding:9px 11px;font-size:.82rem;">PART D · 成果分享 + 數據討論 + 持續系統</div>
+      <div style="border:var(--br);padding:9px 11px;text-align:center;font-family:'DM Mono',monospace;font-size:.7rem;">分享</div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:10px;">
+    <div style="font-size:.86rem;color:var(--w6);line-height:1.7;">林志昇 Tony Lin<br>LINKet 創辦人 · @tonylin_1994<br>教職員工作坊 · 1–1.5H</div>
+    <div><span class="tg">概念</span><span class="tg">實作</span><span class="tg">手作</span><span class="tg">帶回家用</span></div>
+  </div>
+</div>
+
+<!-- S1 · INSTRUCTOR -->
+<div class="sl" id="s1">
+  <div class="lb">01 / Instructor</div>
+  <h2>講師介紹</h2>
+  <div class="ig">
+    <div>
+      <div class="bx" style="text-align:center;padding:22px 14px;">
+        <div style="width:64px;height:64px;border:var(--br);display:flex;align-items:center;justify-content:center;font-size:1.7rem;font-weight:900;margin:0 auto 12px;">林</div>
+        <div style="font-weight:900;font-size:1rem;margin-bottom:3px;">林志昇 Tony Lin</div>
+        <div style="font-size:.8rem;color:var(--w6);line-height:1.6;">LINKet 創辦人 · 品牌設計師</div>
+        <div class="mo" style="font-size:.73rem;margin-top:8px;padding-top:8px;border-top:var(--bd);color:var(--w6);">@tonylin_1994</div>
+      </div>
+      <div class="st3">
+        <div class="sc"><span class="sn">26萬</span><span class="sl2">總瀏覽</span></div>
+        <div class="sc"><span class="sn">480</span><span class="sl2">粉絲數</span></div>
+        <div class="sc"><span class="sn">94+</span><span class="sl2">連發篇數</span></div>
+      </div>
+    </div>
+    <div>
+      <p class="ld" style="margin-bottom:22px;">從設計師到創業者，我用真實的實驗告訴你：<br><strong>Threads 不是玄學，是可以系統化的。</strong></p>
+      <div class="er"><span style="font-size:1rem;flex-shrink:0;width:22px;">🎨</span><div><h3>10+ 年設計資歷</h3><p>品牌識別、空間展示、3D 視覺、印刷——讓內容更有視覺張力。</p></div></div>
+      <div class="er"><span style="font-size:1rem;flex-shrink:0;width:22px;">📍</span><div><h3>在地觀察者視角</h3><p>以埔里為核心的【LINKet 觀察室】，驗證小帳號也能有高觸及。</p></div></div>
+      <div class="er"><span style="font-size:1rem;flex-shrink:0;width:22px;">🤖</span><div><h3>AI 工具實戰整合者</h3><p>每天用 AI 協助發想起草優化，已建立可複製的工作流程。</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- S2 · WHY THREADS -->
+<div class="sl" id="s2">
+  <div class="lb">02 / Concept — A</div>
+  <h2>為什麼是 Threads？</h2>
+  <p class="ld" style="margin-bottom:16px;">2025 年，Threads 擁有 <strong>4 億月活躍用戶</strong>，且演算法對新帳號極為友善。</p>
+  <div class="cmp" style="margin-bottom:16px;">
+    <div class="ctbl">
+      <div class="cr2" style="display:contents;">
+        <div class="cc ch">特性</div><div class="cc ch">FB</div><div class="cc ch">IG</div><div class="cc ch">LinkedIn</div><div class="cc ch ct">Threads ✦</div>
+      </div>
+      <div class="cr2" style="display:contents;">
+        <div class="cc">核心形式</div><div class="cc cdm">圖文影片</div><div class="cc cdm">視覺主導</div><div class="cc cdm">專業長文</div><div class="cc ct">文字為主</div>
+      </div>
+      <div class="cr2" style="display:contents;">
+        <div class="cc">新帳號觸及</div><div class="cc cdm">極低</div><div class="cc cdm">低</div><div class="cc cdm">中</div><div class="cc ct">高 ✦</div>
+      </div>
+      <div class="cr2" style="display:contents;">
+        <div class="cc">發文難度</div><div class="cc cdm">需視覺</div><div class="cc cdm">需美圖</div><div class="cc cdm">需長文</div><div class="cc ct">低門檻</div>
+      </div>
+      <div class="cr2" style="display:contents;">
+        <div class="cc">適合老師？</div><div class="cc cdm">舊受眾</div><div class="cc cdm">費力</div><div class="cc cdm">太正式</div><div class="cc ct">最適合</div>
+      </div>
+    </div>
+  </div>
+  <div class="g3">
+    <div class="bxs"><div class="bxt">真實案例</div><h3 class="mo" style="font-size:1.7rem;">2.2萬</h3><p>單篇最高瀏覽<br>#74 地標問路貼文</p></div>
+    <div class="bxs"><div class="bxt">上週數據</div><h3 class="mo" style="font-size:1.7rem;">87,777</h3><p>單週總瀏覽<br>比前週 +34%</p></div>
+    <div class="bxs"><div class="bxt">來源分析</div><h3 class="mo" style="font-size:1.7rem;">59.6%</h3><p>陌生人看到<br>非追蹤者觸及</p></div>
+  </div>
+</div>
+
+<!-- S3 · ALGORITHM -->
+<div class="sl" id="s3">
+  <div class="lb">03 / Concept — B</div>
+  <h2>演算法解密</h2>
+  <p style="margin-bottom:14px;color:var(--w6);">Threads 如何決定給你流量？6 個已驗證的規則：</p>
+  <div class="al">
+    <div class="ai"><div class="aib">💬</div><div class="ac"><div class="ar">留言深度 > 按讚數</div><div class="ad">10 則留言串遠比 200 個按讚更能推播。回覆你的留言 = 二次推播機會。</div></div><span class="at boost">+ 助力</span></div>
+    <div class="ai"><div class="aib">⏱</div><div class="ac"><div class="ar">停留時間是關鍵信號</div><div class="ad">讀者停留多久比任何按鈕都重要。文字分段落，讓人讀完。</div></div><span class="at boost">+ 助力</span></div>
+    <div class="ai"><div class="aib">⚡</div><div class="ac"><div class="ar">發文後 30 分鐘黃金期</div><div class="ad">發文後立刻去其他帳號留言，帶動活躍度，加速初始推播量。</div></div><span class="at boost">+ 助力</span></div>
+    <div class="ai"><div class="aib">❓</div><div class="ac"><div class="ar">問句結尾自帶留言動能</div><div class="ad">每篇結尾設計一個容易回答的問題或選擇題，製造留言最有效的方法。</div></div><span class="at boost">+ 助力</span></div>
+    <div class="ai"><div class="aib">🔗</div><div class="ac"><div class="ar">主文不放外部連結</div><div class="ad">Threads 討厭讓用戶離開平台。主文放 URL 會被嚴重降流，改放留言區。</div></div><span class="at kill">✗ 地雷</span></div>
+    <div class="ai"><div class="aib">📣</div><div class="ac"><div class="ar">過度促銷被歸類垃圾</div><div class="ad">「限時優惠」「立刻購買」等字眼，演算法識別為廣告大幅降流。</div></div><span class="at kill">✗ 地雷</span></div>
+  </div>
+</div>
+
+<!-- S4 · AI TOOLS -->
+<div class="sl" id="s4">
+  <div class="lb">04 / Concept — C</div>
+  <h2>AI 怎麼幫你？</h2>
+  <p style="margin-bottom:14px;color:var(--w6);">AI 不是幫你生假文章，而是克服每個環節的卡關點。</p>
+  <div class="fl">
+    <div class="fi"><div class="fn">01</div><div><h3>冷啟動：打破對著空白螢幕發呆</h3><p>把今天發生的一件事告訴 AI，讓它展開成貼文初稿。</p><div class="fp">我是高中英文老師，今天批改作文發現80%學生用了一樣的開頭。請幫我寫成 Threads 貼文，語氣輕鬆幽默，結尾加讓人想回應的問題，200字以內，不放連結。</div></div></div>
+    <div class="fi"><div class="fn">02</div><div><h3>主題發想：產出 30 天內容骨架</h3><p>告訴 AI 你的身份、受眾、三個方向，規劃一個月發文矩陣。</p><div class="fp">我是學校資訊科老師，想分享「科技融入教學」，受眾是老師與家長。請規劃3個主題方向，每方向5篇貼文標題，風格生活化，不要太學術。</div></div></div>
+    <div class="fi"><div class="fn">03</div><div><h3>語氣優化：去除「老師腔」</h3><p>把草稿餵給 AI，請它「去除說教感，像咖啡廳聊天的朋友」。</p><div class="fp">請把以下文字改寫成 Threads 語氣——更輕鬆、像朋友說話、結尾加選擇題問句，不超過180字：【原稿貼這裡】</div></div></div>
+    <div class="fi"><div class="fn">04</div><div><h3>數據解讀：找出表現規律</h3><p>把後台數字貼給 AI，讓它分析規律，告訴你下次要做什麼。</p><div class="fp">以下是我兩週 Threads 數據，請分析哪類表現最好，給3個下週建議：[貼文A：瀏覽2200、留言247] [貼文B：瀏覽500、留言12]</div></div></div>
+  </div>
+</div>
+
+<!-- S5 · WORKSHOP GUIDE -->
+<div class="sl" id="s5">
+  <div class="lb">05 / Part B — Workshop</div>
+  <h2>實作引導</h2>
+  <p style="margin-bottom:14px;color:var(--w6);">按照四個步驟，今天完成你的第一套內容框架。</p>
+  <div class="wg">
+    <div class="wc"><div class="wn">STEP 01</div><div class="wt">自我定位：你是誰？說給誰聽？</div><table class="ft2"><tr><td>我的身份</td><td class="hn">例：高中英文老師 · 10年資歷</td></tr><tr><td>我的受眾</td><td class="hn">例：老師、關心教育的家長</td></tr><tr><td>三個主題</td><td class="hn">例：①教學觀察 ②AI工具 ③學生趣事</td></tr><tr><td>語氣設定</td><td class="hn">例：像教師休息室聊天的前輩</td></tr></table></div>
+    <div class="wc"><div class="wn">STEP 02</div><div class="wt">AI 角色腳本：建立 Persona Prompt</div><p style="font-size:.83rem;margin-bottom:8px;">有了定位卡，轉化成給 AI 的人設 Prompt。</p><div class="mb">你是 [名字]，一位 [職業]，在 Threads 上分享 [主題]。<br>受眾：[你的受眾]。語氣：[語氣設定]。<br>每篇必須：①有吸引人停下來的第一句話 ②正文短段落 ③結尾容易回答的問句 ④不超過 200 字 ⑤主文不放連結</div></div>
+    <div class="wc"><div class="wn">STEP 03</div><div class="wt">貼文公式：Hook → 正文 → CTA</div><div class="frm"><span class="fp2">🪝 Hook 鉤子</span><span style="color:var(--w6);">→</span><span class="fp2">📝 正文觀點</span><span style="color:var(--w6);">→</span><span class="fp2">❓ CTA 問句</span></div><div class="mb">Hook 範本：<br>「今天發生了一件事讓我想了很久…」<br>「有件事老師大概都遇過但沒人說出來…」<br>「我試了一個工具，結果出乎意料…」</div></div>
+    <div class="wc"><div class="wn">STEP 04</div><div class="wt">發文前 4 問：值不值得發？</div><table class="ft2"><tr><td>問題 1</td><td class="hn">第一句話，我會停下來讀嗎？（不會就換 Hook）</td></tr><tr><td>問題 2</td><td class="hn">這篇有「衝突感」或「反差感」嗎？</td></tr><tr><td>問題 3</td><td class="hn">結尾問題，朋友看到會想回答嗎？</td></tr><tr><td>問題 4</td><td class="hn">主文有外部連結嗎？（有就移到留言區）</td></tr></table></div>
+  </div>
+</div>
+
+<!-- S6 · TIMER -->
+<div class="sl" id="s6">
+  <div class="lb">06 / Part C — Hands On</div>
+  <h2>現在輪到你了</h2>
+  <div class="g2" style="flex:1;gap:36px;align-items:start;">
+    <div>
+      <div class="tmr">
+        <div class="tn" id="tn">30:00</div>
+        <div class="ts">剩餘時間</div>
+      </div>
+      <div class="br">
+        <button class="btn" id="tb" onclick="toggleTimer()">▶ 開始</button>
+        <button class="btn" onclick="resetTimer()">↺ 重設</button>
+      </div>
+    </div>
+    <div class="tl2">
+      <div class="tk" onclick="toggleTask(this)"><div class="tck"></div><div class="ttx">① 填寫我的 Threads 定位卡</div><div class="ttm">5min</div></div>
+      <div class="tk" onclick="toggleTask(this)"><div class="tck"></div><div class="ttx">② 建立我的 AI 角色腳本</div><div class="ttm">5min</div></div>
+      <div class="tk" onclick="toggleTask(this)"><div class="tck"></div><div class="ttx">③ 用 AI 生成第一篇貼文草稿</div><div class="ttm">8min</div></div>
+      <div class="tk" onclick="toggleTask(this)"><div class="tck"></div><div class="ttx">④ 規劃本週 3 篇貼文標題</div><div class="ttm">7min</div></div>
+      <div class="tk" onclick="toggleTask(this)"><div class="tck"></div><div class="ttx">⑤ 用「發文前 4 問」檢查草稿</div><div class="ttm">5min</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- S7 · DATA -->
+<div class="sl" id="s7">
+  <div class="lb">07 / Data</div>
+  <h2>真實數據解讀</h2>
+  <p style="margin-bottom:18px;color:var(--w6);">@tonylin_1994 的真實後台數據（2/17 — 3/18），用同樣的方法解讀你的數字。</p>
+  <div class="dg">
+    <div class="dc"><span class="dn2">26萬</span><div class="dl">總瀏覽次數（4週）</div><div class="db"><div class="df" style="width:90%"></div></div><div class="dnote">爆文帶動：#74 地標問路貢獻 2.2萬，單篇佔全月 8.5%</div></div>
+    <div class="dc"><span class="dn2">3,820</span><div class="dl">總互動次數</div><div class="db"><div class="df" style="width:72%"></div></div><div class="dnote">按讚 2702 · 回覆 1047 · 轉發 59 · 引用 12<br>回覆率 27%，遠高於行業平均</div></div>
+    <div class="dc"><span class="dn2">87,777</span><div class="dl">上週單週瀏覽（3/12–3/19）</div><div class="db"><div class="df" style="width:85%"></div></div><div class="dnote">比前週 +22,220 次 ↑ 34%</div></div>
+    <div class="dc"><span class="dn2">59.6%</span><div class="dl">「其他」來源（非追蹤者）</div><div class="db"><div class="df" style="width:60%"></div></div><div class="dnote">首頁推薦 27.8% · 搜尋 5.5%<br>超過一半流量來自陌生人</div></div>
+  </div>
+  <div class="bxs" style="margin-top:14px;"><div class="bxt">受眾分析</div><p>25–34 歲佔 47% · 35–44 歲佔 30.6% · 埔里 36.3% · 台中 16.7% · 新北 10.6%<br>→ 在地視角 + 普世共感是最有效的內容方向。</p></div>
+</div>
+
+<!-- S8 · SYSTEM -->
+<div class="sl" id="s8">
+  <div class="lb">08 / System</div>
+  <h2>持續執行系統</h2>
+  <p class="ld" style="margin-bottom:20px;">單篇爆文不重要。<strong>能持續產出才是真正的競爭力。</strong></p>
+  <div class="lr">
+    <div class="lc"><div class="li">✍️</div><h3>AI 發想</h3><p>每天一個素材<br>AI 幫你結構化</p></div>
+    <div class="lc"><div class="li">📤</div><h3>發文 + 互動</h3><p>發文後 30min<br>主動出擊留言</p></div>
+    <div class="lc"><div class="li">📊</div><h3>每週數據</h3><p>哪篇最好？<br>為什麼？</p></div>
+    <div class="lc"><div class="li">🔄</div><h3>AI 分析調整</h3><p>把數據餵給 AI<br>優化下週方向</p></div>
+  </div>
+  <div class="dly">
+    <div class="dlc"><div class="dlt">早上 5 分鐘</div><p>把一個觀察或想法貼給 AI，請它生成初稿。</p></div>
+    <div class="dlc"><div class="dlt">午休 10 分鐘</div><p>稍微修改初稿後發文 + 回覆昨天的留言。</p></div>
+    <div class="dlc"><div class="dlt">睡前 5 分鐘</div><p>去 2–3 個同類帳號留有深度的留言。</p></div>
+  </div>
+</div>
+
+<!-- S9 · SHARE -->
+<div class="sl" id="s9">
+  <div class="lb">09 / Part D — Share</div>
+  <h2>成果分享</h2>
+  <p class="ld" style="margin-bottom:20px;">每人 90 秒。分享你的定位卡 + 第一篇草稿。沒有對錯，只有真實。</p>
+  <div class="g2">
+    <div class="bx"><div class="bxt">分享引導問題</div><p style="line-height:2;">你選了什麼主題方向？<br>你最難決定的是哪個部分？<br>你的貼文，學生/同事會想回覆嗎？</p></div>
+    <div class="bx"><div class="bxt">數據印證（現場看）</div><p style="line-height:2;">地標問路 → 2.2萬瀏覽<br>連假城鄉差異 → 5,676 瀏覽<br>全鎮都是監視器 → 1.5萬瀏覽<br><span style="color:var(--w);">共同點：衝突感 + 問句結尾</span></p></div>
+  </div>
+  <h3 style="margin-top:20px;margin-bottom:0;">帶回家繼續執行的清單</h3>
+  <div class="cl">
+    <div class="cli">今天就把 Persona Prompt 存進備忘錄或 Notion</div>
+    <div class="cli">本週發出第一篇（不用等完美，先發出去）</div>
+    <div class="cli">發文後 30 分鐘：去其他帳號留 3 則有深度的留言</div>
+    <div class="cli">每週五查看後台數據，記錄哪篇表現最好</div>
+    <div class="cli">每兩週用 AI 分析數據，調整下兩週方向</div>
+  </div>
+</div>
+
+<!-- S10 · CLOSING -->
+<div class="sl" id="s10">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:4px;">
+    <div class="lb" style="margin-bottom:0;">10 / Fin</div>
+    <span class="mo" style="font-size:11px;color:var(--w6);">LINKET.APP</span>
+  </div>
+  <div class="cr3"></div>
+  <h1 style="font-size:clamp(2.2rem,6.5vw,5.5rem);">開始設計<br>你的自媒體<br>存在感。</h1>
+  <p class="ld" style="margin-top:16px;max-width:500px;">這份手冊帶回去可以繼續用。<br>遇到卡關，回來翻；想複習演算法，回來看。</p>
+  <div class="cr3"></div>
+  <div class="cb">
+    <div>
+      <a class="ll" href="https://linket.app" target="_blank">🔗 linket.app</a>
+      <p style="margin-top:10px;font-size:.82rem;">講師 Threads：<strong style="color:var(--w);">@tonylin_1994</strong></p>
+    </div>
+    <div style="text-align:center;">
+      <div style="width:96px;height:96px;border:var(--br);display:flex;align-items:center;justify-content:center;margin:0 auto 7px;" id="qrc"></div>
+      <div class="ql">掃碼開啟手冊</div>
+      <div class="ql" style="color:var(--w);margin-top:2px;">linket.app/proposal/threads</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /sw -->
+
+<!-- NAV -->
+<div class="nav"><div class="nd" id="nd"></div><div class="ni" id="ni">01 / 11</div><span class="mo" style="font-size:9px;color:var(--w6);border-left:var(--bd);padding-left:10px;">← →</span></div>
+
+<!-- QR FAB -->
+<button class="qfab" onclick="openQ()" aria-label="QR">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="3" height="3"/><rect x="19" y="14" width="2" height="2"/><rect x="14" y="19" width="2" height="2"/><rect x="19" y="19" width="2" height="2"/></svg>
+</button>
+
+<!-- QR OVERLAY -->
+<div class="qov" id="qov" onclick="if(event.target===this)closeQ()">
+  <div class="qmod">
+    <button class="qclose" onclick="closeQ()">✕</button>
+    <div class="mo" style="font-size:.9rem;letter-spacing:.2em;text-transform:uppercase;">LINKet</div>
+    <div id="qb"></div>
+    <div class="mo" style="font-size:.62rem;color:var(--w6);letter-spacing:.06em;">linket.app/proposal/threads</div>
+  </div>
+</div>
+
+<div class="wm">Powered by <a href="https://linket.app">LINKet.app</a></div>
+
+<script>
+const sls=Array.from(document.querySelectorAll('.sl')),tot=sls.length;
+let cur=0,tr=false;
+function goTo(i){
+  if(tr||i===cur||i<0||i>=tot)return;tr=true;
+  const p=sls[cur],n=sls[i],d=i>cur?1:-1;
+  p.classList.remove('active');p.classList.add('ex');p.style.transform=d>0?'translateY(-36px)':'translateY(36px)';
+  n.style.transform=d>0?'translateY(36px)':'translateY(-36px)';n.style.opacity='0';n.classList.add('active');
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{n.style.transform='translateY(0)';n.style.opacity='1';}));
+  cur=i;upN();
+  setTimeout(()=>{p.classList.remove('ex');p.style.transform='';tr=false;},480);
+}
+function upN(){
+  document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===cur));
+  document.getElementById('ni').textContent=String(cur+1).padStart(2,'0')+' / '+String(tot).padStart(2,'0');
+}
+const nd=document.getElementById('nd');
+sls.forEach((_,i)=>{const d=document.createElement('div');d.className='dot'+(i===0?' active':'');d.onclick=()=>goTo(i);nd.appendChild(d);});
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key==='ArrowDown'){e.preventDefault();goTo(cur+1);}
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();goTo(cur-1);}
+});
+let ty=0;
+document.addEventListener('touchstart',e=>{ty=e.touches[0].clientY;},{passive:true});
+document.addEventListener('touchend',e=>{const dy=ty-e.changedTouches[0].clientY;if(Math.abs(dy)>40)dy>0?goTo(cur+1):goTo(cur-1);},{passive:true});
+// Timer
+let ts=30*60,ti=null,tr2=false;
+const fmt=s=>String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+function toggleTimer(){
+  const b=document.getElementById('tb');
+  if(tr2){clearInterval(ti);tr2=false;b.textContent='▶ 繼續';b.classList.remove('act');}
+  else{tr2=true;b.textContent='⏸ 暫停';b.classList.add('act');ti=setInterval(()=>{ts--;document.getElementById('tn').textContent=fmt(ts);if(ts<=0){clearInterval(ti);tr2=false;document.getElementById('tn').textContent='時間到！';b.textContent='✓ 完成';b.classList.remove('act');}},1000);}
+}
+function resetTimer(){clearInterval(ti);tr2=false;ts=30*60;document.getElementById('tn').textContent='30:00';const b=document.getElementById('tb');b.textContent='▶ 開始';b.classList.remove('act');}
+// Task
+function toggleTask(el){el.classList.toggle('dn');const c=el.querySelector('.tck');c.textContent=el.classList.contains('dn')?'✓':'';}
+// Data bars
+const ds=document.getElementById('s7');
+let ba=false;
+new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting&&!ba){ba=true;document.querySelectorAll('.df').forEach(b=>{const w=b.style.width;b.style.width='0';setTimeout(()=>{b.style.width=w;},200);})}});},{threshold:.3}).observe(ds);
+// QR
+const QU='https://linket.app/proposal/threads';
+let qi=false;
+function openQ(){
+  document.getElementById('qov').classList.add('open');
+  if(!qi){new QRCode(document.getElementById('qb'),{text:QU,width:178,height:178,colorDark:'#ffffff',colorLight:'#000000',correctLevel:QRCode.CorrectLevel.M});qi=true;}
+  gtag('event','click_qr_threads',{'event_category':'engagement','event_label':'threads'});
+}
+function closeQ(){document.getElementById('qov').classList.remove('open');}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeQ();});
+window.addEventListener('load',()=>{new QRCode(document.getElementById('qrc'),{text:QU,width:84,height:84,colorDark:'#ffffff',colorLight:'#000000',correctLevel:QRCode.CorrectLevel.L});});
+</script>
+</body>
+</html>
