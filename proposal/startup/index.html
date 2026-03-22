@@ -16,11 +16,11 @@
 html,body{width:100%;height:100%;overflow:hidden;background:var(--cr);}
 body{font-family:'Noto Sans TC',sans-serif;color:var(--ink);}
 .sw{width:100vw;height:100vh;position:relative;overflow:hidden;}
-.sl{position:absolute;inset:0;background:var(--cr);opacity:0;transform:translateY(28px);transition:opacity .46s cubic-bezier(.4,0,.2,1),transform .46s cubic-bezier(.4,0,.2,1);pointer-events:none;overflow:hidden;display:flex;flex-direction:column;padding:36px 10vw 32px;max-width:100%;}
+.sl{position:absolute;inset:0;background:var(--cr);opacity:0;transform:translateY(20px);transition:opacity .46s cubic-bezier(.4,0,.2,1),transform .46s cubic-bezier(.4,0,.2,1);pointer-events:none;overflow:hidden;display:flex;flex-direction:column;padding:36px 10vw 64px;max-width:100%;}
 @media(min-width:1100px){.sl{padding-left:calc((100vw - 860px)/2);padding-right:calc((100vw - 860px)/2);}}
 @media(min-width:1400px){.sl{padding-left:calc((100vw - 1000px)/2);padding-right:calc((100vw - 1000px)/2);}}
 .sl.active{opacity:1;transform:none;pointer-events:all;z-index:10;}
-.sl.exit{opacity:0;transform:translateY(-28px);pointer-events:none;z-index:5;transition:opacity .36s ease,transform .36s ease;}
+.sl.exit{opacity:0;transform:translateY(-20px);pointer-events:none;z-index:5;transition:opacity .36s ease,transform .36s ease;}
 .nav{position:fixed;bottom:14px;right:20px;z-index:200;display:flex;align-items:center;gap:10px;background:var(--cr);border:var(--r);padding:6px 12px;box-shadow:0 2px 8px rgba(17,17,17,.12);}
 .nn{font-family:'DM Mono',monospace;font-size:10px;color:var(--i4);letter-spacing:.1em;}
 .nd{display:flex;gap:6px;align-items:center;}
@@ -568,8 +568,8 @@ let cur=0,busy=false;
 function goTo(i){
   if(busy||i===cur||i<0||i>=tot)return;busy=true;
   sls[cur].classList.remove('active');sls[cur].classList.add('exit');
-  sls[cur].style.transform=i>cur?'translateY(-28px)':'translateY(28px)';
-  const n=sls[i];n.style.transform=i>cur?'translateY(28px)':'translateY(-28px)';n.style.opacity='0';n.classList.add('active');
+  sls[cur].style.transform=i>cur?'translateY(-20px)':'translateY(20px)';
+  const n=sls[i];n.style.transform=i>cur?'translateY(20px)':'translateY(-20px)';n.style.opacity='0';n.classList.add('active');
   requestAnimationFrame(()=>requestAnimationFrame(()=>{n.style.transition='opacity .46s cubic-bezier(.4,0,.2,1),transform .46s cubic-bezier(.4,0,.2,1)';n.style.transform='translateY(0)';n.style.opacity='1';}));
   cur=i;upN();
   setTimeout(()=>{sls.forEach(s=>{s.classList.remove('exit');s.style.transform='';});n.style.transition='';busy=false;},500);
@@ -583,6 +583,8 @@ function upN(){
 }
 const nd=document.getElementById('nd');
 sls.forEach((_,i)=>{const d=document.createElement('div');d.className='dot'+(i===0?' active':'');d.onclick=()=>goTo(i);nd.appendChild(d);});
+// 初始化：確保第一頁 QR FAB 正確顯示
+upN();
 document.addEventListener('keydown',e=>{
   if(e.key==='ArrowRight'||e.key==='ArrowDown'){e.preventDefault();goTo(cur+1);}
   if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();goTo(cur-1);}
