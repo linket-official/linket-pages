@@ -28,7 +28,7 @@ body{font-family:'Noto Sans TC',sans-serif;color:var(--ink);}
 .dot.active{background:var(--ink);transform:scale(1.6);}
 .qfab{position:fixed;bottom:14px;left:20px;z-index:200;width:34px;height:34px;border:var(--r);background:var(--cr);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;box-shadow:0 2px 8px rgba(17,17,17,.12);}
 .qfab:hover{background:var(--ink);color:var(--cr);}
-.qfab.hidden{display:none;}
+
 .qov{display:none;position:fixed;inset:0;z-index:500;background:rgba(17,17,17,.72);backdrop-filter:blur(8px);align-items:center;justify-content:center;}
 .qov.open{display:flex;}
 .qmod{background:var(--cr);border:var(--r);padding:26px;max-width:250px;width:90%;display:flex;flex-direction:column;align-items:center;gap:12px;position:relative;}
@@ -156,7 +156,7 @@ body{font-family:'Noto Sans TC',sans-serif;color:var(--ink);}
 
 <!-- P1 · COVER -->
 <div class="sl active" id="s0">
-  <div class="hdr"><span>LINKET × 創業分享</span><span>2025 · 學生專場</span></div>
+  <div class="hdr"><span>LINKET × 創業分享</span><span>2026 · 學生專場</span></div>
   <div class="rh"></div>
   <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:14px;">
     <span class="ki">A Story in Progress</span>
@@ -577,14 +577,9 @@ function goTo(i){
 function upN(){
   document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===cur));
   document.getElementById('nc').textContent=String(cur+1).padStart(2,'0')+' / '+String(tot).padStart(2,'0');
-  // QR FAB 只在第一頁顯示
-  const qfab=document.querySelector('.qfab');
-  if(qfab)qfab.classList.toggle('hidden',cur!==0);
 }
 const nd=document.getElementById('nd');
 sls.forEach((_,i)=>{const d=document.createElement('div');d.className='dot'+(i===0?' active':'');d.onclick=()=>goTo(i);nd.appendChild(d);});
-// 初始化：確保第一頁 QR FAB 正確顯示
-upN();
 document.addEventListener('keydown',e=>{
   if(e.key==='ArrowRight'||e.key==='ArrowDown'){e.preventDefault();goTo(cur+1);}
   if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();goTo(cur-1);}
