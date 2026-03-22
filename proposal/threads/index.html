@@ -16,17 +16,20 @@
 html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);}
 body{font-family:'Noto Sans TC',sans-serif;color:var(--w);}
 .sw{width:100vw;height:100vh;position:relative;overflow:hidden;}
-.sl{position:absolute;inset:0;padding:40px 56px 32px;display:flex;flex-direction:column;background:var(--bg);opacity:0;transform:translateY(36px);transition:opacity .44s cubic-bezier(.4,0,.2,1),transform .44s cubic-bezier(.4,0,.2,1);pointer-events:none;overflow:hidden;}
+.sl{position:absolute;inset:0;padding:36px 10vw 32px;display:flex;flex-direction:column;background:var(--bg);opacity:0;transform:translateY(36px);transition:opacity .44s cubic-bezier(.4,0,.2,1),transform .44s cubic-bezier(.4,0,.2,1);pointer-events:none;overflow:hidden;}
+@media(min-width:1100px){.sl{padding-left:calc((100vw - 860px)/2);padding-right:calc((100vw - 860px)/2);}}
+@media(min-width:1400px){.sl{padding-left:calc((100vw - 1000px)/2);padding-right:calc((100vw - 1000px)/2);}}
 .sl.active{opacity:1;transform:none;pointer-events:all;z-index:10;}
 .sl.ex{opacity:0;transform:translateY(-36px);pointer-events:none;z-index:5;transition:opacity .36s ease,transform .36s ease;}
 /* NAV */
-.nav{position:fixed;bottom:max(20px,env(safe-area-inset-bottom,20px));left:50%;transform:translateX(-50%);z-index:200;display:flex;align-items:center;gap:10px;border:var(--br);padding:9px 18px;background:var(--bg);}
+.nav{position:fixed;bottom:max(10px,env(safe-area-inset-bottom,10px));left:50%;transform:translateX(-50%);z-index:200;display:flex;align-items:center;gap:10px;border:var(--br);padding:7px 14px;background:var(--bg);}
 .nd{display:flex;gap:7px;align-items:center;}
 .dot{width:6px;height:6px;border:var(--br);border-radius:0;background:transparent;cursor:pointer;transition:background .2s;}
 .dot.active{background:var(--w);}
 .ni{font-family:'DM Mono',monospace;font-size:10px;color:var(--w6);letter-spacing:.12em;border-left:var(--bd);padding-left:10px;}
 /* QR */
-.qfab{position:fixed;bottom:max(20px,env(safe-area-inset-bottom,20px));left:24px;z-index:200;width:38px;height:38px;border:var(--br);background:transparent;color:var(--w);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;}
+.qfab{position:fixed;bottom:max(14px,env(safe-area-inset-bottom,14px));left:18px;z-index:200;width:36px;height:36px;border:var(--br);background:transparent;color:var(--w);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;}
+.qfab.hidden{display:none;}
 .qfab:hover{background:var(--w);color:var(--bg);}
 .qov{display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.85);backdrop-filter:blur(8px);align-items:center;justify-content:center;}
 .qov.open{display:flex;}
@@ -40,7 +43,7 @@ body{font-family:'Noto Sans TC',sans-serif;color:var(--w);}
 h1{font-size:clamp(2.6rem,7.5vw,6.5rem);font-weight:900;line-height:.94;letter-spacing:-.02em;margin-bottom:18px;}
 h2{font-size:clamp(1.8rem,4.5vw,3.8rem);font-weight:900;line-height:1;letter-spacing:-.02em;margin-bottom:16px;}
 h3{font-size:clamp(.95rem,1.8vw,1.2rem);font-weight:700;margin-bottom:6px;}
-p{color:var(--w6);font-size:clamp(.88rem,1.3vw,1rem);line-height:1.72;}
+p{color:var(--w6);font-size:clamp(1rem,1.3vw,1.05rem);line-height:1.72;}
 .ld{color:var(--w);font-size:clamp(1rem,1.6vw,1.2rem);line-height:1.65;}
 .mo{font-family:'DM Mono',monospace;}
 .rh{width:100%;height:1px;background:rgba(255,255,255,.25);margin:10px 0;}
@@ -154,24 +157,29 @@ p{color:var(--w6);font-size:clamp(.88rem,1.3vw,1rem);line-height:1.72;}
 .ll:hover{background:var(--w);color:var(--bg);}
 
 /* RESPONSIVE */
+@media(max-width:1100px){
+  .sl{padding:28px 6vw 24px;}
+}
 @media(max-width:900px){
-  .sl{padding:28px 20px 22px;}
-  h1{font-size:clamp(2rem,8vw,4rem);}
-  h2{font-size:clamp(1.6rem,6vw,2.8rem);}
+  .sl{padding:22px 5vw 52px;}
+  h1{font-size:clamp(1.8rem,7vw,3.5rem);}
+  h2{font-size:clamp(1.5rem,5.5vw,2.5rem);}
   .ig,.g2{grid-template-columns:1fr;}
   .g3{grid-template-columns:1fr 1fr;}
   .dg{grid-template-columns:1fr;}
   .lr{grid-template-columns:1fr 1fr;}
   .lc::after{display:none;}
-  .wg{grid-template-columns:1fr;}
+  .wg{grid-template-columns:1fr 1fr;}
   .dly{grid-template-columns:1fr;}
-  .nav{width:calc(100% - 80px);}
+  .nav{width:auto;max-width:calc(100vw - 80px);}
   .wm{display:none;}
 }
 @media(max-width:600px){
-  .g3,.st3{grid-template-columns:1fr;}
+  .sl{padding:18px 4vw 50px;}
+  .g3,.st3,.wg{grid-template-columns:1fr;}
   .lr{grid-template-columns:1fr;}
-  .nav{padding:8px 12px;gap:6px;}
+  .nav{padding:6px 10px;gap:5px;}
+  .ni{display:none;}
 }
 </style>
 </head>
@@ -246,6 +254,64 @@ p{color:var(--w6);font-size:clamp(.88rem,1.3vw,1rem);line-height:1.72;}
   </div>
 </div>
 
+
+<!-- ══ S1b · 埔里觀察室 ══ -->
+<div class="sl" id="s1b">
+  <div class="lb">01b / Why 觀察室</div>
+  <h2>為什麼我做<br>埔里觀察室？</h2>
+  <div class="g2" style="flex:1;align-items:start;gap:28px;">
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <p class="ld">科技可以縮短距離，但只有人情味，能讓心靠在一起。</p>
+      <div style="border:var(--br);padding:16px;">
+        <div class="bxt">起心動念</div>
+        <p>推廣 LINKet NFC 名片時，發現一個盲點：我們不斷說「這卡很酷、感應很快」——但人們不在乎科技有多炫，<strong style="color:var(--w);">人們在乎的是「關係」。</strong></p>
+      </div>
+      <div style="border:var(--br);padding:16px;">
+        <div class="bxt">意外的火花 — 觀察室 #76</div>
+        <p>「埔里人最想復活的 10 家已歇業老店」——底下湧入數百則留言，大家在留言區尋找兒時記憶、認親、為消失的肉圓爭論不休。</p>
+        <p style="margin-top:8px;color:var(--w);">「我們懷念的不是那家店，而是那個時代的自己與人情味。」</p>
+      </div>
+      <div style="border:var(--br);padding:16px;">
+        <div class="bxt">核心轉化</div>
+        <p>真正的連結，不是交換聯絡方式的那一秒，而是產生<strong style="color:var(--w);">「共鳴」的那一刻。</strong></p>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <!-- 數據 infographic -->
+      <div style="border:var(--br);padding:18px;">
+        <div class="bxt">觀察室的成果</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:12px;">
+          <div style="border:var(--bd);padding:14px;text-align:center;">
+            <div style="font-family:'DM Mono',monospace;font-size:1.8rem;font-weight:500;display:block;line-height:1;margin-bottom:4px;">100+</div>
+            <div style="font-size:.72rem;color:var(--w6);">觀察室貼文</div>
+          </div>
+          <div style="border:var(--bd);border-left:none;padding:14px;text-align:center;">
+            <div style="font-family:'DM Mono',monospace;font-size:1.8rem;font-weight:500;display:block;line-height:1;margin-bottom:4px;">26萬</div>
+            <div style="font-size:.72rem;color:var(--w6);">4週總瀏覽</div>
+          </div>
+          <div style="border:var(--bd);border-top:none;padding:14px;text-align:center;">
+            <div style="font-family:'DM Mono',monospace;font-size:1.8rem;font-weight:500;display:block;line-height:1;margin-bottom:4px;">數百則</div>
+            <div style="font-size:.72rem;color:var(--w6);">單篇最高留言</div>
+          </div>
+          <div style="border:var(--bd);border-top:none;border-left:none;padding:14px;text-align:center;">
+            <div style="font-family:'DM Mono',monospace;font-size:1.8rem;font-weight:500;display:block;line-height:1;margin-bottom:4px;">5場+</div>
+            <div style="font-size:.72rem;color:var(--w6);">線下微醺聚會</div>
+          </div>
+        </div>
+      </div>
+      <div style="border:var(--br);padding:18px;">
+        <div class="bxt">從線上到線下</div>
+        <p>策劃【微醺連結】品牌發酵實驗室。不發傳統名片，用職人美食與清酒讓在地創業者卸下防備。</p>
+        <p style="margin-top:8px;">大家拿出手機，用 LINKet 輕輕一碰，交換彼此的故事與資源——兩家原本不認識的品牌，喝完一杯清酒後直接敲定異業合作。</p>
+      </div>
+      <div style="border:var(--bd);padding:14px;background:var(--w08);">
+        <p style="color:var(--w);font-size:.85rem;line-height:1.65;">如果一個品牌能連起一座小鎮的記憶，<br>那它絕對有能力連起最高效的商業網絡。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <!-- S2 · WHY THREADS -->
 <div class="sl" id="s2">
   <div class="lb">02 / Concept — A</div>
@@ -309,7 +375,15 @@ p{color:var(--w6);font-size:clamp(.88rem,1.3vw,1rem);line-height:1.72;}
 <div class="sl" id="s5">
   <div class="lb">05 / Part B — Workshop</div>
   <h2>實作引導</h2>
-  <p style="margin-bottom:14px;color:var(--w6);">按照四個步驟，今天完成你的第一套內容框架。</p>
+  <p style="margin-bottom:10px;color:var(--w6);">按照四個步驟，今天完成你的第一套內容框架。</p>
+  <!-- 統一腳本 -->
+  <div style="border:var(--br);padding:14px 16px;margin-bottom:12px;background:var(--w08);position:relative;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+      <span style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--w6);">Persona Prompt 統一腳本 · 適用 GPT / Gemini</span>
+      <button id="copy-btn" onclick="copyPrompt()" style="border:var(--br);background:transparent;color:var(--w);font-family:'DM Mono',monospace;font-size:.68rem;padding:4px 10px;cursor:pointer;letter-spacing:.1em;transition:all .2s;" onmouseenter="this.style.background='#fff';this.style.color='#000';" onmouseleave="this.style.background='transparent';this.style.color='#fff';">複製腳本</button>
+    </div>
+    <div id="prompt-text" style="font-family:'DM Mono',monospace;font-size:.68rem;color:var(--w6);line-height:1.62;max-height:80px;overflow:hidden;">Role: 資深 Threads 社群操盤手兼品牌文案大師 | 你現在是一位具備豐富自媒體起號經驗、深諳 Threads 演算法與受眾心理學的資深社群操盤手。你的任務是接手我的 Threads 帳號內容規劃與文案撰寫。請注意，在正文中絕對不能出現外部連結。當我提供資料後，請依照：Phase 1 品牌定位解析 → Phase 2 流量漏斗規劃 → Phase 3 演算法策略 → Phase 4 語氣校正 → Phase 5 貼文產出，逐一確認後再進入下一階段。</div>
+  </div>
   <div class="wg">
     <div class="wc"><div class="wn">STEP 01</div><div class="wt">自我定位：你是誰？說給誰聽？</div><table class="ft2"><tr><td>我的身份</td><td class="hn">例：高中英文老師 · 10年資歷</td></tr><tr><td>我的受眾</td><td class="hn">例：老師、關心教育的家長</td></tr><tr><td>三個主題</td><td class="hn">例：①教學觀察 ②AI工具 ③學生趣事</td></tr><tr><td>語氣設定</td><td class="hn">例：像教師休息室聊天的前輩</td></tr></table></div>
     <div class="wc"><div class="wn">STEP 02</div><div class="wt">AI 角色腳本：建立 Persona Prompt</div><p style="font-size:.83rem;margin-bottom:8px;">有了定位卡，轉化成給 AI 的人設 Prompt。</p><div class="mb">你是 [名字]，一位 [職業]，在 Threads 上分享 [主題]。<br>受眾：[你的受眾]。語氣：[語氣設定]。<br>每篇必須：①有吸引人停下來的第一句話 ②正文短段落 ③結尾容易回答的問句 ④不超過 200 字 ⑤主文不放連結</div></div>
@@ -325,7 +399,7 @@ p{color:var(--w6);font-size:clamp(.88rem,1.3vw,1rem);line-height:1.72;}
   <div class="g2" style="flex:1;gap:36px;align-items:start;">
     <div>
       <div class="tmr">
-        <div class="tn" id="tn">30:00</div>
+        <div class="tn" id="tn">60:00</div>
         <div class="ts">剩餘時間</div>
       </div>
       <div class="br">
@@ -334,8 +408,8 @@ p{color:var(--w6);font-size:clamp(.88rem,1.3vw,1rem);line-height:1.72;}
       </div>
     </div>
     <div class="tl2">
-      <div class="tk" onclick="toggleTask(this)"><div class="tck"></div><div class="ttx">① 填寫我的 Threads 定位卡</div><div class="ttm">5min</div></div>
-      <div class="tk" onclick="toggleTask(this)"><div class="tck"></div><div class="ttx">② 建立我的 AI 角色腳本</div><div class="ttm">5min</div></div>
+      <div class="tk" onclick="toggleTask(this)"><div class="tck"></div><div class="ttx">① 填寫我的 Threads 定位卡</div><div class="ttm">8min</div></div>
+      <div class="tk" onclick="toggleTask(this)"><div class="tck"></div><div class="ttx">② 建立我的 AI 角色腳本</div><div class="ttm">8min</div></div>
       <div class="tk" onclick="toggleTask(this)"><div class="tck"></div><div class="ttx">③ 用 AI 生成第一篇貼文草稿</div><div class="ttm">8min</div></div>
       <div class="tk" onclick="toggleTask(this)"><div class="tck"></div><div class="ttx">④ 規劃本週 3 篇貼文標題</div><div class="ttm">7min</div></div>
       <div class="tk" onclick="toggleTask(this)"><div class="tck"></div><div class="ttx">⑤ 用「發文前 4 問」檢查草稿</div><div class="ttm">5min</div></div>
@@ -354,7 +428,55 @@ p{color:var(--w6);font-size:clamp(.88rem,1.3vw,1rem);line-height:1.72;}
     <div class="dc"><span class="dn2">87,777</span><div class="dl">上週單週瀏覽（3/12–3/19）</div><div class="db"><div class="df" style="width:85%"></div></div><div class="dnote">比前週 +22,220 次 ↑ 34%</div></div>
     <div class="dc"><span class="dn2">59.6%</span><div class="dl">「其他」來源（非追蹤者）</div><div class="db"><div class="df" style="width:60%"></div></div><div class="dnote">首頁推薦 27.8% · 搜尋 5.5%<br>超過一半流量來自陌生人</div></div>
   </div>
-  <div class="bxs" style="margin-top:14px;"><div class="bxt">受眾分析</div><p>25–34 歲佔 47% · 35–44 歲佔 30.6% · 埔里 36.3% · 台中 16.7% · 新北 10.6%<br>→ 在地視角 + 普世共感是最有效的內容方向。</p></div>
+  <!-- 受眾視覺圖表 -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px;">
+    <div class="bxs">
+      <div class="bxt">年齡分布</div>
+      <div style="display:flex;flex-direction:column;gap:6px;margin-top:8px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-family:'DM Mono',monospace;font-size:.72rem;color:var(--w6);width:60px;flex-shrink:0;">25–34</span>
+          <div style="flex:1;height:10px;background:rgba(255,255,255,.12);position:relative;"><div style="width:47%;height:100%;background:var(--w);transition:width 1s ease .3s;"></div></div>
+          <span style="font-family:'DM Mono',monospace;font-size:.72rem;color:var(--w);width:36px;">47%</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-family:'DM Mono',monospace;font-size:.72rem;color:var(--w6);width:60px;flex-shrink:0;">35–44</span>
+          <div style="flex:1;height:10px;background:rgba(255,255,255,.12);"><div style="width:30.6%;height:100%;background:rgba(255,255,255,.6);"></div></div>
+          <span style="font-family:'DM Mono',monospace;font-size:.72rem;color:var(--w6);width:36px;">30.6%</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-family:'DM Mono',monospace;font-size:.72rem;color:var(--w6);width:60px;flex-shrink:0;">其他</span>
+          <div style="flex:1;height:10px;background:rgba(255,255,255,.12);"><div style="width:22.4%;height:100%;background:rgba(255,255,255,.3);"></div></div>
+          <span style="font-family:'DM Mono',monospace;font-size:.72rem;color:var(--w6);width:36px;">22.4%</span>
+        </div>
+      </div>
+    </div>
+    <div class="bxs">
+      <div class="bxt">地區分布</div>
+      <div style="display:flex;flex-direction:column;gap:6px;margin-top:8px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-family:'DM Mono',monospace;font-size:.72rem;color:var(--w6);width:40px;flex-shrink:0;">埔里</span>
+          <div style="flex:1;height:10px;background:rgba(255,255,255,.12);"><div style="width:36.3%;height:100%;background:var(--w);"></div></div>
+          <span style="font-family:'DM Mono',monospace;font-size:.72rem;color:var(--w);width:40px;">36.3%</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-family:'DM Mono',monospace;font-size:.72rem;color:var(--w6);width:40px;flex-shrink:0;">台中</span>
+          <div style="flex:1;height:10px;background:rgba(255,255,255,.12);"><div style="width:16.7%;height:100%;background:rgba(255,255,255,.6);"></div></div>
+          <span style="font-family:'DM Mono',monospace;font-size:.72rem;color:var(--w6);width:40px;">16.7%</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-family:'DM Mono',monospace;font-size:.72rem;color:var(--w6);width:40px;flex-shrink:0;">新北</span>
+          <div style="flex:1;height:10px;background:rgba(255,255,255,.12);"><div style="width:10.6%;height:100%;background:rgba(255,255,255,.4);"></div></div>
+          <span style="font-family:'DM Mono',monospace;font-size:.72rem;color:var(--w6);width:40px;">10.6%</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-family:'DM Mono',monospace;font-size:.72rem;color:var(--w6);width:40px;flex-shrink:0;">其他</span>
+          <div style="flex:1;height:10px;background:rgba(255,255,255,.12);"><div style="width:36.4%;height:100%;background:rgba(255,255,255,.2);"></div></div>
+          <span style="font-family:'DM Mono',monospace;font-size:.72rem;color:var(--w6);width:40px;">36.4%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p style="font-size:.8rem;color:var(--w6);margin-top:8px;">→ 在地視角 + 普世共感是最有效的內容方向。</p>
 </div>
 
 <!-- S8 · SYSTEM -->
@@ -454,6 +576,8 @@ function goTo(i){
 function upN(){
   document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===cur));
   document.getElementById('ni').textContent=String(cur+1).padStart(2,'0')+' / '+String(tot).padStart(2,'0');
+  const qfab=document.querySelector('.qfab');
+  if(qfab)qfab.classList.toggle('hidden',cur!==0);
 }
 const nd=document.getElementById('nd');
 sls.forEach((_,i)=>{const d=document.createElement('div');d.className='dot'+(i===0?' active':'');d.onclick=()=>goTo(i);nd.appendChild(d);});
@@ -465,14 +589,14 @@ let ty=0;
 document.addEventListener('touchstart',e=>{ty=e.touches[0].clientY;},{passive:true});
 document.addEventListener('touchend',e=>{const dy=ty-e.changedTouches[0].clientY;if(Math.abs(dy)>40)dy>0?goTo(cur+1):goTo(cur-1);},{passive:true});
 // Timer
-let ts=30*60,ti=null,tr2=false;
+let ts=60*60,ti=null,tr2=false;
 const fmt=s=>String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
 function toggleTimer(){
   const b=document.getElementById('tb');
   if(tr2){clearInterval(ti);tr2=false;b.textContent='▶ 繼續';b.classList.remove('act');}
   else{tr2=true;b.textContent='⏸ 暫停';b.classList.add('act');ti=setInterval(()=>{ts--;document.getElementById('tn').textContent=fmt(ts);if(ts<=0){clearInterval(ti);tr2=false;document.getElementById('tn').textContent='時間到！';b.textContent='✓ 完成';b.classList.remove('act');}},1000);}
 }
-function resetTimer(){clearInterval(ti);tr2=false;ts=30*60;document.getElementById('tn').textContent='30:00';const b=document.getElementById('tb');b.textContent='▶ 開始';b.classList.remove('act');}
+function resetTimer(){clearInterval(ti);tr2=false;ts=30*60;document.getElementById('tn').textContent='60:00';const b=document.getElementById('tb');b.textContent='▶ 開始';b.classList.remove('act');}
 // Task
 function toggleTask(el){el.classList.toggle('dn');const c=el.querySelector('.tck');c.textContent=el.classList.contains('dn')?'✓':'';}
 // Data bars
@@ -490,6 +614,24 @@ function openQ(){
 function closeQ(){document.getElementById('qov').classList.remove('open');}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeQ();});
 window.addEventListener('load',()=>{new QRCode(document.getElementById('qrc'),{text:QU,width:84,height:84,colorDark:'#ffffff',colorLight:'#000000',correctLevel:QRCode.CorrectLevel.L});});
+
+// Copy Prompt
+const PROMPT_TEXT = 'Role: 資深 Threads 社群操盤手兼品牌文案大師 (Senior Threads Social Strategist & Copywriter)\n\n你現在是一位具備豐富自媒體起號經驗、深諳 Threads 演算法與受眾心理學的資深社群操盤手。你的任務是接手我（或我的品牌）的 Threads 帳號內容規劃與文案撰寫。\n\nContext & Workflow：我稍後會提供我的品牌背景、目標受眾、想推廣的活動或產品，以及目前的社群痛點。所有規劃與文案都必須符合 Threads 平台的「原生語氣」。絕對禁止使用傳統 FB/IG 的官方說教語氣、生硬的廣告推銷詞，且在正文中絕對不能出現外部連結 (URL)。\n\n當我提供資料後，請嚴格依照以下五個階段進行：\nPhase 1: 品牌定位與受眾深度解析\nPhase 2: 流量漏斗與內容矩陣規劃\nPhase 3: 演算法駭客與互動策略\nPhase 4: 風險控管與語氣校正\nPhase 5: 核心貼文產出與 PDCA 迭代\n\n每個階段完成後，請停下來詢問我是否同意，確認後再進入下一階段。\n\n如果你完全理解上述深度解析的流程，請回覆：「我已準備好以資深社群操盤手的視角接手您的 Threads 帳號。請提供您的品牌背景、本次想推廣的目標與受眾輪廓，我們將從 Phase 1 開始為您進行深度分析。」';
+function copyPrompt(){
+  navigator.clipboard.writeText(PROMPT_TEXT).then(()=>{
+    const btn=document.getElementById('copy-btn');
+    btn.textContent='已複製 ✓';
+    btn.style.background='#fff';btn.style.color='#000';
+    setTimeout(()=>{btn.textContent='複製腳本';btn.style.background='transparent';btn.style.color='#fff';},2000);
+  }).catch(()=>{
+    // fallback
+    const ta=document.createElement('textarea');
+    ta.value=PROMPT_TEXT;document.body.appendChild(ta);ta.select();
+    document.execCommand('copy');document.body.removeChild(ta);
+    document.getElementById('copy-btn').textContent='已複製 ✓';
+    setTimeout(()=>{document.getElementById('copy-btn').textContent='複製腳本';},2000);
+  });
+}
 </script>
 </body>
 </html>
