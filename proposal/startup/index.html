@@ -26,7 +26,7 @@ body{font-family:'Noto Sans TC',sans-serif;color:var(--ink);}
 .nd{display:flex;gap:6px;align-items:center;}
 .dot{width:5px;height:5px;border-radius:50%;background:var(--i4);cursor:pointer;transition:all .2s;}
 .dot.active{background:var(--ink);transform:scale(1.6);}
-.qfab{position:fixed;bottom:14px;left:20px;z-index:200;width:34px;height:34px;border:var(--r);background:var(--cr);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;box-shadow:0 2px 8px rgba(17,17,17,.12);}
+.qfab{position:fixed;bottom:22px;left:22px;z-index:9999;width:40px;height:40px;border:2px solid var(--ink);background:var(--cr);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;box-shadow:0 2px 12px rgba(17,17,17,.2);border-radius:4px;}
 .qfab:hover{background:var(--ink);color:var(--cr);}
 
 .qov{display:none;position:fixed;inset:0;z-index:500;background:rgba(17,17,17,.72);backdrop-filter:blur(8px);align-items:center;justify-content:center;}
@@ -69,12 +69,13 @@ body{font-family:'Noto Sans TC',sans-serif;color:var(--ink);}
 .sn{font-family:'DM Mono',monospace;font-size:1.4rem;font-weight:500;display:block;margin-bottom:2px;}
 
 /* ── P3 TIMELINE ── */
-#s2 .ga{display:grid;grid-template-columns:1fr 1.6fr;gap:24px;flex:1;align-items:start;overflow:hidden;min-width:0;}
-.tlt{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;border:var(--r);margin-top:12px;}
-.ti{border-right:var(--r);padding:10px 8px;position:relative;min-width:0;overflow:hidden;}
+#s2 .ga{display:grid;grid-template-columns:1fr 2fr;gap:20px;flex:1;align-items:start;overflow:hidden;min-width:0;}
+.tlt{display:flex;flex-direction:column;gap:0;border:var(--r);margin-top:8px;width:100%;}
+.ti{border-top:none;border-bottom:1px solid rgba(17,17,17,.12);padding:10px 14px;display:grid;grid-template-columns:80px 1fr;gap:12px;align-items:center;}
 .ti:last-child{border-right:none;}
 .ti:nth-child(4),.ti:nth-child(5),.ti:nth-child(6){border-top:var(--r);}
-.ti-dot{width:8px;height:8px;border-radius:50%;background:var(--ink);margin-bottom:6px;}
+.ti-dot{width:8px;height:8px;border-radius:50%;background:var(--ink);flex-shrink:0;}
+.ti:last-child{border-bottom:none;}
 .ti-dot.op{background:var(--cr);border:1px solid var(--ink);}
 .ti-yr{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;color:var(--i4);margin-bottom:3px;}
 .ti-tt{font-family:'Noto Serif TC',serif;font-weight:700;font-size:.78rem;margin-bottom:2px;}
@@ -138,7 +139,7 @@ body{font-family:'Noto Sans TC',sans-serif;color:var(--ink);}
   .f4{grid-template-columns:1fr 1fr;}
   #s5 .cg{grid-template-columns:1fr 1fr;}
   .nav{bottom:10px;right:12px;padding:5px 10px;}
-  .qfab{bottom:10px;left:12px;}
+  .qfab{bottom:18px;left:14px;width:36px;height:36px;}
   .wm{display:none;}
   .hd{font-size:clamp(2.5rem,9vw,5rem);}
   .h1{font-size:clamp(1.8rem,7vw,3.5rem);}
@@ -146,7 +147,7 @@ body{font-family:'Noto Sans TC',sans-serif;color:var(--ink);}
 @media(max-width:600px){
   .sl{padding:20px 5vw 56px;}
   .f4,#s5 .cg,.st3{grid-template-columns:1fr 1fr;}
-  .tlt{grid-template-columns:1fr 1fr;}
+  .tlt{flex-direction:column;}
   .g2{grid-template-columns:1fr!important;}
 }
 </style>
@@ -180,10 +181,10 @@ body{font-family:'Noto Sans TC',sans-serif;color:var(--ink);}
   <div class="rh"></div>
   <div class="g2" style="flex:1;">
     <div>
-      <div class="av">👤</div>
+      <div class="av"><img src="tony-photo.png" alt="Tony Lin" style="width:100%;height:100%;object-fit:cover;object-position:top;" onerror="this.style.display='none';this.parentNode.innerHTML='<span style=font-size:2.8rem>👤</span>';"></div>
       <div class="st2" style="margin-top:1px;">
         <div class="sc"><span class="sn">10+</span><span class="cp">年設計</span></div>
-        <div class="sc"><span class="sn">2025</span><span class="cp">LINKet</span></div>
+        <div class="sc"><span class="sn">2026</span><span class="cp">LINKet</span></div>
       </div>
       <div style="padding:9px 11px;border:var(--r);border-top:none;"><span class="cp">埔里 · 南投 · 台灣</span></div>
     </div>
@@ -224,12 +225,12 @@ body{font-family:'Noto Sans TC',sans-serif;color:var(--ink);}
     <!-- 右：時間軸格狀 2x3 + 引言（overflow 保護）-->
     <div style="display:flex;flex-direction:column;gap:10px;min-width:0;overflow:hidden;">
       <div class="tlt" style="overflow:hidden;">
-        <div class="ti"><div class="ti-dot"></div><div class="ti-yr">早期</div><div class="ti-tt">🎓 求學設計</div><div class="ti-de">離鄉學設計，累積品牌、空間、3D、印刷各領域實力</div></div>
-        <div class="ti"><div class="ti-dot"></div><div class="ti-yr">設計生涯</div><div class="ti-tt">🎨 10年資歷</div><div class="ti-de">服務各類品牌，建立完整設計思維與視覺語言體系</div></div>
-        <div class="ti"><div class="ti-dot"></div><div class="ti-yr">探索期</div><div class="ti-tt">🍽️ 餐飲顧問</div><div class="ti-de">設計思維跨入餐飲業，首次發現跨界無限可能</div></div>
-        <div class="ti"><div class="ti-dot"></div><div class="ti-yr">2024 / 02</div><div class="ti-tt">🚪 主動離職</div><div class="ti-de">不是被裁員，是主動選擇。只有一個感覺：這不是我的路</div></div>
-        <div class="ti"><div class="ti-dot"></div><div class="ti-yr">2024 迷霧</div><div class="ti-tt">🌫️ 身心靈</div><div class="ti-de">直銷、身心靈、自我療癒，每次嘗試讓答案更清晰</div></div>
-        <div class="ti"><div class="ti-dot op"></div><div class="ti-yr">2025 →</div><div class="ti-tt">⚡ LINKet</div><div class="ti-de">帶著所有經歷重新出發，更清楚為什麼而做</div></div>
+        <div class="ti"><div style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;"><div class="ti-dot"></div><div class="ti-yr">早期</div></div><div><div class="ti-tt">🎓 求學設計</div><div class="ti-de">離鄉學設計，累積品牌、空間、3D、印刷各領域實力</div></div></div>
+        <div class="ti"><div style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;"><div class="ti-dot"></div><div class="ti-yr">設計生涯</div></div><div><div class="ti-tt">🎨 10年資歷</div><div class="ti-de">服務各類品牌，建立完整設計思維與視覺語言體系</div></div></div>
+        <div class="ti"><div style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;"><div class="ti-dot"></div><div class="ti-yr">探索期</div></div><div><div class="ti-tt">🍽️ 餐飲顧問</div><div class="ti-de">設計思維跨入餐飲業，首次發現跨界無限可能</div></div></div>
+        <div class="ti"><div style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;"><div class="ti-dot"></div><div class="ti-yr">2024 / 02</div></div><div><div class="ti-tt">🚪 主動離職</div><div class="ti-de">不是被裁員，是主動選擇。只有一個感覺：這不是我的路</div></div></div>
+        <div class="ti"><div style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;"><div class="ti-dot"></div><div class="ti-yr">2024 迷霧</div></div><div><div class="ti-tt">🌫️ 身心靈</div><div class="ti-de">直銷、身心靈、自我療癒，每次嘗試讓答案更清晰</div></div></div>
+        <div class="ti"><div style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;"><div class="ti-dot op"></div><div class="ti-yr">2025 →</div></div><div><div class="ti-tt">⚡ LINKet</div><div class="ti-de">帶著所有經歷重新出發，更清楚為什麼而做</div></div></div>
       </div>
       <div style="border:var(--r);padding:16px 20px;background:rgba(17,17,17,.04);">
         <div class="pq" style="font-size:clamp(.95rem,1.8vw,1.3rem);">"繞了一大圈才發現，設計一直在那裡等我。"</div>
