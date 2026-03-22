@@ -51,7 +51,7 @@ src="https://www.facebook.com/tr?id=879311715156916&ev=PageView&noscript=1"
   --r:100px;--mw:900px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
+html{}
 body{font-family:'Noto Serif TC',serif;background:var(--bg2);color:var(--cream);overflow-x:hidden;}
 .inner{max-width:var(--mw);margin:0 auto;}
 
@@ -210,13 +210,13 @@ a.top-badge{display:block;width:100%;background:#fff;text-align:center;padding:.
 .brand-block-header{margin-bottom:1.6rem;}
 /* STORE CARDS */
 .store-cards{display:flex;gap:1.2rem;flex-wrap:wrap;margin-top:1.6rem;}
-.store-card{flex:1 1 280px;background:var(--bg2);border:1px solid var(--b);border-radius:0;overflow:hidden;display:flex;flex-direction:column;}
-.store-card-photo{width:100%;height:180px;object-fit:cover;background:rgba(200,169,106,.06);display:flex;align-items:center;justify-content:center;font-size:.62rem;letter-spacing:.12em;color:rgba(200,169,106,.3);}
+.store-card{flex:1 1 280px;background:var(--bg2);border:1px solid var(--b);border-radius:0;display:flex;flex-direction:column;}
+.store-card-photo{width:100%;height:180px;object-fit:cover;background:rgba(200,169,106,.06);display:flex;align-items:center;justify-content:center;font-size:.62rem;letter-spacing:.12em;overflow:hidden;flex-shrink:0;color:rgba(200,169,106,.3);}
 .store-card-body{padding:1.2rem 1.2rem .8rem;display:flex;flex-direction:column;gap:.6rem;flex:1;}
 .store-card-name{font-family:'Noto Serif TC',serif;font-size:1.05rem;font-weight:700;letter-spacing:.1em;color:var(--cream);}
 .store-card-info{font-size:.82rem;line-height:1.8;color:var(--muted2);letter-spacing:.04em;}
 .store-card-links{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.2rem;}
-.store-card-btn{display:block;text-align:center;padding:.76rem 1rem;font-family:'Noto Serif TC',serif;font-size:1rem;font-weight:700;letter-spacing:.14em;text-decoration:none;background:var(--rust);color:#fff;border:1px solid var(--rust);border-radius:var(--r);margin-top:1rem;transition:background .2s,color .2s;}
+.store-card-btn{display:block;margin-top:auto;text-align:center;padding:.76rem 1rem;font-family:'Noto Serif TC',serif;font-size:1rem;font-weight:700;letter-spacing:.14em;text-decoration:none;background:var(--rust);color:#fff;border:1px solid var(--rust);border-radius:var(--r);margin-top:1rem;transition:background .2s,color .2s;}
 .store-card-btn:hover{background:var(--rust2);border-color:var(--rust2);}
 @media(max-width:600px){.store-cards{flex-direction:column;}}
 .brand-logo-placeholder{width:140px;height:56px;background:rgba(200,169,106,.08);border:1px dashed rgba(200,169,106,.25);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.6rem;letter-spacing:.12em;color:rgba(200,169,106,.3);margin-bottom:1rem;}
@@ -249,6 +249,7 @@ a.top-badge{display:block;width:100%;background:#fff;text-align:center;padding:.
 @media(prefers-reduced-motion:reduce){
   .hero-logo-text,.hero-logo,.hero-role,.hero-slogan,.hero-tags,.hero-icons,.hero-btn,.hero-btn-row,.talk-solid{animation:none;}
 }
+.scroll-smooth{scroll-behavior:smooth;}
 </style>
 </head>
 <body>
@@ -349,7 +350,7 @@ a.top-badge{display:block;width:100%;background:#fff;text-align:center;padding:.
   <p class="about-text">從埔里桃米山腳出發，父親種的多肉植物成了品牌靈魂，記憶裡的豆花味道長成一整間合作社——六年，從一間低調鐵皮店走出<strong>三個風格迥異的品牌</strong>。</p>
   <p class="about-text">山上山下的咖哩、桑心實驗室的沙漠秘境、桑心合作社的豆花甜品，每一間都是一個故事、一種陪伴。我們相信：<strong>食物是療癒，空間是連結，每一次造訪都值得被好好對待。</strong></p>
   <p class="about-text about-quote"><em>「獨特、療桑、社交，是我們的心。」</em></p>
-  <div class="about-video reveal">
+  <div class="about-video">
     <iframe src="https://www.youtube.com/embed/L1HPN_5eoik" title="emolab 桑心實驗室形象影片"
       frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen loading="lazy"></iframe>
@@ -368,7 +369,7 @@ a.top-badge{display:block;width:100%;background:#fff;text-align:center;padding:.
         <span class="brand-en">emo Lab · coffee & burger</span>
       </div>
     </div>
-    <img src="brand-emolab.jpg" alt="桑心實驗室" class="brand-photo reveal" style="width:100%;height:280px;object-fit:cover;display:block;margin-bottom:1.6rem;">
+    <img src="brand-emolab.jpg" alt="桑心實驗室" class="brand-photo" style="width:100%;height:280px;object-fit:cover;display:block;margin-bottom:1.6rem;">
     <div class="brand-desc reveal">
       hidden gem — 會呼吸的沙漠秘境。靈感來自父親，一位熱愛植物的農夫。以仙人掌、多肉、野生旱生植物構築空間，融合露營風格與自然美學，化韌性與療癒為日常。精選排餐、特調咖啡、四季限定風味，每一杯都附上在地伴手禮的故事。埔里桃米必訪秘境，IG 9,400+ 追蹤。
     </div>
@@ -406,7 +407,7 @@ a.top-badge{display:block;width:100%;background:#fff;text-align:center;padding:.
         <span class="brand-en">emo Club · Tea Room</span>
       </div>
     </div>
-    <img src="brand-emoclub.jpg" alt="桑心合作社" class="brand-photo reveal" style="width:100%;height:280px;object-fit:cover;display:block;margin-bottom:1.6rem;">
+    <img src="brand-emoclub.jpg" alt="桑心合作社" class="brand-photo" style="width:100%;height:280px;object-fit:cover;display:block;margin-bottom:1.6rem;">
     <div class="brand-desc reveal">
       桑心的我們，終將被食物治癒。老味道的新日常。招牌桂花酒釀花生豆花選用埔里農會桂花釀，紫米椰奶紅豆豆花、麵茶奶蓋茶飲、古法桂花酸梅湯——用在地南投農產做出屬於這個時代的新台味。相信，甜是一種陪伴。
     </div>
@@ -472,7 +473,7 @@ a.top-badge{display:block;width:100%;background:#fff;text-align:center;padding:.
         <span class="brand-en">sunshine-sunshine · 3S3S</span>
       </div>
     </div>
-    <img src="brand-3s3s-taomi.jpg" alt="山上山下" class="brand-photo reveal" style="width:100%;height:280px;object-fit:cover;display:block;margin-bottom:1.6rem;">
+    <img src="brand-3s3s-taomi.jpg" alt="山上山下" class="brand-photo" style="width:100%;height:280px;object-fit:cover;display:block;margin-bottom:1.6rem;">
     <div class="brand-desc reveal">
       通往日月潭桃米山腳，一間低調鐵皮店。返鄉創業的起點，用一碗深濃咖哩說一個在地的故事。既然我們無法改變現實，那就桑心吧——一碗被記住的咖哩，是夢開始的地方。
     </div>
@@ -601,6 +602,26 @@ function openQR(){
 function closeQR(){document.getElementById('qr-overlay').classList.remove('open');}
 function closeQRBg(e){if(e.target===document.getElementById('qr-overlay'))closeQR();}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeQR();});
+</script>
+
+<script>
+// 修正重整後跳到底部：強制回頂
+if(!window.location.hash){
+  window.addEventListener('load',function(){
+    window.scrollTo({top:0,left:0,behavior:'instant'});
+  });
+}
+// anchor 點擊時才啟用 smooth scroll
+document.addEventListener('click',function(e){
+  const a=e.target.closest('a[href^="#"]');
+  if(!a)return;
+  const target=document.querySelector(a.getAttribute('href'));
+  if(!target)return;
+  e.preventDefault();
+  document.documentElement.classList.add('scroll-smooth');
+  target.scrollIntoView({behavior:'smooth',block:'start'});
+  setTimeout(()=>document.documentElement.classList.remove('scroll-smooth'),800);
+});
 </script>
 </body>
 </html>
