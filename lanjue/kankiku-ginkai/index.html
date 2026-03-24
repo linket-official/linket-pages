@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<!-- V2.2 Version: 寒菊 銀海 / 青蘋果風味校正 / 55% 精米 / 加入 YouTube 聽覺擴增 / 相對路徑防呆優化 -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-29J2988Y8J');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>寒菊 銀海 Ocean 99｜無濾過生原酒 × LINKet</title>
+<meta name="description" content="每一次出發，都是對未知的深情表白。寒菊銘釀 Ocean 99 系列，無濾過生原酒，封存最鮮活的青蘋果果香與微氣泡感。">
+
+<!-- OG Meta Tags -->
+<meta property="og:title" content="寒菊 銀海 Ocean 99｜無濾過生原酒 × LINKet">
+<meta property="og:description" content="每一次出發，都是對未知的深情表白。無濾過生原酒，封存最鮮活的青蘋果果香與微氣泡感。">
+<!-- OG Image 必須維持絕對路徑供社群平台抓取 -->
+<meta property="og:image" content="https://linket.app/lanjue/kankiku-ginkai/og-image.jpg">
+<meta property="og:url" content="https://linket.app/lanjue/kankiku-ginkai">
+<meta property="og:type" content="website">
+
+<!-- Favicon (改用相對路徑防呆) -->
+<link rel="icon" href="./favicon.png">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<!-- 清爽、具備速度感的現代細黑體與英文字體 -->
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;700;900&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 寒菊銀海 專屬色系：深海藍 + 冰川藍 + 銀白光澤 */
+  --bg:        #00363A;      /* 極暗深海藍 (主底色) */
+  --bg2:       #006064;      /* 品牌深海藍 */
+  --ocean:     #00838F;      /* 亮部海藍 */
+  
+  --ice:       #E0F7FA;      /* 冰川藍 (高光/按鈕) */
+  --ice-dk:    #B2EBF2;      /* 深冰川藍 */
+  --silver:    #ECEFF1;      /* 銀白色 */
+  
+  --ink:       #FFFFFF;      /* 純白 (主文字) */
+  --inkm:      #B2EBF2;      /* 內文淺藍白 */
+  --inkf:      #80DEEA;      /* 附註青冰色 */
+  
+  --line:      rgba(224,247,250,.15); /* 冰川藍分隔線 */
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;}
+
+/* TICKER */
+.ticker{overflow:hidden;white-space:nowrap;border-bottom:1px solid var(--line);padding:.7rem 0;background:var(--bg);}
+.ticker-track{display:inline-flex;animation:tick 35s linear infinite;}
+.ticker-track span{font-family:'Jost',sans-serif;font-weight:500;font-size:.85rem;letter-spacing:.25em;text-transform:uppercase;padding:0 1.4rem;color:var(--inkf);}
+.ticker-track span.ac{color:var(--ice);font-weight:700;}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* HERO */
+#hero{
+  position:relative;width:100%;min-height:100svh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  overflow:hidden;
+  background:linear-gradient(135deg, #001A1C 0%, #00363A 40%, #006064 100%);
+}
+
+/* Flight Trail Animation (飛機起飛流線) */
+.flight-trails{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.trail{
+  position:absolute;
+  height:2px;
+  background:linear-gradient(90deg, transparent, rgba(224,247,250,0.8), transparent);
+  transform:rotate(-35deg);
+  opacity:0;
+  animation:shootTrail var(--dur) ease-in-out infinite var(--delay);
+}
+@keyframes shootTrail{
+  0%{width:0; left:-20%; top:120%; opacity:0;}
+  20%{opacity:1;}
+  80%{opacity:0.8;}
+  100%{width:60vw; left:120%; top:-20%; opacity:0;}
+}
+
+/* Wave & Sun Glint (九十九里海岸波光) */
+.ocean-glint{
+  position:absolute;bottom:0;left:0;width:100%;height:40vh;
+  background:linear-gradient(to top, rgba(224,247,250,0.08) 0%, transparent 100%);
+  z-index:1;pointer-events:none;
+}
+.glint-particle{
+  position:absolute;
+  width:4px;height:4px;background:var(--ice);border-radius:50%;
+  box-shadow: 0 0 10px var(--ice), 0 0 20px var(--ice);
+  animation:glimmer var(--dur) alternate infinite ease-in-out var(--delay);
+}
+@keyframes glimmer{0%{opacity:0;transform:scale(0.5) translateY(0);} 100%{opacity:0.8;transform:scale(1.5) translateY(-20px);}}
+
+/* Micro Carbonation (透明微氣泡) */
+.micro-bubbles{position:absolute;inset:0;z-index:2;pointer-events:none;}
+.m-bubble{
+  position:absolute;bottom:-5%;
+  border:1px solid rgba(224,247,250,0.4);
+  border-radius:50%;
+  background:radial-gradient(circle at 30% 30%, rgba(255,255,255,0.6) 0%, transparent 60%);
+  animation:riseMicroBubble var(--dur) ease-in infinite var(--delay);
+}
+@keyframes riseMicroBubble{
+  0%{transform:translateY(0) scale(0.5);opacity:0;}
+  20%{opacity:0.8;}
+  100%{transform:translateY(-110vh) scale(1.2) translateX(calc(var(--drift) * 1vw));opacity:0;}
+}
+
+/* ABV / Spec Badge */
+.spec-badge{
+  position:absolute;top:2rem;right:1.6rem;z-index:4;
+  display:flex;flex-direction:column;align-items:center;
+  border:1px solid rgba(224,247,250,.3);
+  padding:.6rem .8rem;
+  background:rgba(0,54,58,.6);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  border-radius:4px;
+}
+.spec-score{font-family:'Jost',sans-serif;font-weight:700;font-size:1.4rem;color:var(--ice);line-height:1;}
+.spec-label{font-family:'Noto Sans TC',sans-serif;font-weight:400;font-size:.6rem;letter-spacing:.15em;color:var(--inkm);margin-top:.3rem;text-transform:uppercase;}
+
+/* Bottle */
+.hero-bottle-full{position:relative;z-index:3;display:flex;align-items:center;justify-content:center;width:100%;padding:4rem 0 9rem;}
+.hero-bottle-full img{
+  width:clamp(150px,38vw,260px);height:auto;object-fit:contain;
+  filter:drop-shadow(0 30px 40px rgba(0,0,0,.6)) drop-shadow(0 0 50px rgba(224,247,250,.15));
+  animation:floatBottle 6s ease-in-out infinite alternate;
+}
+.bottle-ph{
+  width:clamp(130px,32vw,200px);
+  aspect-ratio:1/3.4;
+  background:linear-gradient(170deg,#E0F7FA 0%,#00838F 100%);
+  border:1px solid rgba(224,247,250,.3);
+  border-radius:12px 12px 4px 4px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  box-shadow:0 20px 50px rgba(0,0,0,.6), inset 0 0 20px rgba(255,255,255,0.2);
+  animation:floatBottle 6s ease-in-out infinite alternate;
+  position:relative;
+  overflow:hidden;
+}
+.bottle-ph span{font-family:'Jost',sans-serif;font-weight:900;font-size:2rem;letter-spacing:.05em;color:var(--bg);text-align:center;line-height:1.2;position:relative;z-index:2;}
+.bottle-ph small{font-family:'Noto Sans TC',sans-serif;font-weight:700;font-size:.8rem;color:var(--bg);margin-top:.5rem;letter-spacing:.1em;}
+@keyframes floatBottle{0%{transform:translateY(0);} 100%{transform:translateY(-15px);}}
+
+/* Name block */
+.hero-name-block{
+  position:absolute;bottom:0;left:0;right:0;z-index:4;
+  padding:4rem 1.6rem 2.4rem;
+  background:linear-gradient(transparent, rgba(0,54,58,.95) 40%, #00363A 100%);
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:.6rem;
+}
+.hname-big{font-family:'Noto Sans TC',sans-serif;font-weight:900;font-size:clamp(3rem,15vw,6.5rem);color:var(--ink);letter-spacing:.08em;line-height:1;text-shadow:0 5px 20px rgba(0,0,0,.5);}
+.hname-big span{color:var(--ice);font-family:'Jost',sans-serif;font-style:italic;}
+.hname-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.5rem 1rem;padding-top:.8rem;border-top:1px solid var(--line);}
+.hname-jp{font-family:'Noto Sans TC',sans-serif;font-weight:400;font-size:clamp(.8rem,3.2vw,1.05rem);letter-spacing:.25em;color:var(--inkm);}
+.hname-en{font-family:'Jost',sans-serif;font-weight:500;font-size:clamp(.85rem,3.5vw,1.1rem);letter-spacing:.15em;color:var(--ice);}
+.hname-sep{color:var(--ice);font-size:.7rem;}
+.hero-slogan{font-family:'Noto Sans TC',sans-serif;font-weight:300;font-size:clamp(.85rem,3.5vw,1.05rem);letter-spacing:.15em;line-height:2;color:var(--ink);margin-top:.5rem;}
+.hero-scroll-hint{display:flex;align-items:center;gap:.5rem;margin-top:1rem;font-family:'Jost',sans-serif;font-weight:500;font-size:.65rem;letter-spacing:.25em;color:var(--inkf);text-transform:uppercase;}
+.scroll-dot{width:20px;height:2px;background:var(--ice);}
+
+/* SECTIONS */
+.sec{padding:6rem 1.4rem;background:var(--bg2);}
+.sec-alt{background:var(--bg);}
+.sec-light{background:var(--ice);color:var(--bg);}
+.sec+.sec{border-top:1px solid var(--line);}
+.sec-light+.sec{border-top:none;}
+
+.content-wrap{max-width:680px;margin:0 auto;}
+.eyebrow{display:flex;align-items:center;gap:.6rem;margin-bottom:2.5rem;}
+.eyebrow h2{font-family:'Noto Sans TC',sans-serif;font-weight:700;font-size:clamp(1.2rem,4.5vw,1.6rem);letter-spacing:.2em;color:var(--ink);}
+.sec-light .eyebrow h2{color:var(--bg);}
+.eyebrow span{color:var(--ice);font-weight:900;font-size:1.2rem;}
+.sec-light .eyebrow span{color:var(--ocean);}
+
+/* ABOUT */
+.about-body p{font-family:'Noto Sans TC',sans-serif;font-weight:300;font-size:clamp(.9rem,3.5vw,1.05rem);line-height:2.8;letter-spacing:.1em;color:var(--inkm);margin-bottom:1.8rem;}
+.about-body p:last-child{margin-bottom:0;}
+.about-body p strong{color:var(--ice);font-weight:600;}
+.photo-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin:2.5rem 0;}
+.photo-box{border-radius:4px;overflow:hidden;aspect-ratio:3/4;position:relative;background:#001A1C;border:1px solid rgba(224,247,250,.1);}
+.photo-box img{width:100%;height:100%;object-fit:cover;filter:contrast(1.1) brightness(0.9);transition:transform .8s ease, filter .8s;}
+.photo-box:hover img{transform:scale(1.05); filter:contrast(1.1) brightness(1.1);}
+.photo-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:0.8;}
+
+/* SPECS (LIGHT) */
+.ring-wrap{display:flex;align-items:center;justify-content:center;margin-bottom:2.5rem;}
+.ring-chart{position:relative;width:clamp(140px,40vw,180px);height:clamp(140px,40vw,180px);}
+.ring-chart svg{width:100%;height:100%;filter:drop-shadow(0 5px 15px rgba(0,96,100,.2));}
+.ring-val{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Jost',sans-serif;font-weight:900;font-size:clamp(2.5rem,8vw,3.2rem);color:var(--bg);text-shadow:0 2px 10px rgba(255,255,255,.5);}
+.ring-val span{font-family:'Noto Sans TC',sans-serif;font-weight:500;font-size:.65rem;letter-spacing:.15em;color:var(--ocean);margin-top:.2rem;text-transform:uppercase;}
+.spec-table{width:100%;border-collapse:collapse;}
+.spec-table tr{border-bottom:1px solid rgba(0,96,100,.15);}
+.spec-table td{padding:1.5rem 0;vertical-align:top;}
+.spec-table td:first-child{font-family:'Noto Sans TC',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.15em;color:var(--ocean);width:32%;padding-top:1.6rem;}
+.spec-table td:last-child{font-family:'Noto Sans TC',sans-serif;font-size:.95rem;font-weight:400;line-height:2;color:var(--bg);}
+.tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2.5rem;}
+.tag{border:1px solid var(--ocean);color:var(--ocean);font-family:'Noto Sans TC',sans-serif;font-weight:500;font-size:.8rem;letter-spacing:.12em;padding:.4rem 1.2rem;transition:all .3s;cursor:default;border-radius:100px;background:transparent;}
+.tag:hover{background:var(--ocean);color:var(--ice);}
+
+/* SENSORY */
+#sensory{background:var(--bg2);}
+.spotify-label{font-family:'Jost',sans-serif;font-weight:400;font-size:.9rem;letter-spacing:.15em;color:var(--inkm);margin-bottom:1.8rem;display:flex;align-items:center;gap:.6rem;}
+.food-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:1.5rem;}
+.food-box{border-radius:4px;overflow:hidden;position:relative;aspect-ratio:3/4;background:#001A1C;border:1px solid rgba(224,247,250,.1);}
+.food-box img{width:100%;height:100%;object-fit:cover;filter:contrast(1.1) brightness(.85);transition:transform .6s, filter .6s;}
+.food-box:hover img{transform:scale(1.05); filter:contrast(1.1) brightness(1.05);}
+.food-lbl{position:absolute;bottom:0;left:0;right:0;padding:.8rem 1rem;background:linear-gradient(transparent,rgba(0,26,28,.95));font-family:'Noto Sans TC',sans-serif;font-weight:400;font-size:.8rem;letter-spacing:.15em;color:var(--ink);text-align:center;}
+.food-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3.5rem;opacity:0.8;}
+
+/* INSIGHT */
+#insight{background:var(--bg);padding:8rem 1.4rem;position:relative;overflow:hidden;}
+#insight::before{content:'99';position:absolute;right:-.05em;top:50%;transform:translateY(-50%);font-family:'Jost',sans-serif;font-weight:900;font-size:clamp(16rem,50vw,30rem);color:rgba(224,247,250,.03);pointer-events:none;line-height:1;}
+.i-q{position:relative;z-index:1;font-family:'Noto Sans TC',sans-serif;font-weight:300;font-size:clamp(1.05rem,4vw,1.35rem);line-height:2.8;letter-spacing:.12em;color:var(--ink);}
+.i-q em{font-style:normal;font-weight:700;color:var(--ice);font-size:1.15em;}
+
+/* FOOTER */
+#footer{background:linear-gradient(170deg,var(--bg) 0%,#001112 100%);padding:6rem 1.4rem 4rem;border-top:1px solid rgba(224,247,250,.15);}
+.f-big{font-family:'Jost',sans-serif;font-weight:900;font-size:clamp(3rem,14vw,7.5rem);line-height:.92;letter-spacing:.05em;color:var(--ink);margin-bottom:.15em;text-transform:uppercase;}
+.f-big .ac{color:var(--ice);}
+.f-venues{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;border-top:1px solid rgba(224,247,250,.15);border-bottom:1px solid rgba(224,247,250,.15);padding:1.6rem 0;margin:2.5rem 0;}
+.f-venue-item{display:flex;flex-direction:column;gap:.4rem;padding:.6rem;border-right:1px solid rgba(224,247,250,.15);}
+.f-venue-item:last-child{border-right:none;}
+.f-venue-date{font-family:'Jost',sans-serif;font-weight:700;font-size:clamp(1.1rem,4vw,1.6rem);letter-spacing:.08em;color:var(--ice);}
+.f-venue-name{font-family:'Noto Sans TC',sans-serif;font-weight:400;font-size:clamp(.8rem,3vw,1rem);letter-spacing:.1em;color:var(--inkm);line-height:1.6;}
+@media(max-width:600px){
+  .f-venues{grid-template-columns:1fr;gap:0;}
+  .f-venue-item{flex-direction:row;align-items:center;justify-content:space-between;border-right:none;border-bottom:1px solid rgba(224,247,250,.15);padding:1.2rem .4rem;}
+  .f-venue-item:last-child{border-bottom:none;}
+  .f-venue-date{min-width:3.5rem;}
+  .f-venue-name{flex:1;padding:0 .8rem;}
+}
+.venue-follow{display:inline-block;font-family:'Noto Sans TC',sans-serif;font-weight:500;font-size:.7rem;letter-spacing:.15em;color:var(--bg);background:var(--ice);text-decoration:none;padding:.5rem 1.2rem;border-radius:2px;margin-top:.3rem;transition:all .3s;}
+.venue-follow:hover{background:var(--ink);color:var(--bg);transform:translateY(-2px);box-shadow:0 4px 12px rgba(224,247,250,.3);}
+@media(max-width:600px){.venue-follow{margin-top:0;white-space:nowrap;}}
+
+.f-btns{display:flex;flex-direction:column;gap:1.2rem;max-width:400px;}
+.btn-fill{display:block;text-align:center;padding:1.2rem 1.4rem;font-family:'Noto Sans TC',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.2em;text-decoration:none;border:none;cursor:pointer;transition:all .3s;border-radius:2px;}
+.btn-fill.primary{background:var(--ice);color:var(--bg);}
+.btn-fill.primary:hover{background:var(--ink);color:var(--bg);box-shadow:0 10px 20px rgba(224,247,250,.2);}
+.btn-fill.dark{background:rgba(0,0,0,.3);color:var(--ink);border:1px solid rgba(224,247,250,.2);}
+.btn-fill.dark:hover{background:rgba(224,247,250,.15);color:var(--ice);}
+.btn-fill.outline{background:transparent;color:var(--ice);border:1.5px solid var(--ice);}
+.btn-fill.outline:hover{background:var(--ice);color:var(--bg);}
+
+.f-fine{margin-top:4rem;padding-top:1.5rem;border-top:1px solid rgba(224,247,250,.15);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.8rem;align-items:flex-end;}
+.f-brand{font-family:'Jost',sans-serif;font-weight:500;font-size:.85rem;letter-spacing:.25em;color:var(--inkf);}
+.f-nav{display:flex;gap:1.5rem;list-style:none;}
+.f-nav a{font-family:'Noto Sans TC',sans-serif;font-weight:400;font-size:.75rem;letter-spacing:.15em;color:var(--inkf);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+.f-nav a:hover{color:var(--ice);}
+
+/* PARTNER & LEGAL */
+.partner-bar{background:#001112;display:flex;align-items:center;justify-content:center;gap:clamp(1.5rem,5vw,4rem);padding:2rem 1.4rem;border-top:1px solid rgba(224,247,250,.05);}
+.partner-logo{display:flex;align-items:center;opacity:.5;transition:all .3s;flex-shrink:0;}
+.partner-logo:hover{opacity:1;transform:scale(1.1);}
+.partner-logo img{height:clamp(14px,2.5vw,22px);width:auto;filter:brightness(0) invert(1) drop-shadow(0 0 2px rgba(224,247,250,.3));}
+@media(max-width:480px){.partner-bar{gap:clamp(1rem,4vw,2rem);padding:1.5rem .8rem;flex-wrap:wrap;}.partner-logo img{height:12px;}}
+.legal-bar{background:#000000;color:rgba(255,255,255,.3);text-align:center;padding:1.2rem 1.4rem;font-family:'Noto Sans TC',sans-serif;font-weight:300;font-size:.65rem;letter-spacing:.15em;line-height:2.2;}
+
+/* DESKTOP RWD */
+@media(min-width:800px){
+  .sec{padding:7rem 2rem;}
+  #insight{padding:9rem 2rem;}
+  #footer{padding:8rem 2rem 5rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>15% ABV</span><span class="ac">✦</span>
+    <span>寒菊銘釀</span><span class="ac">✦</span>
+    <span>銀海 -DEPARTURE-</span><span class="ac">✦</span>
+    <span>OCEAN 99</span><span class="ac">✦</span>
+    <span>無濾過生原酒</span><span class="ac">✦</span>
+    <span>青蘋果香</span><span class="ac">✦</span>
+    <span>15% ABV</span><span class="ac">✦</span>
+    <span>寒菊銘釀</span><span class="ac">✦</span>
+    <span>銀海 -DEPARTURE-</span><span class="ac">✦</span>
+    <span>OCEAN 99</span><span class="ac">✦</span>
+    <span>無濾過生原酒</span><span class="ac">✦</span>
+    <span>青蘋果香</span><span class="ac">✦</span>
+  </div>
+</div>
+
+<!-- §1 HERO -->
+<section id="hero">
+  <!-- Flight Trails -->
+  <div class="flight-trails">
+    <div class="trail" style="--dur:4s; --delay:0s;"></div>
+    <div class="trail" style="--dur:5s; --delay:2s; top:10%; left:-10%;"></div>
+    <div class="trail" style="--dur:3.5s; --delay:4s; top:50%; left:30%;"></div>
+  </div>
+
+  <!-- Wave Glint -->
+  <div class="ocean-glint" id="glintCanvas">
+    <!-- Generated via JS -->
+  </div>
+
+  <!-- Micro Bubbles -->
+  <div class="micro-bubbles" id="bubbleCanvas">
+    <!-- Generated via JS -->
+  </div>
+
+  <!-- Spec Badge -->
+  <div class="spec-badge">
+    <div class="spec-score">15%</div>
+    <div class="spec-label">Alc / Vol</div>
+  </div>
+
+  <!-- Bottle -->
+  <div class="hero-bottle-full">
+    <img src="./kankiku-bottle.png" alt="寒菊 銀海 Ocean 99" loading="eager"
+      onerror="this.outerHTML='<div class=\'bottle-ph\'><span>99</span><small>DEPARTURE</small></div>'">
+  </div>
+
+  <div class="hero-name-block">
+    <div class="hname-big">銀海 <span>Ocean 99</span></div>
+    <div class="hname-row">
+      <span class="hname-jp">純米吟釀 無濾過生原酒</span>
+      <span class="hname-sep">✦</span>
+      <span class="hname-en">-Departure-</span>
+    </div>
+    <p class="hero-slogan">每一次出發，都是對未知的深情表白。</p>
+    <div class="hero-scroll-hint">
+      <span class="scroll-dot"></span>
+      <span>Scroll</span>
+    </div>
+  </div>
+</section>
+
+<!-- §2 ABOUT / NARRATIVE -->
+<section id="about" class="sec"><div class="content-wrap">
+  <div class="eyebrow">
+    <h2>關於 寒菊 銀海</h2><span>✦</span>
+  </div>
+  <div class="about-body">
+    <p>以<strong>「Departure（啟航）」</strong>為名，這是千葉縣寒菊銘釀 Ocean 99 系列一年的開端。採用<strong>「無濾過生原酒」</strong>工法，封存了最原始的果實感。</p>
+    <p>它象徵著充滿動能、剛踏上新賽道，且<strong>拒絕被「過濾」掉個性</strong>的熱血品牌。帶著微氣泡的生命力，勇敢航向未知的新領域。</p>
+  </div>
+  <div class="photo-row">
+    <div class="photo-box">
+      <img src="./japan-1.jpg" alt="飛機起飛流線" loading="lazy"
+        onerror="this.parentElement.innerHTML='<div class=\'photo-ph\'>✈️</div>'">
+    </div>
+    <div class="photo-box">
+      <img src="./japan-2.jpg" alt="九十九里海岸波浪" loading="lazy"
+        onerror="this.parentElement.innerHTML='<div class=\'photo-ph\'>🌊</div>'">
+    </div>
+  </div>
+</div></section>
+
+<!-- §3 SPECS (LIGHT) -->
+<section id="specs" class="sec sec-light"><div class="content-wrap">
+  <div class="eyebrow">
+    <h2>職人與工法</h2><span>✦</span>
+  </div>
+
+  <div class="ring-wrap">
+    <div class="ring-chart">
+      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(0,96,100,.1)" stroke-width="4"/>
+        <circle cx="60" cy="60" r="50" fill="none" stroke="var(--ocean)" stroke-width="4"
+          stroke-dasharray="314" stroke-dashoffset="141.3"
+          stroke-linecap="round"
+          transform="rotate(-90 60 60)"/>
+        <!-- Dash offset 141.3 means 55% of 314 -->
+      </svg>
+      <div class="ring-val">55%<span>精米步合</span></div>
+    </div>
+  </div>
+
+  <table class="spec-table">
+    <tr><td>酒名</td><td>寒菊 銀海 -Departure- 純米吟釀</td></tr>
+    <tr><td>酒造</td><td>千葉縣｜寒菊銘釀</td></tr>
+    <tr><td>米種</td><td>酒造好適米 100% 使用</td></tr>
+    <tr><td>精米步合</td><td><strong style="color:var(--ocean);font-weight:900;font-size:1.1rem;">55%</strong></td></tr>
+    <tr><td>酒精濃度</td><td>15%</td></tr>
+    <tr><td>風味特徵</td><td>如新鮮青蘋果般的鮮甜與爽脆酸度，微氣泡感明顯，餘韻乾淨俐落。</td></tr>
+    <tr><td>容量/價格</td><td>720ml / 1780元</td></tr>
+  </table>
+
+  <div class="tags">
+    <span class="tag">無濾過生原酒</span>
+    <span class="tag">Ocean 99</span>
+    <span class="tag">青蘋果鮮甜</span>
+    <span class="tag">微氣泡感</span>
+    <span class="tag">出發啟航</span>
+  </div>
+</div></section>
+
+<!-- §4 SENSORY -->
+<section id="sensory" class="sec sec-alt"><div class="content-wrap">
+  <div class="eyebrow">
+    <h2>聽覺與味覺</h2><span>✦</span>
+  </div>
+  <p class="spotify-label">🎵 City Pop · Tropical House — 充滿微風與海浪感的前進節拍</p>
+
+  <!-- YouTube 擴增：嵌入符合 Tropical House/City Pop 氛圍的音樂，並加上冰川藍微透邊框 -->
+  <iframe width="100%" height="315" src="https://www.youtube.com/embed/9Gj47G2e1Jc?si=X-Yy9H3a0W-YmE5_&amp;start=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius: 4px; display: block; border: 1px solid rgba(224,247,250,.25); margin-bottom: 1.5rem;"></iframe>
+
+  <div class="food-grid">
+    <div class="food-box">
+      <img src="./food-1.jpg" alt="海鮮冷盤" loading="lazy"
+        onerror="this.parentElement.innerHTML='<div class=\'food-placeholder\'>🦐</div><p class=\'food-lbl\'>海鮮冷盤</p>'">
+      <p class="food-lbl">海鮮冷盤・鮮味呼應</p>
+    </div>
+    <div class="food-box">
+      <img src="./food-2.jpg" alt="輕盈炸物" loading="lazy"
+        onerror="this.parentElement.innerHTML='<div class=\'food-placeholder\'>🍤</div><p class=\'food-lbl\'>輕盈炸物</p>'">
+      <p class="food-lbl">輕盈炸物・氣泡解膩</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- §5 INSIGHT -->
+<section id="insight"><div class="content-wrap">
+  <div class="eyebrow">
+    <h2>品牌思考題</h2><span>✦</span>
+  </div>
+  <p class="i-q">
+    在航向未知的過程中，<br><br>
+    你的品牌是否保留了<br>
+    那份不被過濾（<em>無濾過</em>）的<br><br>
+    原始衝勁與個性？
+  </p>
+</div></section>
+
+<!-- §6 FOOTER -->
+<section id="footer"><div class="content-wrap">
+  <div class="f-big">微醺<br>連結<span class="ac">。</span></div>
+
+  <div class="f-venues">
+    <div class="f-venue-item">
+      <span class="f-venue-date">3 / 30</span>
+      <span class="f-venue-name">MuMu 咖啡</span>
+      <a href="https://linket.net/mumucafe" target="_blank" class="venue-follow" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'kankiku-ginkai'});">追蹤 →</a>
+    </div>
+    <div class="f-venue-item">
+      <span class="f-venue-date">4 / 07</span>
+      <span class="f-venue-name">山上山下<br>埔里店</span>
+      <a href="https://www.instagram.com/3s3s.tw" target="_blank" class="venue-follow">追蹤 →</a>
+    </div>
+    <div class="f-venue-item">
+      <span class="f-venue-date">4 / 11</span>
+      <span class="f-venue-name">坐客咖啡</span>
+      <a href="https://linket.net/zouke-cafe" target="_blank" class="venue-follow" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'kankiku-ginkai'});">追蹤 →</a>
+    </div>
+  </div>
+
+  <div class="f-btns">
+    <a href="https://forms.gle/fD3LVGXcFnMQswRJ6" target="_blank" class="btn-fill primary" onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'kankiku-ginkai'});">📅 預約下一場微醺</a>
+    <a href="https://lin.ee/UgaIhG7" target="_blank" class="btn-fill dark" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'kankiku-ginkai'});">🍶 立即聯繫嵐爵私選下單</a>
+    <a href="https://lin.ee/19k6X29" target="_blank" class="btn-fill outline" onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'kankiku-ginkai'});">💳 LINKet 品牌數位化服務</a>
+  </div>
+
+  <div class="f-fine">
+    <span class="f-brand">KANKIKU OCEAN 99 GINKAI DEPARTURE</span>
+    <ul class="f-nav">
+      <li><a href="#about">關於</a></li>
+      <li><a href="#specs">工法</a></li>
+      <li><a href="#sensory">搭配</a></li>
+    </ul>
+  </div>
+</div></section>
+
+<!-- 聯名品牌 LOGO 列 -->
+<div class="partner-bar">
+  <a href="https://lin.ee/19k6X29" target="_blank" class="partner-logo" onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'kankiku-ginkai'});">
+    <img src="./logo-lanjue.svg" alt="嵐爵" onerror="this.src='/home/assets/logo-lanjue.svg'">
+  </a>
+  <a href="https://linket.net/mumucafe" target="_blank" class="partner-logo" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'kankiku-ginkai'});">
+    <img src="./logo-mumu.svg" alt="MuMu咖啡" onerror="this.src='/home/assets/logo-mumu.svg'">
+  </a>
+  <a href="https://linket.net/zouke-cafe" target="_blank" class="partner-logo" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'kankiku-ginkai'});">
+    <img src="./logo-zuoke.svg" alt="坐客咖啡" onerror="this.src='/home/assets/logo-zuoke.svg'">
+  </a>
+  <a href="https://www.instagram.com/3s3s.tw" target="_blank" class="partner-logo">
+    <img src="./logo-emo.svg" alt="山上山下" onerror="this.src='/home/assets/logo-emo.svg'">
+  </a>
+  <a href="https://lin.ee/19k6X29" target="_blank" class="partner-logo" onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'kankiku-ginkai'});">
+    <img src="./logo-linket.svg" alt="LINKet" onerror="this.src='/home/assets/logo-linket.svg'">
+  </a>
+</div>
+
+<!-- 法規警語 -->
+<div class="legal-bar">
+  飲酒勿開車｜未滿十八歲者，禁止飲酒｜本品牌不販賣酒予未滿十八歲者｜飲酒過量有害健康
+</div>
+
+<script>
+// 動態生成微氣泡與海浪波光粒子
+document.addEventListener("DOMContentLoaded", () => {
+  const bubbleContainer = document.getElementById('bubbleCanvas');
+  const glintContainer = document.getElementById('glintCanvas');
+  
+  if(bubbleContainer) {
+    const bubbleCount = 25; 
+    for(let i=0; i<bubbleCount; i++){
+      const size = Math.random() * 8 + 3; // 3px to 11px
+      const startX = Math.random() * 100; // 0% to 100% left
+      const dur = Math.random() * 5 + 3; // 3s to 8s duration
+      const delay = Math.random() * 5; 
+      const drift = (Math.random() - 0.5) * 40; 
+      
+      const bubble = document.createElement('div');
+      bubble.className = 'm-bubble';
+      bubble.style.width = `${size}px`;
+      bubble.style.height = `${size}px`;
+      bubble.style.left = `${startX}%`;
+      bubble.style.setProperty('--dur', `${dur}s`);
+      bubble.style.setProperty('--delay', `${delay}s`);
+      bubble.style.setProperty('--drift', `${drift}`);
+      bubbleContainer.appendChild(bubble);
+    }
+  }
+
+  if(glintContainer) {
+    const glintCount = 40;
+    for(let i=0; i<glintCount; i++){
+      const startX = Math.random() * 100; 
+      const startY = Math.random() * 100; 
+      const dur = Math.random() * 2 + 1; 
+      const delay = Math.random() * 2; 
+      
+      const glint = document.createElement('div');
+      glint.className = 'glint-particle';
+      glint.style.left = `${startX}%`;
+      glint.style.top = `${startY}%`;
+      glint.style.setProperty('--dur', `${dur}s`);
+      glint.style.setProperty('--delay', `${delay}s`);
+      glintContainer.appendChild(glint);
+    }
+  }
+});
+</script>
+
+</body>
+</html>
