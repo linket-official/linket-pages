@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<!-- V2.3 Version: 千曲錦 Riz Vin 7 / 7% ABV / 法式優雅視覺 / 相對路徑防呆優化 -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-29J2988Y8J');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>千曲錦 Riz Vin 7｜純米酒 × LINKet</title>
+<meta name="description" content="最純粹的連結，往往毫不費力。千曲錦 Riz Vin 7，7%超低酒精的米之酒。法式白酒般的輕盈順滑，卸下專業武裝的超高親和力。">
+
+<!-- OG Meta Tags -->
+<meta property="og:title" content="千曲錦 Riz Vin 7｜純米酒 × LINKet">
+<meta property="og:description" content="最純粹的連結，往往毫不費力。7%超低酒精的米之酒，法式白酒般的輕盈順滑。">
+<!-- OG Image 必須維持絕對路徑供社群平台抓取 -->
+<meta property="og:image" content="https://linket.app/lanjue/chikumanishiki-rizvin/og-image.jpg">
+<meta property="og:url" content="https://linket.app/lanjue/chikumanishiki-rizvin">
+<meta property="og:type" content="website">
+
+<!-- Favicon (相對路徑防呆) -->
+<link rel="icon" href="./favicon.png">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<!-- 融合古典氣息的襯線體與現代輕盈的黑體 -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Noto+Sans+TC:wght@200;300;400;500;700&family=Shippori+Mincho+B1:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Riz Vin 7 專屬色系：深邃夜空藍 + 冰雪透白 + 徽章金 */
+  --night:     #0A192F;      /* 深邃夜空藍 (主底色) */
+  --night-lt:  #112240;      /* 稍亮的夜空藍 */
+  
+  --ice:       #F0F8FF;      /* 冰雪透白 (亮色區塊) */
+  --ice-dk:    #DDEBF7;      /* 微暗的冰雪白 */
+  
+  --shield:    #C5A059;      /* 法式盾牌徽章金 */
+  --shield-lt: #E2C78A;      /* 亮徽章金 */
+  
+  --ink:       #F0F8FF;      /* 冰雪白字體 (暗底用) */
+  --inkm:      #8892B0;      /* 內文灰藍色 (暗底用) */
+  
+  --ink-dark:  #0A192F;      /* 深夜空藍字體 (亮底用) */
+  --ink-darkm: #495670;      /* 內文深灰藍 (亮底用) */
+  
+  --line:      rgba(197,160,89,.25); /* 徽章金分隔線 */
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans TC',sans-serif;font-weight:300;background:var(--night);color:var(--ink);overflow-x:hidden;}
+
+/* TICKER */
+.ticker{overflow:hidden;white-space:nowrap;border-bottom:1px solid var(--line);padding:.7rem 0;background:var(--night);}
+.ticker-track{display:inline-flex;animation:tick 35s linear infinite;}
+.ticker-track span{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:.85rem;letter-spacing:.25em;text-transform:uppercase;padding:0 1.4rem;color:var(--inkm);}
+.ticker-track span.ac{color:var(--shield);font-style:italic;}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* HERO */
+#hero{
+  position:relative;width:100%;min-height:100svh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  overflow:hidden;
+  background:linear-gradient(180deg, #050C18 0%, #0A192F 60%, #112240 100%);
+}
+
+/* Water Ripples (淺間山伏流水波紋) */
+.water-ripple-container{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.water-ripple{
+  position:absolute;
+  border-radius:50%;
+  border:1px solid rgba(240,248,255,.05);
+  box-shadow: 0 0 30px rgba(240,248,255,.02), inset 0 0 30px rgba(240,248,255,.02);
+  animation:rippleExpand var(--dur) linear infinite var(--delay);
+  opacity:0;
+}
+@keyframes rippleExpand{
+  0%{width:10vw;height:10vw;opacity:0;transform:scale(0.5);}
+  20%{opacity:1;}
+  100%{width:150vw;height:150vw;opacity:0;transform:scale(1.2);}
+}
+
+/* French Shield Watermark (法式盾牌徽章浮水印) */
+.shield-watermark{
+  position:absolute;top:40%;left:50%;
+  transform:translate(-50%,-50%);
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(15rem, 50vw, 30rem);
+  font-weight:300;
+  font-style:italic;
+  color:rgba(197,160,89,.03);
+  z-index:0;pointer-events:none;
+  line-height:1;
+  text-align:center;
+}
+
+/* Ice Glow behind bottle */
+.ice-glow{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:clamp(250px, 60vw, 450px);
+  height:clamp(250px, 60vw, 450px);
+  background:radial-gradient(circle at center, rgba(240,248,255,0.15) 0%, transparent 60%);
+  border-radius:50%;
+  z-index:1;pointer-events:none;
+  animation:breatheGlow 6s ease-in-out infinite alternate;
+}
+@keyframes breatheGlow{0%{transform:translate(-50%,-50%) scale(0.9); opacity:0.7;} 100%{transform:translate(-50%,-50%) scale(1.1); opacity:1;}}
+
+/* ABV / Spec Badge */
+.spec-badge{
+  position:absolute;top:2rem;right:1.6rem;z-index:4;
+  display:flex;flex-direction:column;align-items:center;
+  border:1px solid rgba(197,160,89,.4);
+  padding:.6rem .8rem;
+  background:rgba(10,25,47,.7);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  border-radius:2px;
+}
+.spec-score{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.5rem;color:var(--shield);line-height:1;font-style:italic;}
+.spec-label{font-family:'Noto Sans TC',sans-serif;font-weight:400;font-size:.55rem;letter-spacing:.15em;color:var(--ice);margin-top:.3rem;text-transform:uppercase;}
+
+/* Bottle */
+.hero-bottle-full{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;width:100%;padding:4rem 0 9rem;}
+.hero-bottle-full img{
+  width:clamp(120px,30vw,220px);height:auto;object-fit:contain; /* 細長瓶身調整 */
+  filter:drop-shadow(0 30px 40px rgba(0,0,0,.8)) drop-shadow(0 0 30px rgba(240,248,255,.2));
+  animation:floatBottle 8s ease-in-out infinite alternate;
+}
+.bottle-ph{
+  width:clamp(110px,28vw,180px);
+  aspect-ratio:1/3.8;
+  background:linear-gradient(170deg,#112240 0%,#050C18 100%);
+  border:1px solid rgba(197,160,89,.3);
+  border-radius:12px 12px 4px 4px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 20px 50px rgba(0,0,0,.8);
+  animation:floatBottle 8s ease-in-out infinite alternate;
+  position:relative;
+  overflow:hidden;
+}
+.bottle-ph span{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.2rem;letter-spacing:.1em;color:var(--shield);text-align:center;line-height:1.4;position:relative;z-index:2;}
+@keyframes floatBottle{0%{transform:translateY(0);} 100%{transform:translateY(-15px);}}
+
+/* Name block */
+.hero-name-block{
+  position:absolute;bottom:0;left:0;right:0;z-index:3;
+  padding:4rem 1.6rem 2.4rem;
+  background:linear-gradient(transparent, rgba(5,12,24,.95) 40%, #050C18 100%);
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:.6rem;
+}
+.hname-big{font-family:'Cormorant Garamond',serif;font-weight:700;font-style:italic;font-size:clamp(3.5rem,16vw,7.5rem);color:var(--shield);letter-spacing:.05em;line-height:.9;text-shadow:0 5px 20px rgba(0,0,0,.8);}
+.hname-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.5rem 1rem;padding-top:.8rem;border-top:1px solid rgba(197,160,89,.2);}
+.hname-jp{font-family:'Shippori Mincho B1',serif;font-weight:500;font-size:clamp(.85rem,3.2vw,1.1rem);letter-spacing:.25em;color:var(--ink);}
+.hname-en{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(.85rem,3.5vw,1.1rem);letter-spacing:.15em;color:var(--shield-lt);text-transform:uppercase;}
+.hname-sep{color:var(--shield);font-size:.7rem;}
+.hero-slogan{font-family:'Noto Sans TC',sans-serif;font-weight:300;font-size:clamp(.85rem,3.5vw,1.05rem);letter-spacing:.18em;line-height:2;color:var(--ice);margin-top:.5rem;}
+.hero-scroll-hint{display:flex;align-items:center;gap:.5rem;margin-top:1rem;font-family:'Cormorant Garamond',serif;font-weight:500;font-style:italic;font-size:.75rem;letter-spacing:.25em;color:var(--inkm);text-transform:uppercase;}
+.scroll-dot{width:20px;height:1px;background:var(--shield);}
+
+/* SECTIONS */
+.sec{padding:6rem 1.4rem;}
+.sec-light{background:var(--ice);color:var(--ink-dark);}
+.sec-dark{background:var(--night);color:var(--ink);}
+.sec-dark2{background:var(--night-lt);color:var(--ink);}
+.sec+.sec{border-top:1px solid var(--line);}
+.sec-light+.sec-dark{border-top:none;}
+
+.content-wrap{max-width:680px;margin:0 auto;}
+.eyebrow{display:flex;align-items:center;gap:.8rem;margin-bottom:2.5rem;}
+.eyebrow h2{font-family:'Shippori Mincho B1',serif;font-weight:700;font-size:clamp(1.2rem,4.5vw,1.6rem);letter-spacing:.15em;}
+.sec-light .eyebrow h2{color:var(--night);}
+.sec-dark .eyebrow h2, .sec-dark2 .eyebrow h2{color:var(--ice);}
+.eyebrow span{color:var(--shield);font-weight:400;font-size:1.2rem;}
+
+/* ABOUT (DARK) */
+.about-body p{font-family:'Noto Sans TC',sans-serif;font-weight:300;font-size:clamp(.9rem,3.5vw,1.05rem);line-height:2.8;letter-spacing:.1em;color:var(--inkm);margin-bottom:1.8rem;}
+.about-body p:last-child{margin-bottom:0;}
+.about-body p strong{color:var(--shield-lt);font-weight:500;}
+.photo-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin:3rem 0;}
+.photo-box{border-radius:2px;overflow:hidden;aspect-ratio:3/4;position:relative;background:var(--night-lt);border:1px solid rgba(240,248,255,.05);}
+.photo-box img{width:100%;height:100%;object-fit:cover;filter:sepia(0.1) hue-rotate(180deg) saturate(0.8) contrast(1.1);transition:transform 1.2s ease, filter 1.2s;}
+.photo-box:hover img{transform:scale(1.05); filter:sepia(0) hue-rotate(0) saturate(1) contrast(1.1);}
+.photo-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:0.8;}
+
+/* SPECS (LIGHT) */
+.ring-wrap{display:flex;align-items:center;justify-content:center;margin-bottom:2.5rem;}
+.ring-chart{position:relative;width:clamp(140px,40vw,180px);height:clamp(140px,40vw,180px);}
+.ring-chart svg{width:100%;height:100%;filter:drop-shadow(0 5px 15px rgba(10,25,47,.1));}
+.ring-val{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:700;font-style:italic;font-size:clamp(2.8rem,9vw,3.6rem);color:var(--night);text-shadow:0 2px 10px rgba(255,255,255,.8);}
+.ring-val span{font-family:'Noto Sans TC',sans-serif;font-weight:500;font-style:normal;font-size:.65rem;letter-spacing:.15em;color:var(--shield);margin-top:.2rem;text-transform:uppercase;}
+.spec-table{width:100%;border-collapse:collapse;}
+.spec-table tr{border-bottom:1px solid rgba(10,25,47,.1);}
+.spec-table td{padding:1.5rem 0;vertical-align:top;}
+.spec-table td:first-child{font-family:'Shippori Mincho B1',serif;font-weight:600;font-size:.85rem;letter-spacing:.15em;color:var(--shield);width:32%;padding-top:1.6rem;}
+.spec-table td:last-child{font-family:'Noto Sans TC',sans-serif;font-size:.95rem;font-weight:300;line-height:2;color:var(--ink-darkm);}
+.tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2.5rem;}
+.tag{border:1px solid var(--shield);color:var(--shield);font-family:'Noto Sans TC',sans-serif;font-weight:400;font-size:.8rem;letter-spacing:.12em;padding:.4rem 1.2rem;transition:all .3s;cursor:default;border-radius:100px;background:transparent;}
+.tag:hover{background:var(--shield);color:var(--ice);}
+
+/* SENSORY (DARK2) */
+.spotify-label{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:1.05rem;letter-spacing:.15em;color:var(--shield-lt);margin-bottom:2rem;display:flex;align-items:center;gap:.6rem;}
+.food-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:1.5rem;}
+.food-box{border-radius:2px;overflow:hidden;position:relative;aspect-ratio:3/4;background:var(--night);border:1px solid rgba(197,160,89,.15);}
+.food-box img{width:100%;height:100%;object-fit:cover;filter:contrast(1.1) brightness(.9);transition:transform 1s, filter 1s;}
+.food-box:hover img{transform:scale(1.05); filter:contrast(1.1) brightness(1.05);}
+.food-lbl{position:absolute;bottom:0;left:0;right:0;padding:1.2rem .8rem;background:linear-gradient(transparent,rgba(10,25,47,.95));font-family:'Noto Sans TC',sans-serif;font-weight:400;font-size:.85rem;letter-spacing:.15em;color:var(--ice);text-align:center;}
+.food-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3.5rem;opacity:0.8;}
+
+/* INSIGHT (LIGHT) */
+#insight{background:var(--ice);padding:8rem 1.4rem;position:relative;overflow:hidden;border-top:1px solid rgba(10,25,47,.1);}
+#insight::before{content:'R';position:absolute;right:0;top:50%;transform:translateY(-50%);font-family:'Cormorant Garamond',serif;font-weight:700;font-style:italic;font-size:clamp(16rem,60vw,30rem);color:rgba(10,25,47,.03);pointer-events:none;line-height:1;}
+.i-q{position:relative;z-index:1;font-family:'Noto Sans TC',sans-serif;font-weight:300;font-size:clamp(1.05rem,4vw,1.35rem);line-height:2.8;letter-spacing:.15em;color:var(--ink-dark);}
+.i-q em{font-family:'Shippori Mincho B1',serif;font-weight:600;font-style:normal;color:var(--shield);font-size:1.1em;letter-spacing:.1em;}
+
+/* FOOTER (DARK) */
+#footer{background:linear-gradient(170deg,var(--night) 0%,#030914 100%);padding:6rem 1.4rem 4rem;color:var(--ice);}
+.f-big{font-family:'Cormorant Garamond',serif;font-weight:700;font-style:italic;font-size:clamp(3rem,14vw,7rem);line-height:.92;letter-spacing:.05em;color:var(--ice);margin-bottom:.15em;}
+.f-big .ac{color:var(--shield);}
+.f-venues{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;border-top:1px solid rgba(240,248,255,.1);border-bottom:1px solid rgba(240,248,255,.1);padding:1.6rem 0;margin:2.5rem 0;}
+.f-venue-item{display:flex;flex-direction:column;gap:.4rem;padding:.6rem;border-right:1px solid rgba(240,248,255,.1);}
+.f-venue-item:last-child{border-right:none;}
+.f-venue-date{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:clamp(1.2rem,4vw,1.7rem);letter-spacing:.05em;color:var(--shield);}
+.f-venue-name{font-family:'Noto Sans TC',sans-serif;font-weight:300;font-size:clamp(.8rem,3vw,1rem);letter-spacing:.1em;color:var(--inkm);line-height:1.6;}
+@media(max-width:600px){
+  .f-venues{grid-template-columns:1fr;gap:0;}
+  .f-venue-item{flex-direction:row;align-items:center;justify-content:space-between;border-right:none;border-bottom:1px solid rgba(240,248,255,.1);padding:1.2rem .4rem;}
+  .f-venue-item:last-child{border-bottom:none;}
+  .f-venue-date{min-width:3.5rem;}
+  .f-venue-name{flex:1;padding:0 .8rem;}
+}
+.venue-follow{display:inline-block;font-family:'Noto Sans TC',sans-serif;font-weight:500;font-size:.7rem;letter-spacing:.15em;color:var(--night);background:var(--shield);text-decoration:none;padding:.4rem 1.2rem;border-radius:2px;margin-top:.3rem;transition:all .3s;}
+.venue-follow:hover{background:var(--ice);transform:translateY(-2px);box-shadow:0 4px 12px rgba(197,160,89,.3);}
+@media(max-width:600px){.venue-follow{margin-top:0;white-space:nowrap;}}
+
+.f-btns{display:flex;flex-direction:column;gap:1.2rem;max-width:400px;}
+.btn-fill{display:block;text-align:center;padding:1.2rem 1.4rem;font-family:'Noto Sans TC',sans-serif;font-weight:500;font-size:.95rem;letter-spacing:.2em;text-decoration:none;border:none;cursor:pointer;transition:all .3s;border-radius:2px;}
+.btn-fill.primary{background:var(--shield);color:var(--night);}
+.btn-fill.primary:hover{background:var(--ice);box-shadow:0 10px 20px rgba(197,160,89,.2);}
+.btn-fill.dark{background:rgba(255,255,255,.05);color:var(--ice);border:1px solid rgba(255,255,255,.2);}
+.btn-fill.dark:hover{background:rgba(255,255,255,.1);color:var(--shield);}
+.btn-fill.outline{background:transparent;color:var(--shield);border:1px solid var(--shield);}
+.btn-fill.outline:hover{background:var(--shield);color:var(--night);}
+
+.f-fine{margin-top:4rem;padding-top:1.5rem;border-top:1px solid rgba(240,248,255,.1);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.8rem;align-items:flex-end;}
+.f-brand{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:.85rem;letter-spacing:.15em;color:rgba(240,248,255,.5);}
+.f-nav{display:flex;gap:1.5rem;list-style:none;}
+.f-nav a{font-family:'Noto Sans TC',sans-serif;font-weight:300;font-size:.75rem;letter-spacing:.15em;color:rgba(240,248,255,.6);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+.f-nav a:hover{color:var(--shield);}
+
+/* PARTNER & LEGAL */
+.partner-bar{background:#000000;display:flex;align-items:center;justify-content:center;gap:clamp(1.5rem,5vw,4rem);padding:2rem 1.4rem;border-top:1px solid rgba(255,255,255,.05);}
+.partner-logo{display:flex;align-items:center;opacity:.4;transition:all .3s;flex-shrink:0;}
+.partner-logo:hover{opacity:1;transform:scale(1.1);}
+.partner-logo img{height:clamp(14px,2.5vw,22px);width:auto;filter:brightness(0) invert(1);}
+@media(max-width:480px){.partner-bar{gap:clamp(1rem,4vw,2rem);padding:1.5rem .8rem;flex-wrap:wrap;}.partner-logo img{height:12px;}}
+.legal-bar{background:#000000;color:rgba(255,255,255,.2);text-align:center;padding:1.2rem 1.4rem;font-family:'Noto Sans TC',sans-serif;font-weight:300;font-size:.65rem;letter-spacing:.15em;line-height:2.2;}
+
+/* DESKTOP RWD */
+@media(min-width:800px){
+  .sec{padding:7rem 2rem;}
+  #insight{padding:9rem 2rem;}
+  #footer{padding:8rem 2rem 5rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>7% ABV</span><span class="ac">✦</span>
+    <span>長野縣千曲錦酒造</span><span class="ac">✦</span>
+    <span>RIZ VIN 7</span><span class="ac">✦</span>
+    <span>米之酒</span><span class="ac">✦</span>
+    <span>法式優雅</span><span class="ac">✦</span>
+    <span>無縫接軌</span><span class="ac">✦</span>
+    <span>7% ABV</span><span class="ac">✦</span>
+    <span>長野縣千曲錦酒造</span><span class="ac">✦</span>
+    <span>RIZ VIN 7</span><span class="ac">✦</span>
+    <span>米之酒</span><span class="ac">✦</span>
+    <span>法式優雅</span><span class="ac">✦</span>
+    <span>無縫接軌</span><span class="ac">✦</span>
+  </div>
+</div>
+
+<!-- §1 HERO -->
+<section id="hero">
+  <div class="shield-watermark">R</div>
+
+  <!-- Water Ripples (淺間山伏流水波紋) -->
+  <div class="water-ripple-container">
+    <div class="water-ripple" style="--dur:8s; --delay:0s;"></div>
+    <div class="water-ripple" style="--dur:8s; --delay:2.6s;"></div>
+    <div class="water-ripple" style="--dur:8s; --delay:5.2s;"></div>
+  </div>
+
+  <!-- Ice Glow -->
+  <div class="ice-glow"></div>
+
+  <!-- Spec Badge -->
+  <div class="spec-badge">
+    <div class="spec-score">7%</div>
+    <div class="spec-label">Alc / Vol</div>
+  </div>
+
+  <!-- Bottle -->
+  <div class="hero-bottle-full">
+    <img src="./rizvin-bottle.png" alt="千曲錦 Riz Vin 7 純米酒" loading="eager"
+      onerror="this.outerHTML='<div class=\'bottle-ph\'><span>Riz Vin 7</span></div>'">
+  </div>
+
+  <div class="hero-name-block">
+    <div class="hname-big">Riz Vin 7</div>
+    <div class="hname-row">
+      <span class="hname-jp">純米酒</span>
+      <span class="hname-sep">✦</span>
+      <span class="hname-en">Chikumanishiki</span>
+    </div>
+    <p class="hero-slogan">最純粹的連結，往往毫不費力。</p>
+    <div class="hero-scroll-hint">
+      <span class="scroll-dot"></span>
+      <span>Scroll</span>
+    </div>
+  </div>
+</section>
+
+<!-- §2 ABOUT / NARRATIVE (DARK) -->
+<section id="about" class="sec sec-dark"><div class="content-wrap">
+  <div class="eyebrow">
+    <h2>米之酒 Riz Vin</h2><span>✦</span>
+  </div>
+  <div class="about-body">
+    <p>這是一款披著葡萄酒外衣的純米酒。<strong>「Riz Vin」</strong>即為法文「米之酒」。千曲錦酒造打破了日本酒的傳統刻板印象，將酒精濃度降至極致的 <strong>7%</strong>，創造出甜中帶酸、如白酒般輕盈順滑的口感。</p>
+    <p>它代表著那些極具親和力、<strong>沒有進入門檻</strong>，能與各個領域「無痛跨界」的靈活品牌。在優雅的法式外表下，藏著純粹而柔軟的米香底蘊。</p>
+  </div>
+  <div class="photo-row">
+    <div class="photo-box">
+      <img src="./japan-1.jpg" alt="法式優雅餐酒" loading="lazy"
+        onerror="this.parentElement.innerHTML='<div class=\'photo-ph\'>🥂</div>'">
+    </div>
+    <div class="photo-box">
+      <img src="./japan-2.jpg" alt="淺間山伏流水" loading="lazy"
+        onerror="this.parentElement.innerHTML='<div class=\'photo-ph\'>💧</div>'">
+    </div>
+  </div>
+</div></section>
+
+<!-- §3 SPECS (LIGHT) -->
+<section id="specs" class="sec sec-light"><div class="content-wrap">
+  <div class="eyebrow">
+    <h2>職人與工法</h2><span>✦</span>
+  </div>
+
+  <div class="ring-wrap">
+    <div class="ring-chart">
+      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(10,25,47,.1)" stroke-width="2"/>
+        <circle cx="60" cy="60" r="50" fill="none" stroke="var(--night)" stroke-width="4"
+          stroke-dasharray="314" stroke-dashoffset="292.02"
+          stroke-linecap="round"
+          transform="rotate(-90 60 60)"/>
+        <!-- Dash offset 292.02 means 7% of 314 -->
+      </svg>
+      <div class="ring-val">7%<span>Alc / Vol</span></div>
+    </div>
+  </div>
+
+  <table class="spec-table">
+    <tr><td>酒名</td><td>千曲錦 Riz Vin 7 純米酒</td></tr>
+    <tr><td>酒造</td><td>長野縣｜千曲錦酒造</td></tr>
+    <tr><td>米種</td><td>長野縣產 美山錦 (精米步合 55%)</td></tr>
+    <tr><td>酒精濃度</td><td><strong style="color:var(--night);font-weight:700;">7% (超低酒精)</strong></td></tr>
+    <tr><td>工法</td><td>在信州佐久極寒的氣候下，汲取淺間山天然伏流水低溫精釀，造就其獨特的甘酸平衡。</td></tr>
+    <tr><td>風味特徵</td><td>極致輕盈順滑，帶有柔和的甜味與清爽的酸度，毫無酒精壓迫感。</td></tr>
+    <tr><td>容量/價格</td><td>500ml / 1180元</td></tr>
+  </table>
+
+  <div class="tags">
+    <span class="tag">Riz Vin 7</span>
+    <span class="tag">純米酒</span>
+    <span class="tag">美山錦 55%</span>
+    <span class="tag">7% 超低酒精</span>
+    <span class="tag">法式白酒口感</span>
+    <span class="tag">無痛跨界</span>
+  </div>
+</div></section>
+
+<!-- §4 SENSORY (DARK2) -->
+<section id="sensory" class="sec sec-dark2"><div class="content-wrap">
+  <div class="eyebrow">
+    <h2>聽覺與味覺</h2><span>✦</span>
+  </div>
+  <p class="spotify-label">🎵 French Bossa Nova · Light Acoustic — 毫不費力的輕盈節奏</p>
+
+  <!-- YouTube 擴增：嵌入符合 French Bossa Nova 氛圍的音樂，並加上優雅細邊框 -->
+  <iframe width="100%" height="315" src="https://www.youtube.com/embed/5qap5aO4i9A?si=V1mXQv-O9m1K1X1h&amp;start=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius: 4px; display: block; border: 1px solid rgba(197,160,89,.25); margin-bottom: 1.5rem;"></iframe>
+
+  <div class="food-grid">
+    <div class="food-box">
+      <img src="./food-1.jpg" alt="法式前菜" loading="lazy"
+        onerror="this.parentElement.innerHTML='<div class=\'food-placeholder\'>🥖</div><p class=\'food-lbl\'>精緻法式前菜</p>'">
+      <p class="food-lbl">法式前菜・優雅引導</p>
+    </div>
+    <div class="food-box">
+      <img src="./food-2.jpg" alt="中華料理與和食" loading="lazy"
+        onerror="this.parentElement.innerHTML='<div class=\'food-placeholder\'>🥢</div><p class=\'food-lbl\'>中華料理與和食</p>'">
+      <p class="food-lbl">和洋中食・無縫包容</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- §5 INSIGHT (LIGHT) -->
+<section id="insight" class="sec-light"><div class="content-wrap">
+  <div class="eyebrow">
+    <h2>品牌思考題</h2><span>✦</span>
+  </div>
+  <p class="i-q">
+    在拓展客群時，<br><br>
+    你的品牌是否能像這支只有 <em>7%</em> 的「米之酒」一樣，<br><br>
+    卸下所有專業武裝，<br>
+    讓人<em>毫無壓力地靠近</em>？
+  </p>
+</div></section>
+
+<!-- §6 FOOTER (DARK) -->
+<section id="footer"><div class="content-wrap">
+  <div class="f-big">微醺<br>連結<span class="ac">。</span></div>
+
+  <div class="f-venues">
+    <div class="f-venue-item">
+      <span class="f-venue-date">3 / 30</span>
+      <span class="f-venue-name">MuMu 咖啡</span>
+      <a href="https://linket.net/mumucafe" target="_blank" class="venue-follow" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'chikumanishiki-rizvin'});">追蹤 →</a>
+    </div>
+    <div class="f-venue-item">
+      <span class="f-venue-date">4 / 07</span>
+      <span class="f-venue-name">山上山下<br>埔里店</span>
+      <a href="https://www.instagram.com/3s3s.tw" target="_blank" class="venue-follow">追蹤 →</a>
+    </div>
+    <div class="f-venue-item">
+      <span class="f-venue-date">4 / 11</span>
+      <span class="f-venue-name">坐客咖啡</span>
+      <a href="https://linket.net/zouke-cafe" target="_blank" class="venue-follow" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'chikumanishiki-rizvin'});">追蹤 →</a>
+    </div>
+  </div>
+
+  <div class="f-btns">
+    <a href="https://forms.gle/fD3LVGXcFnMQswRJ6" target="_blank" class="btn-fill primary" onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'chikumanishiki-rizvin'});">📅 預約下一場微醺</a>
+    <a href="https://lin.ee/UgaIhG7" target="_blank" class="btn-fill dark" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'chikumanishiki-rizvin'});">🍶 立即聯繫嵐爵私選下單</a>
+    <a href="https://lin.ee/19k6X29" target="_blank" class="btn-fill outline" onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'chikumanishiki-rizvin'});">💳 LINKet 品牌數位化服務</a>
+  </div>
+
+  <div class="f-fine">
+    <span class="f-brand">CHIKUMANISHIKI RIZ VIN 7</span>
+    <ul class="f-nav">
+      <li><a href="#about">關於</a></li>
+      <li><a href="#specs">工法</a></li>
+      <li><a href="#sensory">搭配</a></li>
+    </ul>
+  </div>
+</div></section>
+
+<!-- 聯名品牌 LOGO 列 -->
+<div class="partner-bar">
+  <a href="https://lin.ee/19k6X29" target="_blank" class="partner-logo" onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'chikumanishiki-rizvin'});">
+    <img src="./logo-lanjue.svg" alt="嵐爵" onerror="this.src='/home/assets/logo-lanjue.svg'">
+  </a>
+  <a href="https://linket.net/mumucafe" target="_blank" class="partner-logo" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'chikumanishiki-rizvin'});">
+    <img src="./logo-mumu.svg" alt="MuMu咖啡" onerror="this.src='/home/assets/logo-mumu.svg'">
+  </a>
+  <a href="https://linket.net/zouke-cafe" target="_blank" class="partner-logo" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'chikumanishiki-rizvin'});">
+    <img src="./logo-zuoke.svg" alt="坐客咖啡" onerror="this.src='/home/assets/logo-zuoke.svg'">
+  </a>
+  <a href="https://www.instagram.com/3s3s.tw" target="_blank" class="partner-logo">
+    <img src="./logo-emo.svg" alt="山上山下" onerror="this.src='/home/assets/logo-emo.svg'">
+  </a>
+  <a href="https://lin.ee/19k6X29" target="_blank" class="partner-logo" onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'chikumanishiki-rizvin'});">
+    <img src="./logo-linket.svg" alt="LINKet" onerror="this.src='/home/assets/logo-linket.svg'">
+  </a>
+</div>
+
+<!-- 法規警語 -->
+<div class="legal-bar">
+  飲酒勿開車｜未滿十八歲者，禁止飲酒｜本品牌不販賣酒予未滿十八歲者｜飲酒過量有害健康
+</div>
+
+</body>
+</html>
