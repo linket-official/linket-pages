@@ -18,9 +18,9 @@
 <meta property="og:image" content="https://linket.app/zhuxiang-vanilla/og-image.jpg">
 <meta property="og:url" content="https://linket.app/zhuxiang-vanilla">
 <meta property="og:type" content="website">
-<link rel="icon" href="./favicon.png">
-<link rel="apple-touch-icon" href="./favicon.png">
-<script async src="//www.instagram.com/embed.js"></script>
+<!-- 依照截圖修正為 favicon.jpg -->
+<link rel="icon" href="./favicon.jpg">
+<link rel="apple-touch-icon" href="./favicon.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <style>
 
@@ -28,7 +28,7 @@
    DESIGN TOKENS (深黛綠與香草黃)
    ══════════════════════════════════════════ */
 :root{
-  --c1    : #e4d5b7;              /* 香草黃/奶油金 */
+  --c1    : #dcd5ac;              /* 香草黃/奶油金 (配合Logo指定色) */
   --c2    : #2c3e38;              /* 深黛綠 (主色) */
   --c3    : #425850;              /* 灰綠 */
   --c4    : #c8b897;              /* 稍暗的香草黃 */
@@ -101,7 +101,7 @@ a.top-badge{
 }
 .hero-tags{ display:flex; justify-content:center; gap:.35rem; flex-wrap:wrap; margin-top:.25rem; margin-bottom:.5rem; font-size:.75rem; }
 .h-tag{
-  background:rgba(228,213,183,.15); border:1px solid rgba(228,213,183,.4);
+  background:rgba(220,213,172,.15); border:1px solid rgba(220,213,172,.4);
   border-radius:var(--r); padding:.15rem .6rem; letter-spacing:.08em; color:var(--c1); white-space:nowrap;
 }
 
@@ -127,13 +127,13 @@ a.top-badge{
   margin-bottom:1rem; cursor:pointer;
 }
 .hero-btn:hover{ opacity:.85; transform:translateY(-2px); }
-.hero-btn.p1{ background:var(--cbtn1); border:2px solid transparent; color:var(--cbtn1t); font-weight:600; }
+.hero-btn.p1{ background:var(--cbtn1); color:var(--cbtn1t); font-weight:700; border:1px solid transparent;}
 .hero-btn.ghost{
-  background:rgba(255,255,255,.08); border:1px solid rgba(228,213,183,.5);
+  background:rgba(255,255,255,.08); border:1px solid rgba(220,213,172,.5);
   color:#fff; font-size:.95rem; font-weight:400; text-shadow:0 1px 4px rgba(0,0,0,.3); backdrop-filter:blur(4px);
 }
-.hero-btn.ghost:hover{ background:rgba(228,213,183,.2); }
-.hero-btn.ghost:last-of-type{ margin-bottom:1.5rem; }
+.hero-btn.ghost:hover{ background:rgba(220,213,172,.2); }
+.hero-btn.ghost:last-of-type{ margin-bottom:1.8rem; }
 
 .hero-btn-row{ display:flex; gap:.65rem; width:100%; justify-content:center; margin-bottom:0; animation: heroSlideUp .65s ease both; animation-delay: 1.00s; opacity:0; }
 .hero-btn.qr, .hero-btn.share{
@@ -158,23 +158,23 @@ a.top-badge{
 @keyframes fadeIn{ from{opacity:0;transform:scale(.96);} to{opacity:1;transform:scale(1);} }
 .qr-modal{
   background:linear-gradient(160deg, #2c3e38 0%, #1e2b26 55%, #111a17 100%);
-  border:1px solid rgba(228,213,183,.2); border-radius:24px; padding:2.5rem 2rem 2rem;
+  border:1px solid rgba(220,213,172,.2); border-radius:24px; padding:2.5rem 2rem 2rem;
   max-width:320px; width:88%; display:flex; flex-direction:column; align-items:center; box-shadow:0 30px 60px rgba(0,0,0,.6);
 }
-.qr-modal-logo{ width:200px; height:auto; margin-bottom:1.5rem; mix-blend-mode:screen; filter:brightness(1.1); }
+.qr-modal-logo{ width:200px; height:auto; margin-bottom:1.5rem; }
 .qr-modal-code{
   width:200px; height:200px; background:#fff; border-radius:12px; display:flex; align-items:center; justify-content:center;
   padding:10px; box-shadow:0 8px 24px rgba(0,0,0,.4); margin-bottom:1.2rem; flex-shrink:0;
 }
 .qr-modal-code img{ width:100%; height:100%; object-fit:contain; display:block; }
 .qr-modal-url{ font-family:'Playfair Display',serif; font-size:.85rem; letter-spacing:.12em; color:var(--c1); margin-bottom:1rem; text-align:center; }
-.qr-modal-divider{ width:80%; height:1px; background:linear-gradient(90deg,transparent,rgba(228,213,183,.25),transparent); margin-bottom:1rem; }
+.qr-modal-divider{ width:80%; height:1px; background:linear-gradient(90deg,transparent,rgba(220,213,172,.25),transparent); margin-bottom:1rem; }
 .qr-modal-hint{ font-size:.75rem; letter-spacing:.12em; font-weight:300; color:rgba(255,255,255,.5); text-align:center; margin-bottom:1.5rem; }
 .qr-modal-close{
-  background:rgba(228,213,183,.15); border:1px solid rgba(228,213,183,.3); border-radius:30px; padding:.55rem 2.2rem;
+  background:rgba(220,213,172,.15); border:1px solid rgba(220,213,172,.3); border-radius:30px; padding:.55rem 2.2rem;
   font-family:'Noto Serif TC',serif; font-size:.85rem; letter-spacing:.18em; color:var(--c1); cursor:pointer; transition:all .2s;
 }
-.qr-modal-close:hover{ background:rgba(228,213,183,.3); color:#fff; }
+.qr-modal-close:hover{ background:rgba(220,213,172,.3); color:#fff; }
 
 /* ══════════════════════════════════════════════
    HERO 動畫與 RWD
@@ -224,13 +224,13 @@ a.top-badge{
   letter-spacing:.1em; color:rgba(255,255,255,.08); white-space:nowrap; pointer-events:none;
 }
 .wm-main{
-  font-family:'Noto Serif TC',serif; font-size:1.4rem; font-weight:700;
+  font-family:'Noto Serif TC',serif; font-size:1.3rem; font-weight:700;
   letter-spacing:.25em; text-indent:.25em; color:rgba(255,255,255,.95); position:relative;
 }
 .wm-sub{
   font-family:'Playfair Display',serif; font-size:.8rem; font-weight:400; font-style:italic;
   letter-spacing:.2em; text-indent:.2em; color:rgba(255,255,255,.5); text-transform:uppercase;
-  display:block; margin-top:.5rem; position:relative;
+  display:block; margin-top:.4rem; position:relative;
 }
 
 /* ══════════════════════════════════════════════
@@ -336,7 +336,6 @@ a.top-badge{
 .plx-cue-line{ width:1px; height:28px; background:var(--c3); opacity:.4; animation:plxPulse 2s ease-in-out infinite; }
 @keyframes plxPulse{0%,100%{opacity:.15;}50%{opacity:.55;}}
 
-
 /* Timeline (Dark Section) - 一支香草莢的一生 */
 .timeline{ display:flex; flex-direction:column; padding-top:.5rem; }
 .t-step{ display:flex; gap:1.2rem; align-items:flex-start; padding:1.6rem 0; border-bottom:1px solid rgba(228,213,183,.15); }
@@ -344,7 +343,6 @@ a.top-badge{
 .t-num{ font-family:'Playfair Display',serif; font-size:.9rem; font-weight:600; font-style:italic; letter-spacing:.1em; color:var(--c1); min-width:55px; padding-top:.15rem; flex-shrink:0; }
 .t-title{ font-size:1.15rem; font-weight:700; color:#fff; letter-spacing:.1em; margin-bottom:.6rem; }
 .t-body{ font-size:1rem; font-weight:300; line-height:2; color:rgba(255,255,255,.8); letter-spacing:.05em; }
-
 
 /* IG SECTION */
 .ig-section{ width:100%; background:var(--c5); border-top:1px solid rgba(92,59,34,.08); }
@@ -406,6 +404,11 @@ a.design-by{
 .reveal{ opacity:0; transform:translateY(20px); transition:opacity .6s ease, transform .6s ease; }
 .reveal.visible{ opacity:1; transform:none; }
 
+/* 強制 Logo 濾鏡上色 (轉為指定 #dcd5ac 色階) */
+.color-tint {
+  filter: invert(93%) sepia(13%) saturate(733%) hue-rotate(18deg) brightness(94%) contrast(90%);
+}
+
 </style>
 </head>
 <body id="top">
@@ -426,7 +429,8 @@ a.design-by{
       <!-- 左欄 -->
       <div class="hero-left">
         <div class="hero-logo">
-          <img src="./zhuxiang-logo.svg" onerror="this.src='./zhuxiang-logo.png'" alt="逐香香莢蘭園" class="logo-img">
+          <!-- 加入 color-tint 強制濾鏡變色為 #dcd5ac -->
+          <img src="./zhuxiang-logo.svg" onerror="this.src='./zhuxiang-logo.png'" alt="逐香香莢蘭園" class="logo-img color-tint">
         </div>
         <div class="hero-role">埔里 · 友善耕作香莢蘭農園</div>
         <div class="hero-slogan">追逐最原始美好安全的香味<br>從授粉到熟成，走完一支香草莢的時間</div>
@@ -447,12 +451,16 @@ a.design-by{
           <a class="hero-icon-link" href="https://www.instagram.com/pursuit_of_fragrance/" target="_blank" aria-label="Instagram">
             <img src="/home/assets/instagram.svg" alt="Instagram" onerror="this.style.display='none'">
           </a>
+          <!-- 加入 Map Icon 與專屬連結 -->
+          <a class="hero-icon-link" href="https://maps.app.goo.gl/ue8aoXrkcV7X4H1h6" target="_blank" aria-label="Google Maps">
+            <img src="/home/assets/map.svg" alt="Map" onerror="this.style.display='none'">
+          </a>
         </div>
 
         <a class="hero-btn p1" href="https://www.facebook.com/p/%E9%80%90%E9%A6%99%E9%A6%99%E8%8E%A2%E8%98%AD%E5%9C%92-61566432034139/" target="_blank" onclick="gtag('event','click_fb_contact',{'event_category':'CTA','event_label':'zhuxiang-vanilla'});">詢購 / 合作洽詢 ｜ FACEBOOK</a>
         <a class="hero-btn p1" href="https://www.instagram.com/pursuit_of_fragrance/" target="_blank" onclick="gtag('event','click_ig_follow',{'event_category':'CTA','event_label':'zhuxiang-vanilla'});">追蹤農園日常 ｜ INSTAGRAM</a>
         
-        <!-- 新的導航動線 -->
+        <!-- 導航動線 -->
         <a class="hero-btn ghost" href="#hook">香草的真相 ｜ THE TRUTH</a>
         <a class="hero-btn ghost" href="#anatomy">頂級香草解密 ｜ ANATOMY</a>
         <a class="hero-btn ghost" href="#about">關於逐香 ｜ BRAND & TERROIR</a>
@@ -477,7 +485,7 @@ a.design-by{
 <!-- QR Code Modal -->
 <div class="qr-modal-overlay" id="qrModal" onclick="closeQrModalOnBg(event)">
   <div class="qr-modal">
-    <img src="./zhuxiang-logo.svg" onerror="this.src='./zhuxiang-logo.png'" alt="逐香香莢蘭園" class="qr-modal-logo">
+    <img src="./zhuxiang-logo.svg" onerror="this.src='./zhuxiang-logo.png'" alt="逐香香莢蘭園" class="qr-modal-logo color-tint">
     <div class="qr-modal-code">
       <div id="qrcode-canvas"></div>
     </div>
@@ -495,7 +503,6 @@ a.design-by{
     <span class="wm-sub">Puli Vanilla Farm · Friendly Farming · Fragrance Pursuit</span>
   </div>
 </div>
-
 
 <!-- ④ THE HOOK (核心懸念) -->
 <section class="section hook-section" id="hook">
@@ -538,10 +545,10 @@ a.design-by{
       </div>
       <div class="photo-row">
         <div class="photo-box">
-          <img src="./japan-1.jpg" alt="埔里自然環境" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'photo-ph\'>🌿</div>'">
+          <img src="./zhuxiang-1.jpg" alt="埔里自然環境" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'photo-ph\'>🌿</div>'">
         </div>
         <div class="photo-box">
-          <img src="./japan-2.jpg" alt="友善耕作香莢蘭" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'photo-ph\'>🌱</div>'">
+          <img src="./zhuxiang-2.jpg" alt="友善耕作香莢蘭" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'photo-ph\'>🌱</div>'">
         </div>
       </div>
     </div>
@@ -656,7 +663,7 @@ a.design-by{
   </div>
 </section>
 
-<!-- (11) INSTAGRAM (加入客戶提供的四篇貼文) -->
+<!-- ⑨ INSTAGRAM -->
 <section class="ig-section" id="instagram">
   <div class="inner">
     <div class="ig-section-label">Instagram · @pursuit_of_fragrance</div>
@@ -690,14 +697,13 @@ a.design-by{
   </div>
 </section>
 
-
 <!-- FOOTER -->
 <div class="footer-btns">
   <div class="inner">
     <a class="footer-btn p1" href="https://www.facebook.com/p/%E9%80%90%E9%A6%99%E9%A6%99%E8%8E%A2%E8%98%AD%E5%9C%92-61566432034139/" target="_blank" onclick="gtag('event','click_fb_contact',{'event_category':'CTA','event_label':'zhuxiang-vanilla'});">
       詢購 / 合作洽詢 ｜ FACEBOOK
     </a>
-    <a class="footer-btn ghost" href="https://maps.app.goo.gl/99C4ES73R1vHgVLL7" target="_blank" onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'zhuxiang-vanilla'});">
+    <a class="footer-btn ghost" href="https://maps.app.goo.gl/ue8aoXrkcV7X4H1h6" target="_blank" onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'zhuxiang-vanilla'});">
       查看農園地圖位置 ｜ GOOGLE MAPS
     </a>
   </div>
@@ -712,7 +718,6 @@ a.design-by{
 <a class="design-by" href="https://linket.app/home">
   Design by &nbsp;<span class="db-lin">LIN</span><span class="db-ket">Ket</span>
 </a>
-
 
 <script>
 /* ── Scroll Reveal ── */
@@ -789,7 +794,7 @@ document.addEventListener('keydown', e => {
 </script>
 
 <script>
-/* ── Logo 黑底處理 ── */
+/* ── Logo 濾鏡上色處理 ── */
 document.querySelectorAll('.hero-logo img, .qr-modal-logo').forEach(img => {
   img.addEventListener('error', function(){
     this.style.mixBlendMode = 'screen';
@@ -865,3 +870,5 @@ document.querySelectorAll('.hero-logo img, .qr-modal-logo').forEach(img => {
 <script async src="//www.instagram.com/embed.js"></script>
 </body>
 </html>
+
+
