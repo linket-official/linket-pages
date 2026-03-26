@@ -3,7 +3,11 @@
 /case                    /case/index.html              200
 /case/*                  /case/index.html              200
 /emolab/talk             /emolab/talk/index.html       200
-/emolab                  /emolab/index.html            
-/proposal/startup        /proposal/startup/index.html    200
-/proposal/threads        /proposal/threads/index.html    200
+/emolab                  /emolab/index.html            200
+/proposal/startup        /proposal/startup/index.html  200
+/proposal/threads        /proposal/threads/index.html  200
+/ruan-rose               /ruan-rose/index.html         200
+/zhuxiang-vanilla        /zhuxiang-vanilla/index.html  200
+/sh-bar                  /sh-bar/index.html            200
+/lanjue                  /lanjue/index.html            200
 /                        /home/                        301
