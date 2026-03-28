@@ -131,19 +131,18 @@ a.top-badge{
   margin-bottom:1.8rem;width:100%;flex-wrap:wrap;
 }
 .hero-icon-link{
-  width:42px;height:42px;display:flex;align-items:center;justify-content:center;
+  width:40px;height:40px;display:flex;align-items:center;justify-content:center;
   text-decoration:none;transition:all .2s;flex-shrink:0;
-  border:1px solid rgba(255,255,255,.18);border-radius:50%;
-  background:rgba(255,255,255,.05);
+  background:#fff;
 }
-.hero-icon-link:hover{background:var(--c1);border-color:var(--c1);transform:translateY(-2px);}
+.hero-icon-link:hover{opacity:.72;transform:translateY(-2px);}
 .hero-icon-link img{
-  width:20px;height:20px;display:block;
-  filter:brightness(0) invert(1);transition:filter .2s;
+  width:22px;height:22px;display:block;
+  filter:brightness(0);transition:filter .2s;
 }
-/* FIX #2：正確的深綠 hover filter */
+/* hover 維持黑圖，不轉色 */
 .hero-icon-link:hover img{
-  filter:brightness(0) sepia(1) saturate(4) hue-rotate(95deg) brightness(.6);
+  filter:brightness(0);
 }
 
 /* FIX #4：移除 .hero-btns wrapper，按鈕直接在 hero-right 下，動畫 nth-child 才能正確計數 */
@@ -492,8 +491,8 @@ a.design-by{
       <!-- 左欄 -->
       <div class="hero-left">
         <div class="hero-logo">
-          <img src="./renai-logo.jpg" alt="南投縣仁愛鄉公所"
-            onerror="this.src='./renai-logo.png'; this.onerror=null;">
+          <img src="./renai-logo.png" alt="南投縣仁愛鄉公所"
+            onerror="this.style.display='none';">
         </div>
         <div class="hero-role">南投縣仁愛鄉公所 · 民政課長</div>
         <div class="hero-name">余 永 康</div>
