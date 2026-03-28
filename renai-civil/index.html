@@ -131,18 +131,14 @@ a.top-badge{
   margin-bottom:1.8rem;width:100%;flex-wrap:wrap;
 }
 .hero-icon-link{
-  width:40px;height:40px;display:flex;align-items:center;justify-content:center;
-  text-decoration:none;transition:all .2s;flex-shrink:0;
-  background:#fff;
+  width:50px;height:50px;display:flex;align-items:center;justify-content:center;
+  text-decoration:none;transition:opacity .2s,transform .2s;flex-shrink:0;
+  border-radius:0;background:transparent;border:none;
 }
-.hero-icon-link:hover{opacity:.72;transform:translateY(-2px);}
+.hero-icon-link:hover{opacity:.72;transform:scale(1.08);}
 .hero-icon-link img{
-  width:22px;height:22px;display:block;
-  filter:brightness(0);transition:filter .2s;
-}
-/* hover 維持黑圖，不轉色 */
-.hero-icon-link:hover img{
-  filter:brightness(0);
+  width:38px;height:38px;display:block;
+  /* 無 filter：SVG 原色顯示 */
 }
 
 /* FIX #4：移除 .hero-btns wrapper，按鈕直接在 hero-right 下，動畫 nth-child 才能正確計數 */
