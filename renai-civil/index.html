@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-29J2988Y8J');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>仁愛鄉公所 民政課 ｜ 余永康 Yu Yung-Kang</title>
+<meta name="description" content="南投縣仁愛鄉公所民政課，課長余永康。服務鄉親，守護部落文化。">
+<meta property="og:title" content="仁愛鄉公所 民政課 ｜ LINKet Light">
+<meta property="og:description" content="南投縣仁愛鄉公所民政課。服務鄉親，守護部落文化。">
+<meta property="og:image" content="https://linket.app/renai-civil/og-image.jpg">
+<meta property="og:url" content="https://linket.app/renai-civil">
+<meta property="og:type" content="website">
+<link rel="icon" href="./favicon.png">
+<link rel="apple-touch-icon" href="./favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;600;700;800&family=Noto+Serif+TC:wght@300;400;500;700;900&family=Noto+Sans+TC:wght@400;500&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --c1    : #D4AF37;
+  --c2    : #1A3A2A;
+  --c3    : #2D5A42;
+  --c5    : #FDFBF7;
+  --cbtn1 : rgba(212,175,55,.95);
+  --cbtn1t: #0A1128;
+  --ctxt  : #1A1A1A;
+  --ctxts : rgba(26,26,26,.68);
+  --ccard : #FFFFFF;
+  --r     : 6px;
+  --mw    : 900px;
+  --sp    : 2.8rem 1.4rem;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Serif TC',serif;background:var(--c5);color:var(--ctxt);min-height:100vh;overflow-x:hidden;}
+.inner{max-width:var(--mw);margin:0 auto;}
+
+/* TOP BADGE */
+a.top-badge{
+  display:block;width:100%;background:#fff;text-align:center;
+  padding:.46rem 1rem;font-size:.875rem;letter-spacing:.05em;
+  text-decoration:none;border-bottom:1px solid rgba(0,0,0,.06);
+  position:sticky;top:0;z-index:100;box-shadow:0 1px 8px rgba(0,0,0,.07);
+}
+.t-lin{font-weight:700;color:#111;font-family:'Noto Sans TC',sans-serif;}
+.t-ket{font-weight:700;color:#2979ff;font-family:'Noto Sans TC',sans-serif;}
+.t-light{font-weight:400;color:#999;font-family:'Noto Sans TC',sans-serif;}
+
+
+/* HERO */
+.hero{width:100%;position:relative;overflow:hidden;}
+/* FIX #1：直接 img tag，不用 div 包 */
+.hero-bg-img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;z-index:0;pointer-events:none;
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(14,30,22,.90) 0%,rgba(22,50,36,.76) 45%,rgba(8,20,14,.92) 100%);
+  z-index:1;pointer-events:none;
+}
+/* Art Deco 角落裝飾 */
+.hero-overlay::after{
+  content:'';position:absolute;inset:20px;
+  border:1px solid rgba(212,175,55,.12);pointer-events:none;
+}
+.hero .inner{position:relative;z-index:2;}
+.hero-cols{display:flex;flex-direction:row;align-items:stretch;min-height:520px;}
+
+/* 左欄 */
+.hero-left{
+  flex:1 1 0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:3.5rem 1.6rem;gap:1.2rem;text-align:center;
+  border-right:1px solid rgba(212,175,55,.15);
+  position:relative;
+}
+.hero-left::before,.hero-left::after{
+  content:'';position:absolute;width:24px;height:24px;
+  border-color:rgba(212,175,55,.4);border-style:solid;
+}
+.hero-left::before{top:16px;left:16px;border-width:1.5px 0 0 1.5px;}
+.hero-left::after{bottom:16px;right:16px;border-width:0 1.5px 1.5px 0;}
+
+.hero-logo{
+  width:72%;max-width:180px;margin-bottom:.6rem;
+  background:rgba(26,58,42,.8);padding:14px;
+  border:1px solid rgba(212,175,55,.4);
+  box-shadow:0 8px 24px rgba(0,0,0,.4);
+}
+.hero-logo img{width:100%;height:auto;object-fit:contain;display:block;}
+
+.hero-role{
+  font-family:'Shippori Mincho B1',serif;font-size:.8rem;font-weight:500;
+  letter-spacing:.22em;color:rgba(255,255,255,.72);margin-bottom:.2rem;
+}
+.hero-name{
+  font-family:'Shippori Mincho B1',serif;font-size:1.9rem;font-weight:800;
+  letter-spacing:.2em;color:var(--c1);line-height:1.1;
+}
+.hero-name-en{
+  font-family:'Playfair Display',serif;font-size:.88rem;letter-spacing:.12em;
+  color:rgba(212,175,55,.7);font-style:italic;margin-bottom:.5rem;
+}
+.hero-slogan{
+  font-family:'Shippori Mincho B1',serif;
+  font-size:clamp(.88rem,2.8vw,1rem);font-weight:500;
+  letter-spacing:.1em;color:#fff;line-height:1.9;
+  text-shadow:0 2px 10px rgba(0,0,0,.5);
+}
+.hero-tags{display:flex;justify-content:center;gap:.35rem;flex-wrap:wrap;margin-top:.3rem;}
+.h-tag{
+  background:rgba(212,175,55,.09);border:1px solid rgba(212,175,55,.28);
+  border-radius:2px;padding:.18rem .7rem;letter-spacing:.08em;
+  color:var(--c1);white-space:nowrap;font-family:'Noto Sans TC',sans-serif;font-size:.68rem;
+}
+
+/* 右欄 */
+.hero-right{
+  flex:1 1 0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:3rem 1.6rem;gap:0;min-width:0;
+}
+.hero-icons{
+  display:flex;justify-content:center;gap:1.2rem;
+  margin-bottom:1.8rem;width:100%;flex-wrap:wrap;
+}
+.hero-icon-link{
+  width:42px;height:42px;display:flex;align-items:center;justify-content:center;
+  text-decoration:none;transition:all .2s;flex-shrink:0;
+  border:1px solid rgba(255,255,255,.18);border-radius:50%;
+  background:rgba(255,255,255,.05);
+}
+.hero-icon-link:hover{background:var(--c1);border-color:var(--c1);transform:translateY(-2px);}
+.hero-icon-link img{
+  width:20px;height:20px;display:block;
+  filter:brightness(0) invert(1);transition:filter .2s;
+}
+/* FIX #2：正確的深綠 hover filter */
+.hero-icon-link:hover img{
+  filter:brightness(0) sepia(1) saturate(4) hue-rotate(95deg) brightness(.6);
+}
+
+/* FIX #4：移除 .hero-btns wrapper，按鈕直接在 hero-right 下，動畫 nth-child 才能正確計數 */
+.hero-btn{
+  display:flex;align-items:center;justify-content:center;
+  width:100%;max-width:310px;
+  font-family:'Shippori Mincho B1',serif;font-weight:700;font-size:.92rem;
+  letter-spacing:.12em;text-decoration:none;text-align:center;line-height:1.2;
+  padding:.9rem 1rem;transition:all .2s;cursor:pointer;border-radius:var(--r);
+  margin-bottom:.8rem;
+}
+.hero-btn:last-of-type{margin-bottom:1.5rem;}
+.hero-btn.p1{
+  background:var(--cbtn1);color:var(--cbtn1t);
+  border:1px solid transparent;
+  box-shadow:0 4px 14px rgba(0,0,0,.3);
+}
+.hero-btn.p1:hover{background:#fff;transform:translateY(-2px);}
+.hero-btn.ghost{
+  background:rgba(255,255,255,.05);border:1px solid rgba(212,175,55,.35);
+  color:#fff;font-weight:500;backdrop-filter:blur(4px);
+}
+.hero-btn.ghost:hover{background:rgba(212,175,55,.14);border-color:var(--c1);color:var(--c1);}
+
+.hero-btn-row{
+  display:flex;gap:.6rem;width:100%;max-width:310px;
+  justify-content:center;margin-bottom:0;
+  opacity:0;animation:heroSlideUp .65s ease both;animation-delay:.95s;
+}
+.hero-btn.qr,.hero-btn.share{
+  flex:1;align-self:center;background:rgba(255,255,255,.05);
+  border:1px dashed rgba(212,175,55,.28);color:rgba(255,255,255,.72);
+  font-size:.73rem;letter-spacing:.14em;font-weight:400;
+  padding:.55rem .5rem;margin-bottom:0;
+}
+.hero-btn.qr:hover,.hero-btn.share:hover{border-color:var(--c1);color:var(--c1);background:rgba(212,175,55,.1);}
+.hero-btn.share{display:none;}
+.hero-btn.share.visible{display:flex;}
+.share-icon{width:14px;height:14px;margin-right:.35rem;flex-shrink:0;fill:currentColor;}
+
+/* QR MODAL */
+.qr-modal-overlay{
+  display:none;position:fixed;inset:0;z-index:999;
+  background:rgba(10,20,14,.82);backdrop-filter:blur(8px);
+  align-items:center;justify-content:center;
+}
+.qr-modal-overlay.active{display:flex;animation:fadeIn .25s ease;}
+@keyframes fadeIn{from{opacity:0;transform:scale(.96);}to{opacity:1;transform:scale(1);}}
+/* FIX #8：QR Modal 簡化，用文字而非 Logo 圖片 */
+.qr-modal{
+  background:var(--c2);border:1px solid rgba(212,175,55,.3);border-radius:12px;
+  padding:2rem 1.8rem 1.8rem;max-width:290px;width:88%;
+  display:flex;flex-direction:column;align-items:center;
+  box-shadow:0 30px 60px rgba(0,0,0,.5);position:relative;
+}
+.qr-modal::before{
+  content:'';position:absolute;inset:8px;
+  border:1px solid rgba(212,175,55,.1);border-radius:7px;pointer-events:none;
+}
+.qr-modal-title{
+  font-family:'Shippori Mincho B1',serif;font-weight:700;font-size:1rem;
+  letter-spacing:.18em;color:var(--c1);margin-bottom:1.2rem;
+}
+.qr-modal-code{
+  width:196px;height:196px;background:#fff;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  padding:10px;margin-bottom:1rem;
+  border:2px solid rgba(212,175,55,.3);
+  box-shadow:0 6px 20px rgba(0,0,0,.4);
+}
+.qr-modal-url{
+  font-family:'Playfair Display',serif;font-size:.82rem;
+  letter-spacing:.12em;color:var(--c1);margin-bottom:.8rem;text-align:center;
+}
+.qr-modal-divider{width:80%;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,.25),transparent);margin-bottom:.8rem;}
+.qr-modal-hint{font-size:.72rem;letter-spacing:.08em;color:rgba(255,255,255,.4);text-align:center;margin-bottom:1.2rem;}
+.qr-modal-close{
+  background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.35);border-radius:50px;
+  padding:.5rem 2.2rem;font-family:'Shippori Mincho B1',serif;font-size:.82rem;
+  letter-spacing:.16em;color:var(--c1);cursor:pointer;transition:all .2s;
+}
+.qr-modal-close:hover{background:rgba(212,175,55,.25);color:#fff;}
+
+/* WATERMARK */
+.watermark{
+  width:100%;
+  background:linear-gradient(180deg,#EEE8D8 0%,var(--c5) 100%);
+  text-align:center;overflow:hidden;position:relative;
+  border-bottom:1px solid rgba(0,0,0,.05);
+}
+.watermark .inner{padding:2.2rem 1.4rem;position:relative;}
+.watermark .inner::before{
+  content:attr(data-wm);position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:4.2rem;font-weight:700;font-style:italic;
+  letter-spacing:.05em;color:rgba(26,58,42,.04);white-space:nowrap;pointer-events:none;
+}
+.wm-main{font-family:'Shippori Mincho B1',serif;font-size:1.2rem;font-weight:700;letter-spacing:.25em;text-indent:.25em;color:var(--c2);position:relative;}
+.wm-sub{font-family:'Playfair Display',serif;font-size:.78rem;font-weight:600;font-style:italic;letter-spacing:.15em;text-indent:.15em;color:var(--c1);text-transform:uppercase;display:block;margin-top:.5rem;position:relative;}
+
+/* SECTIONS */
+.section{width:100%;}
+.section.alt{background:#F4F0E4;border-top:1px solid rgba(0,0,0,.05);border-bottom:1px solid rgba(0,0,0,.05);}
+.section .inner{padding:var(--sp);}
+.sec-label{
+  font-family:'Playfair Display',serif;font-size:.85rem;font-weight:700;font-style:italic;
+  letter-spacing:.15em;text-indent:.15em;color:var(--c3);text-transform:uppercase;
+  margin-bottom:1.4rem;border-left:3px solid var(--c1);padding-left:.9rem;
+}
+
+/* INFO CARD */
+.info-card{
+  background:var(--ccard);border-radius:var(--r);
+  padding:1.6rem 1.6rem;margin-bottom:1.2rem;
+  border:1px solid rgba(26,58,42,.08);
+  border-top:3px solid var(--c1);
+  box-shadow:0 4px 16px rgba(0,0,0,.04);
+  transition:transform .25s,box-shadow .25s;
+}
+.info-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.07);}
+.card-heading{
+  font-family:'Shippori Mincho B1',serif;font-size:1.1rem;font-weight:700;
+  color:var(--c2);letter-spacing:.08em;margin-bottom:.9rem;
+  padding-bottom:.7rem;border-bottom:1px dashed rgba(26,58,42,.12);
+}
+.card-body{font-size:.97rem;font-weight:400;color:var(--ctxts);line-height:2.1;letter-spacing:.04em;}
+.card-body strong{font-weight:700;color:var(--c2);}
+/* 待補文案標記 */
+.placeholder{
+  background:rgba(212,175,55,.1);border:1px dashed rgba(212,175,55,.5);
+  border-radius:4px;padding:.6rem 1rem;
+  font-size:.82rem;color:rgba(26,58,42,.6);letter-spacing:.06em;font-style:italic;
+  font-family:'Noto Sans TC',sans-serif;
+}
+
+/* GRID 2x2 */
+.grid-2x2{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;}
+.grid-card{
+  background:var(--ccard);border-radius:var(--r);
+  padding:1.5rem 1.3rem;border:1px solid rgba(26,58,42,.08);
+  box-shadow:0 3px 12px rgba(0,0,0,.04);
+}
+.gc-icon{font-size:1.6rem;margin-bottom:.6rem;}
+.gc-title{font-family:'Shippori Mincho B1',serif;font-size:1rem;font-weight:700;color:var(--c2);letter-spacing:.08em;margin-bottom:.5rem;}
+.gc-body{font-size:.9rem;line-height:1.9;color:var(--ctxts);letter-spacing:.04em;}
+@media(max-width:480px){.grid-2x2{grid-template-columns:1fr;}}
+
+/* ══ EXPLORE INFOGRAPHIC — 方案 B：垂直堆疊，2 欄並列 ══
+   層級：數字行（出血大字）→ 全寬圖片 → 標題 + 文字
+   雜誌感來源：數字極大、左右兩欄並排、圖片全寬無邊框
+*/
+.explore-list{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1px;                          /* 細線用背景色製造 */
+  background:rgba(26,58,42,.1);     /* gap 的「線」顏色 */
+  border:1px solid rgba(26,58,42,.1);
+}
+.expl-card{
+  display:flex;
+  flex-direction:column;
+  background:var(--c5);
+  overflow:hidden;
+  transition:background .25s;
+}
+.expl-card:hover{background:#F6F2E9;}
+
+/* 數字行：超大字，出血至邊界 */
+.expl-num{
+  font-family:'Shippori Mincho B1',serif;
+  font-size:clamp(4.5rem,9vw,8rem);  /* 極大數字 */
+  font-weight:800;
+  color:var(--c2);
+  line-height:.88;
+  letter-spacing:-.04em;
+  padding:.9rem 1.2rem .5rem;        /* 上留少、左右貼邊 */
+  position:relative;
+}
+/* 數字底下的金色細線 */
+.expl-num::after{
+  content:'';
+  display:block;
+  width:2.5rem;height:2px;
+  background:var(--c1);
+  margin-top:.6rem;
+}
+.expl-unit{
+  font-size:clamp(1rem,2.2vw,1.4rem);
+  font-weight:600;
+  color:var(--c1);
+  letter-spacing:.06em;
+  margin-left:.15rem;
+  vertical-align:baseline;
+}
+
+/* 圖片：全寬，固定比例 16:9，無內距 */
+.expl-img{
+  position:relative;
+  overflow:hidden;
+  background:rgba(26,58,42,.08);
+  aspect-ratio:16/9;               /* 固定比例，RWD 自適應 */
+  width:100%;
+  flex-shrink:0;
+}
+.expl-img img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  display:block;
+  transition:transform .55s ease;
+}
+.expl-card:hover .expl-img img{transform:scale(1.05);}
+.expl-img-label{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(0deg,rgba(10,25,18,.75) 0%,transparent 100%);
+  padding:.55rem .9rem .45rem;
+  font-family:'Shippori Mincho B1',serif;
+  font-size:.68rem;letter-spacing:.14em;color:rgba(255,255,255,.85);
+}
+
+/* 文字區：標題 + 內文 */
+.expl-body{
+  padding:1rem 1.2rem 1.4rem;
+  display:flex;flex-direction:column;gap:.5rem;
+  flex:1;
+}
+.expl-title{
+  font-family:'Shippori Mincho B1',serif;
+  font-size:clamp(.9rem,1.5vw,1rem);
+  font-weight:700;color:var(--c2);
+  letter-spacing:.07em;line-height:1.35;
+}
+.expl-text{
+  font-size:clamp(.82rem,1.2vw,.9rem);
+  line-height:1.85;color:var(--ctxts);
+  letter-spacing:.03em;
+}
+
+/* RWD：手機單欄 */
+@media(max-width:600px){
+  .explore-list{grid-template-columns:1fr;}
+  .expl-num{font-size:clamp(4rem,18vw,6rem);padding:.8rem 1rem .4rem;}
+}
+
+/* FIX #11：spec-bar 聯繫資訊，改用 grid 佈局避免手機斷行 */
+.spec-bar{
+  border:1px solid rgba(212,175,55,.28);border-radius:var(--r);
+  background:rgba(212,175,55,.06);overflow:hidden;margin-top:1.2rem;
+}
+.spec-row{
+  display:grid;grid-template-columns:5.5em 1fr;gap:0;
+  padding:.75rem 1.4rem;border-bottom:1px solid rgba(212,175,55,.12);
+  font-size:.93rem;letter-spacing:.04em;align-items:baseline;
+}
+.spec-row:last-child{border-bottom:none;}
+.spec-lbl{font-weight:700;color:var(--c2);font-family:'Shippori Mincho B1',serif;font-size:.85rem;letter-spacing:.1em;white-space:nowrap;}
+.spec-val{color:var(--ctxts);}
+.spec-val a{color:var(--c2);text-decoration:none;border-bottom:1px solid rgba(26,58,42,.2);}
+.spec-val a:hover{color:var(--c1);border-color:var(--c1);}
+
+/* FOOTER */
+.footer-btns{width:100%;background:var(--c2);border-top:3px solid var(--c1);}
+.footer-btns .inner{padding:2.5rem 1.4rem 2rem;display:flex;flex-direction:column;align-items:center;gap:.85rem;}
+.footer-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  max-width:340px;width:100%;border-radius:var(--r);padding:.95rem 1.2rem;
+  font-family:'Shippori Mincho B1',serif;font-size:.92rem;font-weight:700;
+  letter-spacing:.12em;text-decoration:none;text-align:center;transition:all .2s;
+}
+.footer-btn:hover{transform:translateY(-2px);}
+.footer-btn.p1{background:var(--cbtn1);color:var(--cbtn1t);box-shadow:0 4px 14px rgba(0,0,0,.3);}
+.footer-btn.p1:hover{background:#fff;}
+.footer-btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.28);color:#fff;}
+.footer-btn.ghost:hover{border-color:var(--c1);color:var(--c1);background:rgba(212,175,55,.1);}
+
+.back-btn-wrap{background:var(--c2);}
+.back-btn-wrap .inner{padding:0 1.4rem 2.5rem;display:flex;justify-content:center;}
+.back-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  border:1px solid rgba(255,255,255,.14);border-radius:30px;padding:.55rem 2.5rem;
+  font-family:'Playfair Display',serif;font-size:.78rem;font-weight:400;font-style:italic;
+  letter-spacing:.18em;color:rgba(255,255,255,.42);text-decoration:none;
+  text-transform:uppercase;transition:all .2s;
+}
+.back-btn:hover{background:rgba(255,255,255,.08);color:#fff;}
+
+a.design-by{
+  display:block;width:100%;background:#0D1A13;text-align:center;
+  padding:.75rem;font-size:.72rem;letter-spacing:.16em;
+  color:rgba(255,255,255,.25);text-decoration:none;font-family:'Noto Sans TC',sans-serif;
+}
+.db-lin{color:rgba(255,255,255,.5);font-weight:700;}
+.db-ket{color:#D4AF37;font-weight:700;}
+
+/* ANIMATION */
+@keyframes heroSlideUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+
+/* FIX #3：hero 內移除 .reveal，全部用 animation */
+.hero-logo{opacity:0;animation:heroSlideUp .6s ease both;animation-delay:.1s;}
+.hero-role{opacity:0;animation:heroSlideUp .6s ease both;animation-delay:.2s;}
+.hero-name{opacity:0;animation:heroSlideUp .6s ease both;animation-delay:.28s;}
+.hero-name-en{opacity:0;animation:heroSlideUp .6s ease both;animation-delay:.33s;}
+.hero-slogan{opacity:0;animation:heroSlideUp .6s ease both;animation-delay:.44s;}
+.hero-icons{opacity:0;animation:heroSlideUp .6s ease both;animation-delay:.28s;}
+/* FIX #4：直接在 hero-right 下計數 nth-child，移除 .hero-btns wrapper */
+.hero-right .hero-btn:nth-child(2){opacity:0;animation:heroSlideUp .6s ease both;animation-delay:.42s;}
+.hero-right .hero-btn:nth-child(3){opacity:0;animation:heroSlideUp .6s ease both;animation-delay:.52s;}
+.hero-right .hero-btn:nth-child(4){opacity:0;animation:heroSlideUp .6s ease both;animation-delay:.62s;}
+.hero-right .hero-btn:nth-child(5){opacity:0;animation:heroSlideUp .6s ease both;animation-delay:.72s;}
+.hero-right .hero-btn:nth-child(6){opacity:0;animation:heroSlideUp .6s ease both;animation-delay:.82s;}
+@media(prefers-reduced-motion:reduce){
+  .hero-logo,.hero-role,.hero-name,.hero-name-en,.hero-slogan,.hero-icons,
+  .hero-right .hero-btn,.hero-btn-row{opacity:1;animation:none;}
+}
+
+/* FIX #5：--sp 已改 2.8rem；RWD */
+@media(max-width:768px){
+  .hero-cols{flex-direction:column;min-height:auto;}
+  .hero-left{border-right:none;border-bottom:1px solid rgba(212,175,55,.12);padding:3.5rem 1.4rem 2.5rem;}
+  .hero-right{padding:2.5rem 1.4rem;align-items:center;}
+  .hero-btn{max-width:100%;}
+  .hero-btn-row{max-width:100%;}
+}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease;}
+.reveal.visible{opacity:1;transform:none;}
+</style>
+</head>
+<body id="top">
+
+<!-- TOP BADGE -->
+<a class="top-badge" href="https://linket.app/home">
+  <span class="t-lin">LIN</span><span class="t-ket">Ket</span>&nbsp;<span class="t-light">Light</span>
+</a>
+
+
+<!-- HERO -->
+<section id="hero" class="hero">
+  <!-- FIX #1：直接 img tag，position:absolute 才能正確覆蓋 -->
+  <img src="./renai-hero-bg.jpg" alt="" class="hero-bg-img" aria-hidden="true" onerror="this.style.display='none'">
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <div class="inner">
+    <div class="hero-cols">
+
+      <!-- 左欄 -->
+      <div class="hero-left">
+        <div class="hero-logo">
+          <img src="./renai-logo.jpg" alt="南投縣仁愛鄉公所"
+            onerror="this.src='./renai-logo.png'; this.onerror=null;">
+        </div>
+        <div class="hero-role">南投縣仁愛鄉公所 · 民政課長</div>
+        <div class="hero-name">余 永 康</div>
+        <div class="hero-name-en">Yu Yung-Kang</div>
+        <div class="hero-slogan">
+          走過每一吋土地，<br>守護家鄉最深的情感。
+        </div>
+      </div>
+
+      <!-- FIX #4：右欄，按鈕直接是 hero-right 的子元素，不包 .hero-btns wrapper -->
+      <div class="hero-right">
+        <div class="hero-icons">
+          <a class="hero-icon-link" href="tel:0963009833" aria-label="電話"
+            onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'renai-civil'});">
+            <img src="/home/assets/phone.svg" alt="Phone" onerror="this.style.display='none'">
+          </a>
+          <!-- FIX #9：mail.svg，不是 email.svg -->
+          <a class="hero-icon-link" href="mailto:ranbo1964@gmail.com" aria-label="Email"
+            onclick="gtag('event','click_mail',{'event_category':'CTA','event_label':'renai-civil'});">
+            <img src="/home/assets/mail.svg" alt="Mail" onerror="this.style.display='none'">
+          </a>
+          <a class="hero-icon-link" href="https://maps.app.goo.gl/fUwFCJdLeGyK3fXD6" target="_blank" aria-label="Google Maps"
+            onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'renai-civil'});">
+            <img src="/home/assets/map.svg" alt="Map" onerror="this.style.display='none'">
+          </a>
+          <a class="hero-icon-link" href="https://www.renai.gov.tw/list/classroom?model=view&view=1088" target="_blank" aria-label="官方網頁"
+            onclick="gtag('event','click_web',{'event_category':'CTA','event_label':'renai-civil'});">
+            <img src="/home/assets/web.svg" alt="Web" onerror="this.style.display='none'">
+          </a>
+        </div>
+
+        <!-- P1 三顆主按鈕 -->
+        <a href="tel:0963009833" class="hero-btn p1"
+          onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'renai-civil'});">
+          聯繫課長 ｜ CONTACT ME
+        </a>
+        <a href="https://maps.app.goo.gl/fUwFCJdLeGyK3fXD6" target="_blank" class="hero-btn p1"
+          onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'renai-civil'});">
+          拜訪課長 ｜ GOOGLE MAP
+        </a>
+        <a href="https://www.renai.gov.tw/list/classroom?model=view&view=1088" target="_blank" class="hero-btn p1"
+          onclick="gtag('event','click_web',{'event_category':'CTA','event_label':'renai-civil'});">
+          民政課頁面 ｜ OFFICIAL WEB
+        </a>
+
+        <!-- Ghost 頁面導航 -->
+        <a href="#affairs" class="hero-btn ghost">業務職掌 ｜ AFFAIRS</a>
+        <a href="#explore" class="hero-btn ghost">探訪仁愛 ｜ EXPLORE</a>
+
+        <!-- QR & 分享 -->
+        <div class="hero-btn-row">
+          <button class="hero-btn qr" onclick="openQrModal()" aria-label="顯示 QR Code">⊞&ensp;QR CODE</button>
+          <button class="hero-btn share" id="shareBtn" onclick="shareThisPage()" aria-label="分享此頁面">
+            <svg class="share-icon" viewBox="0 0 24 24"><path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98M21 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm12 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>
+            分&ensp;享
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FIX #8：QR Modal 簡化，用文字標題取代 Logo 圖 -->
+<div class="qr-modal-overlay" id="qrModal" onclick="closeQrModalOnBg(event)">
+  <div class="qr-modal">
+    <div class="qr-modal-title">仁愛鄉公所 · 民政課</div>
+    <div class="qr-modal-code"><div id="qrcode-canvas"></div></div>
+    <div class="qr-modal-url">linket.app/renai-civil</div>
+    <div class="qr-modal-divider"></div>
+    <div class="qr-modal-hint">掃描 QR Code 前往民政課專頁</div>
+    <button class="qr-modal-close" onclick="closeQrModal()">關 閉</button>
+  </div>
+</div>
+
+<!-- WATERMARK -->
+<div class="watermark">
+  <div class="inner" data-wm="RENAI CIVIL AFFAIRS">
+    <div class="wm-main">仁愛鄉公所 · 民政課</div>
+    <span class="wm-sub">Yu Yung-Kang · Service First · Nantou Renai</span>
+  </div>
+</div>
+
+<!-- 業務職掌 -->
+<section class="section" id="affairs">
+  <div class="inner">
+    <div class="sec-label">Affairs · 業務職掌</div>
+
+    <div class="info-card reveal">
+      <div class="card-heading">選舉行政與地方自治</div>
+      <div class="card-body">
+        辦理鄉長、鄉民代表及村長各項公職人員選舉相關業務，依法執行選務作業與開票統計。兼辦地方自治行政事項，協助推動基層民主，落實鄉民參與公共事務之權利。
+      </div>
+    </div>
+
+    <div class="info-card reveal">
+      <div class="card-heading">原住民族行政事務</div>
+      <div class="card-body">
+        仁愛鄉為<strong>賽德克族、泰雅族、布農族</strong>三族共居之原住民鄉，民政課承辦原住民族相關行政事項，包含族人身份認定、原住民保留地申請審核、部落會議行政協助，及原住民族基本法相關事務之推動與執行。
+      </div>
+    </div>
+
+    <div class="info-card reveal">
+      <div class="card-heading">調解業務</div>
+      <div class="card-body">
+        依法設置調解委員會，受理鄉民間民事事件及告訴乃論刑事事件之調解申請，由調解委員秉公調處，化解糾紛，維護鄰里和諧，減輕司法訴訟之社會成本。
+      </div>
+    </div>
+
+    <div class="info-card reveal">
+      <div class="card-heading">防災應變與緊急救助</div>
+      <div class="card-body">
+        仁愛鄉全境地處中央山脈，面積逾 1,274 平方公里，山地占比高，颱風、豪雨、地震等天然災害防制為民政課重點業務。執行災害防救計畫、辦理疏散撤離演練、協調緊急安置及災後救助金發放，全面守護鄉民生命財產安全。
+      </div>
+    </div>
+
+    <div class="info-card reveal">
+      <div class="card-heading">里鄰社區與基礎民政</div>
+      <div class="card-body">
+        辦理鄰里集會所新建及修繕、地方寺廟宗教事務行政協助、殯葬管理及公墓規劃，以及各項惠民補助之審查與核發，提供鄉民全面的基礎生活行政服務。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 探訪仁愛 -->
+<section class="section alt" id="explore">
+  <div class="inner">
+    <div class="sec-label">Explore · 探訪仁愛</div>
+
+    <p style="font-family:'Shippori Mincho B1',serif;font-size:clamp(.95rem,2vw,1.05rem);line-height:2.0;letter-spacing:.06em;color:var(--ctxts);margin-bottom:2.4rem;">仁愛鄉，全台面積第三大的鄉鎮，坐落中央山脈脊樑，海拔從 650 公尺至 3,416 公尺一氣呵成。三族文化在此交匯、雲霧山嵐於此凝聚，是一座尚未被城市馴服的深山秘境。</p>
+
+    <!-- INFOGRAPHIC CARDS：數字 > 圖片 > 標題 + 文字 -->
+    <div class="explore-list">
+
+      <!-- 01 合歡山 -->
+      <div class="expl-card reveal">
+        <div class="expl-num">3,275<span class="expl-unit">m</span></div>
+        <div class="expl-img">
+          <img src="./explore-hehuanshan.jpg" alt="合歡山" onerror="this.style.display='none'">
+          <div class="expl-img-label">武嶺 · 台灣公路最高點</div>
+        </div>
+        <div class="expl-body">
+          <div class="expl-title">合歡山 — 台灣的雪鄉</div>
+          <div class="expl-text">冬季皚皚白雪，夏季玉山杜鵑漫山盛放，秋楓燃遍稜線。國際暗空協會認證的合歡山暗空公園，是亞洲第三座認證場所，夜觀銀河，美不勝收。</div>
+        </div>
+      </div>
+
+      <!-- 02 清境農場 -->
+      <div class="expl-card reveal">
+        <div class="expl-num">1,750<span class="expl-unit">m</span></div>
+        <div class="expl-img">
+          <img src="./explore-cingjing.jpg" alt="清境農場" onerror="this.style.display='none'">
+          <div class="expl-img-label">清境 · 霧上桃源</div>
+        </div>
+        <div class="expl-body">
+          <div class="expl-title">清境農場 — 霧上桃源</div>
+          <div class="expl-text">四周合歡、奇萊、能高群峰環抱。青青草原春賞櫻、夏避暑、秋觀楓、冬踏雪。天空步道全長 1.6 公里，是台灣海拔最高的高空步道。</div>
+        </div>
+      </div>
+
+      <!-- 03 三族文化 -->
+      <div class="expl-card reveal">
+        <div class="expl-num">3<span class="expl-unit">族</span></div>
+        <div class="expl-img">
+          <img src="./explore-tribes.jpg" alt="三族文化" onerror="this.style.display='none'">
+          <div class="expl-img-label">賽德克 · 泰雅 · 布農</div>
+        </div>
+        <div class="expl-body">
+          <div class="expl-title">三族共居 — 活生生的部落文化</div>
+          <div class="expl-text">賽德克族以彩虹橋信仰著稱，泰雅族的織紋精湛，布農族的八部合音被列為世界非物質文化遺產候選。每年各族歲時祭儀，是感受部落文化的珍貴機會。</div>
+        </div>
+      </div>
+
+      <!-- 04 文化融合 -->
+      <div class="expl-card reveal">
+        <div class="expl-num">1950<span class="expl-unit">年代</span></div>
+        <div class="expl-img">
+          <img src="./explore-yunnan.jpg" alt="雲南擺夷文化" onerror="this.style.display='none'">
+          <div class="expl-img-label">清境 · 多元文化交融</div>
+        </div>
+        <div class="expl-body">
+          <div class="expl-title">多元文化交融 — 山頂上的異域</div>
+          <div class="expl-text">滇緬邊境撤退軍民落腳清境，帶來雲南擺夷文化與料理。博望新村的道地雲南菜、部落的小米酒——仁愛鄉的滋味，是歷史、土地與人情的交疊。</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 聯繫與位置 -->
+<section class="section" id="location">
+  <div class="inner">
+    <div class="sec-label">Location · 聯繫與位置</div>
+
+    <!-- FIX #11：spec-bar 改為 grid 結構，手機不會斷行 -->
+    <div class="spec-bar reveal">
+      <div class="spec-row">
+        <span class="spec-lbl">辦公地址</span>
+        <span class="spec-val">南投縣仁愛鄉大同村仁和路 29 號</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-lbl">課室電話</span>
+        <span class="spec-val"><a href="tel:049-2802534">049-2802534</a>&nbsp;分機 301</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-lbl">行動電話</span>
+        <span class="spec-val"><a href="tel:0963009833">0963-009-833</a></span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-lbl">傳真號碼</span>
+        <span class="spec-val">049-2801695</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-lbl">電子郵件</span>
+        <span class="spec-val"><a href="mailto:ranbo1964@gmail.com">ranbo1964@gmail.com</a></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-btns">
+  <div class="inner">
+    <a class="footer-btn p1" href="tel:0963009833"
+      onclick="gtag('event','click_tel_footer',{'event_category':'CTA','event_label':'renai-civil'});">
+      📱 與課長聯繫 CONTACT
+    </a>
+    <a class="footer-btn ghost" href="https://www.renai.gov.tw/" target="_blank"
+      onclick="gtag('event','click_gov_footer',{'event_category':'CTA','event_label':'renai-civil'});">
+      🏛️ 仁愛鄉公所官方網站
+    </a>
+    <a class="footer-btn ghost" href="https://www.facebook.com/p/%E5%8D%97%E6%8A%95%E7%B8%A3%E4%BB%81%E6%84%9B%E9%84%89%E5%85%AC%E6%89%80-100064955495894/" target="_blank"
+      onclick="gtag('event','click_fb_footer',{'event_category':'CTA','event_label':'renai-civil'});">
+      Facebook 南投縣仁愛鄉公所
+    </a>
+  </div>
+</footer>
+
+<div class="back-btn-wrap">
+  <div class="inner">
+    <a class="back-btn" href="#top">&lt;&lt; BACK TO TOP &lt;&lt;</a>
+  </div>
+</div>
+
+<a class="design-by" href="https://linket.app/home" target="_blank">
+  Design by&nbsp;<span class="db-lin">LIN</span><span class="db-ket">Ket</span>
+</a>
+
+<script>
+/* Scroll Reveal */
+const _obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('visible'); _obs.unobserve(e.target); }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => _obs.observe(el));
+
+/* Web Share API */
+(function(){
+  const btn = document.getElementById('shareBtn');
+  if(!btn) return;
+  if(navigator.share) btn.classList.add('visible');
+})();
+
+function shareThisPage(){
+  if(!navigator.share) return;
+  navigator.share({
+    title: '仁愛鄉公所 民政課 ｜ 余永康',
+    text:  '走過每一吋土地，守護家鄉最深的情感。',
+    url:   'https://linket.app/renai-civil'
+  })
+  .then(()=> gtag('event','click_share',{'event_category':'CTA','event_label':'renai-civil'}))
+  .catch(()=>{});
+}
+
+/* QR Code */
+let qrLoaded = false, qrInst = null;
+function loadQrLib(cb){
+  if(qrLoaded){ cb(); return; }
+  const s = document.createElement('script');
+  s.src = 'https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
+  s.onload = () => { qrLoaded = true; cb(); };
+  document.head.appendChild(s);
+}
+function renderQrCode(){
+  const el = document.getElementById('qrcode-canvas');
+  if(!el || qrInst) return;
+  el.innerHTML = '';
+  qrInst = new QRCode(el, {
+    text: 'https://linket.app/renai-civil',
+    width: 176, height: 176,
+    colorDark: '#1A3A2A', colorLight: '#ffffff',
+    correctLevel: QRCode.CorrectLevel.M
+  });
+}
+function openQrModal(){
+  document.getElementById('qrModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+  loadQrLib(renderQrCode);
+  gtag('event','click_qr_modal',{'event_category':'CTA','event_label':'renai-civil'});
+}
+function closeQrModal(){
+  document.getElementById('qrModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+function closeQrModalOnBg(e){ if(e.target === document.getElementById('qrModal')) closeQrModal(); }
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeQrModal(); });
+</script>
+</body>
+</html>
