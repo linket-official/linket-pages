@@ -149,24 +149,23 @@ body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--ink);ove
   animation:fadeUp .5s ease .28s both;
 }
 
-/* ── 社群 Icons（修正版：不加 invert filter）── */
+/* ── 社群 Icons（阮二哥標準：透明底、無邊框、SVG 原色）── */
 .hero-icons{
-  display:flex;justify-content:center;gap:1rem;
+  display:flex;justify-content:center;gap:1.4rem;
   margin-bottom:1.6rem;width:100%;
   animation:fadeUp .5s ease .32s both;
 }
 .hero-icon-link{
-  width:44px;height:44px;
+  width:48px;height:48px;
   display:flex;align-items:center;justify-content:center;
   text-decoration:none;
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.18);
-  transition:all .2s;flex-shrink:0;
+  background:transparent;border:none;
+  transition:opacity .2s,transform .2s;flex-shrink:0;
 }
-.hero-icon-link:hover{background:rgba(200,41,26,.2);border-color:var(--red);}
+.hero-icon-link:hover{opacity:.72;transform:scale(1.08);}
 .hero-icon-link img{
-  width:24px;height:24px;display:block;
-  /* 深色背景下白色 SVG：brightness(0) invert(1) 讓黑色圖示變白色 */
+  width:36px;height:36px;display:block;
+  /* 深色 hero 背景，SVG 需反白 */
   filter:brightness(0) invert(1);
 }
 
@@ -563,7 +562,7 @@ body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--ink);ove
             onerror="this.src='/lanjue/logo-lanjue.png';this.onerror=null;">
         </div>
         <div class="hero-ryan-photo">
-          <img src="ryan-portrait.jpg" alt="林家恩 Ryan"
+          <img src="ryan-portrait.png" alt="林家恩 Ryan"
             onerror="this.parentElement.style.cssText='width:100px;aspect-ratio:3/4;background:rgba(200,41,26,.1);display:flex;align-items:center;justify-content:center;font-size:2.5rem;border:1px solid rgba(200,41,26,.3);margin-bottom:1.1rem;';this.parentElement.innerHTML='🍶'">
         </div>
         <div class="hero-name">林家恩 Ryan</div>
