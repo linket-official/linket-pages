@@ -151,22 +151,24 @@ body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--ink);ove
 
 /* ── 社群 Icons（阮二哥標準：透明底、無邊框、SVG 原色）── */
 .hero-icons{
-  display:flex;justify-content:center;gap:1.4rem;
-  margin-bottom:1.6rem;width:100%;
-  animation:fadeUp .5s ease .32s both;
+  display:flex; justify-content:center;
+  /* 修正A：加大間距配合更大的 icon */
+  gap:1.75rem; margin-bottom:1.4rem;
+  width:100%;
 }
 .hero-icon-link{
-  width:48px;height:48px;
-  display:flex;align-items:center;justify-content:center;
+  /* 修正A：容器加大 */
+  width:54px; height:54px;
+  display:flex; align-items:center; justify-content:center;
   text-decoration:none;
-  background:transparent;border:none;
-  transition:opacity .2s,transform .2s;flex-shrink:0;
+  transition:opacity .2s, transform .2s; flex-shrink:0;
+  border-radius:0; background:transparent; border:none;
 }
-.hero-icon-link:hover{opacity:.72;transform:scale(1.08);}
+.hero-icon-link:hover{ opacity:.72; transform:scale(1.08); }
+.hero-icon-link svg,
 .hero-icon-link img{
-  width:36px;height:36px;display:block;
-  /* 深色 hero 背景，SVG 需反白 */
-  filter:brightness(0) invert(1);
+  /* 修正A：28px → 42px（+50%）*/
+  width:42px; height:42px; display:block;
 }
 
 /* Hero 按鈕 */
