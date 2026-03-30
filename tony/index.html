@@ -136,27 +136,42 @@ a.top-badge:hover { color: rgba(255,255,255,.75); }
 .hero-logo { margin-bottom: var(--gap); }
 .hero-logo img { height: 28px; margin: 0 auto; }
 
-/* ② Portrait */
+/* ② Portrait - 修正版：放大寬度並恢復色彩 */
 .hero-portrait {
-  width: clamp(140px, 22vw, 200px);
-  height: clamp(175px, 27.5vw, 250px);
-  overflow: hidden; margin: 0 auto var(--gap);
+  /* 修正：將寬度上限從 200px 提升至 360px，並增加視窗比例權重 */
+  width: clamp(220px, 45vw, 360px);
+  /* 修正：維持 3:4 比例，高度隨寬度同步放大 */
+  aspect-ratio: 3 / 4; 
+  height: auto; 
+  overflow: hidden; 
+  margin: 0 auto var(--gap);
+  /* 增加一點點環境光陰影，讓照片更具實體感 */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  border: 1px solid var(--line); /* 若不需要框線，可改為 border: none; */
 }
+
 .hero-portrait img {
   width: 100%; height: 100%;
-  object-fit: cover; object-position: center top;
-  filter: grayscale(100%) contrast(1.1);
+  object-fit: cover; 
+  object-position: center top;
+  /* 修正：移除 grayscale(100%)，改為微微增加對比與飽和度維持質感 */
+  filter: saturate(1.05) contrast(1.05); 
+  display: block;
 }
+
+/* 佔位圖同步修正顏色 */
 .hero-portrait-ph {
   width: 100%; height: 100%;
-  background: #1a1a1a;
+  background: var(--bg2);
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
-  gap: 10px; color: #555;
+  gap: 10px; 
+  color: var(--gold); /* 佔位符使用品牌金 */
   font-family: 'Syne', sans-serif;
-  font-size: var(--fs-sm); letter-spacing: .1em;
+  font-size: var(--fs-sm); 
+  letter-spacing: .15em;
 }
-.hero-portrait-ph span { font-size: 2.8rem; }
+.hero-portrait-ph span { font-size: 3rem; opacity: 0.5; }
 
 /* ③ 姓名職銜 */
 .hero-name-block { margin-bottom: var(--gap); }
