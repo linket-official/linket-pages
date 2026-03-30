@@ -238,7 +238,9 @@ a.top-badge:hover { color: rgba(255,255,255,.75); }
   font-size: var(--fs-sm); font-weight: 700;
   letter-spacing: .18em; text-transform: uppercase;
   color: rgba(255,255,255,.55);
-  transition: color .2s;
+  transition: all .2s; /* 修正：改用 all 讓邊框顏色變化也能有過渡 */
+  /* 核心修正：加上細微白邊 */
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 .hero-btn-text:hover { color: var(--white); }
 .btn-sep {
@@ -246,7 +248,7 @@ a.top-badge:hover { color: rgba(255,255,255,.75); }
   height: 0; /* 分隔線本身不需要高度 */
   background: none; /* 移除背景色 */
   /* 使用單邊框來模擬極細線條 */
-  border-top: 1px solid rgba(255, 255, 255, 0.1); 
+  border-top: 1px solid rgba(255, 255, 255, 1); 
   margin: 1rem 0; /* 增加上下間距 */
 }
 .btn-arr { font-weight: 300; font-size: 1.1rem; }
