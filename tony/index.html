@@ -11,9 +11,9 @@
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Tony Lin 林志昇｜LINKet 創辦人 × 品牌連結設計師</title>
-<meta name="description" content="我幫傳統品牌，找到被看見的方式。LINKet 創辦人林志昇，埔里，南投。">
+<meta name="description" content="幫傳統品牌，找到被看見的方式。LINKet 創辦人林志昇，埔里，南投。">
 <meta property="og:title" content="Tony Lin 林志昇｜LINKet 創辦人">
-<meta property="og:description" content="我幫傳統品牌，找到被看見的方式。">
+<meta property="og:description" content="幫傳統品牌，找到被看見的方式。">
 <meta property="og:image" content="https://linket.app/tony/og-image.jpg">
 <meta property="og:url" content="https://linket.app/tony">
 <meta property="og:type" content="website">
@@ -191,24 +191,25 @@ a.top-badge:hover { color: rgba(255,255,255,.75); }
 }
 
 /* ⑤ Icons — 使用者指定 CSS */
-.hero-icons {
-  display: flex; justify-content: center;
-  gap: 1.75rem; margin-bottom: 1.4rem;
-  width: 100%; flex-wrap: wrap;
+.hero-icons{
+  display:flex; justify-content:center;
+  /* 修正A：加大間距配合更大的 icon */
+  gap:1.0rem; margin-bottom:1.0rem;
+  width:100%;
 }
-.hero-icon-link {
-  width: 54px; height: 54px;
-  display: flex; align-items: center; justify-content: center;
-  text-decoration: none;
-  transition: opacity .2s, transform .2s; flex-shrink: 0;
-  border-radius: 0; background: transparent; border: none;
+.hero-icon-link{
+  /* 修正A：容器加大 */
+  width:48px; height:48px;
+  display:flex; align-items:center; justify-content:center;
+  text-decoration:none;
+  transition:opacity .2s, transform .2s; flex-shrink:0;
+  border-radius:0; background:transparent; border:none;
 }
-.hero-icon-link:hover { opacity: .72; transform: scale(1.08); }
+.hero-icon-link:hover{ opacity:.72; transform:scale(1.08); }
 .hero-icon-link svg,
-.hero-icon-link img {
-  width: 42px; height: 42px; display: block;
-  /* FIX: 深色底 invert(1) */
-  filter: brightness(0) invert(1);
+.hero-icon-link img{
+  /* 修正A：28px → 42px（+50%）*/
+  width:42px; height:42px; display:block;
 }
 
 /* ⑥ 按鈕 — 6顆，3實心 + 3無底 */
@@ -241,8 +242,12 @@ a.top-badge:hover { color: rgba(255,255,255,.75); }
 }
 .hero-btn-text:hover { color: var(--white); }
 .btn-sep {
-  width: 100%; height: 1px;
-  background: rgba(255,255,255,.1);
+  width: 100%;
+  height: 0; /* 分隔線本身不需要高度 */
+  background: none; /* 移除背景色 */
+  /* 使用單邊框來模擬極細線條 */
+  border-top: 1px solid rgba(255, 255, 255, 0.1); 
+  margin: 1rem 0; /* 增加上下間距 */
 }
 .btn-arr { font-weight: 300; font-size: 1.1rem; }
 
@@ -955,12 +960,12 @@ a.design-by:hover { color: rgba(255,255,255,.6); }
     <span>Brand Connection Infrastructure</span><span>·</span>
     <span class="ac">Tony Lin 林志昇</span><span>·</span>
     <span>品牌連結基礎建設</span><span>·</span>
-    <span>埔里，南投</span><span>·</span>
+    <span>LINK in Your Pocket</span><span>·</span>
     <span class="ac">LINKet</span><span>·</span>
     <span>Brand Connection Infrastructure</span><span>·</span>
     <span class="ac">Tony Lin 林志昇</span><span>·</span>
     <span>品牌連結基礎建設</span><span>·</span>
-    <span>埔里，南投</span><span>·</span>
+    <span>LINK in Your Pocket</span><span>·</span>
   </div>
 </div>
 
@@ -988,7 +993,7 @@ a.design-by:hover { color: rgba(255,255,255,.6); }
 
   <!-- ④ Slogan（字級縮小 50%） -->
   <div class="hero-slogan">
-    <div class="hero-slogan-zh">我幫傳統品牌，找到被看見的方式。</div>
+    <div class="hero-slogan-zh">幫傳統品牌，找到被看見的方式。</div>
     <div class="hero-slogan-en">Brand connection starts here.</div>
   </div>
 
@@ -1225,7 +1230,7 @@ a.design-by:hover { color: rgba(255,255,255,.6); }
         <span class="tl-week">Week 1</span>
         <div class="tl-num">01</div>
         <div class="tl-title">訪談與需求確認</div>
-        <div class="tl-desc">LINE 聯繫 Tony，說說你的品牌與需求。Tony 會在 24 小時內回覆，先聊再說，不用準備什麼。</div>
+        <div class="tl-desc">LINE 聯繫 Tony，說說你的品牌與需求。Tony 會與你安排時間聊聊，先聊再說，讓我們做初步品牌診斷。</div>
         <div class="tl-note">需準備名片或品牌相關基本資料與品牌授權</div>
       </div>
       <div class="timeline-item">
@@ -1453,10 +1458,6 @@ a.design-by:hover { color: rgba(255,255,255,.6); }
     <a href="https://www.instagram.com/linket_official" target="_blank" class="footer-btn outline"
       onclick="gtag('event','click_ig_follow',{'event_category':'CTA','event_label':'tony'});">
       追蹤動態｜INSTAGRAM <span>→</span>
-    </a>
-    <a href="mailto:info.tonydesignstudio@gmail.com" class="footer-btn outline"
-      onclick="gtag('event','click_mail',{'event_category':'CTA','event_label':'tony'});">
-      寫信給我｜EMAIL <span>→</span>
     </a>
   </div>
   <div class="footer-meta">
