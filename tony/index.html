@@ -1,1 +1,1543 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-29J2988Y8J');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Tony Lin 林志昇｜LINKet 創辦人 × 品牌連結設計師</title>
+<meta name="description" content="我幫傳統品牌，找到被看見的方式。LINKet 創辦人林志昇，埔里，南投。">
+<meta property="og:title" content="Tony Lin 林志昇｜LINKet 創辦人">
+<meta property="og:description" content="我幫傳統品牌，找到被看見的方式。">
+<meta property="og:image" content="https://linket.app/tony/og-image.jpg">
+<meta property="og:url" content="https://linket.app/tony">
+<meta property="og:type" content="website">
+<link rel="icon" href="./favicon.png">
+<link rel="apple-touch-icon" href="./favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;0,800;1,600;1,700;1,800&family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@400;500;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════
+   DESIGN TOKENS
+══════════════════════════════════════════════ */
+:root {
+  --black  : #000;
+  --white  : #fff;
+  --gray   : #f2f2f2;
+  --gray2  : #e5e5e5;
+  --gray3  : #888;
+  --ink    : #111;
+  --ink2   : #444;
 
+  /* 字級系統：clamp(min, preferred, max) */
+  /* 最小值均 ≥ 16px（12pt），大標每層差 ≥ 12px */
+  --fs-display : clamp(4rem, 12vw, 9rem);     /* Hero 大字 */
+  --fs-h1      : clamp(2.5rem, 6vw, 4.5rem); /* 區塊主標 */
+  --fs-h2      : clamp(1.6rem, 3vw, 2.4rem); /* 次標 */
+  --fs-h3      : clamp(1.1rem, 2vw, 1.35rem);/* 三標 */
+  --fs-body    : 1rem;                        /* 內文 16px */
+  --fs-label   : 0.875rem;                   /* 標籤 14px */
+  --fs-sm      : 0.875rem;                   /* 最小 14px */
+
+  /* 版寬：桌機 70vw ~ 80vw，最大 1080px */
+  --mw  : min(1080px, 78vw);
+  --gap : 30px;
+}
+
+/* 手機版寬改全寬 */
+@media(max-width: 768px) {
+  :root { --mw: calc(100vw - 48px); }
+}
+@media(max-width: 480px) {
+  :root { --mw: calc(100vw - 32px); }
+}
+
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: 'Noto Serif TC', serif;
+  background: var(--white);
+  color: var(--black);
+  overflow-x: hidden;
+}
+img { display: block; }
+a { text-decoration: none; color: inherit; }
+.inner { max-width: var(--mw); margin: 0 auto; }
+
+/* 噪點紋理 */
+.noise::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  pointer-events: none;
+  opacity: .05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px;
+}
+.noise > * { position: relative; z-index: 2; }
+
+/* ══════════════════════════════════════════════
+   TOP BADGE
+══════════════════════════════════════════════ */
+a.top-badge {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 100%; background: var(--black);
+  padding: .55rem clamp(16px, 3vw, 40px);
+  font-family: 'Syne', sans-serif;
+  font-size: var(--fs-sm); font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(255,255,255,.4);
+  position: sticky; top: 0; z-index: 200;
+}
+a.top-badge:hover { color: rgba(255,255,255,.75); }
+.tb-lin { color: rgba(255,255,255,.7); }
+.tb-ket { color: var(--white); }
+.tb-right { font-size: var(--fs-sm); color: rgba(255,255,255,.25); }
+@media(max-width: 600px) { .tb-right { display: none; } }
+
+/* ══════════════════════════════════════════════
+   TICKER
+══════════════════════════════════════════════ */
+.ticker {
+  overflow: hidden; white-space: nowrap;
+  background: var(--white);
+  padding: .6rem 0;
+  border-top: 2px solid var(--black);
+  border-bottom: 2px solid var(--black);
+}
+.ticker-track {
+  display: inline-flex;
+  animation: tick 38s linear infinite;
+}
+.ticker-track span {
+  font-family: 'Syne', sans-serif;
+  font-size: var(--fs-sm); font-weight: 700;
+  letter-spacing: .22em; text-transform: uppercase;
+  padding: 0 2rem; color: rgba(0,0,0,.28);
+}
+.ticker-track span.ac { color: var(--black); }
+@keyframes tick { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* ══════════════════════════════════════════════
+   HERO — 單欄置中
+══════════════════════════════════════════════ */
+.hero {
+  background: var(--black);
+  position: relative;
+  padding: 60px clamp(16px, 5vw, 60px) 60px;
+  display: flex; flex-direction: column;
+  align-items: center; text-align: center;
+}
+
+/* ① Logo */
+.hero-logo { margin-bottom: var(--gap); }
+.hero-logo img { height: 28px; margin: 0 auto; }
+
+/* ② Portrait */
+.hero-portrait {
+  width: clamp(140px, 22vw, 200px);
+  height: clamp(175px, 27.5vw, 250px);
+  overflow: hidden; margin: 0 auto var(--gap);
+}
+.hero-portrait img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+  filter: grayscale(100%) contrast(1.1);
+}
+.hero-portrait-ph {
+  width: 100%; height: 100%;
+  background: #1a1a1a;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 10px; color: #555;
+  font-family: 'Syne', sans-serif;
+  font-size: var(--fs-sm); letter-spacing: .1em;
+}
+.hero-portrait-ph span { font-size: 2.8rem; }
+
+/* ③ 姓名職銜 */
+.hero-name-block { margin-bottom: var(--gap); }
+.hero-name {
+  font-family: 'Noto Serif TC', serif;
+  font-size: var(--fs-h2);
+  font-weight: 900; letter-spacing: .1em;
+  color: var(--white); line-height: 1.2;
+  margin-bottom: 10px;
+}
+.hero-role {
+  font-family: 'Syne', sans-serif;
+  font-size: var(--fs-sm); font-weight: 700;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: rgba(255,255,255,.38);
+}
+
+/* ④ Slogan — 縮小 50%（h1 → h2 的一半） */
+.hero-slogan { margin-bottom: var(--gap); max-width: 520px; }
+.hero-slogan-zh {
+  font-family: 'Noto Serif TC', serif;
+  font-size: var(--fs-h3); /* 縮小：原 h1 → 改 h3 */
+  font-weight: 700; letter-spacing: .06em;
+  color: rgba(255,255,255,.75);
+  line-height: 1.7; margin-bottom: 10px;
+}
+.hero-slogan-en {
+  font-family: 'Syne', sans-serif;
+  font-size: var(--fs-sm); font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(255,255,255,.25);
+}
+
+/* ⑤ Icons — 使用者指定 CSS */
+.hero-icons {
+  display: flex; justify-content: center;
+  gap: 1.75rem; margin-bottom: 1.4rem;
+  width: 100%; flex-wrap: wrap;
+}
+.hero-icon-link {
+  width: 54px; height: 54px;
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none;
+  transition: opacity .2s, transform .2s; flex-shrink: 0;
+  border-radius: 0; background: transparent; border: none;
+}
+.hero-icon-link:hover { opacity: .72; transform: scale(1.08); }
+.hero-icon-link svg,
+.hero-icon-link img {
+  width: 42px; height: 42px; display: block;
+  /* FIX: 深色底 invert(1) */
+  filter: brightness(0) invert(1);
+}
+
+/* ⑥ 按鈕 — 6顆，3實心 + 3無底 */
+.hero-btns {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 12px;
+  width: 100%; max-width: 340px;
+  margin-bottom: var(--gap);
+}
+.hero-btn-solid {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 100%; padding: 16px 24px;
+  background: var(--white);
+  font-family: 'Syne', sans-serif;
+  font-size: var(--fs-sm); font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--black);
+  transition: background .2s;
+}
+.hero-btn-solid:hover { background: var(--gray2); }
+.hero-btn-text {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 100%; padding: 14px 24px;
+  background: transparent;
+  font-family: 'Syne', sans-serif;
+  font-size: var(--fs-sm); font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: rgba(255,255,255,.55);
+  transition: color .2s;
+}
+.hero-btn-text:hover { color: var(--white); }
+.btn-sep {
+  width: 100%; height: 1px;
+  background: rgba(255,255,255,.1);
+}
+.btn-arr { font-weight: 300; font-size: 1.1rem; }
+
+/* ⑦ QR / 分享鈕 */
+.hero-sub-btns {
+  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+}
+.hero-sub-btn {
+  padding: 10px 20px;
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,.18);
+  font-family: 'Syne', sans-serif;
+  font-size: var(--fs-sm); font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: rgba(255,255,255,.38);
+  cursor: pointer;
+  transition: border-color .2s, color .2s;
+  display: flex; align-items: center; gap: 8px;
+}
+.hero-sub-btn:hover { border-color: rgba(255,255,255,.5); color: rgba(255,255,255,.75); }
+.hero-sub-btn.share-btn { display: none; }
+.hero-sub-btn.share-btn.visible { display: flex; }
+.share-svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+@media(max-width: 600px) {
+  .hero { padding: 48px 16px 48px; }
+  .hero-btns { max-width: 100%; }
+}
+
+/* ══════════════════════════════════════════════
+   QR MODAL
+══════════════════════════════════════════════ */
+.qr-modal-overlay {
+  display: none; position: fixed; inset: 0; z-index: 999;
+  background: rgba(0,0,0,.92);
+  align-items: center; justify-content: center;
+}
+.qr-modal-overlay.active { display: flex; animation: fadeM .22s ease; }
+@keyframes fadeM { from{opacity:0;transform:scale(.95)} to{opacity:1;transform:scale(1)} }
+.qr-modal {
+  background: var(--white);
+  padding: 40px 36px 36px;
+  max-width: 300px; width: 88%;
+  display: flex; flex-direction: column; align-items: center;
+}
+/* QR Modal logo（白底用黑色 logo） */
+.qr-modal-logo { height: 24px; margin-bottom: var(--gap); }
+.qr-modal-code {
+  width: 192px; height: 192px;
+  display: flex; align-items: center; justify-content: center;
+  padding: 8px; margin-bottom: 20px;
+  border: 2px solid var(--black);
+}
+.qr-modal-url {
+  font-family: 'Syne', sans-serif;
+  font-size: var(--fs-sm); font-weight: 700;
+  letter-spacing: .14em; color: var(--black);
+  margin-bottom: 8px; text-align: center;
+}
+.qr-modal-hint {
+  font-size: var(--fs-sm); color: var(--gray3);
+  text-align: center; margin-bottom: var(--gap); letter-spacing: .04em;
+}
+.qr-modal-close {
+  background: var(--black); color: var(--white); border: none;
+  padding: 14px 36px;
+  font-family: 'Syne', sans-serif;
+  font-size: var(--fs-sm); font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase;
+  cursor: pointer; transition: background .2s; width: 100%;
+}
+.qr-modal-close:hover { background: #222; }
+
+/* ══════════════════════════════════════════════
+   SECTIONS 共用
+══════════════════════════════════════════════ */
+.sect { padding: 80px 0; }
+.sect.bg-white { background: var(--white); }
+.sect.bg-gray  { background: var(--gray); }
+.sect.bg-black { background: var(--black); color: var(--white); position: relative; }
+@media(max-width: 768px) { .sect { padding: 60px 0; } }
+
+.sect-head { margin-bottom: 60px; }
+.sect-no {
+  font-family: 'Syne', sans-serif;
+  font-size: var(--fs-sm); font-weight: 700;
+  letter-spacing: .28em; text-transform: uppercase;
+  color: var(--gray3); display: block; margin-bottom: 14px;
+}
+.sect.bg-black .sect-no { color: rgba(255,255,255,.3); }
+.sect-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: var(--fs-h1);
+  font-weight: 900; line-height: 1.05; letter-spacing: .02em;
+  color: var(--black);
+}
+.sect.bg-black .sect-title { color: var(--white); }
+
+/* Section CTA */
+.sect-cta {
+  display: inline-flex; align-items: center; gap: 16px;
+  padding: 18px 36px;
+  background: var(--black); color: var(--white);
+  font-family: 'Syne', sans-serif;
+  font-size: var(--fs-sm); font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase;
+  transition: background .2s; margin-top: 50px;
+}
+.sect-cta:hover { background: #222; }
+.sect-cta.outline {
+  background: transparent; color: var(--black);
+  border: 2px solid var(--black);
+}
+.sect-cta.outline:hover { background: var(--gray); }
+.sect-cta.white-fill {
+  background: var(--white); color: var(--black);
+}
+.sect-cta.white-fill:hover { background: var(--gray2); }
+.arr-line {
+  display: inline-block; width: 36px; height: 2px;
+  background: currentColor; position: relative; transition: width .2s;
+}
+.sect-cta:hover .arr-line { width: 52px; }
+.arr-line::after {
+  content: '›'; position: absolute;
+  right: -8px; top: -10px;
+  font-size: 1.2rem; font-weight: 300;
+}
+
+/* ══════════════════════════════════════════════
+   §02 關於創辦人
+══════════════════════════════════════════════ */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px; align-items: start;
+}
+.about-img {
+  width: 100%; aspect-ratio: 3/4; overflow: hidden; background: var(--gray2);
+}
+.about-img img {
+  width: 100%; height: 100%;
+  object-fit: cover; filter: grayscale(100%) contrast(1.08);
+  transition: transform .5s;
+}
+.about-img:hover img { transform: scale(1.03); }
+.about-img-ph {
+  width: 100%; height: 100%; min-height: 400px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 12px; color: var(--gray3);
+  font-family: 'Syne', sans-serif; font-size: var(--fs-sm); letter-spacing: .1em;
+}
+.about-img-ph span { font-size: 3rem; }
+
+.about-text { display: flex; flex-direction: column; gap: var(--gap); }
+.about-lede {
+  font-family: 'Noto Serif TC', serif;
+  font-size: var(--fs-h2);
+  font-weight: 900; line-height: 1.3; letter-spacing: .03em;
+  color: var(--black);
+}
+.about-body {
+  font-family: 'Noto Serif TC', serif;
+  font-size: var(--fs-body); line-height: 2.1;
+  letter-spacing: .05em; color: var(--ink2);
+}
+.about-body p + p { margin-top: 20px; }
+.about-quote {
+  padding: var(--gap);
+  background: var(--black);
+}
+.about-quote p {
+  font-family: 'Noto Serif TC', serif;
+  font-size: var(--fs-h3); font-weight: 700;
+  letter-spacing: .05em; color: var(--white);
+  line-height: 1.75; margin-bottom: 14px;
+}
+.about-quote cite {
+  font-family: 'Syne', sans-serif;
+  font-size: var(--fs-sm); font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: rgba(255,255,255,.35); font-style: normal;
+}
+@media(max-width: 760px) {
+  .about-grid { grid-template-columns: 1fr; gap: var(--gap); }
+  .about-img { aspect-ratio: 4/3; }
+}
+
+/* ══════════════════════════════════════════════
+   §03 服務產業（原：我幫助誰）
+══════════════════════════════════════════════ */
+.industry-list { display: flex; flex-direction: column; }
+.industry-item {
+  display: grid;
+  grid-template-columns: 100px 1fr 1.2fr;
+  gap: 0 50px;
+  padding: 40px var(--gap);
+  transition: background .2s;
+}
+.industry-item:nth-child(even) { background: var(--gray2); }
+.industry-item:nth-child(odd) { background: var(--white); }
+.industry-item:hover { background: var(--gray) !important; }
+.ind-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.5rem, 7vw, 6rem);
+  font-weight: 800; font-style: italic;
+  color: rgba(0,0,0,.08);
+  line-height: .85; align-self: center;
+}
+.ind-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: var(--fs-h3); font-weight: 900;
+  letter-spacing: .06em; color: var(--black);
+  align-self: center;
+}
+.ind-desc {
+  font-family: 'Noto Serif TC', serif;
+  font-size: var(--fs-body); line-height: 1.9;
+  letter-spacing: .04em; color: var(--ink2);
+  align-self: center;
+}
+.industry-footer {
+  padding: 60px var(--gap) 0;
+  font-family: 'Noto Serif TC', serif;
+  font-size: var(--fs-h2); font-weight: 900;
+  color: var(--black); line-height: 1.3;
+}
+@media(max-width: 640px) {
+  .industry-item {
+    grid-template-columns: 70px 1fr;
+    grid-template-rows: auto auto;
+    gap: 0 var(--gap);
+    padding: var(--gap) 16px;
+  }
+  .ind-num { grid-row: 1/3; font-size: 3rem; }
+  .ind-title { font-size: 1rem; }
+  .ind-desc { grid-column: 2; }
+}
+
+/* ══════════════════════════════════════════════
+   §04 LINKet 服務方案
+══════════════════════════════════════════════ */
+.plans-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr 1fr;
+  gap: 2px;
+  background: var(--black);
+  margin-bottom: var(--gap);
+}
+.plan-card {
+  background: var(--white);
+  padding: 40px 30px;
+  display: flex; flex-direction: column;
+  position: relative;
+}
+/* 體驗版 & 團隊版：黑框 */
+.plan-card.bordered {
+  outline: 2px solid var(--black);
+  outline-offset: -2px;
+}
+/* 標準版：黑底 */
+.plan-card.featured {
+  background: var(--black);
+}
+.plan-recommend {
+  position: absolute; top: 0; right: 30px;
+  font-family: 'Syne', sans-serif;
+  font-size: .7rem; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase;
+  background: var(--white); color: var(--black);
+  padding: 5px 12px;
+}
+.plan-tier {
+  font-family: 'Syne', sans-serif;
+  font-size: var(--fs-sm); font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--gray3); display: block; margin-bottom: 12px;
+}
+.plan-card.featured .plan-tier { color: rgba(255,255,255,.3); }
+.plan-name {
+  font-family: 'Noto Serif TC', serif;
+  font-size: var(--fs-h3); font-weight: 900;
+  letter-spacing: .08em; color: var(--black); margin-bottom: var(--gap);
+}
+.plan-card.featured .plan-name { color: var(--white); }
+.plan-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800; line-height: 1;
+  color: var(--black); margin-bottom: 8px;
+}
+.plan-card.featured .plan-price { color: var(--white); }
+.plan-price sub {
+  font-size: 1rem; vertical-align: baseline;
+  font-family: 'Syne', sans-serif; font-weight: 700; letter-spacing: .06em;
+}
+.plan-period {
+  font-family: 'Syne', sans-serif;
+  font-size: var(--fs-sm); font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gray3); margin-bottom: var(--gap);
+}
+.plan-card.featured .plan-period { color: rgba(255,255,255,.3); }
+.plan-features {
+  flex: 1; display: flex; flex-direction: column;
+  gap: 12px; margin-bottom: var(--gap);
+}
+.plan-feat {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: var(--fs-body); line-height: 1.65;
+  letter-spacing: .03em; color: var(--ink2);
+  display: flex; align-items: flex-start; gap: 10px;
+}
+.plan-card.featured .plan-feat { color: rgba(255,255,255,.55); }
+.plan-feat::before {
+  content: '—'; font-family: 'Cormorant Garamond', serif;
+  font-weight: 700; color: var(--gray3); flex-shrink: 0; line-height: 1.3;
+}
+.plan-card.featured .plan-feat::before { color: rgba(255,255,255,.2); }
+.plan-note {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: var(--fs-sm); color: var(--gray3);
+  letter-spacing: .04em; margin-bottom: 20px;
+  line-height: 1.7;
+}
+.plan-card.featured .plan-note { color: rgba(255,255,255,.25); }
+.plan-cta {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 22px;
+  font-family: 'Syne', sans-serif;
+  font-size: var(--fs-sm); font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase;
+  transition: background .2s, color .2s;
+}
+.plan-cta.fill {
+  background: var(--white); color: var(--black);
+}
+.plan-cta.fill:hover { background: var(--gray2); }
+.plan-cta.outline {
+  border: 1.5px solid var(--gray2); color: var(--black);
+}
+.plan-cta.outline:hover { background: var(--gray); }
+.plans-note {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: var(--fs-sm); color: var(--gray3);
+  letter-spacing: .05em;
+}
+@media(max-width: 700px) {
+  .plans-wrap { grid-template-columns: 1fr; }
+  .plan-recommend { right: 20px; }
+}
+
+/* ══════════════════════════════════════════════
+   §05 LINKet 合作流程（時間軸）
+══════════════════════════════════════════════ */
+.timeline-wrap {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  background: var(--black);
+  margin-bottom: 60px;
+}
+.timeline-item {
+  background: var(--white);
+  padding: 40px 30px;
+  display: flex; flex-direction: column; gap: var(--gap);
+  position: relative;
+}
+/* 週次箭頭連線（桌機） */
+.timeline-item:not(:last-child)::after {
+  content: '→';
+  position: absolute; right: -18px; top: 40px;
+  font-size: 1.4rem; font-weight: 300;
+  color: rgba(0,0,0,.2); z-index: 5;
+}
+.tl-week {
+  font-family: 'Syne', sans-serif;
+  font-size: var(--fs-sm); font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--gray3); display: block;
+}
+.tl-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 800; font-style: italic;
+  color: rgba(0,0,0,.07);
+  line-height: .85; letter-spacing: -.04em;
+}
+.tl-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: var(--fs-h3); font-weight: 900;
+  letter-spacing: .05em; color: var(--black);
+}
+.tl-desc {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: var(--fs-body); line-height: 1.85;
+  letter-spacing: .04em; color: var(--ink2);
+}
+.tl-note {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: var(--fs-sm); color: var(--gray3);
+  letter-spacing: .04em; line-height: 1.6;
+  padding: 12px 14px;
+  border-left: 2px solid var(--gray2);
+}
+
+/* 手機：直向 */
+@media(max-width: 700px) {
+  .timeline-wrap { grid-template-columns: 1fr; }
+  .timeline-item::after { display: none; }
+  .timeline-item {
+    padding-left: 30px;
+    border-left: 3px solid var(--black);
+    position: relative;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute; left: -7px; top: 40px;
+    width: 12px; height: 12px;
+    background: var(--black); border-radius: 50%;
+  }
+}
+
+/* ══════════════════════════════════════════════
+   §06 品牌成果 — Tab + Logo Grid
+══════════════════════════════════════════════ */
+/* Tab 切換 */
+.cases-tabs {
+  display: flex; gap: 2px;
+  background: var(--black);
+  margin-bottom: 2px;
+}
+.cases-tab {
+  flex: 1; padding: 16px var(--gap);
+  background: var(--gray);
+  font-family: 'Syne', sans-serif;
+  font-size: var(--fs-sm); font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--gray3);
+  cursor: pointer; border: none;
+  transition: background .2s, color .2s;
+  text-align: center;
+}
+.cases-tab.active {
+  background: var(--black); color: var(--white);
+}
+.cases-tab:not(.active):hover { background: var(--gray2); color: var(--black); }
+
+/* Tab 面板 */
+.cases-panel { display: none; }
+.cases-panel.active { display: block; }
+
+/* Logo Grid */
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--black);
+}
+.case-item {
+  background: var(--white);
+  padding: 36px 30px;
+  display: flex; flex-direction: column; gap: 14px;
+  cursor: pointer;
+  transition: background .2s;
+  position: relative;
+}
+.case-item:hover { background: var(--gray); }
+.case-item-industry {
+  font-family: 'Syne', sans-serif;
+  font-size: var(--fs-sm); font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--gray3);
+}
+.case-item-name {
+  font-family: 'Noto Serif TC', serif;
+  font-size: var(--fs-h3); font-weight: 900;
+  letter-spacing: .05em; color: var(--black);
+  line-height: 1.3;
+}
+/* Hover 時展開說明 */
+.case-item-desc {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: var(--fs-body); line-height: 1.8;
+  letter-spacing: .04em; color: var(--ink2);
+  max-height: 0; overflow: hidden;
+  transition: max-height .35s ease, opacity .3s;
+  opacity: 0;
+}
+.case-item:hover .case-item-desc {
+  max-height: 120px; opacity: 1;
+}
+.case-item-link {
+  font-family: 'Syne', sans-serif;
+  font-size: var(--fs-sm); font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--black);
+  opacity: 0; transition: opacity .3s;
+  display: flex; align-items: center; gap: 8px;
+}
+.case-item:hover .case-item-link { opacity: 1; }
+/* 體驗版卡片底色稍灰 */
+.cases-panel:nth-child(2) .case-item { background: var(--gray); }
+.cases-panel:nth-child(2) .case-item:hover { background: var(--gray2); }
+
+.cases-note {
+  padding: 20px 0 0;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: var(--fs-sm); color: var(--gray3); letter-spacing: .06em;
+}
+
+@media(max-width: 640px) {
+  .cases-grid { grid-template-columns: repeat(2, 1fr); }
+  .case-item { padding: var(--gap) 20px; }
+  .case-item-desc, .case-item-link { display: none; } /* 手機不做 hover，保持乾淨 */
+  .case-item-link { display: flex; opacity: 1; }
+}
+@media(max-width: 400px) {
+  .cases-grid { grid-template-columns: 1fr; }
+}
+
+/* ══════════════════════════════════════════════
+   §07 LINKet 整合服務（黑底）
+══════════════════════════════════════════════ */
+.services-list { display: flex; flex-direction: column; }
+.service-row {
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  gap: 0 var(--gap);
+  padding: 40px 0;
+  align-items: start;
+  transition: background .2s;
+}
+.service-row + .service-row { border-top: 1px solid rgba(255,255,255,.07); }
+.service-row:hover { background: rgba(255,255,255,.03); }
+.svc-no {
+  font-family: 'Syne', sans-serif;
+  font-size: var(--fs-sm); font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: rgba(255,255,255,.2); padding-top: 4px;
+}
+.svc-body { min-width: 0; }
+.svc-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: var(--fs-h3); font-weight: 900;
+  letter-spacing: .05em; color: var(--white); margin-bottom: 8px;
+}
+.svc-title-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: var(--fs-body); font-style: italic;
+  letter-spacing: .12em; color: rgba(255,255,255,.3);
+  display: block; margin-bottom: 12px;
+}
+.svc-desc {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: var(--fs-body); line-height: 1.85;
+  letter-spacing: .04em; color: rgba(255,255,255,.5);
+}
+.svc-tags {
+  display: flex; flex-direction: column; gap: 8px;
+  align-items: flex-end; padding-top: 4px;
+}
+.svc-tag {
+  font-family: 'Syne', sans-serif;
+  font-size: var(--fs-sm); font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 6px 12px; white-space: nowrap;
+  border: 1.5px solid rgba(255,255,255,.12);
+  color: rgba(255,255,255,.35);
+}
+.services-ctas {
+  display: flex; flex-wrap: wrap; gap: 12px;
+  padding-top: 60px;
+}
+.services-cta {
+  display: inline-flex; align-items: center; gap: 14px;
+  padding: 16px 30px;
+  font-family: 'Syne', sans-serif;
+  font-size: var(--fs-sm); font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase;
+  transition: background .2s, color .2s;
+}
+.services-cta.fill-w { background: var(--white); color: var(--black); }
+.services-cta.fill-w:hover { background: var(--gray2); }
+.services-cta.outline-w {
+  border: 1.5px solid rgba(255,255,255,.25); color: rgba(255,255,255,.6);
+}
+.services-cta.outline-w:hover { border-color: var(--white); color: var(--white); }
+
+@media(max-width: 600px) {
+  .service-row { grid-template-columns: 40px 1fr; }
+  .svc-tags { display: none; }
+  .services-ctas { flex-direction: column; }
+}
+
+/* ══════════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════════ */
+.footer {
+  background: var(--black); position: relative;
+  padding: 80px clamp(16px, 5vw, 60px) 0;
+}
+.footer-name-row {
+  display: flex; align-items: flex-end;
+  justify-content: space-between; flex-wrap: wrap;
+  gap: var(--gap); padding-bottom: 60px;
+}
+.footer-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(4.5rem, 13vw, 10rem);
+  font-weight: 800; line-height: .85;
+  color: var(--white); letter-spacing: -.03em;
+}
+.footer-name .dot { color: rgba(255,255,255,.25); }
+.footer-tagline {
+  font-family: 'Noto Serif TC', serif;
+  font-size: var(--fs-body); font-weight: 700;
+  letter-spacing: .08em; line-height: 2;
+  color: rgba(255,255,255,.28); text-align: right;
+}
+.footer-ctas {
+  display: flex; flex-direction: column;
+  gap: 12px; max-width: 360px; margin-bottom: 60px;
+}
+.footer-btn {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 24px;
+  font-family: 'Syne', sans-serif;
+  font-size: var(--fs-sm); font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase;
+  transition: all .2s;
+}
+.footer-btn.fill { background: var(--white); color: var(--black); }
+.footer-btn.fill:hover { background: var(--gray2); }
+.footer-btn.outline {
+  border: 1.5px solid rgba(255,255,255,.18); color: rgba(255,255,255,.55);
+}
+.footer-btn.outline:hover { border-color: var(--white); color: var(--white); }
+.footer-meta {
+  display: flex; align-items: center;
+  justify-content: space-between; flex-wrap: wrap;
+  gap: 12px; padding: 20px 0;
+  border-top: 1px solid rgba(255,255,255,.07);
+}
+.footer-copy {
+  font-family: 'Syne', sans-serif;
+  font-size: var(--fs-sm); font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: rgba(255,255,255,.2);
+}
+a.design-by {
+  font-family: 'Syne', sans-serif;
+  font-size: var(--fs-sm); font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: rgba(255,255,255,.2); transition: color .2s;
+}
+a.design-by:hover { color: rgba(255,255,255,.6); }
+.db-ket { color: rgba(255,255,255,.4); }
+
+.back-wrap {
+  background: var(--black);
+  display: flex; justify-content: center; padding: 0 0 40px;
+}
+.back-btn {
+  font-family: 'Syne', sans-serif;
+  font-size: var(--fs-sm); font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(255,255,255,.2); padding: 10px 24px;
+  border: 1.5px solid rgba(255,255,255,.08);
+  transition: color .2s, border-color .2s;
+}
+.back-btn:hover { color: rgba(255,255,255,.6); border-color: rgba(255,255,255,.3); }
+
+@media(max-width: 600px) {
+  .footer { padding: 60px 16px 0; }
+  .footer-ctas { max-width: none; }
+  .footer-name-row { padding-bottom: 40px; flex-direction: column; }
+  .footer-tagline { text-align: left; }
+}
+
+/* ══════════════════════════════════════════════
+   REVEAL
+══════════════════════════════════════════════ */
+.reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity .65s ease, transform .65s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-l {
+  opacity: 0; transform: translateX(-24px);
+  transition: opacity .65s ease, transform .65s ease;
+}
+.reveal-l.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body id="top">
+
+<!-- TOP BADGE -->
+<a class="top-badge" href="https://linket.app/home">
+  <div><span class="tb-lin">LIN</span><span class="tb-ket">KET</span></div>
+  <div class="tb-right">Brand Connection Infrastructure · linket.app</div>
+</a>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ac">LINKet</span><span>·</span>
+    <span>Brand Connection Infrastructure</span><span>·</span>
+    <span class="ac">Tony Lin 林志昇</span><span>·</span>
+    <span>品牌連結基礎建設</span><span>·</span>
+    <span>埔里，南投</span><span>·</span>
+    <span class="ac">LINKet</span><span>·</span>
+    <span>Brand Connection Infrastructure</span><span>·</span>
+    <span class="ac">Tony Lin 林志昇</span><span>·</span>
+    <span>品牌連結基礎建設</span><span>·</span>
+    <span>埔里，南投</span><span>·</span>
+  </div>
+</div>
+
+<!-- ════ HERO ════ -->
+<section id="hero" class="hero noise">
+
+  <!-- ① LINKet Logo — 白底用 light 版（白色） -->
+  <div class="hero-logo">
+    <img src="/assets/logo-linket-light.svg" alt="LINKet"
+      onerror="this.style.display='none';document.getElementById('hero-logo-fb').style.display='block'">
+    <div id="hero-logo-fb" style="display:none;font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;letter-spacing:.18em;color:#fff;">LIN<span>KET</span></div>
+  </div>
+
+  <!-- ② Tony 形象照 -->
+  <div class="hero-portrait">
+    <img src="./tony-portrait.jpg" alt="Tony Lin 林志昇"
+      onerror="this.parentElement.innerHTML='<div class=\'hero-portrait-ph\'><span>🧑‍💻</span>tony-portrait.jpg</div>'">
+  </div>
+
+  <!-- ③ 姓名職銜 -->
+  <div class="hero-name-block">
+    <div class="hero-name">Tony Lin ｜ 林志昇</div>
+    <div class="hero-role">LINKet 創辦人 × 品牌連結設計師</div>
+  </div>
+
+  <!-- ④ Slogan（字級縮小 50%） -->
+  <div class="hero-slogan">
+    <div class="hero-slogan-zh">我幫傳統品牌，找到被看見的方式。</div>
+    <div class="hero-slogan-en">Brand connection starts here.</div>
+  </div>
+
+  <!-- ⑤ SVG Icons（6個）— FIX: transparent bg + invert(1) -->
+  <div class="hero-icons">
+    <a class="hero-icon-link" href="https://lin.ee/SMseRI9" target="_blank" aria-label="LINE"
+      onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'tony'});">
+      <img src="/assets/line.svg" alt="LINE">
+    </a>
+    <a class="hero-icon-link" href="https://www.instagram.com/linket_official" target="_blank" aria-label="Instagram"
+      onclick="gtag('event','click_ig_follow',{'event_category':'CTA','event_label':'tony'});">
+      <img src="/assets/instagram.svg" alt="Instagram">
+    </a>
+    <a class="hero-icon-link" href="https://www.threads.net/@linket_official" target="_blank" aria-label="Threads"
+      onclick="gtag('event','click_threads',{'event_category':'CTA','event_label':'tony'});">
+      <img src="/assets/threads.svg" alt="Threads">
+    </a>
+    <!-- FIX: mail.svg 不是 email.svg -->
+    <a class="hero-icon-link" href="mailto:info.tonydesignstudio@gmail.com" aria-label="Email"
+      onclick="gtag('event','click_mail',{'event_category':'CTA','event_label':'tony'});">
+      <img src="/assets/mail.svg" alt="Email">
+    </a>
+    <a class="hero-icon-link" href="https://linket.app/home" target="_blank" aria-label="Official Web"
+      onclick="gtag('event','click_web',{'event_category':'CTA','event_label':'tony'});">
+      <img src="/assets/web.svg" alt="Web">
+    </a>
+    <a class="hero-icon-link" href="https://www.behance.net/mumud8zo18" target="_blank" aria-label="Behance"
+      onclick="gtag('event','click_behance',{'event_category':'CTA','event_label':'tony'});">
+      <img src="/assets/behance.svg" alt="Behance">
+    </a>
+  </div>
+
+  <!-- ⑥ 按鈕（6顆）-->
+  <div class="hero-btns">
+    <!-- 3顆實心白底 -->
+    <a href="https://lin.ee/SMseRI9" target="_blank" class="hero-btn-solid"
+      onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'tony'});">
+      諮詢服務｜LINE OA <span class="btn-arr">→</span>
+    </a>
+    <a href="https://linket.app/home" target="_blank" class="hero-btn-solid"
+      onclick="gtag('event','click_web',{'event_category':'CTA','event_label':'tony'});">
+      LINKet 官網｜Official Web <span class="btn-arr">→</span>
+    </a>
+    <a href="https://www.instagram.com/linket_official" target="_blank" class="hero-btn-solid"
+      onclick="gtag('event','click_ig_follow',{'event_category':'CTA','event_label':'tony'});">
+      追蹤 LINKet｜Instagram <span class="btn-arr">→</span>
+    </a>
+    <div class="btn-sep"></div>
+    <!-- 3顆無底 -->
+    <a href="#plans" class="hero-btn-text">
+      服務方案 <span class="btn-arr">↓</span>
+    </a>
+    <a href="#cases" class="hero-btn-text">
+      品牌案例 <span class="btn-arr">↓</span>
+    </a>
+    <a href="#flow" class="hero-btn-text">
+      合作流程 <span class="btn-arr">↓</span>
+    </a>
+  </div>
+
+  <!-- ⑦ QR / 分享 -->
+  <div class="hero-sub-btns">
+    <button class="hero-sub-btn" onclick="openQrModal()" aria-label="QR Code">⊞ QR CODE</button>
+    <button class="hero-sub-btn share-btn" id="shareBtn" onclick="shareThisPage()" aria-label="分享">
+      <svg class="share-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+        <path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98M21 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm12 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+      </svg>
+      分享
+    </button>
+  </div>
+
+</section>
+
+<!-- QR MODAL — 白底用黑色 logo -->
+<div class="qr-modal-overlay" id="qrModal" onclick="closeQrModalOnBg(event)">
+  <div class="qr-modal">
+    <img src="/assets/logo-linket-dark.svg" alt="LINKet" class="qr-modal-logo"
+      onerror="this.style.display='none'">
+    <div class="qr-modal-code"><div id="qrcode-canvas"></div></div>
+    <div class="qr-modal-url">linket.app/tony</div>
+    <div class="qr-modal-hint">掃描前往 Tony 的品牌連結頁</div>
+    <button class="qr-modal-close" onclick="closeQrModal()">CLOSE</button>
+  </div>
+</div>
+
+<!-- ════ §02 關於創辦人 ════ -->
+<section class="sect bg-white" id="about">
+  <div class="inner">
+    <div class="sect-head reveal">
+      <span class="sect-no">02 — About</span>
+      <h2 class="sect-title">關於創辦人</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-img reveal-l">
+        <img src="./tony-work.jpg" alt="Tony Lin 工作情境"
+          onerror="this.parentElement.innerHTML='<div class=\'about-img-ph\'><span>📷</span>tony-work.jpg</div>'">
+      </div>
+      <div class="about-text">
+        <p class="about-lede reveal">「我不只做設計，我幫品牌建連結。」</p>
+        <div class="about-body reveal">
+          <p>我是設計師出身，在埔里創辦了 LINKet。十年的設計經驗告訴我，好看的設計不夠——能被找到、能被記住，才是品牌真正需要的。</p>
+          <p>我看到太多好的傳統品牌——農場、工廠、老店——他們有真實的故事，卻沒有一個說故事的地方。社群媒體分散了注意力，名片給出去沒有下文。</p>
+          <p>LINKet 從這個觀察出發。我做的是一件事：讓每個掃碼的人，不只看到連結，而是認識你這個品牌。目前我在埔里服務中台灣的中小品牌，客戶橫跨農業、餐飲、清酒選品、製造業。</p>
+        </div>
+        <div class="about-quote reveal">
+          <p>傳統不代表過時，只是還沒被好好介紹。</p>
+          <cite>— Tony Lin · LINKet 創辦人</cite>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ §03 服務產業 ════ -->
+<section class="sect bg-gray" id="audience">
+  <div class="inner">
+    <div class="sect-head reveal">
+      <span class="sect-no">03 — Industries</span>
+      <h2 class="sect-title">服務產業</h2>
+    </div>
+  </div>
+
+  <div class="industry-list">
+    <div class="industry-item reveal">
+      <div class="ind-num">01</div>
+      <div class="ind-title">傳統農業品牌</div>
+      <div class="ind-desc">建立品牌掃碼入口，讓消費者從市集、展覽直接認識農場品牌，帶動線上預購與到場率。從「不知道怎麼介紹自己」到「掃碼就能說完品牌故事」。</div>
+    </div>
+    <div class="industry-item reveal">
+      <div class="ind-num">02</div>
+      <div class="ind-title">傳統製造業</div>
+      <div class="ind-desc">建立數位第一印象，讓業務名片不再只是一個電話號碼。整合產品目錄、聯絡入口、公司介紹，提升 B2B 洽談轉換效率。</div>
+    </div>
+    <div class="industry-item reveal">
+      <div class="ind-num">03</div>
+      <div class="ind-title">餐飲與地方特色店</div>
+      <div class="ind-desc">讓每個拿到名片的顧客都能立刻找到你。整合 LINE 預約、IG 追蹤、Google Maps 導航，一個 QR Code 完成所有連結。</div>
+    </div>
+    <div class="industry-item reveal">
+      <div class="ind-num">04</div>
+      <div class="ind-title">個人工作者與顧問</div>
+      <div class="ind-desc">建立屬於自己的品牌數位入口，讓作品集、服務說明、聯絡方式一頁整合。不再靠 Linktree，擁有完全客製的個人品牌頁面。</div>
+    </div>
+  </div>
+
+  <div class="inner">
+    <p class="industry-footer reveal">你的品牌故事，值得被好好介紹。</p>
+  </div>
+</section>
+
+<!-- ════ §04 LINKet 服務方案 ════ -->
+<section class="sect bg-white" id="plans">
+  <div class="inner">
+    <div class="sect-head reveal">
+      <span class="sect-no">04 — Plans</span>
+      <h2 class="sect-title">LINKet 服務方案</h2>
+    </div>
+
+    <div class="plans-wrap reveal">
+      <!-- 體驗版（黑框） -->
+      <div class="plan-card bordered">
+        <span class="plan-tier">LINKet Light</span>
+        <div class="plan-name">體驗版</div>
+        <div class="plan-price"><sub>NT$</sub> 6,000</div>
+        <div class="plan-period">首年 6 個月方案</div>
+        <div class="plan-features">
+          <div class="plan-feat">品牌登場頁＋品牌介紹頁</div>
+          <div class="plan-feat">NFC 感應卡 × 1</div>
+          <div class="plan-feat">多連結整合（LINE、IG、官網等）</div>
+          <div class="plan-feat">QR Code 掃碼統計</div>
+        </div>
+        <div class="plan-note">第二年起維護費 NT$2,000/年</div>
+        <a href="https://lin.ee/SMseRI9" target="_blank" class="plan-cta outline"
+          onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'tony'});">
+          諮詢此方案 <span>→</span>
+        </a>
+      </div>
+
+      <!-- 標準版（黑底＋推薦） -->
+      <div class="plan-card featured">
+        <div class="plan-recommend">推薦</div>
+        <span class="plan-tier">LINKet Plus</span>
+        <div class="plan-name">標準版</div>
+        <div class="plan-price"><sub>NT$</sub> 10,000</div>
+        <div class="plan-period">首年 12 個月方案</div>
+        <div class="plan-features">
+          <div class="plan-feat">一頁式品牌登場頁＋三個頁面區塊</div>
+          <div class="plan-feat">NFC 感應卡 × 2</div>
+          <div class="plan-feat">多連結整合＋簡易 SEO 設定</div>
+          <div class="plan-feat">GA4 數據追蹤設定</div>
+          <div class="plan-feat">所有體驗版功能全面升級</div>
+        </div>
+        <div class="plan-note">第二年起維護費 NT$2,000/年</div>
+        <a href="https://lin.ee/SMseRI9" target="_blank" class="plan-cta fill"
+          onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'tony'});">
+          諮詢此方案 <span>→</span>
+        </a>
+      </div>
+
+      <!-- 團隊版（黑框） -->
+      <div class="plan-card bordered">
+        <span class="plan-tier">LINKet Pro</span>
+        <div class="plan-name">團隊版</div>
+        <div class="plan-price"><sub>NT$</sub> 16,000</div>
+        <div class="plan-period">首年 18 個月方案</div>
+        <div class="plan-features">
+          <div class="plan-feat">團隊成員登場頁＋品牌統一三個頁面區塊</div>
+          <div class="plan-feat">NFC 感應卡 × 4（每位成員 2 張）</div>
+          <div class="plan-feat">GA4 ＋ Meta Pixel 完整追蹤</div>
+          <div class="plan-feat">品牌識別設計諮詢</div>
+        </div>
+        <div class="plan-note">適用 2 人團隊，2 人以上可諮詢規劃<br>第二年起維護費 NT$2,000/年</div>
+        <a href="https://lin.ee/SMseRI9" target="_blank" class="plan-cta outline"
+          onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'tony'});">
+          諮詢此方案 <span>→</span>
+        </a>
+      </div>
+    </div>
+
+    <p class="plans-note reveal">方案詳情請與 Tony 確認，可依實際需求客製調整</p>
+  </div>
+</section>
+
+<!-- ════ §05 LINKet 合作流程 ════ -->
+<section class="sect bg-gray" id="flow">
+  <div class="inner">
+    <div class="sect-head reveal">
+      <span class="sect-no">05 — Process</span>
+      <h2 class="sect-title">LINKet 合作流程</h2>
+    </div>
+
+    <div class="timeline-wrap reveal">
+      <div class="timeline-item">
+        <span class="tl-week">Week 1</span>
+        <div class="tl-num">01</div>
+        <div class="tl-title">訪談與需求確認</div>
+        <div class="tl-desc">LINE 聯繫 Tony，說說你的品牌與需求。Tony 會在 24 小時內回覆，先聊再說，不用準備什麼。</div>
+        <div class="tl-note">需準備名片或品牌相關基本資料與品牌授權</div>
+      </div>
+      <div class="timeline-item">
+        <span class="tl-week">Week 2</span>
+        <div class="tl-num">02</div>
+        <div class="tl-title">品牌方向確認與製作</div>
+        <div class="tl-desc">Tony 根據你的品牌調性設計頁面，確認視覺方向、文案架構，並開始製作。</div>
+        <div class="tl-note">你提供品牌素材（Logo、照片、文案），Tony 負責整合與設計</div>
+      </div>
+      <div class="timeline-item">
+        <span class="tl-week">Week 3</span>
+        <div class="tl-num">03</div>
+        <div class="tl-title">品牌最終調整</div>
+        <div class="tl-desc">提供第一版頁面供審閱，根據回饋進行調整，確保每個細節都符合品牌調性。</div>
+        <div class="tl-note">最多 2 次修正回合，確保成品符合期望</div>
+      </div>
+      <div class="timeline-item">
+        <span class="tl-week">Week 4</span>
+        <div class="tl-num">04</div>
+        <div class="tl-title">上架與印刷</div>
+        <div class="tl-desc">頁面部署在 linket.app，NFC 感應卡出貨。從這一刻起，每次遞名片都是一個品牌連結的開始。</div>
+        <div class="tl-note">部署完成後提供使用教學，確保你能獨立操作</div>
+      </div>
+    </div>
+
+    <a href="https://lin.ee/SMseRI9" target="_blank" class="sect-cta outline"
+      onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'tony'});">
+      立即開始 <span class="arr-line"></span>
+    </a>
+  </div>
+</section>
+
+<!-- ════ §06 品牌成果 ════ -->
+<section class="sect bg-white" id="cases">
+  <div class="inner">
+    <div class="sect-head reveal">
+      <span class="sect-no">06 — Cases</span>
+      <h2 class="sect-title">品牌成果</h2>
+    </div>
+
+    <!-- Tab 切換 -->
+    <div class="cases-tabs reveal">
+      <button class="cases-tab active" onclick="switchTab('official', this)">正式客戶</button>
+      <button class="cases-tab" onclick="switchTab('trial', this)">體驗客戶</button>
+    </div>
+
+    <!-- 正式客戶 -->
+    <div class="cases-panel active" id="tab-official">
+      <div class="cases-grid">
+        <div class="case-item">
+          <div class="case-industry">日本清酒選品</div>
+          <div class="case-name">嵐爵私選<br>SAKE LANJUE</div>
+          <div class="case-item-desc">主理人形象頁，整合選酒哲學、品牌故事與活動資訊，搭配完整訂購流程。</div>
+          <a href="https://linket.net/lanjue-sake" target="_blank" class="case-item-link">前往頁面 →</a>
+        </div>
+        <div class="case-item">
+          <div class="case-industry">餐飲品牌</div>
+          <div class="case-name">桑心餐飲<br>emolab</div>
+          <div class="case-item-desc">品牌形象頁與課程報名入口，整合 GA4 與 Meta Pixel 完整數據追蹤。</div>
+          <a href="https://linket.app/emolab/" target="_blank" class="case-item-link">前往頁面 →</a>
+        </div>
+        <div class="case-item">
+          <div class="case-industry">健康管理</div>
+          <div class="case-name">ASMRT<br>永康健康管理</div>
+          <div class="case-item-desc">品牌登場頁，整合服務說明、預約入口，建立專業健康管理品牌形象。</div>
+          <a href="https://linket.net/asmrt-puli" target="_blank" class="case-item-link">前往頁面 →</a>
+        </div>
+        <div class="case-item">
+          <div class="case-industry">咖啡品牌</div>
+          <div class="case-name">坐客咖啡<br>Zouke Café</div>
+          <div class="case-item-desc">品牌微型網頁，整合品牌故事、菜單資訊與活動資訊，搭配 GA4 數據追蹤。</div>
+          <a href="https://linket.net/zouke-cafe" target="_blank" class="case-item-link">前往頁面 →</a>
+        </div>
+        <div class="case-item">
+          <div class="case-industry">數位科技</div>
+          <div class="case-name">龍德數位科技<br>Longder Digital</div>
+          <div class="case-item-desc">B2B 企業形象頁，讓業務拜訪時的第一印象更專業，整合服務說明與聯絡入口。</div>
+          <a href="https://linket.net/longder-digital-tech" target="_blank" class="case-item-link">前往頁面 →</a>
+        </div>
+        <div class="case-item">
+          <div class="case-industry">咖啡品牌</div>
+          <div class="case-name">MuMu Café</div>
+          <div class="case-item-desc">豪華版品牌頁，整合品牌故事、活動資訊與甜點選購，呈現品牌完整面貌。</div>
+          <a href="https://linket.net/mumucafe" target="_blank" class="case-item-link">前往頁面 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 體驗客戶 -->
+    <div class="cases-panel" id="tab-trial">
+      <div class="cases-grid">
+        <div class="case-item">
+          <div class="case-industry">農業品牌</div>
+          <div class="case-name">阮二哥<br>玫瑰園</div>
+          <div class="case-item-desc">花農品牌登場頁，整合品牌故事與預購連結，帶動更多消費者認識在地玫瑰農場。</div>
+          <a href="https://linket.app/ruan-rose/" target="_blank" class="case-item-link">前往頁面 →</a>
+        </div>
+        <div class="case-item">
+          <div class="case-industry">農業品牌</div>
+          <div class="case-name">逐香<br>香莢蘭園</div>
+          <div class="case-item-desc">香草農場品牌頁，視差滾動設計，呈現香莢蘭獨特的農業故事與品牌個性。</div>
+          <a href="https://linket.app/zhuxiang-vanilla/" target="_blank" class="case-item-link">前往頁面 →</a>
+        </div>
+        <div class="case-item">
+          <div class="case-industry">餐飲品牌</div>
+          <div class="case-name">小上海<br>S.H. Bar</div>
+          <div class="case-item-desc">深夜酒吧品牌頁，Art Nouveau 風格設計，整合互動遊戲，打造獨特品牌個性。</div>
+          <a href="https://linket.app/sh-bar/" target="_blank" class="case-item-link">前往頁面 →</a>
+        </div>
+        <div class="case-item">
+          <div class="case-industry">設計公司</div>
+          <div class="case-name">念也設計<br>AETER Ltd.</div>
+          <div class="case-item-desc">設計公司品牌頁，整合作品集入口與服務說明，建立專業設計品牌形象。</div>
+          <a href="https://linket.net/aeter-design" target="_blank" class="case-item-link">前往頁面 →</a>
+        </div>
+        <div class="case-item">
+          <div class="case-industry">美妝品牌</div>
+          <div class="case-name">資生堂<br>美學專家 張嘉嘉</div>
+          <div class="case-item-desc">個人品牌登場頁，整合美學諮詢入口與品牌故事，展現資深美學顧問的專業形象。</div>
+          <a href="https://linket.net/mikijiabeauty" target="_blank" class="case-item-link">前往頁面 →</a>
+        </div>
+        <div class="case-item">
+          <div class="case-industry">個人品牌</div>
+          <div class="case-name">有山有谷<br>&amp;有余哲學</div>
+          <div class="case-item-desc">個人哲學品牌頁，整合理念說明與聯絡入口，呈現創作者獨特的思想品牌。</div>
+          <a href="https://linket.net/hills-valleys" target="_blank" class="case-item-link">前往頁面 →</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="cases-note reveal">更多案例持續更新中 · Hover 查看詳情</p>
+  </div>
+</section>
+
+<!-- ════ §07 LINKet 整合服務（黑底） ════ -->
+<section class="sect bg-black noise" id="services">
+  <div class="inner">
+    <div class="sect-head reveal">
+      <span class="sect-no">07 — Services</span>
+      <h2 class="sect-title">LINKet 整合服務</h2>
+    </div>
+
+    <div class="services-list">
+      <div class="service-row reveal">
+        <div class="svc-no">01</div>
+        <div class="svc-body">
+          <div class="svc-title">數位名片頁</div>
+          <span class="svc-title-en">Brand Landing Page</span>
+          <div class="svc-desc">讓每個掃碼的人，都能立刻認識你的品牌。整合 Link in Bio、聯絡入口、社群導流，一頁搞定。</div>
+        </div>
+        <div class="svc-tags">
+          <span class="svc-tag">LINKet Light</span>
+          <span class="svc-tag">NFC 卡</span>
+          <span class="svc-tag">QR</span>
+        </div>
+      </div>
+      <div class="service-row reveal">
+        <div class="svc-no">02</div>
+        <div class="svc-body">
+          <div class="svc-title">品牌識別設計</div>
+          <span class="svc-title-en">Brand Identity</span>
+          <div class="svc-desc">LOGO、配色、字體系統，讓品牌在每個接觸點都有一致的面貌。</div>
+        </div>
+        <div class="svc-tags">
+          <span class="svc-tag">LOGO</span>
+          <span class="svc-tag">配色</span>
+          <span class="svc-tag">視覺規範</span>
+        </div>
+      </div>
+      <div class="service-row reveal">
+        <div class="svc-no">03</div>
+        <div class="svc-body">
+          <div class="svc-title">空間與印刷設計</div>
+          <span class="svc-title-en">Space & Print</span>
+          <div class="svc-desc">品牌從數位延伸到實體，門面、包裝、名片、海報，線上線下一致。</div>
+        </div>
+        <div class="svc-tags">
+          <span class="svc-tag">空間</span>
+          <span class="svc-tag">包裝</span>
+          <span class="svc-tag">印刷</span>
+        </div>
+      </div>
+      <div class="service-row reveal">
+        <div class="svc-no">04</div>
+        <div class="svc-body">
+          <div class="svc-title">數據追蹤設定</div>
+          <span class="svc-title-en">Analytics Setup</span>
+          <div class="svc-desc">GA4 與 Meta Pixel，讓每次掃碼都產生數據，知道品牌如何被看見。</div>
+        </div>
+        <div class="svc-tags">
+          <span class="svc-tag">GA4</span>
+          <span class="svc-tag">Meta Pixel</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="services-ctas reveal">
+      <a href="https://www.behance.net/mumud8zo18" target="_blank" class="services-cta fill-w"
+        onclick="gtag('event','click_behance',{'event_category':'CTA','event_label':'tony'});">
+        作品集｜Behance <span class="arr-line"></span>
+      </a>
+      <a href="https://tonydesignstudio.notion.site/Tony-Design-Studio-1d37863d2b978023a64edee5c31bae21" target="_blank" class="services-cta outline-w"
+        onclick="gtag('event','click_portfolio',{'event_category':'CTA','event_label':'tony'});">
+        設計工作室｜Portfolio <span class="arr-line"></span>
+      </a>
+      <a href="https://lin.ee/SMseRI9" target="_blank" class="services-cta fill-w"
+        onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'tony'});">
+        諮詢服務｜LINE <span class="arr-line"></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer class="footer noise" id="footer">
+  <div class="footer-name-row">
+    <div class="footer-name">Tony<span class="dot">.</span></div>
+    <div class="footer-tagline">LINKet<br>讓你的品牌，<br>開始被看見</div>
+  </div>
+  <div class="footer-ctas">
+    <a href="https://lin.ee/SMseRI9" target="_blank" class="footer-btn fill"
+      onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'tony'});">
+      諮詢服務｜LINE <span>→</span>
+    </a>
+    <a href="https://www.instagram.com/linket_official" target="_blank" class="footer-btn outline"
+      onclick="gtag('event','click_ig_follow',{'event_category':'CTA','event_label':'tony'});">
+      追蹤動態｜INSTAGRAM <span>→</span>
+    </a>
+    <a href="mailto:info.tonydesignstudio@gmail.com" class="footer-btn outline"
+      onclick="gtag('event','click_mail',{'event_category':'CTA','event_label':'tony'});">
+      寫信給我｜EMAIL <span>→</span>
+    </a>
+  </div>
+  <div class="footer-meta">
+    <span class="footer-copy">© 2025 LINKet · Tony Design Studio · Tony Lin 林志昇</span>
+    <a class="design-by" href="https://linket.app/home" target="_blank">
+      Design by LIN<span class="db-ket">KET</span>
+    </a>
+  </div>
+</footer>
+<div class="back-wrap">
+  <a class="back-btn" href="#top">↑ BACK TO TOP</a>
+</div>
+
+<script>
+/* Reveal */
+const _obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('visible'); _obs.unobserve(e.target); }
+  });
+}, { threshold: 0.06 });
+document.querySelectorAll('.reveal, .reveal-l').forEach(el => _obs.observe(el));
+
+/* Cases Tab */
+function switchTab(tab, btn) {
+  document.querySelectorAll('.cases-tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.cases-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-' + tab).classList.add('active');
+}
+
+/* Web Share API */
+(function(){
+  const btn = document.getElementById('shareBtn');
+  if(!btn) return;
+  if(navigator.share) btn.classList.add('visible');
+})();
+function shareThisPage(){
+  if(!navigator.share) return;
+  navigator.share({
+    title: 'Tony Lin 林志昇｜LINKet 創辦人',
+    text: '我幫傳統品牌，找到被看見的方式。',
+    url: 'https://linket.app/tony'
+  })
+  .then(()=> gtag('event','click_share',{'event_category':'CTA','event_label':'tony'}))
+  .catch(()=>{});
+}
+
+/* QR Code */
+let qrLoaded=false, qrInst=null;
+function loadQrLib(cb){
+  if(qrLoaded){cb();return;}
+  const s=document.createElement('script');
+  s.src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
+  s.onload=()=>{qrLoaded=true;cb();};
+  document.head.appendChild(s);
+}
+function renderQrCode(){
+  const el=document.getElementById('qrcode-canvas');
+  if(!el||qrInst) return;
+  el.innerHTML='';
+  qrInst=new QRCode(el,{
+    text:'https://linket.app/tony',
+    width:176, height:176,
+    colorDark:'#000000', colorLight:'#ffffff',
+    correctLevel:QRCode.CorrectLevel.M
+  });
+}
+function openQrModal(){
+  document.getElementById('qrModal').classList.add('active');
+  document.body.style.overflow='hidden';
+  loadQrLib(renderQrCode);
+  gtag('event','click_qr_modal',{'event_category':'CTA','event_label':'tony'});
+}
+function closeQrModal(){
+  document.getElementById('qrModal').classList.remove('active');
+  document.body.style.overflow='';
+}
+function closeQrModalOnBg(e){
+  if(e.target===document.getElementById('qrModal')) closeQrModal();
+}
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeQrModal(); });
+</script>
+</body>
+</html>
