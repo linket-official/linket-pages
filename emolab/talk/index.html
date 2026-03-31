@@ -62,7 +62,7 @@ a{text-decoration:none;color:inherit;}
 
 /* ── HERO ── */
 #hero{position:relative;overflow:hidden;background:var(--bg2);min-height:92svh;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;}
-.hero-bg{position:absolute;inset:0;background:url('emolab/talk/hero-bg.jpg') center 30%/cover no-repeat;opacity:.5;z-index:0;}
+.hero-bg{position:absolute;inset:0;background:url('/emolab/talk/hero-bg.jpg') center 30%/cover no-repeat;opacity:.12;z-index:0;}
 .hero-content{position:relative;z-index:2;width:100%;max-width:var(--mw);padding:2rem 1.6rem 4rem;display:flex;flex-direction:column;align-items:flex-start;gap:.6rem;}
 .hero-not-badge{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;letter-spacing:.26em;color:var(--rust);border:1px solid var(--rust);padding:.28rem .8rem;border-radius:var(--r);margin-bottom:.4rem;}
 .hero-title{font-size:clamp(2.8rem,13vw,5.5rem);font-weight:700;line-height:.9;letter-spacing:.04em;color:var(--ink);}
@@ -98,12 +98,12 @@ a{text-decoration:none;color:inherit;}
 @media(max-width:480px){.features-grid{grid-template-columns:1fr;}}
 
 /* ── Gamma 嵌入 ── */
-.gamma-wrap{width:100%;margin:2rem auto;border:1px solid var(--b2);border-radius:var(--r);overflow:auto;-webkit-overflow-scrolling:touch;}
+.gamma-wrap{width:85%;margin:2rem auto;border:1px solid var(--b2);border-radius:var(--r);overflow:auto;-webkit-overflow-scrolling:touch;}
 .gamma-wrap iframe{width:100%;height:700px;display:block;border:none;}
 .gamma-hint{display:none;text-align:center;font-size:.72rem;letter-spacing:.14em;color:var(--ink3);padding:.45rem 0 .1rem;font-family:'Cormorant Garamond',serif;font-style:italic;}
 @media(max-width:700px){
   .gamma-wrap{width:100%;overflow:auto;}
-  .gamma-wrap iframe{height:700px;touch-action:pan-x;}
+  .gamma-wrap iframe{height:480px;touch-action:pan-x;}
   .gamma-hint{display:block;}
 }
 
@@ -245,7 +245,7 @@ a{text-decoration:none;color:inherit;}
 
     <!-- 活動卡 01 — 微醺連結 -->
     <div class="event-card-item">
-      <img src="emolab/talk/img-event-sake.jpg" alt="微醺連結清酒品酒會" class="event-card-img"
+      <img src="/emolab/talk/img-event-sake.jpg" alt="微醺連結清酒品酒會" class="event-card-img"
         onerror="this.outerHTML='<div class=\'event-card-img-ph\'>img-event-sake.jpg</div>'">
       <div class="event-card-body">
         <span class="event-card-tag">清酒與文化</span>
@@ -260,7 +260,7 @@ a{text-decoration:none;color:inherit;}
 
     <!-- 活動卡 02 — 頌缽體驗 -->
     <div class="event-card-item">
-      <img src="emolab/talk/img-event-singing-bowl.jpg" alt="頌缽體驗會" class="event-card-img"
+      <img src="/emolab/talk/img-event-singing-bowl.jpg" alt="頌缽體驗會" class="event-card-img"
         onerror="this.outerHTML='<div class=\'event-card-img-ph\'>img-event-singing-bowl.jpg</div>'">
       <div class="event-card-body">
         <span class="event-card-tag">身心療癒課程</span>
@@ -275,7 +275,7 @@ a{text-decoration:none;color:inherit;}
 
     <!-- 活動卡 03 — 螢火蟲 × 芳療（即將公告） -->
     <div class="event-card-item">
-      <img src="emolab/talk/img-event-firefly.jpg" alt="螢火蟲 × 芳療行程" class="event-card-img"
+      <img src="/emolab/talk/img-event-firefly.jpg" alt="螢火蟲 × 芳療行程" class="event-card-img"
         onerror="this.outerHTML='<div class=\'event-card-img-ph\'>img-event-firefly.jpg</div>'">
       <div class="event-card-body">
         <span class="event-card-tag">創意體驗工作坊</span>
@@ -288,7 +288,7 @@ a{text-decoration:none;color:inherit;}
 
     <!-- 活動卡 04 — 創業交流 -->
     <div class="event-card-item">
-      <img src="emolab/talk/img-event-startup.jpg" alt="創業交流與分享會" class="event-card-img"
+      <img src="/emolab/talk/img-event-startup.jpg" alt="創業交流與分享會" class="event-card-img"
         onerror="this.outerHTML='<div class=\'event-card-img-ph\'>img-event-startup.jpg</div>'">
       <div class="event-card-body">
         <span class="event-card-tag">真實的交流場合</span>
