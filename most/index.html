@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-29J2988Y8J');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>膜仕 MOST｜極致膜藝・專仕於心</title>
+<meta name="description" content="台灣汽車貼膜專業品牌，自有工廠直供，提供 TPU 犀牛皮、改色膜、改色犀牛皮一條龍服務。極致工藝，專仕於心。">
+<meta property="og:title" content="膜仕 MOST｜極致膜藝・專仕於心">
+<meta property="og:description" content="自有品牌直供，頂級 TPU 犀牛皮與改色膜專家。南投埔里旗艦店，24 小時服務。">
+<meta property="og:image" content="https://linket.app/most/og-most.jpg">
+<meta property="og:url" content="https://linket.app/most">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<!-- 核心字體：優雅襯線 + 高階明體 -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* MOST 膜仕：高端明體視覺系統 */
+  --black  : #0A0A0A;
+  --white  : #FAFAFA;
+  --gray   : #1A1A1A;
+  --gold   : #C8A96A;
+  
+  --line   : rgba(255,255,255,.1);
+  --line-dk: rgba(0,0,0,.08);
+  
+  --mw     : 1000px;
+  --r      : 0px; 
+}
+
+*,*::before,*::after{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+/* UI 修正：整體文字以明體為主，字距 0.12em，行高 1.7 */
+body{ 
+  font-family:'Noto Serif TC', serif; 
+  background:var(--black); 
+  color:var(--white); 
+  overflow-x:hidden; 
+  line-height:1.7; 
+  letter-spacing: 0.12em; 
+}
+
+/* ── 質感關鍵：全站底片噪點 ── */
+.noise-overlay {
+  position:fixed; inset:0; z-index:50; pointer-events:none;
+  background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.05"/%3E%3C/svg%3E');
+}
+
+/* ── ① HERO (校正版排版：向中央收攏，不偏兩緣) ── */
+.hero{ position:relative; width:100%; min-height:100svh; display:flex; flex-direction:column; background:var(--black); border-bottom: 1px solid var(--line); }
+.hero-bg-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; opacity:.16; pointer-events:none; filter: grayscale(1); }
+.hero .inner{ position:relative; z-index:2; width:100%; max-width: 1040px; flex:1; display:flex; flex-direction:column; justify-content:center; margin: 0 auto; padding: 4rem 2rem; }
+
+/* RWD 排版修正：控制最大寬度並適度縮小 gap，讓視覺向中央集中 */
+.hero-cols{ display:flex; flex-direction:row; align-items:center; justify-content:center; flex:1; gap:3.5rem; }
+
+/* Hero 左欄 */
+.hero-left{ flex:1 1 0; display:flex; flex-direction:column; align-items:flex-start; text-align:left; max-width: 480px; }
+.hero-logo{ width: 140px; height: auto; margin-bottom: 2.5rem; filter: brightness(0) invert(1); }
+
+.h-brand-name{ font-weight:900; font-size:clamp(2.2rem, 4.5vw, 3.2rem); letter-spacing:.15em; color:var(--white); line-height:1.2; margin-bottom:.5rem; }
+.h-brand-en{ font-family:'Cormorant Garamond', serif; font-style:italic; font-weight:300; font-size:1.3rem; letter-spacing:.25em; color:var(--gold); margin-bottom:2.5rem; text-transform:uppercase; }
+.h-divider{ width:45px; height:1px; background:var(--gold); margin-bottom:2rem; }
+.h-slogan{ font-weight:700; font-size:1.3rem; letter-spacing:.2em; color:var(--white); }
+
+/* Hero 右欄 */
+.hero-right{ flex:1 1 0; display:flex; flex-direction:column; align-items:center; justify-content:center; width: 100%; max-width: 340px; margin: 0 auto;}
+
+/* ── 社群 Icons（阮二哥標準：透明底、無邊框）── */
+.hero-icons{
+  display:flex; justify-content:center;
+  /* 修正A：加大間距配合更大的 icon */
+  gap:1.0rem; margin-bottom:1.0rem;
+  width:100%; flex-wrap:wrap;
+}
+.hero-icon-link{
+  /* 修正A：容器加大 */
+  width:50px; height:50px;
+  display:flex; align-items:center; justify-content:center;
+  text-decoration:none;
+  transition:opacity .2s, transform .2s; flex-shrink:0;
+  border-radius:0; background:transparent; border:none;
+}
+.hero-icon-link:hover{ opacity:.72; transform:scale(1.08); }
+.hero-icon-link svg,
+.hero-icon-link img{
+  /* 修正A：28px → 42px（+50%）*/
+  width:42px; height:42px; display:block;
+  filter:brightness(0) invert(1); /* 黑底防呆反白 */
+}
+
+/* 按鈕直接為 .hero-right 子元素 */
+.hero-btn{
+  display:flex; align-items:center; justify-content:center; width:100%; padding:1.1rem 1rem; border-radius:0;
+  font-family:'Noto Serif TC', serif; font-size:.85rem; font-weight:700; letter-spacing:.2em; text-decoration:none; text-align:center;
+  transition:all .3s ease; cursor:pointer; border:1px solid transparent; margin-bottom: .8rem;
+}
+.hero-btn.p1{ background:var(--white); color:var(--black); }
+.hero-btn.p1:hover{ background:transparent; color:var(--white); border-color:var(--white); }
+.hero-btn.ghost{ background:transparent; border-color:var(--line); color:var(--white); }
+.hero-btn.ghost:hover{ background:transparent; color:var(--gold); border-color:var(--gold); }
+
+.hero-btn-row{ display:flex; gap:.8rem; width:100%; justify-content:center; margin-top:.5rem; }
+.btn-sm{
+  flex:1; display:flex; align-items:center; justify-content:center; background:transparent; border:1px solid var(--line); color:rgba(255,255,255,.5);
+  font-family: sans-serif; font-size:.7rem; letter-spacing:.25em; padding:.8rem .5rem; transition:all .3s ease; cursor:pointer; text-transform:uppercase;
+}
+.btn-sm:hover{ border-color:var(--gold); color:var(--gold); }
+
+/* Hero 進場動畫 */
+@keyframes heroSlideUp { from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
+.hero-left > * { opacity:0; animation: heroSlideUp .8s ease both; }
+.hero-left > *:nth-child(1) { animation-delay: .1s; }
+.hero-left > *:nth-child(2) { animation-delay: .2s; }
+.hero-left > *:nth-child(3) { animation-delay: .3s; }
+.hero-left > *:nth-child(4) { animation-delay: .4s; }
+.hero-left > *:nth-child(5) { animation-delay: .5s; }
+
+.hero-right > * { opacity:0; animation: heroSlideUp .8s ease both; }
+.hero-right > *:nth-child(1) { animation-delay: .3s; } /* icons */
+.hero-right > *:nth-child(2) { animation-delay: .4s; } /* p1 btn */
+.hero-right > *:nth-child(3) { animation-delay: .5s; } /* p1 btn */
+.hero-right > *:nth-child(4) { animation-delay: .6s; } /* ghost btn */
+.hero-right > *:nth-child(5) { animation-delay: .7s; } /* ghost btn */
+.hero-right > *:nth-child(6) { animation-delay: .8s; } /* btn-row */
+
+
+/* ── ② WATERMARK ── */
+.watermark{ width:100%; background:var(--gray); text-align:center; overflow:hidden; position:relative; padding:5rem 1.4rem; border-bottom:1px solid var(--line); }
+.watermark::before{
+  content:'MOST'; position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  font-family:'Cormorant Garamond', serif; font-size:clamp(6rem, 22vw, 18rem); font-weight:300;
+  letter-spacing:.1em; color:var(--white); opacity:0.03; pointer-events:none; line-height:1;
+}
+.wm-main{ font-weight:700; font-size:1.2rem; letter-spacing:.5em; text-indent:.5em; color:var(--gold); position:relative; }
+.wm-sub{ font-family:'Cormorant Garamond', serif; font-style:italic; font-size:.75rem; font-weight:300; letter-spacing:.3em; color:rgba(255,255,255,.3); text-transform:uppercase; display:block; position:relative; margin-top:.8rem;}
+
+
+/* ── 區塊共用設定 ── */
+.sec{ padding: 6rem 1.4rem; position:relative; margin: 0 auto; width: 100%; }
+.content-wrap{ max-width:var(--mw); margin:0 auto; position:relative; }
+@media(min-width: 768px){ .sec{ padding: 8rem 2rem; } }
+
+.sec.white-bg{ background:var(--white); color:var(--black); }
+
+.eyebrow{ display:flex; flex-direction:column; align-items:flex-start; gap:0.8rem; margin-bottom:4rem; }
+.eyebrow span{ font-family:'Cormorant Garamond', serif; font-weight:300; font-style:italic; font-size:1.4rem; letter-spacing:.2em; color:var(--gold); text-transform:uppercase; }
+.eyebrow h2{ font-weight:700; font-size:1rem; letter-spacing:.3em; color:var(--white); opacity: 0.6; }
+.sec.white-bg .eyebrow h2{ color:var(--black); opacity: 0.4; }
+
+
+/* ── ③ BRAND STORY (白底擴充版) ── */
+.story-intro{ font-size: 1.1rem; font-weight: 300; margin-bottom: 5rem; line-height: 2.2; text-align: justify; }
+.story-intro h3{ font-size: 1.8rem; font-weight: 900; letter-spacing: 0.15em; margin-bottom: 1.5rem; color: var(--black); }
+
+/* 品牌堅持卡片組 */
+.brand-grid{ display:grid; grid-template-columns: 1fr; gap:6rem; }
+.brand-card{ display:grid; grid-template-columns: 1fr; gap:3rem; align-items: center; }
+@media(min-width: 768px){ .brand-card{ grid-template-columns: 1.1fr 0.9fr; } .brand-card.rev{ grid-template-columns: 0.9fr 1.1fr; } .brand-card.rev .brand-info{ order: 2; } }
+
+.brand-img{ aspect-ratio: 16/10; background:#EAEAEA; border: 1px solid var(--line-dk); overflow:hidden; display: flex; align-items: center; justify-content: center; color: #999; font-size: 0.8rem; letter-spacing: 0.1em; }
+.brand-img img{ width:100%; height:100%; object-fit:cover; transition: transform 1s ease; filter: grayscale(0.2); }
+.brand-card:hover img{ transform: scale(1.05); filter: grayscale(0); }
+.img-placeholder{ width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #EAEAEA; color: #999; font-size: 0.85rem; letter-spacing: 0.15em; }
+
+.brand-info h3{ font-weight:900; font-size:1.5rem; margin-bottom:1.5rem; letter-spacing:.15em; border-left: 3px solid var(--gold); padding-left: 1.2rem; line-height: 1.5;}
+.brand-info p{ font-size:1rem; font-weight:400; line-height:2.2; color:rgba(0,0,0,.7); text-align: justify; }
+
+
+/* ── ④ PRODUCTS (產品清單) ── */
+#products{ background:var(--black); }
+.prod-list{ display:grid; grid-template-columns: 1fr; gap: 3rem; margin-top:3rem; }
+@media(min-width:768px){ .prod-list{ grid-template-columns: repeat(3, 1fr); gap: 2rem; } }
+
+.prod-card{ display:flex; flex-direction:column; border: 1px solid var(--line); transition:all .5s ease; position:relative; overflow:hidden;}
+.prod-card:hover{ border-color:var(--gold); transform: translateY(-5px); }
+.prod-img-box{ aspect-ratio: 4/5; background:var(--gray); overflow:hidden; position:relative; display: flex; align-items: center; justify-content: center; color: #555; font-size: 0.8rem; letter-spacing: 0.15em; }
+.prod-img-box img{ width:100%; height:100%; object-fit:cover; opacity:.6; transition:all .8s ease; filter: grayscale(1); }
+.prod-card:hover img{ opacity:1; filter: grayscale(0); }
+.prod-num{ position:absolute; top:2rem; left:2rem; font-family:'Cormorant Garamond', serif; font-style:italic; font-size:2.5rem; color:var(--gold); opacity:.3; z-index:2; }
+.prod-info{ padding:2.5rem 2rem; flex:1; display:flex; flex-direction:column; background:var(--black); }
+.prod-title{ font-weight:700; font-size:1.4rem; margin-bottom:.6rem; letter-spacing:.1em; }
+.prod-en{ font-family:'Cormorant Garamond', serif; font-style:italic; font-size:.9rem; color:var(--gold); letter-spacing:.15em; margin-bottom:2rem; text-transform:uppercase;}
+.prod-btn{ margin-top:auto; font-size:.75rem; letter-spacing:.25em; color:var(--gold); text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:.5rem; align-self:flex-start; text-transform:uppercase; font-weight:700; transition: border-color 0.3s; }
+.prod-card:hover .prod-btn{ border-color: var(--gold); }
+
+
+/* ── ⑤ LOCATION ── */
+.loc-grid{ display:grid; grid-template-columns: 1fr; gap:4rem;}
+@media(min-width:768px){ .loc-grid{ grid-template-columns: 1fr 1.2fr; } }
+.loc-info h4{ font-weight:900; font-size:1.8rem; margin-bottom:2.5rem; letter-spacing:.1em; }
+.loc-spec{ display:flex; gap:2rem; border-bottom:1px solid rgba(0,0,0,.08); padding-bottom:1.5rem; margin-bottom: 1.5rem; }
+.loc-lbl{ font-weight:700; font-size:.75rem; min-width:6rem; color:rgba(0,0,0,.4); text-transform:uppercase; letter-spacing:.2em;}
+.loc-val{ font-size:1rem; font-weight:400; color:var(--black); letter-spacing:.05em; }
+.map-embed{ width:100%; height:450px; border:1px solid rgba(0,0,0,.1); background: #EAEAEA; display: flex; align-items: center; justify-content: center;}
+.map-embed iframe{ width:100%; height:100%; border:none; filter: grayscale(1); opacity: 0.9;}
+
+/* 第五區新增 BACK TO TOP */
+.back-to-top-in-loc{ 
+  display: flex; justify-content: center; margin-top: 6rem; border-top: 1px solid rgba(0,0,0,0.08); padding-top: 3rem;
+}
+.back-to-top-btn{
+  display:inline-flex; align-items:center; gap:.6rem;
+  font-family:'Cormorant Garamond',serif; font-style:italic; font-size:.85rem; 
+  letter-spacing:.25em; color:rgba(0,0,0,.4); text-decoration:none; transition:color .2s;
+  text-transform: uppercase;
+}
+.back-to-top-btn:hover{ color: var(--gold); }
+
+
+/* ── ⑥ FOOTER ── */
+.footer{ background:var(--black); text-align:center; padding:8rem 1.4rem 6rem; border-top:1px solid var(--line); position:relative; overflow:hidden;}
+.f-big-bg{ position:absolute; top:15%; left:50%; transform:translateX(-50%); font-family:'Cormorant Garamond', serif; font-size:clamp(8rem, 28vw, 22rem); font-weight:300; font-style:italic; color:rgba(255,255,255,.02); pointer-events:none; }
+.f-content{ position:relative; z-index:2; display:flex; flex-direction:column; align-items:center; }
+.f-title{ font-weight:900; font-size:2.2rem; letter-spacing:.3em; margin-bottom:4rem; }
+.f-title span{ color:var(--gold); }
+.f-btns{ display:flex; flex-direction:column; gap:1.2rem; width:100%; max-width:320px; margin-bottom:5rem; }
+.f-nav{ display:flex; gap:2.5rem; list-style:none; margin-bottom:4rem; flex-wrap:wrap; justify-content:center; }
+.f-nav a{ font-size:.8rem; letter-spacing:.3em; color:rgba(255,255,255,.4); text-decoration:none; text-transform:uppercase; transition:all .3s; }
+.f-nav a:hover{ color:var(--gold); }
+.f-copyright{ font-size:.7rem; color:rgba(255,255,255,.2); letter-spacing:.2em; font-family: sans-serif; }
+
+/* DESIGN BY LINKET (嚴格對齊規範) */
+a.design-by{ 
+  display:block; width:100%; background:#000; text-align:center; padding:1.5rem; 
+  font-size:.72rem; letter-spacing:.3em; color:rgba(255,255,255,.3); text-decoration:none; 
+  font-family:'Noto Sans TC',sans-serif;
+}
+.db-lin{ color:rgba(255,255,255,.6); font-weight:700; }
+.db-ket{ color:#2979ff; font-weight:700; }
+
+/* QR MODAL */
+.qr-modal-overlay{ display:none; position:fixed; inset:0; z-index:999; background:rgba(0,0,0,.92); backdrop-filter:blur(5px); align-items:center; justify-content:center; }
+.qr-modal-overlay.active{ display:flex; animation:fadeIn .3s ease; }
+@keyframes fadeIn{ from{opacity:0;}to{opacity:1;} }
+.qr-modal{ background:var(--black); border:1px solid var(--line); padding:3rem 2.5rem; max-width:340px; width:90%; display:flex; flex-direction:column; align-items:center; }
+.qr-modal-logo{ width:130px; height:auto; margin-bottom:2.5rem; filter: brightness(0) invert(1); }
+.qr-modal-code{ width:200px; height:200px; background:#fff; display:flex; align-items:center; justify-content:center; padding:10px; margin-bottom:2rem; }
+.qr-modal-code img{ width:100%; height:100%; object-fit:contain; }
+.qr-modal-close{ background:transparent; border:1px solid var(--line); padding:.8rem 3rem; font-family:'Noto Serif TC', serif; font-weight:700; font-size:.8rem; letter-spacing:.25em; color:var(--gold); cursor:pointer; text-transform:uppercase; transition: background 0.3s, color 0.3s;}
+.qr-modal-close:hover{ background:var(--gold); color:var(--black); }
+
+/* ── REVEAL ── */
+.reveal{ opacity:0; transform:translateY(30px); transition:all 1s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.reveal.visible{ opacity:1; transform:none; }
+
+@media(max-width:768px){
+  .hero-cols{ flex-direction:column; gap:4rem; }
+  .hero-left{ align-items:center; text-align:center; padding: 0 1.4rem; max-width: 100%; }
+  .hero-right{ padding-bottom:3rem; max-width: 100%; }
+}
+</style>
+</head>
+<body id="top">
+
+<div class="noise-overlay"></div>
+
+<!-- ① HERO -->
+<section class="hero" id="hero">
+  <img src="hero-bg.jpg" alt="" class="hero-bg-img" aria-hidden="true" onerror="this.style.display='none'">
+  
+  <div class="inner">
+    <div class="hero-cols">
+      
+      <!-- 左欄：品牌視覺 -->
+      <div class="hero-left">
+        <img src="logo-circle.png" alt="MOST Logo" class="hero-logo" onerror="this.outerHTML='<div style=\'width:120px;height:120px;border:1px solid #fff;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:2.5rem;\'>Logo</div>'">
+        
+        <h1 class="h-brand-name">膜仕車體美學</h1>
+        <div class="h-brand-en">MOST Auto Detailing</div>
+        <div class="h-divider"></div>
+        <p class="h-slogan">極致膜藝・專仕於心</p>
+      </div>
+
+      <!-- 右欄：行動矩陣 (嚴格遵守直接子元素) -->
+      <div class="hero-right">
+        
+        <div class="hero-icons">
+          <a class="hero-icon-link" href="https://lin.ee/gZ81qtC" target="_blank" aria-label="LINE" onclick="gtag('event','click_line',{'event_category':'CTA','event_label':'most'});">
+            <img src="/assets/line.svg" alt="LINE" onerror="this.style.display='none'">
+          </a>
+          <a class="hero-icon-link" href="https://www.instagram.com/most168888/" target="_blank" aria-label="Instagram" onclick="gtag('event','click_ig',{'event_category':'CTA','event_label':'most'});">
+            <img src="/assets/instagram.svg" alt="Instagram" onerror="this.style.display='none'">
+          </a>
+          <a class="hero-icon-link" href="https://www.facebook.com/Most168888/" target="_blank" aria-label="Facebook" onclick="gtag('event','click_facebook',{'event_category':'CTA','event_label':'most'});">
+            <img src="/assets/facebook.svg" alt="Facebook" onerror="this.style.display='none'">
+          </a>
+          <a class="hero-icon-link" href="tel:0900759678" aria-label="Phone" onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'most'});">
+            <img src="/assets/phone.svg" alt="Phone" onerror="this.style.display='none'">
+          </a>
+          <a class="hero-icon-link" href="https://maps.app.goo.gl/tB4wGW8JL2NG8Rs68" target="_blank" aria-label="Map" onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'most'});">
+            <img src="/assets/map.svg" alt="Map" onerror="this.style.display='none'">
+          </a>
+        </div>
+
+        <a href="https://lin.ee/gZ81qtC" target="_blank" class="hero-btn p1" onclick="gtag('event','click_line',{'event_category':'CTA','event_label':'most'});">聯繫洽詢 ｜ LINE CONSULTATION</a>
+        <a href="tel:0900759678" class="hero-btn p1" onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'most'});">立即致電 ｜ 0900-759-678</a>
+        <a href="#products" class="hero-btn ghost">產品總覽 ｜ PRODUCT LINE</a>
+        <a href="#about" class="hero-btn ghost">關於膜仕 ｜ ABOUT MOST</a>
+        
+        <div class="hero-btn-row">
+          <button class="btn-sm" onclick="openQrModal()" aria-label="顯示 QR Code">QR CODE</button>
+          <button class="btn-sm share" id="shareBtn" onclick="shareThisPage()" aria-label="分享此頁面">SHARE</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ② WATERMARK DIVIDER -->
+<div class="watermark">
+  <div class="inner" data-wm="MOST">
+    <div class="wm-main">膜仕車體美學</div>
+    <span class="wm-sub">MOST AUTO DETAILING · OWN FACTORY SUPPLY</span>
+  </div>
+</div>
+
+<!-- ③ BRAND STORY (白底擴充版) -->
+<section class="sec white-bg" id="about">
+  <div class="content-wrap">
+    <div class="eyebrow reveal"><span>The Origin</span><h2>關於品牌</h2></div>
+    
+    <div class="story-intro reveal">
+      <h3>品牌專業與堅持</h3>
+      <p>膜仕 MOST，以第一手工廠直供材料為核心，打造台灣汽車貼膜產業最具質感的一條龍服務。我們不僅是一個品牌，更是一套標準。跳過貿易商，將實驗室級的防護力直接貼合於您的座駕，為每一位車主提供最真實的品質承諾。這不只是包膜，是對愛車的一份純粹守護。</p>
+    </div>
+
+    <div class="brand-grid">
+      <!-- 01 自有工廠 -->
+      <div class="brand-card reveal">
+        <div class="brand-info">
+          <h3>工廠直營・掌握防護源頭</h3>
+          <p>從料到工，品質透明可追溯。我們掌握核心 TPU 分子技術與精密塗佈製程，讓車主能以直供價格，享受實驗室等級的高分子防護力。唯有掌握生產端，才能確保每一卷膜料都符合膜仕的嚴苛品質控管。</p>
+        </div>
+        <div class="brand-img"><img src="factory-exterior.jpg" alt="工廠外觀" onerror="this.outerHTML='<div class=\'img-placeholder\'>工廠外觀照片待補</div>'"></div>
+      </div>
+
+      <!-- 02 協力技術 -->
+      <div class="brand-card rev reveal">
+        <div class="brand-info">
+          <h3>協力貼膜場技術・職人手作溫潤</h3>
+          <p>包膜不只是自動化的覆蓋，更是對車體幾何學的致敬。我們的施工團隊具備深厚的協力場實戰經驗，針對不同車款曲率進行精準裁切與拉伸。在看不見的收邊細節裡，藏著我們對極致膜藝的堅持。</p>
+        </div>
+        <div class="brand-img"><img src="factory-interior.jpg" alt="工廠內部" onerror="this.outerHTML='<div class=\'img-placeholder\'>職人施工照片待補</div>'"></div>
+      </div>
+
+      <!-- 03 頂級 TPU 材質 -->
+      <div class="brand-card reveal">
+        <div class="brand-info">
+          <h3>頂級材質・自有品牌專賣</h3>
+          <p>拒絕雜牌代工，嚴選頂級熱塑性聚氨酯。具備卓越的自我修復與抗黃變能力，提供極致保護。我們相信，真正的奢侈品不需要多餘的包裝，而是禁得起時間考驗的硬核實力與全年無休的守護。</p>
+        </div>
+        <div class="brand-img"><img src="img-placeholder-3.jpg" alt="服務形象" onerror="this.outerHTML='<div class=\'img-placeholder\'>頂級材質照片待補</div>'"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ④ PRODUCTS (產品清單串接) -->
+<section class="sec" id="products">
+  <div class="content-wrap">
+    <div class="eyebrow reveal"><span>The Collection</span><h2>三大產品線</h2></div>
+
+    <div class="prod-list">
+      <!-- 01 改色膜 -->
+      <div class="prod-card reveal">
+        <div class="prod-num">01</div>
+        <div class="prod-img-box"><img src="img-color-film.jpg" alt="改色膜" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'>改色膜產品圖待補</div>'"></div>
+        <div class="prod-info">
+          <div class="prod-title">改色膜</div>
+          <div class="prod-en">Color Wrap Film</div>
+          <a href="/most/color-film/index.html" class="prod-btn" onclick="gtag('event','click_product_color',{'event_category':'CTA','event_label':'most'});">進入專頁 →</a>
+        </div>
+      </div>
+      <!-- 02 犀牛皮 -->
+      <div class="prod-card reveal" style="transition-delay: .15s;">
+        <div class="prod-num">02</div>
+        <div class="prod-img-box"><img src="img-ppf.jpg" alt="犀牛皮" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'>犀牛皮產品圖待補</div>'"></div>
+        <div class="prod-info">
+          <div class="prod-title">犀牛皮 PPF</div>
+          <div class="prod-en">Paint Protection Film</div>
+          <a href="/most/ppf/index.html" class="prod-btn" onclick="gtag('event','click_product_ppf',{'event_category':'CTA','event_label':'most'});">進入專頁 →</a>
+        </div>
+      </div>
+      <!-- 03 改色犀牛皮 -->
+      <div class="prod-card reveal" style="transition-delay: .3s;">
+        <div class="prod-num">03</div>
+        <div class="prod-img-box"><img src="img-color-ppf.jpg" alt="改色犀牛皮" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'>改色犀牛皮產品圖待補</div>'"></div>
+        <div class="prod-info">
+          <div class="prod-title">改色犀牛皮</div>
+          <div class="prod-en">Color PPF</div>
+          <a href="/most/color-ppf/index.html" class="prod-btn" onclick="gtag('event','click_product_color_ppf',{'event_category':'CTA','event_label':'most'});">進入專頁 →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑤ LOCATION -->
+<section class="sec white-bg" id="location">
+  <div class="content-wrap">
+    <div class="eyebrow reveal"><span>The Studio</span><h2>服務據點</h2></div>
+    
+    <div class="loc-grid">
+      <div class="loc-info reveal">
+        <h4>膜仕車體美學 埔里總店</h4>
+        <div class="loc-specs">
+          <div class="loc-spec">
+            <span class="loc-lbl">Address</span>
+            <span class="loc-val">南投縣埔里鎮忠孝路 288 號 1 樓</span>
+          </div>
+          <div class="loc-spec">
+            <span class="loc-lbl">Opening</span>
+            <span class="loc-val">24 小時營業 / 全年無休</span>
+          </div>
+          <div class="loc-spec">
+            <span class="loc-lbl">Contact</span>
+            <span class="loc-val">0900-759-678</span>
+          </div>
+        </div>
+        <a href="https://maps.app.goo.gl/tB4wGW8JL2NG8Rs68" target="_blank" class="hero-btn p1" style="margin-top:3rem; max-width:260px; background:var(--black); color:var(--white);" onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'most'});">GOOGLE MAPS 導航</a>
+      </div>
+      <div class="map-embed reveal">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3645.8428865607993!2d120.9651572!3d23.9659953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3468d97337de28c1%3A0x60832860!2zTU9TVCDohpzos5XonYToqK3nvI7ppKgt5Z-V6YeM57i95bqX!5e0!3m2!1szh-TW!2stw!4v1700000000000" allowfullscreen="" loading="lazy" title="MOST 膜仕 地圖"></iframe>
+      </div>
+    </div>
+    
+    <!-- BACK TO TOP in Location Section -->
+    <div class="back-to-top-in-loc reveal">
+      <a href="#top" class="back-to-top-btn">
+        ↑ &nbsp; BACK TO TOP
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ⑥ FOOTER -->
+<footer class="footer">
+  <div class="f-big-bg">MOST.</div>
+  <div class="f-content">
+    <div class="f-title reveal">膜仕 <span>MOST.</span></div>
+    
+    <div class="f-btns reveal">
+      <a href="https://lin.ee/gZ81qtC" target="_blank" class="hero-btn p1" onclick="gtag('event','click_line',{'event_category':'CTA','event_label':'most'});">聯繫洽詢 ｜ LINE CONSULTATION</a>
+      <a href="tel:0900759678" class="hero-btn ghost" onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'most'});">致電膜仕 ｜ 0900-759-678</a>
+    </div>
+
+    <ul class="f-nav reveal">
+      <li><a href="#products">PRODUCTS</a></li>
+      <li><a href="#about">STORY</a></li>
+      <li><a href="https://lin.ee/gZ81qtC" target="_blank">CONTACT</a></li>
+    </ul>
+
+    <p class="f-copyright reveal">© 2026 MOST AUTO DETAILING. ALL RIGHTS RESERVED.</p>
+  </div>
+</footer>
+
+<!-- ⑦ DESIGN BY LINKET (嚴格對齊規範) -->
+<a class="design-by" href="https://linket.app/home" target="_blank">
+  Design by &nbsp;<span class="db-lin">LIN</span><span class="db-ket">Ket</span>
+</a>
+
+<!-- QR MODAL -->
+<div class="qr-modal-overlay" id="qrModal" onclick="closeQrModalOnBg(event)">
+  <div class="qr-modal">
+    <img src="logo-circle.png" alt="MOST" class="qr-modal-logo" onerror="this.style.display='none'">
+    <div class="qr-modal-code"><div id="qrcode-canvas"></div></div>
+    <div style="font-family:'Cormorant Garamond',serif; font-size:.9rem; color:var(--gold); margin-bottom:2rem; letter-spacing:.3em;">linket.app/most</div>
+    <button class="qr-modal-close" onclick="closeQrModal()">CLOSE</button>
+  </div>
+</div>
+
+<script>
+/* Scroll Reveal */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+/* Web Share API */
+const shareBtn = document.getElementById('shareBtn');
+if(navigator.share && shareBtn) shareBtn.classList.add('visible');
+function shareThisPage(){
+  navigator.share({ title: '膜仕 MOST｜極致膜藝・專仕於心', text: '自有工廠直供，改色膜・犀牛皮・改色犀牛皮一條龍服務。', url: 'https://linket.app/most' }).catch(()=>{});
+}
+
+/* QR Code (qrcodejs) */
+let qrLoaded = false;
+function openQrModal(){
+  document.getElementById('qrModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+  if(!qrLoaded){
+    const s = document.createElement('script');
+    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
+    s.onload = () => {
+      new QRCode(document.getElementById('qrcode-canvas'), { text: 'https://linket.app/most', width: 220, height: 220, colorDark: '#0A0A0A', colorLight: '#ffffff', correctLevel: QRCode.CorrectLevel.M });
+      qrLoaded = true;
+    };
+    document.head.appendChild(s);
+  }
+}
+function closeQrModal(){ document.getElementById('qrModal').classList.remove('active'); document.body.style.overflow = ''; }
+function closeQrModalOnBg(e){ if(e.target === document.getElementById('qrModal')) closeQrModal(); }
+</script>
+</body>
+</html>
