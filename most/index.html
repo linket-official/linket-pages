@@ -77,12 +77,12 @@ body{
 /* Hero 右欄 */
 .hero-right{ flex:1 1 0; display:flex; flex-direction:column; align-items:center; justify-content:center; width: 100%; max-width: 340px; margin: 0 auto;}
 
-/* ── 社群 Icons（阮二哥標準：透明底、無邊框）── */
+/* ── 社群 Icons（阮二哥標準：透明底、無邊框、SVG 原色）── */
 .hero-icons{
   display:flex; justify-content:center;
   /* 修正A：加大間距配合更大的 icon */
   gap:1.0rem; margin-bottom:1.0rem;
-  width:100%; flex-wrap:wrap;
+  width:100%;
 }
 .hero-icon-link{
   /* 修正A：容器加大 */
@@ -97,9 +97,8 @@ body{
 .hero-icon-link img{
   /* 修正A：28px → 42px（+50%）*/
   width:42px; height:42px; display:block;
-  filter:brightness(0) invert(1); /* 黑底防呆反白 */
 }
-
+  
 /* 按鈕直接為 .hero-right 子元素 */
 .hero-btn{
   display:flex; align-items:center; justify-content:center; width:100%; padding:1.1rem 1rem; border-radius:0;
