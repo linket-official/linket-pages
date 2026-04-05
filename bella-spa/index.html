@@ -1,1 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());
+  gtag('config', 'G-29J2988Y8J');
+</script>
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>貝拉美學 BELLA SPA｜INDIBA英特波・全身SPA・皮膚管理</title>
+<meta name="description" content="新竹竹北輕奢女性舒養空間。提供 INDIBA 英特波生活美容、全身筋膜芳療與韓式系統化皮膚管理。不只是美容，而是一種回到自己的儀式感。">
+<meta property="og:title" content="貝拉美學 BELLA SPA｜輕奢女性美學空間">
+<meta property="og:description" content="INDIBA英特波・全身SPA・筋膜芳療・韓式皮膚管理｜新竹竹北">
+<meta property="og:image" content="https://linket.app/bella-spa/og-image.jpg">
+<meta property="og:url" content="https://linket.app/bella-spa">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<!-- 輕奢字體系統：Playfair Display (雜誌感) + Cormorant Garamond (手寫感) + Noto Serif TC (纖細中文) -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,300;1,300;1,400&family=Noto+Serif+TC:wght@200;300;400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  /* 貝拉美學 V4.1：深一階的輕奢色彩系統 */
+  --bg:    #FAF6F4;   /* 霧面粉米 */
+  --bg2:   #F4EDE9;   /* 絲綢膚色 */
+  --bg3:   #EAE0DA;   /* 沉穩膚感 */
+  
+  --rose:  #8B3946;   /* 品牌主色：深玫瑰紅 */
+  --rose2: #A84858;
+  --gold:  #C5A059;   /* 輔助金 */
+  
+  --ink:   #2C2C2C;   /* 墨炭黑 */
+  --ink2:  #634343;   /* 咖啡棕 */
+  --ink3:  rgba(99,67,67,.55); 
+  
+  --line:  rgba(139,57,70,.12);
+  --r:     0px;       /* 銳利高端感 */
+  --mw:    960px;     /* 修正：更集中的雜誌視角 */
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { 
+  font-family: 'Noto Serif TC', serif; 
+  font-weight: 300; /* 全局中文纖細化 */
+  background: var(--bg); 
+  color: var(--ink); 
+  line-height: 1.8; 
+  letter-spacing: 0.1em;
+}
+
+/* ── 基礎元件：防呆外框 ── */
+.fallback-box {
+  border: 1px dashed var(--rose);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--rose); font-size: 0.75rem; letter-spacing: 0.1em;
+  background: rgba(139,57,70,0.05);
+}
+
+/* ── ① HERO 登場區 ── */
+.hero { 
+  width: 100%; position: relative; overflow: hidden;
+  background: var(--bg2); min-height: 95svh; 
+  display: flex; align-items: center; justify-content: center;
+}
+.hero-bg-img {
+  position: absolute; inset: 0; width: 100%; height: 100%; 
+  object-fit: cover; object-position: center; z-index: 0; opacity: 0.22; 
+}
+.hero-content {
+  position: relative; z-index: 2; width: 100%; max-width: var(--mw); padding: 5rem 1.6rem 4rem;
+}
+
+/* 雙欄佈局 */
+.hero-cols {
+  display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 4rem;
+}
+
+.hero-left {
+  flex: 1.2; display: flex; flex-direction: column; align-items: flex-start; text-align: left;
+}
+.hero-right {
+  flex: 0.8; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  max-width: 340px; width: 100%;
+}
+
+.hero-logo-wrap { width: 100%; max-width: 180px; margin-bottom: 2rem; }
+.hero-logo-img { width: 100%; height: auto; display: block; }
+.hero-logo-fallback { height: 60px; width: 160px; }
+
+.hero-name { font-weight: 400; font-size: clamp(2rem, 5vw, 2.8rem); color: var(--rose); margin-bottom: 0.4rem; letter-spacing: 0.2em; line-height: 1.1; }
+.hero-role { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; font-size: 1.2rem; letter-spacing: 0.3em; color: var(--ink2); margin-bottom: 2rem; text-transform: uppercase; }
+.hero-divider { width: 30px; height: 1px; background: var(--rose); margin-bottom: 2.5rem; }
+
+.hero-slogan { font-size: 1.2rem; font-weight: 200; color: var(--ink); line-height: 2.2; margin-bottom: 3rem; letter-spacing: 0.15em; }
+.hero-tags { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem; }
+.h-tag { border-bottom: 1px solid var(--rose); color: var(--rose); padding: 0 0.1rem 0.2rem; font-size: 0.78rem; letter-spacing: 0.12em; }
+
+.hero-hours { font-size: 0.85rem; color: var(--ink3); line-height: 1.9; letter-spacing: 0.1em; border-left: 1px solid var(--line); padding-left: 1.5rem; }
+
+/* 社群 Icons */
+.hero-icons { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 3rem; width: 100%; flex-wrap: wrap; }
+.hero-icon-link { width: 42px; height: 42px; text-decoration: none; transition: transform 0.3s ease; }
+.hero-icon-link:hover { transform: translateY(-3px); }
+.hero-icon-link img { width: 32px; height: 32px; display: block; filter: brightness(0) saturate(100%) invert(30%) sepia(30%) saturate(500%) hue-rotate(310deg); }
+.icon-fallback { width: 40px; height: 40px; border-radius: 50%; }
+
+/* 按鈕矩陣 - 精簡版 */
+.hero-btn {
+  display: flex; align-items: center; justify-content: center; 
+  width: 100%; margin-bottom: 1.2rem; border-radius: 0;
+  padding: 1.3rem 1.5rem; font-size: 0.95rem; font-weight: 400;
+  letter-spacing: 0.2em; text-decoration: none; text-align: center; 
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); border: 1px solid var(--rose);
+}
+.hero-btn.p1 { background: var(--rose); color: #fff; }
+.hero-btn.p1:hover { background: transparent; color: var(--rose); }
+.hero-btn.ghost { background: transparent; color: var(--rose); }
+.hero-btn.ghost:hover { background: var(--rose); color: #fff; }
+
+/* QR + Share */
+.hero-btn-row { display: flex; gap: 1rem; width: 100%; justify-content: center; }
+.btn-sm {
+  flex: 1; display: flex; align-items: center; justify-content: center; background: transparent; 
+  border: 1px solid var(--line); color: var(--ink3); font-size: 0.75rem; letter-spacing: 0.25em; 
+  padding: 1.1rem 0.5rem; transition: all 0.3s; cursor: pointer; text-transform: uppercase;
+}
+.btn-sm:hover { border-color: var(--rose); color: var(--rose); }
+.btn-sm.share { display: none; }
+.btn-sm.share.visible { display: flex; }
+
+/* ── ② WATERMARK ── */
+.watermark { width: 100%; background: var(--bg); text-align: center; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 5rem 1.6rem; }
+.wm-main { font-family: 'Playfair Display', serif; font-style: italic; font-size: 2.2rem; font-weight: 400; letter-spacing: 0.3em; color: var(--rose); margin-bottom: 0.5rem; }
+.wm-sub { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.9rem; letter-spacing: 0.3em; color: var(--ink3); text-transform: uppercase; }
+
+/* ── ③ 雜誌排版特色介紹 ── */
+.section { padding: 9rem 0; background: var(--bg); }
+.content-wrap { max-width: var(--mw); margin: 0 auto; padding: 0 1.6rem; }
+
+.intro-block { max-width: 680px; margin: 0 auto 9rem; text-align: center; }
+.sec-label { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--rose); font-size: 1.1rem; letter-spacing: 0.3em; margin-bottom: 2rem; text-transform: uppercase; }
+.sec-title { font-size: 2.2rem; font-weight: 300; color: var(--ink); margin-bottom: 3rem; letter-spacing: 0.2em; }
+.intro-text { font-size: 1.05rem; line-height: 2.5; color: var(--ink2); font-weight: 200; text-align: center; }
+
+.editorial-item { display: grid; grid-template-columns: 1fr; gap: 4rem; margin-bottom: 12rem; align-items: center; }
+@media (min-width: 800px) {
+  .editorial-item { grid-template-columns: 1.1fr 0.9fr; gap: 6rem; }
+  .editorial-item.reverse { grid-template-columns: 0.9fr 1.1fr; }
+  .editorial-item.reverse .ei-text { order: 1; }
+  .editorial-item.reverse .ei-img { order: 2; }
+}
+
+.ei-img { aspect-ratio: 4/5; background: var(--bg3); overflow: hidden; position: relative; }
+.ei-img img { width: 100%; height: 100%; object-fit: cover; filter: sepia(0.12) contrast(1.02); transition: 1.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.ei-img:hover img { transform: scale(1.08); }
+.ei-tag { position: absolute; top: 2rem; left: 2rem; color: #fff; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.95rem; letter-spacing: 0.2em; z-index: 2; text-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+
+.ei-text { display: flex; flex-direction: column; align-items: flex-start; text-align: left; }
+.ei-num { font-family: 'Cormorant Garamond', serif; font-size: 5rem; font-weight: 300; color: var(--rose); opacity: 0.12; line-height: 1; margin-bottom: -1rem; }
+.ei-title { font-size: 2rem; font-weight: 400; color: var(--rose); margin-bottom: 2.5rem; letter-spacing: 0.15em; border-bottom: 1px solid var(--line); padding-bottom: 1.5rem; width: 100%; }
+.ei-desc { font-size: 1rem; color: var(--ink); line-height: 2.4; margin-bottom: 3.5rem; text-align: justify; font-weight: 200; }
+.ei-target { background: var(--bg2); padding: 2rem; border-left: 2px solid var(--rose); width: 100%; }
+.ei-target h4 { font-size: 0.85rem; font-weight: 700; color: var(--rose); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.3em; }
+.ei-target p { font-size: 0.95rem; color: var(--ink2); line-height: 2; }
+
+/* ── ④ 服務菜單 (Tab 系統) ── */
+.menu-section { background: var(--bg2); padding: 9rem 0; }
+.tabs-container { width: 100%; max-width: 800px; margin: 0 auto; }
+.tabs-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-bottom: 5rem; }
+.tab-btn {
+  background: transparent; border: 1px solid var(--line); color: var(--ink3);
+  padding: 0.9rem 1.6rem; font-size: 0.9rem; letter-spacing: 0.15em; cursor: pointer;
+  transition: 0.3s; font-family: 'Noto Serif TC', serif; font-weight: 300;
+}
+.tab-btn.active { border-color: var(--rose); color: var(--rose); background: #fff; font-weight: 400; }
+
+.tab-pane { display: none; animation: fadeInContent 0.8s ease both; }
+.tab-pane.active { display: block; }
+@keyframes fadeInContent { from{ opacity:0; transform:translateY(15px); } to{ opacity:1; transform:none; } }
+
+.menu-list { background: #fff; border: 1px solid var(--line); padding: 5rem 3rem; position: relative; }
+.menu-item { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #F0E8E4; padding: 1.5rem 0; }
+.menu-item:last-child { border-bottom: none; }
+.mi-name { font-size: 0.95rem; color: var(--ink); font-weight: 300; letter-spacing: 0.05em; }
+.mi-price { color: var(--rose); font-weight: 500; font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; }
+
+/* ── ⑤ FOOTER & BACK TO TOP ── */
+.footer { background: var(--bg3); border-top: 1px solid var(--line); padding: 9rem 1.6rem 6rem; text-align: center; }
+.f-logo-wrap { width: 80px; margin: 0 auto 2.5rem; }
+.f-title { font-family: 'Playfair Display', serif; font-style: italic; font-size: 2.4rem; font-weight: 400; letter-spacing: 0.2em; color: var(--rose); margin-bottom: 1.2rem; }
+.f-sub { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.9rem; letter-spacing: 0.3em; color: var(--ink3); margin-bottom: 5rem; text-transform: uppercase; }
+
+.back-to-top {
+  display: inline-flex; align-items: center; gap: 0.8rem;
+  border: 1px solid var(--rose); color: var(--rose);
+  padding: 0.9rem 3rem; text-decoration: none;
+  font-size: 0.85rem; letter-spacing: 0.35em; transition: 0.4s;
+  margin-bottom: 6rem;
+}
+.back-to-top:hover { background: var(--rose); color: #fff; }
+
+.f-nav { display: flex; justify-content: center; gap: 2.5rem; list-style: none; margin-bottom: 5rem; flex-wrap: wrap; }
+.f-nav a { color: var(--ink3); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.15em; transition: 0.3s; }
+.f-nav a:hover { color: var(--rose); }
+
+.design-by { font-size: 0.72rem; color: var(--ink3); letter-spacing: 0.25em; text-transform: uppercase; text-decoration: none; opacity: 0.5; font-family: 'Cormorant Garamond', serif; font-style: italic; }
+
+/* QR MODAL */
+.qr-overlay{ display:none; position:fixed; inset:0; z-index:999; background:rgba(250,246,244,.88); backdrop-filter:blur(15px); align-items:center; justify-content:center; }
+.qr-overlay.active{ display:flex; animation:fadeIn .3s ease; }
+@keyframes fadeIn{ from{opacity:0;}to{opacity:1;} }
+.qr-modal{ background:#fff; border: 1px solid var(--line); padding:4rem 3rem; max-width:360px; width:90%; display:flex; flex-direction:column; align-items:center; text-align: center; }
+.qr-modal-logo { width: 140px; margin-bottom: 2.5rem; }
+.qr-code-box { width: 200px; height: 200px; margin-bottom: 2.5rem; border: 1px solid var(--line); padding: 10px; }
+.qr-code-box img { width: 100%; height: 100%; }
+.qr-close { background: transparent; border: 1px solid var(--rose); color: var(--rose); padding: 0.85rem 3.5rem; letter-spacing: 0.25em; cursor: pointer; transition: 0.3s; font-family: 'Noto Serif TC', serif; }
+.qr-close:hover { background: var(--rose); color: #fff; }
+
+/* Scroll Reveal */
+.reveal { opacity: 0; transform: translateY(20px); transition: 1.2s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* Mobile RWD */
+@media(max-width: 768px) {
+  .hero-cols { flex-direction: column; gap: 3.5rem; }
+  .hero-left { align-items: center; text-align: center; }
+  .hero-hours { border-left: none; border-top: 1px solid var(--line); padding-left: 0; padding-top: 2rem; }
+  .hero-logo-wrap { max-width: 160px; }
+  .hero-btn { padding: 1.2rem 1.5rem; }
+  .section { padding: 7rem 0; }
+  .intro-block { margin-bottom: 7rem; }
+  .editorial-item { margin-bottom: 8rem; }
+  .ei-img { aspect-ratio: 1/1; }
+  .menu-list { padding: 4rem 1.6rem; }
+}
+</style>
+</head>
+<body id="top">
+
+<!-- §1 HERO 登場區 -->
+<section class="hero">
+  <img src="hero-bg.jpg" class="hero-bg-img" aria-hidden="true" onerror="this.style.display='none'">
+  
+  <div class="hero-content">
+    <div class="hero-cols">
+      
+      <!-- 左欄：品牌資訊 -->
+      <div class="hero-left">
+        <div class="hero-logo-wrap">
+          <img src="logo-bella.svg" alt="貝拉美學" class="hero-logo-img" onerror="this.outerHTML='<div class=\'fallback-box hero-logo-fallback\'>LOGO SVG</div>'">
+        </div>
+        <h1 class="hero-name">貝拉美學</h1>
+        <div class="hero-role">Bella SPA Luxury</div>
+        
+        <div class="hero-divider"></div>
+        
+        <div class="hero-slogan">
+          不只是美容，<br>
+          而是一種，回到自己的儀式感。
+        </div>
+
+        <div class="hero-tags">
+          <span class="h-tag">#INDIBA 英特波</span>
+          <span class="h-tag">#筋膜芳療</span>
+          <span class="h-tag">#皮膚管理</span>
+        </div>
+
+        <div class="hero-hours">
+          週一～週五 11:00–20:00<br>
+          週六 10:00–18:00 ｜ 週日 特約時段
+        </div>
+      </div>
+
+      <!-- 右欄：行動導引 (精簡按鈕層次) -->
+      <div class="hero-right">
+        <div class="hero-icons">
+          <a class="hero-icon-link" href="https://lin.ee/iCAHFna" target="_blank" aria-label="LINE" onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'bella-spa'})"><img src="/home/assets/line.svg" alt="LINE" onerror="this.outerHTML='<div class=\'fallback-box icon-fallback\'>LN</div>'"></a>
+          <a class="hero-icon-link" href="tel:0981530439" aria-label="Phone" onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'bella-spa'})"><img src="/home/assets/phone.svg" alt="Phone" onerror="this.outerHTML='<div class=\'fallback-box icon-fallback\'>PH</div>'"></a>
+          <a class="hero-icon-link" href="https://maps.app.goo.gl/s7973fKMCFJaWfh89" target="_blank" aria-label="Map" onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'bella-spa'})"><img src="/home/assets/map.svg" alt="Map" onerror="this.outerHTML='<div class=\'fallback-box icon-fallback\'>MP</div>'"></a>
+          <a class="hero-icon-link" href="https://www.instagram.com/bellawomen_beauty_spa" target="_blank" aria-label="Instagram" onclick="gtag('event','click_ig_follow',{'event_category':'CTA','event_label':'bella-spa'})"><img src="/home/assets/instagram.svg" alt="Instagram" onerror="this.outerHTML='<div class=\'fallback-box icon-fallback\'>IG</div>'"></a>
+          <a class="hero-icon-link" href="https://www.facebook.com/profile.php?id=61555642114837" target="_blank" aria-label="Facebook"><img src="/home/assets/facebook.svg" alt="Facebook" onerror="this.outerHTML='<div class=\'fallback-box icon-fallback\'>FB</div>'"></a>
+        </div>
+
+        <!-- 修正按鈕數量與 GA4 -->
+        <a href="https://lin.ee/iCAHFna" target="_blank" class="hero-btn p1" onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'bella-spa'})">立即預約諮詢 ｜ Reserve</a>
+        <a href="service.html" class="hero-btn ghost">新客服務專區 ｜ Service</a>
+        <a href="owner.html" class="hero-btn ghost">關於主理人 ｜ About Summer</a>
+
+        <div class="hero-btn-row">
+          <button class="btn-sm" onclick="openQr()">QR Code</button>
+          <button class="btn-sm share" id="shareBtn" onclick="shareThisPage()">Share</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ② WATERMARK -->
+<div class="watermark reveal">
+  <div class="wm-main">Bella SPA</div>
+  <div class="wm-sub">Hsinchu · Luxury Holistic Beauty</div>
+</div>
+
+<!-- ③ 品牌介紹與雜誌特色 -->
+<section class="section" id="about">
+  <div class="content-wrap">
+    
+    <!-- 品牌介紹精簡化 -->
+    <div class="intro-block reveal">
+      <div class="sec-label">Our Philosophy</div>
+      <h2 class="sec-title">身心平衡，從容之美</h2>
+      <p class="intro-text">
+        位於新竹竹北，貝拉美學是一處為女性而設的沉靜空間。<br><br>
+        我們不追求快速的改變，而是藉由每一次療程的積累，<br>
+        協助妳重新感受自己的身體——從容、輕盈、有溫度。
+      </p>
+    </div>
+
+    <!-- INDIBA -->
+    <div class="editorial-item reveal">
+      <div class="ei-img">
+        <img src="img-indiba.jpg" alt="INDIBA">
+        <div class="ei-tag">Professional Tech</div>
+      </div>
+      <div class="ei-text">
+        <div class="ei-num">01</div>
+        <h3 class="ei-title">INDIBA 英特波生活美容</h3>
+        <p class="ei-desc">來自西班牙的溫熱保養美學。採用 448kHz 專利頻率，由內而外深層溫熱，協助肌膚維持緊緻與健康彈性。過程溫和舒適，是全球頂尖運動員與高端美學指定的保養首選。</p>
+        <div class="ei-target">
+          <h4>適合族群 / Target</h4>
+          <p>追求線條緊實、產後身形養護、醫美後舒緩保養、長期肩頸疲勞者。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 筋膜芳療 -->
+    <div class="editorial-item reverse reveal">
+      <div class="ei-img">
+        <img src="img-spa-1.jpg" alt="SPA">
+        <div class="ei-tag">Sense of Touch</div>
+      </div>
+      <div class="ei-text">
+        <div class="ei-num">02</div>
+        <h3 class="ei-title">筋膜芳療 頂級舒壓</h3>
+        <p class="ei-desc">不只是按摩，而是一場深度的感官釋放。結合純淨植物精油與獨家筋膜舒緩手法，針對身體長期累積的緊繃壓力點。在溫潤的香氛與手感節奏中，讓身體找回輕盈的自由感。</p>
+        <div class="ei-target">
+          <h4>適合族群 / Target</h4>
+          <p>長期高壓工作、睡眠品質不佳、全身僵硬沉重感、需要身心深度放鬆者。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 皮膚管理 -->
+    <div class="editorial-item reveal">
+      <div class="ei-img">
+        <img src="img-spa-2.jpg" alt="Skin Care">
+        <div class="ei-tag">Systemic Care</div>
+      </div>
+      <div class="ei-text">
+        <div class="ei-num">03</div>
+        <h3 class="ei-title">韓式系統化皮膚管理</h3>
+        <p class="ei-desc">回歸肌膚的基礎平衡。透過系統性的評估與溫和護理，針對水分、細緻度與明亮度進行調整。我們不強調一次性劇烈改變，而是透過定期的科學養護，建立健康的肌膚屏障。</p>
+        <div class="ei-target">
+          <h4>適合族群 / Target</h4>
+          <p>有毛孔粗大困擾、肌膚暗沉缺水、追求無痛保養、需要建立長期護膚計畫者。</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ④ 服務菜單 (還原菜單內容) -->
+<section class="menu-section" id="service">
+  <div class="content-wrap">
+    <div class="intro-block reveal">
+      <div class="sec-label">Service Menu</div>
+      <h2 class="sec-title">原廠保養・精緻護理</h2>
+    </div>
+
+    <div class="tabs-container reveal">
+      <div class="tabs-nav">
+        <button class="tab-btn active" onclick="switchTab(event, 'tab-body')">全身舒壓SPA</button>
+        <button class="tab-btn" onclick="switchTab(event, 'tab-face')">臉部SPA護理</button>
+        <button class="tab-btn" onclick="switchTab(event, 'tab-indiba')">英特波 INDIBA</button>
+        <button class="tab-btn" onclick="switchTab(event, 'tab-new')">新客體驗專區</button>
+      </div>
+
+      <div class="menu-list">
+        <!-- 全身舒壓 (補足缺漏) -->
+        <div id="tab-body" class="tab-pane active">
+          <div class="menu-item"><span>全身精油舒壓 (60分)</span> <span class="mi-price">2堂</span></div>
+          <div class="menu-item"><span>Lulu spa (60分)</span> <span class="mi-price">3堂</span></div>
+          <div class="menu-item"><span>瑞典式淋巴按摩 (90分)</span> <span class="mi-price">3堂</span></div>
+          <div class="menu-item"><span>全身熱石芳療舒壓 (90分)</span> <span class="mi-price">3堂</span></div>
+          <div class="menu-item"><span>全身樺木深層舒壓 (90分)</span> <span class="mi-price">3堂</span></div>
+          <div class="menu-item"><span>筋膜放鬆運動舒活 (70分)</span> <span class="mi-price">3堂</span></div>
+          <div class="menu-item"><span>全身筋膜放鬆 (90分)</span> <span class="mi-price">4堂</span></div>
+          <div class="menu-item"><span>瘦身推脂 G5 + 岩盤 (90分)</span> <span class="mi-price">3堂</span></div>
+          <div class="menu-item"><span>孕婦舒活 spa (90分)</span> <span class="mi-price">4堂</span></div>
+          <div class="menu-item"><span>LPG 負壓循環 (40分)</span> <span class="mi-price">2堂</span></div>
+          <div class="menu-item"><span>產後專屬｜腹部緊實保養 (60分)</span> <span class="mi-price">3堂</span></div>
+          <div class="menu-item"><span>美胸護理 (60分)</span> <span class="mi-price">2堂</span></div>
+          <div class="menu-item"><span>岩盤浴能量排毒 (40分)</span> <span class="mi-price">1堂</span></div>
+        </div>
+
+        <!-- 臉部護理 (名稱還原與補足) -->
+        <div id="tab-face" class="tab-pane">
+          <div class="menu-item"><span>液態拋光皮秒 (40分)</span> <span class="mi-price">3堂</span></div>
+          <div class="menu-item"><span>臉部美白護理（舒壓/保濕/粉刺） (90分)</span> <span class="mi-price">3堂</span></div>
+          <div class="menu-item"><span>臉部緊實護理（拉提/緊實/粉刺） (90分)</span> <span class="mi-price">3堂</span></div>
+          <div class="menu-item"><span>戰痘毛孔淨化（毛孔/粉刺/黑頭） (90分)</span> <span class="mi-price">3堂</span></div>
+          <div class="menu-item"><span>藻針膠原護理 (50分)</span> <span class="mi-price">3堂</span></div>
+          <div class="menu-item"><span>小氣泡水飛梭 (100分)</span> <span class="mi-price">4堂</span></div>
+          <div class="menu-item"><span>杏仁酸美白煥膚（提亮/油光/細緻） (40分)</span> <span class="mi-price">3堂</span></div>
+          <div class="menu-item"><span>毛孔粉刺護理 (60分)</span> <span class="mi-price">2堂</span></div>
+          <div class="menu-item"><span>毛孔保濕護理 (60分)</span> <span class="mi-price">2堂</span></div>
+          <div class="menu-item"><span>動力光 + 太極撥筋 (45分)</span> <span class="mi-price">2堂</span></div>
+          <div class="menu-item"><span>臉部太極撥筋 / 臉部活氧保濕 (30分)</span> <span class="mi-price">1堂</span></div>
+          <div class="menu-item" style="border:none; margin-top:2rem;">
+            <span>套組方案 20堂 / 40堂 / 60堂</span>
+            <span class="mi-price">洽詢專屬優惠</span>
+          </div>
+        </div>
+
+        <!-- INDIBA (價格補充) -->
+        <div id="tab-indiba" class="tab-pane">
+          <div class="menu-item" style="border-bottom: 2px solid var(--rose);">
+            <strong>INDIBA 英特波 (60分)</strong>
+            <span class="mi-price">NT$ 3,999</span>
+          </div>
+          <div class="menu-item">
+            <span>新客體驗價 (60分)</span>
+            <span class="mi-price">NT$ 2,500</span>
+          </div>
+          <p style="font-size:0.85rem; color:var(--rose); margin-top:1.5rem; letter-spacing:0.1em;">◆ 包含：全臉緊緻提拉、產後腹部緊實、術後溫和舒緩</p>
+          <div class="menu-item"><span>長期保養套組 (10堂)</span> <span class="mi-price">預約洽詢</span></div>
+        </div>
+
+        <!-- 新客體驗 -->
+        <div id="tab-new" class="tab-pane">
+          <div class="menu-item"><span>芳療精油舒壓 (60分)</span> <span class="mi-price">1,280</span></div>
+          <div class="menu-item"><span>全身四季節氣舒壓 (90分)</span> <span class="mi-price">1,680</span></div>
+          <div class="menu-item"><span>筋膜放鬆舒活 (70分)</span> <span class="mi-price">1,480</span></div>
+          <div class="menu-item"><span>基礎粉刺護理 (60分)</span> <span class="mi-price">1,280</span></div>
+          <div class="menu-item"><span>膠原藻針護膚 (60分)</span> <span class="mi-price">1,680</span></div>
+          <div class="menu-item"><span>氫氧水飛梭 (90分)</span> <span class="mi-price">1,999</span></div>
+          <p style="text-align:center; font-size:0.75rem; color:var(--rose); margin-top:2.5rem; letter-spacing:0.2em;">新客體驗均加贈岩盤浴或動力光浴一次</p>
+        </div>
+      </div>
+    </div>
+
+    <a href="https://lin.ee/iCAHFna" target="_blank" class="hero-btn p1 reveal" style="max-width: 320px; margin: 4rem auto 0;" onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'bella-spa'})">立即諮詢專屬療程</a>
+  </div>
+</section>
+
+<!-- ⑤ FOOTER -->
+<footer class="footer">
+  <div class="f-logo-wrap reveal">
+    <img src="logo-bella.svg" alt="BELLA" style="width:100%;" onerror="this.outerHTML='<div class=\'fallback-box\' style=\'width:80px;height:40px;\'>LOGO</div>'">
+  </div>
+  <div class="f-title reveal">BELLA SPA</div>
+  <div class="f-sub reveal">Luxury Holistic Beauty</div>
+  
+  <a href="#top" class="back-to-top reveal">Back to top</a>
+  
+  <ul class="f-nav reveal">
+    <li><a href="service.html">SERVICE</a></li>
+    <li><a href="#service">MENU</a></li>
+    <li><a href="owner.html">ABOUT OWNER</a></li>
+    <li><a href="https://lin.ee/iCAHFna" target="_blank" onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'bella-spa'})">RESERVE</a></li>
+  </ul>
+
+  <div class="reveal" style="margin-top: 5rem;">
+    <a class="design-by" href="https://linket.app/home" target="_blank">Design By LINKet</a>
+  </div>
+</footer>
+
+<!-- QR MODAL -->
+<div class="qr-overlay" id="qrOverlay" onclick="closeQrBg(event)">
+  <div class="qr-modal">
+    <img src="logo-bella.svg" alt="Bella SPA" class="qr-modal-logo" onerror="this.style.display='none'">
+    <div class="qr-code-box"><div id="qrcode-canvas"></div></div>
+    <div style="font-size:0.8rem; letter-spacing:0.2em; color:var(--rose); margin-bottom:2.5rem;">linket.app/bella-spa</div>
+    <button class="qr-close" onclick="closeQr()">CLOSE</button>
+  </div>
+</div>
+
+<script>
+/* ── Tab Switch Logic ── */
+function switchTab(evt, tabId) {
+  const panes = document.querySelectorAll('.tab-pane');
+  const btns = document.querySelectorAll('.tab-btn');
+  panes.forEach(p => p.classList.remove('active'));
+  btns.forEach(b => b.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  evt.currentTarget.classList.add('active');
+}
+
+/* ── Scroll Reveal ── */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+/* ── Web Share (原生分享) ── */
+const shareBtn = document.getElementById('shareBtn');
+if(navigator.share && shareBtn) { shareBtn.classList.add('visible'); }
+function shareThisPage(){
+  if(!navigator.share) return;
+  navigator.share({ title: '貝拉美學 BELLA SPA', url: window.location.href }).catch(()=>{});
+}
+
+/* ── QR Code Logic ── */
+let qrLoaded = false;
+function openQr(){
+  document.getElementById('qrOverlay').classList.add('active');
+  if(!qrLoaded){
+    const s = document.createElement('script');
+    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
+    s.onload = () => {
+      new QRCode(document.getElementById('qrcode-canvas'), {
+        text: window.location.href, width: 200, height: 200,
+        colorDark : "#8B3946", colorLight : "#ffffff", correctLevel : QRCode.CorrectLevel.H
+      });
+      qrLoaded = true;
+    };
+    document.head.appendChild(s);
+  }
+}
+function closeQr(){ document.getElementById('qrOverlay').classList.remove('active'); }
+function closeQrBg(e){ if(e.target === document.getElementById('qrOverlay')) closeQr(); }
+</script>
+
+</body>
+</html>
