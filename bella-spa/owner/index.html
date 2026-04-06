@@ -37,11 +37,11 @@ img{display:block;width:100%;}
 a{text-decoration:none;color:inherit;}
 
 /* 返回導覽 */
-.nav-back{display:flex;align-items:center;gap:.5rem;background:var(--bg2);border-bottom:1px solid var(--line);padding:1rem 1.6rem;font-size:.82rem;letter-spacing:.15em;color:var(--rose);position:sticky;top:0;z-index:100;}
-.nav-back:hover{background:var(--bg3);}
+.nav-back{display:flex;align-items:center;gap:.5rem;background:var(--light);border-bottom:1px solid rgba(139,57,70,.12);padding:1rem 1.6rem;font-size:.82rem;letter-spacing:.15em;color:var(--dark);position:sticky;top:0;z-index:100;font-weight:500;}
+.nav-back:hover{opacity:.8;}
 
 /* §1 主理人登場 */
-.owner-hero{background:var(--bg2);border-bottom:1px solid var(--line);padding:5rem 1.6rem 4rem;}
+.owner-hero{background:var(--bg2);border-bottom:1px solid var(--line);padding:5rem 1.6rem 4rem;position:relative;overflow:hidden;}
 .oh-wrap{max-width:var(--mw);margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;}
 
 .owner-portrait{width:220px;height:280px;object-fit:cover;object-position:top;border:1px solid var(--line2);margin-bottom:2.5rem;}
@@ -58,8 +58,9 @@ a{text-decoration:none;color:inherit;}
 .owner-icon-link img{width:36px;height:36px;display:block;}
 
 /* §2 品牌理念 */
-.sec{padding:5rem 0;}
-.sec.alt{background:var(--bg2);}
+.sec{padding:5rem 0;position:relative;overflow:hidden;}
+.sec .wrap,.sec .content-wrap,.sec .nc-wrap,.sec .cert-grid{position:relative;z-index:1;}
+
 .eyebrow{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;letter-spacing:.3em;color:var(--rose);margin-bottom:.8rem;text-transform:uppercase;}
 .sec-title{font-size:1.4rem;font-weight:400;color:var(--ink);letter-spacing:.15em;margin-bottom:.5rem;}
 .rose-line{width:30px;height:1px;background:var(--rose);margin:1.2rem 0 2rem;}
@@ -92,7 +93,7 @@ a{text-decoration:none;color:inherit;}
 .f-nav a{font-size:.78rem;letter-spacing:.15em;color:var(--ink3);transition:.3s;}
 .f-nav a:hover{color:var(--rose);}
 .f-copy{font-size:.68rem;color:var(--ink3);letter-spacing:.15em;margin-bottom:2rem;}
-.linket-bar{display:block;text-align:center;padding:.9rem;background:var(--bg2);border-top:1px solid var(--line);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.62rem;letter-spacing:.18em;color:var(--ink3);}
+.linket-bar{display:block;text-align:center;padding:.9rem;background:var(--light);border-top:1px solid rgba(139,57,70,.12);font-family:'Source Han Serif TC','Noto Serif TC',serif;font-weight:500;font-size:.62rem;letter-spacing:.18em;color:var(--dark);}
 
 
 /* ── 背景圖交錯系統 ── */
@@ -107,6 +108,10 @@ a{text-decoration:none;color:inherit;}
 .bg-dark::before{filter:grayscale(.2) brightness(.7);}
 .bg-light::before{filter:grayscale(.2) brightness(1);}
 .sec-inner{position:relative;z-index:1;}
+
+/* ── 背景圖層修正：所有直接子元素浮至 bg 之上 ── */
+.bg-light > *,.bg-dark > *{position:relative;z-index:1;}
+
 .bg-light{color:var(--dark);}
 .bg-dark{color:var(--white);}
 .bg-dark .f-title{color:var(--white);}
@@ -117,6 +122,42 @@ a{text-decoration:none;color:inherit;}
 .bg-dark .btn.fill:hover{background:rgba(255,255,255,.85);}
 .bg-dark .btn.ghost{color:var(--white);border-color:var(--white);}
 .bg-dark .btn.ghost:hover{background:var(--white);color:var(--dark);}
+
+
+/* ── 深色底：service/owner 額外覆蓋 ── */
+.bg-dark .eyebrow{color:var(--white);opacity:.55;}
+.bg-dark .sec-title{color:var(--white);}
+.bg-dark .rose-line{background:var(--white);}
+.bg-dark .body-text,.bg-dark .quote-block{color:rgba(255,255,255,.8);}
+.bg-dark .quote-block{border-left-color:var(--white);}
+.bg-dark .menu-list{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15);}
+.bg-dark .menu-item{border-bottom-color:rgba(255,255,255,.1);}
+.bg-dark .mi-name{color:var(--white);}
+.bg-dark .mi-time{color:rgba(255,255,255,.6);}
+.bg-dark .mi-val{color:var(--white);}
+.bg-dark .pkg-desc{color:rgba(255,255,255,.6);}
+.bg-dark .pkg-card{background:rgba(255,255,255,.08);}
+.bg-dark .pkg-card.highlight{background:var(--white);}
+.bg-dark .pkg-card.highlight .pkg-num,.bg-dark .pkg-card.highlight .pkg-price,.bg-dark .pkg-card.highlight .pkg-note{color:var(--dark);}
+.bg-dark .pkg-num,.bg-dark .pkg-price{color:var(--white);}
+.bg-dark .pkg-unit,.bg-dark .pkg-note{color:rgba(255,255,255,.6);}
+.bg-dark .pkg-grid{background:rgba(255,255,255,.1);}
+.bg-dark .indiba-hero{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);}
+.bg-dark .ih-badge{border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.7);}
+.bg-dark .ih-name,.bg-dark .ih-price{color:var(--white);}
+.bg-dark .indiba-desc{color:rgba(255,255,255,.75);border-left-color:rgba(255,255,255,.4);}
+.bg-dark .indiba-grid{background:rgba(255,255,255,.1);}
+.bg-dark .ig-card{background:rgba(255,255,255,.06);}
+.bg-dark .ig-num{color:var(--white);}
+.bg-dark .ig-title{color:var(--white);}
+.bg-dark .ig-list li{color:rgba(255,255,255,.75);}
+.bg-dark .ig-list li::before{color:var(--white);}
+.bg-light .cert-card{background:rgba(139,57,70,.04);border-color:rgba(139,57,70,.12);}
+.bg-light .cert-label{color:var(--dark);opacity:.7;}
+.bg-dark .oh-name,.bg-dark .oh-role{color:var(--white);}
+.bg-dark .oh-name-zh{color:rgba(255,255,255,.6);}
+.bg-dark .oh-divider{background:rgba(255,255,255,.3);}
+.bg-dark .owner-icon-link img{filter:brightness(0) invert(1);}
 
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s,transform .6s;}
 .reveal.visible{opacity:1;transform:none;}
@@ -152,7 +193,7 @@ a{text-decoration:none;color:inherit;}
 </section>
 
 <!-- §2 品牌理念 -->
-<section class="sec" id="about">
+<section class="sec bg-dark" id="about">
   <div class="wrap">
     <div class="eyebrow reveal">Philosophy · 理念</div>
     <div class="sec-title reveal">保養不是犒賞，而是日常</div>
@@ -165,7 +206,7 @@ a{text-decoration:none;color:inherit;}
 </section>
 
 <!-- §3 技術認證 -->
-<section class="sec alt" id="certs">
+<section class="sec bg-light" id="certs">
   <div class="wrap">
     <div class="eyebrow reveal">Certification · 技術認證</div>
     <div class="sec-title reveal">專業培訓與認證</div>
