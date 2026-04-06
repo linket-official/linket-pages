@@ -5,6 +5,7 @@
   BELLA SPA · bella-spa/owner/index.html
   v1.0  2026-04-06  初版：主理人登場、理念引言、認證證書
   v2.0  2026-04-07  三頁樣式對齊：btn圓角100%、f-title字體統一、icon樣式修正（透明底無邊框）、名字格式修正、Logo SVG新增
+  v3.0  2026-04-07  套用 Tony 視覺調整：字重500、背景圖opacity、字體統一、f-logo放大
 -->
 <meta charset="UTF-8">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
@@ -30,7 +31,7 @@
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{font-family:'Noto Serif TC',serif;font-weight:300;background:var(--bg);color:var(--ink);line-height:1.8;letter-spacing:.1em;overflow-x:hidden;}
+body{font-family:'Noto Serif TC',serif;font-weight:500;background:var(--light);color:var(--dark);line-height:1.8;letter-spacing:.1em;overflow-x:hidden;}
 .wrap{max-width:var(--mw);margin:0 auto;padding:0 1.6rem;}
 img{display:block;width:100%;}
 a{text-decoration:none;color:inherit;}
@@ -75,7 +76,7 @@ a{text-decoration:none;color:inherit;}
 .cert-label{font-size:.78rem;color:var(--ink2);text-align:center;padding:.8rem 1rem;letter-spacing:.1em;border-top:1px solid var(--line);}
 
 /* §4 Footer */
-.btn{display:flex;align-items:center;justify-content:center;width:100%;padding:1.2rem 1.4rem;font-family:'Noto Serif TC',serif;font-size:.9rem;font-weight:400;letter-spacing:.2em;border:1px solid var(--rose);transition:.3s;border-radius:100px;}
+.btn{display:flex;align-items:center;justify-content:center;width:100%;padding:1.2rem 1.4rem;font-family:'Source Han Serif TC','Noto Serif TC',serif;font-size:.9rem;font-weight:400;letter-spacing:.2em;border:1px solid var(--rose);transition:.3s;border-radius:100px;}
 .btn.fill{background:var(--rose);color:#fff;}
 .btn.fill:hover{background:var(--rose2);}
 .btn.ghost{background:transparent;color:var(--rose);}
@@ -83,7 +84,8 @@ a{text-decoration:none;color:inherit;}
 .btn-wrap{display:flex;flex-direction:column;gap:.8rem;max-width:360px;margin:2.5rem auto 0;}
 
 .footer{background:var(--bg3);border-top:1px solid var(--line2);padding:5rem 1.6rem 3rem;text-align:center;}
-.f-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2rem;color:var(--rose);margin-bottom:.5rem;letter-spacing:.3em;}
+.f-logo{width:180px;margin:0 auto 1.2rem;}
+.f-title{font-family:'Playfair Display',serif;font-style:italic;font-size:2rem;font-weight:400;color:var(--dark);margin-bottom:.4rem;letter-spacing:.3em;}
 .f-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.82rem;letter-spacing:.25em;color:var(--ink3);margin-bottom:3.5rem;}
 .f-btns{display:flex;flex-direction:column;gap:.8rem;max-width:320px;margin:0 auto 3rem;}
 .f-nav{display:flex;justify-content:center;gap:2rem;list-style:none;flex-wrap:wrap;margin-bottom:3rem;}
@@ -91,6 +93,30 @@ a{text-decoration:none;color:inherit;}
 .f-nav a:hover{color:var(--rose);}
 .f-copy{font-size:.68rem;color:var(--ink3);letter-spacing:.15em;margin-bottom:2rem;}
 .linket-bar{display:block;text-align:center;padding:.9rem;background:var(--bg2);border-top:1px solid var(--line);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.62rem;letter-spacing:.18em;color:var(--ink3);}
+
+
+/* ── 背景圖交錯系統 ── */
+.bg-light,.bg-dark{position:relative;overflow:hidden;}
+.bg-light{background:var(--light);}
+.bg-dark{background:var(--dark);}
+.bg-light::before,.bg-dark::before{
+  content:'';position:absolute;inset:0;z-index:0;
+  background:url('../hero-bg.jpg') center/cover no-repeat;
+  opacity:.7;pointer-events:none;
+}
+.bg-dark::before{filter:grayscale(.2) brightness(.7);}
+.bg-light::before{filter:grayscale(.2) brightness(1);}
+.sec-inner{position:relative;z-index:1;}
+.bg-light{color:var(--dark);}
+.bg-dark{color:var(--white);}
+.bg-dark .f-title{color:var(--white);}
+.bg-dark .f-sub,.bg-dark .linket-bar{color:rgba(255,255,255,.5);}
+.bg-dark .f-nav a{color:rgba(255,255,255,.5);}
+.bg-dark .f-copy{color:rgba(255,255,255,.4);}
+.bg-dark .btn.fill{background:var(--white);color:var(--dark);border-color:var(--white);}
+.bg-dark .btn.fill:hover{background:rgba(255,255,255,.85);}
+.bg-dark .btn.ghost{color:var(--white);border-color:var(--white);}
+.bg-dark .btn.ghost:hover{background:var(--white);color:var(--dark);}
 
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s,transform .6s;}
 .reveal.visible{opacity:1;transform:none;}
@@ -101,7 +127,7 @@ a{text-decoration:none;color:inherit;}
 <a class="nav-back" href="../">← 返回貝拉美學</a>
 
 <!-- §1 主理人登場 -->
-<section class="owner-hero">
+<section class="owner-hero bg-light">
   <div class="oh-wrap">
     <div style="width:70px;margin:0 auto 1.8rem;"><img src="../logo-bella.svg" alt="貝拉美學" style="width:100%;height:auto;display:block;" onerror="this.style.display='none'"></div>
     <img src="../owner-portrait.jpg" alt="鄭香苓 Summer" class="owner-portrait reveal"
@@ -176,7 +202,7 @@ a{text-decoration:none;color:inherit;}
 </section>
 
 <!-- Footer -->
-<footer class="footer">
+<footer class="footer bg-light">
   <div class="f-title">BELLA SPA</div>
   <div class="f-sub">Luxury Holistic Beauty · 新竹竹北</div>
   <div class="f-btns">
