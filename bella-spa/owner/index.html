@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
+<!--
+  BELLA SPA · bella-spa/owner/index.html
+  v1.0  2026-04-06  初版：主理人登場、理念引言、認證證書
+  v2.0  2026-04-07  三頁樣式對齊：btn圓角100%、f-title字體統一、icon樣式修正（透明底無邊框）、名字格式修正、Logo SVG新增
+-->
 <meta charset="UTF-8">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-29J2988Y8J');</script>
@@ -47,9 +52,9 @@ a{text-decoration:none;color:inherit;}
 
 /* 個人社群 icons */
 .owner-icons{display:flex;justify-content:center;gap:1.4rem;margin-bottom:0;}
-.owner-icon-link{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line2);border-radius:50%;transition:.3s;}
-.owner-icon-link:hover{border-color:var(--rose);background:rgba(139,57,70,.06);}
-.owner-icon-link img{width:20px;height:20px;display:block;filter:brightness(0) saturate(100%) invert(30%) sepia(30%) saturate(500%) hue-rotate(310deg);}
+.owner-icon-link{width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:transparent;border:none;transition:opacity .2s,transform .2s;}
+.owner-icon-link:hover{opacity:.7;transform:translateY(-2px);}
+.owner-icon-link img{width:36px;height:36px;display:block;}
 
 /* §2 品牌理念 */
 .sec{padding:5rem 0;}
@@ -70,7 +75,7 @@ a{text-decoration:none;color:inherit;}
 .cert-label{font-size:.78rem;color:var(--ink2);text-align:center;padding:.8rem 1rem;letter-spacing:.1em;border-top:1px solid var(--line);}
 
 /* §4 Footer */
-.btn{display:flex;align-items:center;justify-content:center;width:100%;padding:1.2rem 1.4rem;font-family:'Noto Serif TC',serif;font-size:.9rem;font-weight:400;letter-spacing:.2em;border:1px solid var(--rose);transition:.3s;}
+.btn{display:flex;align-items:center;justify-content:center;width:100%;padding:1.2rem 1.4rem;font-family:'Noto Serif TC',serif;font-size:.9rem;font-weight:400;letter-spacing:.2em;border:1px solid var(--rose);transition:.3s;border-radius:100px;}
 .btn.fill{background:var(--rose);color:#fff;}
 .btn.fill:hover{background:var(--rose2);}
 .btn.ghost{background:transparent;color:var(--rose);}
@@ -78,7 +83,7 @@ a{text-decoration:none;color:inherit;}
 .btn-wrap{display:flex;flex-direction:column;gap:.8rem;max-width:360px;margin:2.5rem auto 0;}
 
 .footer{background:var(--bg3);border-top:1px solid var(--line2);padding:5rem 1.6rem 3rem;text-align:center;}
-.f-title{font-family:'Playfair Display',serif;font-style:italic;font-size:2rem;color:var(--rose);margin-bottom:.5rem;}
+.f-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2rem;color:var(--rose);margin-bottom:.5rem;letter-spacing:.3em;}
 .f-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.82rem;letter-spacing:.25em;color:var(--ink3);margin-bottom:3.5rem;}
 .f-btns{display:flex;flex-direction:column;gap:.8rem;max-width:320px;margin:0 auto 3rem;}
 .f-nav{display:flex;justify-content:center;gap:2rem;list-style:none;flex-wrap:wrap;margin-bottom:3rem;}
@@ -98,10 +103,10 @@ a{text-decoration:none;color:inherit;}
 <!-- §1 主理人登場 -->
 <section class="owner-hero">
   <div class="oh-wrap">
+    <div style="width:70px;margin:0 auto 1.8rem;"><img src="../logo-bella.svg" alt="貝拉美學" style="width:100%;height:auto;display:block;" onerror="this.style.display='none'"></div>
     <img src="../owner-portrait.jpg" alt="鄭香苓 Summer" class="owner-portrait reveal"
       onerror="this.outerHTML='<div class=\'owner-portrait\' style=\'display:flex;align-items:center;justify-content:center;font-size:.78rem;letter-spacing:.1em;color:var(--ink3);border:1px dashed var(--line2);\'>人像照待補</div>'">
-    <div class="oh-name reveal">Summer</div>
-    <div class="oh-name-zh reveal">鄭香苓</div>
+    <div class="oh-name reveal">Summer｜鄭香苓</div>
     <div class="oh-role reveal">貝拉美學SPA 主理人<br>INDIBA英特波認證技術師</div>
     <div class="oh-divider reveal"></div>
     <div class="owner-icons reveal">
