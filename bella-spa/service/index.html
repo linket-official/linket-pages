@@ -38,8 +38,8 @@ img{display:block;width:100%;}
 a{text-decoration:none;color:inherit;}
 
 /* ── 返回導覽 ── */
-.nav-back{display:flex;align-items:center;gap:.5rem;background:var(--bg2);border-bottom:1px solid var(--line);padding:1rem 1.6rem;font-size:.82rem;letter-spacing:.15em;color:var(--rose);position:sticky;top:0;z-index:100;}
-.nav-back:hover{background:var(--bg3);}
+.nav-back{display:flex;align-items:center;gap:.5rem;background:var(--light);border-bottom:1px solid rgba(139,57,70,.12);padding:1rem 1.6rem;font-size:.82rem;letter-spacing:.15em;color:var(--dark);position:sticky;top:0;z-index:100;font-weight:500;}
+.nav-back:hover{opacity:.8;}
 
 /* ── 頁面 Hero（短版） ── */
 .page-hero{background:var(--bg2);border-bottom:1px solid var(--line);padding:4rem 1.6rem 3rem;text-align:center;}
@@ -48,8 +48,9 @@ a{text-decoration:none;color:inherit;}
 .ph-sub{font-size:.82rem;letter-spacing:.2em;color:var(--ink3);}
 
 /* ── 共用區塊 ── */
-.sec{padding:5rem 0;}
-.sec.alt{background:var(--bg2);}
+.sec{padding:5rem 0;position:relative;overflow:hidden;}
+.sec .wrap,.sec .content-wrap,.sec .nc-wrap,.sec .cert-grid{position:relative;z-index:1;}
+
 .eyebrow{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;letter-spacing:.3em;color:var(--rose);margin-bottom:.8rem;text-transform:uppercase;}
 .sec-title{font-size:1.4rem;font-weight:400;color:var(--ink);letter-spacing:.15em;margin-bottom:.5rem;}
 .sec-sub{font-size:.88rem;color:var(--ink3);letter-spacing:.1em;margin-bottom:3rem;}
@@ -135,7 +136,7 @@ a{text-decoration:none;color:inherit;}
 .f-nav a{font-size:.78rem;letter-spacing:.15em;color:var(--ink3);transition:.3s;}
 .f-nav a:hover{color:var(--rose);}
 .f-copy{font-size:.68rem;color:var(--ink3);letter-spacing:.15em;margin-bottom:2rem;}
-.linket-bar{display:block;text-align:center;padding:.9rem;background:var(--bg2);border-top:1px solid var(--line);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.62rem;letter-spacing:.18em;color:var(--ink3);}
+.linket-bar{display:block;text-align:center;padding:.9rem;background:var(--light);border-top:1px solid rgba(139,57,70,.12);font-family:'Source Han Serif TC','Noto Serif TC',serif;font-weight:500;font-size:.62rem;letter-spacing:.18em;color:var(--dark);}
 
 
 /* ── 背景圖交錯系統 ── */
@@ -150,6 +151,10 @@ a{text-decoration:none;color:inherit;}
 .bg-dark::before{filter:grayscale(.2) brightness(.7);}
 .bg-light::before{filter:grayscale(.2) brightness(1);}
 .sec-inner{position:relative;z-index:1;}
+
+/* ── 背景圖層修正：所有直接子元素浮至 bg 之上 ── */
+.bg-light > *,.bg-dark > *{position:relative;z-index:1;}
+
 .bg-light{color:var(--dark);}
 .bg-dark{color:var(--white);}
 .bg-dark .f-title{color:var(--white);}
@@ -161,7 +166,112 @@ a{text-decoration:none;color:inherit;}
 .bg-dark .btn.ghost{color:var(--white);border-color:var(--white);}
 .bg-dark .btn.ghost:hover{background:var(--white);color:var(--dark);}
 
+/* ── 淺色底：文字系統 ── */
+.bg-light{color:var(--dark);}
+.bg-light .sec-label,.bg-light .eyebrow{color:var(--dark);opacity:.6;}
+.bg-light .sec-title,.bg-light .ph-quote,.bg-light .ph-label{color:var(--dark);}
+.bg-light .ph-text,.bg-light .sec-sub,.bg-light .ph-text-wrap{color:var(--dark);opacity:.75;}
+.bg-light .rose-divider{background:var(--dark);}
+
+/* ── 深色底：文字系統 ── */
+.bg-dark{color:var(--white);}
+.bg-dark .sec-label,.bg-dark .eyebrow{color:var(--white);opacity:.6;}
+.bg-dark .sec-title,.bg-dark .wm-main{color:var(--white);}
+.bg-dark .wm-sub,.bg-dark .loc-lbl,.bg-dark .loc-row{color:rgba(255,255,255,.7);}
+.bg-dark .sv-name{color:var(--white);}
+.bg-dark .sv-mood,.bg-dark .sv-desc,.bg-dark .sv-card{color:rgba(255,255,255,.8);}
+.bg-dark .rose-divider{background:var(--white);}
+
+/* ── 淺色底按鈕 ── */
+.bg-light .btn-fill,.bg-light .hero-btn.p1{background:var(--dark);color:var(--white);border:1px solid var(--dark);border-radius:100px;}
+.bg-light .btn-fill:hover,.bg-light .hero-btn.p1:hover{background:var(--dark2);}
+.bg-light .btn-ghost,.bg-light .hero-btn.ghost{background:transparent;color:var(--dark);border:1px solid var(--dark);border-radius:100px;}
+.bg-light .btn-ghost:hover,.bg-light .hero-btn.ghost:hover{background:var(--dark);color:var(--white);}
+.bg-light .btn-sm{border-color:var(--line-l);color:var(--dark);opacity:.6;}
+
+/* ── 深色底按鈕 ── */
+.bg-dark .btn-fill{background:var(--white);color:var(--dark);border:1px solid var(--white);border-radius:100px;}
+.bg-dark .btn-fill:hover{background:rgba(255,255,255,.85);}
+.bg-dark .btn-ghost{background:transparent;color:var(--white);border:1px solid var(--white);border-radius:100px;}
+.bg-dark .btn-ghost:hover{background:var(--white);color:var(--dark);}
+
+/* ── 淺色底 Logo：原色；深色底 Logo：反白 ── */
+.bg-dark .hero-logo-img,.bg-dark .logo-img{filter:brightness(0) invert(1);}
+
+/* ── 通用 btn（基底） ── */
+
+/* ── 深色底：service/owner 額外覆蓋 ── */
+.bg-dark .eyebrow{color:var(--white);opacity:.55;}
+.bg-dark .sec-title{color:var(--white);}
+.bg-dark .rose-line{background:var(--white);}
+.bg-dark .body-text,.bg-dark .quote-block{color:rgba(255,255,255,.8);}
+.bg-dark .quote-block{border-left-color:var(--white);}
+.bg-dark .menu-list{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15);}
+.bg-dark .menu-item{border-bottom-color:rgba(255,255,255,.1);}
+.bg-dark .mi-name{color:var(--white);}
+.bg-dark .mi-time{color:rgba(255,255,255,.6);}
+.bg-dark .mi-val{color:var(--white);}
+.bg-dark .pkg-desc{color:rgba(255,255,255,.6);}
+.bg-dark .pkg-card{background:rgba(255,255,255,.08);}
+.bg-dark .pkg-card.highlight{background:var(--white);}
+.bg-dark .pkg-card.highlight .pkg-num,.bg-dark .pkg-card.highlight .pkg-price,.bg-dark .pkg-card.highlight .pkg-note{color:var(--dark);}
+.bg-dark .pkg-num,.bg-dark .pkg-price{color:var(--white);}
+.bg-dark .pkg-unit,.bg-dark .pkg-note{color:rgba(255,255,255,.6);}
+.bg-dark .pkg-grid{background:rgba(255,255,255,.1);}
+.bg-dark .indiba-hero{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);}
+.bg-dark .ih-badge{border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.7);}
+.bg-dark .ih-name,.bg-dark .ih-price{color:var(--white);}
+.bg-dark .indiba-desc{color:rgba(255,255,255,.75);border-left-color:rgba(255,255,255,.4);}
+.bg-dark .indiba-grid{background:rgba(255,255,255,.1);}
+.bg-dark .ig-card{background:rgba(255,255,255,.06);}
+.bg-dark .ig-num{color:var(--white);}
+.bg-dark .ig-title{color:var(--white);}
+.bg-dark .ig-list li{color:rgba(255,255,255,.75);}
+.bg-dark .ig-list li::before{color:var(--white);}
+.bg-light .cert-card{background:rgba(139,57,70,.04);border-color:rgba(139,57,70,.12);}
+.bg-light .cert-label{color:var(--dark);opacity:.7;}
+.bg-dark .oh-name,.bg-dark .oh-role{color:var(--white);}
+.bg-dark .oh-name-zh{color:rgba(255,255,255,.6);}
+.bg-dark .oh-divider{background:rgba(255,255,255,.3);}
+.bg-dark .owner-icon-link img{filter:brightness(0) invert(1);}
+
 /* Reveal */
+
+/* ── 深色底：service/owner 額外覆蓋 ── */
+.bg-dark .eyebrow{color:var(--white);opacity:.55;}
+.bg-dark .sec-title{color:var(--white);}
+.bg-dark .rose-line{background:var(--white);}
+.bg-dark .body-text,.bg-dark .quote-block{color:rgba(255,255,255,.8);}
+.bg-dark .quote-block{border-left-color:var(--white);}
+.bg-dark .menu-list{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15);}
+.bg-dark .menu-item{border-bottom-color:rgba(255,255,255,.1);}
+.bg-dark .mi-name{color:var(--white);}
+.bg-dark .mi-time{color:rgba(255,255,255,.6);}
+.bg-dark .mi-val{color:var(--white);}
+.bg-dark .pkg-desc{color:rgba(255,255,255,.6);}
+.bg-dark .pkg-card{background:rgba(255,255,255,.08);}
+.bg-dark .pkg-card.highlight{background:var(--white);}
+.bg-dark .pkg-card.highlight .pkg-num,.bg-dark .pkg-card.highlight .pkg-price,.bg-dark .pkg-card.highlight .pkg-note{color:var(--dark);}
+.bg-dark .pkg-num,.bg-dark .pkg-price{color:var(--white);}
+.bg-dark .pkg-unit,.bg-dark .pkg-note{color:rgba(255,255,255,.6);}
+.bg-dark .pkg-grid{background:rgba(255,255,255,.1);}
+.bg-dark .indiba-hero{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);}
+.bg-dark .ih-badge{border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.7);}
+.bg-dark .ih-name,.bg-dark .ih-price{color:var(--white);}
+.bg-dark .indiba-desc{color:rgba(255,255,255,.75);border-left-color:rgba(255,255,255,.4);}
+.bg-dark .indiba-grid{background:rgba(255,255,255,.1);}
+.bg-dark .ig-card{background:rgba(255,255,255,.06);}
+.bg-dark .ig-num{color:var(--white);}
+.bg-dark .ig-title{color:var(--white);}
+.bg-dark .ig-list li{color:rgba(255,255,255,.75);}
+.bg-dark .ig-list li::before{color:var(--white);}
+.bg-light .cert-card{background:rgba(139,57,70,.04);border-color:rgba(139,57,70,.12);}
+.bg-light .cert-label{color:var(--dark);opacity:.7;}
+.bg-dark .oh-name,.bg-dark .oh-role{color:var(--white);}
+.bg-dark .oh-name-zh{color:rgba(255,255,255,.6);}
+.bg-dark .oh-divider{background:rgba(255,255,255,.3);}
+.bg-dark .owner-icon-link img{filter:brightness(0) invert(1);}
+
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s,transform .6s;}
 .reveal.visible{opacity:1;transform:none;}
 </style>
@@ -181,7 +291,7 @@ a{text-decoration:none;color:inherit;}
 </div>
 
 <!-- §1 INDIBA 英特波 -->
-<section class="sec" id="indiba">
+<section class="sec bg-dark" id="indiba">
   <div class="wrap">
     <div class="eyebrow reveal">頂級療程</div>
     <div class="sec-title reveal">英特波 INDIBA 生活美學</div>
@@ -242,7 +352,7 @@ a{text-decoration:none;color:inherit;}
 </section>
 
 <!-- §2 體驗價 -->
-<section class="sec alt" id="experience">
+<section class="sec bg-light" id="experience">
   <div class="wrap">
     <div class="exp-header reveal">
       <div class="eyebrow">體驗方案</div>
@@ -287,7 +397,7 @@ a{text-decoration:none;color:inherit;}
 </section>
 
 <!-- §3 堂數套組 -->
-<section class="sec" id="packages">
+<section class="sec bg-dark" id="packages">
   <div class="wrap">
     <div class="eyebrow reveal">長期保養・最優惠</div>
     <div class="sec-title reveal">堂數課程方案</div>
@@ -322,7 +432,7 @@ a{text-decoration:none;color:inherit;}
 </section>
 
 <!-- §4 全身舒壓 SPA -->
-<section class="sec alt" id="spa">
+<section class="sec bg-light" id="spa">
   <div class="wrap">
     <div class="eyebrow reveal">全身保養</div>
     <div class="sec-title reveal">全身舒壓 SPA</div>
@@ -346,7 +456,7 @@ a{text-decoration:none;color:inherit;}
 </section>
 
 <!-- §5 臉部 SPA 護理 -->
-<section class="sec" id="face">
+<section class="sec bg-dark" id="face">
   <div class="wrap">
     <div class="eyebrow reveal">臉部保養</div>
     <div class="sec-title reveal">臉部 SPA 護理</div>
