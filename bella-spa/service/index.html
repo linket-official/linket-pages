@@ -7,6 +7,7 @@
   v2.0  2026-04-07  INDIBA黑底→玫紅、emoji移除改序號、標題統一、刪預約系統按鈕、堂數價格修正、20/60堂加淺色底、加Logo SVG
   v2.1  2026-04-07  按鈕圓角100%、f-title字體統一Cormorant Garamond
   v3.0  2026-04-07  從v2重建：套入index v3.1完整設計系統、交錯背景圖、雙色按鈕主題
+  v3.1  2026-04-07  spa改bg-dark、menu-list透明底、sec-title大字置中、rose-line深色反白
 -->
 <meta charset="UTF-8">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
@@ -21,7 +22,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="../favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Cormorant+Garamond:ital,wght@0,300;1,300;1,400&family=Noto+Serif+TC:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Noto+Serif+TC:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --light:#F8F3F2;
@@ -46,7 +47,7 @@ a{text-decoration:none;color:inherit;}
 .bg-light::before,.bg-dark::before{
   content:'';position:absolute;inset:0;z-index:0;
   background:url('../hero-bg.jpg') center/cover no-repeat;
-  opacity:.3;pointer-events:none;
+  opacity:.7;pointer-events:none;
 }
 .bg-dark::before{filter:grayscale(.2) brightness(.7);}
 .bg-light::before{filter:grayscale(.2) brightness(1);}
@@ -82,7 +83,8 @@ a{text-decoration:none;color:inherit;}
 .bg-dark .mi-name{color:var(--white);}
 .bg-dark .mi-time{color:rgba(255,255,255,.55);}
 .bg-dark .mi-val{color:var(--white);}
-.bg-light .exp-col-title{color:var(--dark);border-bottom-color:rgba(139,57,70,.2);}
+.bg-light .exp-note{font-size:.85rem;letter-spacing:.08em;line-height:2;margin-top:.5rem;opacity:.7;}
+.exp-col-title{color:var(--dark);border-bottom-color:rgba(139,57,70,.2);}
 .bg-light .exp-price{color:var(--dark);}
 .bg-light .cert-card{background:rgba(139,57,70,.04);border-color:rgba(139,57,70,.12);}
 .bg-light .cert-label{color:var(--dark);opacity:.7;}
@@ -107,8 +109,8 @@ a{text-decoration:none;color:inherit;}
 
 /* ── 頁面 Hero（短版） ── */
 .page-hero{padding:4rem 1.6rem 3rem;text-align:center;position:relative;overflow:hidden;}
-.ph-label{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;letter-spacing:.3em;color:var(--rose);margin-bottom:.8rem;text-transform:uppercase;}
-.ph-title{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.8rem,7vw,2.4rem);color:var(--ink);letter-spacing:.1em;margin-bottom:.5rem;}
+.ph-label{font-size:.82rem;letter-spacing:.3em;opacity:.6;margin-bottom:.8rem;text-transform:uppercase;}
+.ph-title{font-family:'Source Han Serif TC','Noto Serif TC',serif;font-weight:700;font-size:clamp(1.4rem,5vw,1.8rem);letter-spacing:.1em;margin-bottom:.5rem;}
 .ph-sub{font-size:.82rem;letter-spacing:.2em;color:var(--ink3);}
 
 /* ── 共用區塊 ── */
@@ -116,22 +118,25 @@ a{text-decoration:none;color:inherit;}
 
 .eyebrow{font-size:.82rem;letter-spacing:.3em;color:var(--dark);opacity:.6;margin-bottom:.8rem;text-transform:uppercase;}
 .sec-title{font-size:1.3rem;font-weight:700;letter-spacing:.18em;margin-bottom:.5rem;}
+.sec.bg-dark .eyebrow{text-align:center;}
+.sec.bg-dark .sec-title{font-size:clamp(1.4rem,5vw,2rem);text-align:center;letter-spacing:.25em;margin-bottom:1.5rem;}
 .sec-sub{font-size:.85rem;letter-spacing:.1em;line-height:2;margin-bottom:2rem;opacity:.75;}
-.rose-line{width:30px;height:1px;background:var(--rose);margin:1.2rem 0 2rem;}
+.rose-line{width:30px;height:1px;background:var(--dark);margin:1.2rem 0 2rem;}
+.bg-dark .rose-line{background:var(--white);margin:1.2rem auto 2rem;}
 
 /* ── §1 INDIBA ── */
 .indiba-hero{background:var(--rose);color:#fff;padding:2.5rem 1.6rem;margin-bottom:2rem;position:relative;overflow:hidden;}
 .indiba-hero::before{content:'INDIBA';position:absolute;right:-1rem;top:50%;transform:translateY(-50%);font-family:'Playfair Display',serif;font-size:5rem;font-weight:400;opacity:.08;pointer-events:none;letter-spacing:.1em;color:#fff;}
 .ih-badge{display:inline-block;border:1px solid rgba(255,255,255,.3);font-size:.68rem;letter-spacing:.25em;padding:.25rem .8rem;color:rgba(255,255,255,.7);margin-bottom:1.2rem;}
 .ih-name{font-family:'Playfair Display',serif;font-style:italic;font-size:1.8rem;color:#fff;margin-bottom:.4rem;}
-.ih-price{font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:#fff;letter-spacing:.05em;}
+.ih-price{font-family:'Playfair Display',serif;font-size:2.2rem;color:#fff;letter-spacing:.05em;}
 .ih-price span{font-size:.9rem;letter-spacing:.1em;color:rgba(255,255,255,.5);}
 
 .indiba-desc{font-size:.9rem;color:rgba(255,255,255,.75);line-height:2.2;margin-top:1.2rem;border-left:2px solid var(--rose2);padding-left:1rem;}
 
 .indiba-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line2);margin-top:2rem;}
 .ig-card{background:var(--bg);padding:1.4rem 1.2rem;border-top:2px solid var(--rose);}
-.ig-num{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2rem;color:var(--rose);opacity:.3;line-height:1;margin-bottom:.4rem;}
+.ig-num{font-family:'Playfair Display',serif;font-style:italic;font-size:2rem;opacity:.3;line-height:1;margin-bottom:.4rem;}
 .ig-title{font-size:.85rem;font-weight:500;color:var(--rose);letter-spacing:.08em;margin-bottom:.8rem;}
 .ig-list{font-size:.82rem;color:var(--ink2);line-height:2;letter-spacing:.05em;}
 .ig-list li{list-style:none;padding-left:.8rem;position:relative;}
@@ -140,17 +145,18 @@ a{text-decoration:none;color:inherit;}
 .indiba-cta{margin-top:2rem;}
 
 /* ── §2 體驗價 ── */
-.exp-header{text-align:center;margin-bottom:2.5rem;}
+.exp-header{text-align:left;margin-bottom:2.5rem;}
 .exp-badge{display:inline-block;background:var(--rose);color:#fff;font-size:.78rem;letter-spacing:.2em;padding:.4rem 1.4rem;margin-bottom:1rem;}
 .exp-note{font-size:.8rem;color:var(--ink3);letter-spacing:.12em;}
 
 .exp-cols{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.5rem;}
 @media(max-width:480px){.exp-cols{grid-template-columns:1fr;}}
-.exp-col-title{font-size:1.0rem;font-weight:700;color:var(--rose);letter-spacing:.15em;border-bottom:1px solid var(--line2);padding-bottom:.6rem;margin-bottom:1rem;}
+.exp-note{font-size:.85rem;letter-spacing:.08em;line-height:2;margin-top:.5rem;opacity:.7;}
+.exp-col-title{font-size:.82rem;font-weight:500;color:var(--rose);letter-spacing:.15em;border-bottom:1px solid var(--line2);padding-bottom:.6rem;margin-bottom:1rem;}
 .exp-item{display:flex;justify-content:space-between;align-items:baseline;padding:.6rem 0;border-bottom:1px solid var(--line);font-size:.85rem;}
 .exp-item:last-child{border-bottom:none;}
 .exp-name{color:var(--ink);letter-spacing:.04em;}
-.exp-price{color:var(--rose);font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;white-space:nowrap;margin-left:.5rem;}
+.exp-price{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:400;white-space:nowrap;margin-left:.5rem;}
 .exp-gift{font-size:.75rem;letter-spacing:.12em;color:var(--ink3);text-align:center;padding:.8rem;background:rgba(139,57,70,.05);border:1px solid var(--line);margin-top:.5rem;}
 .exp-guide{background:var(--bg3);border-left:2px solid var(--rose);padding:1.2rem 1.4rem;font-size:.88rem;color:var(--ink2);line-height:2.2;letter-spacing:.06em;margin-top:2rem;}
 
@@ -159,7 +165,7 @@ a{text-decoration:none;color:inherit;}
 @media(max-width:400px){.pkg-grid{grid-template-columns:1fr;}}
 .pkg-card{background:var(--bg);padding:2rem 1.2rem;text-align:center;}
 .pkg-card.highlight{background:var(--rose);}
-.pkg-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;color:var(--rose);line-height:1;}
+.pkg-num{font-family:'Playfair Display',serif;font-size:2.8rem;line-height:1;}
 .pkg-card.highlight .pkg-num{color:#fff;}
 .pkg-unit{font-size:.72rem;letter-spacing:.2em;color:var(--ink3);margin:.2rem 0 .8rem;}
 .pkg-card.highlight .pkg-unit{color:rgba(255,255,255,.7);}
@@ -173,13 +179,13 @@ a{text-decoration:none;color:inherit;}
 .pkg-card.pkg-light .pkg-price{color:var(--ink2);}
 
 /* ── §4 全身SPA菜單 ── */
-.menu-list{background:#fff;border:1px solid var(--line);}
+.menu-list{background:rgba(248,243,242,.06);border:1px solid rgba(139,57,70,.12);}
 .menu-item{display:flex;justify-content:space-between;align-items:baseline;padding:1rem 1.4rem;border-bottom:1px solid var(--line);gap:1rem;}
 .menu-item:last-child{border-bottom:none;}
 .mi-left{flex:1;}
-.mi-name{font-size:.9rem;color:var(--ink);letter-spacing:.04em;}
-.mi-time{font-size:.75rem;color:var(--ink3);letter-spacing:.08em;margin-top:.15rem;}
-.mi-val{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--rose);white-space:nowrap;}
+.mi-name{font-size:.9rem;letter-spacing:.04em;}
+.mi-time{font-size:.75rem;opacity:.6;letter-spacing:.08em;margin-top:.15rem;}
+.mi-val{font-family:'Playfair Display',serif;font-size:1.1rem;white-space:nowrap;}
 
 /* ── 按鈕 ── */
 .btn{display:flex;align-items:center;justify-content:center;width:100%;padding:1.2rem 1.4rem;font-family:'Source Han Serif TC','Noto Serif TC',serif;font-size:.9rem;font-weight:500;letter-spacing:.2em;transition:.3s;border-radius:100px;border:1px solid var(--dark);}
@@ -224,12 +230,12 @@ a{text-decoration:none;color:inherit;}
 
 <!-- 頁面 Hero -->
 <div class="page-hero bg-light">
-  <div style="width:160px;margin:0 auto 1.5rem;">
+  <div style="width:80px;margin:0 auto 1.5rem;">
     <img src="../logo-bella.svg" alt="貝拉美學" style="width:100%;height:auto;display:block;" onerror="this.style.display='none'">
   </div>
   <div class="ph-label">Service Menu</div>
   <div class="ph-title">服務項目介紹</div>
-  <div class="ph-sub">INDIBA英特波・體驗價・全身SPA・臉部護理</div>
+  <div class="ph-sub">INDIBA英特波・體驗價・全身SPA・臉部護理・堂數套組</div>
 </div>
 
 <!-- §1 INDIBA 英特波 -->
@@ -297,10 +303,10 @@ a{text-decoration:none;color:inherit;}
 <section class="sec bg-light" id="experience">
   <div class="wrap">
     <div class="exp-header reveal">
-      <div class="eyebrow reveal">體驗方案</div>
-      <div class="sec-title reveal">新客戶體驗專區</div>
+      <div class="eyebrow">體驗方案</div>
+      <div class="sec-title">新客戶體驗專區</div>
       <div class="sec-sub">單堂即可預約，無需購買套組</div>
-      <p style="font-size:.85rem;color:var(--ink3);letter-spacing:.08em;line-height:2;margin-top:.5rem;">限新客體驗・多部位可選。以下體驗價適用初次造訪之新客戶。</p>
+      <p class="exp-note">限新客體驗・多部位可選。以下體驗價適用初次造訪之新客戶。</p>
     </div>
 
     <div class="exp-cols reveal">
@@ -354,7 +360,7 @@ a{text-decoration:none;color:inherit;}
       </div>
       <div class="pkg-card highlight">
         <div class="pkg-num">40</div>
-        <div class="pkg-unit">堂</div>
+        <div class="pkg-unit">堂・最受歡迎</div>
         <div class="pkg-price">NT$ 58,000</div>
         <div class="pkg-note">≈ 1,450/堂</div>
       </div>
@@ -374,7 +380,7 @@ a{text-decoration:none;color:inherit;}
 </section>
 
 <!-- §4 全身舒壓 SPA -->
-<section class="sec bg-light" id="spa">
+<section class="sec bg-dark" id="spa">
   <div class="wrap">
     <div class="eyebrow reveal">全身保養</div>
     <div class="sec-title reveal">全身舒壓 SPA</div>
@@ -429,6 +435,7 @@ a{text-decoration:none;color:inherit;}
   <div class="f-logo">
     <img src="../logo-bella.svg" alt="BELLA" class="logo-img" onerror="this.style.display='none'">
   </div>
+  <div class="f-title">BELLA SPA</div>
   <div class="f-sub">Luxury Holistic Beauty · 新竹竹北</div>
   <div class="f-btns">
     <a href="https://lin.ee/iCAHFna" target="_blank" class="btn fill" onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'bella-spa'})">預約諮詢｜LINE@</a>
