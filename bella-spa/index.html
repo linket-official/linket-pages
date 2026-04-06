@@ -7,6 +7,7 @@
   v2.0  2026-04-06  全頁重寫：移除菜單Tab，改情境卡片架構，加主理人區塊
   v2.1  2026-04-07  RWD修正：桌機左右欄、按鈕圓角100%、按鈕連結修正、地圖更新
   v2.2  2026-04-07  Hero RWD重構、第二區置中、移除三欄壓縮、刪多餘按鈕、移除主理人區塊
+  v2.3  2026-04-07  Hero HTML結構重整（左資訊右按鈕）、Logo佔位、字體統一
 -->
 <meta charset="UTF-8">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
@@ -89,12 +90,12 @@ a{text-decoration:none;color:inherit;}
 @media(min-width:700px){
   .hero-content{flex-direction:row;align-items:center;justify-content:center;gap:5rem;text-align:left;padding:4rem 2.5rem;max-width:960px;}
   .hero-left{flex:1 1 0;display:flex;flex-direction:column;align-items:flex-start;text-align:left;}
-  .hero-right{flex:1 1 0;display:flex;flex-direction:column;align-items:center;max-width:340px;}
+  .hero-right{flex:1 1 0;display:flex;flex-direction:column;align-items:flex-start;width:100%;max-width:340px;}
   .hero-logo-wrap{margin:0 0 2rem;}
   .hero-tags{justify-content:flex-start;}
   .hero-icons{justify-content:flex-start;}
   .hero-hours{text-align:left;}
-  .hero-btns{margin:0;max-width:100%;}
+  .hero-btns{width:100%;}
   .hero-btn-row{margin:0;max-width:100%;}
 }
 .philosophy{padding:6rem 0;background:var(--bg);}
@@ -164,7 +165,7 @@ a{text-decoration:none;color:inherit;}
 /* ── § FOOTER ── */
 .footer{background:var(--bg3);border-top:1px solid var(--line2);padding:5rem 1.6rem 3rem;text-align:center;}
 .f-logo{width:60px;margin:0 auto 1.2rem;}
-.f-title{font-family:'Playfair Display',serif;font-style:italic;font-size:1.8rem;color:var(--rose);margin-bottom:.4rem;}
+.f-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2rem;color:var(--rose);margin-bottom:.4rem;letter-spacing:.3em;}
 .f-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.8rem;letter-spacing:.25em;color:var(--ink3);margin-bottom:3rem;text-transform:uppercase;}
 .f-btns{display:flex;flex-direction:column;gap:.8rem;max-width:320px;margin:0 auto 3rem;}
 .f-nav{display:flex;justify-content:center;gap:2rem;list-style:none;flex-wrap:wrap;margin-bottom:3rem;}
@@ -195,67 +196,62 @@ a{text-decoration:none;color:inherit;}
   <img src="hero-bg.jpg" class="hero-bg-img" aria-hidden="true" onerror="this.style.display='none'">
   <div class="hero-overlay"></div>
   <div class="hero-content">
+    <!-- 左欄：品牌資訊 -->
     <div class="hero-left">
-    <div class="hero-logo-wrap">
-      <img src="logo-bella.svg" alt="貝拉美學" class="hero-logo-img"
-        onerror="this.outerHTML='<div class=\'hero-logo-ph\'>Bella SPA</div>'">
-    </div>
+      <div class="hero-logo-wrap">
+        <img src="logo-bella.svg" alt="貝拉美學" class="hero-logo-img"
+          onerror="this.outerHTML='<div class=\'hero-logo-ph\'>Bella SPA</div>'">
+      </div>
+      <h1 class="hero-name">貝拉美學</h1>
+      <div class="hero-role">Bella SPA</div>
+      <div class="hero-sub">INDIBA英特波生活美容館・新竹竹北</div>
+      <div class="hero-divider"></div>
+      <p class="hero-slogan">不只是美容，<br>而是一種，回到自己的儀式感。</p>
+      <div class="hero-tags">
+        <span class="h-tag">#INDIBA 英特波</span>
+        <span class="h-tag">#筋膜芳療</span>
+        <span class="h-tag">#韓式皮膚管理</span>
+      </div>
+      <div class="hero-hours">
+        週一～週五 11:00–20:00<br>
+        週六 10:00–18:00 ｜ 週日 特約時段
+      </div>
+    </div><!-- /hero-left -->
 
-    <h1 class="hero-name">貝拉美學</h1>
-    <div class="hero-role">Bella SPA</div>
-    <div class="hero-sub">INDIBA英特波生活美容館・新竹竹北</div>
-    <div class="hero-divider"></div>
-
-    <p class="hero-slogan">不只是美容，<br>而是一種，回到自己的儀式感。</p>
-
-    <div class="hero-tags">
-      <span class="h-tag">#INDIBA 英特波</span>
-      <span class="h-tag">#筋膜芳療</span>
-      <span class="h-tag">#韓式皮膚管理</span>
-    </div>
-
-    <div class="hero-hours">
-      週一～週五 11:00–20:00<br>
-      週六 10:00–18:00 ｜ 週日 特約時段
-    </div>
-
-    <div class="hero-icons">
-      <a class="hero-icon-link" href="https://lin.ee/iCAHFna" target="_blank" aria-label="LINE"
-        onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'bella-spa'})">
-        <img src="/assets/line.svg" alt="LINE" onerror="this.style.display='none'">
-      </a>
-      <a class="hero-icon-link" href="tel:035588711" aria-label="Phone"
-        onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'bella-spa'})">
-        <img src="/assets/phone.svg" alt="Phone" onerror="this.style.display='none'">
-      </a>
-      <a class="hero-icon-link" href="https://maps.app.goo.gl/s7973fKMCFJaWfh89" target="_blank" aria-label="Map"
-        onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'bella-spa'})">
-        <img src="/assets/map.svg" alt="Map" onerror="this.style.display='none'">
-      </a>
-      <a class="hero-icon-link" href="https://www.instagram.com/bellawomen_beauty_spa" target="_blank" aria-label="Instagram"
-        onclick="gtag('event','click_ig_follow',{'event_category':'CTA','event_label':'bella-spa'})">
-        <img src="/assets/instagram.svg" alt="Instagram" onerror="this.style.display='none'">
-      </a>
-      <a class="hero-icon-link" href="https://www.facebook.com/profile.php?id=61555642114837" target="_blank" aria-label="Facebook"
-        onclick="gtag('event','click_facebook',{'event_category':'CTA','event_label':'bella-spa'})">
-        <img src="/assets/facebook.svg" alt="Facebook" onerror="this.style.display='none'">
-      </a>
-    </div>
-
-    <div class="hero-btns">
+    <!-- 右欄：社群+按鈕 -->
+    <div class="hero-right">
+      <div class="hero-icons">
+        <a class="hero-icon-link" href="https://lin.ee/iCAHFna" target="_blank" aria-label="LINE"
+          onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'bella-spa'})">
+          <img src="/assets/line.svg" alt="LINE" onerror="this.style.display='none'">
+        </a>
+        <a class="hero-icon-link" href="tel:035588711" aria-label="Phone"
+          onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'bella-spa'})">
+          <img src="/assets/phone.svg" alt="Phone" onerror="this.style.display='none'">
+        </a>
+        <a class="hero-icon-link" href="https://maps.app.goo.gl/s7973fKMCFJaWfh89" target="_blank" aria-label="Map"
+          onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'bella-spa'})">
+          <img src="/assets/map.svg" alt="Map" onerror="this.style.display='none'">
+        </a>
+        <a class="hero-icon-link" href="https://www.instagram.com/bellawomen_beauty_spa" target="_blank" aria-label="Instagram"
+          onclick="gtag('event','click_ig_follow',{'event_category':'CTA','event_label':'bella-spa'})">
+          <img src="/assets/instagram.svg" alt="Instagram" onerror="this.style.display='none'">
+        </a>
+        <a class="hero-icon-link" href="https://www.facebook.com/profile.php?id=61555642114837" target="_blank" aria-label="Facebook"
+          onclick="gtag('event','click_facebook',{'event_category':'CTA','event_label':'bella-spa'})">
+          <img src="/assets/facebook.svg" alt="Facebook" onerror="this.style.display='none'">
+        </a>
+      </div>
       <a href="https://lin.ee/iCAHFna" target="_blank" class="hero-btn p1"
         onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'bella-spa'})">預約諮詢｜LINE@</a>
       <a href="#newclient" class="hero-btn p1"
         onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'bella-spa'})">新客體驗傳送門｜Reserve</a>
       <a href="#services" class="hero-btn ghost">服務項目介紹｜Service</a>
       <a href="owner/" class="hero-btn ghost">關於主理人｜About Summer</a>
-    </div>
-    </div><!-- /hero-left -->
-    <div class="hero-right">
-    <div class="hero-btn-row" style="margin-top:1rem;">
-      <button class="btn-sm" onclick="openQr()">QR Code</button>
-      <button class="btn-sm share" id="shareBtn" onclick="shareThisPage()">Share</button>
-    </div>
+      <div class="hero-btn-row">
+        <button class="btn-sm" onclick="openQr()">QR Code</button>
+        <button class="btn-sm share" id="shareBtn" onclick="shareThisPage()">Share</button>
+      </div>
     </div><!-- /hero-right -->
 
   </div>
