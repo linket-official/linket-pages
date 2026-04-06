@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
+<!--
+  BELLA SPA · bella-spa/index.html
+  v1.0  2026-04-04  初版上線（Gemini 產出）
+  v2.0  2026-04-06  全頁重寫：移除菜單Tab，改情境卡片架構，加主理人區塊
+  v2.1  2026-04-07  RWD修正：桌機左右欄、按鈕圓角100%、按鈕連結修正、地圖更新
+  v2.2  2026-04-07  Hero RWD重構、第二區置中、移除三欄壓縮、刪多餘按鈕、移除主理人區塊
+-->
 <meta charset="UTF-8">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-29J2988Y8J');</script>
@@ -60,7 +67,7 @@ a{text-decoration:none;color:inherit;}
 .hero-icon-link img{width:36px;height:36px;display:block;}
 
 /* 按鈕 */
-.hero-btn{display:flex;align-items:center;justify-content:center;width:100%;padding:1.25rem 1.4rem;font-family:'Noto Serif TC',serif;font-size:.9rem;font-weight:400;letter-spacing:.2em;border:1px solid var(--rose);margin-bottom:1rem;transition:.3s;}
+.hero-btn{display:flex;align-items:center;justify-content:center;width:100%;padding:1.25rem 1.4rem;font-family:'Noto Serif TC',serif;font-size:.9rem;font-weight:400;letter-spacing:.2em;border:1px solid var(--rose);margin-bottom:1rem;transition:.3s;border-radius:100px;}
 .hero-btn.p1{background:var(--rose);color:#fff;}
 .hero-btn.p1:hover{background:var(--rose2);}
 .hero-btn.ghost{background:transparent;color:var(--rose);}
@@ -68,7 +75,7 @@ a{text-decoration:none;color:inherit;}
 .hero-btns{width:100%;max-width:360px;margin:0 auto;}
 
 .hero-btn-row{display:flex;gap:.8rem;max-width:360px;width:100%;margin:0 auto;}
-.btn-sm{flex:1;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid var(--line);color:var(--ink3);font-size:.72rem;letter-spacing:.2em;padding:.9rem .4rem;transition:.3s;cursor:pointer;}
+.btn-sm{flex:1;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid var(--line);color:var(--ink3);font-size:.72rem;letter-spacing:.2em;padding:.9rem .4rem;transition:.3s;cursor:pointer;border-radius:100px;}
 .btn-sm:hover{border-color:var(--rose);color:var(--rose);}
 .btn-sm.share{display:none;}
 .btn-sm.share.visible{display:flex;}
@@ -79,11 +86,22 @@ a{text-decoration:none;color:inherit;}
 .wm-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.82rem;letter-spacing:.28em;color:var(--ink3);text-transform:uppercase;}
 
 /* ── § 品牌理念 ── */
+@media(min-width:700px){
+  .hero-content{flex-direction:row;align-items:center;justify-content:center;gap:5rem;text-align:left;padding:4rem 2.5rem;max-width:960px;}
+  .hero-left{flex:1 1 0;display:flex;flex-direction:column;align-items:flex-start;text-align:left;}
+  .hero-right{flex:1 1 0;display:flex;flex-direction:column;align-items:center;max-width:340px;}
+  .hero-logo-wrap{margin:0 0 2rem;}
+  .hero-tags{justify-content:flex-start;}
+  .hero-icons{justify-content:flex-start;}
+  .hero-hours{text-align:left;}
+  .hero-btns{margin:0;max-width:100%;}
+  .hero-btn-row{margin:0;max-width:100%;}
+}
 .philosophy{padding:6rem 0;background:var(--bg);}
 .ph-wrap{max-width:var(--mw);margin:0 auto;padding:0 1.6rem;text-align:center;}
 .ph-label{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.95rem;letter-spacing:.3em;color:var(--rose);margin-bottom:1.5rem;text-transform:uppercase;}
-.ph-text{font-size:1rem;font-weight:200;color:var(--ink2);line-height:2.8;letter-spacing:.1em;}
-.ph-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:1.3rem;color:var(--rose);letter-spacing:.1em;line-height:1.8;margin:2.5rem 0;padding:2rem 1.6rem;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.ph-text{font-size:1rem;font-weight:200;color:var(--ink2);line-height:2.8;letter-spacing:.1em;text-align:center;}
+.ph-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:1.3rem;color:var(--rose);letter-spacing:.1em;line-height:1.8;margin:2.5rem 0;padding:2rem 1.6rem;border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center;}
 
 /* ── § 三大服務情境 ── */
 .services{padding:6rem 0;background:var(--bg2);}
@@ -116,7 +134,7 @@ a{text-decoration:none;color:inherit;}
 .nc-more{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.2rem;border:1px solid var(--line);font-size:.82rem;letter-spacing:.12em;color:var(--ink2);transition:.3s;margin-bottom:2rem;}
 .nc-more:hover{border-color:var(--rose);color:var(--rose);}
 .nc-ctas{display:flex;flex-direction:column;gap:.8rem;}
-.btn{display:flex;align-items:center;justify-content:center;width:100%;padding:1.2rem 1.4rem;font-family:'Noto Serif TC',serif;font-size:.9rem;font-weight:400;letter-spacing:.2em;border:1px solid var(--rose);transition:.3s;}
+.btn{display:flex;align-items:center;justify-content:center;width:100%;padding:1.2rem 1.4rem;font-family:'Noto Serif TC',serif;font-size:.9rem;font-weight:400;letter-spacing:.2em;border:1px solid var(--rose);transition:.3s;border-radius:100px;}
 .btn.fill{background:var(--rose);color:#fff;}
 .btn.fill:hover{background:var(--rose2);}
 .btn.ghost{background:transparent;color:var(--rose);}
@@ -177,7 +195,7 @@ a{text-decoration:none;color:inherit;}
   <img src="hero-bg.jpg" class="hero-bg-img" aria-hidden="true" onerror="this.style.display='none'">
   <div class="hero-overlay"></div>
   <div class="hero-content">
-
+    <div class="hero-left">
     <div class="hero-logo-wrap">
       <img src="logo-bella.svg" alt="貝拉美學" class="hero-logo-img"
         onerror="this.outerHTML='<div class=\'hero-logo-ph\'>Bella SPA</div>'">
@@ -227,16 +245,18 @@ a{text-decoration:none;color:inherit;}
     <div class="hero-btns">
       <a href="https://lin.ee/iCAHFna" target="_blank" class="hero-btn p1"
         onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'bella-spa'})">預約諮詢｜LINE@</a>
-      <a href="https://client.beautinq.com/shop/21f4bf6a-8e1e-4672-9285-3b20f50a767d/select-service" target="_blank" class="hero-btn p1"
-        onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'bella-spa'})">新客預約傳送門｜RESERVE</a>
-      <a href="service/" class="hero-btn ghost">服務項目介紹｜SERVICE</a>
+      <a href="#newclient" class="hero-btn p1"
+        onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'bella-spa'})">新客體驗傳送門｜Reserve</a>
+      <a href="#services" class="hero-btn ghost">服務項目介紹｜Service</a>
       <a href="owner/" class="hero-btn ghost">關於主理人｜About Summer</a>
     </div>
-
+    </div><!-- /hero-left -->
+    <div class="hero-right">
     <div class="hero-btn-row" style="margin-top:1rem;">
       <button class="btn-sm" onclick="openQr()">QR Code</button>
       <button class="btn-sm share" id="shareBtn" onclick="shareThisPage()">Share</button>
     </div>
+    </div><!-- /hero-right -->
 
   </div>
 </section>
@@ -252,7 +272,7 @@ a{text-decoration:none;color:inherit;}
   <div class="ph-wrap">
     <div class="ph-label reveal">Our Philosophy</div>
     <div class="ph-quote reveal">
-      「不只是美容，<br>而是一種，回到自己的儀式感。」
+      「不只是美容，而是一種，<br>回到自己的儀式感。」
     </div>
     <p class="ph-text reveal">
       位於新竹竹北，貝拉美學是一處為女性而設的沉靜空間。<br>
@@ -306,7 +326,6 @@ a{text-decoration:none;color:inherit;}
         <a href="service/#face" class="sv-link">查看臉部護理項目 →</a>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -334,47 +353,31 @@ a{text-decoration:none;color:inherit;}
         <div class="nc-item-price">1,480</div>
       </div>
       <div class="nc-item">
-        <div class="nc-item-name">INDIBA 英特波</div>
-        <div class="nc-item-time">60分鐘 · 新客優惠</div>
-        <div class="nc-item-price">2,500</div>
+        <div class="nc-item-name">保濕粉刺spa護理</div>
+        <div class="nc-item-time">90分鐘 · 贈動力光浴</div>
+        <div class="nc-item-price">1,480</div>
       </div>
     </div>
 
-    <a href="service/#experience" class="nc-more reveal">
-      <span>查看完整體驗價菜單</span>
-      <span style="color:var(--rose);">→</span>
-    </a>
 
     <div class="nc-ctas reveal">
+      <a href="service/#experience" class="btn fill"
+        onclick="gtag('event','click_service',{'event_category':'CTA','event_label':'bella-spa'})">查看完整新客菜單</a>
       <a href="https://lin.ee/iCAHFna" target="_blank" class="btn fill"
-        onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'bella-spa'})">加 LINE 諮詢・選擇最適合的項目</a>
-      <a href="https://client.beautinq.com/shop/21f4bf6a-8e1e-4672-9285-3b20f50a767d/select-service" target="_blank" class="btn ghost"
-        onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'bella-spa'})">新客預約傳送門｜線上預約</a>
+        onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'bella-spa'})">加官方LINE諮詢｜選擇最適合方案</a>
     </div>
   </div>
 </section>
 
 <!-- § 主理人小區塊 -->
-<section class="owner-peek" id="owner-peek">
-  <div class="op-wrap reveal">
-    <img src="owner-portrait.jpg" alt="鄭香苓 Summer" class="op-portrait"
-      onerror="this.outerHTML='<div class=\'op-portrait-ph\'>人像<br>待補</div>'">
-    <div class="op-info">
-      <div class="op-label">About the Owner</div>
-      <div class="op-name">鄭香苓 Summer</div>
-      <div class="op-role">貝拉美學SPA 主理人<br>INDIBA英特波 認證技術師</div>
-      <a href="owner/" class="op-link">認識 Summer →</a>
-    </div>
-  </div>
-</section>
 
 <!-- § 交通資訊 -->
 <section class="location" id="location">
   <div class="wrap">
     <div class="loc-label reveal">Visit Us · 交通資訊</div>
     <div class="loc-map reveal">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3643.8!2d121.0!3d24.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34682!2z5YWs5ouJ!5e0!3m2!1szh-TW!2stw!4v1"
-        allowfullscreen loading="lazy" title="貝拉美學地圖"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3620.8970577671157!2d120.99919360000001!3d24.8331938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346837f668ce1611%3A0x17e5501ce67837ff!2z6LKd5ouJ576O5a24U1BBLUlORElCQeiLseeJueazoueUn-a0u-e-juWuuemkqA!5e0!3m2!1szh-TW!2stw!4v1775455940921!5m2!1szh-TW!2stw"
+        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="貝拉美學地圖"></iframe>
     </div>
     <div class="loc-rows reveal">
       <div class="loc-row"><span class="loc-lbl">地址</span><span>新竹縣竹北市光明六路843-1號</span></div>
@@ -397,8 +400,8 @@ a{text-decoration:none;color:inherit;}
   <div class="f-btns reveal">
     <a href="https://lin.ee/iCAHFna" target="_blank" class="btn fill"
       onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'bella-spa'})">預約諮詢｜LINE@</a>
-    <a href="service/" class="btn ghost">服務項目</a>
-    <a href="owner/" class="btn ghost">主理人介紹</a>
+    <a href="service/" class="btn ghost">服務項目｜SERVICE</a>
+    <a href="owner/" class="btn ghost">主理人介紹｜ABOUT SUMMER</a>
   </div>
   <ul class="f-nav reveal">
     <li><a href="#about">品牌理念</a></li>
