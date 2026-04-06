@@ -49,18 +49,18 @@ a{text-decoration:none;color:inherit;}
 .rose-line{width:30px;height:1px;background:var(--rose);margin:1.2rem 0 2rem;}
 
 /* ── §1 INDIBA ── */
-.indiba-hero{background:var(--ink);color:#fff;padding:2.5rem 1.6rem;margin-bottom:2rem;position:relative;overflow:hidden;}
-.indiba-hero::before{content:'INDIBA';position:absolute;right:-1rem;top:50%;transform:translateY(-50%);font-family:'Playfair Display',serif;font-size:5rem;font-weight:400;opacity:.06;pointer-events:none;letter-spacing:.1em;color:#fff;}
+.indiba-hero{background:var(--rose);color:#fff;padding:2.5rem 1.6rem;margin-bottom:2rem;position:relative;overflow:hidden;}
+.indiba-hero::before{content:'INDIBA';position:absolute;right:-1rem;top:50%;transform:translateY(-50%);font-family:'Playfair Display',serif;font-size:5rem;font-weight:400;opacity:.08;pointer-events:none;letter-spacing:.1em;color:#fff;}
 .ih-badge{display:inline-block;border:1px solid rgba(255,255,255,.3);font-size:.68rem;letter-spacing:.25em;padding:.25rem .8rem;color:rgba(255,255,255,.7);margin-bottom:1.2rem;}
 .ih-name{font-family:'Playfair Display',serif;font-style:italic;font-size:1.8rem;color:#fff;margin-bottom:.4rem;}
-.ih-price{font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--rose2);letter-spacing:.05em;}
+.ih-price{font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:#fff;letter-spacing:.05em;}
 .ih-price span{font-size:.9rem;letter-spacing:.1em;color:rgba(255,255,255,.5);}
 
 .indiba-desc{font-size:.9rem;color:rgba(255,255,255,.75);line-height:2.2;margin-top:1.2rem;border-left:2px solid var(--rose2);padding-left:1rem;}
 
 .indiba-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line2);margin-top:2rem;}
-.ig-card{background:var(--bg);padding:1.4rem 1.2rem;}
-.ig-icon{font-size:1.3rem;margin-bottom:.6rem;}
+.ig-card{background:var(--bg);padding:1.4rem 1.2rem;border-top:2px solid var(--rose);}
+.ig-num{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2rem;color:var(--rose);opacity:.3;line-height:1;margin-bottom:.4rem;}
 .ig-title{font-size:.85rem;font-weight:500;color:var(--rose);letter-spacing:.08em;margin-bottom:.8rem;}
 .ig-list{font-size:.82rem;color:var(--ink2);line-height:2;letter-spacing:.05em;}
 .ig-list li{list-style:none;padding-left:.8rem;position:relative;}
@@ -97,6 +97,9 @@ a{text-decoration:none;color:inherit;}
 .pkg-note{font-size:.72rem;color:var(--ink3);margin-top:.3rem;}
 .pkg-card.highlight .pkg-note{color:rgba(255,255,255,.6);}
 .pkg-desc{font-size:.8rem;color:var(--ink3);letter-spacing:.08em;line-height:2;margin-top:2rem;}
+.pkg-card.pkg-light{background:var(--bg2);}
+.pkg-card.pkg-light .pkg-num{color:var(--rose);}
+.pkg-card.pkg-light .pkg-price{color:var(--ink2);}
 
 /* ── §4 全身SPA菜單 ── */
 .menu-list{background:#fff;border:1px solid var(--line);}
@@ -137,6 +140,9 @@ a{text-decoration:none;color:inherit;}
 
 <!-- 頁面 Hero -->
 <div class="page-hero">
+  <div style="width:80px;margin:0 auto 1.5rem;">
+    <img src="../logo-bella.svg" alt="貝拉美學" style="width:100%;height:auto;display:block;" onerror="this.style.display='none'">
+  </div>
   <div class="ph-label">Service Menu</div>
   <div class="ph-title">服務項目介紹</div>
   <div class="ph-sub">INDIBA英特波・體驗價・全身SPA・臉部護理・堂數套組</div>
@@ -158,7 +164,7 @@ a{text-decoration:none;color:inherit;}
 
     <div class="indiba-grid reveal">
       <div class="ig-card">
-        <div class="ig-icon">🌸</div>
+        <div class="ig-num">01</div>
         <div class="ig-title">臉部保養</div>
         <ul class="ig-list">
           <li>全臉緊緻拉提</li>
@@ -168,7 +174,7 @@ a{text-decoration:none;color:inherit;}
         </ul>
       </div>
       <div class="ig-card">
-        <div class="ig-icon">💪</div>
+        <div class="ig-num">02</div>
         <div class="ig-title">身體保養</div>
         <ul class="ig-list">
           <li>產後腹部修復（腹直肌）</li>
@@ -178,7 +184,7 @@ a{text-decoration:none;color:inherit;}
         </ul>
       </div>
       <div class="ig-card">
-        <div class="ig-icon">🔧</div>
+        <div class="ig-num">03</div>
         <div class="ig-title">特殊修復</div>
         <ul class="ig-list">
           <li>術後修復（抽脂／隆乳／拉皮）</li>
@@ -187,7 +193,7 @@ a{text-decoration:none;color:inherit;}
         </ul>
       </div>
       <div class="ig-card">
-        <div class="ig-icon">✅</div>
+        <div class="ig-num">04</div>
         <div class="ig-title">療程特色</div>
         <ul class="ig-list">
           <li>非侵入式・零痛感</li>
@@ -207,10 +213,10 @@ a{text-decoration:none;color:inherit;}
 <section class="sec alt" id="experience">
   <div class="wrap">
     <div class="exp-header reveal">
-      <div class="exp-badge">體驗價 · New Client</div>
-      <div class="eyebrow" style="margin-top:1rem;">限新客體驗・多部位可選</div>
-      <div class="sec-title">單堂即可預約，無需購買套組</div>
-      <div class="exp-note">以下體驗價適用初次造訪之新客戶</div>
+      <div class="eyebrow">體驗方案</div>
+      <div class="sec-title">新客戶體驗專區</div>
+      <div class="sec-sub">單堂即可預約，無需購買套組</div>
+      <p style="font-size:.85rem;color:var(--ink3);letter-spacing:.08em;line-height:2;margin-top:.5rem;">限新客體驗・多部位可選。以下體驗價適用初次造訪之新客戶。</p>
     </div>
 
     <div class="exp-cols reveal">
@@ -244,7 +250,6 @@ a{text-decoration:none;color:inherit;}
 
     <div class="btn-wrap reveal">
       <a href="https://lin.ee/iCAHFna" target="_blank" class="btn fill" onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'bella-spa'})">加 LINE 諮詢體驗項目</a>
-      <a href="https://client.beautinq.com/shop/21f4bf6a-8e1e-4672-9285-3b20f50a767d/select-service" target="_blank" class="btn ghost" onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'bella-spa'})">新客預約傳送門｜線上預約</a>
     </div>
   </div>
 </section>
@@ -257,11 +262,11 @@ a{text-decoration:none;color:inherit;}
     <div class="rose-line reveal"></div>
 
     <div class="pkg-grid reveal">
-      <div class="pkg-card">
+      <div class="pkg-card pkg-light">
         <div class="pkg-num">20</div>
         <div class="pkg-unit">堂</div>
-        <div class="pkg-price">NT$ 78,000</div>
-        <div class="pkg-note">≈ 3,900/堂</div>
+        <div class="pkg-price">NT$ 34,000</div>
+        <div class="pkg-note">≈ 1,700/堂</div>
       </div>
       <div class="pkg-card highlight">
         <div class="pkg-num">40</div>
@@ -269,11 +274,11 @@ a{text-decoration:none;color:inherit;}
         <div class="pkg-price">NT$ 58,000</div>
         <div class="pkg-note">≈ 1,450/堂</div>
       </div>
-      <div class="pkg-card">
+      <div class="pkg-card pkg-light">
         <div class="pkg-num">60</div>
         <div class="pkg-unit">堂</div>
-        <div class="pkg-price">NT$ 34,000</div>
-        <div class="pkg-note">≈ 567/堂</div>
+        <div class="pkg-price">NT$ 78,000</div>
+        <div class="pkg-note">≈ 1,300/堂</div>
       </div>
     </div>
     <p class="pkg-desc reveal">全身舒壓SPA 及臉部SPA護理所有項目均可使用．依個人狀況由主理人協助安排療程計劃</p>
