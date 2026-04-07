@@ -313,7 +313,7 @@ a{text-decoration:none;color:inherit;}
         onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'bella-spa'})">預約諮詢｜LINE@</a>
       <a href="#newclient" class="hero-btn p1 hero-anim a6"
         onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'bella-spa'})">新客體驗傳送門｜Reserve</a>
-      <a href="#services" class="hero-btn ghost hero-anim a7">服務項目介紹｜Service</a>
+      <a href="service/" class="hero-btn ghost hero-anim a7">服務項目介紹｜Service</a>
       <a href="owner/" class="hero-btn ghost hero-anim a7">關於主理人｜About Summer</a>
       <div class="hero-btn-row hero-anim a7">
         <button class="btn-sm" onclick="openQr()">QR Code</button>
@@ -492,6 +492,31 @@ a{text-decoration:none;color:inherit;}
 </div>
 
 <script>
+/* Reveal */
+const obs=new IntersectionObserver(e=>{e.forEach(i=>{if(i.isIntersecting){i.target.classList.add('visible');obs.unobserve(i.target);}});},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+/* Share */
+const shareBtn=document.getElementById('shareBtn');
+if(navigator.share&&shareBtn)shareBtn.classList.add('visible');
+function shareThisPage(){navigator.share({title:'貝拉美學 BELLA SPA',url:'https://linket.app/bella-spa'}).catch(()=>{});}
+
+/* QR */
+let qrLoaded=false;
+function openQr(){
+  document.getElementById('qrOverlay').classList.add('active');
+  if(!qrLoaded){
+    const s=document.createElement('script');
+    s.src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
+    s.onload=()=>{
+      new QRCode(document.getElementById('qrcode-canvas'),{text:'https://linket.app/bella-spa',width:180,height:180,colorDark:'#B65060',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
+      qrLoaded=true;
+    };
+    document.head.appendChild(s);
+  }
+}
+function closeQr(){document.getElementById('qrOverlay').classList.remove('active');}
+function closeQrBg(e){if(e.target===document.getElementById('qrOverlay'))closeQr();}
 </script>
 </body>
 </html>
