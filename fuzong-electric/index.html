@@ -41,7 +41,7 @@ a{text-decoration:none;color:inherit;}
 /* TOP BADGE */
 a.top-badge{
   display:block;width:100%;background:#fff;text-align:center;
-  padding:.46rem 1rem;font-size:.875rem;letter-spacing:.05em;
+  padding:.46rem 1rem;font-size:1rem;letter-spacing:.05em;
   border-bottom:1px solid rgba(0,0,0,.06);
   position:sticky;top:0;z-index:100;box-shadow:0 1px 8px rgba(0,0,0,.06);
 }
@@ -80,22 +80,6 @@ a.top-badge{
 .hero-left::after{bottom:16px;right:16px;border-width:0 1.5px 1.5px 0;}
 
 /* Logo 區：手繪馬達插圖佔位 */
-.hero-logo{
-  width:100px;height:100px;margin:0 auto .4rem;
-  display:flex;align-items:center;justify-content:center;
-  border:1px solid rgba(139,94,60,.35);
-  background:rgba(245,240,232,.05);
-}
-.hero-logo img{
-  width:80px;height:80px;object-fit:contain;display:block;
-  /* 深色底上 SVG/PNG：使用 brightness+invert 讓黑色插圖變白 */
-  filter:brightness(10);
-  opacity:.85;
-}
-.hero-logo-ph{
-  font-family:'ZCOOL XiaoWei',serif;font-size:1.1rem;
-  color:rgba(245,240,232,.6);letter-spacing:.2em;line-height:1.4;
-}
 
 .hero-brand{
   font-family:'ZCOOL XiaoWei',serif;
@@ -105,29 +89,25 @@ a.top-badge{
 }
 .hero-brand-en{
   font-family:'Cormorant Garamond',serif;font-style:italic;
-  font-size:.82rem;letter-spacing:.18em;
+  font-size:1rem;letter-spacing:.12em;
   color:rgba(139,94,60,.85);margin-top:.1rem;
-}
-.hero-role{
-  font-size:.78rem;letter-spacing:.2em;
-  color:rgba(245,240,232,.55);font-weight:400;
 }
 .hero-name{
   font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:700;
   letter-spacing:.25em;color:var(--bg);
 }
 .hero-slogan{
-  font-size:.88rem;letter-spacing:.1em;line-height:1.9;
+  font-size:1rem;letter-spacing:.08em;line-height:1.9;
   color:rgba(245,240,232,.72);max-width:220px;
 }
 .hero-tags{display:flex;justify-content:center;gap:.35rem;flex-wrap:wrap;}
 .h-tag{
   background:rgba(139,94,60,.12);border:1px solid rgba(139,94,60,.3);
   border-radius:2px;padding:.16rem .6rem;letter-spacing:.06em;
-  color:rgba(245,240,232,.65);font-size:.66rem;
+  color:rgba(245,240,232,.65);font-size:.88rem;
 }
 .hero-hours{
-  font-size:.75rem;letter-spacing:.08em;line-height:1.9;
+  font-size:1rem;letter-spacing:.06em;line-height:1.9;
   color:rgba(245,240,232,.45);border-top:1px solid rgba(245,240,232,.08);
   padding-top:.8rem;width:100%;text-align:center;
 }
@@ -177,7 +157,7 @@ a.top-badge{
 .btn-sm{
   flex:1;display:flex;align-items:center;justify-content:center;
   background:rgba(245,240,232,.04);border:1px dashed rgba(245,240,232,.18);
-  color:rgba(245,240,232,.5);font-size:.72rem;letter-spacing:.12em;
+  color:rgba(245,240,232,.5);font-size:.9rem;letter-spacing:.1em;
   padding:.55rem .5rem;border-radius:var(--r);cursor:pointer;
   font-family:'Noto Serif TC',serif;transition:all .2s;
 }
@@ -206,10 +186,10 @@ a.top-badge{
   color:var(--ink);margin-bottom:1.2rem;text-align:center;
 }
 #qrcode-canvas{width:180px;height:180px;margin:0 auto 1.2rem;border:4px solid #fff;display:block;}
-.qr-modal-url{font-size:.72rem;letter-spacing:.1em;color:var(--gray);margin-bottom:1.2rem;}
+.qr-modal-url{font-size:.9rem;letter-spacing:.08em;color:var(--gray);margin-bottom:1.2rem;}
 .qr-close{
   background:transparent;border:1px solid var(--rust);color:var(--rust);
-  padding:.6rem 2.5rem;font-size:.78rem;letter-spacing:.18em;cursor:pointer;
+  padding:.6rem 2.5rem;font-size:.9rem;letter-spacing:.12em;cursor:pointer;
   border-radius:var(--r);font-family:'Noto Serif TC',serif;transition:all .2s;
 }
 .qr-close:hover{background:var(--rust);color:#fff;}
@@ -237,10 +217,10 @@ a.top-badge{
 .sec-head{text-align:center;margin-bottom:2.5rem;}
 .sec-label{
   display:block;font-family:'Cormorant Garamond',serif;font-style:italic;
-  font-size:.9rem;letter-spacing:.25em;color:var(--rust);margin-bottom:.5rem;
+  font-size:1rem;letter-spacing:.2em;color:var(--rust);margin-bottom:.5rem;
 }
 .sec-title{
-  font-family:'Noto Serif TC',serif;font-size:1.4rem;font-weight:700;
+  font-family:'Noto Serif TC',serif;font-size:1.6rem;font-weight:700;
   letter-spacing:.15em;color:var(--ink);
 }
 .sec-line{width:2rem;height:2px;background:var(--rust);margin:.8rem auto 0;}
@@ -262,14 +242,14 @@ a.top-badge{
   letter-spacing:.05em;
 }
 .svc-title{
-  font-family:'Noto Serif TC',serif;font-size:1rem;font-weight:700;
+  font-family:'Noto Serif TC',serif;font-size:1.1rem;font-weight:700;
   letter-spacing:.12em;color:var(--ink);margin-bottom:.5rem;
 }
 .svc-en{
   font-family:'Cormorant Garamond',serif;font-style:italic;
-  font-size:.8rem;letter-spacing:.15em;color:var(--gray);margin-bottom:.8rem;
+  font-size:.95rem;letter-spacing:.1em;color:var(--gray);margin-bottom:.8rem;
 }
-.svc-desc{font-size:.82rem;line-height:1.9;letter-spacing:.05em;color:var(--gray);}
+.svc-desc{font-size:1rem;line-height:1.9;letter-spacing:.04em;color:var(--gray);}
 
 /* Explore infographic */
 .explore-grid{
@@ -288,10 +268,10 @@ a.top-badge{
   background:var(--rust);margin:.5rem auto .8rem;
 }
 .expl-title{
-  font-family:'Noto Serif TC',serif;font-size:.92rem;font-weight:700;
-  letter-spacing:.15em;color:var(--bg);margin-bottom:.5rem;
+  font-family:'Noto Serif TC',serif;font-size:1.05rem;font-weight:700;
+  letter-spacing:.12em;color:var(--bg);margin-bottom:.5rem;
 }
-.expl-desc{font-size:.78rem;line-height:1.9;color:rgba(245,240,232,.55);letter-spacing:.06em;}
+.expl-desc{font-size:1rem;line-height:1.9;color:rgba(245,240,232,.55);letter-spacing:.04em;}
 
 /* 位置區 */
 .loc-bg{background:var(--bg2);}
@@ -299,14 +279,9 @@ a.top-badge{
 .loc-map iframe{width:100%;height:100%;border:none;display:block;}
 .loc-specs{display:flex;flex-direction:column;gap:.9rem;}
 .loc-spec{display:grid;grid-template-columns:5.5em 1fr;gap:.5rem;align-items:baseline;}
-.loc-lbl{font-size:.7rem;letter-spacing:.12em;color:var(--rust);font-family:'Cormorant Garamond',serif;font-style:italic;}
-.loc-val{font-size:.88rem;letter-spacing:.06em;color:var(--ink);line-height:1.7;}
+.loc-lbl{font-size:.95rem;letter-spacing:.08em;color:var(--rust);font-family:'Cormorant Garamond',serif;font-style:italic;}
+.loc-val{font-size:1rem;letter-spacing:.05em;color:var(--ink);line-height:1.8;}
 
-/* Footer 按鈕 */
-.footer-btns{
-  display:flex;flex-direction:column;gap:.8rem;
-  padding:var(--sp);background:var(--ink);
-}
 .f-btn{
   display:flex;align-items:center;justify-content:center;
   padding:1rem;font-family:'Noto Serif TC',serif;font-weight:700;
@@ -330,7 +305,7 @@ a.top-badge{
 /* Design by */
 .design-by{
   display:block;text-align:center;background:var(--ink);
-  padding:.75rem;font-size:.7rem;letter-spacing:.18em;
+  padding:.75rem;font-size:.85rem;letter-spacing:.12em;
   color:rgba(245,240,232,.35);
 }
 .design-by b{color:rgba(245,240,232,.6);}
@@ -344,8 +319,6 @@ a.top-badge{
   .hero-cols{flex-direction:column;}
   .hero-left{border-right:none;border-bottom:1px solid rgba(245,240,232,.08);padding:2.8rem 1.4rem;}
   .hero-right{padding:2rem 1.4rem 2.4rem;}
-  .hero-logo{width:80px;height:80px;}
-  .hero-logo img{width:64px;height:64px;}
   .hero-brand{font-size:1.6rem;}
   .explore-grid{grid-template-columns:1fr;}
 }
@@ -367,15 +340,9 @@ a.top-badge{
 
       <!-- 左欄 -->
       <div class="hero-left">
-        <div class="hero-logo">
-          <img src="./fuzong-electric-logo.png" alt="富宗電機行"
-            onerror="this.outerHTML='<div class=\'hero-logo-ph\'>富宗</div>'">
-        </div>
         <div class="hero-brand">富宗電機行</div>
         <div class="hero-brand-en">Fu Zong Electric</div>
-        <div class="hero-role">電機設備・買賣維修</div>
         <div class="hero-name">丁 仁 盛</div>
-        <div class="hero-slogan">專業技術・在地服務<br>讓用水不再煩惱</div>
         <div class="hero-tags">
           <span class="h-tag">#沉水馬達</span>
           <span class="h-tag">#加壓機</span>
@@ -486,7 +453,7 @@ a.top-badge{
         <div class="svc-num">04</div>
         <div class="svc-title">各廠牌維修</div>
         <div class="svc-en">Repair & Service</div>
-        <div class="svc-desc">現場診斷、零件更換、到府服務。大井、木川、川泉等主流品牌均可處理，快速排除故障。</div>
+        <div class="svc-desc">現場診斷、零件更換、到府服務。主流品牌均可處理，快速排除故障。</div>
       </div>
     </div>
   </div>
@@ -509,12 +476,12 @@ a.top-badge{
       <div class="expl-item reveal">
         <div class="expl-num">多</div>
         <div class="expl-title">廠牌全覆蓋</div>
-        <div class="expl-desc">大井、木川、川泉、富蘭克林等主流品牌，一站式採購與維修服務。</div>
+        <div class="expl-desc">主流品牌，一站式採購與維修服務。</div>
       </div>
       <div class="expl-item reveal">
         <div class="expl-num">快</div>
         <div class="expl-title">快速到府報修</div>
-        <div class="expl-desc">農忙季節緊急故障，優先安排到府診斷，讓你的用水不中斷。</div>
+        <div class="expl-desc">農忙季節緊急故障，安排到府診斷，讓你的用水不中斷。</div>
       </div>
       <div class="expl-item reveal">
         <div class="expl-num">全</div>
@@ -566,20 +533,18 @@ a.top-badge{
         Google Maps 導航 →
       </a>
     </div>
+      <div class="footer-btns-inline reveal" style="display:flex;flex-direction:column;gap:.8rem;margin-top:1.2rem;">
+      <a class="f-btn p1" href="https://line.me/R/ti/p/@896vullv" target="_blank"
+        onclick="gtag('event','click_line_footer',{'event_category':'CTA','event_label':'fuzong-electric'});">
+        LINE 洽詢｜@896vullv
+      </a>
+      <a class="footer-btns-inline reveal" href="tel:0972367336" style="background:var(--ink);border:1px solid rgba(245,240,232,.2);color:rgba(245,240,232,.75);"
+        onclick="gtag('event','click_tel_footer',{'event_category':'CTA','event_label':'fuzong-electric'});">
+        撥打電話｜0972-367-336
+      </a>
+    </div>
   </div>
 </section>
-
-<!-- FOOTER BUTTONS -->
-<div class="footer-btns">
-  <a class="f-btn p1" href="https://line.me/R/ti/p/@896vullv" target="_blank"
-    onclick="gtag('event','click_line_footer',{'event_category':'CTA','event_label':'fuzong-electric'});">
-    LINE 洽詢｜@896vullv
-  </a>
-  <a class="f-btn ghost" href="tel:0972367336"
-    onclick="gtag('event','click_tel_footer',{'event_category':'CTA','event_label':'fuzong-electric'});">
-    撥打電話｜0972-367-336
-  </a>
-</div>
 
 <a class="back-top" href="#top">↑ &nbsp; BACK TO TOP</a>
 <a class="design-by" href="https://linket.app/home" target="_blank">Design by <b>LINKet</b> · linket.app</a>
