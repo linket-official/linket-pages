@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());
+  gtag('config','G-29J2988Y8J');
+</script>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+<title>讚灶咖 幸福親手作｜宋靜欣・手工烘焙・天然食材</title>
+<meta name="description" content="讚灶咖 幸福親手作。在自家最讚的灶咖，製作出各種天然的美味。手工麵包、貝果、可麗露、客製燙印杯子蛋糕。">
+<meta property="og:title" content="讚灶咖 幸福親手作｜手工烘焙">
+<meta property="og:description" content="用最讚的灶咖，做最幸福的手作。手工麵包・貝果・可麗露・客製杯子蛋糕">
+<meta property="og:image" content="https://linket.app/zan-zao-ka/og-image.jpg">
+<meta property="og:url" content="https://linket.app/zan-zao-ka">
+<meta property="og:type" content="website">
+<link rel="icon" href="./favicon.png">
+<link rel="apple-touch-icon" href="./favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --c1:    #C97B5A;   /* 暖橘棕（主色）*/
+  --c2:    #A85E3E;   /* 深橘棕（hover）*/
+  --c3:    #E8A882;   /* 淺橘（輔助）*/
+  --bg:    #F5EDE3;   /* 奶白米（主底色）*/
+  --bg2:   #EDE0D0;   /* 淺米（交替底色）*/
+  --gold:  #B8860B;   /* 焦糖金（點綴）*/
+  --txt:   #3A2418;   /* 深棕（主文字）*/
+  --txt2:  rgba(58,36,24,.6);
+  --line:  rgba(201,123,90,.2);
+  --white: #FDFAF6;
+  --r:     20px;
+  --mw:    900px;
+  --sp:    2.8rem 1.4rem;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--txt);overflow-x:hidden;}
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 1.4rem;}
+a{text-decoration:none;color:inherit;}
+
+/* ── TOP BADGE ── */
+a.top-badge{
+  display:block;width:100%;background:var(--white);
+  text-align:center;padding:.45rem 1rem;
+  font-size:.85rem;letter-spacing:.06em;
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;z-index:100;
+  box-shadow:0 1px 6px rgba(201,123,90,.08);
+}
+.t-lin{font-weight:700;color:var(--txt);}
+.t-ket{font-weight:700;color:#2979ff;}
+.t-light{font-weight:300;color:var(--txt2);}
+
+/* ── HERO ── */
+.hero{
+  width:100%;min-height:100svh;position:relative;
+  display:flex;align-items:center;
+  background:var(--bg);overflow:hidden;
+}
+.hero-bg-img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  z-index:0;opacity:.18;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;z-index:1;
+  background:linear-gradient(135deg,rgba(245,237,227,.92) 0%,rgba(245,237,227,.75) 100%);
+}
+.hero-inner{
+  position:relative;z-index:2;
+  width:100%;max-width:var(--mw);margin:0 auto;
+  padding:5rem 1.4rem 4rem;
+  display:flex;gap:3rem;align-items:center;
+}
+
+/* 左欄 */
+.hero-left{
+  flex:1;display:flex;flex-direction:column;gap:.55rem;
+  align-items:center;text-align:center;
+}
+.hero-logo-wrap{width:130px;margin-bottom:.8rem;}
+.hero-logo-img{width:100%;height:auto;border-radius:50%;}
+.hero-logo-ph{
+  width:130px;height:130px;border-radius:50%;
+  background:var(--c3);opacity:.3;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.72rem;letter-spacing:.08em;color:var(--txt2);
+}
+.hero-role{font-size:.78rem;letter-spacing:.25em;color:var(--txt2);}
+.hero-name{
+  font-size:clamp(1.6rem,5vw,2.2rem);font-weight:700;
+  letter-spacing:.35em;color:var(--txt);line-height:1.1;
+}
+.hero-name-en{display:none;}
+.hero-slogan{
+  font-size:.92rem;letter-spacing:.1em;line-height:1.9;
+  color:var(--txt2);margin-top:.3rem;
+  border-left:3px solid var(--c1);padding-left:.9rem;
+}
+.hero-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.3rem;}
+.h-tag{
+  background:rgba(201,123,90,.1);border:1px solid var(--line);
+  border-radius:var(--r);padding:.15rem .6rem;
+  font-size:.68rem;letter-spacing:.08em;color:var(--c2);
+}
+
+/* 右欄 */
+.hero-right{
+  flex-shrink:0;width:300px;
+  display:flex;flex-direction:column;align-items:center;
+  gap:0;
+}
+/* 按鈕動畫（直接子元素 nth-child）*/
+.hero-right > a.hero-btn,
+.hero-right > div.hero-btn-row{
+  opacity:0;animation:heroUp .55s ease both;
+  width:100%;
+}
+.hero-right > a.hero-btn:nth-child(2){animation-delay:.1s;}
+.hero-right > a.hero-btn:nth-child(3){animation-delay:.2s;}
+.hero-right > a.hero-btn:nth-child(4){animation-delay:.3s;}
+.hero-right > a.hero-btn:nth-child(5){animation-delay:.4s;}
+.hero-right > div.hero-btn-row:nth-child(6){animation-delay:.5s;}
+@keyframes heroUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
+
+.hero-btn{
+  display:flex;align-items:center;justify-content:center;
+  width:100%;font-family:'Noto Serif TC',serif;
+  font-size:.9rem;font-weight:500;letter-spacing:.15em;
+  padding:.95rem 1rem;border-radius:var(--r);
+  transition:all .22s;margin-bottom:.8rem;
+}
+.hero-btn.p1{background:var(--c1);color:var(--white);border:1px solid transparent;}
+.hero-btn.p1:hover{background:var(--c2);transform:translateY(-2px);}
+.hero-btn.ghost{background:transparent;border:1px solid var(--c1);color:var(--c1);}
+.hero-btn.ghost:hover{background:var(--c1);color:var(--white);}
+.hero-btn-row{
+  display:flex;gap:.6rem;width:100%;
+  margin-bottom:0;
+}
+.btn-sm{
+  flex:1;display:flex;align-items:center;justify-content:center;
+  background:transparent;border:1px dashed var(--line);
+  color:var(--txt2);font-size:.72rem;letter-spacing:.12em;
+  padding:.55rem .4rem;border-radius:var(--r);
+  cursor:pointer;font-family:'Noto Serif TC',serif;transition:all .2s;
+}
+.btn-sm:hover{border-color:var(--c1);color:var(--c1);}
+.btn-sm.share{display:none;}.btn-sm.share.visible{display:flex;}
+
+/* ── QR MODAL ── */
+.qr-overlay{
+  display:none;position:fixed;inset:0;z-index:999;
+  background:rgba(58,36,24,.85);backdrop-filter:blur(8px);
+  align-items:center;justify-content:center;
+}
+.qr-overlay.on{display:flex;animation:fadeIn .25s ease;}
+@keyframes fadeIn{from{opacity:0;transform:scale(.96);}to{opacity:1;transform:scale(1);}}
+.qr-box{
+  background:var(--white);border-radius:var(--r);
+  padding:2rem 1.8rem 1.8rem;max-width:280px;width:88%;
+  display:flex;flex-direction:column;align-items:center;
+  box-shadow:0 24px 48px rgba(58,36,24,.3);
+}
+.qr-title{font-size:.9rem;letter-spacing:.2em;color:var(--txt);margin-bottom:1.2rem;}
+#qrcode-canvas{margin-bottom:1rem;}
+.qr-url{font-size:.7rem;letter-spacing:.1em;color:var(--txt2);margin-bottom:1.2rem;}
+.qr-close{
+  background:transparent;border:1px solid var(--c1);color:var(--c1);
+  padding:.6rem 2rem;font-size:.78rem;letter-spacing:.15em;
+  cursor:pointer;border-radius:var(--r);font-family:'Noto Serif TC',serif;transition:all .2s;
+}
+.qr-close:hover{background:var(--c1);color:var(--white);}
+
+/* ── WATERMARK ── */
+.watermark{
+  background:var(--bg2);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:.65rem 0;overflow:hidden;
+}
+@keyframes tick{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.wm-track{white-space:nowrap;display:inline-block;animation:tick 28s linear infinite;}
+.wm-item{
+  display:inline-block;font-size:.8rem;letter-spacing:.25em;
+  color:var(--txt2);padding:0 2rem;
+}
+.wm-sep{color:var(--c1);opacity:.5;margin:0 .3rem;}
+
+/* ── 通用 section ── */
+.sec{padding:var(--sp);}
+.sec-label{
+  display:block;font-size:.72rem;letter-spacing:.3em;
+  color:var(--c1);margin-bottom:.6rem;
+}
+.sec-title{
+  font-size:clamp(1.3rem,3.5vw,1.8rem);font-weight:700;
+  letter-spacing:.12em;color:var(--txt);margin-bottom:.4rem;
+}
+.sec-rule{width:2rem;height:2px;background:var(--c1);margin:.8rem 0 1.6rem;opacity:.5;}
+
+/* ── 品牌故事 ── */
+.story{background:var(--white);}
+.story-body{
+  font-size:.95rem;line-height:2.2;letter-spacing:.06em;
+  color:var(--txt2);max-width:640px;
+}
+.story-body p+p{margin-top:1.2rem;}
+.story-quote{
+  border-left:3px solid var(--c1);
+  padding:.8rem 1.2rem;margin:1.5rem 0;
+  background:rgba(201,123,90,.06);border-radius:0 var(--r) var(--r) 0;
+  font-size:.9rem;line-height:1.9;color:var(--txt);letter-spacing:.08em;
+}
+
+/* ── FB 追蹤 CTA ── */
+.fb-follow{
+  background:var(--bg2);text-align:center;
+  padding:3rem 1.4rem;border-top:1px solid var(--line);
+}
+.fb-follow-title{
+  font-size:.78rem;letter-spacing:.25em;color:var(--txt2);margin-bottom:1.2rem;
+}
+.fb-follow-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.6rem;
+  background:var(--c1);color:var(--white);
+  padding:1rem 2.2rem;border-radius:var(--r);
+  font-family:'Noto Serif TC',serif;font-size:.95rem;
+  font-weight:700;letter-spacing:.12em;transition:all .22s;
+  box-shadow:0 4px 16px rgba(201,123,90,.3);
+}
+.fb-follow-btn:hover{background:var(--c2);transform:translateY(-2px);}
+.fb-follow-btn svg{width:22px;height:22px;fill:var(--white);flex-shrink:0;}
+
+/* ── 烘焙成果 FB iframe ── */
+.gallery{background:var(--bg);}
+.fb-posts{display:flex;flex-direction:column;gap:1.2rem;}
+.fb-post-wrap{
+  width:100%;overflow:hidden;
+  border-radius:var(--r);border:1px solid var(--line);
+  background:var(--white);
+}
+.fb-post-wrap iframe{
+  width:100%;min-height:250px;
+  border:none;display:block;
+}
+
+/* ── FOOTER ── */
+.footer{background:var(--bg2);padding:var(--sp);text-align:center;}
+.f-logo{width:80px;height:80px;border-radius:50%;margin:0 auto 1rem;
+  background:var(--c3);opacity:.25;}
+.f-logo img{width:100%;height:100%;object-fit:cover;border-radius:50%;opacity:1 !important;}
+.f-sub{font-size:.75rem;letter-spacing:.2em;color:var(--txt2);margin-bottom:2rem;}
+.f-btns{display:flex;flex-direction:column;gap:.8rem;max-width:320px;margin:0 auto 2rem;}
+.f-btn{
+  display:flex;align-items:center;justify-content:center;
+  padding:1rem;border-radius:var(--r);
+  font-family:'Noto Serif TC',serif;font-weight:700;
+  font-size:.9rem;letter-spacing:.14em;transition:all .2s;
+}
+.f-btn.p1{background:var(--c1);color:var(--white);}
+.f-btn.p1:hover{background:var(--c2);}
+.f-btn.fb{background:var(--c1);color:var(--white);}
+.f-btn.fb:hover{background:var(--c2);}
+.f-nav{list-style:none;display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.5rem;}
+.f-nav a{font-size:.75rem;letter-spacing:.12em;color:var(--txt2);transition:color .2s;}
+.f-nav a:hover{color:var(--c1);}
+.f-copy{font-size:.7rem;letter-spacing:.1em;color:var(--txt2);opacity:.6;}
+
+.back-top{
+  display:block;text-align:center;padding:.8rem;
+  background:var(--bg);border-top:1px solid var(--line);
+  font-size:.72rem;letter-spacing:.2em;color:var(--txt2);transition:color .2s;
+}
+.back-top:hover{color:var(--c1);}
+.linket-bar{
+  display:block;text-align:center;padding:.7rem;
+  background:var(--txt);color:rgba(255,255,255,.4);
+  font-size:.68rem;letter-spacing:.15em;
+}
+.linket-bar b{color:var(--c3);}
+
+/* ── Reveal ── */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s,transform .6s;}
+.reveal.visible{opacity:1;transform:none;}
+
+/* ── RWD ── */
+@media(max-width:640px){
+  .hero-inner{flex-direction:column;padding:4rem 1.4rem 3rem;gap:2rem;}
+  .hero-right{width:100%;}
+  .hero-logo-wrap{width:110px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ① TOP BADGE -->
+<a class="top-badge" href="https://linket.app/home" target="_blank">
+  <span class="t-lin">LIN</span><span class="t-ket">Ket</span><span class="t-light"> · Light</span>
+</a>
+
+
+<!-- ③ HERO -->
+<section class="hero" id="top">
+  <img src="./zan-zao-ka-hero-bg.jpg" class="hero-bg-img" aria-hidden="true"
+    onerror="this.style.display='none'">
+  <div class="hero-inner">
+
+    <!-- 左欄 -->
+    <div class="hero-left">
+      <div class="hero-logo-wrap">
+        <img src="./zan-zao-ka-logo.png" alt="讚灶咖" class="hero-logo-img"
+          onerror="this.outerHTML='<div class=\'hero-logo-ph\'>Logo</div>'">
+      </div>
+      <div class="hero-role">幸福親手作</div>
+      <div class="hero-name">宋靜欣</div>
+      <div class="hero-name-en">— 待確認英文名 —</div>
+      <div class="hero-slogan">
+        用最讚的灶咖，<br>做最幸福的手作
+      </div>
+      <div class="hero-tags">
+        <span class="h-tag">#手工烘焙</span>
+        <span class="h-tag">#天然食材</span>
+        <span class="h-tag">#幸福親手作</span>
+      </div>
+    </div>
+
+    <!-- 右欄（按鈕直接是 .hero-right 子元素）-->
+    <div class="hero-right">
+      <a class="hero-btn p1" href="https://www.facebook.com/share/18U17LoZ9s/" target="_blank"
+        onclick="gtag('event','click_fb_follow',{'event_category':'CTA','event_label':'zan-zao-ka'});">
+        追蹤粉絲專頁｜Facebook
+      </a>
+      <a class="hero-btn p1" href="https://m.me/讚灶咖幸福親手作" target="_blank"
+        onclick="gtag('event','click_messenger',{'event_category':'CTA','event_label':'zan-zao-ka'});">
+        私訊洽詢｜Messenger
+      </a>
+      <a class="hero-btn ghost" href="#story">品牌故事</a>
+      <a class="hero-btn ghost" href="#gallery">烘焙成果</a>
+      <div class="hero-btn-row">
+        <button class="btn-sm" onclick="openQr()">QR CODE</button>
+        <button class="btn-sm share" id="shareBtn" onclick="shareThis()">SHARE</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- QR MODAL -->
+<div class="qr-overlay" id="qrOverlay" onclick="if(event.target===this)closeQr()">
+  <div class="qr-box">
+    <div class="qr-title">讚灶咖 幸福親手作</div>
+    <div id="qrcode-canvas"></div>
+    <div class="qr-url">linket.app/zan-zao-ka</div>
+    <button class="qr-close" onclick="closeQr()">CLOSE</button>
+  </div>
+</div>
+
+<!-- ④ WATERMARK -->
+<div class="watermark" aria-hidden="true">
+  <div class="wm-track">
+    <span class="wm-item">讚灶咖</span><span class="wm-sep">·</span>
+    <span class="wm-item">幸福親手作</span><span class="wm-sep">·</span>
+    <span class="wm-item">手工烘焙</span><span class="wm-sep">·</span>
+    <span class="wm-item">天然食材</span><span class="wm-sep">·</span>
+    <span class="wm-item">讚灶咖</span><span class="wm-sep">·</span>
+    <span class="wm-item">幸福親手作</span><span class="wm-sep">·</span>
+    <span class="wm-item">手工烘焙</span><span class="wm-sep">·</span>
+    <span class="wm-item">天然食材</span><span class="wm-sep">·</span>
+  </div>
+</div>
+
+<!-- ⑤ 品牌故事 -->
+<section class="sec story reveal" id="story">
+  <div class="wrap">
+    <span class="sec-label">Brand Story</span>
+    <div class="sec-title">在自家灶咖，<br>做一家人的幸福</div>
+    <div class="sec-rule"></div>
+    <div class="story-body">
+      <div class="story-quote">
+        在自家最讚的灶咖，製作出各種天然的美味，讓我的家人孩子們吃出健康 &amp; 幸福！
+      </div>
+      <p>讚灶咖的故事，從最簡單的地方開始——家裡的廚房。每一個麵包、每一顆杯子蛋糕，都是用最天然的食材，在自家灶咖裡揉麵、烘焙，不為別的，只為讓家人吃得安心、吃得幸福。</p>
+      <p>從孩子許願的巧克力麵包，到老公搶著吃的新口味，每一批都是限量，每一份都是用心。歡迎私訊洽詢，一起訂製屬於你們家的幸福滋味。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ⑥ FB 追蹤 -->
+<div class="fb-follow reveal">
+  <div class="fb-follow-title">追蹤我們，第一手掌握現貨資訊</div>
+  <a class="fb-follow-btn" href="https://www.facebook.com/share/18U17LoZ9s/" target="_blank"
+    onclick="gtag('event','click_fb_follow',{'event_category':'CTA','event_label':'zan-zao-ka'});">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+    </svg>
+    追蹤讚灶咖粉絲專頁
+  </a>
+</div>
+
+<!-- ⑦ 烘焙成果展示 -->
+<section class="sec gallery reveal" id="gallery">
+  <div class="wrap">
+    <span class="sec-label">Gallery</span>
+    <div class="sec-title">烘焙成果展示</div>
+    <div class="sec-rule"></div>
+    <div class="fb-posts">
+      <div class="fb-post-wrap">
+        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid027wXmjYdQBRAKfELS2ncs7uFsE3gqMsL4QhjqvXSsKBhXLornerf7FQHPw8gaP4nBl%26id%3D100053261352933&show_text=true&width=500" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+      </div>
+      <div class="fb-post-wrap">
+        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid037ARibrfRAun9tcFCfhCiAaXVXxooSzX8yRuvN7i5jcH3VzobonsBTaHorK95jC2Rl%26id%3D100053261352933&show_text=true&width=500" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+      </div>
+      <div class="fb-post-wrap">
+        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid02As8nfXNVn3Ux7PiJdUdBWLvmr3aoX5fPbqxMmmam68rzbcoEsN6nnQPDDFYDYySLl%26id%3D100053261352933&show_text=true&width=500" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+      </div>
+      <div class="fb-post-wrap">
+        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0mAWPJYXGPbDEWtRVb8Rgwr9RxgiB4Fr9X19e7zojo2bJrUzEgmM4Xt9hRWmUm6U5l%26id%3D100053261352933&show_text=true&width=500" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑧ FOOTER -->
+<footer class="footer reveal">
+  <div class="f-logo">
+    <img src="./zan-zao-ka-logo.png" alt="讚灶咖" onerror="this.style.display='none'">
+  </div>
+  <div class="f-sub">讚灶咖 幸福親手作 · 手工烘焙・天然食材</div>
+  <div class="f-btns">
+    <a href="https://m.me/讚灶咖幸福親手作" target="_blank" class="f-btn p1"
+      onclick="gtag('event','click_messenger_footer',{'event_category':'CTA','event_label':'zan-zao-ka'});">
+      私訊洽詢｜Messenger
+    </a>
+    <a href="https://www.facebook.com/share/18U17LoZ9s/" target="_blank" class="f-btn fb"
+      onclick="gtag('event','click_fb_follow_footer',{'event_category':'CTA','event_label':'zan-zao-ka'});">
+      追蹤粉絲專頁｜Facebook
+    </a>
+  </div>
+  <ul class="f-nav">
+    <li><a href="#story">品牌故事</a></li>
+    <li><a href="#gallery">烘焙成果</a></li>
+    <li><a href="#top">回到頂部</a></li>
+  </ul>
+  <p class="f-copy">© 2026 讚灶咖 幸福親手作</p>
+</footer>
+
+<!-- ⑨ BACK TO TOP -->
+<a class="back-top" href="#top">↑ &nbsp; BACK TO TOP</a>
+
+<!-- ⑩ DESIGN BY -->
+<a class="linket-bar" href="https://linket.app/home" target="_blank">
+  Design by <b>LINKet</b> · linket.app
+</a>
+
+<script>
+/* Reveal */
+const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}});},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+/* Share */
+const sb=document.getElementById('shareBtn');
+if(navigator.share&&sb)sb.classList.add('visible');
+function shareThis(){
+  navigator.share({title:'讚灶咖 幸福親手作',url:'https://linket.app/zan-zao-ka'}).catch(()=>{});
+}
+
+/* QR */
+let qrDone=false;
+function openQr(){
+  document.getElementById('qrOverlay').classList.add('on');
+  if(!qrDone){
+    const s=document.createElement('script');
+    s.src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
+    s.onload=()=>{
+      new QRCode(document.getElementById('qrcode-canvas'),{
+        text:'https://linket.app/zan-zao-ka',
+        width:180,height:180,
+        colorDark:'#C97B5A',colorLight:'#FDFAF6',
+        correctLevel:QRCode.CorrectLevel.H
+      });
+      qrDone=true;
+    };
+    document.head.appendChild(s);
+  }
+  gtag('event','click_qr_modal',{'event_category':'CTA','event_label':'zan-zao-ka'});
+}
+function closeQr(){document.getElementById('qrOverlay').classList.remove('on');}
+</script>
+</body>
+</html>
