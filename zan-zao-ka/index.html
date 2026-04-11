@@ -82,20 +82,13 @@ a.top-badge{
   flex:1;display:flex;flex-direction:column;gap:.55rem;
   align-items:center;text-align:center;
 }
-.hero-logo-wrap{width:160px;margin-bottom:.6rem;}
+.hero-logo-wrap{width:130px;margin-bottom:.8rem;}
 .hero-logo-img{width:100%;height:auto;border-radius:50%;}
 .hero-logo-ph{
-  width:160px;height:160px;border-radius:50%;
+  width:130px;height:130px;border-radius:50%;
   background:var(--c3);opacity:.3;
   display:flex;align-items:center;justify-content:center;
   font-size:.72rem;letter-spacing:.08em;color:var(--txt2);
-}
-.hero-brand-name{
-  font-family:'Noto Serif TC',serif;
-  font-size:.95rem;font-weight:700;
-  letter-spacing:.2em;color:var(--c2);
-  margin-top:.2rem;margin-bottom:30px;
-  line-height:1.6;
 }
 .hero-role{font-size:.78rem;letter-spacing:.25em;color:var(--txt2);}
 .hero-name{
@@ -244,18 +237,15 @@ a.top-badge{
 
 /* ── 烘焙成果 FB iframe ── */
 .gallery{background:var(--bg);}
-.fb-posts{display:flex;flex-direction:column;gap:2rem;}
+.fb-posts{display:flex;flex-direction:column;gap:1.2rem;}
 .fb-post-wrap{
-  width:100%;min-width:0;
+  width:100%;
+  border-radius:var(--r);border:1px solid var(--line);
   background:var(--white);
-  border-radius:var(--r);
-  border:1px solid var(--line);
-  overflow:visible;
 }
 .fb-post-wrap iframe{
-  width:1px;min-width:100%;
+  width:100%;height:700px;
   border:none;display:block;
-  border-radius:var(--r);
 }
 
 /* ── FOOTER ── */
@@ -325,7 +315,6 @@ a.top-badge{
         <img src="./zan-zao-ka-logo.png" alt="讚灶咖" class="hero-logo-img"
           onerror="this.outerHTML='<div class=\'hero-logo-ph\'>Logo</div>'">
       </div>
-      <div class="hero-brand-name">讚灶咖 幸福親手做</div>
       <div class="hero-role">幸福親手作</div>
       <div class="hero-name">宋靜欣</div>
       <div class="hero-name-en">— 待確認英文名 —</div>
