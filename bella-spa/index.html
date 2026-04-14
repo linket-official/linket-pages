@@ -12,6 +12,8 @@
   v2.5  2026-04-07  第二區正文加 ph-text-wrap div 限寬置中
   v3.0  2026-04-07  全頁視覺重構：字體統一 Source Han Serif TC、交錯背景圖設計系統、深淺色雙主題按鈕
   v3.1  2026-04-07  英文大字字體換回 Playfair Display（wm-main / f-title / sv-num / nc-item-price）
+  v4.0  2026-04-14  service/ 頁面廢除：移除全部 service/ 連結（6處）；斜體全改正體；Icon 輪廓陰影；手機背景圖 auto 60% bottom
+  v4.1  2026-04-14  區域重整：Hero 4按鈕（LINE/新客/INDIBA/主理人）；三大核心服務區獨立（#services）；INDIBA英特波區獨立（#indiba）；新客完整菜單（全身8+美顏6）；Footer 加 back-to-top
 -->
 <meta charset="UTF-8">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
@@ -117,7 +119,7 @@ a{text-decoration:none;color:inherit;}
 
 /* icons */
 .hero-icons{display:flex;justify-content:center;gap:1.2rem;margin-bottom:2.5rem;flex-wrap:wrap;}
-.hero-icon-link{width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:transparent;border:none;transition:opacity .2s,transform .2s;}
+.hero-icon-link{width:44px;height:44px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(182,80,96,.18),0 0 0 1.5px rgba(182,80,96,.1);border-radius:50%;background:transparent;border:none;transition:opacity .2s,transform .2s;}
 .hero-icon-link:hover{opacity:.7;transform:translateY(-2px);}
 .hero-icon-link img{width:36px;height:36px;display:block;}
 
@@ -137,7 +139,7 @@ a{text-decoration:none;color:inherit;}
 
 /* ── § WATERMARK ── */
 .watermark{padding:4rem 1.6rem;text-align:center;}
-.wm-main{font-family:'Playfair Display',serif;font-style:italic;font-size:2rem;font-weight:400;letter-spacing:.3em;color:var(--white);margin-bottom:.4rem;}
+.wm-main{font-family:'Playfair Display',serif;font-style:normal;font-size:2rem;font-weight:400;letter-spacing:.3em;color:var(--white);margin-bottom:.4rem;}
 .wm-sub{font-size:.78rem;letter-spacing:.28em;color:rgba(255,255,255,.6);text-transform:uppercase;}
 
 /* ── § 品牌理念 ── */
@@ -169,9 +171,9 @@ a{text-decoration:none;color:inherit;}
 .sv-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:var(--bg3);}
 .sv-img-ph{width:100%;aspect-ratio:16/9;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:.75rem;letter-spacing:.12em;color:rgba(255,255,255,.4);}
 .sv-body{padding:1.8rem 1.6rem;}
-.sv-num{font-family:'Playfair Display',serif;font-style:italic;font-size:1.8rem;font-weight:400;color:var(--white);opacity:.2;line-height:1;margin-bottom:.2rem;}
+.sv-num{font-family:'Playfair Display',serif;font-style:normal;font-size:1.8rem;font-weight:400;color:var(--white);opacity:.2;line-height:1;margin-bottom:.2rem;}
 .sv-name{font-size:1.1rem;font-weight:700;color:var(--white);letter-spacing:.15em;margin-bottom:.6rem;}
-.sv-mood{font-size:.9rem;color:rgba(255,255,255,.65);letter-spacing:.06em;margin-bottom:1rem;line-height:1.8;font-style:italic;}
+.sv-mood{font-size:.9rem;color:rgba(255,255,255,.65);letter-spacing:.06em;margin-bottom:1rem;line-height:1.8;font-style:normal;}
 .sv-desc{font-size:.88rem;color:rgba(255,255,255,.7);line-height:2.2;margin-bottom:1.4rem;}
 .sv-link{display:inline-flex;align-items:center;gap:.4rem;font-size:.78rem;letter-spacing:.18em;color:rgba(255,255,255,.8);border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:.25rem;transition:border-color .2s;}
 .sv-link:hover{border-color:var(--white);color:var(--white);}
@@ -220,7 +222,7 @@ a{text-decoration:none;color:inherit;}
 /* ── § FOOTER ── */
 .footer{padding:5rem 1.6rem 3rem;text-align:center;}
 .f-logo{width:160px;margin:0 auto 1.2rem;}
-.f-title{font-family:'Playfair Display',serif;font-style:italic;font-size:2rem;font-weight:400;color:var(--dark);margin-bottom:.4rem;letter-spacing:.3em;}
+.f-title{font-family:'Playfair Display',serif;font-style:normal;font-size:2rem;font-weight:400;color:var(--dark);margin-bottom:.4rem;letter-spacing:.3em;}
 .f-sub{font-size:.78rem;letter-spacing:.25em;color:var(--dark);opacity:.5;margin-bottom:3rem;text-transform:uppercase;}
 .f-btns{display:flex;flex-direction:column;gap:.8rem;max-width:320px;margin:0 auto 3rem;}
 .f-nav{display:flex;justify-content:center;gap:2rem;list-style:none;flex-wrap:wrap;margin-bottom:3rem;}
@@ -255,6 +257,57 @@ a{text-decoration:none;color:inherit;}
 .hero-anim-fade{opacity:0;animation:fadeIn .4s ease forwards;}
 .a1{animation-delay:.05s;}.a2{animation-delay:.15s;}.a3{animation-delay:.25s;}
 .a4{animation-delay:.35s;}.a5{animation-delay:.45s;}.a6{animation-delay:.55s;}.a7{animation-delay:.65s;}
+
+@media(max-width:600px){
+  .bg-light::before,.bg-dark::before{
+    background-size:auto 60%;
+    background-position:center bottom;
+  }
+}
+
+/* ── 新客完整菜單 ── */
+.nc-menu-wrap{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:2.5rem 0;}
+@media(max-width:640px){.nc-menu-wrap{grid-template-columns:1fr;gap:1.5rem;}}
+.nc-menu-group{background:rgba(182,80,96,.05);border:1px solid rgba(182,80,96,.12);border-radius:12px;padding:1.5rem 1.4rem;}
+.nc-group-title{font-size:.9rem;font-weight:700;letter-spacing:.18em;color:var(--dark);margin-bottom:.3rem;}
+.nc-menu-note{font-size:.72rem;letter-spacing:.08em;color:var(--dark);opacity:.5;margin-bottom:1rem;padding-bottom:.7rem;border-bottom:1px solid rgba(182,80,96,.1);}
+.nc-rows{display:flex;flex-direction:column;gap:.55rem;}
+.nc-row{display:grid;grid-template-columns:1fr 3.5em 3.5em;gap:.3rem;align-items:baseline;}
+.nc-rname{font-size:.85rem;letter-spacing:.06em;color:var(--dark);}
+.nc-rtime{font-size:.72rem;color:var(--dark);opacity:.5;text-align:right;}
+.nc-rprice{font-size:.88rem;font-weight:700;color:var(--dark);text-align:right;letter-spacing:.02em;}
+/* 英特波規格標籤 */
+.sv-spec{font-size:.75rem;letter-spacing:.06em;color:rgba(255,255,255,.6);margin:.8rem 0 .5rem;line-height:1.8;}
+.sv-price-tag{font-size:.88rem;letter-spacing:.1em;color:rgba(255,255,255,.85);margin-top:.3rem;}
+.sv-price-tag strong{color:#fff;font-size:1.1rem;}
+
+
+/* ── § INDIBA 英特波生活美學 ── */
+.indiba-feature{padding:6rem 0;}
+.ib-label{font-size:.72rem;letter-spacing:.4em;color:var(--dark);opacity:.55;text-align:center;margin-bottom:.5rem;}
+.ib-title{font-size:clamp(1.5rem,4vw,2rem);font-weight:700;letter-spacing:.12em;color:var(--dark);text-align:center;margin-bottom:3rem;}
+.ib-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2.5rem;}
+@media(max-width:640px){.ib-grid{grid-template-columns:1fr;}}
+.ib-card{background:rgba(182,80,96,.05);border:1px solid rgba(182,80,96,.12);border-radius:12px;padding:2rem 1.6rem;display:flex;flex-direction:column;gap:1.2rem;}
+.ib-card-head{display:flex;align-items:flex-start;gap:1rem;}
+.ib-num{font-size:2rem;font-weight:700;color:rgba(182,80,96,.2);line-height:1;flex-shrink:0;width:2rem;}
+.ib-name{font-size:1rem;font-weight:700;letter-spacing:.1em;color:var(--dark);margin-bottom:.25rem;}
+.ib-tag{font-size:.72rem;letter-spacing:.06em;color:var(--dark);opacity:.55;}
+.ib-img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px;background:var(--bg3);}
+.ib-checks{list-style:none;display:flex;flex-direction:column;gap:.4rem;}
+.ib-checks li{font-size:.85rem;letter-spacing:.06em;color:var(--dark);padding-left:1.2em;position:relative;}
+.ib-checks li::before{content:'✓';position:absolute;left:0;color:var(--dark);opacity:.5;}
+.ib-desc{font-size:.85rem;line-height:1.85;color:var(--dark);opacity:.7;letter-spacing:.04em;}
+.ib-price-row{display:flex;align-items:center;justify-content:space-between;padding-top:.8rem;border-top:1px solid rgba(182,80,96,.12);}
+.ib-duration{font-size:.78rem;letter-spacing:.1em;color:var(--dark);opacity:.5;}
+.ib-price{font-size:1rem;font-weight:700;color:var(--dark);letter-spacing:.06em;}
+.ib-cta{text-align:center;}
+.ib-cta .btn-fill{display:inline-flex;align-items:center;justify-content:center;padding:1rem 2.5rem;background:var(--dark);color:var(--white);border:1px solid var(--dark);border-radius:100px;font-size:.9rem;font-weight:400;letter-spacing:.2em;transition:.3s;font-family:'Source Han Serif TC','Noto Serif TC',serif;}
+.ib-cta .btn-fill:hover{background:var(--dark2);}
+/* back to top */
+a.back-to-top{display:block;text-align:center;padding:.8rem;font-size:.75rem;letter-spacing:.2em;color:var(--dark);opacity:.5;transition:opacity .2s;}
+a.back-to-top:hover{opacity:.9;}
+
 </style>
 </head>
 <body id="top">
@@ -310,88 +363,113 @@ a{text-decoration:none;color:inherit;}
         </a>
       </div>
       <a href="https://lin.ee/iCAHFna" target="_blank" class="hero-btn p1 hero-anim a6"
-        onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'bella-spa'})">預約諮詢｜LINE@</a>
+        onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'bella-spa'})">預約諮詢｜LINE</a>
       <a href="#newclient" class="hero-btn p1 hero-anim a6"
-        onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'bella-spa'})">新客體驗傳送門｜Reserve</a>
-      <a href="service/" class="hero-btn ghost hero-anim a7">服務項目介紹｜Service</a>
+        onclick="gtag('event','click_newclient',{'event_category':'CTA','event_label':'bella-spa'})">新客體驗傳送門</a>
+      <a href="#indiba" class="hero-btn ghost hero-anim a7">英特波生活美學｜INDIBA</a>
       <a href="owner/" class="hero-btn ghost hero-anim a7">關於主理人｜About Summer</a>
       <div class="hero-btn-row hero-anim a7">
         <button class="btn-sm" onclick="openQr()">QR Code</button>
         <button class="btn-sm share" id="shareBtn" onclick="shareThisPage()">Share</button>
       </div>
     </div><!-- /hero-right -->
-
-  </div>
+  </div><!-- /hero-content -->
 </section>
 
-<!-- § WATERMARK -->
-<div class="watermark bg-dark">
-  <div class="sec-inner" style="text-align:center;">
-  <div class="wm-main">Bella SPA</div>
-  <div class="wm-sub">Hsinchu · Luxury Holistic Beauty</div>
-  </div>
-</div>
-
-<!-- § 品牌理念 -->
-<section class="philosophy bg-light" id="about">
-  <div class="ph-wrap sec-inner">
-    <div class="ph-label reveal">Our Philosophy</div>
-    <div class="ph-quote reveal">
-      「不只是美容，而是一種，<br>回到自己的儀式感。」
-    </div>
-    <div class="ph-text-wrap">
-    <p class="ph-text reveal">
-      位於新竹竹北，貝拉美學是一處為女性而設的沉靜空間。<br>
-      我們不追求快速的改變，而是藉由每一次療程的積累，<br>
-      協助妳重新感受自己的身體——從容、輕盈、有溫度。
-    </p>
-    </div>
-  </div>
-</section>
-
-<!-- § 三大服務情境 -->
+<!-- § 三大核心服務 -->
 <section class="services bg-dark" id="services">
   <div class="wrap sec-inner">
     <div class="sv-label reveal">What We Do</div>
     <div class="sv-title reveal">三大核心服務</div>
 
-    <!-- INDIBA -->
     <div class="sv-card reveal">
       <img src="img-indiba.jpg" alt="INDIBA英特波" class="sv-img"
         onerror="this.outerHTML='<div class=\'sv-img-ph\'>img-indiba.jpg</div>'">
       <div class="sv-body">
         <div class="sv-num">01</div>
         <div class="sv-name">INDIBA 英特波生活美容</div>
-        <div class="sv-mood">「當儀器碰到肌膚的那一刻，<br>身體記得該怎麼修復自己。」</div>
-        <p class="sv-desc">來自西班牙，採用 448kHz 專利頻率，非侵入式電波療程。零痛感、無恢復期，針對臉部拉提、身體雕塑、術後修復均有顯著效果。全球頂尖運動員與高端美學指定保養。</p>
-        <a href="service/#indiba" class="sv-link">了解 INDIBA 詳情 →</a>
+        <div class="sv-mood">來自西班牙，448kHz 專利頻率，非侵入式電波療程</div>
+        <p class="sv-desc">零痛感、無恢復期，針對臉部拉提、身體雕塑、術後修復均有顯著效果。全球頂尖運動員與高端美學指定保養。</p>
+        <a href="#indiba" class="sv-link">了解 INDIBA 詳情 →</a>
       </div>
     </div>
 
-    <!-- 筋膜芳療 -->
     <div class="sv-card reveal">
       <img src="img-spa-1.jpg" alt="筋膜芳療" class="sv-img"
         onerror="this.outerHTML='<div class=\'sv-img-ph\'>img-spa-1.jpg</div>'">
       <div class="sv-body">
         <div class="sv-num">02</div>
         <div class="sv-name">筋膜芳療・全身舒壓</div>
-        <div class="sv-mood">「當身體開始放鬆，<br>很多事情就自然想通了。」</div>
-        <p class="sv-desc">結合純淨植物精油與筋膜舒緩手法，針對長期累積的身體緊繃。不只是按摩，而是一場深度的感官釋放，讓身體找回輕盈的自由感。</p>
-        <a href="service/#spa" class="sv-link">查看全身SPA項目 →</a>
+        <div class="sv-mood">結合純淨植物精油與筋膜舒緩手法</div>
+        <p class="sv-desc">針對長期累積的身體緊繃，不只是按摩，而是一場深度的感官釋放，讓身體找回輕盈的自由感。</p>
       </div>
     </div>
 
-    <!-- 皮膚管理 -->
     <div class="sv-card reveal">
       <img src="img-spa-2.jpg" alt="韓式皮膚管理" class="sv-img"
         onerror="this.outerHTML='<div class=\'sv-img-ph\'>img-spa-2.jpg</div>'">
       <div class="sv-body">
         <div class="sv-num">03</div>
         <div class="sv-name">韓式系統化皮膚管理</div>
-        <div class="sv-mood">「肌膚需要的，從來不是一次的劇烈改變，<br>而是持續的溫柔對待。」</div>
-        <p class="sv-desc">透過系統性評估與溫和護理，針對水分、細緻度與明亮度進行調整。建立健康的肌膚屏障，讓保養成為日常，而非特殊場合的犒賞。</p>
-        <a href="service/#face" class="sv-link">查看臉部護理項目 →</a>
+        <div class="sv-mood">建立健康的肌膚屏障，讓保養成為日常</div>
+        <p class="sv-desc">透過系統性評估與溫和護理，針對水分、細緻度與明亮度進行調整，持續的溫柔對待才是肌膚真正需要的。</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- § INDIBA英特波生活美學 -->
+<section class="indiba-feature bg-light" id="indiba">
+  <div class="wrap sec-inner">
+    <div class="ib-label reveal">INDIBA 英特波生活美學</div>
+    <div class="ib-title reveal">兩大精準療程</div>
+
+    <div class="ib-grid">
+      <!-- 小V臉 -->
+      <div class="ib-card reveal">
+        <div class="ib-card-head">
+          <div class="ib-num">01</div>
+          <div>
+            <div class="ib-name">小顏 V 臉緊緻專門</div>
+            <div class="ib-tag">英特波深層放鬆 × 小V臉緊緻課程</div>
+          </div>
+        </div>
+        <img src="img-indiba.jpg" alt="小V臉" class="ib-img"
+          onerror="this.style.display='none'">
+        <ul class="ib-checks">
+          <li>輪廓放鬆 × 臉部緊緻</li>
+          <li>輪廓拉提 × 氣色提升</li>
+          <li>一次性根本拉提</li>
+        </ul>
+        <div class="ib-price-row">
+          <span class="ib-duration">75 分鐘</span>
+          <span class="ib-price">體驗價 $3,999</span>
+        </div>
+      </div>
+
+      <!-- 內臟筋膜 -->
+      <div class="ib-card reveal">
+        <div class="ib-card-head">
+          <div class="ib-num">02</div>
+          <div>
+            <div class="ib-name">筋膜重塑 × 內臟筋膜鬆動</div>
+            <div class="ib-tag">深層熱能 × 筋膜舒緩 × 緊實體雕</div>
+          </div>
+        </div>
+        <img src="img-spa-1.jpg" alt="內臟筋膜" class="ib-img"
+          onerror="this.style.display='none'">
+        <ul class="ib-checks">
+          <li>深層熱能導入</li>
+          <li>筋膜舒緩鬆動</li>
+          <li>緊實體雕塑形</li>
+        </ul>
+        <p class="ib-desc">由內而外調整張力與支撐，讓線條自然上提、穩定維持。</p>
+      </div>
+    </div>
+
+    <div class="ib-cta reveal">
+      <a href="https://lin.ee/iCAHFna" target="_blank" class="btn-fill"
+        onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'bella-spa'})">預約英特波療程</a>
     </div>
   </div>
 </section>
@@ -403,12 +481,34 @@ a{text-decoration:none;color:inherit;}
     <div class="nc-title reveal">第一次來？從這裡開始</div>
     <p class="nc-sub reveal">限新客體驗・單堂即可預約・多部位可選<br>以下為精選入門項目，以下課程全程贈送加值療程</p>
 
-    <div class="nc-items reveal">
-      <div class="nc-item">
-        <div class="nc-item-name">芳療精油舒壓</div>
-        <div class="nc-item-time">60分鐘 · 贈岩盤浴</div>
-        <div class="nc-item-price">1,280</div>
+    <div class="nc-menu-wrap reveal">
+      <div class="nc-menu-group">
+        <div class="nc-group-title">全身舒壓 SPA</div>
+        <div class="nc-menu-note">以下課程贈送岩盤浴</div>
+        <div class="nc-rows">
+          <div class="nc-row"><span class="nc-rname">芳療精油舒壓</span><span class="nc-rtime">60分</span><span class="nc-rprice">1,280</span></div>
+          <div class="nc-row"><span class="nc-rname">全身四季節氣舒壓</span><span class="nc-rtime">90分</span><span class="nc-rprice">1,680</span></div>
+          <div class="nc-row"><span class="nc-rname">筋膜放鬆舒活</span><span class="nc-rtime">70分</span><span class="nc-rprice">1,480</span></div>
+          <div class="nc-row"><span class="nc-rname">筋膜深屑舒壓</span><span class="nc-rtime">90分</span><span class="nc-rprice">1,680</span></div>
+          <div class="nc-row"><span class="nc-rname">Luluspa</span><span class="nc-rtime">60分</span><span class="nc-rprice">1,480</span></div>
+          <div class="nc-row"><span class="nc-rname">瘦身體雕 G5</span><span class="nc-rtime">60分</span><span class="nc-rprice">1,480</span></div>
+          <div class="nc-row"><span class="nc-rname">全身美白去角質敷體</span><span class="nc-rtime">—</span><span class="nc-rprice">1,280</span></div>
+          <div class="nc-row"><span class="nc-rname">澎澎美胸 spa</span><span class="nc-rtime">60分</span><span class="nc-rprice">1,280</span></div>
+        </div>
       </div>
+      <div class="nc-menu-group">
+        <div class="nc-group-title">美顏舒活 SPA</div>
+        <div class="nc-menu-note">以下課程贈送動力光浴</div>
+        <div class="nc-rows">
+          <div class="nc-row"><span class="nc-rname">基礎粉刺護理</span><span class="nc-rtime">60分</span><span class="nc-rprice">1,280</span></div>
+          <div class="nc-row"><span class="nc-rname">保濕粉刺 spa 護理</span><span class="nc-rtime">90分</span><span class="nc-rprice">1,480</span></div>
+          <div class="nc-row"><span class="nc-rname">膠原藻針護膚</span><span class="nc-rtime">60分</span><span class="nc-rprice">1,680</span></div>
+          <div class="nc-row"><span class="nc-rname">無針膠原水光</span><span class="nc-rtime">60分</span><span class="nc-rprice">2,500</span></div>
+          <div class="nc-row"><span class="nc-rname">氫氧水飛梭</span><span class="nc-rtime">90分</span><span class="nc-rprice">1,999</span></div>
+          <div class="nc-row"><span class="nc-rname">太極撥筋護理</span><span class="nc-rtime">40分</span><span class="nc-rprice">999</span></div>
+        </div>
+      </div>
+    </div>
       <div class="nc-item">
         <div class="nc-item-name">膠原藻針護膚</div>
         <div class="nc-item-time">60分鐘 · 贈動力光浴</div>
@@ -428,8 +528,6 @@ a{text-decoration:none;color:inherit;}
 
 
     <div class="nc-ctas reveal">
-      <a href="service/#experience" class="btn fill"
-        onclick="gtag('event','click_service',{'event_category':'CTA','event_label':'bella-spa'})">查看完整新客菜單</a>
       <a href="https://lin.ee/iCAHFna" target="_blank" class="btn fill"
         onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'bella-spa'})">加官方LINE諮詢｜選擇最適合方案</a>
     </div>
@@ -467,7 +565,7 @@ a{text-decoration:none;color:inherit;}
   <div class="f-btns reveal">
     <a href="https://lin.ee/iCAHFna" target="_blank" class="btn fill"
       onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'bella-spa'})">預約諮詢｜LINE@</a>
-    <a href="service/" class="btn ghost">服務項目｜SERVICE</a>
+    
     <a href="owner/" class="btn ghost">主理人介紹｜ABOUT SUMMER</a>
   </div>
   <ul class="f-nav reveal">
@@ -476,6 +574,7 @@ a{text-decoration:none;color:inherit;}
     <li><a href="#newclient">新客體驗</a></li>
     <li><a href="#location">交通資訊</a></li>
   </ul>
+  <a href="#top" class="back-to-top reveal">↑ &nbsp; BACK TO TOP</a>
   <p class="f-copy reveal">© 2026 貝拉美學SPA</p>
   </div>
 </footer>
