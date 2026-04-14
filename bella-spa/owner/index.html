@@ -6,6 +6,7 @@
   v1.0  2026-04-06  初版：主理人登場、理念引言、認證證書
   v2.0  2026-04-07  三頁樣式對齊：btn圓角100%、f-title字體統一、icon樣式修正（透明底無邊框）、名字格式修正、Logo SVG新增
   v3.0  2026-04-07  從v2重建：套入index v3.1完整設計系統、交錯背景圖、雙色按鈕主題
+  v4.0  2026-04-14  Footer 改深色底；Footer 按鈕重排（返回貝拉/INDIBA/新客/Back to Top）；service/ 連結移除；斜體改正體
 -->
 <meta charset="UTF-8">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
@@ -149,7 +150,7 @@ a{text-decoration:none;color:inherit;}
 
 .footer{padding:5rem 1.6rem 3rem;text-align:center;position:relative;overflow:hidden;}
 .f-logo{width:170px;margin:0 auto 1.2rem;}
-.f-title{font-family:'Playfair Display',serif;font-style:italic;font-size:2rem;font-weight:400;color:var(--dark);margin-bottom:.4rem;letter-spacing:.3em;}
+.f-title{font-family:'Playfair Display',serif;font-style:normal;font-size:2rem;font-weight:400;color:var(--dark);margin-bottom:.4rem;letter-spacing:.3em;}
 .f-sub{font-size:.78rem;letter-spacing:.25em;color:var(--dark);opacity:.5;margin-bottom:2rem;text-transform:uppercase;}
 .f-btns{display:flex;flex-direction:column;gap:.8rem;max-width:320px;margin:0 auto 3rem;}
 .f-nav{display:flex;justify-content:center;gap:2rem;list-style:none;flex-wrap:wrap;margin-bottom:3rem;}
@@ -256,23 +257,24 @@ a{text-decoration:none;color:inherit;}
 </section>
 
 <!-- Footer -->
-<footer class="footer bg-light">
+<footer class="footer bg-dark">
   <div class="f-logo">
     <img src="../logo-bella.svg" alt="BELLA" class="logo-img" onerror="this.style.display='none'">
   </div>
   <div class="f-sub">Luxury Holistic Beauty · 新竹竹北</div>
   <div class="f-btns">
-    <a href="https://lin.ee/iCAHFna" target="_blank" class="btn fill"
-      onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'bella-spa'})">預約諮詢｜LINE@</a>
-    <a href="../service/" class="btn ghost">查看服務項目</a>
-    <a href="../" class="btn ghost">返回貝拉美學</a>
+    <a href="/bella-spa/" class="btn fill"
+      onclick="gtag('event','click_back_bella',{'event_category':'CTA','event_label':'bella-owner'})">返回貝拉美學</a>
+    <a href="/bella-spa/#indiba" class="btn ghost">英特波生活美學｜INDIBA</a>
+    <a href="/bella-spa/#newclient" class="btn ghost">新客體驗傳送門</a>
   </div>
   <ul class="f-nav">
     <li><a href="#about">理念</a></li>
     <li><a href="#certs">技術認證</a></li>
-    <li><a href="../service/">服務項目</a></li>
+    
     <li><a href="../">首頁</a></li>
   </ul>
+  <a href="#top" class="back-to-top" style="color:rgba(255,255,255,.5);margin-top:.5rem;">↑ &nbsp; BACK TO TOP</a>
   <p class="f-copy">© 2026 貝拉美學SPA</p>
 </footer>
 <a class="linket-bar" href="https://linket.app/home" target="_blank">Design by LINKet · linket.app</a>
