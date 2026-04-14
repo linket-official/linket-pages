@@ -1,9 +1,10 @@
 <!--
   Women Talk 陳宥霖 Rion Chen
-  版本：v1.2 | 2026.04
+  版本：v1.3 | 2026.04
   v1.0 初版建置
   v1.1 top-badge 白底 / 姓名合併 / slogan 不斷句 / 刪除標籤 / 加活動照片區
   v1.2 修復 hero 排版 bug：清除殘留孤立 CSS / 補回 hero-icons block / hero-right min-width:0
+  v1.3 品牌故事改 Rion 真實故事弧線 / 服務加企業團體音療 / 新增共鳴觸發區 / B2B 擴展為全機構+個人兩層
   部署：linket.app/women-talk
 -->
 <!DOCTYPE html>
@@ -19,7 +20,7 @@
 </script>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
 <title>陳宥霖 Rion｜頌缽師・Women Talk・身心靈療癒</title>
-<meta name="description" content="頌缽師 Rion 陳宥霖。透過頌缽音療協助月子中心、產後護理之家穩定媽媽情緒、改善睡眠。Women Talk 我們說。">
+<meta name="description" content="頌缽師 Rion 陳宥霖。透過缽聲陪伴壓力大、睡不好的你回到自己。Women Talk 我們說，服務月子中心、長照、企業、飯店等機構，也陪伴每一個需要放鬆的人。">
 <meta property="og:title" content="Women Talk・頌缽師 Rion｜身心靈療癒">
 <meta property="og:description" content="缽聲的流動，煩惱就鬆動。頌缽音療・月子中心合作・女性身心靈聚會">
 <meta property="og:image" content="https://linket.app/women-talk/og-image.jpg">
@@ -464,10 +465,11 @@ a.top-badge{
       <p>
         缽聲的流動，煩惱就鬆動。<br><br>
         我是頌缽師 Rion。<br>
-        我發現懷孕媽媽，從懷孕到產後，容易失眠、焦慮，甚至出現產後憂鬱。<br><br>
-        我們透過頌缽音療，協助月子中心與產後護理之家，<br>
-        穩定媽媽情緒、改善睡眠、降低壓力，<br>
-        提升照護品質，也增加住客滿意度。
+        曾經走過一段人生低谷，在最黑暗的時候，是頌缽的聲音把我帶回來。<br><br>
+        透過缽聲的共振，我一點一滴地回到內在，重新找回平靜，也找回真正的自己。<br>
+        真正的力量，不是沒有跌倒，而是在跌倒之後，還能慢慢把自己帶回來。<br><br>
+        現在，我用聲音，陪伴更多人。<br>
+        讓情緒被釋放，讓身體放鬆，讓每一個人，都能穩穩地繼續往前。
       </p>
       <div class="quote-name">— 頌缽師 陳宥霖 Rion Chen</div>
     </div>
@@ -485,10 +487,61 @@ a.top-badge{
       </div>
       <div class="svc-card">
         <div class="svc-num">03</div>
+        <div class="svc-title">企業・團體音療</div>
+        <div class="svc-desc">為企業主管、員工紓壓，或長照、社區、活動團體提供頌缽共鳴體驗。</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">04</div>
         <div class="svc-title">女性群體共鳴</div>
         <div class="svc-desc">Women Talk 品牌聚會，在山林自然中共同體驗缽聲的療癒力量。</div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- 共鳴觸發區 -->
+<style>
+.resonate{background:var(--dark);padding:var(--sp-m);}
+.resonate .inner{max-width:480px;margin:0 auto;text-align:center;}
+.resonate-label{font-size:.72rem;letter-spacing:.3em;color:var(--gold);opacity:.75;margin-bottom:1.4rem;}
+.resonate-title{font-family:'Libre Baskerville',serif;font-size:1.3rem;color:var(--white);line-height:1.7;margin-bottom:1.6rem;}
+.resonate-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-bottom:2rem;}
+.resonate-tag{
+  padding:.45rem 1rem;border:1px solid rgba(200,168,106,.35);
+  border-radius:20px;font-size:.8rem;letter-spacing:.1em;
+  color:rgba(255,255,255,.7);font-family:'Noto Serif TC',serif;
+}
+.resonate-cta{
+  display:inline-flex;align-items:center;justify-content:center;
+  background:var(--gold);color:var(--bg);
+  font-family:'Noto Serif TC',serif;font-weight:700;font-size:.88rem;
+  letter-spacing:.12em;padding:.9rem 2rem;border-radius:var(--r);
+  text-decoration:none;transition:all .22s;
+}
+.resonate-cta:hover{background:var(--gold2);transform:translateY(-2px);}
+</style>
+<section class="resonate" id="resonate">
+  <div class="inner">
+    <div class="resonate-label reveal">你也有這種感覺嗎？</div>
+    <div class="resonate-title reveal">
+      「最近壓力好大」<br>
+      「睡不好、很累，但放鬆不下來」<br>
+      「好想讓自己喘口氣⋯⋯」
+    </div>
+    <div class="resonate-tags reveal">
+      <span class="resonate-tag">長期壓力大</span>
+      <span class="resonate-tag">失眠・淺眠</span>
+      <span class="resonate-tag">情緒疲憊</span>
+      <span class="resonate-tag">身心失衡</span>
+      <span class="resonate-tag">想找回自己</span>
+    </div>
+    <p style="font-size:.85rem;color:rgba(255,255,255,.5);letter-spacing:.08em;margin-bottom:1.6rem;line-height:1.9;">
+      我們很願意用頌缽，陪伴你一起回到自己的路。
+    </p>
+    <a class="resonate-cta reveal" href="https://line.me/R/ti/p/@527ubpem" target="_blank"
+      onclick="gtag('event','click_line_resonate',{'event_category':'CTA','event_label':'women-talk'});">
+      預約體驗｜LINE 聯繫 Rion
+    </a>
   </div>
 </section>
 
@@ -542,20 +595,32 @@ a.top-badge{
   <div class="inner">
     <div class="sec-head reveal">
       <span class="sec-label">Collaboration</span>
-      <div class="sec-title">月子中心・產後護理之家</div>
+      <div class="sec-title">我們陪伴的對象</div>
       <div class="sec-line"></div>
     </div>
     <div class="collab-box reveal">
-      <div class="collab-icon">讓頌缽進入你的月子空間</div>
+      <div class="collab-icon">機構・場域合作</div>
       <div class="collab-text">
-        我們協助月子中心與產後護理之家，<br>
-        透過頌缽音療穩定媽媽情緒、改善睡眠品質，<br>
-        提升住客滿意度，讓照護更完整。<br><br>
-        <strong style="color:var(--gold);letter-spacing:.1em;">頌缽找 Rion，讓媽媽安心，讓月中更放心。</strong>
+        月子中心・產後護理之家・長照中心・安養中心<br>
+        飯店業者・活動主辦單位・旅遊業・露營區・民宿<br>
+        社區管委會・企業員工紓壓課程<br><br>
+        <strong style="color:var(--gold);letter-spacing:.1em;">不管是什麼空間，缽聲都能為你的場域帶來溫度。</strong>
       </div>
       <a class="collab-cta" href="https://line.me/R/ti/p/@527ubpem" target="_blank"
         onclick="gtag('event','click_line_b2b',{'event_category':'CTA','event_label':'women-talk'});">
-        洽詢合作｜LINE @527ubpem
+        機構合作洽詢｜LINE @527ubpem
+      </a>
+    </div>
+    <div class="collab-box reveal" style="margin-top:1.2rem;">
+      <div class="collab-icon">個人陪伴</div>
+      <div class="collab-text">
+        長期壓力大・睡不好・情緒疲憊・想回到自己<br><br>
+        我們很願意用頌缽，陪伴你一起走一段回到自己的路。<br>
+        <strong style="color:var(--gold);letter-spacing:.1em;">讓缽聲，幫你把內在整理好。</strong>
+      </div>
+      <a class="collab-cta" href="https://line.me/R/ti/p/@527ubpem" target="_blank"
+        onclick="gtag('event','click_line_personal',{'event_category':'CTA','event_label':'women-talk'});">
+        預約個人音療｜LINE 聯繫 Rion
       </a>
     </div>
   </div>
