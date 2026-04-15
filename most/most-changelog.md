@@ -8,6 +8,34 @@
 
 ## 版本紀錄
 
+### v2.3 — 2026-04-15
+
+#### 主頁 `most/index.html`
+- 第二區 `brand-grid` / `brand-card` 改單欄純文字排版（`flex-direction:column`，`max-width:680px`），移除舊兩欄媒體查詢
+- `prod-num` 移除 `position:absolute`，改置於 `prod-info` 內，修正號碼被產品名稱壓住問題
+
+#### 三產品頁
+- `⑥ Showcase 施工實績與影音` 整個 `<section id="gallery">` 移除
+- HTML 注釋保留：待素材到位後加回，規格 `800×600px 4:3橫式`
+
+### v2.2 — 2026-04-15
+
+**修改範圍：** 主頁 + 三個產品頁（共四頁）
+
+#### 共同
+- `gallery-img` 比例 `9/16` → `4/3`（橫式，對應素材清單規格）
+- 所有指定圖片區塊移除，改為 HTML 注釋佔位
+
+#### 主頁
+- 品牌故事三張圖 `brand-img` div 移除（`factory-exterior` / `factory-interior` / `img-placeholder-3`）
+- 產品入口三張圖 `prod-img-box` div 移除（`img-color-film` / `img-ppf` / `img-color-ppf`）
+
+#### 三產品頁
+- `gallery-grid` 整個區塊移除（各 4 張施工實績圖）
+- HTML 注釋保留：檔名 + `800×600px 4:3 橫式`
+
+---
+
 ### v2.1 — 2026-04-12
 
 **修改範圍：** 主頁 + 三個產品頁（共四頁）
@@ -54,7 +82,7 @@
 | 項目 | 狀態 |
 |------|------|
 | top-badge 移除（三產品頁） | ⏳ 待確認後執行 |
-| 客戶提供圖片素材後填入 | ⏳ 待提供 |
+| 客戶提供圖片素材後填入 | 🔄 重拍中 |
 | og-image 各頁補齊 | ⏳ 待製作 |
 | 保固系統 MVP | 🔵 評估中 |
 
@@ -66,7 +94,7 @@
 
 | 檔名 | 路徑 | 尺寸建議 | 說明 | 狀態 |
 |------|------|----------|------|------|
-| `logo-circle.png` | `/most/logo-circle.png` | 200×200px | 主頁圓形 logo | ⏳ 待提供 |
+| `logo-circle.png` | `/most/logo-circle.png` | 200×200px | 主頁圓形 logo | 🔄 重拍中 |
 | `favicon.png` | `/assets/favicon.png` | 32×32px | 全站共用 favicon | ⏳ 待確認 |
 
 ---
@@ -76,12 +104,12 @@
 | 檔名 | 路徑 | 尺寸建議 | 說明 | 狀態 |
 |------|------|----------|------|------|
 | `og-most.jpg` | `/most/og-most.jpg` | 1200×630px | 主頁社群分享預覽圖 | ⏳ 待製作 |
-| `img-color-film.jpg` | `/most/img-color-film.jpg` | 720×1280px（直式）| 產品卡：改色膜封面圖 | ⏳ 待提供 |
-| `img-ppf.jpg` | `/most/img-ppf.jpg` | 720×1280px（直式）| 產品卡：犀牛皮封面圖 | ⏳ 待提供 |
-| `img-color-ppf.jpg` | `/most/img-color-ppf.jpg` | 720×1280px（直式）| 產品卡：改色犀牛皮封面圖 | ⏳ 待提供 |
-| `factory-exterior.jpg` | `/most/factory-exterior.jpg` | 720×1280px（直式）| 品牌故事：工廠外觀 | ⏳ 待提供 |
-| `factory-interior.jpg` | `/most/factory-interior.jpg` | 720×1280px（直式）| 品牌故事：工廠內部 | ⏳ 待提供 |
-| `img-placeholder-3.jpg` | `/most/img-placeholder-3.jpg` | 720×1280px（直式）| 品牌特色：頂級材質形象圖 | ⏳ 待提供 |
+| `img-color-film.jpg` | `/most/img-color-film.jpg` | 800×1000px（4:5直式）| 產品卡：改色膜封面圖 | 🔄 重拍中 |
+| `img-ppf.jpg` | `/most/img-ppf.jpg` | 800×1000px（4:5直式）| 產品卡：犀牛皮封面圖 | 🔄 重拍中 |
+| `img-color-ppf.jpg` | `/most/img-color-ppf.jpg` | 800×1000px（4:5直式）| 產品卡：改色犀牛皮封面圖 | 🔄 重拍中 |
+| `factory-exterior.jpg` | `/most/factory-exterior.jpg` | 800×500px（16:10橫式）| 品牌故事：工廠外觀 | 🔄 重拍中 |
+| `factory-interior.jpg` | `/most/factory-interior.jpg` | 800×500px（16:10橫式）| 品牌故事：工廠內部 | 🔄 重拍中 |
+| `img-placeholder-3.jpg` | `/most/img-placeholder-3.jpg` | 800×500px（16:10橫式）| 品牌特色：頂級材質形象圖 | 🔄 重拍中 |
 
 ---
 
@@ -90,11 +118,11 @@
 | 檔名 | 路徑 | 尺寸建議 | 說明 | 狀態 |
 |------|------|----------|------|------|
 | `og-ppf.jpg` | `/most/og-ppf.jpg` | 1200×630px | PPF 頁社群分享預覽圖 | ⏳ 待製作 |
-| `img-ppf-hero.jpg` | `/most/ppf/img-ppf-hero.jpg` | 1080×1920px（直式）| Hero 背景大圖 | ⏳ 待提供 |
-| `img-ppf-gallery-1.jpg` | `/most/ppf/img-ppf-gallery-1.jpg` | 720×1280px（直式）| 施工案例圖 1 | ⏳ 待提供 |
-| `img-ppf-gallery-2.jpg` | `/most/ppf/img-ppf-gallery-2.jpg` | 720×1280px（直式）| 施工案例圖 2 | ⏳ 待提供 |
-| `img-ppf-gallery-3.jpg` | `/most/ppf/img-ppf-gallery-3.jpg` | 720×1280px（直式）| 施工案例圖 3 | ⏳ 待提供 |
-| `img-ppf-gallery-4.jpg` | `/most/ppf/img-ppf-gallery-4.jpg` | 720×1280px（直式）| 施工案例圖 4 | ⏳ 待提供 |
+| `img-ppf-hero.jpg` | `/most/ppf/img-ppf-hero.jpg` | 1080×1920px（直式）| Hero 背景大圖 | 🔄 重拍中 |
+| `img-ppf-gallery-1.jpg` | `/most/ppf/img-ppf-gallery-1.jpg` | 800×600px（4:3橫式）| 施工案例圖 1 | 🔄 重拍中 |
+| `img-ppf-gallery-2.jpg` | `/most/ppf/img-ppf-gallery-2.jpg` | 800×600px（4:3橫式）| 施工案例圖 2 | 🔄 重拍中 |
+| `img-ppf-gallery-3.jpg` | `/most/ppf/img-ppf-gallery-3.jpg` | 800×600px（4:3橫式）| 施工案例圖 3 | 🔄 重拍中 |
+| `img-ppf-gallery-4.jpg` | `/most/ppf/img-ppf-gallery-4.jpg` | 800×600px（4:3橫式）| 施工案例圖 4 | 🔄 重拍中 |
 
 ---
 
@@ -103,11 +131,11 @@
 | 檔名 | 路徑 | 尺寸建議 | 說明 | 狀態 |
 |------|------|----------|------|------|
 | `og-colorwrap.jpg` | `/most/og-colorwrap.jpg` | 1200×630px | 改色膜頁社群分享預覽圖 | ⏳ 待製作 |
-| `img-color-film-hero.jpg` | `/most/color-film/img-color-film-hero.jpg` | 1080×1920px（直式）| Hero 背景大圖 | ⏳ 待提供 |
-| `img-color-gallery-1.jpg` | `/most/color-film/img-color-gallery-1.jpg` | 720×1280px（直式）| 施工案例圖 1 | ⏳ 待提供 |
-| `img-color-gallery-2.jpg` | `/most/color-film/img-color-gallery-2.jpg` | 720×1280px（直式）| 施工案例圖 2 | ⏳ 待提供 |
-| `img-color-gallery-3.jpg` | `/most/color-film/img-color-gallery-3.jpg` | 720×1280px（直式）| 施工案例圖 3 | ⏳ 待提供 |
-| `img-color-gallery-4.jpg` | `/most/color-film/img-color-gallery-4.jpg` | 720×1280px（直式）| 施工案例圖 4 | ⏳ 待提供 |
+| `img-color-film-hero.jpg` | `/most/color-film/img-color-film-hero.jpg` | 1080×1920px（直式）| Hero 背景大圖 | 🔄 重拍中 |
+| `img-color-gallery-1.jpg` | `/most/color-film/img-color-gallery-1.jpg` | 800×600px（4:3橫式）| 施工案例圖 1 | 🔄 重拍中 |
+| `img-color-gallery-2.jpg` | `/most/color-film/img-color-gallery-2.jpg` | 800×600px（4:3橫式）| 施工案例圖 2 | 🔄 重拍中 |
+| `img-color-gallery-3.jpg` | `/most/color-film/img-color-gallery-3.jpg` | 800×600px（4:3橫式）| 施工案例圖 3 | 🔄 重拍中 |
+| `img-color-gallery-4.jpg` | `/most/color-film/img-color-gallery-4.jpg` | 800×600px（4:3橫式）| 施工案例圖 4 | 🔄 重拍中 |
 
 ---
 
@@ -116,11 +144,11 @@
 | 檔名 | 路徑 | 尺寸建議 | 說明 | 狀態 |
 |------|------|----------|------|------|
 | `og-colorppf.jpg` | `/most/og-colorppf.jpg` | 1200×630px | 改色犀牛皮頁社群分享預覽圖 | ⏳ 待製作 |
-| `img-color-ppf-hero.jpg` | `/most/color-ppf/img-color-ppf-hero.jpg` | 1080×1920px（直式）| Hero 背景大圖 | ⏳ 待提供 |
-| `img-color-ppf-gallery-1.jpg` | `/most/color-ppf/img-color-ppf-gallery-1.jpg` | 720×1280px（直式）| 施工案例圖 1 | ⏳ 待提供 |
-| `img-color-ppf-gallery-2.jpg` | `/most/color-ppf/img-color-ppf-gallery-2.jpg` | 720×1280px（直式）| 施工案例圖 2 | ⏳ 待提供 |
-| `img-color-ppf-gallery-3.jpg` | `/most/color-ppf/img-color-ppf-gallery-3.jpg` | 720×1280px（直式）| 施工案例圖 3 | ⏳ 待提供 |
-| `img-color-ppf-gallery-4.jpg` | `/most/color-ppf/img-color-ppf-gallery-4.jpg` | 720×1280px（直式）| 施工案例圖 4 | ⏳ 待提供 |
+| `img-color-ppf-hero.jpg` | `/most/color-ppf/img-color-ppf-hero.jpg` | 1080×1920px（直式）| Hero 背景大圖 | 🔄 重拍中 |
+| `img-color-ppf-gallery-1.jpg` | `/most/color-ppf/img-color-ppf-gallery-1.jpg` | 800×600px（4:3橫式）| 施工案例圖 1 | 🔄 重拍中 |
+| `img-color-ppf-gallery-2.jpg` | `/most/color-ppf/img-color-ppf-gallery-2.jpg` | 800×600px（4:3橫式）| 施工案例圖 2 | 🔄 重拍中 |
+| `img-color-ppf-gallery-3.jpg` | `/most/color-ppf/img-color-ppf-gallery-3.jpg` | 800×600px（4:3橫式）| 施工案例圖 3 | 🔄 重拍中 |
+| `img-color-ppf-gallery-4.jpg` | `/most/color-ppf/img-color-ppf-gallery-4.jpg` | 800×600px（4:3橫式）| 施工案例圖 4 | 🔄 重拍中 |
 
 ---
 
