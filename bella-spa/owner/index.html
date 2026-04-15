@@ -7,6 +7,8 @@
   v2.0  2026-04-07  三頁樣式對齊：btn圓角100%、f-title字體統一、icon樣式修正（透明底無邊框）、名字格式修正、Logo SVG新增
   v3.0  2026-04-07  從v2重建：套入index v3.1完整設計系統、交錯背景圖、雙色按鈕主題
   v4.0  2026-04-14  Footer 改深色底；Footer 按鈕重排（返回貝拉/INDIBA/新客/Back to Top）；service/ 連結移除；斜體改正體
+  v4.1  2026-04-15  證書區四卡片內容補正：NHE運動按摩指導師／紋繡技術結業／美胸筋膜放鬆調理認證
+  v4.2  2026-04-15  證書區改橫式比例（4/3）、grid 改單欄
 -->
 <meta charset="UTF-8">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
@@ -133,11 +135,10 @@ a{text-decoration:none;color:inherit;}
 .body-text{font-size:.95rem;color:var(--ink2);line-height:2.4;letter-spacing:.06em;}
 
 /* §3 認證證書 */
-.cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem;}
-@media(max-width:400px){.cert-grid{grid-template-columns:1fr;}}
+.cert-grid{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:2rem;}
 .cert-card{border:1px solid var(--line);overflow:hidden;background:var(--bg2);}
-.cert-img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:var(--bg3);}
-.cert-img-ph{width:100%;aspect-ratio:3/4;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:.75rem;letter-spacing:.1em;color:var(--ink3);}
+.cert-img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--bg3);}
+.cert-img-ph{width:100%;aspect-ratio:4/3;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:.75rem;letter-spacing:.1em;color:var(--ink3);}
 .cert-label{font-size:.78rem;color:var(--ink2);text-align:center;padding:.8rem 1rem;letter-spacing:.1em;border-top:1px solid var(--line);}
 
 /* §4 Footer */
@@ -233,19 +234,19 @@ a{text-decoration:none;color:inherit;}
         <div class="cert-label">INDIBA英特波 認證技術師</div>
       </div>
       <div class="cert-card">
-        <img src="../cert-2.jpg" alt="技術認證" class="cert-img"
-          onerror="this.outerHTML='<div class=\'cert-img-ph\'>技術認證<br>圖片待補</div>'">
-        <div class="cert-label">相關技術認證（待補）</div>
+        <img src="../cert-2.jpg" alt="NHE運動按摩指導師認證" class="cert-img"
+          onerror="this.outerHTML='<div class=\'cert-img-ph\'>NHE認證<br>圖片待補</div>'">
+        <div class="cert-label">NHE 運動按摩指導師<br>Sports Massage Instructor</div>
       </div>
       <div class="cert-card">
-        <img src="../cert-3.jpg" alt="技術認證" class="cert-img"
-          onerror="this.outerHTML='<div class=\'cert-img-ph\'>技術認證<br>圖片待補</div>'">
-        <div class="cert-label">相關技術認證（待補）</div>
+        <img src="../cert-3.jpg" alt="紋繡技術結業證書" class="cert-img"
+          onerror="this.outerHTML='<div class=\'cert-img-ph\'>紋繡認證<br>圖片待補</div>'">
+        <div class="cert-label">紋身繡眉技術 結業證書<br>Happy Moment</div>
       </div>
       <div class="cert-card">
-        <img src="../cert-4.jpg" alt="技術認證" class="cert-img"
-          onerror="this.outerHTML='<div class=\'cert-img-ph\'>技術認證<br>圖片待補</div>'">
-        <div class="cert-label">相關技術認證（待補）</div>
+        <img src="../cert-4.jpg" alt="美胸筋膜放鬆調理認證" class="cert-img"
+          onerror="this.outerHTML='<div class=\'cert-img-ph\'>美胸筋膜認證<br>圖片待補</div>'">
+        <div class="cert-label">美胸筋膜放鬆調理認證<br>公主殿下 × 台灣筋膜保健交流協會</div>
       </div>
     </div>
 
