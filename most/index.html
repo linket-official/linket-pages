@@ -2,6 +2,10 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
+<!-- MOST 膜仕車體美學
+  v2.2  2026-04-15  移除指定圖片區塊；gallery-img 改橫式 4:3
+  v2.3  2026-04-15  第二區 brand-card 改單欄純文字排版；prod-num 移入 prod-info 修正號碼壓字問題
+-->
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
 <script>
@@ -19,8 +23,8 @@
 <meta property="og:url" content="https://linket.app/most">
 <meta property="og:type" content="website">
 
-<link rel="icon" href="/most/favicon.png">
-<link rel="apple-touch-icon" href="/most/favicon.png">
+<link rel="icon" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <!-- 核心字體：優雅襯線 + 高階明體 -->
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -175,16 +179,9 @@ body{
 .story-intro h3{ font-size: 1.8rem; font-weight: 900; letter-spacing: 0.15em; margin-bottom: 1.5rem; color: var(--black); }
 
 /* 品牌堅持卡片組 */
-.brand-grid{ display:grid; grid-template-columns: 1fr; gap:6rem; }
-.brand-card{ display:grid; grid-template-columns: 1fr; gap:3rem; align-items: center; }
-@media(min-width: 768px){ .brand-card{ grid-template-columns: 1.1fr 0.9fr; } .brand-card.rev{ grid-template-columns: 0.9fr 1.1fr; } .brand-card.rev .brand-info{ order: 2; } }
-
-.brand-img{ aspect-ratio: 9/16; background:#EAEAEA; border: 1px solid var(--line-dk); overflow:hidden; display: flex; align-items: center; justify-content: center; color: #999; font-size: 0.8rem; letter-spacing: 0.1em; }
-.brand-img img{ width:100%; height:100%; object-fit:cover; transition: transform 1s ease; filter: grayscale(0.2); }
-.brand-card:hover img{ transform: scale(1.05); filter: grayscale(0); }
-.img-placeholder{ width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #EAEAEA; color: #999; font-size: 0.85rem; letter-spacing: 0.15em; }
-
-.brand-info h3{ font-weight:900; font-size:1.5rem; margin-bottom:1.5rem; letter-spacing:.15em; border-left: 3px solid var(--gold); padding-left: 1.2rem; line-height: 1.5;}
+.brand-grid{ display:flex; flex-direction:column; gap:2.5rem; max-width:680px; }
+.brand-card{ display:flex; flex-direction:column; }
+.brand-info h3{ font-weight:900; font-size:1.5rem; margin-bottom:1rem; letter-spacing:.15em; border-left: 3px solid var(--gold); padding-left: 1.2rem; line-height: 1.5;}
 .brand-info p{ font-size:1rem; font-weight:400; line-height:2.2; color:rgba(0,0,0,.7); text-align: justify; }
 
 
@@ -198,7 +195,7 @@ body{
 .prod-img-box{ aspect-ratio: 9/16; background:var(--gray); overflow:hidden; position:relative; display: flex; align-items: center; justify-content: center; color: #555; font-size: 0.8rem; letter-spacing: 0.15em; }
 .prod-img-box img{ width:100%; height:100%; object-fit:cover; opacity:.6; transition:all .8s ease; filter: grayscale(1); }
 .prod-card:hover img{ opacity:1; filter: grayscale(0); }
-.prod-num{ position:absolute; top:2rem; left:2rem; font-family:'Cormorant Garamond', serif; font-style:italic; font-size:2.5rem; color:var(--gold); opacity:.3; z-index:2; }
+.prod-num{ font-family:'Cormorant Garamond', serif; font-style:italic; font-size:2rem; color:var(--gold); opacity:.3; margin-bottom:.5rem; }
 .prod-info{ padding:2.5rem 2rem; flex:1; display:flex; flex-direction:column; background:var(--black); }
 .prod-title{ font-weight:700; font-size:1.4rem; margin-bottom:.6rem; letter-spacing:.1em; }
 .prod-en{ font-family:'Cormorant Garamond', serif; font-style:italic; font-size:.9rem; color:var(--gold); letter-spacing:.15em; margin-bottom:2rem; text-transform:uppercase;}
@@ -214,7 +211,7 @@ body{
 .loc-lbl{ font-weight:700; font-size:.75rem; min-width:6rem; color:rgba(0,0,0,.4); text-transform:uppercase; letter-spacing:.2em;}
 .loc-val{ font-size:1rem; font-weight:400; color:var(--black); letter-spacing:.05em; }
 .map-embed{ width:100%; height:450px; border:1px solid rgba(0,0,0,.1); background: #EAEAEA; display: flex; align-items: center; justify-content: center;}
-.map-embed iframe{ width:100%; height:100%; border:none; filter: grayscale(0); opacity: 0.9;}
+.map-embed iframe{ width:100%; height:100%; border:none; filter: grayscale(1); opacity: 0.9;}
 
 /* 第五區新增 BACK TO TOP */
 .back-to-top-in-loc{ 
@@ -347,7 +344,7 @@ a.design-by{
           <h3>工廠直營・掌握防護源頭</h3>
           <p>從料到工，品質透明可追溯。我們掌握核心 TPU 分子技術與精密塗佈製程，讓車主能以直供價格，享受實驗室等級的高分子防護力。唯有掌握生產端，才能確保每一卷膜料都符合膜仕的嚴苛品質控管。</p>
         </div>
-        <div class="brand-img"><img src="factory-exterior.jpg" alt="工廠外觀" onerror="this.outerHTML='<div class=\'img-placeholder\'>工廠外觀照片待補</div>'"></div>
+        <!-- factory-exterior.jpg 800×500px 待補 -->
       </div>
 
       <!-- 02 協力技術 -->
@@ -356,7 +353,7 @@ a.design-by{
           <h3>協力貼膜場技術・職人手作溫潤</h3>
           <p>包膜不只是自動化的覆蓋，更是對車體幾何學的致敬。我們的施工團隊具備深厚的協力場實戰經驗，針對不同車款曲率進行精準裁切與拉伸。在看不見的收邊細節裡，藏著我們對極致膜藝的堅持。</p>
         </div>
-        <div class="brand-img"><img src="factory-interior.jpg" alt="工廠內部" onerror="this.outerHTML='<div class=\'img-placeholder\'>職人施工照片待補</div>'"></div>
+        <!-- factory-interior.jpg 800×500px 待補 -->
       </div>
 
       <!-- 03 頂級 TPU 材質 -->
@@ -365,7 +362,7 @@ a.design-by{
           <h3>頂級材質・自有品牌專賣</h3>
           <p>拒絕雜牌代工，嚴選頂級熱塑性聚氨酯。抗黃變、防石擊、高透光，提供極致保護。我們相信，真正的奢侈品不需要多餘的包裝，而是禁得起時間考驗的硬核實力與全年無休的守護。</p>
         </div>
-        <div class="brand-img"><img src="img-placeholder-3.jpg" alt="服務形象" onerror="this.outerHTML='<div class=\'img-placeholder\'>頂級材質照片待補</div>'"></div>
+        <!-- img-placeholder-3.jpg 800×500px 待補 -->
       </div>
     </div>
   </div>
@@ -379,9 +376,9 @@ a.design-by{
     <div class="prod-list">
       <!-- 01 改色膜 -->
       <div class="prod-card reveal">
-        <div class="prod-num">01</div>
-        <div class="prod-img-box"><img src="img-color-film.jpg" alt="改色膜" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'>改色膜產品圖待補</div>'"></div>
+        <!-- img-color-film.jpg 800×1000px(4:5直式) 待補 -->
         <div class="prod-info">
+          <div class="prod-num">01</div>
           <div class="prod-title">改色膜</div>
           <div class="prod-en">Color Wrap Film</div>
           <a href="/most/color-film/index.html" class="prod-btn" onclick="gtag('event','click_product_color',{'event_category':'CTA','event_label':'most'});">進入專頁 →</a>
@@ -389,9 +386,9 @@ a.design-by{
       </div>
       <!-- 02 犀牛皮 -->
       <div class="prod-card reveal" style="transition-delay: .15s;">
-        <div class="prod-num">02</div>
-        <div class="prod-img-box"><img src="img-ppf.jpg" alt="犀牛皮" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'>犀牛皮產品圖待補</div>'"></div>
+        <!-- img-ppf.jpg 800×1000px(4:5直式) 待補 -->
         <div class="prod-info">
+          <div class="prod-num">02</div>
           <div class="prod-title">犀牛皮 PPF</div>
           <div class="prod-en">Paint Protection Film</div>
           <a href="/most/ppf/index.html" class="prod-btn" onclick="gtag('event','click_product_ppf',{'event_category':'CTA','event_label':'most'});">進入專頁 →</a>
@@ -399,9 +396,9 @@ a.design-by{
       </div>
       <!-- 03 改色犀牛皮 -->
       <div class="prod-card reveal" style="transition-delay: .3s;">
-        <div class="prod-num">03</div>
-        <div class="prod-img-box"><img src="img-color-ppf.jpg" alt="改色犀牛皮" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'>改色犀牛皮產品圖待補</div>'"></div>
+        <!-- img-color-ppf.jpg 800×1000px(4:5直式) 待補 -->
         <div class="prod-info">
+          <div class="prod-num">03</div>
           <div class="prod-title">改色犀牛皮</div>
           <div class="prod-en">Color PPF</div>
           <a href="/most/color-ppf/index.html" class="prod-btn" onclick="gtag('event','click_product_color_ppf',{'event_category':'CTA','event_label':'most'});">進入專頁 →</a>
