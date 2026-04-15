@@ -111,22 +111,51 @@
 | v1.0 | 04-06 | 初版 |
 | v2.0 | 04-07 | 三頁樣式對齊、icon 修正 |
 | v3.0 | 04-07 | 重建：套入 v3.1 設計系統 |
-| v4.0 | 04-14 | **Footer 深色底、按鈕重排（返回/INDIBA/新客/BackTop）、service/ 移除** |
+| v4.2 | 04-15 | **證書區改橫式比例（4/3）、grid 改單欄** |
+| v4.1 | 04-15 | **證書區補正：NHE運動按摩指導師、紋繡技術結業、美胸筋膜放鬆調理認證** |
+| v4.0 | 04-14 | **Footer 深色底、按鈕重排（返回/INDIBA/新客/BackTop）、service/ 移除、斜體改正體** |
 
 ---
 
 ## 素材清單
 
-| 檔名 | 路徑 | 規格 | 狀態 |
-|------|------|------|------|
-| `logo-bella.svg` | `/bella-spa/` | SVG | ⬜ 待提供 |
-| `hero-bg.jpg` | `/bella-spa/` | 1920×1080px JPG | ⬜ 待提供 |
-| `img-indiba.jpg` | `/bella-spa/` | 800×450px JPG | ⬜ 待提供 |
-| `img-spa-1.jpg` | `/bella-spa/` | 800×450px JPG | ⬜ 待提供 |
-| `img-spa-2.jpg` | `/bella-spa/` | 800×450px JPG | ⬜ 待提供 |
-| `favicon.png` | `/bella-spa/` | 32×32px PNG | ⬜ 待提供 |
-| `og-image.jpg` | `/bella-spa/` | 1200×630px JPG | ⬜ 待提供 |
-| `logo-bella.svg` | `/bella-spa/owner/` | SVG（同上）| ⬜ 待提供 |
+### 共用素材（`/bella-spa/`）
+
+| 檔名 | 路徑 | 格式 | 尺寸 | 說明 | 狀態 |
+|------|------|------|------|------|------|
+| `logo-bella.svg` | `/bella-spa/logo-bella.svg` | SVG | 不限（向量） | 品牌 Logo，白底或透明底，三頁共用 | ⬜ 待提供 |
+| `favicon.png` | `/bella-spa/favicon.png` | PNG | 512×512px | 瀏覽器分頁圖示 | ⬜ 待提供 |
+| `hero-bg.jpg` | `/bella-spa/hero-bg.jpg` | JPG | 1920×1080px | 全站背景圖（index/owner 共用），主視覺空間情境照 | ⬜ 待提供 |
+| `og-image.jpg` | `/bella-spa/og-image.jpg` | JPG | 1200×630px | 三頁共用社群分享預覽圖 | ⬜ 待製作 |
+
+### 主頁圖片（`/bella-spa/`）
+
+| 檔名 | 路徑 | 格式 | 尺寸 | 說明 | 狀態 |
+|------|------|------|------|------|------|
+| `img-indiba.jpg` | `/bella-spa/img-indiba.jpg` | JPG | 800×450px（16:9） | INDIBA 英特波療程現場，三大服務卡片 + INDIBA 區卡片01 使用 | ⬜ 待提供 |
+| `img-spa-1.jpg` | `/bella-spa/img-spa-1.jpg` | JPG | 800×450px（16:9） | 全身筋膜芳療現場，三大服務卡片 + INDIBA 區卡片02 使用 | ⬜ 待提供 |
+| `img-spa-2.jpg` | `/bella-spa/img-spa-2.jpg` | JPG | 800×450px（16:9） | 韓式皮膚管理／臉部護理現場，三大服務卡片使用 | ⬜ 待提供 |
+
+### 主理人頁圖片（`/bella-spa/`，owner 頁以 `../` 引用）
+
+| 檔名 | 路徑 | 格式 | 尺寸 | 說明 | 狀態 |
+|------|------|------|------|------|------|
+| `owner-portrait.jpg` | `/bella-spa/owner-portrait.jpg` | JPG | 600×800px（3:4） | 主理人 Summer 半身人像，Hero 區大圖 | ⬜ 待提供 |
+| `cert-indiba.jpg` | `/bella-spa/cert-indiba.jpg` | JPG | 800×600px（4:3） | INDIBA 英特波認證證書 | ⬜ 待提供 |
+| `cert-2.jpg` | `/bella-spa/cert-2.jpg` | JPG | 800×600px（4:3） | NHE 運動按摩指導師認證（National Health Exercise，2023） | ⬜ 待提供 |
+| `cert-3.jpg` | `/bella-spa/cert-3.jpg` | JPG | 800×600px（4:3） | 紋身繡眉技術結業證書（Happy Moment Wedding Consultants） | ⬜ 待提供 |
+| `cert-4.jpg` | `/bella-spa/cert-4.jpg` | JPG | 800×600px（4:3） | 美胸筋膜放鬆調理認證（公主殿下 × 台灣筋膜保健交流協會，2025.05） | ⬜ 待提供 |
+
+### 共用 SVG Icons（`/assets/`，已存在）
+
+| 檔名 | 狀態 |
+|------|------|
+| `/assets/line.svg` | ✅ |
+| `/assets/phone.svg` | ✅ |
+| `/assets/map.svg` | ✅ |
+| `/assets/instagram.svg` | ✅ |
+| `/assets/facebook.svg` | ✅ |
+| `/assets/threads.svg` | ✅ |
 
 ---
 
