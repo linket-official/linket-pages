@@ -2,6 +2,10 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
+<!-- MOST 膜仕車體美學
+  v2.2  2026-04-15  移除指定圖片區塊；gallery-img 改橫式 4:3
+  v2.3  2026-04-15  Showcase 施工實績區段整個移除（待素材加回）
+-->
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
 <script>
@@ -19,8 +23,8 @@
 <meta property="og:url" content="https://linket.app/most/ppf">
 <meta property="og:type" content="website">
 
-<link rel="icon" href="/most/favicon.png">
-<link rel="apple-touch-icon" href="/most/favicon.png">
+<link rel="icon" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
@@ -136,7 +140,7 @@ body{
 
 .gallery-grid{ display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); }
 @media(min-width: 600px){ .gallery-grid{ grid-template-columns: 1fr 1fr; } }
-.gallery-img{ aspect-ratio: 9/16; background: var(--black); overflow: hidden; position: relative; display: flex; align-items: center; justify-content: center; color: #444; font-size: 0.8rem; }
+.gallery-img{ aspect-ratio: 4/3; background: var(--black); overflow: hidden; position: relative; display: flex; align-items: center; justify-content: center; color: #444; font-size: 0.8rem; }
 .gallery-img img{ width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.3); transition: transform 0.8s ease, filter 0.8s ease; }
 .gallery-img:hover img{ transform: scale(1.05); filter: grayscale(0); }
 
@@ -209,7 +213,7 @@ a.design-by{ display:block; width:100%; background:#000; text-align:center; padd
     <div class="feat-list">
       <div class="feat-item reveal">
         <div class="feat-num">01.</div>
-        <div class="feat-title">表面復原 專業處理</div>
+        <div class="feat-title">表面復原 需足夠熱源</div>
         <div class="feat-text">TPU 材質具記憶特性，表面細微刮痕在充足熱源作用下可逐漸縮減。實際效果依熱源強度、痕跡深淺及施工年份而異，建議由專業人員評估處理。</div>
       </div>
       
@@ -264,20 +268,7 @@ a.design-by{ display:block; width:100%; background:#000; text-align:center; padd
   </div>
 </section>
 
-<!-- ⑥ 影音與實績 GALLERY -->
-<section class="sec" id="gallery">
-  <div class="content-wrap">
-    <div class="eyebrow reveal"><span>Showcase</span><h2>施工實績與影音</h2></div>
-    
-    <!-- 圖片庫 -->
-    <div class="gallery-grid">
-      <div class="gallery-img reveal"><img src="img-ppf-gallery-1.jpg" alt="施工案例" onerror="this.parentElement.innerHTML='【施工圖片待補】'"></div>
-      <div class="gallery-img reveal" style="transition-delay: 0.1s;"><img src="img-ppf-gallery-2.jpg" alt="施工案例" onerror="this.parentElement.innerHTML='【施工圖片待補】'"></div>
-      <div class="gallery-img reveal"><img src="img-ppf-gallery-3.jpg" alt="施工案例" onerror="this.parentElement.innerHTML='【施工圖片待補】'"></div>
-      <div class="gallery-img reveal" style="transition-delay: 0.1s;"><img src="img-ppf-gallery-4.jpg" alt="施工案例" onerror="this.parentElement.innerHTML='【施工圖片待補】'"></div>
-    </div>
-  </div>
-</section>
+<!-- ⑥ Showcase 施工實績與影音 暫時移除（v2.3）。待素材到位後加回：img-ppf-gallery-1.jpg / img-ppf-gallery-2.jpg / img-ppf-gallery-3.jpg / img-ppf-gallery-4.jpg，800×600px 4:3橫式 -->
 
 <!-- ⑦ CTA SECTION -->
 <section class="cta-sec reveal">
