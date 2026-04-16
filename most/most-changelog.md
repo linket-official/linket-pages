@@ -8,6 +8,64 @@
 
 ## 版本紀錄
 
+### v2.4 — 2026-04-16
+
+#### 共同（四頁）
+- 圖庫素材加回：`onerror` 改靜默（圖不存在時不顯示佔位文字，避免圖庫圖顯示錯誤訊息）
+
+#### 主頁
+- `brand-img` 三張加回（`factory-exterior` / `factory-interior` / `img-placeholder-3`），比例 `16/10`
+- `prod-img-box` 三張加回（`img-color-film` / `img-ppf` / `img-color-ppf`），比例 `9/16`
+
+#### 三產品頁
+- `gallery-grid` 四張加回（各頁 gallery 1~4），比例 `4/3`
+
+---
+
+## Canva 圖庫素材搜尋清單
+
+> 以下為暫用圖庫素材，供 Canva 搜尋使用。客戶真實素材到位後直接覆蓋同檔名。
+
+### 主頁 `most/`
+
+| 檔名 | 尺寸 | Canva 搜尋關鍵字 |
+|------|------|-----------------|
+| `factory-exterior.jpg` | 800×500px（16:10）| `car wrap factory exterior industrial` |
+| `factory-interior.jpg` | 800×500px（16:10）| `car detailing workshop professional technician` |
+| `img-placeholder-3.jpg` | 800×500px（16:10）| `TPU film material luxury car protection` |
+| `img-color-film.jpg` | 800×1000px（4:5直式）| `car color wrap film matte dark luxury` |
+| `img-ppf.jpg` | 800×1000px（4:5直式）| `paint protection film transparent water drop car` |
+| `img-color-ppf.jpg` | 800×1000px（4:5直式）| `color PPF car wrap iridescent metallic` |
+
+### 改色膜 `most/color-film/`
+
+| 檔名 | 尺寸 | Canva 搜尋關鍵字 |
+|------|------|-----------------|
+| `img-color-gallery-1.jpg` | 800×600px（4:3）| `car wrap edge trim detail close up` |
+| `img-color-gallery-2.jpg` | 800×600px（4:3）| `matte car wrap dark grey luxury vehicle` |
+| `img-color-gallery-3.jpg` | 800×600px（4:3）| `glossy metallic car wrap reflection` |
+| `img-color-gallery-4.jpg` | 800×600px（4:3）| `full car wrap complete color change luxury` |
+
+### 犀牛皮 PPF `most/ppf/`
+
+| 檔名 | 尺寸 | Canva 搜尋關鍵字 |
+|------|------|-----------------|
+| `img-ppf-gallery-1.jpg` | 800×600px（4:3）| `PPF installation squeegee car paint` |
+| `img-ppf-gallery-2.jpg` | 800×600px（4:3）| `paint protection film self healing scratch` |
+| `img-ppf-gallery-3.jpg` | 800×600px（4:3）| `PPF transparent clear coat water bead lotus effect` |
+| `img-ppf-gallery-4.jpg` | 800×600px（4:3）| `car PPF complete full wrap gloss finish` |
+
+### 改色犀牛皮 `most/color-ppf/`
+
+| 檔名 | 尺寸 | Canva 搜尋關鍵字 |
+|------|------|-----------------|
+| `img-color-ppf-gallery-1.jpg` | 800×600px（4:3）| `color PPF installation detail work` |
+| `img-color-ppf-gallery-2.jpg` | 800×600px（4:3）| `TPU color film thickness cross section` |
+| `img-color-ppf-gallery-3.jpg` | 800×600px（4:3）| `chameleon color shift car wrap iridescent` |
+| `img-color-ppf-gallery-4.jpg` | 800×600px（4:3）| `premium color PPF full car high end` |
+
+---
+
 ### v2.3 — 2026-04-15
 
 #### 主頁 `most/index.html`
