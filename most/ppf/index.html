@@ -5,6 +5,7 @@
 <!-- MOST 膜仕車體美學
   v2.2  2026-04-15  移除指定圖片區塊；gallery-img 改橫式 4:3
   v2.3  2026-04-15  Showcase 施工實績區段整個移除（待素材加回）
+  v2.4  2026-04-16  圖庫素材加回：brand-img/prod-img-box/gallery-grid 全面恢復；onerror 改靜默（不顯示佔位文字）
 -->
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
@@ -268,7 +269,18 @@ a.design-by{ display:block; width:100%; background:#000; text-align:center; padd
   </div>
 </section>
 
-<!-- ⑥ Showcase 施工實績與影音 暫時移除（v2.3）。待素材到位後加回：img-ppf-gallery-1.jpg / img-ppf-gallery-2.jpg / img-ppf-gallery-3.jpg / img-ppf-gallery-4.jpg，800×600px 4:3橫式 -->
+<!-- ⑥ 影音與實績 GALLERY -->
+<section class="sec" id="gallery">
+  <div class="content-wrap">
+    <div class="eyebrow reveal"><span>Showcase</span><h2>施工實績與影音</h2></div>
+    <div class="gallery-grid">
+      <div class="gallery-img reveal"><img src="img-ppf-gallery-1.jpg" alt="施工案例" onerror="this.style.display='none'"></div>
+      <div class="gallery-img reveal" style="transition-delay: 0.1s;"><img src="img-ppf-gallery-2.jpg" alt="施工案例" onerror="this.style.display='none'"></div>
+      <div class="gallery-img reveal"><img src="img-ppf-gallery-3.jpg" alt="施工案例" onerror="this.style.display='none'"></div>
+      <div class="gallery-img reveal" style="transition-delay: 0.1s;"><img src="img-ppf-gallery-4.jpg" alt="施工案例" onerror="this.style.display='none'"></div>
+    </div>
+  </div>
+</section>
 
 <!-- ⑦ CTA SECTION -->
 <section class="cta-sec reveal">
