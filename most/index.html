@@ -5,6 +5,7 @@
 <!-- MOST 膜仕車體美學
   v2.2  2026-04-15  移除指定圖片區塊；gallery-img 改橫式 4:3
   v2.3  2026-04-15  第二區 brand-card 改單欄純文字排版；prod-num 移入 prod-info 修正號碼壓字問題
+  v2.4  2026-04-16  圖庫素材加回：brand-img/prod-img-box/gallery-grid 全面恢復；onerror 改靜默（不顯示佔位文字）
 -->
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
@@ -179,8 +180,12 @@ body{
 .story-intro h3{ font-size: 1.8rem; font-weight: 900; letter-spacing: 0.15em; margin-bottom: 1.5rem; color: var(--black); }
 
 /* 品牌堅持卡片組 */
-.brand-grid{ display:flex; flex-direction:column; gap:2.5rem; max-width:680px; }
-.brand-card{ display:flex; flex-direction:column; }
+.brand-grid{ display:grid; grid-template-columns: 1fr; gap:5rem; }
+.brand-card{ display:grid; grid-template-columns: 1fr; gap:2.5rem; align-items: center; }
+@media(min-width: 768px){ .brand-card{ grid-template-columns: 1.1fr 0.9fr; } .brand-card.rev{ grid-template-columns: 0.9fr 1.1fr; } .brand-card.rev .brand-info{ order: 2; } }
+.brand-img{ aspect-ratio: 16/10; background:#1a1a1a; border: 1px solid var(--line); overflow:hidden; display: flex; align-items: center; justify-content: center; color: #555; font-size: 0.8rem; letter-spacing: 0.1em; }
+.brand-img img{ width:100%; height:100%; object-fit:cover; transition: transform 1s ease; filter: grayscale(0.2); }
+.brand-card:hover img{ transform: scale(1.05); filter: grayscale(0); }
 .brand-info h3{ font-weight:900; font-size:1.5rem; margin-bottom:1rem; letter-spacing:.15em; border-left: 3px solid var(--gold); padding-left: 1.2rem; line-height: 1.5;}
 .brand-info p{ font-size:1rem; font-weight:400; line-height:2.2; color:rgba(0,0,0,.7); text-align: justify; }
 
@@ -344,7 +349,7 @@ a.design-by{
           <h3>工廠直營・掌握防護源頭</h3>
           <p>從料到工，品質透明可追溯。我們掌握核心 TPU 分子技術與精密塗佈製程，讓車主能以直供價格，享受實驗室等級的高分子防護力。唯有掌握生產端，才能確保每一卷膜料都符合膜仕的嚴苛品質控管。</p>
         </div>
-        <!-- factory-exterior.jpg 800×500px 待補 -->
+        <div class="brand-img"><img src="factory-exterior.jpg" alt="工廠外觀" onerror="this.style.display='none'"></div>
       </div>
 
       <!-- 02 協力技術 -->
@@ -353,7 +358,7 @@ a.design-by{
           <h3>協力貼膜場技術・職人手作溫潤</h3>
           <p>包膜不只是自動化的覆蓋，更是對車體幾何學的致敬。我們的施工團隊具備深厚的協力場實戰經驗，針對不同車款曲率進行精準裁切與拉伸。在看不見的收邊細節裡，藏著我們對極致膜藝的堅持。</p>
         </div>
-        <!-- factory-interior.jpg 800×500px 待補 -->
+        <div class="brand-img"><img src="factory-interior.jpg" alt="工廠內部" onerror="this.style.display='none'"></div>
       </div>
 
       <!-- 03 頂級 TPU 材質 -->
@@ -362,7 +367,7 @@ a.design-by{
           <h3>頂級材質・自有品牌專賣</h3>
           <p>拒絕雜牌代工，嚴選頂級熱塑性聚氨酯。抗黃變、防石擊、高透光，提供極致保護。我們相信，真正的奢侈品不需要多餘的包裝，而是禁得起時間考驗的硬核實力與全年無休的守護。</p>
         </div>
-        <!-- img-placeholder-3.jpg 800×500px 待補 -->
+        <div class="brand-img"><img src="img-placeholder-3.jpg" alt="頂級材質" onerror="this.style.display='none'"></div>
       </div>
     </div>
   </div>
@@ -376,7 +381,7 @@ a.design-by{
     <div class="prod-list">
       <!-- 01 改色膜 -->
       <div class="prod-card reveal">
-        <!-- img-color-film.jpg 800×1000px(4:5直式) 待補 -->
+        <div class="prod-img-box"><img src="img-color-film.jpg" alt="改色膜" onerror="this.style.display='none'"></div>
         <div class="prod-info">
           <div class="prod-num">01</div>
           <div class="prod-title">改色膜</div>
@@ -386,7 +391,7 @@ a.design-by{
       </div>
       <!-- 02 犀牛皮 -->
       <div class="prod-card reveal" style="transition-delay: .15s;">
-        <!-- img-ppf.jpg 800×1000px(4:5直式) 待補 -->
+        <div class="prod-img-box"><img src="img-ppf.jpg" alt="犀牛皮" onerror="this.style.display='none'"></div>
         <div class="prod-info">
           <div class="prod-num">02</div>
           <div class="prod-title">犀牛皮 PPF</div>
@@ -396,7 +401,7 @@ a.design-by{
       </div>
       <!-- 03 改色犀牛皮 -->
       <div class="prod-card reveal" style="transition-delay: .3s;">
-        <!-- img-color-ppf.jpg 800×1000px(4:5直式) 待補 -->
+        <div class="prod-img-box"><img src="img-color-ppf.jpg" alt="改色犀牛皮" onerror="this.style.display='none'"></div>
         <div class="prod-info">
           <div class="prod-num">03</div>
           <div class="prod-title">改色犀牛皮</div>
