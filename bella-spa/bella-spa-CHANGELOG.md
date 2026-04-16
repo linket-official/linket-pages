@@ -101,6 +101,7 @@
 | v3.1 | 04-07 | 英文大字改回 Playfair Display |
 | v4.0 | 04-14 | service/ 廢除（6處連結移除）、斜體→正體、Icon陰影、手機背景修正 |
 | v4.2 | 04-14 | INDIBA 標題含體驗價；卡片移除 price-row；nc-item 殘留刪除；nc-ctas 限寬；Icon shadow 縮小 |
+| v4.4 | 04-16 | **INDIBA 兩大療程卡片圖片加回：img-spa-3.jpg（小V臉臉部療程）/ img-spa-4.jpg（身體筋膜療程）** |
 | v4.3 | 04-14 | 新客標題改為與 INDIBA 相同呈現（ib-label/ib-title 同款 CSS） |
 | v4.1 | 04-14 | **區域重整：Hero 4按鈕、三大服務獨立、INDIBA獨立、新客完整菜單、back-to-top** |
 
@@ -147,6 +148,10 @@
 | `img-indiba.jpg` | `/bella-spa/img-indiba.jpg` | JPG | 800×450px（16:9） | INDIBA 英特波療程現場，三大服務卡片 + INDIBA 區使用 | 🔄 圖庫暫代 |
 | `img-spa-1.jpg` | `/bella-spa/img-spa-1.jpg` | JPG | 800×450px（16:9） | 全身筋膜芳療現場，三大服務卡片 + INDIBA 區卡片02 使用 | 🔄 圖庫暫代 |
 | `img-spa-2.jpg` | `/bella-spa/img-spa-2.jpg` | JPG | 800×450px（16:9） | 韓式皮膚管理／臉部護理現場，三大服務卡片使用 | 🔄 圖庫暫代 |
+| `img-spa-3.jpg` | `/bella-spa/img-spa-3.jpg` | JPG | 800×450px（16:9） | INDIBA 臉部療程（小V臉緊緻），ib-card 01 使用 | ✅ 已提供 |
+| `img-spa-4.jpg` | `/bella-spa/img-spa-4.jpg` | JPG | 800×450px（16:9） | INDIBA 身體筋膜療程（內臟筋膜鬆動），ib-card 02 使用 | ✅ 已提供 |
+| `img-spa-3.jpg` | `/bella-spa/img-spa-3.jpg` | JPG | 800×450px（16:9） | 臉部 INDIBA 電波療程特寫（小V臉卡片用）| ✅ 客戶提供 |
+| `img-spa-4.jpg` | `/bella-spa/img-spa-4.jpg` | JPG | 800×450px（16:9） | 身體 INDIBA 筋膜療程（內臟筋膜鬆動卡片用）| ✅ 客戶提供 |
 
 ---
 
