@@ -111,6 +111,7 @@
 | v1.0 | 04-06 | 初版 |
 | v2.0 | 04-07 | 三頁樣式對齊、icon 修正 |
 | v3.0 | 04-07 | 重建：套入 v3.1 設計系統 |
+| v4.3 | 04-16 | **新增 cert-5（INDIBA防偽證書）、cert-6（KOKO.NI結業）；修正 cert-indiba label** |
 | v4.2 | 04-15 | **證書區改橫式比例（4/3）、grid 改單欄** |
 | v4.1 | 04-15 | **證書區補正：NHE運動按摩指導師、紋繡技術結業、美胸筋膜放鬆調理認證** |
 | v4.0 | 04-14 | **Footer 深色底、按鈕重排（返回/INDIBA/新客/BackTop）、service/ 移除、斜體改正體** |
@@ -128,23 +129,85 @@
 | `hero-bg.jpg` | `/bella-spa/hero-bg.jpg` | JPG | 1920×1080px | 全站背景圖（index/owner 共用），主視覺空間情境照 | ⬜ 待提供 |
 | `og-image.jpg` | `/bella-spa/og-image.jpg` | JPG | 1200×630px | 三頁共用社群分享預覽圖 | ⬜ 待製作 |
 
+## 素材清單
+
+### 共用素材（`/bella-spa/`）
+
+| 檔名 | 路徑 | 格式 | 尺寸 | 說明 | 狀態 |
+|------|------|------|------|------|------|
+| `logo-bella.svg` | `/bella-spa/logo-bella.svg` | SVG | 不限（向量） | 品牌 Logo，白底或透明底，三頁共用 | ⬜ 待提供 |
+| `favicon.png` | `/bella-spa/favicon.png` | PNG | 512×512px | 瀏覽器分頁圖示 | ⬜ 待提供 |
+| `hero-bg.jpg` | `/bella-spa/hero-bg.jpg` | JPG | 1920×1080px | 全站背景圖（index/owner 共用），主視覺空間情境照 | 🔄 圖庫暫代 |
+| `og-image.jpg` | `/bella-spa/og-image.jpg` | JPG | 1200×630px | 三頁共用社群分享預覽圖 | ⬜ 待製作 |
+
 ### 主頁圖片（`/bella-spa/`）
 
 | 檔名 | 路徑 | 格式 | 尺寸 | 說明 | 狀態 |
 |------|------|------|------|------|------|
-| `img-indiba.jpg` | `/bella-spa/img-indiba.jpg` | JPG | 800×450px（16:9） | INDIBA 英特波療程現場，三大服務卡片 + INDIBA 區卡片01 使用 | ⬜ 待提供 |
-| `img-spa-1.jpg` | `/bella-spa/img-spa-1.jpg` | JPG | 800×450px（16:9） | 全身筋膜芳療現場，三大服務卡片 + INDIBA 區卡片02 使用 | ⬜ 待提供 |
-| `img-spa-2.jpg` | `/bella-spa/img-spa-2.jpg` | JPG | 800×450px（16:9） | 韓式皮膚管理／臉部護理現場，三大服務卡片使用 | ⬜ 待提供 |
+| `img-indiba.jpg` | `/bella-spa/img-indiba.jpg` | JPG | 800×450px（16:9） | INDIBA 英特波療程現場，三大服務卡片 + INDIBA 區使用 | 🔄 圖庫暫代 |
+| `img-spa-1.jpg` | `/bella-spa/img-spa-1.jpg` | JPG | 800×450px（16:9） | 全身筋膜芳療現場，三大服務卡片 + INDIBA 區卡片02 使用 | 🔄 圖庫暫代 |
+| `img-spa-2.jpg` | `/bella-spa/img-spa-2.jpg` | JPG | 800×450px（16:9） | 韓式皮膚管理／臉部護理現場，三大服務卡片使用 | 🔄 圖庫暫代 |
+
+---
+
+## 圖庫素材搜尋指南
+
+> 客戶真實素材到位後直接覆蓋同檔名，HTML 不需修改。
+
+### Canva 搜尋關鍵字
+
+| 檔名 | Canva 搜尋關鍵字 | 選圖方向 |
+|------|-----------------|---------|
+| `hero-bg.jpg` | `luxury spa interior warm light elegant` | 米白/暖粉空間，光線柔和，有質感床或石材 |
+| `img-indiba.jpg` | `beauty treatment facial technology device` | 專業儀器輕觸臉部或頸部，白色診療環境 |
+| `img-spa-1.jpg` | `body massage relaxation spa warm oil` | 全身精油按摩，暖色燈光，療癒氛圍 |
+| `img-spa-2.jpg` | `facial skincare treatment professional woman` | 臉部護理特寫，乾淨白色環境，韓系質感 |
+
+### AI 生成圖片腳本（Canva AI / Midjourney）
+
+**`hero-bg.jpg` — 全站背景**
+```
+A luxurious spa interior, soft warm lighting, cream and rose-toned walls, 
+minimalist aesthetic, elegant treatment bed with white linen, 
+subtle floral elements, high-end women's wellness space, 
+photorealistic, wide angle, 16:9
+```
+
+**`img-indiba.jpg` — INDIBA 英特波療程**
+```
+Professional aesthetician performing a high-tech facial treatment 
+using a medical beauty device, clean white clinic environment, 
+soft lighting, close-up on face and device, luxury spa setting, 
+photorealistic, 16:9
+```
+
+**`img-spa-1.jpg` — 全身筋膜芳療**
+```
+Relaxing full body massage treatment, warm oil, dim amber lighting, 
+spa environment with white towels and minimal decor, 
+woman receiving professional body therapy, peaceful atmosphere, 
+photorealistic, 16:9
+```
+
+**`img-spa-2.jpg` — 韓式皮膚管理**
+```
+Korean-style facial skincare treatment, clean bright white environment, 
+close-up of woman receiving professional skin management, 
+hydrating mask or facial device, high-end spa aesthetic, 
+photorealistic, 16:9
+```
 
 ### 主理人頁圖片（`/bella-spa/`，owner 頁以 `../` 引用）
 
 | 檔名 | 路徑 | 格式 | 尺寸 | 說明 | 狀態 |
 |------|------|------|------|------|------|
 | `owner-portrait.jpg` | `/bella-spa/owner-portrait.jpg` | JPG | 600×800px（3:4） | 主理人 Summer 半身人像，Hero 區大圖 | ⬜ 待提供 |
-| `cert-indiba.jpg` | `/bella-spa/cert-indiba.jpg` | JPG | 800×600px（4:3） | INDIBA 英特波認證證書 | ⬜ 待提供 |
+| `cert-indiba.jpg` | `/bella-spa/cert-indiba.jpg` | JPG | 800×600px（4:3） | INDIBA® Activ Initial Training（Sports）培訓認證，2025/07/23 | ⬜ 待提供 |
 | `cert-2.jpg` | `/bella-spa/cert-2.jpg` | JPG | 800×600px（4:3） | NHE 運動按摩指導師認證（National Health Exercise，2023） | ⬜ 待提供 |
 | `cert-3.jpg` | `/bella-spa/cert-3.jpg` | JPG | 800×600px（4:3） | 紋身繡眉技術結業證書（Happy Moment Wedding Consultants） | ⬜ 待提供 |
 | `cert-4.jpg` | `/bella-spa/cert-4.jpg` | JPG | 800×600px（4:3） | 美胸筋膜放鬆調理認證（公主殿下 × 台灣筋膜保健交流協會，2025.05） | ⬜ 待提供 |
+| `cert-5.jpg` | `/bella-spa/cert-5.jpg` | JPG | 800×600px（4:3） | INDIBA® 原廠正貨防偽證書，序號 ASTER 21U780603 | ⬜ 待提供 |
+| `cert-6.jpg` | `/bella-spa/cert-6.jpg` | JPG | 800×600px（4:3） | KOKO.NI 美容技術結業證書（2026/03/23） | ⬜ 待提供 |
 
 ### 共用 SVG Icons（`/assets/`，已存在）
 
