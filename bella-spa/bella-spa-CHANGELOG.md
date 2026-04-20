@@ -101,7 +101,8 @@
 | v3.1 | 04-07 | 英文大字改回 Playfair Display |
 | v4.0 | 04-14 | service/ 廢除（6處連結移除）、斜體→正體、Icon陰影、手機背景修正 |
 | v4.2 | 04-14 | INDIBA 標題含體驗價；卡片移除 price-row；nc-item 殘留刪除；nc-ctas 限寬；Icon shadow 縮小 |
-| v4.4 | 04-16 | **INDIBA 兩大療程卡片圖片加回：img-spa-3.jpg（小V臉臉部療程）/ img-spa-4.jpg（身體筋膜療程）** |
+| v4.5 | 04-16 | **新增客戶心得輪播區（#reviews）：5則評論、拖曳輪播、dot 導航，置於新客入口後** |
+| v4.4 | 04-16 | **INDIBA 兩大療程卡片圖片加回：img-spa-3.jpg（小V臉）/ img-spa-4.jpg（內臟筋膜）** |
 | v4.3 | 04-14 | 新客標題改為與 INDIBA 相同呈現（ib-label/ib-title 同款 CSS） |
 | v4.1 | 04-14 | **區域重整：Hero 4按鈕、三大服務獨立、INDIBA獨立、新客完整菜單、back-to-top** |
 
