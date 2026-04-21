@@ -5,6 +5,7 @@
   義昌食品 × 鵝之鄉｜主理人登場頁
   slug: test/yichang-food
   v1.0  2026-04-21  初版建置（三頁架構 Page 1）
+  v1.1  2026-04-21  全區修正：思源黑體、深淺bg-img分開、hero修正、義昌/鵝之鄉區重整、第四區刪除、footer更新
   設計：LINKet by Tony Design Studio
 -->
 <meta charset="UTF-8">
@@ -21,7 +22,7 @@
 <link rel="icon" href="./favicon.png">
 <link rel="apple-touch-icon" href="./favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
 /* ── TOKENS ── */
@@ -42,26 +43,36 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{
-  font-family:'Noto Serif TC',serif;font-weight:400;
+  font-family:'Noto Sans TC',sans-serif;font-weight:400;
   background:var(--dark);color:var(--white);
   line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  font-size:16px;
 }
 a{text-decoration:none;color:inherit;}
 img{max-width:100%;display:block;}
 
-/* ── 背景交替系統（仿 Bella SPA）── */
+/* ── 背景交替系統 ── */
 .bg-dark,.bg-light{position:relative;overflow:hidden;}
 .bg-dark{background:var(--dark);color:var(--white);}
 .bg-light{background:var(--light);color:var(--ink);}
 
-/* 背景圖層 */
-.bg-dark::before,.bg-light::before{
+/* 深淺背景圖分開套用 */
+.bg-dark::before{
   content:'';position:absolute;inset:0;z-index:0;
-  background-image:url('./yichang-hero-bg.jpg');
-  background-size:cover;background-position:center;pointer-events:none;
+  background-image:url('./bg-dark-bg.jpg');
+  background-size:cover;background-position:center;
+  background-attachment:local;
+  pointer-events:none;
+  opacity:.12;filter:grayscale(.3) brightness(.5);
 }
-.bg-dark::before{opacity:.1;filter:grayscale(.4) brightness(.5);}
-.bg-light::before{opacity:.06;filter:grayscale(.2) brightness(1.2);}
+.bg-light::before{
+  content:'';position:absolute;inset:0;z-index:0;
+  background-image:url('./bg-light-bg.jpg');
+  background-size:cover;background-position:center;
+  background-attachment:local;
+  pointer-events:none;
+  opacity:.08;filter:grayscale(.2) brightness(1.2);
+}
 
 .sec-inner{position:relative;z-index:1;}
 .wrap{max-width:var(--mw);margin:0 auto;padding:var(--sp);}
@@ -86,104 +97,108 @@ img{max-width:100%;display:block;}
 .bg-light .btn-ghost{background:transparent;color:var(--ink);border:1px solid rgba(13,29,96,.3);border-radius:100px;}
 .bg-light .btn-ghost:hover{background:var(--dark);color:var(--white);}
 
+/* logo 深淺邏輯 */
+.bg-dark .brand-logo{filter:brightness(0) invert(1);}
+.bg-light .brand-logo{filter:brightness(0);}
+
 /* ── 通用排版 ── */
 .eyebrow{
-  font-family:'Cormorant Garamond',serif;font-style:italic;
-  font-size:.82rem;letter-spacing:.45em;display:block;
-  margin-bottom:.8rem;text-transform:uppercase;
+  font-family:'Cormorant Garamond',serif;
+  font-size:.85rem;letter-spacing:.4em;display:block;
+  margin-bottom:1.5rem;text-transform:uppercase;
+}
+.brand-main-title{
+  font-size:clamp(2.2rem,7vw,3.8rem);font-weight:700;
+  letter-spacing:.08em;line-height:1.15;margin-bottom:.5rem;
+}
+.brand-sub-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1rem,2.5vw,1.3rem);letter-spacing:.3em;
+  opacity:.55;margin-bottom:1.5rem;
+}
+.brand-mid-title{
+  font-size:clamp(1rem,2.5vw,1.4rem);font-weight:500;
+  letter-spacing:.1em;margin-bottom:1.5rem;line-height:1.5;
 }
 .sec-title{
-  font-family:'Cormorant Garamond',serif;font-weight:600;
-  font-size:clamp(2rem,6vw,3.2rem);letter-spacing:.08em;
-  line-height:1.2;margin-bottom:1.2rem;
+  font-size:clamp(1.8rem,5vw,2.8rem);font-weight:700;
+  letter-spacing:.08em;line-height:1.2;margin-bottom:1.5rem;
 }
-.sec-title em{font-style:italic;font-weight:400;}
-.gold-line{width:3rem;height:1px;margin:1.4rem 0 2.2rem;opacity:.6;}
-.body-text{font-size:.92rem;line-height:2.2;letter-spacing:.06em;}
+.gold-line{width:3rem;height:1px;margin:0 0 2rem;opacity:.6;}
+.body-text{font-size:1rem;line-height:2.2;letter-spacing:.04em;}
 
 /* ── HERO ── */
 .hero{min-height:100svh;display:flex;flex-direction:column;}
 .hero-bg-img{
   position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;object-position:center;z-index:0;
-  opacity:.9;pointer-events:none;
+  object-fit:cover;object-position:center top;z-index:0;
+  opacity:.7;pointer-events:none;
 }
+@media(max-width:600px){.hero-bg-img{object-position:50% 20%;}}
 .hero .sec-inner{flex:1;display:flex;flex-direction:column;justify-content:center;}
-
-/* 大字背景 watermark */
 .hero-wm{
-  position:absolute;inset:0;z-index:0;
-  overflow:hidden;display:flex;align-items:center;justify-content:center;
-  pointer-events:none;
+  position:absolute;inset:0;z-index:0;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;pointer-events:none;
 }
 .hero-wm span{
   font-family:'Cormorant Garamond',serif;font-weight:600;
   font-size:clamp(5rem,15vw,14rem);letter-spacing:.12em;
-  color:var(--white);opacity:.04;white-space:nowrap;
-  text-transform:uppercase;
+  color:var(--white);opacity:.04;white-space:nowrap;text-transform:uppercase;
 }
-
-.hero-cols{
-  display:flex;flex-direction:row;align-items:stretch;
-  min-height:80svh;
-}
+.hero-cols{display:flex;flex-direction:row;align-items:stretch;min-height:80svh;}
 .hero-left{
   flex:1 1 0;display:flex;flex-direction:column;
   align-items:center;justify-content:center;
-  padding:3.5rem 2rem;gap:.8rem;text-align:center;
-  border-right:1px solid rgba(200,168,112,.15);
-  position:relative;
+  padding:3.5rem 2rem;gap:1.5rem;text-align:center;
+  border-right:1px solid rgba(200,168,112,.15);position:relative;
 }
-/* 角落裝飾 */
 .hero-left::before,.hero-left::after{
   content:'';position:absolute;width:20px;height:20px;
   border-color:rgba(200,168,112,.25);border-style:solid;
 }
 .hero-left::before{top:16px;left:16px;border-width:1px 0 0 1px;}
 .hero-left::after{bottom:16px;right:16px;border-width:0 1px 1px 0;}
-
-/* 雙品牌 Logo */
-.hero-logo{width:200px;margin:0 auto .6rem;}
-.hero-logo img{width:100%;height:auto;}
+/* Logo 300×120 黑底用 mix-blend-mode:screen 去黑底 */
+.hero-logo{width:300px;margin:0 auto;}
+.hero-logo img{width:300px;height:120px;object-fit:contain;mix-blend-mode:screen;filter:brightness(1.1);}
 .hero-logo-ph{
-  width:200px;height:64px;margin:0 auto .6rem;
+  width:300px;height:60px;margin:0 auto;
   border:1px dashed rgba(200,168,112,.3);border-radius:var(--r);
   display:flex;align-items:center;justify-content:center;
-  font-size:.7rem;letter-spacing:.15em;color:rgba(255,255,255,.3);
+  font-size:.85rem;letter-spacing:.12em;color:rgba(255,255,255,.3);
 }
-
-/* 主理人圓形照 */
-.hero-portrait{
-  width:108px;height:108px;border-radius:50%;overflow:hidden;
-  border:1.5px solid var(--gold);margin:0 auto .3rem;
-  background:rgba(200,168,112,.1);
+/* 主理人：400×533 黑底去背，無外框 */
+.hero-portrait{width:130px;overflow:hidden;margin:0 auto;}
+.hero-portrait img{
+  width:130px;height:173px;object-fit:cover;object-position:top center;
+  display:block;mix-blend-mode:screen;filter:brightness(1.05);
 }
-.hero-portrait img{width:100%;height:100%;object-fit:cover;}
 .hero-portrait-ph{
-  width:108px;height:108px;border-radius:50%;
-  border:1px dashed rgba(200,168,112,.3);margin:0 auto .3rem;
+  width:130px;height:173px;margin:0 auto;
+  border:1px dashed rgba(200,168,112,.3);
   display:flex;align-items:center;justify-content:center;
-  font-size:.65rem;letter-spacing:.1em;color:rgba(255,255,255,.25);
+  font-size:.85rem;color:rgba(255,255,255,.25);
 }
-
-.hero-role{font-size:.72rem;letter-spacing:.3em;color:var(--gold);opacity:.7;}
-.hero-name{
-  font-family:'Cormorant Garamond',serif;font-weight:600;
-  font-size:2rem;letter-spacing:.35em;color:var(--white);
+/* BNI badge */
+.hero-bni{
+  display:flex;align-items:center;justify-content:center;gap:.5rem;
+  font-size:.8rem;letter-spacing:.12em;color:var(--gold);opacity:.8;margin-top:-.5rem;
 }
-.hero-name-en{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.9rem;letter-spacing:.2em;color:rgba(255,255,255,.4);}
-.hero-slogan{font-size:.78rem;letter-spacing:.18em;color:rgba(255,255,255,.5);margin-top:.3rem;}
-.hero-tags{display:flex;justify-content:center;gap:.4rem;flex-wrap:wrap;margin-top:.5rem;}
-.hero-tag{
-  font-size:.65rem;letter-spacing:.08em;color:var(--gold);
-  border:1px solid rgba(200,168,112,.28);border-radius:20px;padding:.2rem .7rem;
+.hero-bni-icon{
+  width:18px;height:18px;border-radius:50%;background:var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.5rem;font-weight:700;color:var(--dark);flex-shrink:0;
 }
-
+.hero-role{font-size:1rem;letter-spacing:.3em;color:var(--gold);opacity:.7;}
+.hero-name{font-size:clamp(1.4rem,4vw,2rem);font-weight:700;letter-spacing:.35em;color:var(--white);}
+.hero-name-en{font-family:'Cormorant Garamond',serif;font-size:1rem;letter-spacing:.2em;color:rgba(255,255,255,.4);}
+.hero-slogan{font-size:.9rem;letter-spacing:.12em;color:rgba(255,255,255,.5);}
+.hero-tags{display:flex;justify-content:center;gap:.4rem;flex-wrap:wrap;}
+.hero-tag{font-size:.85rem;letter-spacing:.06em;color:var(--gold);border:1px solid rgba(200,168,112,.28);border-radius:20px;padding:.25rem .75rem;}
 /* 右欄 */
 .hero-right{
   flex:1 1 0;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  padding:3rem 2rem;min-width:0;
+  align-items:center;justify-content:center;padding:3rem 2rem;min-width:0;
 }
 .hero-icons{display:flex;justify-content:center;gap:1.2rem;margin-bottom:2rem;flex-wrap:wrap;}
 .hero-icon-link{
@@ -192,21 +207,18 @@ img{max-width:100%;display:block;}
 }
 .hero-icon-link:hover{opacity:.7;transform:scale(1.08);}
 .hero-icon-link img{width:38px;height:38px;display:block;}
-
 .hero-btn{
   display:flex;align-items:center;justify-content:center;
   width:100%;max-width:300px;
-  font-family:'Noto Serif TC',serif;font-weight:700;font-size:.88rem;
-  letter-spacing:.14em;padding:.95rem 1rem;
+  font-family:'Noto Sans TC',sans-serif;font-weight:700;font-size:1rem;
+  letter-spacing:.08em;padding:1rem 1rem;
   transition:all .22s;cursor:pointer;border-radius:100px;
-  margin-bottom:.8rem;
-  opacity:0;animation:fadeUp .6s ease both;
+  margin-bottom:1.5rem;opacity:0;animation:fadeUp .6s ease both;
 }
 .hero-btn:nth-child(2){animation-delay:.1s;}
 .hero-btn:nth-child(3){animation-delay:.2s;}
 .hero-btn:nth-child(4){animation-delay:.3s;}
 .hero-btn:nth-child(5){animation-delay:.4s;}
-.hero-btn:nth-child(6){animation-delay:.5s;}
 .hero-btn.p1{background:var(--gold);color:var(--dark);border:1px solid transparent;}
 .hero-btn.p1:hover{background:var(--gold2);transform:translateY(-2px);}
 .hero-btn.ghost{background:rgba(200,168,112,.06);border:1px solid rgba(200,168,112,.28);color:var(--white);}
@@ -214,14 +226,14 @@ img{max-width:100%;display:block;}
 .hero-btn-row{
   display:flex;gap:.6rem;width:100%;max-width:300px;
   justify-content:center;margin-bottom:0;
-  opacity:0;animation:fadeUp .6s ease both;animation-delay:.6s;
+  opacity:0;animation:fadeUp .6s ease both;animation-delay:.5s;
 }
 .btn-sm{
   flex:1;display:flex;align-items:center;justify-content:center;
   background:rgba(200,168,112,.05);border:1px dashed rgba(200,168,112,.2);
-  color:rgba(255,255,255,.45);font-size:.7rem;letter-spacing:.14em;
-  padding:.6rem .4rem;border-radius:100px;cursor:pointer;
-  font-family:'Noto Serif TC',serif;transition:all .2s;
+  color:rgba(255,255,255,.45);font-size:.85rem;letter-spacing:.08em;
+  padding:.7rem .4rem;border-radius:100px;cursor:pointer;
+  font-family:'Noto Sans TC',sans-serif;transition:all .2s;
 }
 .btn-sm:hover{border-color:var(--gold);color:var(--gold);}
 .btn-sm.share{display:none;}
@@ -241,11 +253,7 @@ img{max-width:100%;display:block;}
 /* ── WATERMARK DIVIDER ── */
 .wm-divider{overflow:hidden;border-top:1px solid rgba(200,168,112,.1);border-bottom:1px solid rgba(200,168,112,.1);}
 .wm-track{display:flex;white-space:nowrap;animation:tick 32s linear infinite;padding:.9rem 0;}
-.wm-item{
-  font-family:'Cormorant Garamond',serif;font-style:italic;
-  font-size:1rem;letter-spacing:.35em;
-  padding:0 2.5rem;opacity:.45;
-}
+.wm-item{font-family:'Cormorant Garamond',serif;font-size:1rem;letter-spacing:.35em;padding:0 2.5rem;opacity:.45;}
 .bg-dark .wm-item{color:var(--gold);}
 .bg-light .wm-item{color:var(--ink);}
 @keyframes tick{from{transform:translateX(0);}to{transform:translateX(-50%);}}
@@ -262,8 +270,8 @@ img{max-width:100%;display:block;}
   font-size:clamp(3rem,8vw,5rem);line-height:1;
   color:var(--gold);letter-spacing:-.01em;
 }
-.stat-label{font-size:.72rem;letter-spacing:.25em;margin-top:.4rem;opacity:.6;}
-.stat-desc{font-size:.8rem;letter-spacing:.05em;line-height:1.8;margin-top:.3rem;opacity:.55;}
+.stat-label{font-size:.85rem;letter-spacing:.2em;margin-top:1.5rem;opacity:.6;}
+.stat-desc{font-size:.85rem;letter-spacing:.04em;line-height:1.8;margin-top:.5rem;opacity:.55;}
 
 /* 服務卡片（全寬圖+文字，仿 sv-card）*/
 .sv-card{border:1px solid rgba(200,168,112,.12);margin-bottom:1.2rem;overflow:hidden;border-radius:var(--r);}
@@ -277,11 +285,11 @@ img{max-width:100%;display:block;}
 .bg-dark .sv-img-ph{background:rgba(255,255,255,.04);color:rgba(255,255,255,.25);}
 .bg-light .sv-img-ph{background:rgba(13,29,96,.04);color:rgba(13,29,96,.25);}
 .sv-body{padding:1.6rem 1.4rem;}
-.sv-eyebrow{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.75rem;letter-spacing:.35em;opacity:.5;margin-bottom:.4rem;}
-.sv-name{font-size:1.05rem;font-weight:700;letter-spacing:.18em;margin-bottom:.6rem;}
+.sv-eyebrow{font-family:'Cormorant Garamond',serif;font-size:.85rem;letter-spacing:.25em;opacity:.5;margin-bottom:1.5rem;}
+.sv-name{font-size:1.1rem;font-weight:700;letter-spacing:.12em;margin-bottom:1.5rem;}
 .bg-dark .sv-name{color:var(--white);}
 .bg-light .sv-name{color:var(--ink);}
-.sv-desc{font-size:.84rem;line-height:2;letter-spacing:.05em;}
+.sv-desc{font-size:1rem;line-height:2.1;letter-spacing:.04em;}
 .bg-dark .sv-desc{color:rgba(255,255,255,.65);}
 .bg-light .sv-desc{color:var(--ink2);}
 .sv-link{
@@ -296,35 +304,48 @@ img{max-width:100%;display:block;}
 
 /* ── 認證條 ── */
 .cert-row{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2rem;}
-.cert-badge{
-  font-family:'Cormorant Garamond',serif;font-style:italic;
-  font-size:.8rem;letter-spacing:.2em;
-  border:1px solid rgba(200,168,112,.35);border-radius:var(--r);
-  padding:.35rem 1rem;color:var(--gold);
-}
+.cert-badge{font-size:.85rem;letter-spacing:.15em;border:1px solid rgba(200,168,112,.35);border-radius:var(--r);padding:.4rem 1.1rem;color:var(--gold);}
 
-/* ── 品牌跳轉 CTA 區 ── */
-.brand-cta{padding:var(--sp);}
-.brand-cta .wrap{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
-@media(max-width:560px){.brand-cta .wrap{grid-template-columns:1fr;}}
-.cta-card{
-  border:1px solid rgba(200,168,112,.18);border-radius:var(--r);
-  padding:2.5rem 1.8rem;text-align:center;
-  transition:border-color .2s;display:flex;flex-direction:column;align-items:center;gap:1rem;
+/* ── 品牌 Logo + icons row ── */
+.brand-logo{width:160px;height:auto;margin:0 auto 1.5rem;}
+.brand-icons{display:flex;justify-content:center;gap:1rem;margin:0 auto 2rem;flex-wrap:wrap;}
+.brand-icon-link{
+  width:44px;height:44px;display:flex;align-items:center;justify-content:center;
+  background:transparent;border:none;border-radius:0;transition:opacity .2s,transform .2s;
 }
-.cta-card:hover{border-color:var(--gold);}
-.cta-eyebrow{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.75rem;letter-spacing:.35em;color:var(--gold);opacity:.7;}
-.cta-title{font-size:1.1rem;font-weight:700;letter-spacing:.2em;}
-.cta-desc{font-size:.8rem;line-height:1.9;letter-spacing:.06em;opacity:.6;}
-.cta-btn{
-  margin-top:.5rem;padding:.75rem 1.8rem;border-radius:100px;
-  font-family:'Noto Serif TC',serif;font-size:.8rem;font-weight:700;letter-spacing:.15em;
-  transition:all .22s;cursor:pointer;
+.brand-icon-link:hover{opacity:.7;transform:scale(1.08);}
+.brand-icon-link img{width:34px;height:34px;display:block;}
+/* 深色底 icon 白色化，淺色底保持原色 */
+.bg-dark .brand-icon-link img{filter:brightness(0) invert(1);}
+.bg-light .brand-icon-link img{filter:brightness(0);}
+/* ── CTA 按鈕區 ── */
+.sec-cta{display:flex;flex-direction:column;gap:1.2rem;max-width:360px;margin:2.5rem auto 0;}
+.sec-btn{
+  display:flex;align-items:center;justify-content:center;
+  padding:1rem 1.4rem;border-radius:100px;
+  font-family:'Noto Sans TC',sans-serif;font-weight:700;font-size:1rem;
+  letter-spacing:.08em;transition:all .22s;
 }
-.cta-btn-dark{background:var(--gold);color:var(--dark);border:1px solid transparent;}
-.cta-btn-dark:hover{background:var(--gold2);}
-.cta-btn-light{background:var(--dark);color:var(--white);border:1px solid transparent;}
-.cta-btn-light:hover{background:var(--dark2);}
+.bg-dark .sec-btn.fill{background:var(--gold);color:var(--dark);border:1px solid transparent;}
+.bg-dark .sec-btn.fill:hover{background:var(--gold2);}
+.bg-dark .sec-btn.ghost{background:transparent;color:var(--white);border:1px solid rgba(200,168,112,.3);}
+.bg-dark .sec-btn.ghost:hover{border-color:var(--gold);color:var(--gold);}
+.bg-light .sec-btn.fill{background:var(--dark);color:var(--white);border:1px solid transparent;}
+.bg-light .sec-btn.fill:hover{background:var(--dark2);}
+.bg-light .sec-btn.ghost{background:transparent;color:var(--ink);border:1px solid rgba(13,29,96,.3);}
+.bg-light .sec-btn.ghost:hover{background:var(--dark);color:var(--white);}
+/* ── 公司資訊底部 ── */
+.brand-info-footer{
+  margin-top:2.5rem;padding-top:2rem;
+  border-top:1px solid rgba(200,168,112,.12);
+  text-align:center;font-size:.85rem;letter-spacing:.12em;line-height:2;
+}
+.bg-dark .brand-info-footer{color:rgba(255,255,255,.4);}
+.bg-light .brand-info-footer{color:var(--ink2);}
+/* ── IG embed ── */
+.ig-embeds{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem;}
+@media(max-width:600px){.ig-embeds{grid-template-columns:1fr;}}
+.ig-embeds .instagram-media{margin:0 auto!important;max-width:100%!important;}
 
 /* ── 聯絡地圖 ── */
 .location-sec{padding:var(--sp);}
@@ -375,8 +396,10 @@ a.design-by b{color:var(--gold);opacity:.5;}
 /* ── RWD ── */
 @media(max-width:600px){
   .hero-cols{flex-direction:column;}
-  .hero-left{border-right:none;border-bottom:1px solid rgba(200,168,112,.12);padding:2.8rem 1.4rem;}
-  .hero-right{padding:2.2rem 1.4rem 2.8rem;}
+  .hero-left{border-right:none;border-bottom:1px solid rgba(200,168,112,.12);padding:2.8rem 1.4rem;gap:1.5rem;}
+  .hero-right{padding:2rem 1.4rem 2.5rem;}
+  .hero-logo img{width:240px;height:96px;}
+  .hero-logo{width:240px;}
   :root{--sp:3.5rem 1.4rem;}
 }
 </style>
@@ -394,22 +417,23 @@ a.design-by b{color:var(--gold);opacity:.5;}
         <!-- 左欄 -->
         <div class="hero-left">
           <div class="hero-logo">
-            <img src="./dual-logo.png" alt="義昌食品 × 鵝之鄉"
-              onerror="this.parentElement.innerHTML='<div class=\'hero-logo-ph\'>義昌食品 × 鵝之鄉</div>'">
+            <img src="./dual-logo.png" alt="義昌食品 × 鵝之鄉" onerror="this.parentElement.innerHTML='<div class=\'hero-logo-ph\'>義昌食品 × 鵝之鄉</div>'">
           </div>
           <div class="hero-portrait">
-            <img src="./huang-portrait.png" alt="黃俊賢 總經理"
-              onerror="this.parentElement.outerHTML='<div class=\'hero-portrait-ph\'>照片待補</div>'">
+            <img src="./huang-portrait.png" alt="黃俊賢 總經理" onerror="this.parentElement.outerHTML='<div class=\'hero-portrait-ph\'>照片待補</div>'">
           </div>
           <div class="hero-role">總 經 理</div>
           <div class="hero-name">黃 俊 賢</div>
           <div class="hero-name-en">Jason Huang</div>
+          <div class="hero-bni">
+            <span class="hero-bni-icon">B</span>
+            BNI 雲榮 Yun Rong 分會
+          </div>
           <div class="hero-slogan">台灣鵝肉・品質溯源・安心直送</div>
           <div class="hero-tags">
             <span class="hero-tag">#生鮮鵝肉</span>
-            <span class="hero-tag">#電宰廠直供</span>
+            <span class="hero-tag">#土庫鵝肉美食</span>
             <span class="hero-tag">#ISO三重認證</span>
-            <span class="hero-tag">#鵝之鄉</span>
           </div>
         </div>
 
@@ -420,7 +444,7 @@ a.design-by b{color:var(--gold);opacity:.5;}
               onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'yichang-food'});">
               <img src="/assets/phone.svg" alt="Phone" onerror="this.style.display='none'">
             </a>
-            <a class="hero-icon-link" href="https://lin.ee/ncbOGht" target="_blank" aria-label="LINE"
+            <a class="hero-icon-link" href="https://line.me/ti/p/K-P3Kuo3iS" target="_blank" aria-label="LINE"
               onclick="gtag('event','click_line',{'event_category':'CTA','event_label':'yichang-food'});">
               <img src="/assets/line.svg" alt="LINE" onerror="this.style.display='none'">
             </a>
@@ -428,25 +452,16 @@ a.design-by b{color:var(--gold);opacity:.5;}
               onclick="gtag('event','click_mail',{'event_category':'CTA','event_label':'yichang-food'});">
               <img src="/assets/mail.svg" alt="Email" onerror="this.style.display='none'">
             </a>
-            <a class="hero-icon-link" href="https://www.facebook.com/profile.php?id=61576815942019" target="_blank" aria-label="Facebook"
-              onclick="gtag('event','click_facebook',{'event_category':'CTA','event_label':'yichang-food'});">
-              <img src="/assets/facebook.svg" alt="Facebook" onerror="this.style.display='none'">
-            </a>
-            <a class="hero-icon-link" href="https://www.instagram.com/honey.teagoose/" target="_blank" aria-label="Instagram"
-              onclick="gtag('event','click_ig',{'event_category':'CTA','event_label':'yichang-food'});">
-              <img src="/assets/instagram.svg" alt="Instagram" onerror="this.style.display='none'">
-            </a>
-            <a class="hero-icon-link" href="https://maps.app.goo.gl/aTXjxiMZK2evB35y7" target="_blank" aria-label="地圖"
+            <a class="hero-icon-link" href="https://maps.app.goo.gl/tztAEk2Mt3LpbFHN8" target="_blank" aria-label="地圖"
               onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'yichang-food'});">
               <img src="/assets/map.svg" alt="Map" onerror="this.style.display='none'">
             </a>
           </div>
-          <a href="tel:0978090131" class="hero-btn p1"
-            onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'yichang-food'});">立即來電｜0978-090131</a>
-          <a href="https://lin.ee/ncbOGht" target="_blank" class="hero-btn p1"
-            onclick="gtag('event','click_line',{'event_category':'CTA','event_label':'yichang-food'});">LINE 洽詢｜鵝之鄉官方</a>
-          <a href="#yichang-intro" class="hero-btn ghost">義昌食品｜電宰供應鏈</a>
-          <a href="#goose-intro" class="hero-btn ghost">鵝之鄉｜品牌產品線</a>
+          <a href="https://line.me/ti/p/K-P3Kuo3iS" target="_blank" class="hero-btn p1"
+            onclick="gtag('event','click_line',{'event_category':'CTA','event_label':'yichang-food'});">加入好友｜LINE Me</a>
+          <a href="#yichang-intro" class="hero-btn p1">義昌食品｜生鮮肉品直輸</a>
+          <a href="#goose-intro" class="hero-btn p1">鵝之鄉｜土庫鵝肉美食</a>
+          <a href="#location" class="hero-btn ghost">拜訪我們｜Google Map</a>
           <div class="hero-btn-row">
             <button class="btn-sm" onclick="openQrModal();gtag('event','click_qr_modal',{'event_category':'CTA','event_label':'yichang-food'});">QR CODE</button>
             <button class="btn-sm share" id="shareBtn">SHARE</button>
@@ -478,18 +493,22 @@ a.design-by b{color:var(--gold);opacity:.5;}
   </div>
 </div>
 
-<!-- ② 義昌食品簡介 · bg-light -->
+<!-- ② 義昌食品 · bg-light -->
 <section class="brand-intro bg-light" id="yichang-intro">
   <div class="sec-inner wrap">
-
-    <!-- 大字引言 -->
+    <!-- LOGO 深色底顯白，淺色底顯深 -->
+    <div class="reveal" style="text-align:center;">
+      <img src="./yichang-logo.svg" alt="義昌食品" class="brand-logo"
+        onerror="this.style.display='none'">
+    </div>
     <div class="reveal">
-      <span class="eyebrow">Yi Chang Food · 義昌食品</span>
-      <div class="sec-title">台灣鴨鵝<em>生肉產業鏈</em>的<br>核心供應者</div>
+      <div class="brand-main-title">義昌食品</div>
+      <div class="brand-sub-title">Yi Chang Food</div>
+      <div class="brand-mid-title">台灣鴨鵝生肉產業鏈的核心供應者</div>
       <div class="gold-line"></div>
+      <p class="body-text">創立於 2007 年，深耕雲林土庫超過 18 年。義昌食品股份有限公司以合法電宰廠為核心，提供雞、鴨、鵝屠宰、分切及加工一條龍服務。八成以上採代工廠模式，屠宰當日即出貨，零過夜，確保每一份肉品的絕對新鮮。政府駐廠獸醫師每日輪替把關，通過 ISO 9001・ISO 22000・HACCP 三重國際認證，是台灣鴨鵝生肉供應鏈中最值得信賴的合作夥伴。</p>
     </div>
 
-    <!-- 數字 infographic -->
     <div class="stat-row reveal">
       <div class="stat-item">
         <div class="stat-num">18</div>
@@ -508,7 +527,6 @@ a.design-by b{color:var(--gold);opacity:.5;}
       </div>
     </div>
 
-    <!-- 服務卡片 -->
     <div class="sv-card reveal">
       <img src="./img-yichang-01.jpg" alt="生鮮鵝肉" class="sv-img"
         onerror="this.outerHTML='<div class=\'sv-img-ph\'>生鮮鵝肉 · img-yichang-01.jpg</div>'">
@@ -516,7 +534,6 @@ a.design-by b{color:var(--gold);opacity:.5;}
         <div class="sv-eyebrow">Fresh Goose · 生鮮供應</div>
         <div class="sv-name">生鮮 × 冷凍鵝鴨肉</div>
         <div class="sv-desc">現宰新鮮，批發零售並行。合法禽肉溯源管理，適合鵝肉攤、餐廳、傳統市場長期穩定採購。急速冷凍保鮮，不斷貨不斷質。</div>
-        <a href="./yichang/" class="sv-link">義昌食品詳細介紹 →</a>
       </div>
     </div>
 
@@ -526,8 +543,7 @@ a.design-by b{color:var(--gold);opacity:.5;}
       <div class="sv-body">
         <div class="sv-eyebrow">Processing · 電宰加工</div>
         <div class="sv-name">電宰廠一條龍服務</div>
-        <div class="sv-desc">從繫留、電暈、燙毛、脫蠟到分切包裝，全程政府駐廠獸醫師把關。八成以上為代工廠模式，屠宰當日即出貨，零過夜。</div>
-        <a href="./yichang/" class="sv-link">了解電宰流程 →</a>
+        <div class="sv-desc">從繫留、電暈、燙毛、脫蠟到分切包裝，全程政府駐廠獸醫師把關。屠宰當日即出貨，零過夜。</div>
       </div>
     </div>
 
@@ -536,6 +552,19 @@ a.design-by b{color:var(--gold);opacity:.5;}
       <span class="cert-badge">ISO 22000</span>
       <span class="cert-badge">HACCP</span>
       <span class="cert-badge">禽肉溯源 9828958341</span>
+    </div>
+
+    <div class="sec-cta reveal">
+      <a href="tel:0566653832" class="sec-btn fill"
+        onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'yichang-food'});">電話連繫｜Contact us 05-665-3832</a>
+      <a href="https://maps.app.goo.gl/aTXjxiMZK2evB35y7" target="_blank" class="sec-btn ghost"
+        onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'yichang-food'});">拜訪義昌｜Visit us</a>
+    </div>
+
+    <div class="brand-info-footer reveal">
+      義昌食品股份有限公司<br>
+      統編 28789871<br>
+      633 雲林縣土庫鎮新光路36之12號
     </div>
   </div>
 </section>
@@ -548,15 +577,41 @@ a.design-by b{color:var(--gold);opacity:.5;}
   </div>
 </div>
 
-<!-- ③ 鵝之鄉簡介 · bg-dark -->
+<!-- ③ 鵝之鄉 · bg-dark -->
 <section class="brand-intro bg-dark" id="goose-intro">
   <div class="sec-inner wrap">
-
+    <div class="reveal" style="text-align:center;">
+      <img src="./goose-logo.svg" alt="鵝之鄉" class="brand-logo"
+        onerror="this.style.display='none'">
+      <div class="brand-icons">
+        <a class="brand-icon-link" href="https://lin.ee/ncbOGht" target="_blank" aria-label="LINE"
+          onclick="gtag('event','click_line',{'event_category':'CTA','event_label':'yichang-food'});">
+          <img src="/assets/line.svg" alt="LINE" onerror="this.style.display='none'">
+        </a>
+        <a class="brand-icon-link" href="https://www.sin-jhuan.com.tw/tw" target="_blank" aria-label="官網"
+          onclick="gtag('event','click_web',{'event_category':'CTA','event_label':'yichang-food'});">
+          <img src="/assets/web.svg" alt="Web" onerror="this.style.display='none'">
+        </a>
+        <a class="brand-icon-link" href="https://www.facebook.com/profile.php?id=61576815942019" target="_blank" aria-label="Facebook"
+          onclick="gtag('event','click_facebook',{'event_category':'CTA','event_label':'yichang-food'});">
+          <img src="/assets/facebook.svg" alt="Facebook" onerror="this.style.display='none'">
+        </a>
+        <a class="brand-icon-link" href="https://www.instagram.com/honey.teagoose/" target="_blank" aria-label="Instagram"
+          onclick="gtag('event','click_ig',{'event_category':'CTA','event_label':'yichang-food'});">
+          <img src="/assets/instagram.svg" alt="Instagram" onerror="this.style.display='none'">
+        </a>
+        <a class="brand-icon-link" href="https://maps.app.goo.gl/tztAEk2Mt3LpbFHN8" target="_blank" aria-label="地圖"
+          onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'yichang-food'});">
+          <img src="/assets/map.svg" alt="Map" onerror="this.style.display='none'">
+        </a>
+      </div>
+    </div>
     <div class="reveal">
-      <span class="eyebrow">Goose's Hometown · 鵝之鄉</span>
-      <div class="sec-title">從產地到餐桌<br><em>品牌體驗</em>的完整詮釋</div>
+      <div class="brand-main-title">鵝之鄉</div>
+      <div class="brand-sub-title">Goose's Hometown</div>
+      <div class="brand-mid-title">從產地到餐桌品牌體驗的完整詮釋</div>
       <div class="gold-line"></div>
-      <p class="body-text" style="max-width:520px;">欣饌食品旗下消費品牌。生鮮、冷凍、熟食三線並行，讓台灣鵝肉走入每個人的生活。線上商城直送到府，研發中的鵝肉香腸與香蔥水餃，讓鵝肉不只是傳統。</p>
+      <p class="body-text">鵝之鄉是欣饌食品股份有限公司旗下的消費品牌，以義昌食品的生肉供應鏈為根基，打造從產地直達餐桌的完整品牌體驗。生鮮、冷凍、熟食三線並行，茶鵝與貢丸已正式上市，年度新品鵝肉香腸與香蔥水餃目前積極研發中，讓傳統台灣鵝肉走出新面貌，進入每一個家庭的日常餐桌。</p>
     </div>
 
     <div class="sv-card reveal" style="margin-top:2.5rem;">
@@ -566,7 +621,6 @@ a.design-by b{color:var(--gold);opacity:.5;}
         <div class="sv-eyebrow">Products · 產品線</div>
         <div class="sv-name">生鮮 × 冷凍 × 熟食</div>
         <div class="sv-desc">茶鵝、貢丸已上市。年度研發：鵝肉香腸、香蔥水餃——市場少見的差異化鵝肉加工品，傳統產業的新面貌。</div>
-        <a href="./goose/" class="sv-link">鵝之鄉品牌詳細介紹 →</a>
       </div>
     </div>
 
@@ -577,77 +631,54 @@ a.design-by b{color:var(--gold);opacity:.5;}
         <div class="sv-eyebrow">Online Shop · 線上商城</div>
         <div class="sv-name">官網直購・宅配到府</div>
         <div class="sv-desc">不用出門，產地品質直送。掃碼進入官方商城，選購生鮮冷凍與熟食產品。</div>
-        <a href="https://www.sin-jhuan.com.tw/tw" target="_blank" class="sv-link"
-          onclick="gtag('event','click_web',{'event_category':'CTA','event_label':'yichang-food'});">前往線上商城 →</a>
       </div>
     </div>
 
-    <div style="display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem;" class="reveal">
-      <a href="https://www.facebook.com/profile.php?id=61576815942019" target="_blank" class="cert-badge" style="text-decoration:none;">Facebook</a>
-      <a href="https://www.instagram.com/honey.teagoose/" target="_blank" class="cert-badge" style="text-decoration:none;">Instagram</a>
-      <a href="https://www.threads.com/@honey.teagoose" target="_blank" class="cert-badge" style="text-decoration:none;">Threads</a>
-      <a href="https://lin.ee/ncbOGht" target="_blank" class="cert-badge" style="text-decoration:none;">LINE 官方</a>
+    <!-- IG embed -->
+    <div class="ig-embeds reveal">
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DWBaCJJlveC/?utm_source=ig_embed&utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:100%;min-width:280px;padding:0;width:99.375%;"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DXI8DxeGBOv/?utm_source=ig_embed&utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:100%;min-width:280px;padding:0;width:99.375%;"></blockquote>
     </div>
-  </div>
-</section>
 
-<!-- ④ 品牌跳轉 CTA · bg-light -->
-<section class="brand-cta bg-light" id="explore">
-  <div class="sec-inner">
-    <div style="max-width:var(--mw);margin:0 auto;padding:var(--sp);">
-      <div class="reveal" style="text-align:center;margin-bottom:3rem;">
-        <span class="eyebrow">Explore · 深入了解</span>
-        <div class="sec-title">選擇你想了解的品牌</div>
-        <div class="gold-line" style="margin:1.4rem auto 0;"></div>
-      </div>
-      <div class="wrap" style="padding:0;">
-        <div class="cta-card bg-dark reveal">
-          <div class="cta-eyebrow">Yi Chang Food</div>
-          <div class="cta-title">義昌食品</div>
-          <div class="cta-desc" style="color:rgba(255,255,255,.55);">台灣鴨鵝生肉產業鏈<br>電宰廠供應・ISO三重認證</div>
-          <a href="./yichang/" class="cta-btn cta-btn-dark">進入義昌食品 →</a>
-        </div>
-        <div class="cta-card bg-dark reveal">
-          <div class="cta-eyebrow">Goose's Hometown</div>
-          <div class="cta-title">鵝之鄉</div>
-          <div class="cta-desc" style="color:rgba(255,255,255,.55);">從產地到餐桌的品牌體驗<br>生鮮・冷凍・熟食・線上商城</div>
-          <a href="./goose/" class="cta-btn cta-btn-dark">進入鵝之鄉 →</a>
-        </div>
-      </div>
+    <div class="sec-cta reveal">
+      <a href="https://lin.ee/ncbOGht" target="_blank" class="sec-btn fill"
+        onclick="gtag('event','click_line',{'event_category':'CTA','event_label':'yichang-food'});">官方 LINE 諮詢｜LINE@</a>
+      <a href="https://www.sin-jhuan.com.tw/tw/product" target="_blank" class="sec-btn fill"
+        onclick="gtag('event','click_web',{'event_category':'CTA','event_label':'yichang-food'});">鵝之鄉線上商城｜Online Shop</a>
+      <a href="https://www.facebook.com/profile.php?id=61576815942019" target="_blank" class="sec-btn ghost"
+        onclick="gtag('event','click_facebook',{'event_category':'CTA','event_label':'yichang-food'});">關注鵝之鄉｜Facebook</a>
+      <a href="https://maps.app.goo.gl/tztAEk2Mt3LpbFHN8" target="_blank" class="sec-btn ghost"
+        onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'yichang-food'});">拜訪鵝之鄉｜Visit us</a>
+    </div>
+
+    <div class="brand-info-footer reveal">
+      鵝之鄉｜欣饌食品股份有限公司<br>
+      統編 54541904<br>
+      雲林縣土庫鎮東平里15鄰36-12號2樓
     </div>
   </div>
 </section>
 
-<!-- ⑤ 聯絡地圖 · bg-dark -->
+<!-- ④ 拜訪義昌 & 鵝之鄉 · bg-dark -->
 <section class="location-sec bg-dark" id="location">
   <div class="sec-inner wrap">
     <div class="reveal">
-      <span class="eyebrow">Contact · 聯絡我們</span>
-      <div class="sec-title">兩大廠區</div>
+      <span class="eyebrow">Visit Us · 拜訪我們</span>
+      <div class="sec-title">拜訪義昌 &amp; 鵝之鄉</div>
       <div class="gold-line"></div>
+      <p class="body-text" style="margin-bottom:2.5rem;">義昌食品（一樓電宰廠）與鵝之鄉品牌（二樓）位於同一廠區，歡迎來訪洽詢合作。</p>
     </div>
-    <div class="loc-grid reveal">
-      <div class="loc-card">
-        <div class="loc-map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.8758704118113!2d120.3622554!3d23.716126399999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ebaa100000001%3A0xbe94d731eda8d8c5!2z576p5piM5bGg5a6w5aC0!5e0!3m2!1szh-TW!2stw!4v1776744132668!5m2!1szh-TW!2stw" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="義昌食品地圖"></iframe>
-        </div>
-        <div class="loc-info">
-          <div class="loc-brand">義昌食品股份有限公司</div>
-          <div class="loc-row"><span class="loc-lbl">地址</span><span>633 雲林縣土庫鎮新光路36之12號</span></div>
-          <div class="loc-row"><span class="loc-lbl">市話</span><a href="tel:0566653832" onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'yichang-food'});">05-665-3832</a></div>
-          <div class="loc-row"><span class="loc-lbl">手機</span><a href="tel:0978090131" onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'yichang-food'});">0978-090131</a></div>
-        </div>
+    <div class="loc-card reveal" style="max-width:560px;margin:0 auto;">
+      <div class="loc-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.771548050175!2d120.35942547580957!3d23.7198508899476!2m3!1f0!2f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ebbd262a2f5bb%3A0x5c9fbd7b50ba2014!2z6bWd5LmL6YSJ54WZ54e76Jyc6Iy26bWd772c6Zuy5p6X6Iy26bWd5o6o6Jam772c5Zyf5bqr6bWd6IKJ576O6aOf772c6Zuy5p6X5Ly05omL56au!5e0!3m2!1szh-TW!2stw!4v1776743791814!5m2!1szh-TW!2stw" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="義昌食品 × 鵝之鄉地圖"></iframe>
       </div>
-      <div class="loc-card">
-        <div class="loc-map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.771548050175!2d120.35942547580957!3d23.7198508899476!2m3!1f0!2f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ebbd262a2f5bb%3A0x5c9fbd7b50ba2014!2z6bWd5LmL6YSJ54WZ54e76Jyc6Iy26bWd772c6Zuy5p6X6Iy26bWd5o6o6Jam772c5Zyf5bqr6bWd6IKJ576O6aOf772c6Zuy5p6X5Ly05omL56au!5e0!3m2!1szh-TW!2stw!4v1776743791814!5m2!1szh-TW!2stw" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="鵝之鄉地圖"></iframe>
-        </div>
-        <div class="loc-info">
-          <div class="loc-brand">欣饌食品（鵝之鄉）</div>
-          <div class="loc-row"><span class="loc-lbl">地址</span><span>雲林縣土庫鎮東平里15鄰36-12號2樓</span></div>
-          <div class="loc-row"><span class="loc-lbl">LINE</span><a href="https://lin.ee/ncbOGht" target="_blank" style="color:var(--gold);">鵝之鄉官方</a></div>
-          <div class="loc-row"><span class="loc-lbl">官網</span><a href="https://www.sin-jhuan.com.tw/tw" target="_blank" style="color:var(--gold);">sin-jhuan.com.tw</a></div>
-        </div>
+      <div class="loc-info">
+        <div class="loc-brand">義昌食品股份有限公司 × 鵝之鄉</div>
+        <div class="loc-row"><span class="loc-lbl">義昌</span><span>633 雲林縣土庫鎮新光路36之12號（1F）</span></div>
+        <div class="loc-row"><span class="loc-lbl">鵝之鄉</span><span>雲林縣土庫鎮東平里15鄰36-12號2樓（2F）</span></div>
+        <div class="loc-row"><span class="loc-lbl">電話</span><a href="tel:0566653832" onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'yichang-food'});">05-665-3832</a></div>
+        <div class="loc-row"><span class="loc-lbl">手機</span><a href="tel:0978090131" onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'yichang-food'});">0978-090131</a></div>
+        <div class="loc-row"><span class="loc-lbl">LINE</span><a href="https://lin.ee/ncbOGht" target="_blank" style="color:var(--gold);">鵝之鄉官方</a></div>
       </div>
     </div>
   </div>
@@ -656,16 +687,14 @@ a.design-by b{color:var(--gold);opacity:.5;}
 <!-- FOOTER -->
 <footer class="footer bg-dark">
   <div class="f-logo">
-    <img src="./dual-logo.png" alt="義昌食品 × 鵝之鄉" onerror="this.style.display='none'">
+    <img src="./dual-logo.png" alt="義昌食品 × 鵝之鄉" style="mix-blend-mode:screen;" onerror="this.style.display='none'">
   </div>
   <div class="f-sub">義昌食品股份有限公司 × 欣饌食品股份有限公司</div>
   <div class="f-btns">
-    <a href="tel:0978090131" class="f-btn fb"
-      onclick="gtag('event','click_tel_footer',{'event_category':'CTA','event_label':'yichang-food'});">立即來電｜0978-090131</a>
-    <a href="https://lin.ee/ncbOGht" target="_blank" class="f-btn fg"
-      onclick="gtag('event','click_line_footer',{'event_category':'CTA','event_label':'yichang-food'});">LINE 洽詢｜鵝之鄉官方</a>
-    <a href="https://www.sin-jhuan.com.tw/tw" target="_blank" class="f-btn fg"
-      onclick="gtag('event','click_web_footer',{'event_category':'CTA','event_label':'yichang-food'});">官方網站｜sin-jhuan.com.tw</a>
+    <a href="https://line.me/ti/p/K-P3Kuo3iS" target="_blank" class="f-btn fb"
+      onclick="gtag('event','click_line_footer',{'event_category':'CTA','event_label':'yichang-food'});">合作聯繫｜Add LINE</a>
+    <a href="https://maps.app.goo.gl/tztAEk2Mt3LpbFHN8" target="_blank" class="f-btn fg"
+      onclick="gtag('event','click_map_footer',{'event_category':'CTA','event_label':'yichang-food'});">拜訪我們｜Visit Us</a>
   </div>
   <nav class="f-nav">
     <a href="#top">頂端</a>
@@ -680,6 +709,7 @@ a.design-by b{color:var(--gold);opacity:.5;}
 <a class="design-by bg-dark" href="https://linket.app/home" target="_blank">Design by <b>LINKet</b> · linket.app</a>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script async src="//www.instagram.com/embed.js"></script>
 <script>
 function openQrModal(){document.getElementById('qrOverlay').classList.add('open');}
 function closeQrModal(){document.getElementById('qrOverlay').classList.remove('open');}
