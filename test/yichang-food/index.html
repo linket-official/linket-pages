@@ -5,7 +5,8 @@
   義昌食品 × 鵝之鄉｜主理人登場頁
   slug: test/yichang-food
   v1.0  2026-04-21  初版建置（三頁架構 Page 1）
-  v1.1  2026-04-21  全區修正：思源黑體、深淺bg-img分開、hero修正、義昌/鵝之鄉區重整、第四區刪除、footer更新
+  v1.1  2026-04-21  全區修正：思源黑體、深淺bg-img分開、Hero/各區大量修正
+  v1.3  2026-04-22  Hero 第一區 UI 對齊 Canva 稿：portrait 白框圓形、BNI 紅色膠囊、icons 改白底圓形+順序 LINE/phone/web/mail/map、slogan 移右欄加引號、左欄移除 hero-name-en、右欄加公司資訊小字
   設計：LINKet by Tony Design Studio
 -->
 <meta charset="UTF-8">
@@ -22,19 +23,19 @@
 <link rel="icon" href="./favicon.png">
 <link rel="apple-touch-icon" href="./favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
 /* ── TOKENS ── */
 :root{
-  --dark:#0d1d60;
-  --dark2:#1a2d80;
+  --dark:#011627;
+  --dark2:#0a2540;
   --light:#fffce8;
   --light2:#fff8d4;
   --gold:#C8A870;
   --gold2:#DDB86A;
   --white:#ffffff;
-  --ink:#0d1d60;
+  --ink:#011627;
   --ink2:rgba(13,29,96,.65);
   --r:6px;
   --mw:860px;
@@ -43,7 +44,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{
-  font-family:'Noto Sans TC',sans-serif;font-weight:400;
+  font-family:'Noto Serif TC',serif;font-weight:400;
   background:var(--dark);color:var(--white);
   line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden;
   font-size:16px;
@@ -136,15 +137,6 @@ img{max-width:100%;display:block;}
 }
 @media(max-width:600px){.hero-bg-img{object-position:50% 20%;}}
 .hero .sec-inner{flex:1;display:flex;flex-direction:column;justify-content:center;}
-.hero-wm{
-  position:absolute;inset:0;z-index:0;overflow:hidden;
-  display:flex;align-items:center;justify-content:center;pointer-events:none;
-}
-.hero-wm span{
-  font-family:'Cormorant Garamond',serif;font-weight:600;
-  font-size:clamp(5rem,15vw,14rem);letter-spacing:.12em;
-  color:var(--white);opacity:.04;white-space:nowrap;text-transform:uppercase;
-}
 .hero-cols{display:flex;flex-direction:row;align-items:stretch;min-height:80svh;}
 .hero-left{
   flex:1 1 0;display:flex;flex-direction:column;
@@ -152,12 +144,7 @@ img{max-width:100%;display:block;}
   padding:3.5rem 2rem;gap:1.5rem;text-align:center;
   border-right:1px solid rgba(200,168,112,.15);position:relative;
 }
-.hero-left::before,.hero-left::after{
-  content:'';position:absolute;width:20px;height:20px;
-  border-color:rgba(200,168,112,.25);border-style:solid;
-}
-.hero-left::before{top:16px;left:16px;border-width:1px 0 0 1px;}
-.hero-left::after{bottom:16px;right:16px;border-width:0 1px 1px 0;}
+
 /* Logo 300×120 黑底用 mix-blend-mode:screen 去黑底 */
 .hero-logo{width:300px;margin:0 auto;}
 .hero-logo img{width:300px;height:120px;object-fit:contain;mix-blend-mode:screen;filter:brightness(1.1);}
@@ -167,50 +154,62 @@ img{max-width:100%;display:block;}
   display:flex;align-items:center;justify-content:center;
   font-size:.85rem;letter-spacing:.12em;color:rgba(255,255,255,.3);
 }
-/* 主理人：400×533 黑底去背，無外框 */
-.hero-portrait{width:130px;overflow:hidden;margin:0 auto;}
+/* 主理人：白色圓形外框，去黑底 */
+.hero-portrait{
+  width:160px;height:160px;border-radius:50%;overflow:hidden;
+  border:3px solid rgba(255,255,255,.85);
+  margin:0 auto;background:rgba(255,255,255,.05);
+  box-shadow:0 0 0 6px rgba(255,255,255,.1);
+}
 .hero-portrait img{
-  width:130px;height:173px;object-fit:cover;object-position:top center;
+  width:100%;height:100%;object-fit:cover;object-position:top center;
   display:block;mix-blend-mode:screen;filter:brightness(1.05);
 }
 .hero-portrait-ph{
-  width:130px;height:173px;margin:0 auto;
-  border:1px dashed rgba(200,168,112,.3);
+  width:160px;height:160px;border-radius:50%;margin:0 auto;
+  border:2px dashed rgba(200,168,112,.3);
   display:flex;align-items:center;justify-content:center;
   font-size:.85rem;color:rgba(255,255,255,.25);
 }
-/* BNI badge */
+/* BNI 紅色膠囊 */
 .hero-bni{
-  display:flex;align-items:center;justify-content:center;gap:.5rem;
-  font-size:.8rem;letter-spacing:.12em;color:var(--gold);opacity:.8;margin-top:-.5rem;
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:#CC0000;border-radius:20px;
+  padding:.3rem .9rem;font-size:.75rem;letter-spacing:.1em;
+  color:#fff;font-weight:700;
 }
-.hero-bni-icon{
-  width:18px;height:18px;border-radius:50%;background:var(--gold);
-  display:flex;align-items:center;justify-content:center;
-  font-size:.5rem;font-weight:700;color:var(--dark);flex-shrink:0;
+.hero-bni-icon{font-style:italic;font-family:'Cormorant Garamond',serif;font-size:.9rem;letter-spacing:0;}
+.hero-role{
+  font-size:.8rem;letter-spacing:.25em;color:var(--gold);opacity:.8;
+  display:flex;align-items:center;gap:.6rem;justify-content:center;
 }
-.hero-role{font-size:1rem;letter-spacing:.3em;color:var(--gold);opacity:.7;}
-.hero-name{font-size:clamp(1.4rem,4vw,2rem);font-weight:700;letter-spacing:.35em;color:var(--white);}
+.hero-role::before,.hero-role::after{content:'';width:1.5rem;height:1px;background:var(--gold);opacity:.4;}
+.hero-name{font-size:clamp(1.6rem,4.5vw,2.2rem);font-weight:700;letter-spacing:.4em;color:var(--white);}
 .hero-name-en{font-family:'Cormorant Garamond',serif;font-size:1rem;letter-spacing:.2em;color:rgba(255,255,255,.4);}
-.hero-slogan{font-size:.9rem;letter-spacing:.12em;color:rgba(255,255,255,.5);}
+.hero-slogan{
+  font-size:.9rem;letter-spacing:.15em;color:rgba(255,255,255,.7);
+  border:1px solid rgba(255,255,255,.15);border-radius:4px;
+  padding:.5rem 1.2rem;
+}
 .hero-tags{display:flex;justify-content:center;gap:.4rem;flex-wrap:wrap;}
-.hero-tag{font-size:.85rem;letter-spacing:.06em;color:var(--gold);border:1px solid rgba(200,168,112,.28);border-radius:20px;padding:.25rem .75rem;}
+.hero-tag{font-size:.8rem;letter-spacing:.06em;color:var(--gold);border:1px solid rgba(200,168,112,.28);border-radius:20px;padding:.25rem .75rem;}
 /* 右欄 */
 .hero-right{
   flex:1 1 0;display:flex;flex-direction:column;
   align-items:center;justify-content:center;padding:3rem 2rem;min-width:0;
 }
-.hero-icons{display:flex;justify-content:center;gap:1.2rem;margin-bottom:2rem;flex-wrap:wrap;}
+.hero-icons{display:flex;justify-content:center;gap:1rem;margin-bottom:1.8rem;flex-wrap:wrap;}
 .hero-icon-link{
   width:50px;height:50px;display:flex;align-items:center;justify-content:center;
-  background:transparent;border:none;border-radius:0;transition:opacity .2s,transform .2s;
+  background:rgba(255,255,255,.9);border:none;border-radius:50%;
+  transition:opacity .2s,transform .2s;
 }
-.hero-icon-link:hover{opacity:.7;transform:scale(1.08);}
-.hero-icon-link img{width:38px;height:38px;display:block;}
+.hero-icon-link:hover{opacity:.8;transform:scale(1.08);}
+.hero-icon-link img{width:28px;height:28px;display:block;filter:brightness(0);}
 .hero-btn{
   display:flex;align-items:center;justify-content:center;
   width:100%;max-width:300px;
-  font-family:'Noto Sans TC',sans-serif;font-weight:700;font-size:1rem;
+  font-family:'Noto Serif TC',serif;font-weight:700;font-size:1rem;
   letter-spacing:.08em;padding:1rem 1rem;
   transition:all .22s;cursor:pointer;border-radius:100px;
   margin-bottom:1.5rem;opacity:0;animation:fadeUp .6s ease both;
@@ -233,7 +232,7 @@ img{max-width:100%;display:block;}
   background:rgba(200,168,112,.05);border:1px dashed rgba(200,168,112,.2);
   color:rgba(255,255,255,.45);font-size:.85rem;letter-spacing:.08em;
   padding:.7rem .4rem;border-radius:100px;cursor:pointer;
-  font-family:'Noto Sans TC',sans-serif;transition:all .2s;
+  font-family:'Noto Serif TC',serif;transition:all .2s;
 }
 .btn-sm:hover{border-color:var(--gold);color:var(--gold);}
 .btn-sm.share{display:none;}
@@ -323,7 +322,7 @@ img{max-width:100%;display:block;}
 .sec-btn{
   display:flex;align-items:center;justify-content:center;
   padding:1rem 1.4rem;border-radius:100px;
-  font-family:'Noto Sans TC',sans-serif;font-weight:700;font-size:1rem;
+  font-family:'Noto Serif TC',serif;font-weight:700;font-size:1rem;
   letter-spacing:.08em;transition:all .22s;
 }
 .bg-dark .sec-btn.fill{background:var(--gold);color:var(--dark);border:1px solid transparent;}
@@ -409,7 +408,6 @@ a.design-by b{color:var(--gold);opacity:.5;}
 <!-- ① HERO · bg-dark -->
 <section class="hero bg-dark" id="top">
   <img src="./yichang-hero-bg.jpg" class="hero-bg-img" alt="" aria-hidden="true" onerror="this.style.display='none'">
-  <div class="hero-wm"><span>GOOSE'S HOMETOWN</span></div>
   <div class="sec-inner">
     <div style="max-width:var(--mw);margin:0 auto;padding:1rem 1.6rem;">
       <div class="hero-cols">
@@ -417,19 +415,17 @@ a.design-by b{color:var(--gold);opacity:.5;}
         <!-- 左欄 -->
         <div class="hero-left">
           <div class="hero-logo">
-            <img src="./dual-logo.png" alt="義昌食品 × 鵝之鄉" onerror="this.parentElement.innerHTML='<div class=\'hero-logo-ph\'>義昌食品 × 鵝之鄉</div>'">
+            <img src="./dual-logo.svg" alt="義昌食品 × 鵝之鄉" onerror="this.parentElement.innerHTML='<div class=\'hero-logo-ph\'>義昌食品 × 鵝之鄉</div>'">
           </div>
           <div class="hero-portrait">
             <img src="./huang-portrait.png" alt="黃俊賢 總經理" onerror="this.parentElement.outerHTML='<div class=\'hero-portrait-ph\'>照片待補</div>'">
           </div>
-          <div class="hero-role">總 經 理</div>
+          <div class="hero-role">PRESIDENT｜總經理</div>
           <div class="hero-name">黃 俊 賢</div>
-          <div class="hero-name-en">Jason Huang</div>
           <div class="hero-bni">
-            <span class="hero-bni-icon">B</span>
-            BNI 雲榮 Yun Rong 分會
+            <img src="./bni-badge.svg" alt="BNI 雲榮分會" style="height:22px;width:auto;display:inline-block;" onerror="this.outerHTML='<span class=\'hero-bni-icon\'>BNI</span>'">
+            雲榮 YUN RONG 分會
           </div>
-          <div class="hero-slogan">台灣鵝肉・品質溯源・安心直送</div>
           <div class="hero-tags">
             <span class="hero-tag">#生鮮鵝肉</span>
             <span class="hero-tag">#土庫鵝肉美食</span>
@@ -440,13 +436,17 @@ a.design-by b{color:var(--gold);opacity:.5;}
         <!-- 右欄 -->
         <div class="hero-right">
           <div class="hero-icons">
+            <a class="hero-icon-link" href="https://line.me/ti/p/K-P3Kuo3iS" target="_blank" aria-label="LINE"
+              onclick="gtag('event','click_line',{'event_category':'CTA','event_label':'yichang-food'});">
+              <img src="/assets/line.svg" alt="LINE" onerror="this.style.display='none'">
+            </a>
             <a class="hero-icon-link" href="tel:0978090131" aria-label="手機"
               onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'yichang-food'});">
               <img src="/assets/phone.svg" alt="Phone" onerror="this.style.display='none'">
             </a>
-            <a class="hero-icon-link" href="https://line.me/ti/p/K-P3Kuo3iS" target="_blank" aria-label="LINE"
-              onclick="gtag('event','click_line',{'event_category':'CTA','event_label':'yichang-food'});">
-              <img src="/assets/line.svg" alt="LINE" onerror="this.style.display='none'">
+            <a class="hero-icon-link" href="https://www.sin-jhuan.com.tw/tw" target="_blank" aria-label="官網"
+              onclick="gtag('event','click_web',{'event_category':'CTA','event_label':'yichang-food'});">
+              <img src="/assets/web.svg" alt="Web" onerror="this.style.display='none'">
             </a>
             <a class="hero-icon-link" href="mailto:p28789871@gmail.com" aria-label="Email"
               onclick="gtag('event','click_mail',{'event_category':'CTA','event_label':'yichang-food'});">
@@ -457,6 +457,7 @@ a.design-by b{color:var(--gold);opacity:.5;}
               <img src="/assets/map.svg" alt="Map" onerror="this.style.display='none'">
             </a>
           </div>
+          <div class="hero-slogan">「台灣鵝肉・品質溯源・安心直送」</div>
           <a href="https://line.me/ti/p/K-P3Kuo3iS" target="_blank" class="hero-btn p1"
             onclick="gtag('event','click_line',{'event_category':'CTA','event_label':'yichang-food'});">加入好友｜LINE Me</a>
           <a href="#yichang-intro" class="hero-btn p1">義昌食品｜生鮮肉品直輸</a>
@@ -465,6 +466,10 @@ a.design-by b{color:var(--gold);opacity:.5;}
           <div class="hero-btn-row">
             <button class="btn-sm" onclick="openQrModal();gtag('event','click_qr_modal',{'event_category':'CTA','event_label':'yichang-food'});">QR CODE</button>
             <button class="btn-sm share" id="shareBtn">SHARE</button>
+          </div>
+          <div style="margin-top:1.8rem;font-size:.75rem;letter-spacing:.08em;color:rgba(255,255,255,.35);text-align:center;line-height:2;">
+            義昌食品股份有限公司｜統編 28789871<br>
+            鵝之鄉｜欣饌食品股份有限公司｜統編 54541904
           </div>
         </div>
 
@@ -477,7 +482,7 @@ a.design-by b{color:var(--gold);opacity:.5;}
 <div class="qr-overlay" id="qrOverlay" onclick="closeQrModal()">
   <div class="qr-box" onclick="event.stopPropagation()">
     <div class="qr-logo">
-      <img src="./dual-logo.png" alt="義昌食品 × 鵝之鄉" onerror="this.style.display='none'">
+      <img src="./dual-logo.svg" alt="義昌食品 × 鵝之鄉" onerror="this.style.display='none'">
     </div>
     <div id="qrcode"></div>
     <div class="qr-url">linket.app/test/yichang-food</div>
@@ -687,7 +692,7 @@ a.design-by b{color:var(--gold);opacity:.5;}
 <!-- FOOTER -->
 <footer class="footer bg-dark">
   <div class="f-logo">
-    <img src="./dual-logo.png" alt="義昌食品 × 鵝之鄉" style="mix-blend-mode:screen;" onerror="this.style.display='none'">
+    <img src="./dual-logo.svg" alt="義昌食品 × 鵝之鄉" style="mix-blend-mode:screen;" onerror="this.style.display='none'">
   </div>
   <div class="f-sub">義昌食品股份有限公司 × 欣饌食品股份有限公司</div>
   <div class="f-btns">
@@ -715,7 +720,7 @@ function openQrModal(){document.getElementById('qrOverlay').classList.add('open'
 function closeQrModal(){document.getElementById('qrOverlay').classList.remove('open');}
 new QRCode(document.getElementById('qrcode'),{
   text:'https://linket.app/test/yichang-food',
-  width:160,height:160,colorDark:'#0d1d60',colorLight:'#ffffff',
+  width:160,height:160,colorDark:'#011627',colorLight:'#ffffff',
   correctLevel:QRCode.CorrectLevel.M
 });
 if(navigator.share){
