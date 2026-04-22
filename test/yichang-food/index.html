@@ -12,7 +12,6 @@
   v1.5  2026-04-22  UI 精修：金色 #C9A84C、portrait 放大 200px+glow、名字放大、按鈕寬/letter-spacing/margin 縮、ghost 改白框、slogan 去邊框、icon gap 縮、BNI 字大
   v1.6  2026-04-22  bg 圖透明度修正、icon 改透明底 42px 原色、全區按鈕圓角 8px、portrait 去框直接 PNG 220px、Logo 寬 310px、slogan margin 20px、QR logo 放大+遮罩 0.4、義昌/鵝之鄉標題排版、stat 字大+font-weight:500、cert-badge 金底白字、地圖 iframe 更新
   v1.7  2026-04-22  BNI 改純 SVG img 去文字+紅底色塊、icon 透明底原色 filter:none、hero-left min-width:320px hashtag 不換行、地圖改 bg-light、footer fg 按鈕金框金字、design-by 白字深藍底
-  v1.8  2026-04-22  portrait 徹底移除外框（border:none,border-radius:0,box-shadow:none）、BNI SVG width:150px 無外框
   設計：LINKet by Tony Design Studio
 -->
 <meta charset="UTF-8">
@@ -186,11 +185,10 @@ img{max-width:100%;display:block;}
 }
 .hero-role::before,.hero-role::after{content:'';width:1.5rem;height:1px;background:var(--gold);opacity:.4;}
 .hero-name{font-size:clamp(1.6rem,4.5vw,2.2rem);font-weight:700;letter-spacing:.4em;color:var(--white);}
-.hero-name-en{font-family:'Cormorant Garamond',serif;font-size:1rem;letter-spacing:.2em;color:rgba(255,255,255,.4);}
+.hero-name-en{font-family:'Cormorant Garamond',serif;font-size:1.5rem;letter-spacing:.2em;color:rgba(255,255,255,.4);}
 .hero-slogan{
   font-size:.9rem;letter-spacing:.15em;color:rgba(255,255,255,.7);
-  border:1px solid rgba(255,255,255,.15);border-radius:4px;
-  padding:.5rem 1.2rem;
+  padding:.5rem 1.2rem; margin:1rem;
 }
 .hero-tags{display:flex;justify-content:center;gap:.4rem;flex-wrap:wrap;}
 .hero-tag{font-size:.78rem;letter-spacing:.04em;color:var(--gold);border:1px solid rgba(200,168,112,.28);border-radius:20px;padding:.25rem .6rem;white-space:nowrap;}
@@ -201,7 +199,7 @@ img{max-width:100%;display:block;}
 }
 .hero-icons{display:flex;justify-content:center;gap:1rem;margin-bottom:1rem;flex-wrap:wrap;width:100%;}
 .hero-icon-link{
-  width:50px;height:50px;display:flex;align-items:center;justify-content:center;
+  width:45px;height:45px;display:flex;align-items:center;justify-content:center;
   text-decoration:none;transition:opacity .2s,transform .2s;flex-shrink:0;
   border-radius:0;background:transparent;border:none;
 }
@@ -560,7 +558,7 @@ a.design-by b{color:var(--white);font-weight:700;}
 
     <div class="sec-cta reveal">
       <a href="tel:0566653832" class="sec-btn fill"
-        onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'yichang-food'});">電話連繫｜Contact us 05-665-3832</a>
+        onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'yichang-food'});">電話連繫｜Contact us</a>
       <a href="https://maps.app.goo.gl/aTXjxiMZK2evB35y7" target="_blank" class="sec-btn ghost"
         onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'yichang-food'});">拜訪義昌｜Visit us</a>
     </div>
