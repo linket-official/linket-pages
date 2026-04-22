@@ -6,7 +6,12 @@
   slug: test/yichang-food
   v1.0  2026-04-21  初版建置（三頁架構 Page 1）
   v1.1  2026-04-21  全區修正：思源黑體、深淺bg-img分開、Hero/各區大量修正
-  v1.3  2026-04-22  Hero 第一區 UI 對齊 Canva 稿：portrait 白框圓形、BNI 紅色膠囊、icons 改白底圓形+順序 LINE/phone/web/mail/map、slogan 移右欄加引號、左欄移除 hero-name-en、右欄加公司資訊小字
+  v1.2  2026-04-22  字體修正：全域 Noto Sans TC → Noto Serif TC（思源宋體）
+  v1.3  2026-04-22  Hero UI 對齊 Canva 稿：portrait 白框圓形、BNI 紅色膠囊、icons 白底圓形、slogan 移右欄、公司資訊小字
+  v1.4  2026-04-22  dual-logo 改 SVG、深色底改 #011627、移除 Hero 浮水印與角落裝飾框、BNI 改 SVG img 佔位
+  v1.5  2026-04-22  UI 精修：金色 #C9A84C、portrait 放大 200px+glow、名字放大、按鈕寬/letter-spacing/margin 縮、ghost 改白框、slogan 去邊框、icon gap 縮、BNI 字大
+  v1.6  2026-04-22  bg 圖透明度修正、icon 改透明底 42px 原色、全區按鈕圓角 8px、portrait 去框直接 PNG 220px、Logo 寬 310px、slogan margin 20px、QR logo 放大+遮罩 0.4、義昌/鵝之鄉標題排版、stat 字大+font-weight:500、cert-badge 金底白字、地圖 iframe 更新
+  v1.7  2026-04-22  BNI 改純 SVG img 去文字+紅底色塊、icon 透明底原色 filter:none、hero-left min-width:320px hashtag 不換行、地圖改 bg-light、footer fg 按鈕金框金字、design-by 白字深藍底
   設計：LINKet by Tony Design Studio
 -->
 <meta charset="UTF-8">
@@ -157,27 +162,21 @@ img{max-width:100%;display:block;}
 }
 /* 主理人：白色圓形外框，去黑底 */
 .hero-portrait{
-  width:160px;height:160px;border-radius:50%;overflow:hidden;
-  border:3px solid rgba(255,255,255,.85);
-  margin:0 auto;background:rgba(255,255,255,.05);
-  box-shadow:0 0 0 6px rgba(255,255,255,.1);
+  width:220px;margin:0 auto;
+  border:none;border-radius:0;overflow:visible;
+  background:transparent;box-shadow:none;
 }
 .hero-portrait img{
-  width:100%;height:100%;object-fit:cover;object-position:top center;
+  width:100%;height:auto;
   display:block;mix-blend-mode:screen;filter:brightness(1.05);
 }
 .hero-portrait-ph{
-  width:160px;height:160px;border-radius:50%;margin:0 auto;
-  border:2px dashed rgba(200,168,112,.3);
+  width:220px;height:160px;margin:0 auto;
   display:flex;align-items:center;justify-content:center;
   font-size:.85rem;color:rgba(255,255,255,.25);
 }
-/* BNI 紅色膠囊 */
-.hero-bni{
-  display:inline-flex;align-items:center;gap:.5rem;
-  background:#CC0000;border-radius:20px;
-  padding:.3rem .9rem;font-size:.75rem;letter-spacing:.1em;
-  color:#fff;font-weight:700;
+/* BNI SVG */
+.hero-bni{display:flex;align-items:center;justify-content:center;background:none;border:none;padding:0;}
 }
 .hero-bni-icon{font-style:italic;font-family:'Cormorant Garamond',serif;font-size:.9rem;letter-spacing:0;}
 .hero-role{
@@ -424,7 +423,7 @@ a.design-by b{color:var(--white);font-weight:700;}
           </div>
           <div class="hero-role">PRESIDENT｜總經理</div>
           <div class="hero-name">黃 俊 賢</div>
-          <div class="hero-bni"><img src="./bni-badge.svg" alt="BNI 雲榮分會" style="height:36px;width:auto;display:block;" onerror="this.style.display='none'"></div>
+          <div class="hero-bni"><img src="./bni-badge.svg" alt="BNI 雲榮分會" style="width:150px;height:auto;display:block;border:none;outline:none;" onerror="this.style.display='none'"></div>
           <div class="hero-tags">
             <span class="hero-tag">#生鮮鵝肉</span>
             <span class="hero-tag">#土庫鵝肉美食</span>
