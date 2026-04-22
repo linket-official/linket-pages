@@ -64,7 +64,7 @@ img{max-width:100%;display:block;}
   background-size:cover;background-position:center;
   background-attachment:local;
   pointer-events:none;
-  opacity:.45;filter:grayscale(.1) brightness(.6);
+  opacity:.12;filter:grayscale(.3) brightness(.5);
 }
 .bg-light::before{
   content:'';position:absolute;inset:0;z-index:0;
@@ -72,7 +72,7 @@ img{max-width:100%;display:block;}
   background-size:cover;background-position:center;
   background-attachment:local;
   pointer-events:none;
-  opacity:.35;filter:grayscale(.1) brightness(1.0);
+  opacity:.08;filter:grayscale(.2) brightness(1.2);
 }
 
 .sec-inner{position:relative;z-index:1;}
@@ -83,9 +83,9 @@ img{max-width:100%;display:block;}
 .bg-dark .sec-title{color:var(--white);}
 .bg-dark .body-text{color:rgba(255,255,255,.75);}
 .bg-dark .gold-line{background:var(--gold);}
-.bg-dark .btn-fill{background:var(--gold);color:var(--dark);border:1px solid transparent;border-radius:8px;}
+.bg-dark .btn-fill{background:var(--gold);color:var(--dark);border:1px solid transparent;border-radius:100px;}
 .bg-dark .btn-fill:hover{background:var(--gold2);}
-.bg-dark .btn-ghost{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,.35);border-radius:8px;}
+.bg-dark .btn-ghost{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,.35);border-radius:100px;}
 .bg-dark .btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
 
 /* ── 淺色底文字規則 ── */
@@ -93,9 +93,9 @@ img{max-width:100%;display:block;}
 .bg-light .sec-title{color:var(--ink);}
 .bg-light .body-text{color:var(--ink2);}
 .bg-light .gold-line{background:var(--gold);}
-.bg-light .btn-fill{background:var(--dark);color:var(--white);border:1px solid transparent;border-radius:8px;}
+.bg-light .btn-fill{background:var(--dark);color:var(--white);border:1px solid transparent;border-radius:100px;}
 .bg-light .btn-fill:hover{background:var(--dark2);}
-.bg-light .btn-ghost{background:transparent;color:var(--ink);border:1px solid rgba(13,29,96,.3);border-radius:8px;}
+.bg-light .btn-ghost{background:transparent;color:var(--ink);border:1px solid rgba(13,29,96,.3);border-radius:100px;}
 .bg-light .btn-ghost:hover{background:var(--dark);color:var(--white);}
 
 /* logo 深淺邏輯 */
@@ -143,11 +143,12 @@ img{max-width:100%;display:block;}
   align-items:center;justify-content:center;
   padding:3.5rem 2rem;gap:1.5rem;text-align:center;
   border-right:1px solid rgba(200,168,112,.15);position:relative;
+  min-width:320px;
 }
 
 /* Logo 300×120 黑底用 mix-blend-mode:screen 去黑底 */
-.hero-logo{width:310px;margin:0 auto;}
-.hero-logo img{width:310px;height:124px;object-fit:contain;mix-blend-mode:screen;filter:brightness(1);}
+.hero-logo{width:300px;margin:0 auto;}
+.hero-logo img{width:300px;height:120px;object-fit:contain;mix-blend-mode:screen;filter:brightness(1.1);}
 .hero-logo-ph{
   width:300px;height:60px;margin:0 auto;
   border:1px dashed rgba(200,168,112,.3);border-radius:var(--r);
@@ -156,17 +157,18 @@ img{max-width:100%;display:block;}
 }
 /* 主理人：白色圓形外框，去黑底 */
 .hero-portrait{
-  width:220px;margin:0 auto;
-  border-radius:0;overflow:visible;
-  border:none;background:transparent;box-shadow:none;
+  width:160px;height:160px;border-radius:50%;overflow:hidden;
+  border:3px solid rgba(255,255,255,.85);
+  margin:0 auto;background:rgba(255,255,255,.05);
+  box-shadow:0 0 0 6px rgba(255,255,255,.1);
 }
 .hero-portrait img{
-  width:100%;height:auto;
+  width:100%;height:100%;object-fit:cover;object-position:top center;
   display:block;mix-blend-mode:screen;filter:brightness(1.05);
 }
 .hero-portrait-ph{
-  width:220px;height:160px;margin:0 auto;
-  border:1px dashed rgba(200,168,112,.3);
+  width:160px;height:160px;border-radius:50%;margin:0 auto;
+  border:2px dashed rgba(200,168,112,.3);
   display:flex;align-items:center;justify-content:center;
   font-size:.85rem;color:rgba(255,255,255,.25);
 }
@@ -186,30 +188,32 @@ img{max-width:100%;display:block;}
 .hero-name{font-size:clamp(1.6rem,4.5vw,2.2rem);font-weight:700;letter-spacing:.4em;color:var(--white);}
 .hero-name-en{font-family:'Cormorant Garamond',serif;font-size:1rem;letter-spacing:.2em;color:rgba(255,255,255,.4);}
 .hero-slogan{
-  font-size:.88rem;letter-spacing:.2em;color:rgba(255,255,255,.55);
-  margin:20px 0;
+  font-size:.9rem;letter-spacing:.15em;color:rgba(255,255,255,.7);
+  border:1px solid rgba(255,255,255,.15);border-radius:4px;
+  padding:.5rem 1.2rem;
 }
-.hero-tags{display:flex;justify-content:center;gap:.4rem;flex-wrap:nowrap;}
-.hero-tag{font-size:.8rem;letter-spacing:.06em;color:var(--gold);border:1px solid rgba(200,168,112,.28);border-radius:20px;padding:.25rem .75rem;}
+.hero-tags{display:flex;justify-content:center;gap:.4rem;flex-wrap:wrap;}
+.hero-tag{font-size:.78rem;letter-spacing:.04em;color:var(--gold);border:1px solid rgba(200,168,112,.28);border-radius:20px;padding:.25rem .6rem;white-space:nowrap;}
 /* 右欄 */
 .hero-right{
   flex:1 1 0;display:flex;flex-direction:column;
   align-items:center;justify-content:center;padding:3rem 2rem;min-width:0;
 }
-.hero-icons{display:flex;justify-content:center;gap:1rem;margin-bottom:1.8rem;flex-wrap:wrap;}
+.hero-icons{display:flex;justify-content:center;gap:1rem;margin-bottom:1rem;flex-wrap:wrap;width:100%;}
 .hero-icon-link{
   width:50px;height:50px;display:flex;align-items:center;justify-content:center;
-  background:rgba(255,255,255,.9);border:none;border-radius:50%;
-  transition:opacity .2s,transform .2s;
+  text-decoration:none;transition:opacity .2s,transform .2s;flex-shrink:0;
+  border-radius:0;background:transparent;border:none;
 }
-.hero-icon-link:hover{opacity:.8;transform:scale(1.08);}
-.hero-icon-link img{width:28px;height:28px;display:block;filter:brightness(0);}
+.hero-icon-link:hover{opacity:.72;transform:scale(1.08);}
+.hero-icon-link img,.hero-icon-link svg{width:42px;height:42px;display:block;filter:none;}
+
 .hero-btn{
   display:flex;align-items:center;justify-content:center;
   width:100%;max-width:300px;
   font-family:'Noto Serif TC',serif;font-weight:700;font-size:1rem;
   letter-spacing:.08em;padding:1rem 1rem;
-  transition:all .22s;cursor:pointer;border-radius:8px;
+  transition:all .22s;cursor:pointer;border-radius:100px;
   margin-bottom:1.5rem;opacity:0;animation:fadeUp .6s ease both;
 }
 .hero-btn:nth-child(2){animation-delay:.1s;}
@@ -229,7 +233,7 @@ img{max-width:100%;display:block;}
   flex:1;display:flex;align-items:center;justify-content:center;
   background:rgba(200,168,112,.05);border:1px dashed rgba(200,168,112,.2);
   color:rgba(255,255,255,.45);font-size:.85rem;letter-spacing:.08em;
-  padding:.7rem .4rem;border-radius:8px;cursor:pointer;
+  padding:.7rem .4rem;border-radius:100px;cursor:pointer;
   font-family:'Noto Serif TC',serif;transition:all .2s;
 }
 .btn-sm:hover{border-color:var(--gold);color:var(--gold);}
@@ -238,14 +242,14 @@ img{max-width:100%;display:block;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
 
 /* ── QR MODAL ── */
-.qr-overlay{display:none;position:fixed;inset:0;z-index:999;background:rgba(1,22,39,.4);backdrop-filter:blur(8px);align-items:center;justify-content:center;}
+.qr-overlay{display:none;position:fixed;inset:0;z-index:999;background:rgba(13,29,96,.93);backdrop-filter:blur(14px);align-items:center;justify-content:center;}
 .qr-overlay.open{display:flex;}
 .qr-box{background:var(--dark2);border:1px solid rgba(200,168,112,.2);border-radius:14px;padding:2.2rem 2rem;text-align:center;max-width:300px;width:90%;}
-.qr-logo{width:270px;margin:0 auto 1rem;}
-.qr-logo img{width:100%;height:auto;mix-blend-mode:screen;filter:brightness(1.1);}
+.qr-logo{width:90px;margin:0 auto 1rem;}
+.qr-logo img{width:100%;height:auto;}
 #qrcode{margin:.6rem auto 1.2rem;}
 .qr-url{font-size:.65rem;letter-spacing:.14em;color:rgba(255,255,255,.35);margin-bottom:1.2rem;}
-.qr-close{cursor:pointer;font-size:.76rem;letter-spacing:.22em;color:var(--gold);border:1px solid rgba(200,168,112,.3);padding:.5rem 1.4rem;border-radius:8px;}
+.qr-close{cursor:pointer;font-size:.76rem;letter-spacing:.22em;color:var(--gold);border:1px solid rgba(200,168,112,.3);padding:.5rem 1.4rem;border-radius:100px;}
 
 /* ── WATERMARK DIVIDER ── */
 .wm-divider{overflow:hidden;border-top:1px solid rgba(200,168,112,.1);border-bottom:1px solid rgba(200,168,112,.1);}
@@ -261,15 +265,14 @@ img{max-width:100%;display:block;}
 
 /* 大字數字 infographic */
 .stat-row{display:flex;flex-wrap:wrap;gap:2.5rem;margin:2.5rem 0;}
-@media(max-width:560px){.stat-row{flex-direction:column;gap:1.5rem;}}
 .stat-item{flex:1 1 120px;}
 .stat-num{
-  font-family:'Cormorant Garamond',serif;font-weight:600;
-  font-size:clamp(3.5rem,9vw,5.5rem);line-height:1;
+  font-family:'Cormorant Garamond',serif;font-weight:600;font-style:italic;
+  font-size:clamp(3rem,8vw,5rem);line-height:1;
   color:var(--gold);letter-spacing:-.01em;
 }
-.stat-label{font-size:1rem;letter-spacing:.15em;margin-top:1.2rem;font-weight:500;}
-.stat-desc{font-size:.9rem;letter-spacing:.04em;line-height:1.8;margin-top:.5rem;font-weight:500;}
+.stat-label{font-size:.85rem;letter-spacing:.2em;margin-top:1.5rem;opacity:.6;}
+.stat-desc{font-size:.85rem;letter-spacing:.04em;line-height:1.8;margin-top:.5rem;opacity:.55;}
 
 /* 服務卡片（全寬圖+文字，仿 sv-card）*/
 .sv-card{border:1px solid rgba(200,168,112,.12);margin-bottom:1.2rem;overflow:hidden;border-radius:var(--r);}
@@ -302,19 +305,19 @@ img{max-width:100%;display:block;}
 
 /* ── 認證條 ── */
 .cert-row{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2rem;}
-.cert-badge{font-size:.85rem;letter-spacing:.12em;background:var(--gold);color:var(--dark);border:none;border-radius:var(--r);padding:.4rem 1.1rem;font-weight:700;}
+.cert-badge{font-size:.85rem;letter-spacing:.15em;border:1px solid rgba(200,168,112,.35);border-radius:var(--r);padding:.4rem 1.1rem;color:var(--gold);}
 
 /* ── 品牌 Logo + icons row ── */
 .brand-logo{width:160px;height:auto;margin:0 auto 1.5rem;}
-.brand-icons{display:flex;justify-content:center;gap:1rem;margin:0 auto 2rem;flex-wrap:wrap;width:100%;}
+.brand-icons{display:flex;justify-content:center;gap:1rem;margin:0 auto 2rem;flex-wrap:wrap;}
 .brand-icon-link{
-  width:50px;height:50px;display:flex;align-items:center;justify-content:center;
-  text-decoration:none;background:transparent;border:none;border-radius:0;transition:opacity .2s,transform .2s;flex-shrink:0;
+  width:44px;height:44px;display:flex;align-items:center;justify-content:center;
+  background:transparent;border:none;border-radius:0;transition:opacity .2s,transform .2s;
 }
-.brand-icon-link:hover{opacity:.72;transform:scale(1.08);}
+.brand-icon-link:hover{opacity:.7;transform:scale(1.08);}
 .brand-icon-link img{width:34px;height:34px;display:block;}
 /* 深色底 icon 白色化，淺色底保持原色 */
-.bg-dark .brand-icon-link img{width:42px;height:42px;display:block;}
+.bg-dark .brand-icon-link img{filter:brightness(0) invert(1);}
 .bg-light .brand-icon-link img{filter:brightness(0);}
 /* ── CTA 按鈕區 ── */
 .sec-cta{display:flex;flex-direction:column;gap:1.2rem;max-width:360px;margin:2.5rem auto 0;}
@@ -373,10 +376,10 @@ img{max-width:100%;display:block;}
   font-family:'Noto Serif TC',serif;font-size:.86rem;font-weight:700;letter-spacing:.14em;
   transition:all .22s;
 }
-.f-btn.fb{background:var(--gold);color:var(--dark);border:1px solid transparent;}
+.f-btn.fb{background:var(--gold);color:var(--dark);border:1px solid transparent;font-weight:700;}
 .f-btn.fb:hover{background:var(--gold2);}
-.f-btn.fg{background:transparent;border:1px solid rgba(200,168,112,.25);color:var(--white);}
-.f-btn.fg:hover{border-color:var(--gold);color:var(--gold);}
+.f-btn.fg{background:transparent;border:1px solid var(--gold);color:var(--gold);}
+.f-btn.fg:hover{background:rgba(200,168,112,.1);}
 .f-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem 1.4rem;margin-bottom:2rem;}
 .f-nav a{font-size:.68rem;letter-spacing:.16em;opacity:.3;}
 .f-nav a:hover{opacity:.7;}
@@ -384,8 +387,8 @@ img{max-width:100%;display:block;}
 
 .back-top{display:block;text-align:center;padding:1.4rem;font-size:.68rem;letter-spacing:.3em;opacity:.22;cursor:pointer;transition:opacity .2s;}
 .back-top:hover{opacity:.6;}
-a.design-by{display:block;text-align:center;padding:1.2rem;font-size:.66rem;letter-spacing:.3em;color:rgba(255,255,255,.1);border-top:1px solid rgba(200,168,112,.08);}
-a.design-by b{color:var(--gold);opacity:.5;}
+a.design-by{display:block;text-align:center;padding:1.2rem;font-size:.66rem;letter-spacing:.3em;color:rgba(255,255,255,.6);background:var(--dark);border-top:1px solid rgba(200,168,112,.15);}
+a.design-by b{color:var(--white);font-weight:700;}
 
 /* ── REVEAL ── */
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .65s,transform .65s;}
@@ -421,10 +424,7 @@ a.design-by b{color:var(--gold);opacity:.5;}
           </div>
           <div class="hero-role">PRESIDENT｜總經理</div>
           <div class="hero-name">黃 俊 賢</div>
-          <div class="hero-bni">
-            <img src="./bni-badge.svg" alt="BNI 雲榮分會" style="height:22px;width:auto;display:inline-block;" onerror="this.outerHTML='<span class=\'hero-bni-icon\'>BNI</span>'">
-            雲榮 YUN RONG 分會
-          </div>
+          <div class="hero-bni"><img src="./bni-badge.svg" alt="BNI 雲榮分會" style="height:36px;width:auto;display:block;" onerror="this.style.display='none'"></div>
           <div class="hero-tags">
             <span class="hero-tag">#生鮮鵝肉</span>
             <span class="hero-tag">#土庫鵝肉美食</span>
@@ -504,12 +504,12 @@ a.design-by b{color:var(--gold);opacity:.5;}
     <div class="reveal" style="text-align:center;">
       <img src="./yichang-logo.svg" alt="義昌食品" class="brand-logo"
         onerror="this.style.display='none'">
-      <div class="brand-main-title" style="margin-top:1.5rem;">義昌食品</div>
-      <div class="brand-sub-title">Yi Chang Food</div>
-      <div class="brand-mid-title" style="margin-top:1rem;">台灣鴨鵝生肉產業鏈的核心供應者</div>
-      <div class="gold-line" style="margin:1.5rem auto;"></div>
     </div>
     <div class="reveal">
+      <div class="brand-main-title">義昌食品</div>
+      <div class="brand-sub-title">Yi Chang Food</div>
+      <div class="brand-mid-title">台灣鴨鵝生肉產業鏈的核心供應者</div>
+      <div class="gold-line"></div>
       <p class="body-text">創立於 2007 年，深耕雲林土庫超過 18 年。義昌食品股份有限公司以合法電宰廠為核心，提供雞、鴨、鵝屠宰、分切及加工一條龍服務。八成以上採代工廠模式，屠宰當日即出貨，零過夜，確保每一份肉品的絕對新鮮。政府駐廠獸醫師每日輪替把關，通過 ISO 9001・ISO 22000・HACCP 三重國際認證，是台灣鴨鵝生肉供應鏈中最值得信賴的合作夥伴。</p>
     </div>
 
@@ -560,7 +560,7 @@ a.design-by b{color:var(--gold);opacity:.5;}
 
     <div class="sec-cta reveal">
       <a href="tel:0566653832" class="sec-btn fill"
-        onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'yichang-food'});">電話連繫｜Contact us</a>
+        onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'yichang-food'});">電話連繫｜Contact us 05-665-3832</a>
       <a href="https://maps.app.goo.gl/aTXjxiMZK2evB35y7" target="_blank" class="sec-btn ghost"
         onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'yichang-food'});">拜訪義昌｜Visit us</a>
     </div>
@@ -587,10 +587,7 @@ a.design-by b{color:var(--gold);opacity:.5;}
     <div class="reveal" style="text-align:center;">
       <img src="./goose-logo.svg" alt="鵝之鄉" class="brand-logo"
         onerror="this.style.display='none'">
-      <div class="brand-main-title" style="margin-top:1.5rem;">鵝之鄉｜欣饌食品股份有限公司</div>
-      <div class="brand-sub-title">Goose's Hometown</div>
-      <div class="gold-line" style="margin:1rem auto;"></div>
-      <div class="brand-icons" style="margin-top:0;">
+      <div class="brand-icons">
         <a class="brand-icon-link" href="https://lin.ee/ncbOGht" target="_blank" aria-label="LINE"
           onclick="gtag('event','click_line',{'event_category':'CTA','event_label':'yichang-food'});">
           <img src="/assets/line.svg" alt="LINE" onerror="this.style.display='none'">
@@ -614,6 +611,8 @@ a.design-by b{color:var(--gold);opacity:.5;}
       </div>
     </div>
     <div class="reveal">
+      <div class="brand-main-title">鵝之鄉</div>
+      <div class="brand-sub-title">Goose's Hometown</div>
       <div class="brand-mid-title">從產地到餐桌品牌體驗的完整詮釋</div>
       <div class="gold-line"></div>
       <p class="body-text">鵝之鄉是欣饌食品股份有限公司旗下的消費品牌，以義昌食品的生肉供應鏈為根基，打造從產地直達餐桌的完整品牌體驗。生鮮、冷凍、熟食三線並行，茶鵝與貢丸已正式上市，年度新品鵝肉香腸與香蔥水餃目前積極研發中，讓傳統台灣鵝肉走出新面貌，進入每一個家庭的日常餐桌。</p>
@@ -665,7 +664,7 @@ a.design-by b{color:var(--gold);opacity:.5;}
 </section>
 
 <!-- ④ 拜訪義昌 & 鵝之鄉 · bg-dark -->
-<section class="location-sec bg-dark" id="location">
+<section class="location-sec bg-light" id="location">
   <div class="sec-inner wrap">
     <div class="reveal">
       <span class="eyebrow">Visit Us · 拜訪我們</span>
@@ -675,7 +674,7 @@ a.design-by b{color:var(--gold);opacity:.5;}
     </div>
     <div class="loc-card reveal" style="max-width:560px;margin:0 auto;">
       <div class="loc-map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.7716850269367!2d120.3620004!3d23.719846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ebbd262a2f5bb%3A0x5c9fbd7b50ba2014!2z6bWd5LmL6YSJ54WZ54e76Jyc6Iy26bWd772c6Zuy5p6X6Iy26bWd5o6o6Jam772c5Zyf5bqr6bWd6IKJ576O6aOf772c6Zuy5p6X5Ly05omL56au!5e0!3m2!1szh-TW!2stw!4v1776857928051!5m2!1szh-TW!2stw" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="義昌食品 × 鵝之鄉地圖"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.771548050175!2d120.35942547580957!3d23.7198508899476!2m3!1f0!2f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ebbd262a2f5bb%3A0x5c9fbd7b50ba2014!2z6bWd5LmL6YSJ54WZ54e76Jyc6Iy26bWd772c6Zuy5p6X6Iy26bWd5o6o6Jam772c5Zyf5bqr6bWd6IKJ576O6aOf772c6Zuy5p6X5Ly05omL56au!5e0!3m2!1szh-TW!2stw!4v1776743791814!5m2!1szh-TW!2stw" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="義昌食品 × 鵝之鄉地圖"></iframe>
       </div>
       <div class="loc-info">
         <div class="loc-brand">義昌食品股份有限公司 × 鵝之鄉</div>
