@@ -6,6 +6,11 @@
   v2.2  2026-04-15  移除指定圖片區塊；gallery-img 改橫式 4:3
   v2.3  2026-04-15  第二區 brand-card 改單欄純文字排版；prod-num 移入 prod-info 修正號碼壓字問題
   v2.4  2026-04-16  圖庫素材加回：brand-img/prod-img-box/gallery-grid 全面恢復；onerror 改靜默（不顯示佔位文字）
+  v2.5  2026-04-23  三款產品照片移除（代碼備份在下方）Tony
+    375行
+    <div class="prod-img-box"><img src="img-color-film-2.jpg" alt="改色膜" onerror="this.style.display='none'"></div>
+    <div class="prod-img-box"><img src="img-ppf-2.jpg" alt="犀牛皮" onerror="this.style.display='none'"></div>  
+    <div class="prod-img-box"><img src="img-color-ppf-2.jpg" alt="改色犀牛皮" onerror="this.style.display='none'"></div>
 -->
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
@@ -369,7 +374,6 @@ a.design-by{
     <div class="prod-list">
       <!-- 01 改色膜 -->
       <div class="prod-card reveal">
-        <div class="prod-img-box"><img src="img-color-film-2.jpg" alt="改色膜" onerror="this.style.display='none'"></div>
         <div class="prod-info">
           <div class="prod-num">01</div>
           <div class="prod-title">改色膜</div>
@@ -379,7 +383,6 @@ a.design-by{
       </div>
       <!-- 02 犀牛皮 -->
       <div class="prod-card reveal" style="transition-delay: .15s;">
-        <div class="prod-img-box"><img src="img-ppf-2.jpg" alt="犀牛皮" onerror="this.style.display='none'"></div>
         <div class="prod-info">
           <div class="prod-num">02</div>
           <div class="prod-title">犀牛皮 PPF</div>
@@ -389,7 +392,6 @@ a.design-by{
       </div>
       <!-- 03 改色犀牛皮 -->
       <div class="prod-card reveal" style="transition-delay: .3s;">
-        <div class=""><img src="img-color-ppf-2.jpg" alt="改色犀牛皮" onerror="this.style.display='none'"></div>
         <div class="prod-info">
           <div class="prod-num">03</div>
           <div class="prod-title">改色犀牛皮</div>
