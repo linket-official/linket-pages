@@ -16,6 +16,7 @@
   v2.3  2026-04-22  Tony確認版：見changelog詳細記錄
   v2.4  2026-04-22  hero-btn.ghost修正對齊sec-btn.ghost、全區按鈕圓角10px、手機版直式背景切換
   v2.5  2026-04-22  修正 fadeUp keyframes to opacity:.5→1，按鈕顏色恢復正確
+  v2.6  2026-04-22  footer 加 position:relative+overflow:hidden、footer>* 加 z-index:1，修正 bg-dark::before 遮蓋 footer 按鈕問題
   設計：LINKet by Tony Design Studio
 -->
 <meta charset="UTF-8">
@@ -367,7 +368,8 @@ img{max-width:100%;display:block;}
 .bg-light .loc-lbl{color:var(--dark);}
 
 /* ── FOOTER ── */
-.footer{padding:4rem 1.6rem 3rem;text-align:center;}
+.footer{padding:4rem 1.6rem 3rem;text-align:center;position:relative;overflow:hidden;}
+.footer > *{position:relative;z-index:1;}
 .f-logo{width:250px;margin:0 auto 1.2rem;}
 .f-logo img{width:100%;height:auto;}
 .f-sub{font-size:.68rem;letter-spacing:.2em;opacity:.35;margin-bottom:2.5rem;}
