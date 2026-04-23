@@ -224,7 +224,7 @@ img{max-width:100%;display:block;}
 .hero-btn:nth-child(5){animation-delay:.4s;}
 .hero-btn.p1{background:var(--gold);color:var(--dark);border:1px solid transparent;}
 .hero-btn.p1:hover{background:var(--gold2);transform:translateY(-2px);}
-.hero-btn.ghost{background:transparent;color:var(--white);border:1px solid rgba(200,168,112,.5);}
+.hero-btn.ghost{background:transparent;color:var(--white);border:1px solid rgba(200,168,112,.35);}
 .hero-btn.ghost:hover{border-color:var(--gold);color:var(--gold);background:rgba(200,168,112,.06);}
 .hero-btn-row{
   display:flex;gap:.6rem;width:100%;max-width:300px;
@@ -233,8 +233,8 @@ img{max-width:100%;display:block;}
 }
 .btn-sm{
   flex:1;display:flex;align-items:center;justify-content:center;
-  background:rgba(200,168,112,.05);border:1px solid rgba(200,168,112,.5);
-  color:rgba(255,255,255,.6);font-size:.85rem;letter-spacing:.08em;
+  background:rgba(200,168,112,.05);border:1px dashed rgba(200,168,112,.2);
+  color:rgba(255,255,255,.45);font-size:.85rem;letter-spacing:.08em;
   padding:.7rem .4rem;border-radius:10px;cursor:pointer;
   font-family:'Noto Serif TC',serif;transition:all .2s;
 }
@@ -256,10 +256,10 @@ img{max-width:100%;display:block;}
 /* ── WATERMARK DIVIDER ── */
 .wm-divider{overflow:hidden;border-top:1px solid rgba(200,168,112,.1);border-bottom:1px solid rgba(200,168,112,.1);}
 .wm-track{display:flex;white-space:nowrap;animation:tick 32s linear infinite;padding:.9rem 0;}
-.wm-item{font-family:'Cormorant Garamond',serif;font-size:1rem;letter-spacing:.35em;padding:0 2.5rem;opacity:.8;}
+.wm-item{font-family:'Cormorant Garamond',serif;font-size:1rem;letter-spacing:.35em;padding:0 2.5rem;opacity:.45;}
 .bg-dark .wm-item{color:var(--gold);}
 .bg-light .wm-item{color:var(--ink);}
-@keyframes tick{from{transform:translateX(0);}to{transform:translateX(-70%);}}
+@keyframes tick{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
 /* ── 品牌簡介卡片（專刊風）── */
 .brand-intro{padding:var(--sp);}
@@ -370,7 +370,7 @@ img{max-width:100%;display:block;}
 .footer{padding:4rem 1.6rem 3rem;text-align:center;}
 .f-logo{width:250px;margin:0 auto 1.2rem;}
 .f-logo img{width:100%;height:auto;}
-.f-sub{font-size:.68rem;letter-spacing:.2em;opacity:.6;margin-bottom:2.5rem;}
+.f-sub{font-size:.68rem;letter-spacing:.2em;opacity:.35;margin-bottom:2.5rem;}
 .f-btns{display:flex;flex-direction:column;gap:.8rem;max-width:300px;margin:0 auto 2.5rem;}
 .f-btn{
   display:flex;align-items:center;justify-content:center;
@@ -387,14 +387,14 @@ img{max-width:100%;display:block;}
 .f-nav a:hover{opacity:.7;}
 .f-copy{font-size:.62rem;letter-spacing:.16em;opacity:.22;}
 
-.back-top{display:block;text-align:center;padding:1.4rem;font-size:.68rem;letter-spacing:.3em;opacity:.8;cursor:pointer;transition:opacity .2s;}
-.back-top:hover{opacity:1.0;}
+.back-top{display:block;text-align:center;padding:1.4rem;font-size:.68rem;letter-spacing:.3em;opacity:.22;cursor:pointer;transition:opacity .2s;}
+.back-top:hover{opacity:.6;}
 a.design-by{display:block;text-align:center;padding:1.2rem;font-size:.66rem;letter-spacing:.3em;color:rgba(255,255,255,.6);background:var(--dark);border-top:1px solid rgba(200,168,112,.15);}
 a.design-by b{color:var(--white);font-weight:700;}
 
 /* ── REVEAL ── */
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .65s,transform .65s;}
-.reveal.visible{opacity:.5;transform:none;}
+.reveal.visible{opacity:1;transform:none;}
 
 /* ── RWD ── */
 @media(max-width:600px){
@@ -642,13 +642,13 @@ a.design-by b{color:var(--white);font-weight:700;}
     </div>
 
     <div class="sec-cta reveal">
-      <a href="https://lin.ee/ncbOGht" target="_blank" class=" fill"
+      <a href="https://lin.ee/ncbOGht" target="_blank" class="sec-btn fill"
         onclick="gtag('event','click_line',{'event_category':'CTA','event_label':'yichang-food'});">官方 LINE 諮詢｜LINE@</a>
-      <a href="https://www.sin-jhuan.com.tw/tw/product" target="_blank" class=" fill"
+      <a href="https://www.sin-jhuan.com.tw/tw/product" target="_blank" class="sec-btn fill"
         onclick="gtag('event','click_web',{'event_category':'CTA','event_label':'yichang-food'});">鵝之鄉線上商城｜Online Shop</a>
-      <a href="https://www.facebook.com/profile.php?id=61576815942019" target="_blank" class=" ghost"
+      <a href="https://www.facebook.com/profile.php?id=61576815942019" target="_blank" class="sec-btn ghost"
         onclick="gtag('event','click_facebook',{'event_category':'CTA','event_label':'yichang-food'});">關注鵝之鄉｜Facebook</a>
-      <a href="https://maps.app.goo.gl/tztAEk2Mt3LpbFHN8" target="_blank" class=" ghost"
+      <a href="https://maps.app.goo.gl/tztAEk2Mt3LpbFHN8" target="_blank" class="sec-btn ghost"
         onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'yichang-food'});">拜訪鵝之鄉｜Visit us</a>
     </div>
 
