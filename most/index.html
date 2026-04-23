@@ -198,7 +198,7 @@ body{
 .prod-card{ display:flex; flex-direction:column; border: 1px solid var(--line); transition:all .5s ease; position:relative; overflow:hidden;}
 .prod-card:hover{ border-color:var(--gold); transform: translateY(-5px); }
 .prod-img-box{ aspect-ratio: 9/16; background:var(--gray); overflow:hidden; position:relative; display: flex; align-items: center; justify-content: center; color: #555; font-size: 0.8rem; letter-spacing: 0.15em; }
-.prod-img-box img{ width:100%; height:100%; object-fit:cover; opacity:.6; transition:all .8s ease; filter: grayscale(1); }
+.prod-img-box img{ width:100%; height:100%; object-fit:cover; opacity:.6; transition:all .8s ease; filter: grayscale(0); }
 .prod-card:hover img{ opacity:1; filter: grayscale(0); }
 .prod-num{ font-family:'Cormorant Garamond', serif; font-style:italic; font-size:2rem; color:var(--gold); opacity:.3; margin-bottom:.5rem; }
 .prod-info{ padding:2.5rem 2rem; flex:1; display:flex; flex-direction:column; background:var(--black); }
@@ -216,7 +216,7 @@ body{
 .loc-lbl{ font-weight:700; font-size:.75rem; min-width:6rem; color:rgba(0,0,0,.4); text-transform:uppercase; letter-spacing:.2em;}
 .loc-val{ font-size:1rem; font-weight:400; color:var(--black); letter-spacing:.05em; }
 .map-embed{ width:100%; height:450px; border:1px solid rgba(0,0,0,.1); background: #EAEAEA; display: flex; align-items: center; justify-content: center;}
-.map-embed iframe{ width:100%; height:100%; border:none; filter: grayscale(1); opacity: 0.9;}
+.map-embed iframe{ width:100%; height:100%; border:none; filter: grayscale(0); opacity: 1;}
 
 /* 第五區新增 BACK TO TOP */
 .back-to-top-in-loc{ 
@@ -389,7 +389,7 @@ a.design-by{
       </div>
       <!-- 03 改色犀牛皮 -->
       <div class="prod-card reveal" style="transition-delay: .3s;">
-        <div class="prod-img-box"><img src="img-color-ppf-2.jpg" alt="改色犀牛皮" onerror="this.style.display='none'"></div>
+        <div class=""><img src="img-color-ppf-2.jpg" alt="改色犀牛皮" onerror="this.style.display='none'"></div>
         <div class="prod-info">
           <div class="prod-num">03</div>
           <div class="prod-title">改色犀牛皮</div>
