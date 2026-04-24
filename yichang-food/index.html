@@ -3,7 +3,7 @@
 <head>
 <!--
   義昌食品 × 鵝之鄉｜主理人登場頁
-  slug: test/yichang-food
+  slug: yichang-food
   v1.0  2026-04-21  初版建置（三頁架構 Page 1）
   v1.1  2026-04-21  全區修正：思源黑體、深淺bg-img分開、Hero/各區大量修正
   v1.2  2026-04-22  字體修正：全域 Noto Sans TC → Noto Serif TC（思源宋體）
@@ -28,8 +28,8 @@
 <meta name="description" content="義昌食品股份有限公司 × 欣饌食品鵝之鄉。台灣鴨鵝電宰供應鏈，ISO 三重認證，雲林土庫18年。">
 <meta property="og:title" content="義昌食品 × 鵝之鄉｜黃俊賢 總經理">
 <meta property="og:description" content="台灣鴨鵝生肉產業鏈 × 鵝之鄉品牌・電宰廠直供・ISO 認證">
-<meta property="og:image" content="https://linket.app/test/yichang-food/og-image.jpg">
-<meta property="og:url" content="https://linket.app/test/yichang-food">
+<meta property="og:image" content="https://linket.app/yichang-food/og-image.jpg">
+<meta property="og:url" content="https://linket.app/yichang-food">
 <meta property="og:type" content="website">
 <link rel="icon" href="./favicon.png">
 <link rel="apple-touch-icon" href="./favicon.png">
@@ -486,7 +486,7 @@ a.design-by b{color:var(--white);font-weight:700;}
       <img src="./dual-logo.svg" alt="義昌食品 × 鵝之鄉" onerror="this.style.display='none'">
     </div>
     <div id="qrcode"></div>
-    <div class="qr-url">linket.app/test/yichang-food</div>
+    <div class="qr-url">linket.app/yichang-food</div>
     <button class="qr-close" onclick="closeQrModal()">關 閉</button>
   </div>
 </div>
@@ -721,7 +721,7 @@ a.design-by b{color:var(--white);font-weight:700;}
 function openQrModal(){document.getElementById('qrOverlay').classList.add('open');}
 function closeQrModal(){document.getElementById('qrOverlay').classList.remove('open');}
 new QRCode(document.getElementById('qrcode'),{
-  text:'https://linket.app/test/yichang-food',
+  text:'https://linket.app/yichang-food',
   width:160,height:160,colorDark:'#011627',colorLight:'#ffffff',
   correctLevel:QRCode.CorrectLevel.M
 });
@@ -729,7 +729,7 @@ if(navigator.share){
   const btn=document.getElementById('shareBtn');
   btn.classList.add('visible');
   btn.addEventListener('click',async()=>{
-    try{await navigator.share({title:'義昌食品 × 鵝之鄉',url:'https://linket.app/test/yichang-food'});
+    try{await navigator.share({title:'義昌食品 × 鵝之鄉',url:'https://linket.app/yichang-food'});
     gtag('event','click_share',{'event_category':'CTA','event_label':'yichang-food'});}catch(e){}
   });
 }
