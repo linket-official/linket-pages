@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<!--
+  emolab/talk/index.html
+  slug: emolab/talk
+  v1.0  初版建置
+  v1.1  2026-04-28  Hero 新增螢火蟲報名 CTA；活動卡重排（螢火蟲→五行療癒→創業即將→清酒即將）；螢火蟲文案升級；五行療癒更新說明；圖片名更新 img-event-firefly-2025.jpg
+-->
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
@@ -190,8 +196,9 @@ a{text-decoration:none;color:inherit;}
       但也有人，在這裡遇見新的可能。
     </div>
     <div class="hero-ctas">
-      <a href="#events" class="hero-cta fill">查看所有活動 →</a>
-      <a href="#about" class="hero-cta outline">了解更多</a>
+      <a href="https://forms.gle/6UPx8g4am5GLZ4Se6" target="_blank" class="hero-cta fill"
+        onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'emolab-talk'});fbq('track','Lead');">🌿 螢火蟲音療之旅｜立即報名</a>
+      <a href="#events" class="hero-cta outline">查看所有活動 →</a>
     </div>
     <div class="hero-scroll">
       <span class="scroll-line"></span>
@@ -241,28 +248,29 @@ a{text-decoration:none;color:inherit;}
     <p class="events-intro">清酒、文化體驗、身心課程、流沙畫、芳療……各種你沒想過的組合，也可能只是一場很小、但很真實的交流。</p>
 
     <!-- 活動卡 01 — 微醺連結 -->
+    <!-- 活動卡 01 — 螢火蟲音療（主打）-->
     <div class="event-card-item">
-      <img src="/emolab/talk/img-event-sake.jpg" alt="微醺連結清酒品酒會" class="event-card-img"
-        onerror="this.outerHTML='<div class=\'event-card-img-ph\'>img-event-sake.jpg</div>'">
+      <img src="/emolab/talk/img-event-firefly-2025.jpg" alt="光之共振 螢火蟲森林音療放鬆之旅" class="event-card-img"
+        onerror="this.outerHTML='<div class=\'event-card-img-ph\'>img-event-firefly-2025.jpg</div>'">
       <div class="event-card-body">
-        <span class="event-card-tag">清酒與文化</span>
-        <div class="event-card-title">微醺連結<br>清酒品酒會</div>
-        <div class="event-card-desc">慢慢喝，慢慢聊。一杯之間，是風味，也是文化。</div>
-        <a href="https://forms.gle/fD3LVGXcFnMQswRJ6" target="_blank" class="event-card-btn"
+        <span class="event-card-tag">螢火蟲 × 森林音療</span>
+        <div class="event-card-title">【光之共振】<br>螢火蟲森林音療放鬆之旅</div>
+        <div class="event-card-desc">瑞居住房限定。傍晚吃完飯，走進山裡看螢火蟲，回來圍著營火讓缽聲帶你安靜——隔天，調一瓶屬於自己的精油帶回去。這不是行程，是一段留在身體裡的夜晚。</div>
+        <a href="https://forms.gle/6UPx8g4am5GLZ4Se6" target="_blank" class="event-card-btn"
           onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'emolab-talk'});fbq('track','Lead');">
           查看場次 / 報名 →
         </a>
       </div>
     </div>
 
-    <!-- 活動卡 02 — 頌缽體驗 -->
+    <!-- 活動卡 02 — 五行感官療癒 -->
     <div class="event-card-item">
-      <img src="/emolab/talk/img-event-singing-bowl.jpg" alt="頌缽體驗會" class="event-card-img"
+      <img src="/emolab/talk/img-event-singing-bowl.jpg" alt="桑心實驗室 × Women Talk 五行感官療癒體驗" class="event-card-img"
         onerror="this.outerHTML='<div class=\'event-card-img-ph\'>img-event-singing-bowl.jpg</div>'">
       <div class="event-card-body">
         <span class="event-card-tag">身心療癒課程</span>
-        <div class="event-card-title">頌缽體驗會</div>
-        <div class="event-card-desc">先讓身體放鬆，再讓感受慢慢回來。</div>
+        <div class="event-card-title">桑心實驗室 × Women Talk<br>五行感官療癒體驗</div>
+        <div class="event-card-desc">以「金木水火土」五行為核心，結合療癒餐桌、精油調香與頌缽共振，帶你走進一場五感 × 五行的沉浸式體驗。$1,680 / 人，滿6人開團。</div>
         <a href="https://forms.gle/CxmD73uCXyAt3QXW9" target="_blank" class="event-card-btn"
           onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'emolab-talk'});fbq('track','Lead');">
           查看場次 / 報名 →
@@ -270,20 +278,7 @@ a{text-decoration:none;color:inherit;}
       </div>
     </div>
 
-    <!-- 活動卡 03 — 螢火蟲 × 芳療（即將公告） -->
-    <div class="event-card-item">
-      <img src="/emolab/talk/img-event-firefly.jpg" alt="螢火蟲 × 芳療行程" class="event-card-img"
-        onerror="this.outerHTML='<div class=\'event-card-img-ph\'>img-event-firefly.jpg</div>'">
-      <div class="event-card-body">
-        <span class="event-card-tag">創意體驗工作坊</span>
-        <div class="event-card-title">螢火蟲 × 芳療行程</div>
-        <div class="event-card-desc">一場晚上才開始的療癒，從自然，到身體。</div>
-        <!-- 待客戶提供連結：移除 disabled class、加入 href -->
-        <a class="event-card-btn disabled">即將公告</a>
-      </div>
-    </div>
-
-    <!-- 活動卡 04 — 創業交流 -->
+    <!-- 活動卡 03 — 創業交流（即將公告）-->
     <div class="event-card-item">
       <img src="/emolab/talk/img-event-startup.jpg" alt="創業交流與分享會" class="event-card-img"
         onerror="this.outerHTML='<div class=\'event-card-img-ph\'>img-event-startup.jpg</div>'">
@@ -291,14 +286,23 @@ a{text-decoration:none;color:inherit;}
         <span class="event-card-tag">真實的交流場合</span>
         <div class="event-card-title">創業交流與分享會</div>
         <div class="event-card-desc">我們不講成功學，只講真的走過的路。</div>
-        <a href="https://forms.gle/ANqXrE58tpMx9Se16" target="_blank" class="event-card-btn"
-          onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'emolab-talk'});fbq('track','Lead');">
-          查看場次 / 報名 →
-        </a>
+        <a class="event-card-btn disabled">即將公告</a>
       </div>
     </div>
 
-  </div>
+    <!-- 活動卡 04 — 清酒品酒（即將公告）-->
+    <div class="event-card-item">
+      <img src="/emolab/talk/img-event-sake.jpg" alt="微醺連結清酒品酒會" class="event-card-img"
+        onerror="this.outerHTML='<div class=\'event-card-img-ph\'>img-event-sake.jpg</div>'">
+      <div class="event-card-body">
+        <span class="event-card-tag">清酒與文化</span>
+        <div class="event-card-title">微醺連結<br>清酒品酒會</div>
+        <div class="event-card-desc">慢慢喝，慢慢聊。一杯之間，是風味，也是文化。</div>
+        <a class="event-card-btn disabled">即將公告</a>
+      </div>
+    </div>
+
+    </div>
 </section>
 
 <!-- §4 為什麼我們做這些 -->
