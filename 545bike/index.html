@@ -52,8 +52,8 @@ a{text-decoration:none;color:inherit;}img{max-width:100%;display:block;}
 
 /* ── HERO ── */
 .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;background:var(--bg-dark);overflow:hidden;}
-.hero-bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;z-index:0;opacity:.3;pointer-events:none;filter:sepia(0.12) contrast(1.05);}
-.hero-bg-portrait{display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;z-index:0;opacity:.3;pointer-events:none;filter:sepia(0.12) contrast(1.05);}
+.hero-bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;z-index:0;opacity:.2;pointer-events:none;filter:sepia(0.12) contrast(1.05);}
+.hero-bg-portrait{display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;z-index:0;opacity:.2;pointer-events:none;filter:sepia(0.12) contrast(1.05);}
 .hero-overlay{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(135deg,rgba(17,30,22,.75) 0%,rgba(17,30,22,.35) 100%);}
 .hero-big-word{
   position:absolute;bottom:-0.1em;left:-.02em;z-index:1;
@@ -71,12 +71,12 @@ a{text-decoration:none;color:inherit;}img{max-width:100%;display:block;}
   padding:3.5rem 2rem 3.5rem 0;gap:1.2rem;
   border-right:1px solid rgba(200,210,195,.1);
 }
-.hero-logo{width:240px;}
-.hero-logo img{width:240px;height:auto;display:block;mix-blend-mode:screen;filter:brightness(1.1);}
+.hero-logo{width:300px;margin:1.5rem;}
+.hero-logo img{width:300px;height:auto;display:block;mix-blend-mode:screen;filter:brightness(1.1);}
 .hero-logo-ph{width:200px;height:55px;border:1px dashed rgba(200,210,195,.2);border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-size:.75rem;letter-spacing:.15em;color:rgba(255,255,255,.25);}
 .hero-eyebrow{font-family:'Bebas Neue',sans-serif;font-size:.8rem;letter-spacing:.5em;color:var(--gold);opacity:.8;}
-.hero-name{font-size:clamp(1.6rem,4vw,2rem);font-weight:700;letter-spacing:.25em;color:var(--white);line-height:1.3;}
-.hero-role{font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;letter-spacing:.2em;color:rgba(255,255,255,.45);}
+.hero-name{font-size:clamp(2rem,4vw,2.4rem);font-weight:700;letter-spacing:.25em;color:var(--white);line-height:1.3;}
+.hero-role{font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;letter-spacing:.2em;color:rgba(255,255,255,.45);margin-bottom: 1.5rem;}
 .hero-slogan{font-size:.88rem;letter-spacing:.12em;color:rgba(255,255,255,.6);line-height:1.9;border-left:2px solid var(--c2);padding-left:.9rem;}
 .hero-tags{display:flex;flex-wrap:wrap;gap:.4rem;}
 .h-tag{font-size:.75rem;letter-spacing:.06em;color:var(--gold);border:1px solid rgba(200,168,90,.25);border-radius:20px;padding:.2rem .65rem;}
@@ -430,7 +430,7 @@ a.design-by b{color:var(--white);font-weight:700;}
         </div>
         <div class="hero-eyebrow">BIKE · TOUR · SPACE · 545</div>
         <div class="hero-name">陳 巨 凱</div>
-        <div class="hero-role">負責人 · 順騎自然有限公司 × R立方學堂</div>
+        <div class="hero-role">負責人<br>順騎自然有限公司 × R立方學堂</div>
         <div class="hero-slogan">租一個生活去旅行<br>用剛剛好的速度，騎進生活的風景</div>
         <div class="hero-tags">
           <span class="h-tag">#自行車租借</span>
