@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<!--
+  陳詠琳 Sheila｜LINKet Light
+  slug: sheila
+  v1.0  2026-04-27  初版建置
+  v1.1  2026-04-27  TOP BADGE 標準色、Hero 文字修正、服務改全出血雜誌風、深化服務文案、紫微12宮教室、IG 社群展示區
+  v1.2  2026-04-28  全頁文案改寫（Sheila 語言風格）
+  v1.3  2026-04-28  Hero quote 還原；四張 bg 圖框架（淺/深 × 橫/直）；服務區加引言；紫微宮位加橋接說明
+  v1.4  2026-04-28  IG 社群展示改 embed 嵌入（4 篇真實貼文）；embed.js 非同步載入；2×2 grid 版面：Sheila 真實語言風格（口語直接、問句共鳴）、Hero 引句換成 IG 金句、服務描述去學術轉日常、紫微教室入門語言重寫、十二宮位改問句觸發式描述、IG 區標題改客戶見證語言
+  設計：花藝工作室命理師・暖米灰噪點底・花卉線稿・深藕紫×金棕
+  LINKet by Tony Design Studio
+-->
+<meta charset="UTF-8">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-29J2988Y8J');</script>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+<title>陳詠琳 Sheila｜風水命理師・紫微斗數・陽宅風水</title>
+<meta name="description" content="陳詠琳 Sheila，風水命理師。紫微斗數、陽宅風水、方位開運、擇日服務、易經卜卦選號。命理非單純紙上談兵，知命行運，懂得掌握必能助自己。">
+<meta property="og:title" content="陳詠琳 Sheila｜風水命理師">
+<meta property="og:description" content="知命行運，懂得掌握必能助自己。紫微斗數・陽宅風水・方位開運・擇日・易經選號">
+<meta property="og:image" content="https://linket.app/sheila/og-image.jpg">
+<meta property="og:url" content="https://linket.app/sheila">
+<meta property="og:type" content="website">
+<link rel="icon" href="./favicon.png?v=2">
+<link rel="apple-touch-icon" href="./favicon.png?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+
+<style>
+/* ── TOKENS ── */
+:root{
+  --purple:#3D1F6E;
+  --purple2:#5A3490;
+  --gold:#C4A882;
+  --gold2:#D4BC9A;
+  --gold3:rgba(196,168,130,.18);
+  --bg:#E8DDD0;
+  --bg2:#F0E8DC;
+  --white:#FAF7F3;
+  --ink:rgba(61,31,110,.85);
+  --ink2:rgba(61,31,110,.55);
+  --ink3:rgba(61,31,110,.32);
+  --r:100px;
+  --sp:3.2rem 1.4rem;
+  --mw:860px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Noto Serif TC',serif;font-weight:400;
+  background:var(--bg);color:var(--purple);
+  line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+
+/* ── 噪點紋理（全站）── */
+body::after{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  opacity:.55;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E");
+  background-size:200px 200px;
+}
+
+/* ── TOP BADGE ── */
+.top-badge{
+  position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;justify-content:center;gap:.3rem;
+  background:rgba(255,255,255,.95);backdrop-filter:blur(8px);
+  padding:.55rem 1rem;font-size:.7rem;letter-spacing:.22em;
+  border-bottom:1px solid rgba(0,0,0,.08);
+}
+.t-lin{color:#000;font-weight:700;}
+.t-ket{color:#C4A882;font-weight:700;}
+.t-light{color:var(--ink3);font-weight:300;}
+
+/* ── HERO ── */
+.hero{
+  position:relative;min-height:100svh;
+  display:flex;flex-direction:column;
+  background:var(--bg);overflow:hidden;
+}
+/* 橫式背景（電腦）*/
+/* Hero 背景圖：橫式電腦（淺色）預設顯示 */
+.hero-bg-img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;z-index:0;opacity:1;
+}
+/* Hero 背景圖：橫式電腦（深紫色） */
+.hero-bg-img-dark{
+  display:none;
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;z-index:0;opacity:1;
+}
+/* Hero 背景圖：直式手機（淺色）*/
+.hero-bg-portrait{
+  display:none;
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center top;z-index:0;opacity:1;
+}
+/* Hero 背景圖：直式手機（深紫色）*/
+.hero-bg-portrait-dark{
+  display:none;
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center top;z-index:0;opacity:1;
+}
+/* 花卉 SVG 線稿（無背景圖時的佔位裝飾）*/
+.flora-svg{
+  position:absolute;inset:0;z-index:0;pointer-events:none;
+  width:100%;height:100%;opacity:.45;
+}
+.hero-overlay{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(135deg,rgba(232,221,208,.15) 0%,rgba(232,221,208,.05) 100%);
+}
+.hero .inner{
+  position:relative;z-index:2;
+  flex:1;display:flex;flex-direction:column;justify-content:center;
+  max-width:var(--mw);margin:0 auto;padding:1.4rem 1.4rem;width:100%;
+}
+.hero-cols{display:flex;align-items:stretch;min-height:82svh;}
+
+/* 左欄 */
+.hero-left{
+  flex:0 0 52%;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:3.5rem 2rem 3.5rem 0;gap:1.2rem;
+  text-align:center;
+  border-right:1px solid rgba(196,168,130,.25);
+}
+.hero-eyebrow{
+  font-family:'Cormorant Garamond',serif;
+  font-size:.72rem;letter-spacing:.55em;color:var(--gold);font-weight:700;
+  display:block;width:100%;
+}
+.hero-name{
+  font-size:clamp(2.5rem,7vw,5.5rem);font-weight:700;
+  letter-spacing:.5em;color:var(--purple);line-height:1.05;
+}
+.hero-name-en{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(.85rem,1.6vw,1.5rem);
+  letter-spacing:.45em;color:var(--gold);font-weight:500;
+}
+.hero-sep{width:3rem;height:1px;background:rgba(196,168,130,.4);margin:0 auto;}
+.hero-quote{
+  font-size:.9rem;line-height:2;letter-spacing:.08em;
+  color:var(--ink2);max-width:22rem;font-weight:500;
+}
+.hero-svc{
+  font-size:.78rem;letter-spacing:.1em;color:var(--ink3);line-height:2;
+}
+.hero-svc span{display:inline;padding:0 .3rem;}
+.hero-svc .sep-pipe{color:rgba(196,168,130,.5);}
+.hero-direct{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.75rem;letter-spacing:.15em;color:var(--ink3);
+}
+
+/* 右欄 */
+.hero-right{
+  flex:1 1 0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:3rem 0 3rem 2rem;
+}
+
+/* icons 圓形 */
+.hero-icons{
+  display:flex;justify-content:center;gap:.8rem;
+  margin-bottom:1.6rem;flex-wrap:wrap;width:100%;
+}
+.hero-icon-link{
+  width:46px;height:46px;display:flex;align-items:center;justify-content:center;
+  background:transparent;
+  border:1px solid rgba(196,168,130,.55);
+  border-radius:50%;transition:all .2s;flex-shrink:0;
+}
+.hero-icon-link:hover{background:rgba(196,168,130,.15);border-color:var(--gold);}
+.hero-icon-link img{width:32px;height:32px;display:block;filter:none;}
+
+/* 按鈕 */
+.hero-btn{
+  display:flex;align-items:center;justify-content:center;
+  width:100%;max-width:300px;
+  font-family:'Noto Serif TC',serif;font-weight:700;font-size:.88rem;
+  letter-spacing:.15em;padding:.92rem 1rem;
+  transition:all .22s;cursor:pointer;border-radius:var(--r);
+  margin-bottom:.85rem;text-align:center;
+  opacity:0;animation:fadeUp .55s ease both;
+}
+.hero-btn:last-of-type{margin-bottom:1.2rem;}
+.hero-icons{opacity:0;animation:fadeUp .55s ease both;animation-delay:.2s;}
+.hero-right .hero-btn:nth-child(2){animation-delay:.3s;}
+.hero-right .hero-btn:nth-child(3){animation-delay:.4s;}
+.hero-right .hero-btn:nth-child(4){animation-delay:.5s;}
+.hero-right .hero-btn:nth-child(5){animation-delay:.6s;}
+.hero-right .hero-btn:nth-child(6){animation-delay:.7s;}
+.hero-btn-row{animation-delay:.8s;}
+.hero-btn.p1{background:var(--gold);color:var(--purple);border:1px solid transparent;}
+.hero-btn.p1:hover{background:var(--gold2);}
+.hero-btn.ghost{
+  background:transparent;color:var(--purple);
+  border:1px solid rgba(196,168,130,.5);
+}
+.hero-btn.ghost:hover{background:rgba(196,168,130,.1);border-color:var(--gold);}
+.hero-btn-row{
+  display:flex;gap:.6rem;width:100%;max-width:300px;
+  justify-content:center;margin-bottom:0;
+  opacity:0;animation:fadeUp .55s ease both;
+}
+.btn-sm{
+  flex:1;display:flex;align-items:center;justify-content:center;
+  background:transparent;
+  border:1px solid rgba(196,168,130,.45);
+  color:var(--ink3);font-size:.75rem;letter-spacing:.18em;
+  padding:.65rem .4rem;border-radius:var(--r);cursor:pointer;
+  font-family:'Noto Serif TC',serif;transition:all .2s;opacity:1;
+  gap:.4rem;
+}
+.btn-sm:hover{border-color:var(--gold);color:var(--purple);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+
+/* ── QR MODAL ── */
+.qr-overlay{
+  display:none;position:fixed;inset:0;z-index:999;
+  background:rgba(61,31,110,.75);backdrop-filter:blur(12px);
+  align-items:center;justify-content:center;
+}
+.qr-overlay.open{display:flex;}
+.qr-box{
+  background:var(--bg2);border:1px solid rgba(196,168,130,.35);
+  border-radius:16px;padding:2rem 1.8rem;
+  text-align:center;max-width:290px;width:90%;
+  display:flex;flex-direction:column;align-items:center;
+}
+.qr-name{
+  font-size:1rem;font-weight:700;letter-spacing:.25em;
+  color:var(--purple);margin-bottom:.3rem;
+}
+.qr-en{
+  font-family:'Cormorant Garamond',serif;font-size:.78rem;
+  letter-spacing:.3em;color:var(--gold);margin-bottom:1rem;
+}
+#qrcode{margin:.5rem auto 1rem;}
+.qr-url{font-size:.6rem;letter-spacing:.14em;color:var(--ink3);margin-bottom:1rem;}
+.qr-close{
+  cursor:pointer;font-size:.72rem;letter-spacing:.2em;
+  color:var(--gold);border:1px solid rgba(196,168,130,.4);
+  padding:.45rem 1.3rem;border-radius:var(--r);
+}
+
+/* ── WATERMARK DIVIDER ── */
+.wm-divider{
+  overflow:hidden;position:relative;
+  border-top:1px solid rgba(196,168,130,.2);
+  border-bottom:1px solid rgba(196,168,130,.2);
+  background:var(--bg);
+}
+.wm-track{
+  display:flex;white-space:nowrap;
+  animation:tick 28s linear infinite;padding:.75rem 0;
+}
+.wm-item{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.9rem;letter-spacing:.4em;
+  padding:0 2rem;color:var(--gold);opacity:.6;
+}
+@keyframes tick{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* ── SECTIONS ── */
+.sec{width:100%;position:relative;}
+.sec.light{background:var(--bg2);}
+.sec.purple{background:var(--purple);}
+.sec .inner{max-width:var(--mw);margin:0 auto;padding:var(--sp);}
+.sec-eyebrow{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.75rem;letter-spacing:.45em;color:var(--gold);
+  display:block;margin-bottom:1rem;
+}
+.sec.purple .sec-eyebrow{color:rgba(196,168,130,.7);}
+.sec-title{
+  font-size:clamp(1.5rem,4vw,2.5rem);font-weight:700;
+  letter-spacing:.12em;line-height:1.2;
+  color:var(--purple);margin-bottom:1.2rem;
+}
+.sec.purple .sec-title{color:var(--white);}
+.sec-rule{width:2.5rem;height:1px;background:rgba(196,168,130,.45);margin-bottom:1.8rem;}
+.body-text{font-size:.92rem;line-height:2.2;letter-spacing:.05em;color:var(--ink2);}
+.sec.purple .body-text{color:rgba(250,247,243,.6);}
+
+/* ── 服務列表（精品 menu 風格）── */
+.svc-list{margin-top:2rem;}
+.svc-item{
+  display:grid;grid-template-columns:2.5rem 1fr auto;
+  align-items:baseline;gap:.8rem;
+  padding:1.2rem 0;
+  border-bottom:1px solid rgba(196,168,130,.18);
+}
+.svc-item:last-child{border:none;}
+.svc-no{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:1.1rem;color:rgba(196,168,130,.55);letter-spacing:.1em;
+}
+.svc-name{font-size:1rem;font-weight:700;letter-spacing:.15em;color:var(--purple);}
+.svc-detail{font-size:.78rem;letter-spacing:.08em;color:var(--ink3);text-align:right;}
+
+/* ── 紫微介紹（深紫區）── */
+.ziwei-quote{
+  font-size:clamp(1rem,2.5vw,1.6rem);
+  font-weight:700;letter-spacing:.12em;
+  color:var(--white);line-height:1.7;
+  border-left:2px solid rgba(196,168,130,.4);
+  padding-left:1.4rem;margin-bottom:2rem;
+}
+.ziwei-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:1px;background:rgba(196,168,130,.12);
+  margin-top:2rem;
+}
+.zg-item{
+  background:rgba(61,31,110,.6);
+  padding:1.4rem 1.2rem;
+}
+.zg-no{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:1.5rem;color:rgba(196,168,130,.35);margin-bottom:.3rem;
+}
+.zg-name{font-size:.88rem;font-weight:700;letter-spacing:.15em;color:var(--white);margin-bottom:.3rem;}
+.zg-desc{font-size:.76rem;line-height:1.8;color:rgba(250,247,243,.45);letter-spacing:.05em;}
+
+/* ── CTA 按鈕 ── */
+.sec-cta{margin-top:2rem;display:flex;flex-direction:column;gap:.75rem;max-width:300px;}
+.sec-btn{
+  display:flex;align-items:center;justify-content:center;
+  padding:.9rem 1.4rem;border-radius:var(--r);
+  font-family:'Noto Serif TC',serif;font-weight:700;
+  font-size:.88rem;letter-spacing:.15em;transition:all .2s;
+}
+.sec-btn.fill{background:var(--gold);color:var(--purple);border:none;}
+.sec-btn.fill:hover{background:var(--gold2);}
+.sec-btn.outline{background:transparent;color:var(--purple);border:1px solid rgba(196,168,130,.45);}
+.sec-btn.outline:hover{background:rgba(196,168,130,.1);}
+.sec-btn.outline-w{background:transparent;color:rgba(250,247,243,.75);border:1px solid rgba(196,168,130,.3);}
+.sec-btn.outline-w:hover{border-color:var(--gold);color:var(--gold2);}
+
+/* ── 聯繫區 ── */
+.contact-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:1.5rem;margin-top:2rem;
+}
+.contact-card{
+  background:rgba(196,168,130,.08);
+  border:1px solid rgba(196,168,130,.2);
+  border-radius:12px;padding:1.4rem 1.2rem;
+}
+.cc-label{font-size:.65rem;letter-spacing:.25em;color:var(--gold);margin-bottom:.6rem;display:block;}
+.cc-value{font-size:.88rem;letter-spacing:.1em;color:var(--purple);font-weight:500;}
+
+/* ── FOOTER ── */
+.footer{
+  background:var(--purple);padding:2.5rem 1.4rem 2rem;
+  text-align:center;position:relative;overflow:hidden;
+}
+.footer>*{position:relative;z-index:1;}
+.f-name{
+  font-size:1.4rem;font-weight:700;letter-spacing:.35em;
+  color:var(--white);margin-bottom:.3rem;
+}
+.f-en{
+  font-family:'Cormorant Garamond',serif;font-size:.85rem;
+  letter-spacing:.4em;color:rgba(196,168,130,.6);margin-bottom:2rem;
+}
+.f-btns{display:flex;flex-direction:column;gap:.75rem;max-width:280px;margin:0 auto 2rem;}
+.f-btn{
+  display:flex;align-items:center;justify-content:center;
+  padding:.9rem;border-radius:var(--r);
+  font-family:'Noto Serif TC',serif;font-size:.85rem;font-weight:700;
+  letter-spacing:.15em;transition:all .2s;
+}
+.f-btn.fb{background:var(--gold);color:var(--purple);border:none;}
+.f-btn.fb:hover{background:var(--gold2);}
+.f-btn.fg{background:transparent;border:1px solid rgba(196,168,130,.3);color:rgba(250,247,243,.6);}
+.f-btn.fg:hover{border-color:var(--gold);color:var(--gold);}
+.f-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem 1.2rem;margin-bottom:1.5rem;}
+.f-nav a{font-size:.65rem;letter-spacing:.14em;color:rgba(250,247,243,.25);}
+.f-nav a:hover{color:rgba(250,247,243,.7);}
+.f-copy{font-size:.6rem;letter-spacing:.14em;color:rgba(250,247,243,.2);}
+.back-top{
+  display:block;text-align:center;padding:1.2rem;
+  font-size:.65rem;letter-spacing:.28em;
+  color:var(--ink3);cursor:pointer;transition:color .2s;background:var(--bg);
+}
+.back-top:hover{color:var(--purple);}
+a.design-by{
+  display:block;text-align:center;padding:1rem;
+  font-size:.64rem;letter-spacing:.28em;
+  background:var(--bg);
+  border-top:1px solid rgba(196,168,130,.15);
+  color:var(--ink3);
+}
+a.design-by b{color:var(--purple);font-weight:700;}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s,transform .6s;}
+.reveal.visible{opacity:1;transform:none;}
+
+
+/* ── 服務 Editorial 全出血（雜誌風）── */
+.svc-editorial{width:100%;}
+.svc-ed-block{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:320px;position:relative;
+}
+.svc-ed-block.reverse{direction:rtl;}
+.svc-ed-block.reverse>*{direction:ltr;}
+.svc-ed-img{
+  position:relative;overflow:hidden;min-height:320px;
+}
+.svc-ed-img img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  filter:sepia(.08) contrast(1.04);
+}
+.svc-ed-img-ph{
+  width:100%;height:100%;min-height:320px;
+  background:rgba(196,168,130,.12);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.85rem;letter-spacing:.4em;color:rgba(196,168,130,.4);
+}
+.svc-ed-txt{
+  background:var(--bg2);
+  padding:2.8rem 2.2rem;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.svc-ed-no{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:4rem;line-height:.85;
+  color:rgba(196,168,130,.2);margin-bottom:.2rem;
+  letter-spacing:-.02em;
+}
+.svc-ed-name{
+  font-size:clamp(1.2rem,2.5vw,1.8rem);
+  font-weight:700;letter-spacing:.15em;
+  color:var(--purple);margin-bottom:.3rem;line-height:1.1;
+}
+.svc-ed-en{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.85rem;letter-spacing:.25em;
+  color:var(--gold);margin-bottom:1.2rem;
+}
+.svc-ed-desc{
+  font-size:.88rem;line-height:2.1;
+  color:var(--ink2);letter-spacing:.05em;
+}
+.svc-ed-divider{width:100%;height:1px;background:rgba(196,168,130,.18);}
+
+/* ── 紫微入門教室（雜誌版）── */
+.ziwei-magazine{width:100%;background:var(--purple);}
+.ziwei-mag-hero{
+  position:relative;min-height:340px;
+  display:flex;align-items:center;overflow:hidden;
+}
+.ziwei-mag-hero img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;opacity:.22;filter:sepia(.3);
+}
+.ziwei-mag-hero-ph{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(61,31,110,.95) 0%,rgba(90,52,144,.7) 100%);
+}
+.ziwei-mag-hero-txt{
+  position:relative;z-index:1;
+  max-width:var(--mw);margin:0 auto;padding:3rem 1.4rem;width:100%;
+}
+.ziwei-kicker{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.75rem;letter-spacing:.55em;
+  color:rgba(196,168,130,.65);margin-bottom:1.2rem;display:block;
+}
+.ziwei-big-title{
+  font-size:clamp(2.5rem,7vw,6rem);
+  font-weight:700;letter-spacing:.05em;
+  color:var(--white);line-height:.95;margin-bottom:1.5rem;
+}
+.ziwei-big-title em{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;color:rgba(196,168,130,.8);
+}
+.ziwei-intro-text{
+  font-size:.92rem;line-height:2.2;letter-spacing:.06em;
+  color:rgba(250,247,243,.65);max-width:480px;
+}
+/* 宮位卡片（雜誌 grid）*/
+.ziwei-palace-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:rgba(196,168,130,.1);
+}
+.zp-card{
+  background:rgba(61,31,110,.6);
+  padding:1.6rem 1.3rem;
+  transition:background .2s;
+}
+.zp-card:hover{background:rgba(90,52,144,.5);}
+.zp-no{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:2.5rem;line-height:1;
+  color:rgba(196,168,130,.2);margin-bottom:.4rem;
+}
+.zp-name{
+  font-size:1rem;font-weight:700;
+  letter-spacing:.18em;color:var(--white);
+  margin-bottom:.5rem;
+}
+.zp-en{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.72rem;letter-spacing:.2em;
+  color:rgba(196,168,130,.5);margin-bottom:.7rem;
+}
+.zp-desc{font-size:.8rem;line-height:1.9;color:rgba(250,247,243,.45);}
+.ziwei-cta-band{
+  max-width:var(--mw);margin:0 auto;
+  padding:2.5rem 1.4rem;
+  display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;
+}
+.ziwei-cta-text{
+  font-size:.88rem;letter-spacing:.1em;
+  color:rgba(250,247,243,.55);flex:1;min-width:200px;
+}
+/* IG 展示區 */
+/* IG embed 四格 */
+.ig-embed-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1.2rem;margin-top:2rem;
+}
+.ig-embed-wrap{min-width:0;}
+.ig-embed-wrap .instagram-media{
+  margin:0 !important;
+  min-width:0 !important;
+  width:100% !important;
+  max-width:100% !important;
+}
+@media(max-width:600px){
+  .ig-embed-grid{grid-template-columns:1fr;}
+}
+.ig-section{background:var(--bg);}
+.ig-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:3px;margin-top:2rem;
+}
+.ig-post{
+  aspect-ratio:1;overflow:hidden;
+  background:rgba(196,168,130,.1);
+  position:relative;cursor:pointer;
+}
+.ig-post img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+.ig-post:hover img{transform:scale(1.04);}
+.ig-post-ph{
+  width:100%;height:100%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.78rem;letter-spacing:.25em;color:rgba(196,168,130,.4);
+}
+.ig-caption{
+  font-size:.72rem;letter-spacing:.08em;
+  color:var(--ink3);margin-top:.6rem;line-height:1.6;
+}
+.ig-follow-wrap{margin-top:1.8rem;}
+@media(max-width:600px){
+  .svc-ed-block{grid-template-columns:1fr;min-height:auto;}
+  .svc-ed-block.reverse{direction:ltr;}
+  .svc-ed-img{min-height:220px;}
+  .svc-ed-txt{padding:1.8rem 1.4rem;}
+  .ziwei-palace-grid{grid-template-columns:1fr 1fr;}
+  .ig-grid{grid-template-columns:repeat(3,1fr);}
+}
+/* ── RWD ── */
+@media(max-width:600px){
+  /* 手機：換直式背景 */
+  .hero-bg-img{display:none;}
+  .hero-bg-portrait{display:block;}
+  /* 單欄 */
+  .hero-cols{flex-direction:column;}
+  .hero-left{
+    flex:none;border-right:none;
+    border-bottom:1px solid rgba(196,168,130,.2);
+    padding:2.5rem 0 2rem;
+  }
+  .hero-right{padding:2rem 0 2.5rem;}
+  /* sections */
+  .ziwei-grid{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body id="top">
+
+<!-- ① TOP BADGE -->
+<a class="top-badge" href="https://linket.app/home" target="_blank">
+  <span class="t-lin">LIN</span><span class="t-ket">Ket</span>&nbsp;<span class="t-light">Light</span>
+</a>
+
+<!-- ② HERO -->
+<section class="hero">
+  <!-- 橫式背景・電腦・淺色米白 -->
+  <img src="./sheila-hero-bg.jpg?v=2" class="hero-bg-img" alt="" aria-hidden="true" onerror="this.style.display='none'">
+  <!-- 橫式背景・電腦・深紫色（待提供；切換方式見備注）-->
+  <img src="./sheila-hero-bg-dark.jpg?v=2" class="hero-bg-img-dark" alt="" aria-hidden="true" onerror="this.style.display='none'">
+  <!-- 直式背景・手機・淺色米白 -->
+  <img src="./sheila-hero-bg-portrait.jpg?v=2" class="hero-bg-portrait" alt="" aria-hidden="true" onerror="this.style.display='none'">
+  <!-- 直式背景・手機・深紫色（待提供）-->
+  <img src="./sheila-hero-bg-portrait-dark.jpg?v=2" class="hero-bg-portrait-dark" alt="" aria-hidden="true" onerror="this.style.display='none'">
+
+  <!-- 花卉 SVG 佔位（無照片時顯示）-->
+  <svg class="flora-svg" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg"
+    style="fill:none;stroke:#C4A882;stroke-width:.8;">
+    <!-- 左側花卉 -->
+    <ellipse cx="120" cy="180" rx="45" ry="70" transform="rotate(-20,120,180)"/>
+    <ellipse cx="95" cy="160" rx="32" ry="55" transform="rotate(-35,95,160)"/>
+    <path d="M110,250 Q105,380 100,500"/>
+    <path d="M100,320 Q70,295 55,315 Q70,335 102,328 Z"/>
+    <path d="M104,390 Q130,368 145,388 Q132,408 106,400 Z"/>
+    <circle cx="118" cy="145" r="5"/>
+    <circle cx="100" cy="132" r="3.5"/>
+    <circle cx="130" cy="135" r="4"/>
+    <!-- 右側花卉 -->
+    <ellipse cx="780" cy="160" rx="50" ry="75" transform="rotate(15,780,160)"/>
+    <ellipse cx="805" cy="145" rx="35" ry="58" transform="rotate(28,805,145)"/>
+    <path d="M790,235 Q795,370 800,500"/>
+    <path d="M798,310 Q825,288 840,308 Q826,330 796,322 Z"/>
+    <path d="M795,400 Q768,378 752,398 Q766,418 797,410 Z"/>
+    <circle cx="782" cy="125" r="5.5"/>
+    <circle cx="800" cy="113" r="4"/>
+    <circle cx="768" cy="118" r="3.5"/>
+    <!-- 頂部細枝 -->
+    <path d="M350,0 Q380,40 370,90 Q355,130 345,180"/>
+    <path d="M360,50 Q390,42 398,60 Q382,72 358,65"/>
+    <path d="M555,0 Q530,45 540,95 Q550,135 555,180"/>
+    <path d="M545,55 Q515,48 508,66 Q523,78 548,70"/>
+  </svg>
+
+  <div class="hero-overlay"></div>
+  <div class="inner">
+    <div class="hero-cols">
+
+      <!-- 左欄 -->
+      <div class="hero-left">
+        <div class="hero-eyebrow">FORTUNE · WISDOM · SPACE ENERGY</div>
+        <div class="hero-name">陳詠琳</div>
+        <div class="hero-name-en">SHEILA CHEN</div>
+        <div class="hero-sep"></div>
+        <div class="hero-quote">
+          命理非單純紙上談兵，<br>
+          紫微斗數會幫助我們知命行運，<br>
+          <strong>懂得掌握，必能助自己。</strong>
+        </div>
+        <div class="hero-svc">
+          <span>紫微斗數</span><span class="sep-pipe">｜</span>
+          <span>風水格局</span><br>
+          <span>方位開運</span><span class="sep-pipe">｜</span>
+          <span>擇日服務</span><span class="sep-pipe">｜</span>
+          <span>易經卜卦選號</span>
+        </div>
+      </div>
+
+      <!-- 右欄 -->
+      <div class="hero-right">
+        <div class="hero-icons">
+          <a class="hero-icon-link" href="https://line.me/R/ti/p/@647hgbcw" target="_blank" aria-label="LINE"
+            onclick="gtag('event','click_line',{'event_category':'CTA','event_label':'sheila'});">
+            <img src="/assets/line.svg" alt="LINE" onerror="this.style.display='none'">
+          </a>
+          <a class="hero-icon-link" href="https://www.instagram.com/1988_sheila" target="_blank" aria-label="Instagram"
+            onclick="gtag('event','click_ig',{'event_category':'CTA','event_label':'sheila'});">
+            <img src="/assets/instagram.svg" alt="Instagram" onerror="this.style.display='none'">
+          </a>
+          <a class="hero-icon-link" href="https://www.threads.com/@1988_sheila" target="_blank" aria-label="Threads"
+            onclick="gtag('event','click_threads',{'event_category':'CTA','event_label':'sheila'});">
+            <img src="/assets/threads.svg" alt="Threads" onerror="this.style.display='none'">
+          </a>
+          <a class="hero-icon-link" href="mailto:" aria-label="Email"
+            onclick="gtag('event','click_mail',{'event_category':'CTA','event_label':'sheila'});">
+            <img src="/assets/mail.svg" alt="Email" onerror="this.style.display='none'">
+          </a>
+        </div>
+
+        <a href="https://line.me/R/ti/p/@647hgbcw" target="_blank" class="hero-btn p1"
+          onclick="gtag('event','click_line',{'event_category':'CTA','event_label':'sheila'});">預約諮詢｜LINE Me</a>
+        <a href="#services" class="hero-btn p1">紫微斗數｜命運解析</a>
+        <a href="#services" class="hero-btn p1">陽宅風水｜空間能量</a>
+        <a href="#services" class="hero-btn ghost">方位開運・擇日・選號</a>
+        <a href="#ziwei" class="hero-btn ghost">了解紫微斗數</a>
+
+        <div class="hero-btn-row">
+          <button class="btn-sm" onclick="openQrModal();gtag('event','click_qr',{'event_category':'CTA','event_label':'sheila'});">
+            <span>▣</span> QR CODE
+          </button>
+          <button class="btn-sm share" id="shareBtn">SHARE</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ③ QR MODAL -->
+<div class="qr-overlay" id="qrOverlay" onclick="closeQrModal()">
+  <div class="qr-box" onclick="event.stopPropagation()">
+    <div class="qr-name">陳詠琳</div>
+    <div class="qr-en">SHEILA CHEN</div>
+    <div id="qrcode"></div>
+    <div class="qr-url">linket.app/sheila</div>
+    <button class="qr-close" onclick="closeQrModal()">關 閉</button>
+  </div>
+</div>
+
+<!-- ④ WATERMARK DIVIDER -->
+<div class="wm-divider" aria-hidden="true">
+  <div class="wm-track">
+    <span class="wm-item">紫微斗數</span><span class="wm-item">風水格局</span><span class="wm-item">方位開運</span><span class="wm-item">擇日服務</span><span class="wm-item">易經卜卦</span><span class="wm-item">知命行運</span><span class="wm-item">陳詠琳 Sheila</span>
+    <span class="wm-item">紫微斗數</span><span class="wm-item">風水格局</span><span class="wm-item">方位開運</span><span class="wm-item">擇日服務</span><span class="wm-item">易經卜卦</span><span class="wm-item">知命行運</span><span class="wm-item">陳詠琳 Sheila</span>
+  </div>
+</div>
+
+<!-- ⑤ 五大服務（全出血雜誌風）-->
+<div class="svc-editorial" id="services">
+
+  <!-- 服務引言 -->
+  <div style="background:var(--bg2);padding:3rem 1.4rem 2.5rem;text-align:center;border-bottom:1px solid rgba(196,168,130,.18);">
+    <div style="max-width:var(--mw);margin:0 auto;">
+      <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.75rem;letter-spacing:.45em;color:var(--gold);display:block;margin-bottom:1rem;">Services · 五大服務</span>
+      <div style="font-size:clamp(1.3rem,3.5vw,2rem);font-weight:700;letter-spacing:.1em;color:var(--purple);line-height:1.4;margin-bottom:1.2rem;">
+        每一個困惑，<br>都有對應的方向。
+      </div>
+      <p style="font-size:.92rem;line-height:2.2;color:rgba(61,31,110,.55);max-width:480px;margin:0 auto;">
+        無論是職涯的十字路口、感情的撞牆期，<br>
+        還是想讓生活的環境與時間點對齊自己的能量——<br>
+        這五個方向，是老師最常被詢問、也最能幫助你的服務。
+      </p>
+    </div>
+  </div>
+
+  <!-- 01 紫微斗數 -->
+  <div class="svc-ed-block reveal">
+    <div class="svc-ed-img">
+      <img src="./img-ziwei.jpg?v=2" alt="紫微斗數" onerror="this.outerHTML='<div class=&quot;svc-ed-img-ph&quot;>紫微斗數</div>'">
+    </div>
+    <div class="svc-ed-txt">
+      <div class="svc-ed-no">01</div>
+      <div class="svc-ed-name">紫微斗數</div>
+      <div class="svc-ed-en">Zi Wei Dou Shu</div>
+      <p class="svc-ed-desc">你的命盤，是你的人生使用說明書。<br><br>透過出生年月日時，紫微斗數精準推算出你的本命格局、十年大運走向與今年的流年能量。了解自己現在走的是什麼運，就能知道哪裡該衝、哪裡要守——選擇對自己有利的路，少走彎路。</p>
+    </div>
+  </div>
+  <div class="svc-ed-divider"></div>
+
+  <!-- 02 風水格局 -->
+  <div class="svc-ed-block reverse reveal">
+    <div class="svc-ed-img">
+      <img src="./img-fengshui.jpg?v=2" alt="風水格局" onerror="this.outerHTML='<div class=&quot;svc-ed-img-ph&quot;>風水格局</div>'">
+    </div>
+    <div class="svc-ed-txt">
+      <div class="svc-ed-no">02</div>
+      <div class="svc-ed-name">風水格局</div>
+      <div class="svc-ed-en">Feng Shui</div>
+      <p class="svc-ed-desc">一個空間的格局，會悄悄影響住在裡面的人。<br><br>住宅風水調整財運與家庭關係，商業空間（辦公室、店面）則關乎事業起伏與人際磁場。透過實地格局分析與方位建議，讓你身處的環境，成為你最有力的後盾。</p>
+    </div>
+  </div>
+  <div class="svc-ed-divider"></div>
+
+  <!-- 03 方位開運 -->
+  <div class="svc-ed-block reveal">
+    <div class="svc-ed-img">
+      <img src="./img-direction.jpg?v=2" alt="方位開運" onerror="this.outerHTML='<div class=&quot;svc-ed-img-ph&quot;>方位開運</div>'">
+    </div>
+    <div class="svc-ed-txt">
+      <div class="svc-ed-no">03</div>
+      <div class="svc-ed-name">方位開運</div>
+      <div class="svc-ed-en">Directional Fortune</div>
+      <p class="svc-ed-desc">不用搬家，不用大改裝。<br><br>依據你的本命星盤計算年盤與月盤的吉方，透過睡眠方向、出行路線、辦公座向等日常微調，在不改變環境的前提下，讓整體運勢順起來。去年開始改運、整年月盤調整——這是很多客人回報「一切穩定很多」的方法。</p>
+    </div>
+  </div>
+  <div class="svc-ed-divider"></div>
+
+  <!-- 04 擇日 + 05 易經（並排）-->
+  <div class="svc-ed-block reverse reveal">
+    <div class="svc-ed-img">
+      <img src="./img-calendar.jpg?v=2" alt="擇日易經" onerror="this.outerHTML='<div class=&quot;svc-ed-img-ph&quot;>擇日・易經</div>'">
+    </div>
+    <div class="svc-ed-txt">
+      <div class="svc-ed-no">04 · 05</div>
+      <div class="svc-ed-name">擇日服務<br>易經卜卦選號</div>
+      <div class="svc-ed-en">Date Selection · I Ching</div>
+      <p class="svc-ed-desc">重要的事，值得選一個好的時機點。<br><br>結婚登記、開市、入宅，透過命盤與曆法交叉比對，找出最符合當事人能量的吉日吉時。易經選號則用於車牌、帳號、門號——每一個數字背後都有它的氣場邏輯，選對了，用起來順。</p>
+    </div>
+  </div>
+
+  <!-- 服務 CTA 帶 -->
+  <div style="background:var(--bg2);padding:2rem 1.4rem;display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;border-top:1px solid rgba(196,168,130,.18);">
+    <div style="flex:1;min-width:180px;font-size:.88rem;letter-spacing:.08em;color:var(--ink2);line-height:1.9;">
+      每一個諮詢都是老師本人親自回覆，<br>歡迎透過 LINE 預約服務。
+    </div>
+    <a href="https://line.me/R/ti/p/@647hgbcw" target="_blank" class="sec-btn fill"
+      onclick="gtag('event','click_line_svc',{'event_category':'CTA','event_label':'sheila'});">預約諮詢｜LINE Me</a>
+  </div>
+
+</div>
+
+<!-- ⑥ 紫微入門教室 -->
+<div class="ziwei-magazine" id="ziwei">
+
+  <!-- Hero 標題區 -->
+  <div class="ziwei-mag-hero">
+    <img src="./img-ziwei-bg.jpg?v=2" alt="" onerror="this.style.display='none'">
+    <div class="ziwei-mag-hero-ph"></div>
+    <div class="ziwei-mag-hero-txt reveal">
+      <span class="ziwei-kicker">Zi Wei Dou Shu Classroom · 紫微入門小教室</span>
+      <div class="ziwei-big-title">運，<br>是可以<em>看懂</em>的。</div>
+      <p class="ziwei-intro-text">
+        很多人以為算命就是被動接受結果。但紫微斗數不是這樣用的。<br><br>它是一套以出生年月日時為座標，透過命盤星曜與十二宮位推算人生節奏的工具——告訴你今年的機會在哪、事業財運感情如何布局、何時該衝？何時要等？<br><br>看懂自己，選擇就有力量。解析後一年內，都可以再回來詢問。
+      </p>
+    </div>
+  </div>
+
+  <!-- 橋接說明：引言→宮位 -->
+  <div style="max-width:var(--mw);margin:0 auto;padding:2.5rem 1.4rem 1.5rem;text-align:center;" class="reveal">
+    <div style="width:2rem;height:1px;background:rgba(196,168,130,.35);margin:0 auto 1.5rem;"></div>
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;letter-spacing:.2em;color:rgba(196,168,130,.7);margin-bottom:.8rem;">十二宮位，就是命盤的十二個人生舞台</p>
+    <p style="font-size:.88rem;line-height:2.1;color:rgba(250,247,243,.5);max-width:480px;margin:0 auto;">
+      命盤把你的人生分成十二個面向，每一個宮位對應一個你在意的課題。<br>
+      每一次諮詢，老師都會依你的問題，重點解讀最關鍵的那幾個宮位——<br>
+      不是每個宮位都需要詳讀，而是找到你現在最需要理解的那一塊。
+    </p>
+  </div>
+
+  <!-- 十二宮位（3×4）-->
+  <div class="ziwei-palace-grid reveal">
+    <div class="zp-card">
+      <div class="zp-no">壹</div>
+      <div class="zp-name">命宮</div>
+      <div class="zp-en">Life Palace</div>
+      <p class="zp-desc">你的性格底色、與生俱來的優勢與盲點，都在這裡。讀懂命宮，就是讀懂你自己。</p>
+    </div>
+    <div class="zp-card">
+      <div class="zp-no">貳</div>
+      <div class="zp-name">財帛宮</div>
+      <div class="zp-en">Wealth Palace</div>
+      <p class="zp-desc">你是適合主動出擊型的財運，還是守成穩健型？今年正財或偏財哪個旺？命盤看得出來。</p>
+    </div>
+    <div class="zp-card">
+      <div class="zp-no">參</div>
+      <div class="zp-name">事業宮</div>
+      <div class="zp-en">Career Palace</div>
+      <p class="zp-desc">創業還是當主管？轉職時機到了嗎？事業宮告訴你最適合你的職場定位與發展方向。</p>
+    </div>
+    <div class="zp-card">
+      <div class="zp-no">肆</div>
+      <div class="zp-name">夫妻宮</div>
+      <div class="zp-en">Marriage Palace</div>
+      <p class="zp-desc">為什麼感情總是重蹈覆轍？夫妻宮顯示你在親密關係中的互動模式——看清楚，才能改變。</p>
+    </div>
+    <div class="zp-card">
+      <div class="zp-no">伍</div>
+      <div class="zp-name">遷移宮</div>
+      <div class="zp-en">Travel Palace</div>
+      <p class="zp-desc">你的貴人在哪裡？出門在外的運勢好不好？遷移宮決定你在外界眼中的形象與機緣。</p>
+    </div>
+    <div class="zp-card">
+      <div class="zp-no">陸</div>
+      <div class="zp-name">福德宮</div>
+      <div class="zp-en">Fortune Palace</div>
+      <p class="zp-desc">你的內心是否真的安定？壓力來自哪裡？福德宮反映你的精神狀態與情緒能量中心。</p>
+    </div>
+    <div class="zp-card">
+      <div class="zp-no">柒</div>
+      <div class="zp-name">父母宮</div>
+      <div class="zp-en">Parents Palace</div>
+      <p class="zp-desc">與上司、長輩的關係順不順？原生家庭的影響有多深？這裡都有答案。</p>
+    </div>
+    <div class="zp-card">
+      <div class="zp-no">捌</div>
+      <div class="zp-name">疾厄宮</div>
+      <div class="zp-en">Health Palace</div>
+      <p class="zp-desc">你的身體有哪些需要注意的慢性壓力區？疾厄宮是提前預防、早做調理的方向指引。</p>
+    </div>
+    <div class="zp-card">
+      <div class="zp-no">玖</div>
+      <div class="zp-name">僕役宮</div>
+      <div class="zp-en">Friends Palace</div>
+      <p class="zp-desc">你身邊的人是助力還是阻力？僕役宮看你的人際能量——誰是真正的貴人？</p>
+    </div>
+    <div class="zp-card">
+      <div class="zp-no">拾</div>
+      <div class="zp-name">田宅宮</div>
+      <div class="zp-en">Property Palace</div>
+      <p class="zp-desc">適不適合買房？現在住的地方對你的運勢有幫助嗎？田宅宮給你方向。</p>
+    </div>
+    <div class="zp-card">
+      <div class="zp-no">拾壹</div>
+      <div class="zp-name">子女宮</div>
+      <div class="zp-en">Children Palace</div>
+      <p class="zp-desc">你的創意能量在哪裡？子女緣分如何？也代表你與部屬、晚輩之間的關係模式。</p>
+    </div>
+    <div class="zp-card">
+      <div class="zp-no">拾貳</div>
+      <div class="zp-name">兄弟宮</div>
+      <div class="zp-en">Siblings Palace</div>
+      <p class="zp-desc">與兄弟姊妹、同齡朋友的關係親不親？資源能否互通？兄弟宮告訴你同儕間的能量流向。</p>
+    </div>
+  </div>
+
+  <!-- CTA 帶 -->
+  <div class="ziwei-cta-band reveal">
+    <p class="ziwei-cta-text">
+      你現在站在哪裡？<br>
+      用紫微斗數，把今年了解清楚。<br>
+      <span style="font-size:.8rem;opacity:.7;">解析後一年內，隨時可以再回來詢問。</span>
+    </p>
+    <a href="https://line.me/R/ti/p/@647hgbcw" target="_blank" class="sec-btn fill"
+      onclick="gtag('event','click_line_ziwei',{'event_category':'CTA','event_label':'sheila'});">預約紫微斗數諮詢</a>
+  </div>
+
+</div>
+
+<!-- ⑦ IG 社群展示 -->
+<section class="ig-section sec" id="ig">
+  <div class="inner">
+    <div class="reveal">
+      <span class="sec-eyebrow">Instagram · @1988_sheila</span>
+      <div class="sec-title">真實發生過的，<br>才值得分享。</div>
+      <div class="sec-rule"></div>
+      <p class="body-text" style="max-width:480px;">每一張回饋截圖，都是老師繼續做命理的理由。好的命理不是迷信，是讓人少走彎路。</p>
+    </div>
+
+    <!-- IG embed 四格 -->
+    <div class="ig-embed-grid reveal">
+      <div class="ig-embed-wrap">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DU-Xwpxk5zT/?utm_source=ig_embed&utm_campaign=loading" data-instgrm-version="14"></blockquote>
+      </div>
+      <div class="ig-embed-wrap">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DXkyLeGkzQG/?utm_source=ig_embed&utm_campaign=loading" data-instgrm-version="14"></blockquote>
+      </div>
+      <div class="ig-embed-wrap">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DXaIA-Sk0Lk/?utm_source=ig_embed&utm_campaign=loading" data-instgrm-version="14"></blockquote>
+      </div>
+      <div class="ig-embed-wrap">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DS_feKHE4FZ/?utm_source=ig_embed&utm_campaign=loading" data-instgrm-version="14"></blockquote>
+      </div>
+    </div>
+
+    <div class="ig-follow-wrap reveal">
+      <a href="https://www.instagram.com/1988_sheila" target="_blank" class="sec-btn outline"
+        style="display:inline-flex;width:auto;padding:.9rem 2rem;"
+        onclick="gtag('event','click_ig_follow',{'event_category':'CTA','event_label':'sheila'});">追蹤 @1988_sheila</a>
+    </div>
+  </div>
+</section>
+<script async src="//www.instagram.com/embed.js"></script>
+
+<!-- ⑧ FOOTER -->
+<footer class="footer">
+  <div class="f-name">陳詠琳</div>
+  <div class="f-en">SHEILA CHEN · 風水命理師</div>
+  <div class="f-btns">
+    <a href="https://line.me/R/ti/p/@647hgbcw" target="_blank" class="f-btn fb"
+      onclick="gtag('event','click_line_footer',{'event_category':'CTA','event_label':'sheila'});">預約諮詢｜LINE Me</a>
+    <a href="https://www.instagram.com/1988_sheila" target="_blank" class="f-btn fg"
+      onclick="gtag('event','click_ig_footer',{'event_category':'CTA','event_label':'sheila'});">Instagram｜@1988_sheila</a>
+  </div>
+  <nav class="f-nav">
+    <a href="#top">頂端</a>
+    <a href="#services">服務</a>
+    <a href="#ziwei">紫微</a>
+    <a href="#contact">聯繫</a>
+  </nav>
+  <p class="f-copy">© 2026 陳詠琳 Sheila · 風水命理師</p>
+</footer>
+
+<!-- ⑨ BACK TO TOP -->
+<span class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'});">↑ BACK TO TOP</span>
+
+<!-- ⑩ DESIGN BY LINKET -->
+<a class="design-by" href="https://linket.app/home" target="_blank">Design by <b>LINKet</b> · linket.app</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+function openQrModal(){document.getElementById('qrOverlay').classList.add('open');}
+function closeQrModal(){document.getElementById('qrOverlay').classList.remove('open');}
+new QRCode(document.getElementById('qrcode'),{
+  text:'https://linket.app/sheila',
+  width:160,height:160,
+  colorDark:'#3D1F6E',colorLight:'#F0E8DC',
+  correctLevel:QRCode.CorrectLevel.M
+});
+if(navigator.share){
+  const btn=document.getElementById('shareBtn');
+  btn.style.display='flex';
+  btn.addEventListener('click',async()=>{
+    try{
+      await navigator.share({title:'陳詠琳 Sheila｜風水命理師',url:'https://linket.app/sheila'});
+      gtag('event','click_share',{'event_category':'CTA','event_label':'sheila'});
+    }catch(e){}
+  });
+}
+const obs=new IntersectionObserver(e=>{
+  e.forEach(i=>{if(i.isIntersecting){i.target.classList.add('visible');obs.unobserve(i.target);}});
+},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
