@@ -10,7 +10,8 @@
   v1.3  2026-04-28  標題更新；Hero bg opacity .3；直式手機 bg；雙 logo；hero-role 加 R立方；btn-sm solid；R立方方案加圖；地圖改上下卡片；地圖文字加黑加粗；footer 雙 logo
   v1.4  2026-04-29  手機 bg portrait onerror fallback 橫式圖；QR modal + footer 換 dual-logo；全站動畫改 ease-in 0.4s 由下而上 20px
   v1.5  2026-04-29  Hero 左欄六元素補進場動畫（logo/eyebrow/name/role/slogan/tags，delay 0.1~0.48s）
-  v1.6  tony 版面文字微調
+  v1.6  tony 版面文字微調（logo 放大 300px、margin 調整）
+  v1.7  2026-04-29  修正 logo 水平偏移：移除 margin:1.5rem，hero-logo 加 justify-content:center
   設計：LINKet by Tony Design Studio
 -->
 <meta charset="UTF-8">
@@ -74,8 +75,8 @@ a{text-decoration:none;color:inherit;}img{max-width:100%;display:block;}
   padding:3.5rem 2rem 3.5rem 0;gap:1.2rem;
   border-right:1px solid rgba(200,210,195,.1);
 }
-.hero-logo{width:300px;}
-.hero-logo img{width:300px;height:auto;display:block;mix-blend-mode:screen;filter:brightness(1.1);margin:1.5rem;}
+.hero-logo{width:300px;display:flex;justify-content:center;}
+.hero-logo img{width:300px;height:auto;display:block;mix-blend-mode:screen;filter:brightness(1.1);}
 .hero-logo-ph{width:200px;height:55px;border:1px dashed rgba(200,210,195,.2);border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-size:.75rem;letter-spacing:.15em;color:rgba(255,255,255,.25);}
 .hero-eyebrow{font-family:'Bebas Neue',sans-serif;font-size:.8rem;letter-spacing:.5em;color:var(--gold);opacity:.8;}
 .hero-name{font-size:clamp(2rem,4vw,2.5rem);font-weight:700;letter-spacing:.25em;color:var(--white);line-height:1.3;}
