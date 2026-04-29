@@ -89,7 +89,8 @@
 |------|------|------|
 | v1.0 | 04-22 | 初版建置：Vintage Editorial 風格，Bebas Neue 超大壓字，深森林墨綠色系，服務三卡片（租借/導覽/共創），R立方費率卡，雙站點地圖，全區 `?v=2` 圖片版號 |
 | v1.1 | 04-22 | Editorial 大改版：全出血配圖服務區（左右交替）、超大數字（clamp 5rem,12vw,9rem）、密排紋理文字帶、R立方費率去卡片化、地圖去圓角 |
-| v1.2 | 04-24 | Bug 修正：onerror 屬性內 class 單引號衝突，改用 `class=&quot;ed-img-ph&quot;` HTML 實體 |
+| v1.2 | 04-24 | Bug 修正：onerror 屬性內 class 單引號衝突 |
+| v1.3 | 04-28 | **標題更新；Hero bg opacity .3；直式手機 bg 獨立；雙 logo（545bike-dual-logo.png）；hero-role 加 R立方；btn-sm solid；R立方費率卡加教室圖片；地圖改上下卡片排版；地圖文字改黑色加粗 20%；footer 雙 logo** |
 
 ---
 
