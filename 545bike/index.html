@@ -9,6 +9,7 @@
   v1.2  2026-04-24  修正 onerror 單引號衝突（ed-img-ph class 改用 &quot; HTML 實體）
   v1.3  2026-04-28  標題更新；Hero bg opacity .3；直式手機 bg；雙 logo；hero-role 加 R立方；btn-sm solid；R立方方案加圖；地圖改上下卡片；地圖文字加黑加粗；footer 雙 logo
   v1.4  2026-04-29  手機 bg portrait onerror fallback 橫式圖；QR modal + footer 換 dual-logo；全站動畫改 ease-in 0.4s 由下而上 20px
+  v1.5  2026-04-29  Hero 左欄六元素補進場動畫（logo/eyebrow/name/role/slogan/tags，delay 0.1~0.48s）
   設計：LINKet by Tony Design Studio
 -->
 <meta charset="UTF-8">
@@ -80,6 +81,16 @@ a{text-decoration:none;color:inherit;}img{max-width:100%;display:block;}
 .hero-role{font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;letter-spacing:.2em;color:rgba(255,255,255,.45);}
 .hero-slogan{font-size:.88rem;letter-spacing:.12em;color:rgba(255,255,255,.6);line-height:1.9;border-left:2px solid var(--c2);padding-left:.9rem;}
 .hero-tags{display:flex;flex-wrap:wrap;gap:.4rem;}
+/* 左欄進場動畫 */
+.hero-logo,.hero-eyebrow,.hero-name,.hero-role,.hero-slogan,.hero-tags{
+  opacity:0;animation:fadeUp .4s ease-in both;
+}
+.hero-logo{animation-delay:.1s;}
+.hero-eyebrow{animation-delay:.18s;}
+.hero-name{animation-delay:.26s;}
+.hero-role{animation-delay:.32s;}
+.hero-slogan{animation-delay:.4s;}
+.hero-tags{animation-delay:.48s;}
 .h-tag{font-size:.75rem;letter-spacing:.06em;color:var(--gold);border:1px solid rgba(200,168,90,.25);border-radius:20px;padding:.2rem .65rem;}
 
 .hero-right{flex:1 1 0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:3rem 0 3rem 2rem;}
