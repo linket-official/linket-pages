@@ -8,7 +8,8 @@
   v1.1  2026-04-27  TOP BADGE 標準色、Hero 文字修正、服務改全出血雜誌風、深化服務文案、紫微12宮教室、IG 社群展示區
   v1.2  2026-04-28  全頁文案改寫（Sheila 語言風格）
   v1.3  2026-04-28  Hero quote 還原；四張 bg 圖框架（淺/深 × 橫/直）；服務區加引言；紫微宮位加橋接說明
-  v1.4  2026-04-28  IG 社群展示改 embed 嵌入（4 篇真實貼文）；embed.js 非同步載入；2×2 grid 版面：Sheila 真實語言風格（口語直接、問句共鳴）、Hero 引句換成 IG 金句、服務描述去學術轉日常、紫微教室入門語言重寫、十二宮位改問句觸發式描述、IG 區標題改客戶見證語言
+  v1.4  2026-04-28  IG 社群展示改 embed 嵌入
+  v2.0  2026-04-30  架構精簡：刪除紫微教室；服務文案精簡 2 句；全站換木質暮色 #2C2218（4 篇真實貼文）；embed.js 非同步載入；2×2 grid 版面：Sheila 真實語言風格（口語直接、問句共鳴）、Hero 引句換成 IG 金句、服務描述去學術轉日常、紫微教室入門語言重寫、十二宮位改問句觸發式描述、IG 區標題改客戶見證語言
   設計：花藝工作室命理師・暖米灰噪點底・花卉線稿・深藕紫×金棕
   LINKet by Tony Design Studio
 -->
@@ -31,17 +32,17 @@
 <style>
 /* ── TOKENS ── */
 :root{
-  --purple:#3D1F6E;
-  --purple2:#5A3490;
+  --purple:#2C2218;
+  --purple2:#4A3828;
   --gold:#C4A882;
   --gold2:#D4BC9A;
   --gold3:rgba(196,168,130,.18);
-  --bg:#E8DDD0;
-  --bg2:#F0E8DC;
-  --white:#FAF7F3;
-  --ink:rgba(61,31,110,.85);
-  --ink2:rgba(61,31,110,.55);
-  --ink3:rgba(61,31,110,.32);
+  --bg:#F2EDE4;
+  --bg2:#EDE6DA;
+  --white:#FAF8F4;
+  --ink:rgba(44,34,24,.9);
+  --ink2:rgba(44,34,24,.6);
+  --ink3:rgba(44,34,24,.35);
   --r:100px;
   --sp:3.2rem 1.4rem;
   --mw:860px;
@@ -456,78 +457,6 @@ a.design-by b{color:var(--purple);font-weight:700;}
 }
 .svc-ed-divider{width:100%;height:1px;background:rgba(196,168,130,.18);}
 
-/* ── 紫微入門教室（雜誌版）── */
-.ziwei-magazine{width:100%;background:var(--purple);}
-.ziwei-mag-hero{
-  position:relative;min-height:340px;
-  display:flex;align-items:center;overflow:hidden;
-}
-.ziwei-mag-hero img{
-  position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;opacity:.22;filter:sepia(.3);
-}
-.ziwei-mag-hero-ph{
-  position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(61,31,110,.95) 0%,rgba(90,52,144,.7) 100%);
-}
-.ziwei-mag-hero-txt{
-  position:relative;z-index:1;
-  max-width:var(--mw);margin:0 auto;padding:3rem 1.4rem;width:100%;
-}
-.ziwei-kicker{
-  font-family:'Cormorant Garamond',serif;font-style:italic;
-  font-size:.75rem;letter-spacing:.55em;
-  color:rgba(196,168,130,.65);margin-bottom:1.2rem;display:block;
-}
-.ziwei-big-title{
-  font-size:clamp(2.5rem,7vw,6rem);
-  font-weight:700;letter-spacing:.05em;
-  color:var(--white);line-height:.95;margin-bottom:1.5rem;
-}
-.ziwei-big-title em{
-  font-family:'Cormorant Garamond',serif;
-  font-style:italic;color:rgba(196,168,130,.8);
-}
-.ziwei-intro-text{
-  font-size:.92rem;line-height:2.2;letter-spacing:.06em;
-  color:rgba(250,247,243,.65);max-width:480px;
-}
-/* 宮位卡片（雜誌 grid）*/
-.ziwei-palace-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:1px;background:rgba(196,168,130,.1);
-}
-.zp-card{
-  background:rgba(61,31,110,.6);
-  padding:1.6rem 1.3rem;
-  transition:background .2s;
-}
-.zp-card:hover{background:rgba(90,52,144,.5);}
-.zp-no{
-  font-family:'Cormorant Garamond',serif;font-style:italic;
-  font-size:2.5rem;line-height:1;
-  color:rgba(196,168,130,.2);margin-bottom:.4rem;
-}
-.zp-name{
-  font-size:1rem;font-weight:700;
-  letter-spacing:.18em;color:var(--white);
-  margin-bottom:.5rem;
-}
-.zp-en{
-  font-family:'Cormorant Garamond',serif;font-style:italic;
-  font-size:.72rem;letter-spacing:.2em;
-  color:rgba(196,168,130,.5);margin-bottom:.7rem;
-}
-.zp-desc{font-size:.8rem;line-height:1.9;color:rgba(250,247,243,.45);}
-.ziwei-cta-band{
-  max-width:var(--mw);margin:0 auto;
-  padding:2.5rem 1.4rem;
-  display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;
-}
-.ziwei-cta-text{
-  font-size:.88rem;letter-spacing:.1em;
-  color:rgba(250,247,243,.55);flex:1;min-width:200px;
-}
 /* IG 展示區 */
 /* IG embed 四格 */
 .ig-embed-grid{
@@ -691,7 +620,6 @@ a.design-by b{color:var(--purple);font-weight:700;}
         <a href="#services" class="hero-btn p1">紫微斗數｜命運解析</a>
         <a href="#services" class="hero-btn p1">陽宅風水｜空間能量</a>
         <a href="#services" class="hero-btn ghost">方位開運・擇日・選號</a>
-        <a href="#ziwei" class="hero-btn ghost">了解紫微斗數</a>
 
         <div class="hero-btn-row">
           <button class="btn-sm" onclick="openQrModal();gtag('event','click_qr',{'event_category':'CTA','event_label':'sheila'});">
@@ -751,7 +679,7 @@ a.design-by b{color:var(--purple);font-weight:700;}
       <div class="svc-ed-no">01</div>
       <div class="svc-ed-name">紫微斗數</div>
       <div class="svc-ed-en">Zi Wei Dou Shu</div>
-      <p class="svc-ed-desc">你的命盤，是你的人生使用說明書。<br><br>透過出生年月日時，紫微斗數精準推算出你的本命格局、十年大運走向與今年的流年能量。了解自己現在走的是什麼運，就能知道哪裡該衝、哪裡要守——選擇對自己有利的路，少走彎路。</p>
+      <p class="svc-ed-desc">以出生年月日時推算命盤，掌握本命格局、十年大運與今年流年能量。知道自己現在走什麼運，才能選擇對自己有利的路。</p>
     </div>
   </div>
   <div class="svc-ed-divider"></div>
@@ -765,7 +693,7 @@ a.design-by b{color:var(--purple);font-weight:700;}
       <div class="svc-ed-no">02</div>
       <div class="svc-ed-name">風水格局</div>
       <div class="svc-ed-en">Feng Shui</div>
-      <p class="svc-ed-desc">一個空間的格局，會悄悄影響住在裡面的人。<br><br>住宅風水調整財運與家庭關係，商業空間（辦公室、店面）則關乎事業起伏與人際磁場。透過實地格局分析與方位建議，讓你身處的環境，成為你最有力的後盾。</p>
+      <p class="svc-ed-desc">空間的格局，會悄悄影響住在裡面的人。住宅風水影響財運與家庭，商業空間影響事業與人際——讓環境成為你的後盾。</p>
     </div>
   </div>
   <div class="svc-ed-divider"></div>
@@ -779,7 +707,7 @@ a.design-by b{color:var(--purple);font-weight:700;}
       <div class="svc-ed-no">03</div>
       <div class="svc-ed-name">方位開運</div>
       <div class="svc-ed-en">Directional Fortune</div>
-      <p class="svc-ed-desc">不用搬家，不用大改裝。<br><br>依據你的本命星盤計算年盤與月盤的吉方，透過睡眠方向、出行路線、辦公座向等日常微調，在不改變環境的前提下，讓整體運勢順起來。去年開始改運、整年月盤調整——這是很多客人回報「一切穩定很多」的方法。</p>
+      <p class="svc-ed-desc">不用搬家，不用大改裝。依據本命星盤計算年盤與月盤吉方，透過日常方向微調，讓整體運勢順起來。</p>
     </div>
   </div>
   <div class="svc-ed-divider"></div>
@@ -793,7 +721,7 @@ a.design-by b{color:var(--purple);font-weight:700;}
       <div class="svc-ed-no">04 · 05</div>
       <div class="svc-ed-name">擇日服務<br>易經卜卦選號</div>
       <div class="svc-ed-en">Date Selection · I Ching</div>
-      <p class="svc-ed-desc">重要的事，值得選一個好的時機點。<br><br>結婚登記、開市、入宅，透過命盤與曆法交叉比對，找出最符合當事人能量的吉日吉時。易經選號則用於車牌、帳號、門號——每一個數字背後都有它的氣場邏輯，選對了，用起來順。</p>
+      <p class="svc-ed-desc">重要的事，值得選個好時機。結婚登記、開市、入宅，依命盤找出最適合的吉日吉時。易經選號用於車牌、帳號、門號，選對了用起來順。</p>
     </div>
   </div>
 
@@ -808,121 +736,6 @@ a.design-by b{color:var(--purple);font-weight:700;}
 
 </div>
 
-<!-- ⑥ 紫微入門教室 -->
-<div class="ziwei-magazine" id="ziwei">
-
-  <!-- Hero 標題區 -->
-  <div class="ziwei-mag-hero">
-    <img src="./img-ziwei-bg.jpg?v=2" alt="" onerror="this.style.display='none'">
-    <div class="ziwei-mag-hero-ph"></div>
-    <div class="ziwei-mag-hero-txt reveal">
-      <span class="ziwei-kicker">Zi Wei Dou Shu Classroom · 紫微入門小教室</span>
-      <div class="ziwei-big-title">運，<br>是可以<em>看懂</em>的。</div>
-      <p class="ziwei-intro-text">
-        很多人以為算命就是被動接受結果。但紫微斗數不是這樣用的。<br><br>它是一套以出生年月日時為座標，透過命盤星曜與十二宮位推算人生節奏的工具——告訴你今年的機會在哪、事業財運感情如何布局、何時該衝？何時要等？<br><br>看懂自己，選擇就有力量。解析後一年內，都可以再回來詢問。
-      </p>
-    </div>
-  </div>
-
-  <!-- 橋接說明：引言→宮位 -->
-  <div style="max-width:var(--mw);margin:0 auto;padding:2.5rem 1.4rem 1.5rem;text-align:center;" class="reveal">
-    <div style="width:2rem;height:1px;background:rgba(196,168,130,.35);margin:0 auto 1.5rem;"></div>
-    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;letter-spacing:.2em;color:rgba(196,168,130,.7);margin-bottom:.8rem;">十二宮位，就是命盤的十二個人生舞台</p>
-    <p style="font-size:.88rem;line-height:2.1;color:rgba(250,247,243,.5);max-width:480px;margin:0 auto;">
-      命盤把你的人生分成十二個面向，每一個宮位對應一個你在意的課題。<br>
-      每一次諮詢，老師都會依你的問題，重點解讀最關鍵的那幾個宮位——<br>
-      不是每個宮位都需要詳讀，而是找到你現在最需要理解的那一塊。
-    </p>
-  </div>
-
-  <!-- 十二宮位（3×4）-->
-  <div class="ziwei-palace-grid reveal">
-    <div class="zp-card">
-      <div class="zp-no">壹</div>
-      <div class="zp-name">命宮</div>
-      <div class="zp-en">Life Palace</div>
-      <p class="zp-desc">你的性格底色、與生俱來的優勢與盲點，都在這裡。讀懂命宮，就是讀懂你自己。</p>
-    </div>
-    <div class="zp-card">
-      <div class="zp-no">貳</div>
-      <div class="zp-name">財帛宮</div>
-      <div class="zp-en">Wealth Palace</div>
-      <p class="zp-desc">你是適合主動出擊型的財運，還是守成穩健型？今年正財或偏財哪個旺？命盤看得出來。</p>
-    </div>
-    <div class="zp-card">
-      <div class="zp-no">參</div>
-      <div class="zp-name">事業宮</div>
-      <div class="zp-en">Career Palace</div>
-      <p class="zp-desc">創業還是當主管？轉職時機到了嗎？事業宮告訴你最適合你的職場定位與發展方向。</p>
-    </div>
-    <div class="zp-card">
-      <div class="zp-no">肆</div>
-      <div class="zp-name">夫妻宮</div>
-      <div class="zp-en">Marriage Palace</div>
-      <p class="zp-desc">為什麼感情總是重蹈覆轍？夫妻宮顯示你在親密關係中的互動模式——看清楚，才能改變。</p>
-    </div>
-    <div class="zp-card">
-      <div class="zp-no">伍</div>
-      <div class="zp-name">遷移宮</div>
-      <div class="zp-en">Travel Palace</div>
-      <p class="zp-desc">你的貴人在哪裡？出門在外的運勢好不好？遷移宮決定你在外界眼中的形象與機緣。</p>
-    </div>
-    <div class="zp-card">
-      <div class="zp-no">陸</div>
-      <div class="zp-name">福德宮</div>
-      <div class="zp-en">Fortune Palace</div>
-      <p class="zp-desc">你的內心是否真的安定？壓力來自哪裡？福德宮反映你的精神狀態與情緒能量中心。</p>
-    </div>
-    <div class="zp-card">
-      <div class="zp-no">柒</div>
-      <div class="zp-name">父母宮</div>
-      <div class="zp-en">Parents Palace</div>
-      <p class="zp-desc">與上司、長輩的關係順不順？原生家庭的影響有多深？這裡都有答案。</p>
-    </div>
-    <div class="zp-card">
-      <div class="zp-no">捌</div>
-      <div class="zp-name">疾厄宮</div>
-      <div class="zp-en">Health Palace</div>
-      <p class="zp-desc">你的身體有哪些需要注意的慢性壓力區？疾厄宮是提前預防、早做調理的方向指引。</p>
-    </div>
-    <div class="zp-card">
-      <div class="zp-no">玖</div>
-      <div class="zp-name">僕役宮</div>
-      <div class="zp-en">Friends Palace</div>
-      <p class="zp-desc">你身邊的人是助力還是阻力？僕役宮看你的人際能量——誰是真正的貴人？</p>
-    </div>
-    <div class="zp-card">
-      <div class="zp-no">拾</div>
-      <div class="zp-name">田宅宮</div>
-      <div class="zp-en">Property Palace</div>
-      <p class="zp-desc">適不適合買房？現在住的地方對你的運勢有幫助嗎？田宅宮給你方向。</p>
-    </div>
-    <div class="zp-card">
-      <div class="zp-no">拾壹</div>
-      <div class="zp-name">子女宮</div>
-      <div class="zp-en">Children Palace</div>
-      <p class="zp-desc">你的創意能量在哪裡？子女緣分如何？也代表你與部屬、晚輩之間的關係模式。</p>
-    </div>
-    <div class="zp-card">
-      <div class="zp-no">拾貳</div>
-      <div class="zp-name">兄弟宮</div>
-      <div class="zp-en">Siblings Palace</div>
-      <p class="zp-desc">與兄弟姊妹、同齡朋友的關係親不親？資源能否互通？兄弟宮告訴你同儕間的能量流向。</p>
-    </div>
-  </div>
-
-  <!-- CTA 帶 -->
-  <div class="ziwei-cta-band reveal">
-    <p class="ziwei-cta-text">
-      你現在站在哪裡？<br>
-      用紫微斗數，把今年了解清楚。<br>
-      <span style="font-size:.8rem;opacity:.7;">解析後一年內，隨時可以再回來詢問。</span>
-    </p>
-    <a href="https://line.me/R/ti/p/@647hgbcw" target="_blank" class="sec-btn fill"
-      onclick="gtag('event','click_line_ziwei',{'event_category':'CTA','event_label':'sheila'});">預約紫微斗數諮詢</a>
-  </div>
-
-</div>
 
 <!-- ⑦ IG 社群展示 -->
 <section class="ig-section sec" id="ig">
@@ -972,7 +785,7 @@ a.design-by b{color:var(--purple);font-weight:700;}
   <nav class="f-nav">
     <a href="#top">頂端</a>
     <a href="#services">服務</a>
-    <a href="#ziwei">紫微</a>
+    <a href="#ig">社群</a>
     <a href="#contact">聯繫</a>
   </nav>
   <p class="f-copy">© 2026 陳詠琳 Sheila · 風水命理師</p>
@@ -991,7 +804,7 @@ function closeQrModal(){document.getElementById('qrOverlay').classList.remove('o
 new QRCode(document.getElementById('qrcode'),{
   text:'https://linket.app/sheila',
   width:160,height:160,
-  colorDark:'#3D1F6E',colorLight:'#F0E8DC',
+  colorDark:'#2C2218',colorLight:'#F0E8DC',
   correctLevel:QRCode.CorrectLevel.M
 });
 if(navigator.share){
