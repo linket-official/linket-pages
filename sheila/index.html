@@ -11,8 +11,8 @@
   v1.4  2026-04-28  IG 社群展示改 embed 嵌入
   v2.0  2026-04-30  架構精簡
   v2.1  2026-04-30  全站動畫 ease-in 緩速 0.7s；hero-name 最大值縮 20%（4.4rem）；服務區改深色底移除圖片
-  v2.2  2026-04-30  IG embed 換 captioned 完整版
-  v2.3  2026-04-30  bella-spa bg 架構重建：移除 <img> bg tag，改用 ::before bg，bg-light/bg-dark 雙色，RWD 直式自動切換，qr-overlay.open 修正  IG embed 換 captioned 完整版（&amp; 正確實體）：刪除紫微教室；服務文案精簡 2 句；全站換木質暮色 #2C2218（4 篇真實貼文）；embed.js 非同步載入；2×2 grid 版面：Sheila 真實語言風格（口語直接、問句共鳴）、Hero 引句換成 IG 金句、服務描述去學術轉日常、紫微教室入門語言重寫、十二宮位改問句觸發式描述、IG 區標題改客戶見證語言
+  v2.2  2026-04-30  IG embed 換 captioned 完整版（&amp; 正確實體）：刪除紫微教室；服務文案精簡 2 句；全站換木質暮色 #2C2218（4 篇真實貼文）；embed.js 非同步載入；2×2 grid 版面：Sheila 真實語言風格（口語直接、問句共鳴）、Hero 引句換成 IG 金句、服務描述去學術轉日常、紫微教室入門語言重寫、十二宮位改問句觸發式描述、IG 區標題改客戶見證語言
+  v2.8  2026-04-30  基於v2.3重修：移除花朵SVG、服務圖片區塊、整個IG區（帳號年齡限制）；footer改淺色var(--bg)
   設計：花藝工作室命理師・暖米灰噪點底・花卉線稿・深藕紫×金棕
   LINKet by Tony Design Studio
 -->
@@ -87,14 +87,28 @@ body::after{
   background:var(--bg);overflow:hidden;
 }
 /* 橫式背景（電腦）*/
-
-
-
-
-/* 花卉 SVG 線稿（無背景圖時的佔位裝飾）*/
-.flora-svg{
-  position:absolute;inset:0;z-index:0;pointer-events:none;
-  width:100%;height:100%;opacity:.45;
+/* Hero 背景圖：橫式電腦（淺色）預設顯示 */
+.hero-bg-img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;z-index:0;opacity:.7;
+}
+/* Hero 背景圖：橫式電腦（深紫色） */
+.hero-bg-img-dark{
+  display:none;
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;z-index:0;opacity:.7;
+}
+/* Hero 背景圖：直式手機（淺色）*/
+.hero-bg-portrait{
+  display:none;
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center top;z-index:0;opacity:.7;
+}
+/* Hero 背景圖：直式手機（深紫色）*/
+.hero-bg-portrait-dark{
+  display:none;
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center top;z-index:0;opacity:.7;
 }
 .hero-overlay{
   position:absolute;inset:0;z-index:1;pointer-events:none;
@@ -117,25 +131,26 @@ body::after{
 }
 .hero-eyebrow{
   font-family:'Cormorant Garamond',serif;
-  font-size:.72rem;letter-spacing:.55em;color:var(--gold);font-weight:700;
+  font-size:.6rem;letter-spacing:.35em;color:var(--gold);font-weight:700;
   display:block;width:100%;
 }
 .hero-name{
-  font-size:clamp(2.5rem,7vw,4.4rem);font-weight:700;
+  font-size:clamp(2.0rem,7vw,3.0rem);font-weight:700;
   letter-spacing:.5em;color:var(--purple);line-height:1.05;
 }
 .hero-name-en{
   font-family:'Cormorant Garamond',serif;
-  font-size:clamp(.85rem,1.6vw,1.5rem);
-  letter-spacing:.45em;color:var(--gold);font-weight:500;
+  font-size:clamp(1.2rem,1.6vw,2.2rem);
+  letter-spacing:.4em;color:var(--gold);font-weight:700;
 }
 .hero-sep{width:3rem;height:1px;background:rgba(196,168,130,.4);margin:0 auto;}
 .hero-quote{
   font-size:.9rem;line-height:2;letter-spacing:.08em;
   color:var(--ink2);max-width:22rem;font-weight:500;
+  margin:2rem auto;
 }
 .hero-svc{
-  font-size:.78rem;letter-spacing:.1em;color:var(--ink3);line-height:2;
+  font-size:.78rem;letter-spacing:.1em;color:var(--ink2);line-height:2;
 }
 .hero-svc span{display:inline;padding:0 .3rem;}
 .hero-svc .sep-pipe{color:rgba(196,168,130,.5);}
@@ -198,7 +213,7 @@ body::after{
 .btn-sm{
   flex:1;display:flex;align-items:center;justify-content:center;
   background:transparent;
-  border:1px solid rgba(196,168,130,.45);
+  border:1px solid rgba(196,168,130,.7);
   color:var(--ink3);font-size:.75rem;letter-spacing:.18em;
   padding:.65rem .4rem;border-radius:var(--r);cursor:pointer;
   font-family:'Noto Serif TC',serif;transition:all .2s;opacity:1;
@@ -210,18 +225,18 @@ body::after{
 /* ── QR MODAL ── */
 .qr-overlay{
   display:none;position:fixed;inset:0;z-index:999;
-  background:rgba(61,31,110,.75);backdrop-filter:blur(12px);
+  background:var(--gold);opacity:1;backdrop-filter:blur(12px);
   align-items:center;justify-content:center;
 }
 .qr-overlay.open{display:flex;}
 .qr-box{
-  background:var(--bg2);border:1px solid rgba(196,168,130,.35);
+  background:var(--bg2);opacity:1;border:1px solid rgba(196,168,130,.35);
   border-radius:16px;padding:2rem 1.8rem;
   text-align:center;max-width:290px;width:90%;
   display:flex;flex-direction:column;align-items:center;
 }
 .qr-name{
-  font-size:1rem;font-weight:700;letter-spacing:.25em;
+  font-size:2rem;font-weight:700;letter-spacing:.25em;
   color:var(--purple);margin-bottom:.3rem;
 }
 .qr-en{
@@ -345,13 +360,13 @@ body::after{
 
 /* ── FOOTER ── */
 .footer{
-  background:var(--purple);padding:2.5rem 1.4rem 2rem;
+  background:var(--bg);padding:2.5rem 1.4rem 2rem;
   text-align:center;position:relative;overflow:hidden;
 }
 .footer>*{position:relative;z-index:1;}
 .f-name{
   font-size:1.4rem;font-weight:700;letter-spacing:.35em;
-  color:var(--white);margin-bottom:.3rem;
+  color:var(--purple);margin-bottom:.3rem;
 }
 .f-en{
   font-family:'Cormorant Garamond',serif;font-size:.85rem;
@@ -399,20 +414,6 @@ a.design-by b{color:var(--purple);font-weight:700;}
   min-height:auto;
 }
 .svc-ed-block.reverse{direction:ltr;}
-.svc-ed-img{
-  display:none;
-}
-.svc-ed-img img{
-  width:100%;height:100%;object-fit:cover;display:block;
-  filter:sepia(.08) contrast(1.04);
-}
-.svc-ed-img-ph{
-  width:100%;height:100%;min-height:320px;
-  background:rgba(196,168,130,.12);
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Cormorant Garamond',serif;font-style:italic;
-  font-size:.85rem;letter-spacing:.4em;color:rgba(196,168,130,.4);
-}
 .svc-ed-txt{
   background:var(--purple);
   padding:2.8rem 2.2rem;
@@ -425,39 +426,26 @@ a.design-by b{color:var(--purple);font-weight:700;}
   letter-spacing:-.02em;
 }
 .svc-ed-name{
-  font-size:clamp(1.2rem,2.5vw,1.8rem);
+  font-size:clamp(1.5rem,2.5vw,2rem);
   font-weight:700;letter-spacing:.15em;
-  color:var(--purple);margin-bottom:.3rem;line-height:1.1;
+  color:var(--white);margin-bottom:.3rem;line-height:1.1;
 }
 .svc-ed-en{
   font-family:'Cormorant Garamond',serif;font-style:italic;
-  font-size:.85rem;letter-spacing:.25em;
+  font-size:.9rem;letter-spacing:.25em;
   color:var(--gold);margin-bottom:1.2rem;
 }
 .svc-ed-desc{
-  font-size:.88rem;line-height:2.1;
-  color:rgba(242,237,228,.6);letter-spacing:.05em;
+  font-size:.95rem;line-height:2.1;
+  color:rgba(242,237,228,.7);letter-spacing:.05em;
 }
 .svc-ed-divider{width:100%;height:1px;background:rgba(196,168,130,.18);}
 
 /* IG 展示區 */
 /* IG embed 四格 */
-.ig-embed-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:1.2rem;margin-top:2rem;
-}
-.ig-embed-wrap{min-width:0;}
-.ig-embed-wrap .instagram-media{
-  margin:0 !important;
-  min-width:0 !important;
-  width:100% !important;
-  max-width:100% !important;
-}
 @media(max-width:600px){
   .ig-embed-grid{grid-template-columns:1fr;}
 }
-.ig-section{background:var(--bg);}
 .ig-grid{
   display:grid;grid-template-columns:repeat(3,1fr);
   gap:3px;margin-top:2rem;
@@ -483,38 +471,9 @@ a.design-by b{color:var(--purple);font-weight:700;}
 @media(max-width:600px){
   .svc-ed-block{grid-template-columns:1fr;min-height:auto;}
   .svc-ed-block.reverse{direction:ltr;}
-  .svc-ed-img{min-height:220px;}
-  .svc-ed-txt{padding:1.8rem 1.4rem;}
+    .svc-ed-txt{padding:1.8rem 1.4rem;}
   .ziwei-palace-grid{grid-template-columns:1fr 1fr;}
   .ig-grid{grid-template-columns:repeat(3,1fr);}
-}
-
-/* ── BG IMAGE（bella-spa 雙色架構）── */
-.bg-light,.bg-dark{position:relative;overflow:hidden;}
-.bg-light>*,.bg-dark>*{position:relative;z-index:1;}
-.bg-light::before,.bg-dark::before{
-  content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
-  background-attachment:fixed;
-}
-/* 電腦橫式 */
-.bg-light::before{
-  background:url('./sheila-hero-bg.jpg?v=2') center/cover no-repeat;
-  filter:brightness(.92) saturate(.7);
-}
-.bg-dark::before{
-  background:url('./sheila-hero-bg.jpg?v=2') center/cover no-repeat;
-  filter:brightness(.28) saturate(.5);
-}
-/* 手機直式（覆寫為直式圖）*/
-@media(max-width:600px){
-  .bg-light::before{
-    background:url('./sheila-hero-bg-portrait.jpg?v=2') center top/cover no-repeat;
-    filter:brightness(.92) saturate(.7);
-  }
-  .bg-dark::before{
-    background:url('./sheila-hero-bg-portrait.jpg?v=2') center top/cover no-repeat;
-    filter:brightness(.28) saturate(.5);
-  }
 }
 /* ── RWD ── */
 @media(max-width:600px){
@@ -543,35 +502,16 @@ a.design-by b{color:var(--purple);font-weight:700;}
 </a>
 
 <!-- ② HERO -->
-<section class="hero bg-light">
+<section class="hero">
+  <!-- 橫式背景・電腦・淺色米白 -->
+  <img src="./sheila-hero-bg.jpg?v=2" class="hero-bg-img" alt="" aria-hidden="true" onerror="this.style.display='none'">
+  <!-- 橫式背景・電腦・深紫色（待提供；切換方式見備注）-->
+  <img src="./sheila-hero-bg-dark.jpg?v=2" class="hero-bg-img-dark" alt="" aria-hidden="true" onerror="this.style.display='none'">
+  <!-- 直式背景・手機・淺色米白 -->
+  <img src="./sheila-hero-bg-portrait.jpg?v=2" class="hero-bg-portrait" alt="" aria-hidden="true" onerror="this.style.display='none'">
+  <!-- 直式背景・手機・深紫色（待提供）-->
+  <img src="./sheila-hero-bg-portrait-dark.jpg?v=2" class="hero-bg-portrait-dark" alt="" aria-hidden="true" onerror="this.style.display='none'">
 
-  <!-- 花卉 SVG 佔位（無照片時顯示）-->
-  <svg class="flora-svg" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg"
-    style="fill:none;stroke:#C4A882;stroke-width:.8;">
-    <!-- 左側花卉 -->
-    <ellipse cx="120" cy="180" rx="45" ry="70" transform="rotate(-20,120,180)"/>
-    <ellipse cx="95" cy="160" rx="32" ry="55" transform="rotate(-35,95,160)"/>
-    <path d="M110,250 Q105,380 100,500"/>
-    <path d="M100,320 Q70,295 55,315 Q70,335 102,328 Z"/>
-    <path d="M104,390 Q130,368 145,388 Q132,408 106,400 Z"/>
-    <circle cx="118" cy="145" r="5"/>
-    <circle cx="100" cy="132" r="3.5"/>
-    <circle cx="130" cy="135" r="4"/>
-    <!-- 右側花卉 -->
-    <ellipse cx="780" cy="160" rx="50" ry="75" transform="rotate(15,780,160)"/>
-    <ellipse cx="805" cy="145" rx="35" ry="58" transform="rotate(28,805,145)"/>
-    <path d="M790,235 Q795,370 800,500"/>
-    <path d="M798,310 Q825,288 840,308 Q826,330 796,322 Z"/>
-    <path d="M795,400 Q768,378 752,398 Q766,418 797,410 Z"/>
-    <circle cx="782" cy="125" r="5.5"/>
-    <circle cx="800" cy="113" r="4"/>
-    <circle cx="768" cy="118" r="3.5"/>
-    <!-- 頂部細枝 -->
-    <path d="M350,0 Q380,40 370,90 Q355,130 345,180"/>
-    <path d="M360,50 Q390,42 398,60 Q382,72 358,65"/>
-    <path d="M555,0 Q530,45 540,95 Q550,135 555,180"/>
-    <path d="M545,55 Q515,48 508,66 Q523,78 548,70"/>
-  </svg>
 
   <div class="hero-overlay"></div>
   <div class="inner">
@@ -593,7 +533,7 @@ a.design-by b{color:var(--purple);font-weight:700;}
           <span>風水格局</span><br>
           <span>方位開運</span><span class="sep-pipe">｜</span>
           <span>擇日服務</span><span class="sep-pipe">｜</span>
-          <span>易經卜卦選號</span>
+          <span>易經選號</span>
         </div>
       </div>
 
@@ -620,14 +560,12 @@ a.design-by b{color:var(--purple);font-weight:700;}
 
         <a href="https://line.me/R/ti/p/@647hgbcw" target="_blank" class="hero-btn p1"
           onclick="gtag('event','click_line',{'event_category':'CTA','event_label':'sheila'});">預約諮詢｜LINE Me</a>
-        <a href="#services" class="hero-btn p1">紫微斗數｜命運解析</a>
-        <a href="#services" class="hero-btn p1">陽宅風水｜空間能量</a>
-        <a href="#services" class="hero-btn ghost">方位開運・擇日・選號</a>
+        <a href="#ziwei" class="hero-btn ghost">紫微斗數｜命運解析</a>
+        <a href="#fengshui" class="hero-btn ghost">陽宅風水｜空間能量</a>
+        <a href="#directional" class="hero-btn ghost">方位開運・擇日・選號</a>
 
         <div class="hero-btn-row">
-          <button class="btn-sm" onclick="openQrModal();gtag('event','click_qr',{'event_category':'CTA','event_label':'sheila'});">
-            <span>▣</span> QR CODE
-          </button>
+          <button class="btn-sm" onclick="openQrModal();gtag('event','click_qr',{'event_category':'CTA','event_label':'sheila'});">QR CODE</button>
           <button class="btn-sm share" id="shareBtn">SHARE</button>
         </div>
       </div>
@@ -656,28 +594,25 @@ a.design-by b{color:var(--purple);font-weight:700;}
 </div>
 
 <!-- ⑤ 五大服務（全出血雜誌風）-->
-<div class="svc-editorial bg-dark" id="services">
+<div class="svc-editorial" id="services">
 
   <!-- 服務引言 -->
   <div style="background:var(--purple);padding:3rem 1.4rem 2.5rem;text-align:center;border-bottom:1px solid rgba(196,168,130,.12);">
     <div style="max-width:var(--mw);margin:0 auto;">
-      <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.75rem;letter-spacing:.45em;color:var(--gold);display:block;margin-bottom:1rem;">Services · 五大服務</span>
-      <div style="font-size:clamp(1.3rem,3.5vw,2rem);font-weight:700;letter-spacing:.1em;color:var(--white);line-height:1.4;margin-bottom:1.2rem;">
+      <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.5rem;letter-spacing:.45em;color:var(--gold);display:block;margin-bottom:1rem;">Services<br>五大服務</span>
+      <div style="font-size:clamp(1.1rem,3.5vw,1.5rem);font-weight:700;letter-spacing:.1em;color:var(--white);line-height:1.4;margin-bottom:1.2rem;">
         每一個困惑，<br>都有對應的方向。
       </div>
       <p style="font-size:.92rem;line-height:2.2;color:rgba(242,237,228,.55);max-width:480px;margin:0 auto;">
         無論是職涯的十字路口、感情的撞牆期，<br>
         還是想讓生活的環境與時間點對齊自己的能量——<br>
-        這五個方向，是老師最常被詢問、也最能幫助你的服務。
+        這五個服務，是老師最能幫助你的諮詢服務。
       </p>
     </div>
   </div>
 
   <!-- 01 紫微斗數 -->
-  <div class="svc-ed-block reveal">
-    <div class="svc-ed-img">
-      <img src="./img-ziwei.jpg?v=2" alt="紫微斗數" onerror="this.outerHTML='<div class=&quot;svc-ed-img-ph&quot;>紫微斗數</div>'">
-    </div>
+  <div class="svc-ed-block reveal" id="ziwei">
     <div class="svc-ed-txt">
       <div class="svc-ed-no">01</div>
       <div class="svc-ed-name">紫微斗數</div>
@@ -688,10 +623,7 @@ a.design-by b{color:var(--purple);font-weight:700;}
   <div class="svc-ed-divider"></div>
 
   <!-- 02 風水格局 -->
-  <div class="svc-ed-block reverse reveal">
-    <div class="svc-ed-img">
-      <img src="./img-fengshui.jpg?v=2" alt="風水格局" onerror="this.outerHTML='<div class=&quot;svc-ed-img-ph&quot;>風水格局</div>'">
-    </div>
+  <div class="svc-ed-block reverse reveal" id="fengshui">
     <div class="svc-ed-txt">
       <div class="svc-ed-no">02</div>
       <div class="svc-ed-name">風水格局</div>
@@ -702,10 +634,7 @@ a.design-by b{color:var(--purple);font-weight:700;}
   <div class="svc-ed-divider"></div>
 
   <!-- 03 方位開運 -->
-  <div class="svc-ed-block reveal">
-    <div class="svc-ed-img">
-      <img src="./img-direction.jpg?v=2" alt="方位開運" onerror="this.outerHTML='<div class=&quot;svc-ed-img-ph&quot;>方位開運</div>'">
-    </div>
+  <div class="svc-ed-block reveal" id="directional">
     <div class="svc-ed-txt">
       <div class="svc-ed-no">03</div>
       <div class="svc-ed-name">方位開運</div>
@@ -716,10 +645,7 @@ a.design-by b{color:var(--purple);font-weight:700;}
   <div class="svc-ed-divider"></div>
 
   <!-- 04 擇日 + 05 易經（並排）-->
-  <div class="svc-ed-block reverse reveal">
-    <div class="svc-ed-img">
-      <img src="./img-calendar.jpg?v=2" alt="擇日易經" onerror="this.outerHTML='<div class=&quot;svc-ed-img-ph&quot;>擇日・易經</div>'">
-    </div>
+  <div class="svc-ed-block reverse reveal" id="date">
     <div class="svc-ed-txt">
       <div class="svc-ed-no">04 · 05</div>
       <div class="svc-ed-name">擇日服務<br>易經卜卦選號</div>
@@ -741,44 +667,11 @@ a.design-by b{color:var(--purple);font-weight:700;}
 
 
 <!-- ⑦ IG 社群展示 -->
-<section class="ig-section sec" id="ig">
-  <div class="inner">
-    <div class="reveal">
-      <span class="sec-eyebrow">Instagram · @1988_sheila</span>
-      <div class="sec-title">真實發生過的，<br>才值得分享。</div>
-      <div class="sec-rule"></div>
-      <p class="body-text" style="max-width:480px;">每一張回饋截圖，都是老師繼續做命理的理由。好的命理不是迷信，是讓人少走彎路。</p>
-    </div>
-
-    <!-- IG embed 四格 -->
-    <div class="ig-embed-grid reveal">
-      <div class="ig-embed-wrap">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DU-Xwpxk5zT/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:calc(100% - 2px);"></blockquote>
-      </div>
-      <div class="ig-embed-wrap">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DXkyLeGkzQG/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:calc(100% - 2px);"></blockquote>
-      </div>
-      <div class="ig-embed-wrap">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DXaIA-Sk0Lk/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:calc(100% - 2px);"></blockquote>
-      </div>
-      <div class="ig-embed-wrap">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DS_feKHE4FZ/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:calc(100% - 2px);"></blockquote>
-      </div>
-    </div></div>
-
-    <div class="ig-follow-wrap reveal">
-      <a href="https://www.instagram.com/1988_sheila" target="_blank" class="sec-btn outline"
-        style="display:inline-flex;width:auto;padding:.9rem 2rem;"
-        onclick="gtag('event','click_ig_follow',{'event_category':'CTA','event_label':'sheila'});">追蹤 @1988_sheila</a>
-    </div>
-  </div>
-</section>
-<script async src="//www.instagram.com/embed.js"></script>
 
 <!-- ⑧ FOOTER -->
 <footer class="footer">
   <div class="f-name">陳詠琳</div>
-  <div class="f-en">SHEILA CHEN · 風水命理師</div>
+  <div class="f-en">SHEILA CHEN · 紫微風水命理師</div>
   <div class="f-btns">
     <a href="https://line.me/R/ti/p/@647hgbcw" target="_blank" class="f-btn fb"
       onclick="gtag('event','click_line_footer',{'event_category':'CTA','event_label':'sheila'});">預約諮詢｜LINE Me</a>
