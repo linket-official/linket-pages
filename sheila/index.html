@@ -4,6 +4,7 @@
 <!--
   陳詠琳 Sheila｜LINKet Light
   slug: sheila
+  v2.3  2026-04-30  hero-left 進場動畫；服務區電腦雙欄+圖片顯示；IG embed 改 https://；刪除 IG 追蹤按鈕；各區 bg-img 框架建立；中文字體強制 Noto Serif TC
   v1.0  2026-04-27  初版建置
   v1.1  2026-04-27  TOP BADGE 標準色、Hero 文字修正、服務改全出血雜誌風、深化服務文案、紫微12宮教室、IG 社群展示區
   v1.2  2026-04-28  全頁文案改寫（Sheila 語言風格）
@@ -133,6 +134,14 @@ body::after{
   text-align:center;
   border-right:1px solid rgba(196,168,130,.25);
 }
+.hero-left>*{opacity:0;animation:fadeUp .7s ease-in both;}
+.hero-left .hero-eyebrow{animation-delay:.1s;}
+.hero-left .hero-name{animation-delay:.2s;}
+.hero-left .hero-name-en{animation-delay:.25s;}
+.hero-left .hero-sep{animation-delay:.3s;}
+.hero-left .hero-quote{animation-delay:.4s;}
+.hero-left .hero-svc{animation-delay:.5s;}
+.hero-left .hero-direct{animation-delay:.55s;}
 .hero-eyebrow{
   font-family:'Cormorant Garamond',serif;
   font-size:.6rem;letter-spacing:.35em;color:var(--gold);font-weight:700;
@@ -413,13 +422,17 @@ a.design-by b{color:var(--purple);font-weight:700;}
 
 /* ── 服務 Editorial 全出血（雜誌風）── */
 .svc-editorial{width:100%;}
+.svc-ed-block{display:grid;grid-template-columns:1fr 1fr;min-height:520px;}
+.svc-ed-block.reverse{direction:rtl;}
+.svc-ed-block.reverse .svc-ed-txt{direction:ltr;}
 .svc-ed-block{
   display:grid;grid-template-columns:1fr;
   min-height:auto;
 }
 .svc-ed-block.reverse{direction:ltr;}
 .svc-ed-img{
-  display:none;
+  display:block;
+  overflow:hidden;
 }
 .svc-ed-img img{
   width:100%;height:100%;object-fit:cover;display:block;
@@ -498,11 +511,10 @@ a.design-by b{color:var(--purple);font-weight:700;}
   font-size:.72rem;letter-spacing:.08em;
   color:var(--ink3);margin-top:.6rem;line-height:1.6;
 }
-.ig-follow-wrap{margin-top:1.8rem;}
+
 @media(max-width:600px){
-  .svc-ed-block{grid-template-columns:1fr;min-height:auto;}
-  .svc-ed-block.reverse{direction:ltr;}
-  .svc-ed-img{min-height:220px;}
+  .svc-ed-block{grid-template-columns:1fr !important;min-height:auto;direction:ltr !important;}
+  .svc-ed-img{min-height:220px;display:block;}
   .svc-ed-txt{padding:1.8rem 1.4rem;}
   .ziwei-palace-grid{grid-template-columns:1fr 1fr;}
   .ig-grid{grid-template-columns:repeat(3,1fr);}
@@ -524,6 +536,40 @@ a.design-by b{color:var(--purple);font-weight:700;}
   .ziwei-grid{grid-template-columns:1fr;}
   .contact-grid{grid-template-columns:1fr;}
 }
+
+/* ── 服務區 bg（深色）──*/
+.svc-editorial{position:relative;}
+.svc-editorial .sec-bg-img,
+.svc-editorial .sec-bg-portrait{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;z-index:0;opacity:.08;pointer-events:none;
+}
+.svc-editorial .sec-bg-portrait{display:none;}
+.svc-editorial>*:not(.sec-bg-img):not(.sec-bg-portrait){position:relative;z-index:1;}
+
+/* ── IG 區 bg（淺色）──*/
+.ig-section{position:relative;}
+.ig-section .sec-bg-img,
+.ig-section .sec-bg-portrait{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;z-index:0;opacity:.06;pointer-events:none;
+}
+.ig-section .sec-bg-portrait{display:none;}
+.ig-section>*:not(.sec-bg-img):not(.sec-bg-portrait){position:relative;z-index:1;}
+
+@media(max-width:600px){
+  .svc-editorial .sec-bg-img{display:none;}
+  .svc-editorial .sec-bg-portrait{display:block;}
+  .ig-section .sec-bg-img{display:none;}
+  .ig-section .sec-bg-portrait{display:block;}
+}
+.svc-ed-name{font-family:'Noto Serif TC',serif !important;}
+.svc-ed-desc{font-family:'Noto Serif TC',serif !important;}
+.svc-ed-txt{font-family:'Noto Serif TC',serif;}
+.hero-quote{font-family:'Noto Serif TC',serif;}
+.hero-svc{font-family:'Noto Serif TC',serif;}
+.sec-title{font-family:'Noto Serif TC',serif;}
+.sec-desc{font-family:'Noto Serif TC',serif;}
 </style>
 </head>
 <body id="top">
@@ -654,15 +700,17 @@ a.design-by b{color:var(--purple);font-weight:700;}
 
 <!-- ⑤ 五大服務（全出血雜誌風）-->
 <div class="svc-editorial" id="services">
+  <img src="./sheila-hero-bg-dark.jpg?v=2" class="sec-bg-img" alt="" aria-hidden="true" onerror="this.style.display='none'">
+  <img src="./sheila-hero-bg-portrait-dark.jpg?v=2" class="sec-bg-portrait" alt="" aria-hidden="true" onerror="this.style.display='none'">
 
   <!-- 服務引言 -->
   <div style="background:var(--purple);padding:3rem 1.4rem 2.5rem;text-align:center;border-bottom:1px solid rgba(196,168,130,.12);">
     <div style="max-width:var(--mw);margin:0 auto;">
       <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.5rem;letter-spacing:.45em;color:var(--gold);display:block;margin-bottom:1rem;">Services<br>五大服務</span>
-      <div style="font-size:clamp(1.1rem,3.5vw,1.5rem);font-weight:700;letter-spacing:.1em;color:var(--white);line-height:1.4;margin-bottom:1.2rem;">
+      <div style="font-size:clamp(1.1rem,3.5vw,1.5rem);font-weight:700;letter-spacing:.1em;color:var(--white);line-height:1.4;margin-bottom:1.2rem;font-family:'Noto Serif TC',serif;">
         每一個困惑，<br>都有對應的方向。
       </div>
-      <p style="font-size:.92rem;line-height:2.2;color:rgba(242,237,228,.55);max-width:480px;margin:0 auto;">
+      <p style="font-size:.92rem;line-height:2.2;color:rgba(242,237,228,.55);max-width:480px;margin:0 auto;font-family:'Noto Serif TC',serif;">
         無論是職涯的十字路口、感情的撞牆期，<br>
         還是想讓生活的環境與時間點對齊自己的能量——<br>
         這五個服務，是老師最能幫助你的諮詢服務。
@@ -739,6 +787,8 @@ a.design-by b{color:var(--purple);font-weight:700;}
 
 <!-- ⑦ IG 社群展示 -->
 <section class="ig-section sec" id="ig">
+  <img src="./sheila-hero-bg.jpg?v=2" class="sec-bg-img" alt="" aria-hidden="true" onerror="this.style.display='none'">
+  <img src="./sheila-hero-bg-portrait.jpg?v=2" class="sec-bg-portrait" alt="" aria-hidden="true" onerror="this.style.display='none'">
   <div class="inner">
     <div class="reveal">
       <span class="sec-eyebrow">Instagram · @1988_sheila</span>
@@ -763,14 +813,9 @@ a.design-by b{color:var(--purple);font-weight:700;}
       </div>
     </div></div>
 
-    <div class="ig-follow-wrap reveal">
-      <a href="https://www.instagram.com/1988_sheila" target="_blank" class="sec-btn outline"
-        style="display:inline-flex;width:auto;padding:.9rem 2rem;"
-        onclick="gtag('event','click_ig_follow',{'event_category':'CTA','event_label':'sheila'});">追蹤 @1988_sheila</a>
-    </div>
   </div>
 </section>
-<script async src="//www.instagram.com/embed.js"></script>
+<script async src="https://www.instagram.com/embed.js"></script>
 
 <!-- ⑧ FOOTER -->
 <footer class="footer">
