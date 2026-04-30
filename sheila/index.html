@@ -216,7 +216,7 @@ body::after{
 .btn-sm{
   flex:1;display:flex;align-items:center;justify-content:center;
   background:transparent;
-  border:1px solid rgba(196,168,130,.45);
+  border:1px solid rgba(196,168,130,.7);
   color:var(--ink3);font-size:.75rem;letter-spacing:.18em;
   padding:.65rem .4rem;border-radius:var(--r);cursor:pointer;
   font-family:'Noto Serif TC',serif;transition:all .2s;opacity:1;
@@ -228,12 +228,12 @@ body::after{
 /* ── QR MODAL ── */
 .qr-overlay{
   display:none;position:fixed;inset:0;z-index:999;
-  background:var(--gold);opacity:1;backdrop-filter:blur(12px);
+  background:var(--gold);opacity:.5;backdrop-filter:blur(12px);
   align-items:center;justify-content:center;
 }
 .qr-overlay.open{display:flex;}
 .qr-box{
-  background:var(--bg2);border:1px solid rgba(196,168,130,.35);
+  background:var(--bg2);opacity:1;border:1px solid rgba(196,168,130,.35);
   border-radius:16px;padding:2rem 1.8rem;
   text-align:center;max-width:290px;width:90%;
   display:flex;flex-direction:column;align-items:center;
@@ -618,9 +618,9 @@ a.design-by b{color:var(--purple);font-weight:700;}
 
         <a href="https://line.me/R/ti/p/@647hgbcw" target="_blank" class="hero-btn p1"
           onclick="gtag('event','click_line',{'event_category':'CTA','event_label':'sheila'});">預約諮詢｜LINE Me</a>
-        <a href="#services" class="hero-btn p1">紫微斗數｜命運解析</a>
-        <a href="#services" class="hero-btn p1">陽宅風水｜空間能量</a>
-        <a href="#services" class="hero-btn ghost">方位開運・擇日・選號</a>
+        <a href="#ziwei" class="hero-btn ghost">紫微斗數｜命運解析</a>
+        <a href="#fengshui" class="hero-btn ghost">陽宅風水｜空間能量</a>
+        <a href="#directional" class="hero-btn ghost">方位開運・擇日・選號</a>
 
         <div class="hero-btn-row">
           <button class="btn-sm" onclick="openQrModal();gtag('event','click_qr',{'event_category':'CTA','event_label':'sheila'});">QR CODE</button>
@@ -670,7 +670,7 @@ a.design-by b{color:var(--purple);font-weight:700;}
   </div>
 
   <!-- 01 紫微斗數 -->
-  <div class="svc-ed-block reveal">
+  <div class="svc-ed-block reveal" id="ziwei">
     <div class="svc-ed-img">
       <img src="./img-ziwei.jpg?v=2" alt="紫微斗數" onerror="this.outerHTML='<div class=&quot;svc-ed-img-ph&quot;>紫微斗數</div>'">
     </div>
@@ -684,7 +684,7 @@ a.design-by b{color:var(--purple);font-weight:700;}
   <div class="svc-ed-divider"></div>
 
   <!-- 02 風水格局 -->
-  <div class="svc-ed-block reverse reveal">
+  <div class="svc-ed-block reverse reveal" id="fengshui">
     <div class="svc-ed-img">
       <img src="./img-fengshui.jpg?v=2" alt="風水格局" onerror="this.outerHTML='<div class=&quot;svc-ed-img-ph&quot;>風水格局</div>'">
     </div>
@@ -698,7 +698,7 @@ a.design-by b{color:var(--purple);font-weight:700;}
   <div class="svc-ed-divider"></div>
 
   <!-- 03 方位開運 -->
-  <div class="svc-ed-block reveal">
+  <div class="svc-ed-block reveal" id="directional">
     <div class="svc-ed-img">
       <img src="./img-direction.jpg?v=2" alt="方位開運" onerror="this.outerHTML='<div class=&quot;svc-ed-img-ph&quot;>方位開運</div>'">
     </div>
@@ -712,7 +712,7 @@ a.design-by b{color:var(--purple);font-weight:700;}
   <div class="svc-ed-divider"></div>
 
   <!-- 04 擇日 + 05 易經（並排）-->
-  <div class="svc-ed-block reverse reveal">
+  <div class="svc-ed-block reverse reveal" id="date">
     <div class="svc-ed-img">
       <img src="./img-calendar.jpg?v=2" alt="擇日易經" onerror="this.outerHTML='<div class=&quot;svc-ed-img-ph&quot;>擇日・易經</div>'">
     </div>
