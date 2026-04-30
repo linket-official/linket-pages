@@ -4,9 +4,6 @@
 <!--
   陳詠琳 Sheila｜LINKet Light
   slug: sheila
-  v2.3  2026-04-30  hero-left 進場動畫；服務區電腦版雙欄+圖片顯示；IG embed https；刪除追蹤按鈕；bg-img框架；中文字體修正
-  v2.4  2026-04-30  服務圖片區塊移除；svc-ed-txt max-width:600px；IG blockquote完整版
-  v2.5  2026-04-30  svc-editorial背景深色；bg改CSS background-image；移除花卉SVG；embed.js移到head改精簡版blockquote（對齊阮二哥）；svc-ed-txt max-width:600px置中；IG embed換完整版blockquote；服務區電腦雙欄+圖片顯示；IG embed 改 https://；刪除 IG 追蹤按鈕；各區 bg-img 框架建立；中文字體強制 Noto Serif TC
   v1.0  2026-04-27  初版建置
   v1.1  2026-04-27  TOP BADGE 標準色、Hero 文字修正、服務改全出血雜誌風、深化服務文案、紫微12宮教室、IG 社群展示區
   v1.2  2026-04-28  全頁文案改寫（Sheila 語言風格）
@@ -16,10 +13,12 @@
   v2.1  2026-04-30  全站動畫 ease-in 緩速 0.7s；hero-name 最大值縮 20%（4.4rem）；服務區改深色底移除圖片
   v2.2  2026-04-30  IG embed 換 captioned 完整版（&amp; 正確實體）：刪除紫微教室；服務文案精簡 2 句；全站換木質暮色 #2C2218（4 篇真實貼文）；embed.js 非同步載入；2×2 grid 版面：Sheila 真實語言風格（口語直接、問句共鳴）、Hero 引句換成 IG 金句、服務描述去學術轉日常、紫微教室入門語言重寫、十二宮位改問句觸發式描述、IG 區標題改客戶見證語言
   設計：花藝工作室命理師・暖米灰噪點底・花卉線稿・深藕紫×金棕
+  v2.3  2026-04-30  hero-left 進場動畫；服務區電腦版雙欄+圖片顯示；IG embed https；刪除追蹤按鈕；bg-img框架；中文字體修正
+  v2.4  2026-04-30  （見v2.4）
+  v2.6  2026-04-30（定案版本）  刪除IG區（帳號20+限制）；移除花卉SVG；改bella-spa::before bg規則（bg-dark深色/bg-light淺色）；服務區全寬＋文字 inner-text max-width:600px  服務圖片區塊移除；svc-ed-txt max-width:600px置中；IG embed換完整版blockquote；服務區電腦雙欄+圖片顯示；IG embed 改 https://；刪除 IG 追蹤按鈕；各區 bg-img 框架建立；中文字體強制 Noto Serif TC
   LINKet by Tony Design Studio
 -->
 <meta charset="UTF-8">
-<script async src="//www.instagram.com/embed.js"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-29J2988Y8J');</script>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
@@ -421,15 +420,16 @@ a.design-by b{color:var(--purple);font-weight:700;}
 
 
 /* ── 服務 Editorial 全出血（雜誌風）── */
-.svc-editorial{width:100%;background:var(--purple);}
+.svc-editorial{width:100%;}
 .svc-ed-block{display:block;min-height:auto;}
 .svc-ed-block.reverse{}
 .svc-ed-txt{
   background:var(--purple);
   padding:2.8rem 2.2rem;
   display:flex;flex-direction:column;justify-content:center;
-  max-width:600px;margin:0 auto;width:100%;
+  width:100%;
 }
+.svc-ed-txt>.inner-text{max-width:600px;margin:0 auto;width:100%;}
 .svc-ed-no{
   font-family:'Cormorant Garamond',serif;font-style:italic;
   font-size:4rem;line-height:.85;
@@ -454,22 +454,9 @@ a.design-by b{color:var(--purple);font-weight:700;}
 
 /* IG 展示區 */
 /* IG embed 四格 */
-.ig-embed-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:1.2rem;margin-top:2rem;
-}
-.ig-embed-wrap{min-width:0;}
-.ig-embed-wrap .instagram-media{
-  margin:0 !important;
-  min-width:0 !important;
-  width:100% !important;
-  max-width:100% !important;
-}
 @media(max-width:600px){
   .ig-embed-grid{grid-template-columns:1fr;}
 }
-.ig-section{background:var(--bg);}
 .ig-grid{
   display:grid;grid-template-columns:repeat(3,1fr);
   gap:3px;margin-top:2rem;
@@ -517,18 +504,8 @@ a.design-by b{color:var(--purple);font-weight:700;}
   .contact-grid{grid-template-columns:1fr;}
 }
 
-/* ── 各區 bg-image ──*/
-.svc-editorial{
-  background-image:url('./sheila-hero-bg-dark.jpg?v=2');
-  background-size:cover;background-position:center;
-}
-.ig-section{
-  background-image:url('./sheila-hero-bg.jpg?v=2');
-  background-size:cover;background-position:center;
-}
-@media(max-width:600px){
-  .svc-editorial{background-image:url('./sheila-hero-bg-portrait-dark.jpg?v=2');}
-  .ig-section{background-image:url('./sheila-hero-bg-portrait.jpg?v=2');}
+
+
 }
 .svc-ed-name{font-family:'Noto Serif TC',serif !important;}
 .svc-ed-desc{font-family:'Noto Serif TC',serif !important;}
@@ -537,6 +514,25 @@ a.design-by b{color:var(--purple);font-weight:700;}
 .hero-svc{font-family:'Noto Serif TC',serif;}
 .sec-title{font-family:'Noto Serif TC',serif;}
 .sec-desc{font-family:'Noto Serif TC',serif;}
+
+/* ── bg-image (bella-spa 規則) ──*/
+.bg-dark,.bg-light{position:relative;overflow:hidden;}
+.bg-dark::before,.bg-light::before{
+  content:'';position:absolute;inset:0;
+  background:url('sheila-hero-bg.jpg?v=2') center/cover no-repeat;
+  z-index:0;pointer-events:none;
+}
+.bg-dark::before{filter:brightness(.35);}
+.bg-light::before{filter:brightness(.92) saturate(.7);}
+.sec-inner,.svc-editorial>.inner,.hero-inner,.watermark-wrap,
+.svc-ed-block,.svc-ed-txt,.footer,.f-nav,.f-btns{
+  position:relative;z-index:1;
+}
+@media(max-width:600px){
+  .bg-dark::before,.bg-light::before{
+    background-image:url('sheila-hero-bg-portrait.jpg?v=2');
+  }
+}
 </style>
 </head>
 <body id="top">
@@ -547,7 +543,7 @@ a.design-by b{color:var(--purple);font-weight:700;}
 </a>
 
 <!-- ② HERO -->
-<section class="hero">
+<section class="hero bg-light">
   <!-- 橫式背景・電腦・淺色米白 -->
   <img src="./sheila-hero-bg.jpg?v=2" class="hero-bg-img" alt="" aria-hidden="true" onerror="this.style.display='none'">
   <!-- 橫式背景・電腦・深紫色（待提供；切換方式見備注）-->
@@ -639,7 +635,7 @@ a.design-by b{color:var(--purple);font-weight:700;}
 </div>
 
 <!-- ⑤ 五大服務（全出血雜誌風）-->
-<div class="svc-editorial" id="services">
+<div class="svc-editorial bg-dark" id="services">
   <img src="./sheila-hero-bg-portrait-dark.jpg?v=2" class="sec-bg-portrait" alt="" aria-hidden="true" onerror="this.style.display='none'">
 
   <!-- 服務引言 -->
@@ -713,35 +709,6 @@ a.design-by b{color:var(--purple);font-weight:700;}
 
 
 <!-- ⑦ IG 社群展示 -->
-<section class="ig-section sec" id="ig">
-  <img src="./sheila-hero-bg-portrait.jpg?v=2" class="sec-bg-portrait" alt="" aria-hidden="true" onerror="this.style.display='none'">
-  <div class="inner">
-    <div class="reveal">
-      <span class="sec-eyebrow">Instagram · @1988_sheila</span>
-      <div class="sec-title">真實發生過的，<br>才值得分享。</div>
-      <div class="sec-rule"></div>
-      <p class="body-text" style="max-width:480px;">每一張回饋截圖，都是老師繼續做命理的理由。好的命理不是迷信，是讓人少走彎路。</p>
-    </div>
-
-    <!-- IG embed 四格 -->
-    <div class="ig-embed-grid reveal">
-      <div class="ig-embed-wrap">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DU-Xwpxk5zT/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
-      </div>
-      <div class="ig-embed-wrap">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DXkyLeGkzQG/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
-      </div>
-      <div class="ig-embed-wrap">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DXaIA-Sk0Lk/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
-      </div>
-      <div class="ig-embed-wrap">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DS_feKHE4FZ/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
-      </div>
-    </div>
-    </div></div>
-
-  </div>
-</section>
 
 <!-- ⑧ FOOTER -->
 <footer class="footer">
