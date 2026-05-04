@@ -18,6 +18,7 @@
   v2.5  2026-04-22  修正 fadeUp keyframes to opacity:.5→1，按鈕顏色恢復正確
   v2.6  2026-04-22  footer 加 position:relative+overflow:hidden、footer>* 加 z-index:1，修正 bg-dark::before 遮蓋 footer 按鈕問題
   v2.7  2026-04-24  個人LINE改為手機聯繫
+  v2.8  2026-04-30  修正第三區RWD偏右：移除brand-intro雙層padding；ig-embeds補overflow:hidden+強制覆蓋IG inline min-width
   設計：LINKet by Tony Design Studio
 -->
 <meta charset="UTF-8">
@@ -264,7 +265,7 @@ img{max-width:100%;display:block;}
 @keyframes tick{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
 /* ── 品牌簡介卡片（專刊風）── */
-.brand-intro{padding:var(--sp);}
+.brand-intro{padding:0;}
 .brand-intro .wrap{display:grid;grid-template-columns:1fr;gap:4rem;}
 
 /* 大字數字 infographic */
@@ -348,9 +349,9 @@ img{max-width:100%;display:block;}
 .bg-dark .brand-info-footer{color:rgba(255,255,255,.4);}
 .bg-light .brand-info-footer{color:var(--ink2);}
 /* ── IG embed ── */
-.ig-embeds{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem;}
+.ig-embeds{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem;overflow:hidden;}
 @media(max-width:600px){.ig-embeds{grid-template-columns:1fr;}}
-.ig-embeds .instagram-media{margin:0 auto!important;max-width:100%!important;}
+.ig-embeds .instagram-media{margin:0 auto!important;max-width:100%!important;min-width:0!important;width:100%!important;}
 
 /* ── 聯絡地圖 ── */
 .location-sec{padding:var(--sp);}
