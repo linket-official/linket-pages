@@ -5,7 +5,7 @@
 ---
 
 ## 專案狀態
-🖼️ 素材待補（登場頁 v2.5 完成，等待背景圖與 Logo SVG）
+🖼️ 素材待補（登場頁 v2.8 完成，等待背景圖與 Logo SVG）
 
 ---
 
@@ -74,6 +74,8 @@
 
 | 版本 | 日期 | 內容 |
 |------|------|------|
+| v2.8 | 05-04 | 修正第三區鵝之鄉 RWD 偏右：移除 brand-intro 雙層 padding；ig-embeds 補 overflow:hidden + 強制覆蓋 IG blockquote inline min-width:0 |
+| v2.7 | 04-30 | Tony 手動修正 LINE按鈕icon改為電話聯繫icon|
 | v2.5 | 04-22 | 修正 `fadeUp` keyframes `to{opacity:.5}` → `to{opacity:1}`，hero-btn 動畫結束後不透明，按鈕金色顯示正確（根本原因：v2.3 Tony 手動誤改）|
 | v2.4 | 04-22 | hero-btn.ghost 修正（對齊 sec-btn.ghost：transparent底+白字+金框）、全區按鈕圓角 100px→10px、手機版直式背景（bg-dark-portrait.jpg / bg-light-portrait.jpg，max-width:600px 切換）|
 | v2.3 | 04-22 | **Tony 確認版（最新基準）** CSS：gold 退回 `#C8A870`/`#DDB86A`、bg-dark opacity 改回 `.8 grayscale(.1)`、bg-light opacity `.8 grayscale(.05)`、全區按鈕圓角退回 `100px`（僅 qr-close 維持）、`brand-mid-title` 字大改 `clamp(1.5rem,2.5vw,2rem)` font-weight:700、`body-text` 加 font-weight:500 字縮 .9rem、`hero-name` 放大 `clamp(2rem,4.5vw,2.5rem)`、`hero-name-en` 放大 `2rem`、`fadeUp` to opacity:.5（半透明）、QR box flex+160px logo、sv-card border 加強 `.8`、cert-badge 字大 1.2rem + border `.8`、loc-map iframe 高度 350px、loc-brand/loc-row 字大 1.2rem/1rem、f-logo 加大 250px HTML：移除 `hero-bg-img`、BNI 改 png 200px、義昌排版 LOGO→中文→英文同 div、鵝之鄉品牌名縮小+icons 改 hero-icon-link 樣式移至英文名下、IG embed 移至 sec-cta 之後、地圖 iframe 換新 pb 參數 |
