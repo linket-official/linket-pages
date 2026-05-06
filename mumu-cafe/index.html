@@ -1,4 +1,47 @@
 <!DOCTYPE html>
+<!--
+================================================================
+  MuMu Cafe & Dessert Shop · linket.app/mumu-cafe
+  LINKet by Tony Design Studio · linket.app
+================================================================
+  版本更新紀錄 CHANGELOG
+----------------------------------------------------------------
+  v1.0  2026-05-05  初版骨架建立
+                    - Hero / Ticker / Watermark / 服務介紹 / IG展示 / Footer
+                    - _shared/ 共用元件架構（top-badge / event-banner / footer-cta / linket-bar）
+                    - Canvas 名片動態生成 + 下載 Modal
+                    - QR Code Modal
+                    - GA4 事件追蹤（click_tel / click_line / click_map / click_ig / click_download_card）
+
+  v1.1  2026-05-06  追蹤架構升級
+                    - GTM-P8PS42TD 安裝（head + body noscript）
+                    - Microsoft Clarity wmm4uhlqbj（透過 GTM 安裝）
+                    - GA4 直接安裝保留（GTM 過渡期）
+
+  v1.2  2026-05-06  Google Sheets 菜單連動 Phase 1
+                    - Apps Script Deploy URL 接入
+                    - sessionStorage 快取（5分鐘 TTL）
+                    - renderInfo() 連動營業時間
+                    - renderEventBanner() 活動 Banner 開關
+
+  v1.3  2026-05-06  菜單 Tab UI + 分批載入重構
+                    - 6個 Tab（咖啡/果汁/茶飲/冰沙/鮮奶/輕食甜點）
+                    - 咖啡優先載入，其餘 50ms 間隔分批渲染
+                    - 骨架屏動畫（shimmer 效果）
+                    - 字體規格：中文14pt / 英文8pt / 價格10pt / 標示6pt
+                    - 空欄位不顯示（X 和空白自動隱藏）
+                    - Apps Script 同步更新為分 tab 讀取架構
+                    - Google Sheets v4（各分類獨立 Sheet tab）
+                    - CACHE_KEY 升級為 mumu_v4
+
+  待辦（Next）
+                    - IG Reel shortcode × 4 替換 PLACEHOLDER
+                    - 上傳素材（mumu-logo.png / hero-bg.jpg / og-image.jpg）
+                    - /mumu-cafe/cake/ 客製蛋糕銷售頁
+                    - Meta Pixel 安裝（確認廣告帳號後）
+                    - 頁面整體設計優化與配圖
+================================================================
+-->
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
@@ -188,7 +231,29 @@ img { display:block; }
 .menu-pane.active { display:block; }
 @keyframes fadeInTab { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:none} }
 
-/* 骨架屏 */
+/* ── 咖啡豆讀取動畫 ── */
+.bean-loader { display:flex; align-items:center; justify-content:center; padding:4rem 0; }
+.bean-wrap { display:flex; flex-direction:column; align-items:center; gap:1rem; }
+.bean { font-size:2.4rem; animation:beanBounce 1.2s ease-in-out infinite; }
+@keyframes beanBounce {
+  0%,100% { transform:translateY(0) rotate(-10deg); }
+  50% { transform:translateY(-12px) rotate(10deg); }
+}
+.bean-dots { display:flex; gap:.5rem; }
+.bean-dots span {
+  width:6px; height:6px; border-radius:50%; background:var(--gold);
+  animation:dotPulse 1.2s ease-in-out infinite;
+  opacity:.3;
+}
+.bean-dots span:nth-child(2) { animation-delay:.2s; }
+.bean-dots span:nth-child(3) { animation-delay:.4s; }
+@keyframes dotPulse {
+  0%,100% { opacity:.3; transform:scale(.8); }
+  50% { opacity:1; transform:scale(1); }
+}
+.bean-text { font-size:.72rem; color:var(--ink3); letter-spacing:.3em; }
+
+/* 骨架屏（保留 CSS，JS 動態插入用）*/
 .skeleton-wrap { padding:1rem 0; }
 .skeleton-item { display:flex; justify-content:space-between; align-items:center; padding:.75rem 0; border-bottom:1px solid var(--b); gap:1rem; }
 .skeleton-line { background:linear-gradient(90deg,var(--bg2) 25%,var(--bg3) 50%,var(--bg2) 75%); background-size:200% 100%; animation:shimmer 1.4s infinite; border-radius:2px; }
@@ -476,10 +541,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- Tab 內容區（JS 動態填入）-->
     <div id="menu-panes">
-      <!-- 咖啡預設顯示骨架屏 -->
       <div class="menu-pane active" id="pane-咖啡">
-        <div class="skeleton-wrap">
-          ${[...Array(8)].map(()=>`<div class="skeleton-item"><div><div class="skeleton-line skeleton-name"></div><div class="skeleton-line skeleton-en"></div></div><div class="skeleton-line skeleton-price"></div></div>`).join('')}
+        <!-- 咖啡豆讀取動畫（JS 載入完成後自動替換）-->
+        <div class="bean-loader" id="menu-loader">
+          <div class="bean-wrap">
+            <div class="bean">☕</div>
+            <div class="bean-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="bean-text">菜單載入中</div>
+          </div>
         </div>
       </div>
       <div class="menu-pane" id="pane-新鮮果汁"></div>
@@ -673,6 +744,10 @@ function renderTab(tab, items) {
   if (!pane || !items) return;
   const cfg = TAB_CONFIG[tab] || {};
   let html = '';
+
+  // 移除咖啡豆 loader
+  const loader = document.getElementById('menu-loader');
+  if (loader) loader.remove();
 
   if (cfg.note) {
     html += `<div class="cat-note">${cfg.note}</div>`;
