@@ -565,12 +565,31 @@ const CAT_CONFIG = {
 
 async function loadMenuData() {
   const container = document.getElementById('menu-container');
+  const CACHE_KEY = 'mumu_menu_v1';
+  const CACHE_TTL = 10 * 60 * 1000; // 10分鐘
+
+  // 先讀快取，有的話直接渲染，不等 API
+  try {
+    const cached = sessionStorage.getItem(CACHE_KEY);
+    if (cached) {
+      const { data, ts } = JSON.parse(cached);
+      if (Date.now() - ts < CACHE_TTL) {
+        renderMenu(data.menu, container);
+        renderInfo(data.info);
+        renderEventBanner(data.info);
+        return;
+      }
+    }
+  } catch(e) {}
+
+  // 無快取，fetch API
   try {
     const res = await fetch(SHEET_URL);
     const data = await res.json();
     renderMenu(data.menu, container);
     renderInfo(data.info);
     renderEventBanner(data.info);
+    try { sessionStorage.setItem(CACHE_KEY, JSON.stringify({ data, ts: Date.now() })); } catch(e) {}
   } catch(e) {
     container.innerHTML = '<p style="text-align:center;color:var(--ink3);font-size:.82rem;padding:2rem 0;">菜單載入中，請稍後或洽 LINE 詢問品項</p>';
   }
@@ -578,12 +597,30 @@ async function loadMenuData() {
 
 function renderInfo(info) {
   if (!info) return;
-  if (info.hours_text) document.getElementById('hours-text').textContent = info.hours_text;
-  if (info.closed_text) document.getElementById('closed-text').textContent = info.closed_text;
-  if (info.hours_special) {
+  // hours_text
+  const hoursEl = document.getElementById('hours-text');
+  if (hoursEl && info.hours_text) hoursEl.textContent = info.hours_text;
+  // closed_text
+  const closedEl = document.getElementById('closed-text');
+  if (closedEl && info.closed_text) closedEl.textContent = info.closed_text;
+  // hours_special（臨時公告）
+  if (info.hours_special && info.hours_special.trim() !== '') {
     const el = document.getElementById('hours-special');
-    el.textContent = info.hours_special;
-    el.style.display = 'inline';
+    if (el) { el.textContent = info.hours_special; el.style.display = 'inline'; }
+  }
+  // 按鈕連結動態更新
+  if (info.btn1_url) {
+    document.querySelectorAll('a[href="tel:0492997250"]').forEach(el => el.href = info.btn1_url);
+  }
+  if (info.btn2_url) {
+    document.querySelectorAll('a[href="https://lin.ee/jQ5axSf"]').forEach(el => el.href = info.btn2_url);
+  }
+  // LINE Pay 顯示開關
+  const linepayBtns = document.querySelectorAll('.btn-linepay');
+  if (linepayBtns.length) {
+    linepayBtns.forEach(el => {
+      el.style.display = info.linepay_visible === 'false' ? 'none' : '';
+    });
   }
 }
 
