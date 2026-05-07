@@ -11,6 +11,9 @@
   v4.2  2026-04-15  證書區改橫式比例（4/3）、grid 改單欄
   v4.3  2026-04-16  新增 cert-5（INDIBA防偽證書）、cert-6（KOKO.NI結業）；修正 cert-indiba label
   v4.4  2026-04-20  新增 cert-7「筋膜力學失衡系列:內臟筋膜呼吸鬆動術」
+  v4.5  2026-04-30  法規關鍵字修正：療程→服務/保養、內臟筋膜字眼修正
+  v4.6  2026-04-30  深度法規修正：cert-7 onerror殘留「失衡」字眼修正
+  v4.7  2026-04-30  新增 Footer 法律免責聲明：服務範疇聲明、認證性質說明、法規依據標示
 -->
 <meta charset="UTF-8">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
@@ -178,6 +181,30 @@ a{text-decoration:none;color:inherit;}
 .hero-anim-fade{opacity:0;animation:fadeIn .4s ease forwards;}
 .a1{animation-delay:.05s;}.a2{animation-delay:.15s;}.a3{animation-delay:.25s;}
 .a4{animation-delay:.35s;}.a5{animation-delay:.45s;}.a6{animation-delay:.55s;}.a7{animation-delay:.65s;}
+
+/* ── 法律免責聲明 ──*/
+.legal-disclaimer{
+  padding:1.8rem 1.6rem 1rem;
+  text-align:center;
+  border-top:1px solid rgba(0,0,0,.06);
+  background:transparent;
+}
+.legal-disclaimer p{
+  font-size:.62rem;
+  line-height:1.9;
+  color:rgba(30,10,15,.35);
+  letter-spacing:.05em;
+  max-width:720px;
+  margin:0 auto .5rem;
+}
+.legal-disclaimer .legal-title{
+  font-size:.63rem;
+  font-weight:700;
+  color:rgba(30,10,15,.4);
+  letter-spacing:.18em;
+  margin-bottom:.5rem;
+  display:block;
+}
 </style>
 </head>
 <body>
@@ -218,7 +245,7 @@ a{text-decoration:none;color:inherit;}
     <div class="quote-block reveal">
       「貝拉美學相信，保養不是犒賞，而是日常。每一位來到這裡的客人，都值得在安心、舒適的環境中，找回屬於自己的身心平衡。」
     </div>
-    <p class="body-text reveal">多年深耕女性生活美容，持續精進技術與服務品質。Summer 相信每一位客人的身體狀況都不同，因此療程安排以個人需求為優先，不以一次性效果為導向，而是作為日常照護的長期夥伴。</p>
+    <p class="body-text reveal">多年深耕女性生活美容，持續精進技術與服務品質。Summer 相信每一位客人的身體狀況都不同，因此服務安排以個人需求為優先，不以一次性效果為導向，而是作為日常保養的長期夥伴。</p>
   </div>
 </section>
 
@@ -228,7 +255,7 @@ a{text-decoration:none;color:inherit;}
     <div class="eyebrow reveal">Certification · 技術認證</div>
     <div class="sec-title reveal">專業培訓與認證</div>
     <div class="rose-line reveal"></div>
-    <p class="body-text reveal">我們持有相關執照與認證，確保每次療程的安全性與專業性。</p>
+    <p class="body-text reveal">我們持有相關執照與認證，確保每次服務的安全性與專業性。</p>
     <div class="cert-grid reveal">
       <div class="cert-card">
         <img src="../cert-indiba.jpg" alt="INDIBA英特波培訓認證" class="cert-img"
@@ -261,9 +288,9 @@ a{text-decoration:none;color:inherit;}
         <div class="cert-label">KOKO.NI 美容技術 結業證書<br>Certificate of Completion</div>
       </div>
       <div class="cert-card">
-        <img src="../cert-7.jpg" alt="筋膜力學失衡系列:內臟筋膜呼吸鬆動術" class="cert-img"
-          onerror="this.outerHTML='<div class=\'cert-img-ph\'>筋膜力學失衡系列認證<br>圖片待補</div>'">
-        <div class="cert-label">筋膜力學失衡系列:內臟筋膜呼吸鬆動術<br>課程證明</div>
+        <img src="../cert-7.jpg" alt="筋膜力學與深層舒緩系列" class="cert-img"
+          onerror="this.outerHTML='<div class=\'cert-img-ph\'>筋膜力學深層舒緩研習<br>圖片待補</div>'">
+        <div class="cert-label">筋膜力學與深層舒緩系列<br>研習課程證明</div>
       </div>
     </div>
 
@@ -293,8 +320,14 @@ a{text-decoration:none;color:inherit;}
     <li><a href="../">首頁</a></li>
   </ul>
   <a href="#top" class="back-to-top" style="color:rgba(255,255,255,.5);margin-top:.5rem;">↑ &nbsp; BACK TO TOP</a>
-  <p class="f-copy">© 2026 貝拉美學SPA</p>
 </footer>
+<div class="legal-disclaimer" style="background:rgba(255,255,255,.04);border-top:1px solid rgba(255,255,255,.08);">
+  <span class="legal-title" style="color:rgba(255,255,255,.3);">【網站服務聲明與免責說明】</span>
+  <p style="color:rgba(255,255,255,.25);">本網站所呈現之所有內容，包含主理人資歷、服務介紹及品牌說明，均屬<strong style="color:rgba(255,255,255,.35);">生活美容保養服務</strong>範疇，不涉及任何醫療行為、醫療診斷、疾病治療或預防，亦不構成任何醫療建議。本服務非《醫療法》所定義之醫療機構，不具備醫療業務執行資格。</p>
+  <p style="color:rgba(255,255,255,.25);">主理人所持相關培訓認證均屬美容技術研習性質，用於生活美容保養服務之技術精進，不代表醫療執業資格或醫療器材操作許可。如您有任何健康或醫療相關問題，請諮詢合格醫療機構及醫師。</p>
+  <p style="color:rgba(255,255,255,.2);margin-bottom:0;">© 2026 貝拉美學SPA｜Bella Women Beauty &amp; Spa｜本聲明依據《醫療法》《化粧品衛生安全管理法》《瘦身美容業管理規範》相關規定訂定。</p>
+</div>
+
 <a class="linket-bar" href="https://linket.app/home" target="_blank">Design by LINKet · linket.app</a>
 
 <script>
