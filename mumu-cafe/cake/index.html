@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<!--
+================================================================
+  MuMu Cafe — 客製蛋糕銷售頁
+  linket.app/mumu-cafe/cake
+  LINKet by Tony Design Studio
+
+  v1.0  2026-05-07  初版建立
+                    - 一頁式銷售頁架構
+                    - Meta Pixel 預留（待填入 Pixel ID）
+                    - GA4 via GTM-P8PS42TD
+                    - 無上方導航（銷售頁標準）
+================================================================
+-->
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+
+<!-- GTM -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P8PS42TD');</script>
+
+<!-- Meta Pixel（待填入 Pixel ID）-->
+<!--
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'REPLACE_WITH_PIXEL_ID');
+fbq('track', 'PageView');
+</script>
+-->
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+<title>客製化生日蛋糕預訂｜MuMu Cafe 埔里手工甜點</title>
+<meta name="description" content="MuMu Cafe 客製化生日造型蛋糕，LINE 洽詢接單，埔里在地手工製作。從造型到口味完全依照您的需求打造，提前預約，讓每個生日都不一樣。">
+<meta property="og:title" content="客製化生日蛋糕｜MuMu Cafe">
+<meta property="og:description" content="埔里在地手工蛋糕，LINE 洽詢，造型口味全客製">
+<meta property="og:image" content="https://linket.app/mumu-cafe/og-cake.jpg">
+<meta property="og:url" content="https://linket.app/mumu-cafe/cake">
+<link rel="icon" href="../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:    #1C0C07;
+  --bg2:   #2C1810;
+  --bg3:   #3D2215;
+  --cream: #F5ECD7;
+  --gold:  #C8A870;
+  --gold2: #A88850;
+  --ink2:  rgba(245,236,215,.75);
+  --ink3:  rgba(245,236,215,.45);
+  --b:     rgba(200,168,112,.18);
+  --b2:    rgba(200,168,112,.32);
+}
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Noto Sans TC',sans-serif; background:var(--bg); color:var(--cream); line-height:1.8; }
+a { text-decoration:none; color:inherit; }
+img { display:block; }
+
+/* ── 共用 ── */
+.wrap { max-width:640px; margin:0 auto; padding:0 1.4rem; }
+.gold { color:var(--gold); }
+.eyebrow {
+  font-family:'Cormorant Garamond',serif; font-style:italic;
+  font-size:.78rem; color:var(--gold); letter-spacing:.35em;
+  text-transform:uppercase; display:block; margin-bottom:.5rem;
+}
+.rule { width:28px; height:1px; background:var(--gold); margin:1rem 0 1.8rem; }
+
+/* ── CTA 按鈕 ── */
+.cta-line {
+  display:flex; align-items:center; justify-content:center;
+  width:100%; padding:1rem 1.4rem;
+  font-family:'Noto Sans TC',sans-serif;
+  font-size:.82rem; font-weight:400; letter-spacing:.22em;
+  border:1px solid var(--gold); transition:all .3s; cursor:pointer;
+}
+.cta-line.fill { background:var(--gold); color:var(--bg); }
+.cta-line.fill:hover { background:var(--gold2); }
+.cta-line.ghost { background:transparent; color:var(--gold); }
+.cta-line.ghost:hover { background:var(--gold); color:var(--bg); }
+.cta-stack { display:flex; flex-direction:column; gap:.8rem; max-width:320px; margin:0 auto; }
+
+/* ── Reveal ── */
+.reveal { opacity:0; transform:translateY(14px); transition:.65s cubic-bezier(.2,.8,.2,1); }
+.reveal.visible { opacity:1; transform:none; }
+
+/* ═══ § 1 HERO ═══ */
+.cake-hero {
+  position:relative; min-height:90svh;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--bg); overflow:hidden; text-align:center;
+}
+.cake-hero-bg {
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; opacity:.25; z-index:0;
+}
+.cake-hero-content { position:relative; z-index:2; padding:5rem 1.4rem; width:100%; }
+.cake-hero-label {
+  font-family:'Cormorant Garamond',serif; font-style:italic;
+  font-size:.8rem; color:var(--gold); letter-spacing:.4em;
+  text-transform:uppercase; margin-bottom:1.5rem;
+}
+.cake-hero-title {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,7vw,3.2rem);
+  font-weight:500; color:var(--cream);
+  line-height:1.2; margin-bottom:1.5rem;
+  letter-spacing:.04em;
+}
+.cake-hero-title em { color:var(--gold); font-style:italic; }
+.cake-hero-sub {
+  font-size:.88rem; font-weight:300; color:var(--ink2);
+  max-width:400px; margin:0 auto 3rem; line-height:2;
+}
+.cake-hero-cta { max-width:280px; margin:0 auto; }
+
+/* ═══ § 2 痛點 ═══ */
+.pain-section { padding:5rem 0; background:var(--bg2); }
+.pain-list { display:flex; flex-direction:column; gap:1.2rem; margin-bottom:3rem; }
+.pain-item {
+  display:flex; align-items:flex-start; gap:1rem;
+  padding:1.2rem 1.4rem; border:1px solid var(--b);
+  background:var(--bg);
+}
+.pain-mark {
+  font-family:'Playfair Display',serif;
+  font-size:1.2rem; color:var(--gold); flex-shrink:0; line-height:1.4;
+}
+.pain-text { font-size:.82rem; color:var(--ink2); line-height:1.9; font-weight:300; }
+.pain-text strong { color:var(--cream); font-weight:500; }
+
+/* ═══ § 3 解方 ═══ */
+.solution-section { padding:5rem 0; }
+.solution-intro {
+  font-family:'Playfair Display',serif; font-style:italic;
+  font-size:clamp(1.1rem,2.8vw,1.5rem);
+  color:var(--cream); line-height:1.7;
+  border-left:2px solid var(--gold); padding-left:1.4rem;
+  margin-bottom:3.5rem;
+}
+.feature-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:3rem; }
+@media(max-width:420px){ .feature-grid{grid-template-columns:1fr;} }
+.feature-item {
+  padding:1.4rem; border:1px solid var(--b); background:var(--bg2);
+}
+.feature-num {
+  font-family:'Playfair Display',serif;
+  font-size:1.8rem; color:var(--gold); opacity:.4;
+  line-height:1; margin-bottom:.6rem;
+}
+.feature-title {
+  font-size:.85rem; font-weight:500; color:var(--cream);
+  margin-bottom:.4rem; letter-spacing:.08em;
+}
+.feature-desc { font-size:.75rem; color:var(--ink3); line-height:1.8; font-weight:300; }
+
+/* ═══ § 4 作品展示 ═══ */
+.gallery-section { padding:5rem 0; background:var(--bg2); }
+.gallery-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin-bottom:2.5rem; }
+.gallery-item {
+  aspect-ratio:1/1; background:var(--bg3);
+  overflow:hidden; position:relative;
+}
+.gallery-item img { width:100%; height:100%; object-fit:cover; transition:transform 1.2s ease; }
+.gallery-item:hover img { transform:scale(1.06); }
+.gallery-placeholder {
+  width:100%; height:100%;
+  display:flex; align-items:center; justify-content:center;
+  flex-direction:column; gap:.5rem;
+}
+.gallery-placeholder-label {
+  font-family:'Cormorant Garamond',serif; font-style:italic;
+  font-size:.8rem; color:var(--ink3); letter-spacing:.2em;
+}
+.gallery-placeholder-hint { font-size:.6rem; color:var(--ink3); opacity:.5; letter-spacing:.1em; }
+
+/* ═══ § 5 客人評價 ═══ */
+.review-section { padding:5rem 0; }
+.review-list { display:flex; flex-direction:column; gap:1.4rem; margin-bottom:3rem; }
+.review-item {
+  padding:1.6rem;
+  border-left:2px solid var(--gold);
+  background:var(--bg2);
+}
+.review-text {
+  font-family:'Playfair Display',serif; font-style:italic;
+  font-size:.9rem; color:var(--ink2); line-height:1.9;
+  margin-bottom:.8rem;
+}
+.review-author { font-size:.68rem; color:var(--ink3); letter-spacing:.2em; }
+
+/* ═══ § 6 訂購流程 ═══ */
+.flow-section { padding:5rem 0; background:var(--bg2); }
+.flow-list { display:flex; flex-direction:column; gap:0; margin-bottom:3rem; }
+.flow-item { display:flex; gap:1.2rem; padding:1.2rem 0; border-bottom:1px solid var(--b); }
+.flow-item:last-child { border-bottom:none; }
+.flow-step {
+  font-family:'Playfair Display',serif;
+  font-size:1.6rem; color:var(--gold); opacity:.5;
+  flex-shrink:0; line-height:1.2; width:2rem; text-align:center;
+}
+.flow-body {}
+.flow-title { font-size:.9rem; font-weight:500; color:var(--cream); margin-bottom:.3rem; letter-spacing:.08em; }
+.flow-desc { font-size:.78rem; color:var(--ink3); line-height:1.8; font-weight:300; }
+
+/* ═══ § 7 FAQ ═══ */
+.faq-section { padding:5rem 0; }
+.faq-list { display:flex; flex-direction:column; gap:0; margin-bottom:3rem; }
+.faq-item { border-bottom:1px solid var(--b); }
+.faq-q {
+  padding:1.1rem 0; cursor:pointer;
+  display:flex; justify-content:space-between; align-items:center;
+  font-size:.85rem; font-weight:500; color:var(--cream); letter-spacing:.06em;
+}
+.faq-q::after { content:'+'; font-size:1rem; color:var(--gold); transition:.2s; flex-shrink:0; }
+.faq-item.open .faq-q::after { content:'-'; }
+.faq-a { display:none; padding-bottom:1.1rem; font-size:.78rem; color:var(--ink2); line-height:1.9; font-weight:300; }
+.faq-item.open .faq-a { display:block; }
+
+/* ═══ § 8 底部 CTA ═══ */
+.final-cta { padding:5rem 0; background:var(--bg2); text-align:center; }
+.final-title {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.4rem,4vw,2rem);
+  color:var(--cream); margin-bottom:1rem; line-height:1.3;
+}
+.final-title em { color:var(--gold); font-style:italic; }
+.final-sub { font-size:.8rem; color:var(--ink3); margin-bottom:2.5rem; letter-spacing:.12em; }
+
+/* ── Footer 小字 ── */
+.cake-footer {
+  padding:1.5rem; text-align:center;
+  border-top:1px solid var(--b); background:var(--bg);
+}
+.cake-footer a { font-size:.72rem; color:var(--ink3); letter-spacing:.18em; }
+.cake-footer a:hover { color:var(--gold); }
+</style>
+</head>
+<body>
+
+<!-- GTM noscript -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8PS42TD" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- § 1 HERO -->
+<section class="cake-hero">
+  <img src="../cake-hero.jpg" class="cake-hero-bg" aria-hidden="true"
+       onerror="this.style.display='none'">
+  <div class="cake-hero-content">
+    <div class="cake-hero-label">MuMu Cafe · Custom Birthday Cake</div>
+    <h1 class="cake-hero-title">
+      你的生日，<br>
+      值得一個<em>專屬的蛋糕</em>
+    </h1>
+    <p class="cake-hero-sub">
+      不是展示櫃裡的現成款，<br>
+      而是依照你的故事，手工打造的那一個。
+    </p>
+    <div class="cake-hero-cta">
+      <a href="https://lin.ee/jQ5axSf" target="_blank" class="cta-line fill"
+         onclick="gtag('event','click_line_hero',{'event_category':'CTA','event_label':'mumu-cake'})">
+        LINE 預約諮詢
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- § 2 痛點 -->
+<section class="pain-section">
+  <div class="wrap">
+    <span class="eyebrow reveal">你是否也有這樣的困擾</span>
+    <div class="pain-list">
+      <div class="pain-item reveal">
+        <div class="pain-mark">?</div>
+        <div class="pain-text"><strong>找不到有質感的蛋糕</strong>，連鎖店太制式，個人工作室又不確定品質</div>
+      </div>
+      <div class="pain-item reveal">
+        <div class="pain-mark">?</div>
+        <div class="pain-text"><strong>想要有特別的造型</strong>，但不知道怎麼跟店家溝通，怕做出來跟想像差很遠</div>
+      </div>
+      <div class="pain-item reveal">
+        <div class="pain-mark">?</div>
+        <div class="pain-text"><strong>在地很難找到</strong>可以客製化又有口碑的手工甜點店</div>
+      </div>
+    </div>
+    <div class="cta-stack reveal">
+      <a href="https://lin.ee/jQ5axSf" target="_blank" class="cta-line fill"
+         onclick="gtag('event','click_line_pain',{'event_category':'CTA','event_label':'mumu-cake'})">
+        LINE 告訴我你的需求
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- § 3 解方 -->
+<section class="solution-section">
+  <div class="wrap">
+    <span class="eyebrow reveal">MuMu 的回答</span>
+    <p class="solution-intro reveal">
+      我們在埔里做了很多年的手工甜點，<br>
+      每一個蛋糕都是一次對話的結果。
+    </p>
+    <div class="rule reveal"></div>
+    <div class="feature-grid">
+      <div class="feature-item reveal">
+        <div class="feature-num">01</div>
+        <div class="feature-title">造型完全客製</div>
+        <div class="feature-desc">告訴我們主題、顏色、風格，我們幫你實現，不限制創意</div>
+      </div>
+      <div class="feature-item reveal">
+        <div class="feature-num">02</div>
+        <div class="feature-title">口味自由選擇</div>
+        <div class="feature-desc">從蛋糕體到夾餡奶油，依照喜好搭配，不吃甜也有選項</div>
+      </div>
+      <div class="feature-item reveal">
+        <div class="feature-num">03</div>
+        <div class="feature-title">在地手工製作</div>
+        <div class="feature-desc">埔里在地製作，新鮮現做，不是中央工廠的冷凍品</div>
+      </div>
+      <div class="feature-item reveal">
+        <div class="feature-num">04</div>
+        <div class="feature-title">提前預約安心</div>
+        <div class="feature-desc">LINE 洽詢確認需求，提前安排，不怕臨時找不到</div>
+      </div>
+    </div>
+    <div class="cta-stack reveal">
+      <a href="https://lin.ee/jQ5axSf" target="_blank" class="cta-line fill"
+         onclick="gtag('event','click_line_solution',{'event_category':'CTA','event_label':'mumu-cake'})">
+        LINE 開始規劃你的蛋糕
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- § 4 作品展示 -->
+<section class="gallery-section">
+  <div class="wrap">
+    <span class="eyebrow reveal">作品展示</span>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.2rem,3vw,1.6rem);color:var(--cream);margin-bottom:1.5rem;font-weight:500;" class="reveal">每一個蛋糕都是獨一無二的</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item reveal">
+        <img src="../img-cake-01.jpg" alt="客製蛋糕作品" loading="lazy"
+             onerror="this.parentElement.innerHTML='<div class=\'gallery-placeholder\'><div class=\'gallery-placeholder-label\'>作品照片</div><div class=\'gallery-placeholder-hint\'>圖片待提供</div></div>'">
+      </div>
+      <div class="gallery-item reveal">
+        <img src="../img-cake-02.jpg" alt="客製蛋糕作品" loading="lazy"
+             onerror="this.parentElement.innerHTML='<div class=\'gallery-placeholder\'><div class=\'gallery-placeholder-label\'>作品照片</div><div class=\'gallery-placeholder-hint\'>圖片待提供</div></div>'">
+      </div>
+      <div class="gallery-item reveal">
+        <img src="../img-cake-03.jpg" alt="客製蛋糕作品" loading="lazy"
+             onerror="this.parentElement.innerHTML='<div class=\'gallery-placeholder\'><div class=\'gallery-placeholder-label\'>作品照片</div><div class=\'gallery-placeholder-hint\'>圖片待提供</div></div>'">
+      </div>
+      <div class="gallery-item reveal">
+        <img src="../img-cake-04.jpg" alt="客製蛋糕作品" loading="lazy"
+             onerror="this.parentElement.innerHTML='<div class=\'gallery-placeholder\'><div class=\'gallery-placeholder-label\'>作品照片</div><div class=\'gallery-placeholder-hint\'>圖片待提供</div></div>'">
+      </div>
+    </div>
+    <div class="cta-stack reveal">
+      <a href="https://lin.ee/jQ5axSf" target="_blank" class="cta-line fill"
+         onclick="gtag('event','click_line_gallery',{'event_category':'CTA','event_label':'mumu-cake'})">
+        LINE 預約你的專屬蛋糕
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- § 5 客人評價 -->
+<section class="review-section">
+  <div class="wrap">
+    <span class="eyebrow reveal">客人說的話</span>
+    <div class="rule reveal"></div>
+    <div class="review-list">
+      <div class="review-item reveal">
+        <div class="review-text">「訂了一個給媽媽的生日蛋糕，跟 MuMu 說了想要的風格，結果做出來比想像中更漂亮，媽媽超感動。」</div>
+        <div class="review-author">— 埔里在地客人</div>
+      </div>
+      <div class="review-item reveal">
+        <div class="review-text">「以為客製蛋糕很麻煩，結果 LINE 說清楚需求之後很快就確認好了，蛋糕也很好吃，不是那種甜死人的。」</div>
+        <div class="review-author">— 客人回饋</div>
+      </div>
+      <div class="review-item reveal">
+        <div class="review-text">「在地手工做的，吃起來就是不一樣，每次有需要都會來找 MuMu。」</div>
+        <div class="review-author">— 常客回饋</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- § 6 訂購流程 -->
+<section class="flow-section">
+  <div class="wrap">
+    <span class="eyebrow reveal">訂購流程</span>
+    <div class="rule reveal"></div>
+    <div class="flow-list">
+      <div class="flow-item reveal">
+        <div class="flow-step">1</div>
+        <div class="flow-body">
+          <div class="flow-title">LINE 洽詢</div>
+          <div class="flow-desc">告訴我們你的需求：日期、人數、造型方向、口味偏好，越詳細越好</div>
+        </div>
+      </div>
+      <div class="flow-item reveal">
+        <div class="flow-step">2</div>
+        <div class="flow-body">
+          <div class="flow-title">確認設計</div>
+          <div class="flow-desc">我們會提供設計方向與報價，確認後完成預訂</div>
+        </div>
+      </div>
+      <div class="flow-item reveal">
+        <div class="flow-step">3</div>
+        <div class="flow-body">
+          <div class="flow-title">手工製作</div>
+          <div class="flow-desc">依照約定日期在埔里手工現做，新鮮不冷凍</div>
+        </div>
+      </div>
+      <div class="flow-item reveal">
+        <div class="flow-step">4</div>
+        <div class="flow-body">
+          <div class="flow-title">取件或外送</div>
+          <div class="flow-desc">到店自取或洽詢外送服務，讓驚喜準時出現</div>
+        </div>
+      </div>
+    </div>
+    <div class="cta-stack reveal">
+      <a href="https://lin.ee/jQ5axSf" target="_blank" class="cta-line fill"
+         onclick="gtag('event','click_line_flow',{'event_category':'CTA','event_label':'mumu-cake'})">
+        LINE 開始預訂
+      </a>
+      <a href="tel:0492997250" class="cta-line ghost"
+         onclick="gtag('event','click_tel_cake',{'event_category':'CTA','event_label':'mumu-cake'})">
+        電話洽詢 049-2997250
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- § 7 FAQ -->
+<section class="faq-section">
+  <div class="wrap">
+    <span class="eyebrow reveal">常見問題</span>
+    <div class="rule reveal"></div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">需要提前多久預訂？</div>
+        <div class="faq-a">建議活動前 5–7 天預訂，節日旺季（母親節、情人節、聖誕節）建議提前 2 週以上，以確保製作時間。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">可以指定造型或圖案嗎？</div>
+        <div class="faq-a">可以，您可以提供參考圖片或描述喜歡的風格，我們會依照需求設計，確認方向後才開始製作。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">有哪些口味可以選擇？</div>
+        <div class="faq-a">蛋糕體與夾餡奶油都有多種選項，洽詢時告知喜好，我們提供當季可選品項，搭配最適合的組合。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">價格大概是多少？</div>
+        <div class="faq-a">依照尺寸、造型複雜度、所需材料而定，LINE 告知需求後即可提供報價。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">可以外送嗎？</div>
+        <div class="faq-a">提供埔里在地外送服務，範圍與費用請 LINE 洽詢確認。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- § 8 底部 CTA -->
+<section class="final-cta">
+  <div class="wrap">
+    <h2 class="final-title reveal">
+      你的生日只有一次，<br>
+      讓蛋糕也<em>值得被記住</em>
+    </h2>
+    <p class="final-sub reveal">LINE 告訴我們你的故事，我們幫你做成蛋糕</p>
+    <div class="cta-stack reveal">
+      <a href="https://lin.ee/jQ5axSf" target="_blank" class="cta-line fill"
+         onclick="gtag('event','click_line_final',{'event_category':'CTA','event_label':'mumu-cake'})">
+        LINE 立即預約
+      </a>
+      <a href="tel:0492997250" class="cta-line ghost"
+         onclick="gtag('event','click_tel_final',{'event_category':'CTA','event_label':'mumu-cake'})">
+        電話洽詢 049-2997250
+      </a>
+      <a href="../" class="cta-line ghost">回到 MuMu 主頁</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="cake-footer">
+  <a href="../">MuMu Cafe & Dessert Shop · 埔里中正路454號</a>
+</footer>
+
+<script>
+/* FAQ 開關 */
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+/* Scroll Reveal */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold:0.06 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
