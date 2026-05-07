@@ -73,7 +73,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="icon" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 
 <style>
 /* ── Design Tokens ── */
@@ -98,9 +98,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
-body { font-family:'Noto Serif TC',serif; background:var(--bg); color:var(--ink); line-height:1.8; letter-spacing:.06em; }
+body {
+  font-family:'Noto Sans TC',sans-serif;
+  background:var(--bg); color:var(--ink); line-height:1.8; letter-spacing:.04em;
+}
 a { text-decoration:none; color:inherit; }
 img { display:block; }
+
+/* 英文標題字：Playfair Display */
+.en-serif {
+  font-family:'Playfair Display',serif;
+}
+/* 裝飾英文：Cormorant Garamond */
+.en-deco {
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+}
 
 /* ── Fallback Box ── */
 .fallback-box {
@@ -108,28 +121,29 @@ img { display:block; }
   color:var(--gold); font-size:.75rem; background:rgba(200,168,112,.06);
 }
 
-/* ── TOP BADGE（由 _shared 注入）── */
+/* ── TOP BADGE ── */
 .top-badge {
   display:flex; align-items:center; justify-content:center; gap:.35rem;
   position:sticky; top:0; z-index:999; width:100%;
   background:#fff; color:#2C2C2C;
-  font-size:.72rem; letter-spacing:.2em; font-weight:600;
-  padding:.55rem 1rem; border-bottom:1px solid #eee; text-decoration:none;
+  font-size:.68rem; letter-spacing:.22em; font-weight:500;
+  padding:.5rem 1rem; border-bottom:1px solid #eee; text-decoration:none;
+  font-family:'Noto Sans TC',sans-serif;
 }
 .tb-lin { color:#1685C8; }
 .tb-ket { color:#001526; }
 
-/* ── EVENT BANNER（由 _shared 注入）── */
+/* ── EVENT BANNER ── */
 .event-banner { background:var(--gold); }
-.event-banner-link { display:flex; align-items:center; justify-content:center; gap:1rem; padding:.7rem 1.4rem; }
-.event-banner-text { font-size:.88rem; font-weight:700; color:var(--bg); letter-spacing:.08em; }
-.event-banner-btn { background:var(--bg); color:var(--gold); font-size:.72rem; font-weight:700; padding:.25rem .8rem; border-radius:var(--r); letter-spacing:.15em; }
+.event-banner-link { display:flex; align-items:center; justify-content:center; gap:1rem; padding:.65rem 1.4rem; }
+.event-banner-text { font-size:.82rem; font-weight:500; color:var(--bg); letter-spacing:.08em; }
+.event-banner-btn { background:var(--bg); color:var(--gold); font-size:.68rem; font-weight:700; padding:.22rem .75rem; border-radius:var(--r); letter-spacing:.15em; }
 
 /* ── TICKER ── */
-.ticker { background:var(--bg2); border-top:1px solid var(--b); border-bottom:1px solid var(--b); padding:.6rem 0; overflow:hidden; }
+.ticker { background:var(--bg2); border-top:1px solid var(--b); border-bottom:1px solid var(--b); padding:.5rem 0; overflow:hidden; }
 .ticker-inner { display:flex; white-space:nowrap; animation:tick 28s linear infinite; }
 .ticker-inner:hover { animation-play-state:paused; }
-.ticker-item { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:.9rem; color:var(--ink3); letter-spacing:.2em; padding:0 2rem; }
+.ticker-item { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:.85rem; color:var(--ink3); letter-spacing:.22em; padding:0 1.8rem; }
 .ticker-item.gold { color:var(--gold); }
 @keyframes tick { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
@@ -140,19 +154,45 @@ img { display:block; }
 .hero-cols { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
 @media(max-width:640px){ .hero-cols{grid-template-columns:1fr; gap:2.5rem;} }
 
-/* 左欄 */
-.hero-left { display:flex; flex-direction:column; align-items:flex-start; gap:.55rem; }
-.hero-logo-wrap { width:140px; margin-bottom:.8rem; }
+/* 左欄：全部置中 */
+.hero-left { display:flex; flex-direction:column; align-items:center; text-align:center; gap:.5rem; }
+.hero-logo-wrap { width:120px; margin-bottom:.6rem; }
 .hero-logo-img { width:100%; height:auto; }
-.hero-logo-fallback { height:60px; width:140px; }
-.hero-name { font-size:clamp(1.8rem,5vw,2.6rem); font-weight:700; color:var(--cream); letter-spacing:.12em; line-height:1.15; }
-.hero-name-en { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(1rem,2.5vw,1.3rem); color:var(--gold); letter-spacing:.3em; }
-.hero-role { font-size:.82rem; color:var(--ink3); letter-spacing:.2em; }
-.hero-divider { width:36px; height:1px; background:var(--gold); margin:.4rem 0; }
-.hero-slogan { font-size:.95rem; font-weight:300; color:var(--ink2); line-height:2; }
-.hero-tags { display:flex; flex-wrap:wrap; gap:.5rem; }
-.h-tag { font-size:.72rem; color:var(--gold); border:1px solid var(--b2); padding:.15rem .65rem; border-radius:var(--r); letter-spacing:.1em; }
-.hero-hours { font-size:.78rem; color:var(--ink3); line-height:1.9; border-left:2px solid var(--b2); padding-left:1rem; }
+.hero-logo-fallback { height:55px; width:120px; }
+
+.hero-name {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.2rem,5.5vw,3.2rem);
+  font-weight:500; color:var(--cream);
+  letter-spacing:.08em; line-height:1.1;
+}
+.hero-name-en {
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:clamp(.85rem,2vw,1.05rem);
+  color:var(--gold); letter-spacing:.4em;
+}
+.hero-role {
+  font-family:'Noto Sans TC',sans-serif;
+  font-size:.72rem; color:var(--ink3); letter-spacing:.28em; font-weight:300;
+}
+.hero-slogan {
+  font-family:'Noto Sans TC',sans-serif;
+  font-size:.88rem; font-weight:300; color:var(--ink2); line-height:2.1;
+  max-width:280px;
+}
+.hero-tags { display:flex; flex-wrap:wrap; gap:.4rem; justify-content:center; }
+.h-tag {
+  font-size:.65rem; color:var(--gold);
+  border:1px solid var(--b2); padding:.12rem .6rem;
+  border-radius:0; letter-spacing:.12em;
+  font-family:'Noto Sans TC',sans-serif;
+}
+.hero-hours {
+  font-size:.72rem; color:var(--ink3); line-height:2;
+  letter-spacing:.12em;
+  font-family:'Noto Sans TC',sans-serif;
+}
 
 /* 右欄 */
 .hero-right { display:flex; flex-direction:column; align-items:center; gap:.8rem; }
@@ -165,85 +205,192 @@ img { display:block; }
 /* Hero 按鈕 */
 .hero-btn {
   display:flex; align-items:center; justify-content:center; width:100%;
-  padding:1rem 1.4rem; font-family:'Noto Serif TC',serif; font-size:.9rem;
-  font-weight:400; letter-spacing:.2em; border-radius:var(--r);
-  border:1px solid var(--gold); transition:all .3s; cursor:pointer;
+  padding:.95rem 1.4rem;
+  font-family:'Noto Sans TC',sans-serif;
+  font-size:.78rem; font-weight:400; letter-spacing:.22em;
+  border-radius:0; border:1px solid var(--gold); transition:all .3s; cursor:pointer;
 }
 .hero-btn.p1 { background:var(--gold); color:var(--bg); }
 .hero-btn.p1:hover { background:var(--gold2); border-color:var(--gold2); }
 .hero-btn.ghost { background:transparent; color:var(--gold); }
 .hero-btn.ghost:hover { background:var(--gold); color:var(--bg); }
 
-/* 動畫入場 */
 .hero-right .hero-btn:nth-child(2){ animation:slideUp .5s .1s both; }
 .hero-right .hero-btn:nth-child(3){ animation:slideUp .5s .2s both; }
 .hero-right .hero-btn:nth-child(4){ animation:slideUp .5s .3s both; }
 .hero-right .hero-btn:nth-child(5){ animation:slideUp .5s .4s both; }
 @keyframes slideUp { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:none} }
 
-/* QR / Share 小按鈕 */
 .hero-btn-row { display:flex; gap:.7rem; width:100%; }
-.btn-sm { flex:1; display:flex; align-items:center; justify-content:center; background:transparent; border:1px solid var(--b2); color:var(--ink3); font-size:.75rem; letter-spacing:.2em; padding:.85rem .4rem; border-radius:var(--r); transition:.3s; cursor:pointer; font-family:'Noto Serif TC',serif; }
+.btn-sm {
+  flex:1; display:flex; align-items:center; justify-content:center;
+  background:transparent; border:1px solid var(--b2); color:var(--ink3);
+  font-size:.68rem; letter-spacing:.2em; padding:.8rem .4rem; border-radius:0;
+  transition:.3s; cursor:pointer; font-family:'Noto Sans TC',sans-serif;
+}
 .btn-sm:hover { border-color:var(--gold); color:var(--gold); }
 .btn-sm.share { display:none; }
 .btn-sm.share.visible { display:flex; }
 
-/* ── WATERMARK ── */
-.watermark { background:var(--bg2); border-top:1px solid var(--b); border-bottom:1px solid var(--b); padding:4rem 1.4rem; text-align:center; }
-.wm-main { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(1.8rem,5vw,2.8rem); color:var(--gold); letter-spacing:.3em; margin-bottom:.4rem; }
-.wm-sub { font-size:.75rem; color:var(--ink3); letter-spacing:.3em; text-transform:uppercase; }
+/* ── WATERMARK（精簡版）── */
+.watermark {
+  background:var(--bg2);
+  border-top:1px solid var(--b); border-bottom:1px solid var(--b);
+  padding:1.4rem 1.4rem;
+  text-align:center;
+  display:flex; align-items:center; justify-content:center; gap:1.5rem;
+}
+.wm-main {
+  font-family:'Playfair Display',serif;
+  font-style:italic;
+  font-size:clamp(1rem,2.5vw,1.4rem);
+  color:var(--gold); letter-spacing:.25em;
+}
+.wm-sep { color:var(--b2); font-size:.7rem; }
+.wm-sub {
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:.75rem; color:var(--ink3); letter-spacing:.28em; text-transform:uppercase;
+}
 
 /* ── 通用 Section ── */
 .section { padding:5rem 0; }
 .section.dark { background:var(--bg2); }
 .content-wrap { max-width:var(--mw); margin:0 auto; padding:var(--sp); }
-.sec-eyebrow { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:.88rem; color:var(--gold); letter-spacing:.3em; text-transform:uppercase; margin-bottom:1rem; display:block; }
-.sec-title { font-size:clamp(1.4rem,4vw,1.9rem); font-weight:700; color:var(--cream); margin-bottom:2rem; letter-spacing:.1em; }
+.sec-eyebrow {
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic; font-size:.82rem;
+  color:var(--gold); letter-spacing:.35em; text-transform:uppercase;
+  margin-bottom:.6rem; display:block;
+}
+.sec-title {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.5rem,4vw,2.2rem);
+  font-weight:500; color:var(--cream);
+  margin-bottom:.5rem; letter-spacing:.04em; line-height:1.25;
+}
 .sec-title span { color:var(--gold); }
+.sec-rule {
+  width:32px; height:1px; background:var(--gold);
+  margin:1rem 0 2rem;
+}
 
-/* ── 品牌介紹區（服務說明）── */
-.service-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; }
-@media(max-width:560px){ .service-grid{grid-template-columns:1fr;} }
-.service-card { background:var(--bg3); border:1px solid var(--b); border-radius:var(--r); padding:1.6rem; transition:.3s; }
-.service-card:hover { border-color:var(--b2); }
-.service-card-icon { font-size:1.6rem; margin-bottom:.8rem; }
-.service-card-title { font-size:1rem; font-weight:700; color:var(--gold); margin-bottom:.5rem; letter-spacing:.1em; }
-.service-card-desc { font-size:.82rem; font-weight:300; color:var(--ink2); line-height:1.9; }
+/* ── 品牌介紹區：雜誌圖文排版 ── */
+.editorial-section { padding:6rem 0; }
+
+/* 大引言 */
+.editorial-quote {
+  font-family:'Playfair Display',serif;
+  font-style:italic;
+  font-size:clamp(1.2rem,3vw,1.7rem);
+  color:var(--cream); line-height:1.7;
+  border-left:2px solid var(--gold); padding-left:1.5rem;
+  margin-bottom:4rem; font-weight:400;
+}
+
+/* 雜誌圖文區：左圖右文 / 左文右圖 */
+.ed-row {
+  display:grid; grid-template-columns:1fr 1fr; gap:0;
+  margin-bottom:4rem; border:1px solid var(--b);
+}
+.ed-row.reverse { direction:rtl; }
+.ed-row.reverse > * { direction:ltr; }
+@media(max-width:600px){ .ed-row{grid-template-columns:1fr; direction:ltr;} }
+
+.ed-img {
+  position:relative; overflow:hidden;
+  background:var(--bg3); min-height:280px;
+}
+.ed-img img { width:100%; height:100%; object-fit:cover; transition:transform 1.5s ease; }
+.ed-img:hover img { transform:scale(1.04); }
+.ed-img-label {
+  position:absolute; bottom:1rem; left:1rem;
+  font-family:'Cormorant Garamond',serif; font-style:italic;
+  font-size:.72rem; color:rgba(245,236,215,.7); letter-spacing:.2em;
+  background:rgba(28,12,7,.5); padding:.2rem .6rem;
+}
+.ed-img-fallback {
+  width:100%; height:100%; min-height:280px;
+  display:flex; align-items:center; justify-content:center;
+  flex-direction:column; gap:1rem;
+}
+.ed-img-fallback-label {
+  font-family:'Cormorant Garamond',serif; font-style:italic;
+  font-size:1rem; color:var(--ink3); letter-spacing:.2em;
+}
+.ed-img-fallback-hint {
+  font-size:.65rem; color:var(--ink3); letter-spacing:.15em; opacity:.6;
+}
+
+.ed-body {
+  padding:2.5rem; display:flex; flex-direction:column; justify-content:center;
+  background:var(--bg2);
+}
+.ed-label {
+  font-family:'Cormorant Garamond',serif; font-style:italic;
+  font-size:.72rem; color:var(--gold); letter-spacing:.3em;
+  text-transform:uppercase; margin-bottom:.8rem;
+}
+.ed-title {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.1rem,2.5vw,1.45rem);
+  font-weight:500; color:var(--cream); margin-bottom:1rem;
+  line-height:1.3; letter-spacing:.03em;
+}
+.ed-desc {
+  font-family:'Noto Sans TC',sans-serif;
+  font-size:.78rem; font-weight:300; color:var(--ink2);
+  line-height:2; margin-bottom:1.2rem;
+}
+.ed-tag {
+  font-family:'Noto Sans TC',sans-serif;
+  font-size:.62rem; color:var(--ink3); letter-spacing:.15em;
+  border-top:1px solid var(--b); padding-top:.8rem;
+}
 
 /* ── MENU 區塊 ── */
 .menu-section { background:var(--bg); padding:5rem 0; }
 
-/* Tab 導航 */
-.menu-tabs { display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:2rem; }
-.menu-tab-btn {
-  background:transparent; border:1px solid var(--b); color:var(--ink3);
-  padding:.55rem 1rem; font-size:.78rem; letter-spacing:.15em; cursor:pointer;
-  border-radius:var(--r); transition:.25s; font-family:'Noto Serif TC',serif;
-  white-space:nowrap;
+/* Tab 導航：雜誌風橫線樣式 */
+.menu-tabs {
+  display:flex; flex-wrap:nowrap; overflow-x:auto;
+  gap:0; margin-bottom:0;
+  border-bottom:1px solid var(--b);
+  scrollbar-width:none;
 }
-.menu-tab-btn:hover { border-color:var(--gold); color:var(--gold); }
-.menu-tab-btn.active { border-color:var(--gold); color:var(--bg); background:var(--gold); }
-.menu-tab-btn.loading { opacity:.5; cursor:wait; }
-.menu-tab-btn.loaded::after { content:''; }
+.menu-tabs::-webkit-scrollbar { display:none; }
+.menu-tab-btn {
+  background:transparent; border:none; border-bottom:2px solid transparent;
+  color:var(--ink3); padding:.7rem 1.2rem;
+  font-family:'Noto Sans TC',sans-serif;
+  font-size:.72rem; letter-spacing:.2em; cursor:pointer;
+  transition:.2s; white-space:nowrap; flex-shrink:0;
+  margin-bottom:-1px;
+}
+.menu-tab-btn:hover { color:var(--cream); }
+.menu-tab-btn.active {
+  color:var(--gold); border-bottom-color:var(--gold);
+  font-weight:500;
+}
 
 /* Tab 內容面板 */
-.menu-pane { display:none; animation:fadeInTab .35s ease both; }
+.menu-pane { display:none; padding-top:1.8rem; animation:fadeInTab .3s ease both; }
 .menu-pane.active { display:block; }
-@keyframes fadeInTab { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:none} }
+@keyframes fadeInTab { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:none} }
 
 /* ── 咖啡豆讀取動畫 ── */
 .bean-loader { display:flex; align-items:center; justify-content:center; padding:4rem 0; }
 .bean-wrap { display:flex; flex-direction:column; align-items:center; gap:1rem; }
-.bean { font-size:2.4rem; animation:beanBounce 1.2s ease-in-out infinite; }
-@keyframes beanBounce {
-  0%,100% { transform:translateY(0) rotate(-10deg); }
-  50% { transform:translateY(-12px) rotate(10deg); }
+.bean-icon {
+  width:32px; height:32px; border-radius:50%;
+  border:2px solid var(--gold); border-top-color:transparent;
+  animation:beanspin 1s linear infinite;
 }
+@keyframes beanspin { to{transform:rotate(360deg)} }
 .bean-dots { display:flex; gap:.5rem; }
 .bean-dots span {
-  width:6px; height:6px; border-radius:50%; background:var(--gold);
-  animation:dotPulse 1.2s ease-in-out infinite;
-  opacity:.3;
+  width:5px; height:5px; border-radius:50%; background:var(--gold);
+  animation:dotPulse 1.2s ease-in-out infinite; opacity:.3;
 }
 .bean-dots span:nth-child(2) { animation-delay:.2s; }
 .bean-dots span:nth-child(3) { animation-delay:.4s; }
@@ -251,38 +398,58 @@ img { display:block; }
   0%,100% { opacity:.3; transform:scale(.8); }
   50% { opacity:1; transform:scale(1); }
 }
-.bean-text { font-size:.72rem; color:var(--ink3); letter-spacing:.3em; }
+.bean-text {
+  font-family:'Noto Sans TC',sans-serif;
+  font-size:.65rem; color:var(--ink3); letter-spacing:.35em;
+}
 
-/* 骨架屏（保留 CSS，JS 動態插入用）*/
-.skeleton-wrap { padding:1rem 0; }
-.skeleton-item { display:flex; justify-content:space-between; align-items:center; padding:.75rem 0; border-bottom:1px solid var(--b); gap:1rem; }
-.skeleton-line { background:linear-gradient(90deg,var(--bg2) 25%,var(--bg3) 50%,var(--bg2) 75%); background-size:200% 100%; animation:shimmer 1.4s infinite; border-radius:2px; }
-.skeleton-name { height:14px; width:55%; }
-.skeleton-en { height:9px; width:35%; margin-top:5px; }
-.skeleton-price { height:18px; width:52px; }
-@keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+/* 菜單說明 */
+.cat-note {
+  font-family:'Noto Sans TC',sans-serif;
+  font-size:.65rem; color:var(--ink3); letter-spacing:.12em;
+  margin-bottom:1.2rem; padding:.6rem 1rem;
+  background:var(--bg2); border-left:2px solid var(--b2); line-height:1.9;
+}
 
-/* 菜單分類標題 */
-.cat-note { font-size:.72rem; color:var(--ink3); letter-spacing:.1em; margin-bottom:1rem; border-left:2px solid var(--b2); padding-left:.8rem; line-height:1.7; }
-
-/* 菜單列 — 新字體規格 */
-.menu-item { display:flex; align-items:flex-start; justify-content:space-between; padding:.75rem 0; border-bottom:1px solid var(--b); gap:.8rem; }
+/* 菜單列 */
+.menu-item {
+  display:flex; align-items:baseline; justify-content:space-between;
+  padding:.7rem 0; border-bottom:1px solid var(--b); gap:.8rem;
+}
 .menu-item:last-child { border-bottom:none; }
 .mi-name-wrap { flex:1; }
-/* 中文品名 14pt ≈ 0.875rem */
-.mi-name { display:block; font-size:.875rem; font-weight:400; color:var(--cream); letter-spacing:.06em; line-height:1.5; }
-/* 英文品名 8pt ≈ 0.5rem */
-.mi-name-en { display:block; font-size:.5rem; color:var(--ink3); letter-spacing:.08em; font-weight:300; margin-top:.2rem; line-height:1.6; }
-.mi-prices { display:flex; gap:.8rem; flex-shrink:0; align-items:center; }
+.mi-name {
+  display:block;
+  font-family:'Noto Sans TC',sans-serif;
+  font-size:.82rem; font-weight:400; color:var(--cream);
+  letter-spacing:.05em; line-height:1.5;
+}
+.mi-name-en {
+  display:block;
+  font-family:'Cormorant Garamond',serif; font-style:italic;
+  font-size:.65rem; color:var(--ink3); letter-spacing:.1em;
+  font-weight:400; margin-top:.15rem; line-height:1.5;
+}
+.mi-prices { display:flex; gap:.9rem; flex-shrink:0; align-items:baseline; }
 .mi-price-group { text-align:center; }
-/* 冷熱大中標示 6pt ≈ 0.375rem */
-.mi-price-label { display:block; font-size:.375rem; color:var(--ink3); letter-spacing:.08em; margin-bottom:.15rem; }
-/* 價錢 10pt ≈ 0.625rem */
-.mi-price-val { font-family:'Cormorant Garamond',serif; font-size:.625rem; color:var(--gold); font-weight:600; line-height:1; }
-
-/* 輕食甜點價格（單一欄位較大） */
-.mi-price-single { font-family:'Cormorant Garamond',serif; font-size:.75rem; color:var(--gold); font-weight:600; flex-shrink:0; }
-.mi-cat-badge { display:inline-block; font-size:.42rem; color:var(--ink3); border:1px solid var(--b); padding:.1rem .4rem; border-radius:2px; margin-bottom:.3rem; letter-spacing:.1em; }
+.mi-price-label {
+  display:block;
+  font-family:'Noto Sans TC',sans-serif;
+  font-size:.5rem; color:var(--ink3); letter-spacing:.08em; margin-bottom:.1rem;
+}
+.mi-price-val {
+  font-family:'Playfair Display',serif;
+  font-size:.75rem; color:var(--gold); font-weight:500;
+}
+.mi-price-single {
+  font-family:'Playfair Display',serif;
+  font-size:.8rem; color:var(--gold); font-weight:500; flex-shrink:0;
+}
+.mi-cat-badge {
+  display:inline-block; font-size:.42rem; color:var(--ink3);
+  border:1px solid var(--b); padding:.1rem .4rem; border-radius:0;
+  margin-bottom:.3rem; letter-spacing:.1em;
+}
 
 /* ── IG 客製甜點展示（4格）── */
 .ig-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
@@ -367,35 +534,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="ticker-inner" aria-hidden="true">
     <span class="ticker-item gold">MuMu Cafe & Dessert Shop</span>
     <span class="ticker-item">義式咖啡</span>
-    <span class="ticker-item gold">✦</span>
+    <span class="ticker-item gold">·</span>
     <span class="ticker-item">手工甜點</span>
-    <span class="ticker-item gold">✦</span>
+    <span class="ticker-item gold">·</span>
     <span class="ticker-item">客製化蛋糕</span>
-    <span class="ticker-item gold">✦</span>
+    <span class="ticker-item gold">·</span>
     <span class="ticker-item">甜點禮盒</span>
-    <span class="ticker-item gold">✦</span>
+    <span class="ticker-item gold">·</span>
     <span class="ticker-item">埔里中正路</span>
-    <span class="ticker-item gold">✦</span>
+    <span class="ticker-item gold">·</span>
     <span class="ticker-item">週三至週一 09:00–21:30</span>
-    <span class="ticker-item gold">✦</span>
-    <span class="ticker-item">外送服務</span>
-    <span class="ticker-item gold">✦</span>
+    <span class="ticker-item gold">·</span>
+    <span class="ticker-item">電話外送服務</span>
+    <span class="ticker-item gold">·</span>
     <!-- 第二組（無縫循環） -->
     <span class="ticker-item gold">MuMu Cafe & Dessert Shop</span>
     <span class="ticker-item">義式咖啡</span>
-    <span class="ticker-item gold">✦</span>
+    <span class="ticker-item gold">·</span>
     <span class="ticker-item">手工甜點</span>
-    <span class="ticker-item gold">✦</span>
+    <span class="ticker-item gold">·</span>
     <span class="ticker-item">客製化蛋糕</span>
-    <span class="ticker-item gold">✦</span>
+    <span class="ticker-item gold">·</span>
     <span class="ticker-item">甜點禮盒</span>
-    <span class="ticker-item gold">✦</span>
+    <span class="ticker-item gold">·</span>
     <span class="ticker-item">埔里中正路</span>
-    <span class="ticker-item gold">✦</span>
+    <span class="ticker-item gold">·</span>
     <span class="ticker-item">週三至週一 09:00–21:30</span>
-    <span class="ticker-item gold">✦</span>
-    <span class="ticker-item">外送服務</span>
-    <span class="ticker-item gold">✦</span>
+    <span class="ticker-item gold">·</span>
+    <span class="ticker-item">電話外送服務</span>
+    <span class="ticker-item gold">·</span>
   </div>
 </div>
 
@@ -411,26 +578,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="hero-left">
         <div class="hero-logo-wrap">
           <img src="mumu-logo.png" alt="MuMu Cafe" class="hero-logo-img"
-               onerror="this.outerHTML='<div class=\'fallback-box hero-logo-fallback\' style=\'height:60px;width:140px;\'>MuMu</div>'">
+               onerror="this.outerHTML='<div class=\'fallback-box hero-logo-fallback\' style=\'height:55px;width:120px;\'>MuMu</div>'">
         </div>
         <div class="hero-name">MuMu</div>
         <div class="hero-name-en">Cafe & Dessert Shop</div>
-        <div class="hero-role">義式咖啡・手工甜點</div>
-        <div class="hero-divider"></div>
+        <div class="hero-role">義式咖啡 · 手工甜點</div>
         <div class="hero-slogan" id="hero-slogan">
           每一口甜點，都是埔里的日常溫度。
         </div>
         <div class="hero-tags">
-          <span class="h-tag">#義式咖啡</span>
-          <span class="h-tag">#手工甜點</span>
-          <span class="h-tag">#客製蛋糕</span>
-          <span class="h-tag">#埔里</span>
+          <span class="h-tag">義式咖啡</span>
+          <span class="h-tag">手工甜點</span>
+          <span class="h-tag">客製蛋糕</span>
+          <span class="h-tag">埔里</span>
         </div>
         <div class="hero-hours" id="hero-hours">
           <span id="hours-text">週三～週一 09:00–21:30</span><br>
           <span id="closed-text">每週二公休</span><br>
           <span id="hours-special" style="display:none;color:var(--gold)"></span>
-          <br>📍 南投縣埔里鎮中正路454號
+          南投縣埔里鎮中正路454號
         </div>
       </div>
 
@@ -455,14 +621,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </a>
           <a class="hero-icon-link" href="https://maps.app.goo.gl/3aw1pcVv3f4S57Qy6" target="_blank" aria-label="Map"
              onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'mumu-cafe'})">
-            <img src="/assets/map.svg" alt="Map" onerror="this.outerHTML='<div class=\'fallback-box icon-fallback\' style=\'width:36px;height:36px;\'>📍</div>'">
+            <img src="/assets/map.svg" alt="Map" onerror="this.outerHTML='<div class=\'fallback-box icon-fallback\' style=\'width:36px;height:36px;\'>Map</div>'">
           </a>
         </div>
 
         <!-- 按鈕：直接子元素，不包 wrapper -->
         <a href="tel:0492997250" class="hero-btn p1"
            onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'mumu-cafe'})">
-          📞 電話預約外送
+          電話預約外送
         </a>
         <a href="https://lin.ee/jQ5axSf" target="_blank" class="hero-btn p1"
            onclick="gtag('event','click_line',{'event_category':'CTA','event_label':'mumu-cafe'})">
@@ -490,36 +656,74 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ⑤ WATERMARK -->
 <div class="watermark reveal">
   <div class="wm-main">MuMu</div>
-  <div class="wm-sub">Coffee & Handmade Desserts · Puli · NanTou</div>
+  <div class="wm-sep">—</div>
+  <div class="wm-sub">Coffee & Handmade Desserts · Puli</div>
 </div>
 
-<!-- ⑥ 品牌服務介紹 -->
-<section class="section" id="service">
+<!-- ⑥ 品牌服務介紹：雜誌圖文排版 -->
+<section class="editorial-section" id="service">
   <div class="content-wrap">
-    <span class="sec-eyebrow reveal">Our Services</span>
-    <h2 class="sec-title reveal">不只是咖啡館，<span>更是甜點工作室</span></h2>
-    <div class="service-grid">
-      <div class="service-card reveal">
-        <div class="service-card-icon">☕</div>
-        <div class="service-card-title">義式咖啡 & 特調飲品</div>
-        <div class="service-card-desc">精選義式咖啡豆，從美式到拿鐵，特調茶飲、鮮奶特調、新鮮果汁，每一杯都是當天現做。</div>
+    <span class="sec-eyebrow reveal">Our Story</span>
+    <h2 class="sec-title reveal">不只是咖啡館</h2>
+    <div class="sec-rule reveal"></div>
+
+    <!-- 大引言 -->
+    <p class="editorial-quote reveal">
+      每一杯咖啡，每一口甜點，<br>
+      都是 MuMu 對這座小鎮日常的回應。
+    </p>
+
+    <!-- 圖文區塊 01：義式咖啡 -->
+    <div class="ed-row reveal">
+      <div class="ed-img">
+        <img src="img-service-01.jpg" alt="義式咖啡"
+             loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'ed-img-fallback\'><div class=\'ed-img-fallback-label\'>Coffee</div><div class=\'ed-img-fallback-hint\'>圖片待提供</div></div>'">
+        <div class="ed-img-label">Espresso · 義式咖啡</div>
       </div>
-      <div class="service-card reveal">
-        <div class="service-card-icon">🍰</div>
-        <div class="service-card-title">手工甜點 & 私房點心</div>
-        <div class="service-card-desc">每日手作甜點，品項隨季節更換，使用在地食材，做出屬於埔里的溫度。</div>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-card-icon">🎂</div>
-        <div class="service-card-title">客製化生日造型蛋糕</div>
-        <div class="service-card-desc">依照你的想法打造專屬蛋糕，從造型設計到口味選擇，LINE 洽詢接單，讓每個生日都不一樣。</div>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-card-icon">🎁</div>
-        <div class="service-card-title">甜點禮盒 & 活動服務</div>
-        <div class="service-card-desc">節日禮盒、伴手禮訂製，以及企業活動、婚禮甜點桌服務，為你的特別場合增添甜蜜記憶。</div>
+      <div class="ed-body">
+        <div class="ed-label">Coffee & Drinks</div>
+        <div class="ed-title">一杯咖啡的誠意</div>
+        <div class="ed-desc">
+          從美式到拿鐵，從特調茶飲到新鮮果汁，MuMu 的每一杯飲品都在當天現做。我們不追求花俏，只要你喝到的每一口，都是最真實的味道。
+        </div>
+        <div class="ed-tag">Americano · Latte · Flavor Tea · Fresh Juice · Milkshake</div>
       </div>
     </div>
+
+    <!-- 圖文區塊 02：手工甜點（左文右圖） -->
+    <div class="ed-row reverse reveal">
+      <div class="ed-img">
+        <img src="img-service-02.jpg" alt="手工甜點"
+             loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'ed-img-fallback\'><div class=\'ed-img-fallback-label\'>Desserts</div><div class=\'ed-img-fallback-hint\'>圖片待提供</div></div>'">
+        <div class="ed-img-label">Handmade · 私房甜點</div>
+      </div>
+      <div class="ed-body">
+        <div class="ed-label">Handmade Desserts</div>
+        <div class="ed-title">每日手作，<br>季節限定</div>
+        <div class="ed-desc">
+          私房手作甜點隨季節更換，沒有固定菜單，只有今天才有的那一份。使用在地食材，做出屬於埔里的溫度與記憶。
+        </div>
+        <div class="ed-tag">每日品項不同 · 請洽詢當日甜點</div>
+      </div>
+    </div>
+
+    <!-- 圖文區塊 03：客製蛋糕 -->
+    <div class="ed-row reveal">
+      <div class="ed-img">
+        <img src="img-service-03.jpg" alt="客製化蛋糕"
+             loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'ed-img-fallback\'><div class=\'ed-img-fallback-label\'>Custom Cake</div><div class=\'ed-img-fallback-hint\'>圖片待提供</div></div>'">
+        <div class="ed-img-label">Custom · 造型蛋糕</div>
+      </div>
+      <div class="ed-body">
+        <div class="ed-label">Custom Birthday Cake</div>
+        <div class="ed-title">你的生日，<br>你說了算</div>
+        <div class="ed-desc">
+          從造型到口味，完全依照你的想法打造。不論是簡約清雅還是繽紛立體，LINE 告訴我們你的故事，我們幫你做成蛋糕。
+        </div>
+        <div class="ed-tag">LINE 洽詢接單 · 提前預約</div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -531,33 +735,63 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- Tab 導航 -->
     <div class="menu-tabs reveal" id="menu-tabs">
-      <button class="menu-tab-btn active" data-tab="咖啡" onclick="switchTab(this,'咖啡')">☕ 咖啡</button>
-      <button class="menu-tab-btn" data-tab="新鮮果汁" onclick="switchTab(this,'新鮮果汁')">🍹 果汁</button>
-      <button class="menu-tab-btn" data-tab="特調茶飲" onclick="switchTab(this,'特調茶飲')">🍵 茶飲</button>
-      <button class="menu-tab-btn" data-tab="冰沙" onclick="switchTab(this,'冰沙')">🧊 冰沙</button>
-      <button class="menu-tab-btn" data-tab="鮮奶特調" onclick="switchTab(this,'鮮奶特調')">🥛 鮮奶</button>
-      <button class="menu-tab-btn" data-tab="輕食甜點" onclick="switchTab(this,'輕食甜點')">🍞 輕食甜點</button>
+      <button class="menu-tab-btn active" data-tab="咖啡" onclick="switchTab(this,'咖啡')">咖啡</button>
+      <button class="menu-tab-btn" data-tab="新鮮果汁" onclick="switchTab(this,'新鮮果汁')">果汁</button>
+      <button class="menu-tab-btn" data-tab="特調茶飲" onclick="switchTab(this,'特調茶飲')">茶飲</button>
+      <button class="menu-tab-btn" data-tab="冰沙" onclick="switchTab(this,'冰沙')">冰沙</button>
+      <button class="menu-tab-btn" data-tab="鮮奶特調" onclick="switchTab(this,'鮮奶特調')">鮮奶特調</button>
+      <button class="menu-tab-btn" data-tab="輕食甜點" onclick="switchTab(this,'輕食甜點')">輕食甜點</button>
     </div>
 
-    <!-- Tab 內容區（JS 動態填入）-->
+    <!-- Tab 內容區 -->
     <div id="menu-panes">
+      <!-- 咖啡：靜態預載，API 回來後更新價格 -->
       <div class="menu-pane active" id="pane-咖啡">
-        <!-- 咖啡豆讀取動畫（JS 載入完成後自動替換）-->
-        <div class="bean-loader" id="menu-loader">
-          <div class="bean-wrap">
-            <div class="bean">☕</div>
-            <div class="bean-dots">
-              <span></span><span></span><span></span>
+        <div class="cat-note" id="coffee-note">冷美式另有小杯 S NT$50（冷飲限定）</div>
+        <div id="coffee-list">
+          <!-- 靜態品項，API 回來後補價格 -->
+          <div class="menu-item" data-item="美式咖啡">
+            <div class="mi-name-wrap">
+              <span class="mi-name">美式咖啡</span>
+              <span class="mi-name-en">Americano</span>
             </div>
-            <div class="bean-text">菜單載入中</div>
+            <div class="mi-prices" id="price-美式咖啡">
+              <div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">50</span></div>
+              <div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">65</span></div>
+              <div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">65</span></div>
+              <div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">75</span></div>
+            </div>
           </div>
+          <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">卡布奇諾</span><span class="mi-name-en">Cappuccino</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">60</span></div><div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">75</span></div><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">90</span></div></div></div>
+          <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">拿鐵咖啡</span><span class="mi-name-en">Coffee Latte</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">60</span></div><div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">75</span></div><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">90</span></div></div></div>
+          <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">提拉米蘇咖啡</span><span class="mi-name-en">Coffee Tiramisu</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">60</span></div><div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">75</span></div><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">90</span></div></div></div>
+          <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">冰點咖啡</span><span class="mi-name-en">Coffee with Mint</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">90</span></div></div></div>
+          <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">焦糖瑪奇朵</span><span class="mi-name-en">Caramel Macchiato</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">60</span></div><div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">75</span></div><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">90</span></div></div></div>
+          <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">黑糖瑪奇朵</span><span class="mi-name-en">Brown Sugar Macchiato</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">60</span></div><div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">75</span></div><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">90</span></div></div></div>
+          <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">黑森林咖啡</span><span class="mi-name-en">Black Forest Coffee</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">70</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">95</span></div></div></div>
+          <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">威士忌咖啡</span><span class="mi-name-en">Coffee with Whiskey</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">80</span></div><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">70</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">95</span></div></div></div>
+          <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">香草 / 橘香 拿鐵</span><span class="mi-name-en">Coffee Latte — Vanilla or Tangerine</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">80</span></div><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">70</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">95</span></div></div></div>
+          <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">榛果 / 摩卡 拿鐵</span><span class="mi-name-en">Coffee Latte — Hazelnut or Mocha</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">80</span></div><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">70</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">95</span></div></div></div>
+          <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">焦糖 / 玫瑰 拿鐵</span><span class="mi-name-en">Coffee Latte — Caramel or Rose</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">80</span></div><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">70</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">95</span></div></div></div>
+          <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">黑糖 / 抹茶 拿鐵</span><span class="mi-name-en">Coffee Latte — Brown Sugar or Matcha</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">80</span></div><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">70</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">95</span></div></div></div>
         </div>
+        <!-- API 讀取後如有差異自動更新，此為靜態預載版本 -->
       </div>
-      <div class="menu-pane" id="pane-新鮮果汁"></div>
-      <div class="menu-pane" id="pane-特調茶飲"></div>
-      <div class="menu-pane" id="pane-冰沙"></div>
-      <div class="menu-pane" id="pane-鮮奶特調"></div>
-      <div class="menu-pane" id="pane-輕食甜點"></div>
+      <div class="menu-pane" id="pane-新鮮果汁">
+        <div class="bean-loader" id="menu-loader-juice"><div class="bean-wrap"><div class="bean-icon"></div><div class="bean-text">載入中</div></div></div>
+      </div>
+      <div class="menu-pane" id="pane-特調茶飲">
+        <div class="bean-loader"><div class="bean-wrap"><div class="bean-icon"></div><div class="bean-text">載入中</div></div></div>
+      </div>
+      <div class="menu-pane" id="pane-冰沙">
+        <div class="bean-loader"><div class="bean-wrap"><div class="bean-icon"></div><div class="bean-text">載入中</div></div></div>
+      </div>
+      <div class="menu-pane" id="pane-鮮奶特調">
+        <div class="bean-loader"><div class="bean-wrap"><div class="bean-icon"></div><div class="bean-text">載入中</div></div></div>
+      </div>
+      <div class="menu-pane" id="pane-輕食甜點">
+        <div class="bean-loader"><div class="bean-wrap"><div class="bean-icon"></div><div class="bean-text">載入中</div></div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -714,8 +948,8 @@ async function loadMenuData() {
     renderInfo(data.info);
     renderEventBanner(data.info);
 
-    // 先渲染咖啡（最優先），其餘 requestIdleCallback 或 setTimeout 延遲
-    if (data['咖啡']) renderTab('咖啡', data['咖啡']);
+    // 先渲染其他 tab（咖啡已靜態預載，跳過）
+    if (data['咖啡']) updateCoffeePrices(data['咖啡']);
 
     const rest = ['新鮮果汁','特調茶飲','冰沙','鮮奶特調','輕食甜點'];
     rest.forEach((tab, i) => {
@@ -736,6 +970,19 @@ function switchTab(btn, tab) {
   btn.classList.add('active');
   const pane = document.getElementById('pane-' + tab);
   if (pane) pane.classList.add('active');
+}
+
+/* ── 咖啡靜態預載的價格靜默更新（API 回來後比對）── */
+function updateCoffeePrices(items) {
+  // 如果 Sheets 價格與靜態版本不同，直接整個重繪咖啡列表
+  const pane = document.getElementById('pane-咖啡');
+  if (!pane) return;
+  const list = document.getElementById('coffee-list');
+  if (!list) return;
+  // 靜默重繪（不影響用戶正在瀏覽的體驗）
+  let html = '';
+  items.forEach(item => { html += buildDrinkRow(item, TAB_CONFIG['咖啡'] || {}); });
+  if (html) list.innerHTML = html;
 }
 
 /* ── 渲染單一 Tab ── */
