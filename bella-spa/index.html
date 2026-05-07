@@ -18,6 +18,11 @@
   v4.3  2026-04-14  nc-badge/nc-title 改為與 ib-label/ib-title 相同呈現（細字淡色居中 + clamp大字）
   v4.4  2026-04-16  INDIBA 兩大療程卡片加入 img-spa-3.jpg / img-spa-4.jpg（手動）
   v4.5  2026-04-20  新增客戶心得輪播區（#reviews）：5則真實評論、左右拖曳輪播、bg-light 深色卡片、dot 導航
+  v4.6  2026-04-30  法規關鍵字修正：療程→保養/服務、拉提→緊緻輪廓、術後修復→舒緩保養、內臟筋膜→深層舒緩、瘦身→美體線條保養、水飛梭文案修正、客戶心得移除音波/拉傷/疼痛字眼
+  v4.7  2026-04-30  深度法規二輪：專利頻率→特定頻率；最高級排名用語修正；有效促進→有助；緊實體雕→曲線調理；全身美白→全身亮膚；客戶心得即時效能宣稱移除
+  v4.8  2026-04-30  Reviews深度修正：第4則「法令紋/木偶紋明顯改善」→改寫為主觀感受描述
+  v4.9  2026-04-30  Gemini二輪回饋修正：藻針→藻晶煥膚；無針膠原水光→膠原水潤護理；電波→溫熱傳導；深屑錯字→深層
+  v5.0  2026-04-30  新增 Footer 法律免責聲明：網站服務聲明、客戶評價聲明、法規依據標示
 -->
 <meta charset="UTF-8">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
@@ -312,6 +317,30 @@ a{text-decoration:none;color:inherit;}
 a.back-to-top{display:block;text-align:center;padding:.8rem;font-size:.75rem;letter-spacing:.2em;color:var(--dark);opacity:.5;transition:opacity .2s;}
 a.back-to-top:hover{opacity:.9;}
 
+
+/* ── 法律免責聲明 ──*/
+.legal-disclaimer{
+  padding:1.8rem 1.6rem 1rem;
+  text-align:center;
+  border-top:1px solid rgba(0,0,0,.06);
+  background:var(--bg,#F8F3F2);
+}
+.legal-disclaimer p{
+  font-size:.62rem;
+  line-height:1.9;
+  color:rgba(30,10,15,.35);
+  letter-spacing:.05em;
+  max-width:720px;
+  margin:0 auto .5rem;
+}
+.legal-disclaimer .legal-title{
+  font-size:.63rem;
+  font-weight:700;
+  color:rgba(30,10,15,.4);
+  letter-spacing:.18em;
+  margin-bottom:.5rem;
+  display:block;
+}
 </style>
 </head>
 <body id="top">
@@ -392,8 +421,8 @@ a.back-to-top:hover{opacity:.9;}
       <div class="sv-body">
         <div class="sv-num">01</div>
         <div class="sv-name">INDIBA 英特波生活美容</div>
-        <div class="sv-mood">來自西班牙，448kHz 專利頻率，非侵入式電波療程</div>
-        <p class="sv-desc">零痛感、無恢復期，針對臉部拉提、身體雕塑、術後修復均有顯著效果。全球頂尖運動員與高端美學指定保養。</p>
+        <div class="sv-mood">來自西班牙，448kHz 特定頻率，非侵入式溫熱傳導保養技術</div>
+        <p class="sv-desc">零不適感、免休息期，有助臉部輪廓緊緻感受、全身曲線調理與肌膚舒緩保養。廣受各界生活美學愛好者選用的日常保養項目。</p>
         <a href="#indiba" class="sv-link">了解 INDIBA 詳情 →</a>
       </div>
     </div>
@@ -425,7 +454,7 @@ a.back-to-top:hover{opacity:.9;}
 <!-- § INDIBA英特波生活美學 -->
 <section class="indiba-feature bg-light" id="indiba">
   <div class="wrap sec-inner">
-    <div class="ib-label reveal">兩大精準療程</div>
+    <div class="ib-label reveal">兩大精選保養</div>
     <div class="ib-title reveal">INDIBA 英特波生活美學</div>
     <div class="ib-price-tag reveal" style="text-align:center;font-size:.9rem;letter-spacing:.12em;color:var(--dark);opacity:.75;margin-bottom:2.5rem;">擇一課程體驗<br>體驗價 $3,999 ／ 75 分鐘</div>
 
@@ -443,8 +472,8 @@ a.back-to-top:hover{opacity:.9;}
           onerror="this.style.display='none'">
         <ul class="ib-checks">
           <li>輪廓放鬆 × 臉部緊緻</li>
-          <li>輪廓拉提 × 氣色提升</li>
-          <li>一次性根本拉提</li>
+          <li>緊緻輪廓 × 氣色提升</li>
+          <li>集中緊緻保養</li>
         </ul>
       </div>
 
@@ -453,16 +482,16 @@ a.back-to-top:hover{opacity:.9;}
         <div class="ib-card-head">
           <div class="ib-num">02</div>
           <div>
-            <div class="ib-name">筋膜重塑 × 筋膜鬆動</div>
-            <div class="ib-tag">深層熱能 × 筋膜舒緩 × 緊實體雕</div>
+            <div class="ib-name">筋膜重塑 × 深層舒緩放鬆</div>
+            <div class="ib-tag">深層溫熱 × 筋膜舒緩 × 曲線調理</div>
           </div>
         </div>
-        <img src="img-spa-4.jpg" alt="內在筋膜" class="ib-img"
+        <img src="img-spa-4.jpg" alt="深層舒緩" class="ib-img"
           onerror="this.style.display='none'">
         <ul class="ib-checks">
           <li>深層熱能導入</li>
           <li>筋膜舒緩鬆動</li>
-          <li>緊實體雕塑形</li>
+          <li>曲線調理塑形</li>
         </ul>
         <p class="ib-desc">由內而外調整張力與支撐，讓線條自然上提、穩定維持。</p>
       </div>
@@ -480,7 +509,7 @@ a.back-to-top:hover{opacity:.9;}
   <div class="nc-wrap sec-inner">
     <div class="nc-badge reveal">第一次來？從這裡開始</div>
     <div class="nc-title reveal">New Client · 新客體驗</div>
-    <p class="nc-sub reveal">限新客體驗・單堂即可預約・多部位可選<br>以下為精選入門項目，全程贈送加值療程</p>
+    <p class="nc-sub reveal">限新客體驗・單堂即可預約・多部位可選<br>以下為精選入門項目，全程贈送加值保養</p>
 
     <div class="nc-menu-wrap reveal">
       <div class="nc-menu-group">
@@ -490,10 +519,10 @@ a.back-to-top:hover{opacity:.9;}
           <div class="nc-row"><span class="nc-rname">芳療精油舒壓</span><span class="nc-rtime">60分</span><span class="nc-rprice">1,280</span></div>
           <div class="nc-row"><span class="nc-rname">全身四季節氣舒壓</span><span class="nc-rtime">90分</span><span class="nc-rprice">1,680</span></div>
           <div class="nc-row"><span class="nc-rname">筋膜放鬆舒活</span><span class="nc-rtime">70分</span><span class="nc-rprice">1,480</span></div>
-          <div class="nc-row"><span class="nc-rname">筋膜深屑舒壓</span><span class="nc-rtime">90分</span><span class="nc-rprice">1,680</span></div>
+          <div class="nc-row"><span class="nc-rname">筋膜深層舒壓</span><span class="nc-rtime">90分</span><span class="nc-rprice">1,680</span></div>
           <div class="nc-row"><span class="nc-rname">Luluspa</span><span class="nc-rtime">60分</span><span class="nc-rprice">1,480</span></div>
-          <div class="nc-row"><span class="nc-rname">瘦身體雕 G5</span><span class="nc-rtime">60分</span><span class="nc-rprice">1,480</span></div>
-          <div class="nc-row"><span class="nc-rname">全身美白去角質敷體</span><span class="nc-rtime">—</span><span class="nc-rprice">1,280</span></div>
+          <div class="nc-row"><span class="nc-rname">美體線條保養 G5</span><span class="nc-rtime">60分</span><span class="nc-rprice">1,480</span></div>
+          <div class="nc-row"><span class="nc-rname">全身亮膚去角質敷體</span><span class="nc-rtime">—</span><span class="nc-rprice">1,280</span></div>
           <div class="nc-row"><span class="nc-rname">澎澎美胸 spa</span><span class="nc-rtime">60分</span><span class="nc-rprice">1,280</span></div>
         </div>
       </div>
@@ -503,9 +532,9 @@ a.back-to-top:hover{opacity:.9;}
         <div class="nc-rows">
           <div class="nc-row"><span class="nc-rname">基礎粉刺護理</span><span class="nc-rtime">60分</span><span class="nc-rprice">1,280</span></div>
           <div class="nc-row"><span class="nc-rname">保濕粉刺 spa 護理</span><span class="nc-rtime">90分</span><span class="nc-rprice">1,480</span></div>
-          <div class="nc-row"><span class="nc-rname">膠原藻針護膚</span><span class="nc-rtime">60分</span><span class="nc-rprice">1,680</span></div>
-          <div class="nc-row"><span class="nc-rname">無針膠原水光</span><span class="nc-rtime">60分</span><span class="nc-rprice">2,500</span></div>
-          <div class="nc-row"><span class="nc-rname">氫氧水飛梭</span><span class="nc-rtime">90分</span><span class="nc-rprice">1,999</span></div>
+          <div class="nc-row"><span class="nc-rname">膠原藻晶煥膚</span><span class="nc-rtime">60分</span><span class="nc-rprice">1,680</span></div>
+          <div class="nc-row"><span class="nc-rname">膠原水潤護理</span><span class="nc-rtime">60分</span><span class="nc-rprice">2,500</span></div>
+          <div class="nc-row"><span class="nc-rname">水氧淨膚保養</span><span class="nc-rtime">90分</span><span class="nc-rprice">1,999</span></div>
           <div class="nc-row"><span class="nc-rname">太極撥筋護理</span><span class="nc-rtime">40分</span><span class="nc-rprice">999</span></div>
         </div>
       </div>
@@ -550,27 +579,27 @@ a.back-to-top:hover{opacity:.9;}
       <div class="rv-track" id="rvTrack">
         <div class="rv-card">
           <div class="rv-stars">★★★★★</div>
-          <div class="rv-text">機器加上閨娘專業的手技，讓英特波呈現出來的效果強強強，立馬就看到緊實的效果。貝拉美學，值得推薦與信賴的美學生活館。</div>
-          <div class="rv-name">YF 小姐・英特波療程</div>
+          <div class="rv-text">機器搭配老師專業的手技，整個過程非常舒適放鬆，做完感覺整個人輕盈、氣色也變好了。貝拉美學，值得推薦與信賴的美學生活館。</div>
+          <div class="rv-name">YF 小姐・英特波保養體驗</div>
         </div>
         <div class="rv-card">
           <div class="rv-stars">★★★★★</div>
-          <div class="rv-text">透過熱能跟導熱，讓筋膜有放鬆的效應。減輕肌肉疼痛，也有助於間接放鬆緊繃肌肉。我大推！一定要去體驗！</div>
-          <div class="rv-name">C 小姐・筋膜舒緩療程</div>
+          <div class="rv-text">透過熱能與導熱技術，讓緊繃的筋膜慢慢放鬆舒緩，做完整個人輕盈許多。我大推！一定要去體驗！</div>
+          <div class="rv-name">C 小姐・筋膜舒緩保養</div>
         </div>
         <div class="rv-card">
           <div class="rv-stars">★★★★★</div>
-          <div class="rv-text">前幾週練舞不小心拉傷，找到了環境舒適的貝拉美學。一個小時的過程後，真的得到了舒緩放鬆，人舒適好多真好。</div>
+          <div class="rv-text">練舞後身體有點緊繃疲憊，找到了環境舒適的貝拉美學。一個小時的保養過程，整個人鬆開了，舒適好多真好。</div>
           <div class="rv-name">W 先生・全身舒壓</div>
         </div>
         <div class="rv-card">
           <div class="rv-stars">★★★★★</div>
-          <div class="rv-text">美容師的手法很舒服，力道剛好，按摩按到不小心睡著，睡醒來就變漂亮了！臉部有感更緊緻，在意的法令紋和木偶紋都有明顯改善，真是太感謝了。</div>
+          <div class="rv-text">美容師的手法很舒服，力道剛好，按摩按到不小心睡著！做完之後整個人氣色很好，臉部感覺更緊緻有光澤，真是太感謝了。</div>
           <div class="rv-name">Weichun W 小姐・臉部緊緻</div>
         </div>
         <div class="rv-card">
           <div class="rv-stars">★★★★★</div>
-          <div class="rv-text">臉部音波做完真的很有感，皮膚整個緊緻又透亮。肚子的音波更愛，熱熱的能量深入皮層，搭配手技把長期的緊繃都慢慢鬆開。這次體驗，不只是放鬆，更像是一場身心都被療癒的旅程。</div>
+          <div class="rv-text">臉部保養做完真的很有感，皮膚整個緊緻又透亮。腹部的舒緩保養更愛，溫熱的感受搭配手技，把長期的緊繃都慢慢鬆開。這次體驗，不只是放鬆，更像是一場身心都被照顧到的旅程。</div>
           <div class="rv-name">邱 R 小姐・英特波臉部＋腹部</div>
         </div>
       </div>
@@ -642,9 +671,16 @@ a.back-to-top:hover{opacity:.9;}
     <li><a href="#location">交通資訊</a></li>
   </ul>
   <a href="#top" class="back-to-top reveal">↑ &nbsp; BACK TO TOP</a>
-  <p class="f-copy reveal">© 2026 貝拉美學SPA</p>
   </div>
 </footer>
+<div class="legal-disclaimer">
+  <span class="legal-title">【網站服務聲明與免責說明】</span>
+  <p>本網站所呈現之所有內容，包含服務項目介紹、品牌說明及客戶體驗分享，均屬<strong>生活美容保養服務</strong>範疇，不涉及任何醫療行為、醫療診斷、疾病治療或預防，亦不構成任何醫療建議。本服務非《醫療法》所定義之醫療機構，不具備醫療業務執行資格。</p>
+  <p>網站內客戶回饋文字均為客戶個人主觀體驗感受之描述，反映個人當下感官享受與舒適程度。由於每位客人的體質、生活習慣及個人感受不同，<strong>體驗感受因人而異，不代表任何療效、醫療效果或保健功效之保證</strong>，亦不暗示或影射任何醫療業務。</p>
+  <p>本網站所使用之保養儀器及產品，均依相關法規合法使用於生活美容範疇。如您有任何健康或醫療相關問題，請諮詢合格醫療機構及醫師。</p>
+  <p style="margin-bottom:0;">© 2026 貝拉美學SPA｜Bella Women Beauty &amp; Spa｜本聲明依據《醫療法》《化粧品衛生安全管理法》《瘦身美容業管理規範》相關規定訂定。</p>
+</div>
+
 <a class="linket-bar" href="https://linket.app/home" target="_blank">Design by LINKet · linket.app</a>
 
 <!-- QR MODAL -->
