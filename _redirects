@@ -28,4 +28,5 @@
 /sheila                  /sheila/index.html            200
 /mumu-cafe               /mumu-cafe/index.html         200
 /mumu-cafe/cake          /mumu-cafe/cake/index.html    200
+/mumu-cafe/share         /mumu-cafe/share/index.html   200
 /                        /home/                        301
