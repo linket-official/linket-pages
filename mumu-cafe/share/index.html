@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<!--
+  MuMu Cafe — LINE Flex Message 分享頁
+  linket.app/mumu-cafe/share/index.html
+  LINKet by Tony Design Studio · 2026-05-07
+
+  使用方式：
+  1. LINE Developers → 建立 LIFF App
+  2. 填入此頁面 URL：https://linket.app/mumu-cafe/share
+  3. 取得 LIFF ID → 替換下方 LIFF_ID
+  4. 老闆手機打開此頁面 → 點「分享名片給好友」
+-->
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>MuMu Cafe 名片分享</title>
+
+<!-- LIFF SDK -->
+<script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+
+<style>
+:root {
+  --bg:   #1C0C07;
+  --gold: #C8A870;
+  --cream:#F5ECD7;
+  --ink3: rgba(245,236,215,.45);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family:'Noto Sans TC',sans-serif;
+  background:var(--bg); color:var(--cream);
+  min-height:100svh; display:flex; align-items:center; justify-content:center;
+  padding:2rem 1.4rem;
+}
+.share-wrap {
+  max-width:320px; width:100%; text-align:center;
+  display:flex; flex-direction:column; align-items:center; gap:1.5rem;
+}
+
+/* 名片預覽 */
+.card-preview {
+  width:100%; border:1px solid rgba(200,168,112,.3);
+  background:#2C1810; padding:2rem 1.5rem;
+}
+.card-brand {
+  font-family:'Playfair Display',serif;
+  font-size:1.6rem; font-style:italic;
+  color:var(--gold); letter-spacing:.15em; margin-bottom:.4rem;
+}
+.card-sub {
+  font-size:.7rem; color:var(--ink3); letter-spacing:.2em; margin-bottom:1.2rem;
+}
+.card-rule { width:24px; height:1px; background:var(--gold); margin:0 auto 1.2rem; }
+.card-info { font-size:.72rem; color:var(--ink3); line-height:2; letter-spacing:.1em; }
+.card-info strong { color:var(--cream); display:block; font-size:.8rem; margin-bottom:.3rem; }
+
+/* 按鈕 */
+.share-btn {
+  width:100%; padding:.95rem;
+  background:var(--gold); color:var(--bg);
+  border:none; cursor:pointer;
+  font-size:.82rem; letter-spacing:.2em;
+  font-family:'Noto Sans TC',sans-serif;
+  transition:.3s;
+}
+.share-btn:hover { background:#A88850; }
+.share-btn:disabled { opacity:.5; cursor:not-allowed; }
+.back-link { font-size:.7rem; color:var(--ink3); letter-spacing:.18em; text-decoration:none; }
+.back-link:hover { color:var(--gold); }
+.status { font-size:.72rem; color:var(--ink3); letter-spacing:.15em; min-height:1.2rem; }
+</style>
+
+<!-- 字體 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="share-wrap">
+
+  <!-- 名片預覽 -->
+  <div class="card-preview">
+    <div class="card-brand">MuMu</div>
+    <div class="card-sub">Cafe & Dessert Shop</div>
+    <div class="card-rule"></div>
+    <div class="card-info">
+      <strong>義式咖啡 · 手工甜點 · 客製蛋糕</strong>
+      049-2997250<br>
+      週三～週一 09:00–21:30<br>
+      南投縣埔里鎮中正路454號
+    </div>
+  </div>
+
+  <button class="share-btn" id="shareBtn" onclick="shareFlex()" disabled>
+    分享名片給 LINE 好友
+  </button>
+
+  <div class="status" id="status">初始化中...</div>
+
+  <a href="../" class="back-link">回到 MuMu 主頁</a>
+</div>
+
+<script>
+/* ══ LIFF 設定 ══
+   申請 LIFF App 後，將 LIFF ID 填入下方
+   LINE Developers → Channel → LIFF → Add → 填入此頁面 URL
+*/
+const LIFF_ID = 'REPLACE_WITH_LIFF_ID'; // 例：1234567890-AbCdEfGh
+
+/* ══ Flex Message JSON ══ */
+const FLEX_MESSAGE = {
+  type: 'flex',
+  altText: 'MuMu Cafe 名片',
+  contents: {
+    type: 'bubble',
+    size: 'kilo',
+    header: {
+      type: 'box',
+      layout: 'vertical',
+      contents: [
+        {
+          type: 'text',
+          text: 'MuMu',
+          size: 'xxl',
+          weight: 'bold',
+          color: '#C8A870',
+          align: 'center'
+        },
+        {
+          type: 'text',
+          text: 'Cafe & Dessert Shop',
+          size: 'xs',
+          color: '#888888',
+          align: 'center',
+          margin: 'sm'
+        }
+      ],
+      paddingAll: 'xl',
+      backgroundColor: '#2C1810'
+    },
+    body: {
+      type: 'box',
+      layout: 'vertical',
+      contents: [
+        {
+          type: 'separator',
+          color: '#C8A870',
+          margin: 'none'
+        },
+        {
+          type: 'box',
+          layout: 'vertical',
+          margin: 'lg',
+          spacing: 'sm',
+          contents: [
+            {
+              type: 'box',
+              layout: 'baseline',
+              spacing: 'sm',
+              contents: [
+                { type: 'icon', url: 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png', size: 'xs' },
+                { type: 'text', text: '義式咖啡 · 手工甜點 · 客製蛋糕', size: 'xs', color: '#F5ECD7', flex: 0 }
+              ]
+            },
+            {
+              type: 'box',
+              layout: 'baseline',
+              spacing: 'sm',
+              margin: 'md',
+              contents: [
+                { type: 'text', text: '電話', size: 'xs', color: '#888888', flex: 2 },
+                { type: 'text', text: '049-2997250', size: 'sm', color: '#F5ECD7', flex: 5, weight: 'bold' }
+              ]
+            },
+            {
+              type: 'box',
+              layout: 'baseline',
+              spacing: 'sm',
+              contents: [
+                { type: 'text', text: '營業', size: 'xs', color: '#888888', flex: 2 },
+                { type: 'text', text: '週三～週一 09:00–21:30', size: 'xs', color: '#F5ECD7', flex: 5, wrap: true }
+              ]
+            },
+            {
+              type: 'box',
+              layout: 'baseline',
+              spacing: 'sm',
+              contents: [
+                { type: 'text', text: '地址', size: 'xs', color: '#888888', flex: 2 },
+                { type: 'text', text: '埔里鎮中正路454號', size: 'xs', color: '#F5ECD7', flex: 5, wrap: true }
+              ]
+            }
+          ]
+        }
+      ],
+      paddingAll: 'lg',
+      backgroundColor: '#1C0C07'
+    },
+    footer: {
+      type: 'box',
+      layout: 'vertical',
+      spacing: 'sm',
+      contents: [
+        {
+          type: 'button',
+          action: {
+            type: 'uri',
+            label: '電話預約外送',
+            uri: 'tel:0492997250'
+          },
+          style: 'primary',
+          color: '#C8A870',
+          height: 'sm'
+        },
+        {
+          type: 'button',
+          action: {
+            type: 'uri',
+            label: 'LINE 洽詢甜點蛋糕',
+            uri: 'https://lin.ee/jQ5axSf'
+          },
+          style: 'secondary',
+          height: 'sm'
+        },
+        {
+          type: 'button',
+          action: {
+            type: 'uri',
+            label: '查看完整菜單',
+            uri: 'https://linket.app/mumu-cafe'
+          },
+          style: 'link',
+          height: 'sm',
+          color: '#888888'
+        }
+      ],
+      paddingAll: 'md',
+      backgroundColor: '#2C1810'
+    }
+  }
+};
+
+/* ══ LIFF 初始化 ══ */
+async function initLiff() {
+  const statusEl = document.getElementById('status');
+  const shareBtn = document.getElementById('shareBtn');
+
+  try {
+    await liff.init({ liffId: LIFF_ID });
+    if (liff.isInClient()) {
+      shareBtn.disabled = false;
+      statusEl.textContent = '點擊按鈕即可分享名片';
+    } else {
+      statusEl.textContent = '請在 LINE 內開啟此頁面以使用分享功能';
+    }
+  } catch(e) {
+    statusEl.textContent = 'LIFF 初始化失敗，請確認 LIFF ID 是否正確';
+    console.error(e);
+  }
+}
+
+/* ══ 分享 Flex Message ══ */
+async function shareFlex() {
+  const statusEl = document.getElementById('status');
+  try {
+    await liff.shareTargetPicker([FLEX_MESSAGE]);
+    statusEl.textContent = '名片已分享';
+  } catch(e) {
+    if (e.code === 'CANCEL') {
+      statusEl.textContent = '已取消分享';
+    } else {
+      statusEl.textContent = '分享失敗，請重試';
+      console.error(e);
+    }
+  }
+}
+
+initLiff();
+</script>
+
+</body>
+</html>
