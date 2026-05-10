@@ -73,7 +73,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="icon" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 
 <style>
 /* ── Design Tokens ── */
@@ -99,7 +99,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body {
-  font-family:'Noto Sans TC',sans-serif;
+  font-family:'Noto Serif TC',serif;
   background:var(--bg); color:var(--ink); line-height:1.8; letter-spacing:.04em;
 }
 a { text-decoration:none; color:inherit; }
@@ -420,33 +420,33 @@ img { display:block; }
 .mi-name-wrap { flex:1; }
 .mi-name {
   display:block;
-  font-family:'Noto Sans TC',sans-serif;
-  font-size:.82rem; font-weight:400; color:var(--cream);
+  font-family:'Noto Serif TC',serif;
+  font-size:1rem; font-weight:400; color:var(--cream);
   letter-spacing:.05em; line-height:1.5;
 }
 .mi-name-en {
   display:block;
   font-family:'Cormorant Garamond',serif; font-style:italic;
-  font-size:.65rem; color:var(--ink3); letter-spacing:.1em;
+  font-size:.75rem; color:var(--ink3); letter-spacing:.1em;
   font-weight:400; margin-top:.15rem; line-height:1.5;
 }
 .mi-prices { display:flex; gap:.9rem; flex-shrink:0; align-items:baseline; }
 .mi-price-group { text-align:center; }
 .mi-price-label {
   display:block;
-  font-family:'Noto Sans TC',sans-serif;
-  font-size:.5rem; color:var(--ink3); letter-spacing:.08em; margin-bottom:.1rem;
+  font-family:'Noto Serif TC',serif;
+  font-size:.55rem; color:var(--ink3); letter-spacing:.08em; margin-bottom:.1rem;
 }
 .mi-price-val {
   font-family:'Playfair Display',serif;
-  font-size:.75rem; color:var(--gold); font-weight:500;
+  font-size:.9rem; color:var(--gold); font-weight:500;
 }
 .mi-price-single {
   font-family:'Playfair Display',serif;
-  font-size:.8rem; color:var(--gold); font-weight:500; flex-shrink:0;
+  font-size:.95rem; color:var(--gold); font-weight:500; flex-shrink:0;
 }
 .mi-cat-badge {
-  display:inline-block; font-size:.42rem; color:var(--ink3);
+  display:inline-block; font-size:.45rem; color:var(--ink3);
   border:1px solid var(--b); padding:.1rem .4rem; border-radius:0;
   margin-bottom:.3rem; letter-spacing:.1em;
 }
@@ -458,8 +458,8 @@ img { display:block; }
 .ig-card-label { padding:.8rem 1rem; }
 .ig-card-title { font-size:.82rem; font-weight:700; color:var(--gold); letter-spacing:.12em; margin-bottom:.2rem; }
 .ig-card-desc { font-size:.72rem; color:var(--ink3); }
-.ig-embed-wrap { position:relative; padding-bottom:100%; overflow:hidden; }
-.ig-embed-wrap iframe { position:absolute; inset:0; width:100%; height:100%; border:none; }
+.ig-embed-wrap { overflow:hidden; }
+.ig-embed-wrap .instagram-media { margin:0 !important; min-width:100% !important; }
 
 /* ── FOOTER ── */
 .footer { background:var(--bg2); border-top:1px solid var(--b); padding:5rem 1.4rem 4rem; text-align:center; }
@@ -577,8 +577,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <!-- 左欄 -->
       <div class="hero-left">
         <div class="hero-logo-wrap">
-          <img src="mumu-logo-2.png?v=2" alt="MuMu Cafe" class="hero-logo-img"
-               onerror="this.outerHTML='<div class=\'fallback-box hero-logo-fallback\' style=\'height:55px;width:120px;\'>MuMu</div>'">
+          <img src="mumu-logo-2.png" alt="MuMu Cafe" class="hero-logo-img"
+               onerror="this.outerHTML='<div class=\'fallback-box hero-logo-fallback\' style=\'height:80px;width:160px;\'>MuMu</div>'">
         </div>
         <div class="hero-slogan" id="hero-slogan">
           每一口甜點，都是埔里的日常溫度。
@@ -721,6 +721,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
 
+    <!-- 圖文區塊 04：活動甜點餐會（左文右圖） -->
+    <div class="ed-row reverse reveal">
+      <div class="ed-img">
+        <img src="img-service-04.jpg" alt="活動甜點餐會"
+             loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'ed-img-fallback\'><div class=\'ed-img-fallback-label\'>Event Desserts</div><div class=\'ed-img-fallback-hint\'>圖片待提供</div></div>'">
+        <div class="ed-img-label">Event · 甜點餐會</div>
+      </div>
+      <div class="ed-body">
+        <div class="ed-label">Desserts Buffet & Event Service</div>
+        <div class="ed-title">每一個場合，<br>都值得被記住</div>
+        <div class="ed-desc">
+          企業尾牙、婚禮甜點桌、節日禮盒、活動伴手禮，MuMu 提供完整的活動甜點服務，讓你的每一個重要場合都有最甜的記憶。
+        </div>
+        <div class="ed-tag">LINE 洽詢 · 大量訂製歡迎</div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -805,7 +822,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="ig-card-desc">活動場合甜點桌服務</div>
         </div>
         <div class="ig-embed-wrap">
-          <iframe src="https://www.instagram.com/p/PLACEHOLDER_1/embed" loading="lazy" scrolling="no" allowtransparency="true"></iframe>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DSBrToNkk83/?utm_source=ig_embed&utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;margin:0;max-width:100%;min-width:100%;padding:0;width:100%;"></blockquote>
         </div>
       </div>
       <div class="ig-card reveal">
@@ -814,7 +831,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="ig-card-desc">大量採購禮盒服務</div>
         </div>
         <div class="ig-embed-wrap">
-          <iframe src="https://www.instagram.com/p/PLACEHOLDER_2/embed" loading="lazy" scrolling="no" allowtransparency="true"></iframe>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DTFu6D6ErTF/?utm_source=ig_embed&utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;margin:0;max-width:100%;min-width:100%;padding:0;width:100%;"></blockquote>
         </div>
       </div>
       <div class="ig-card reveal">
@@ -823,7 +840,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="ig-card-desc">生日造型蛋糕設計</div>
         </div>
         <div class="ig-embed-wrap">
-          <iframe src="https://www.instagram.com/p/PLACEHOLDER_3/embed" loading="lazy" scrolling="no" allowtransparency="true"></iframe>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DWOz9j_iYSh/?utm_source=ig_embed&utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;margin:0;max-width:100%;min-width:100%;padding:0;width:100%;"></blockquote>
         </div>
       </div>
       <div class="ig-card reveal">
@@ -832,7 +849,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="ig-card-desc">節慶禮盒・伴手禮</div>
         </div>
         <div class="ig-embed-wrap">
-          <iframe src="https://www.instagram.com/p/PLACEHOLDER_4/embed" loading="lazy" scrolling="no" allowtransparency="true"></iframe>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C_hMdwlPFq-/?utm_source=ig_embed&utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;margin:0;max-width:100%;min-width:100%;padding:0;width:100%;"></blockquote>
         </div>
       </div>
     </div>
@@ -845,6 +862,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </section>
+
+<!-- IG Embed Script -->
+<script async src="//www.instagram.com/embed.js"></script>
 
 <!-- ⑨ FOOTER -->
 <footer class="footer">
@@ -883,19 +903,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </div>
 
-<!-- ⑪ 名片下載 MODAL（Canvas 動態生成）-->
+<!-- ⑪ 名片下載 MODAL -->
 <div class="card-modal-overlay" id="cardModal" onclick="closeCardBg(event)">
   <div class="card-modal">
     <div class="card-modal-preview">
       <canvas id="card-canvas" width="540" height="960" style="width:160px;height:auto;display:block;"></canvas>
     </div>
-    <p class="card-modal-hint">📱 手機長按圖片可儲存至相簿<br>💻 點擊下方按鈕下載</p>
+    <p class="card-modal-hint">手機長按圖片可儲存至相簿<br>或點擊下方按鈕下載 / 分享</p>
     <div class="card-modal-actions">
-      <button class="card-dl-btn p1" onclick="downloadCard()"
-        data-ga='{"event":"click_download_card","label":"mumu-cafe"}'>
-        下載名片圖
-      </button>
-      <button class="card-dl-btn ghost" onclick="closeCardModal()">取消</button>
+      <button class="card-dl-btn p1" onclick="downloadCard()">下載名片圖</button>
+      <button class="card-dl-btn ghost" onclick="shareCard()" id="cardShareBtn">分享名片</button>
     </div>
     <button class="card-dl-close" onclick="closeCardModal()">✕ 關閉</button>
   </div>
@@ -1104,73 +1121,167 @@ function drawCard() {
   const ctx = canvas.getContext('2d');
   const W = 540, H = 960;
 
-  // 背景
-  ctx.fillStyle = '#1C0C07';
-  ctx.fillRect(0, 0, W, H);
+  function render(bgImg, logoImg) {
+    // 背景
+    ctx.fillStyle = '#1C0C07';
+    ctx.fillRect(0, 0, W, H);
 
-  // 金色漸層裝飾線
-  const grad = ctx.createLinearGradient(0, 0, W, 0);
-  grad.addColorStop(0, 'transparent');
-  grad.addColorStop(.3, '#C8A870');
-  grad.addColorStop(.7, '#C8A870');
-  grad.addColorStop(1, 'transparent');
-  ctx.fillStyle = grad;
-  ctx.fillRect(0, H * .12, W, 1);
-  ctx.fillRect(0, H * .88, W, 1);
+    // hero-bg 圖
+    if (bgImg) {
+      ctx.globalAlpha = 0.22;
+      ctx.drawImage(bgImg, 0, 0, W, H);
+      ctx.globalAlpha = 1;
+    }
 
-  // Logo 文字（待有 logo 圖片後改為 drawImage）
-  ctx.fillStyle = '#C8A870';
-  ctx.font = 'italic 600 72px "Cormorant Garamond", serif';
-  ctx.textAlign = 'center';
-  ctx.fillText('MuMu', W/2, 240);
+    // 金色上下裝飾線
+    const grad = ctx.createLinearGradient(0, 0, W, 0);
+    grad.addColorStop(0, 'transparent');
+    grad.addColorStop(.3, '#C8A870');
+    grad.addColorStop(.7, '#C8A870');
+    grad.addColorStop(1, 'transparent');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, H * .10, W, 1);
+    ctx.fillRect(0, H * .89, W, 1);
 
-  ctx.fillStyle = 'rgba(245,236,215,.6)';
-  ctx.font = '300 28px "Noto Serif TC", serif';
-  ctx.fillText('Cafe & Dessert Shop', W/2, 290);
+    // mumu-logo-2.png
+    if (logoImg) {
+      const logoW = 260, logoH = logoImg.naturalHeight * (260 / logoImg.naturalWidth);
+      ctx.drawImage(logoImg, (W - logoW) / 2, 120, logoW, logoH);
+    } else {
+      ctx.fillStyle = '#C8A870';
+      ctx.font = 'italic 600 72px "Playfair Display", serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('MuMu', W/2, 240);
+    }
 
-  // 分隔線
-  ctx.strokeStyle = '#C8A870';
-  ctx.lineWidth = 1;
-  ctx.beginPath();
-  ctx.moveTo(W/2 - 40, 320); ctx.lineTo(W/2 + 40, 320);
-  ctx.stroke();
+    // 分隔線
+    ctx.strokeStyle = 'rgba(200,168,112,.4)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(W/2 - 50, 360); ctx.lineTo(W/2 + 50, 360);
+    ctx.stroke();
 
-  // 副標
-  ctx.fillStyle = 'rgba(245,236,215,.5)';
-  ctx.font = '300 22px "Noto Serif TC", serif';
-  ctx.fillText('義式咖啡・手工甜點', W/2, 365);
+    // 聯絡資訊
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#C8A870';
+    ctx.font = '500 32px "Noto Serif TC", serif';
+    ctx.fillText('049-2997250', W/2, 430);
 
-  // 聯絡資訊
-  ctx.fillStyle = '#C8A870';
-  ctx.font = '400 30px "Noto Serif TC", serif';
-  ctx.fillText('049-2997250', W/2, 530);
+    ctx.fillStyle = 'rgba(245,236,215,.7)';
+    ctx.font = '300 23px "Noto Serif TC", serif';
+    ctx.fillText('南投縣埔里鎮中正路454號', W/2, 490);
+    ctx.fillText('週三～週一 09:00–21:30', W/2, 530);
 
-  ctx.fillStyle = 'rgba(245,236,215,.7)';
-  ctx.font = '300 22px "Noto Serif TC", serif';
-  ctx.fillText('南投縣埔里鎮中正路454號', W/2, 580);
-  ctx.fillText('週三～週一 09:00–21:30', W/2, 620);
+    // 雙 QR Code（由 JS 用 img 轉繪）
+    drawDualQR(ctx, W, H);
+  }
 
-  // LINKet 署名
-  ctx.fillStyle = 'rgba(245,236,215,.3)';
-  ctx.font = 'italic 18px "Cormorant Garamond", serif';
-  ctx.fillText('Design by LINKet · linket.app', W/2, H - 60);
+  // 載入 bg + logo
+  const bgImg = new Image(); bgImg.crossOrigin = 'anonymous';
+  const logoImg = new Image(); logoImg.crossOrigin = 'anonymous';
+  let loaded = 0;
+
+  function onLoad() {
+    loaded++;
+    if (loaded >= 2) render(bgImg.complete && bgImg.naturalWidth ? bgImg : null,
+                            logoImg.complete && logoImg.naturalWidth ? logoImg : null);
+  }
+
+  bgImg.onload = onLoad; bgImg.onerror = onLoad;
+  logoImg.onload = onLoad; logoImg.onerror = onLoad;
+  bgImg.src = 'hero-bg.jpg';
+  logoImg.src = 'mumu-logo-2.png';
+}
+
+// 雙 QR Code 繪製（用 qrcodejs 產生 canvas 後 drawImage）
+function drawDualQR(ctx, W, H) {
+  const qrSize = 140;
+  const y = H * .65;
+  const gap = 60;
+  const x1 = W/2 - qrSize - gap/2;
+  const x2 = W/2 + gap/2;
+
+  // LINE QR
+  const lineC = document.createElement('canvas');
+  new QRCode(lineC, { text:'https://lin.ee/jQ5axSf', width:qrSize, height:qrSize, colorDark:'#1C0C07', colorLight:'#F5ECD7', correctLevel:QRCode.CorrectLevel.H });
+  setTimeout(() => {
+    try {
+      const img1 = lineC.querySelector('canvas') || lineC.querySelector('img');
+      // 白底
+      ctx.fillStyle = '#F5ECD7';
+      ctx.fillRect(x1-6, y-6, qrSize+12, qrSize+12);
+      if (img1 && img1.tagName === 'CANVAS') ctx.drawImage(img1, x1, y, qrSize, qrSize);
+
+      // 網頁 QR
+      const webC = document.createElement('canvas');
+      new QRCode(webC, { text:'https://linket.app/mumu-cafe', width:qrSize, height:qrSize, colorDark:'#1C0C07', colorLight:'#F5ECD7', correctLevel:QRCode.CorrectLevel.H });
+      setTimeout(() => {
+        try {
+          const img2 = webC.querySelector('canvas') || webC.querySelector('img');
+          ctx.fillStyle = '#F5ECD7';
+          ctx.fillRect(x2-6, y-6, qrSize+12, qrSize+12);
+          if (img2 && img2.tagName === 'CANVAS') ctx.drawImage(img2, x2, y, qrSize, qrSize);
+        } catch(e) {}
+
+        // QR 標籤
+        ctx.fillStyle = 'rgba(245,236,215,.55)';
+        ctx.font = '300 18px "Noto Serif TC", serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('LINE 官方', x1 + qrSize/2, y + qrSize + 24);
+        ctx.fillText('官方網頁', x2 + qrSize/2, y + qrSize + 24);
+
+        // LINKet 署名
+        ctx.fillStyle = 'rgba(245,236,215,.3)';
+        ctx.font = 'italic 300 18px "Cormorant Garamond", serif';
+        ctx.fillText('Design by LINKet · linket.app', W/2, H - 55);
+      }, 100);
+    } catch(e) {}
+  }, 100);
 }
 
 function openCardModal() {
-  document.getElementById('cardModal').classList.add('active');
-  drawCard();
+  const s = document.createElement('script');
+  s.src = 'https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
+  s.onload = () => {
+    document.getElementById('cardModal').classList.add('active');
+    drawCard();
+  };
+  // 若已載入直接執行
+  if (window.QRCode) {
+    document.getElementById('cardModal').classList.add('active');
+    drawCard();
+  } else {
+    document.head.appendChild(s);
+  }
   gtag('event','click_download_card',{'event_category':'CTA','event_label':'mumu-cafe'});
 }
 function closeCardModal() { document.getElementById('cardModal').classList.remove('active'); }
 function closeCardBg(e) { if(e.target===document.getElementById('cardModal')) closeCardModal(); }
+
 function downloadCard() {
   const canvas = document.getElementById('card-canvas');
   const a = document.createElement('a');
   a.href = canvas.toDataURL('image/png');
-  a.download = 'MuMu-Cafe-Card.png';
-  a.click();
+  a.download = 'MuMu-Cafe-Card.png'; a.click();
   gtag('event','download_card_complete',{'event_category':'CTA','event_label':'mumu-cafe'});
 }
+
+async function shareCard() {
+  const canvas = document.getElementById('card-canvas');
+  canvas.toBlob(async (blob) => {
+    const file = new File([blob], 'MuMu-Cafe-Card.png', { type: 'image/png' });
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      try {
+        await navigator.share({ files: [file], title: 'MuMu Cafe 名片', text: 'MuMu Cafe & Dessert Shop · 埔里' });
+        gtag('event','share_card',{'event_category':'CTA','event_label':'mumu-cafe'});
+      } catch(e) {}
+    } else {
+      // fallback：下載
+      downloadCard();
+    }
+  });
+}
+
 
 /* ═══════════════════════════════════════
    QR Code
