@@ -397,15 +397,28 @@ async function initLiff() {
 /* ══ 分享 Flex Message ══ */
 async function shareFlex() {
   const statusEl = document.getElementById('status');
+  statusEl.textContent = '準備分享中...';
+
+  // 先確認 shareTargetPicker 是否可用
+  if (!liff.isApiAvailable('shareTargetPicker')) {
+    statusEl.textContent = '請到 LINE Developers → LIFF 設定，開啟「Share target picker」';
+    return;
+  }
+
   try {
-    await liff.shareTargetPicker([FLEX_MESSAGE]);
-    statusEl.textContent = '名片已分享';
+    const result = await liff.shareTargetPicker([FLEX_MESSAGE]);
+    if (result && result.status === 'success') {
+      statusEl.textContent = '名片組已分享';
+    } else {
+      statusEl.textContent = '已取消分享';
+    }
   } catch(e) {
     if (e.code === 'CANCEL') {
       statusEl.textContent = '已取消分享';
     } else {
-      statusEl.textContent = '分享失敗，請重試';
-      console.error(e);
+      // 顯示詳細錯誤幫助除錯
+      statusEl.textContent = `錯誤：${e.code || ''} ${e.message || JSON.stringify(e)}`;
+      console.error('[shareFlex error]', e);
     }
   }
 }
