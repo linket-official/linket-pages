@@ -24,51 +24,48 @@
   --bg:   #1C0C07;
   --gold: #C8A870;
   --cream:#F5ECD7;
+  --ink2: rgba(245,236,215,.75);
   --ink3: rgba(245,236,215,.45);
+  --b:    rgba(200,168,112,.18);
+  --b2:   rgba(200,168,112,.32);
 }
 * { margin:0; padding:0; box-sizing:border-box; }
 body {
   font-family:'Noto Serif TC',serif;
   background:var(--bg); color:var(--cream);
   min-height:100svh; display:flex; align-items:center; justify-content:center;
-  padding:2rem 1.4rem;
+  padding:2.5rem 1.4rem;
 }
+a { text-decoration:none; color:inherit; }
+
 .share-wrap {
-  max-width:320px; width:100%; text-align:center;
-  display:flex; flex-direction:column; align-items:center; gap:1.5rem;
+  max-width:340px; width:100%; text-align:center;
+  display:flex; flex-direction:column; align-items:center; gap:1.6rem;
 }
-
-/* 名片預覽 */
-.card-preview {
-  width:100%; border:1px solid rgba(200,168,112,.3);
-  background:#2C1810; padding:2rem 1.5rem;
-}
-.card-brand {
+.share-logo { width:180px; height:auto; }
+.share-desc-title {
   font-family:'Playfair Display',serif;
-  font-size:1.6rem; font-style:italic;
-  color:var(--gold); letter-spacing:.15em; margin-bottom:.4rem;
+  font-size:1.1rem; color:var(--cream); letter-spacing:.08em; margin-bottom:.3rem;
 }
-.card-sub {
-  font-size:.7rem; color:var(--ink3); letter-spacing:.2em; margin-bottom:1.2rem;
+.share-desc-sub { font-size:.7rem; color:var(--ink3); letter-spacing:.2em; margin-bottom:1rem; }
+.share-cards-preview {
+  display:flex; flex-wrap:wrap; justify-content:center; gap:.3rem .5rem;
+  padding:.8rem; border:1px solid var(--b); background:#2C1810;
 }
-.card-rule { width:24px; height:1px; background:var(--gold); margin:0 auto 1.2rem; }
-.card-info { font-size:.72rem; color:var(--ink3); line-height:2; letter-spacing:.1em; }
-.card-info strong { color:var(--cream); display:block; font-size:.8rem; margin-bottom:.3rem; }
-
-/* 按鈕 */
+.preview-tag { font-size:.62rem; color:var(--gold); letter-spacing:.12em; }
+.preview-sep { font-size:.55rem; color:var(--ink3); }
 .share-btn {
-  width:100%; padding:.95rem;
+  width:100%; padding:1rem;
   background:var(--gold); color:var(--bg);
   border:none; cursor:pointer;
-  font-size:.82rem; letter-spacing:.2em;
-  font-family:'Noto Sans TC',sans-serif;
-  transition:.3s;
+  font-size:.82rem; letter-spacing:.22em;
+  font-family:'Noto Serif TC',serif; transition:.3s;
 }
 .share-btn:hover { background:#A88850; }
-.share-btn:disabled { opacity:.5; cursor:not-allowed; }
-.back-link { font-size:.7rem; color:var(--ink3); letter-spacing:.18em; text-decoration:none; }
+.share-btn:disabled { opacity:.4; cursor:not-allowed; }
+.back-link { font-size:.68rem; color:var(--ink3); letter-spacing:.18em; }
 .back-link:hover { color:var(--gold); }
-.status { font-size:.72rem; color:var(--ink3); letter-spacing:.15em; min-height:1.2rem; }
+.status { font-size:.68rem; color:var(--ink3); letter-spacing:.15em; min-height:1rem; }
 </style>
 
 <!-- 字體 -->
@@ -79,21 +76,31 @@ body {
 
 <div class="share-wrap">
 
-  <!-- 名片預覽 -->
-  <div class="card-preview">
-    <div class="card-brand">MuMu</div>
-    <div class="card-sub">Cafe & Dessert Shop</div>
-    <div class="card-rule"></div>
-    <div class="card-info">
-      <strong>義式咖啡 · 手工甜點 · 客製蛋糕</strong>
-      049-2997250<br>
-      週三～週一 09:00–21:30<br>
-      南投縣埔里鎮中正路454號
+  <!-- 頁首 Logo -->
+  <img src="../mumu-logo-2.png" alt="MuMu Cafe" class="share-logo"
+       onerror="this.outerHTML='<div style=\'font-family:serif;font-style:italic;font-size:1.8rem;color:var(--gold);letter-spacing:.15em;\'>MuMu</div>'">
+
+  <!-- 卡片說明 -->
+  <div class="share-desc">
+    <div class="share-desc-title">MuMu Cafe 品牌名片組</div>
+    <div class="share-desc-sub">6 張卡片 · 左右滑動</div>
+    <div class="share-cards-preview">
+      <span class="preview-tag">品牌名片</span>
+      <span class="preview-sep">·</span>
+      <span class="preview-tag">義式咖啡</span>
+      <span class="preview-sep">·</span>
+      <span class="preview-tag">手工甜點</span>
+      <span class="preview-sep">·</span>
+      <span class="preview-tag">客製蛋糕</span>
+      <span class="preview-sep">·</span>
+      <span class="preview-tag">活動服務</span>
+      <span class="preview-sep">·</span>
+      <span class="preview-tag">立即預約</span>
     </div>
   </div>
 
   <button class="share-btn" id="shareBtn" onclick="shareFlex()" disabled>
-    分享名片給 LINE 好友
+    分享名片組給 LINE 好友
   </button>
 
   <div class="status" id="status">初始化中...</div>
@@ -109,135 +116,262 @@ body {
 const LIFF_ID = '2010009531-OO2URtLP';
 
 /* ══ Flex Message JSON ══ */
+/* ══════════════════════════════════════
+   圖片基礎路徑（GitHub → Cloudflare）
+   ══════════════════════════════════════ */
+const IMG = 'https://linket.app/mumu-cafe';
+
+/* ══════════════════════════════════════
+   共用樣式 helpers
+   ══════════════════════════════════════ */
+const BG      = '#1C0C07';
+const BG2     = '#2C1810';
+const GOLD    = '#C8A870';
+const CREAM   = '#F5ECD7';
+const INK2    = '#BFB099';
+const INK3    = '#8A7A66';
+
+/* ── 通用 hero image box（等比裁切）── */
+function heroImg(url, ratio='20:13') {
+  return {
+    type: 'image',
+    url,
+    size: 'full',
+    aspectRatio: ratio,
+    aspectMode: 'cover',
+    action: { type: 'uri', uri: 'https://linket.app/mumu-cafe' }
+  };
+}
+
+/* ── 金色細線分隔 ── */
+const RULE = { type: 'separator', color: GOLD, margin: 'md' };
+
+/* ── 小標籤文字 ── */
+function eyebrow(text) {
+  return { type:'text', text, size:'xxs', color:INK3, letterSpacing:'2px', margin:'lg' };
+}
+
+/* ── 主標題 ── */
+function title(text, size='lg') {
+  return { type:'text', text, size, weight:'bold', color:CREAM, wrap:true };
+}
+
+/* ── 內文 ── */
+function desc(text) {
+  return { type:'text', text, size:'sm', color:INK2, wrap:true, margin:'sm', lineSpacing:'6px' };
+}
+
+/* ── 按鈕 ── */
+function btn(label, uri, style='primary') {
+  return {
+    type: 'button', height: 'sm', style,
+    color: style === 'primary' ? GOLD : undefined,
+    action: { type: 'uri', label, uri }
+  };
+}
+
+/* ══════════════════════════════════════
+   六張卡片定義
+   ══════════════════════════════════════ */
+
+// 卡 1：品牌名片 CTA
+const card1 = {
+  type: 'bubble', size: 'mega',
+  hero: heroImg(`${IMG}/hero-bg.jpg`, '20:10'),
+  body: {
+    type: 'box', layout: 'vertical',
+    backgroundColor: BG2,
+    paddingAll: 'xl',
+    contents: [
+      {
+        type: 'image',
+        url: `${IMG}/mumu-logo-2.png`,
+        size: 'lg',
+        align: 'center',
+        margin: 'none'
+      },
+      RULE,
+      {
+        type: 'box', layout: 'vertical', margin: 'lg', spacing: 'sm',
+        contents: [
+          { type:'box', layout:'baseline', spacing:'sm', contents:[
+            { type:'text', text:'電話', size:'xs', color:INK3, flex:2 },
+            { type:'text', text:'049-2997250', size:'sm', color:CREAM, flex:5, weight:'bold' }
+          ]},
+          { type:'box', layout:'baseline', spacing:'sm', contents:[
+            { type:'text', text:'營業', size:'xs', color:INK3, flex:2 },
+            { type:'text', text:'週三～週一 09:00–21:30', size:'xs', color:CREAM, flex:5, wrap:true }
+          ]},
+          { type:'box', layout:'baseline', spacing:'sm', contents:[
+            { type:'text', text:'公休', size:'xs', color:INK3, flex:2 },
+            { type:'text', text:'每週二', size:'xs', color:CREAM, flex:5 }
+          ]},
+          { type:'box', layout:'baseline', spacing:'sm', contents:[
+            { type:'text', text:'地址', size:'xs', color:INK3, flex:2 },
+            { type:'text', text:'埔里鎮中正路454號', size:'xs', color:CREAM, flex:5, wrap:true }
+          ]},
+        ]
+      }
+    ]
+  },
+  footer: {
+    type: 'box', layout: 'vertical', spacing: 'sm',
+    backgroundColor: BG,
+    paddingAll: 'lg',
+    contents: [
+      btn('電話預約外送', 'tel:0492997250'),
+      btn('LINE 洽詢甜點蛋糕', 'https://lin.ee/jQ5axSf', 'secondary'),
+      btn('查看完整菜單', 'https://linket.app/mumu-cafe', 'link')
+    ]
+  }
+};
+
+// 卡 2：義式咖啡 & 飲品
+const card2 = {
+  type: 'bubble', size: 'mega',
+  hero: heroImg(`${IMG}/img-service-01.jpg`),
+  body: {
+    type: 'box', layout: 'vertical',
+    backgroundColor: BG2,
+    paddingAll: 'xl',
+    contents: [
+      eyebrow('COFFEE & DRINKS'),
+      RULE,
+      title('義式咖啡 & 特調飲品'),
+      desc('從美式到拿鐵，從特調茶飲到新鮮果汁，每一杯都是當天現做。冷熱任選，多種規格，只做你喜歡的那一杯。'),
+      { type:'box', layout:'horizontal', margin:'lg', spacing:'sm', contents:[
+        { type:'box', layout:'vertical', backgroundColor:BG, cornerRadius:'4px', paddingAll:'md', flex:1, contents:[
+          { type:'text', text:'咖啡', size:'xs', color:GOLD, align:'center' },
+          { type:'text', text:'13 款', size:'sm', color:CREAM, align:'center', weight:'bold' }
+        ]},
+        { type:'box', layout:'vertical', backgroundColor:BG, cornerRadius:'4px', paddingAll:'md', flex:1, contents:[
+          { type:'text', text:'特調茶飲', size:'xs', color:GOLD, align:'center' },
+          { type:'text', text:'11 款', size:'sm', color:CREAM, align:'center', weight:'bold' }
+        ]},
+        { type:'box', layout:'vertical', backgroundColor:BG, cornerRadius:'4px', paddingAll:'md', flex:1, contents:[
+          { type:'text', text:'果汁冰沙', size:'xs', color:GOLD, align:'center' },
+          { type:'text', text:'多款', size:'sm', color:CREAM, align:'center', weight:'bold' }
+        ]}
+      ]}
+    ]
+  },
+  footer: {
+    type:'box', layout:'vertical', backgroundColor:BG, paddingAll:'lg',
+    contents:[ btn('查看完整菜單', 'https://linket.app/mumu-cafe') ]
+  }
+};
+
+// 卡 3：手工甜點
+const card3 = {
+  type: 'bubble', size: 'mega',
+  hero: heroImg(`${IMG}/img-service-02.jpg`),
+  body: {
+    type: 'box', layout: 'vertical',
+    backgroundColor: BG2, paddingAll: 'xl',
+    contents: [
+      eyebrow('HANDMADE DESSERTS'),
+      RULE,
+      title('私房手作甜點'),
+      desc('每日手作，品項隨季節更換。使用在地食材，做出屬於埔里的溫度。沒有固定菜單，只有今天才有的那一份。'),
+      { type:'text', text:'· 品項每日不同，請洽詢當日甜點', size:'xs', color:GOLD, margin:'lg' }
+    ]
+  },
+  footer: {
+    type:'box', layout:'vertical', backgroundColor:BG, paddingAll:'lg',
+    contents:[ btn('LINE 詢問今日甜點', 'https://lin.ee/jQ5axSf') ]
+  }
+};
+
+// 卡 4：客製蛋糕
+const card4 = {
+  type: 'bubble', size: 'mega',
+  hero: heroImg(`${IMG}/img-service-03.jpg`),
+  body: {
+    type: 'box', layout: 'vertical',
+    backgroundColor: BG2, paddingAll: 'xl',
+    contents: [
+      eyebrow('CUSTOM BIRTHDAY CAKE'),
+      RULE,
+      title('客製化生日造型蛋糕'),
+      desc('從造型到口味，完全依照你的想法打造。LINE 告訴我們你的故事，我們幫你做成蛋糕。每一個生日都值得被記住。'),
+      { type:'box', layout:'vertical', margin:'lg', spacing:'xs', contents:[
+        { type:'text', text:'· 造型完全客製', size:'xs', color:INK2 },
+        { type:'text', text:'· 口味自由選擇', size:'xs', color:INK2 },
+        { type:'text', text:'· 建議提前 5–7 天預訂', size:'xs', color:INK2 },
+      ]}
+    ]
+  },
+  footer: {
+    type:'box', layout:'vertical', backgroundColor:BG, paddingAll:'lg',
+    contents:[ btn('LINE 預約客製蛋糕', 'https://lin.ee/jQ5axSf') ]
+  }
+};
+
+// 卡 5：活動甜點餐會
+const card5 = {
+  type: 'bubble', size: 'mega',
+  hero: heroImg(`${IMG}/img-service-04.jpg`),
+  body: {
+    type: 'box', layout: 'vertical',
+    backgroundColor: BG2, paddingAll: 'xl',
+    contents: [
+      eyebrow('EVENT DESSERTS SERVICE'),
+      RULE,
+      title('甜點桌 & 活動餐會服務'),
+      desc('企業尾牙、婚禮甜點桌、節日禮盒、活動伴手禮，MuMu 提供完整的活動甜點服務，讓每個重要場合都有最甜的記憶。'),
+      { type:'box', layout:'horizontal', margin:'lg', spacing:'sm', contents:[
+        { type:'box', layout:'vertical', backgroundColor:BG, cornerRadius:'4px', paddingAll:'md', flex:1, contents:[
+          { type:'text', text:'甜點桌', size:'xs', color:GOLD, align:'center' },
+          { type:'text', text:'活動包場', size:'xs', color:CREAM, align:'center' }
+        ]},
+        { type:'box', layout:'vertical', backgroundColor:BG, cornerRadius:'4px', paddingAll:'md', flex:1, contents:[
+          { type:'text', text:'禮盒訂製', size:'xs', color:GOLD, align:'center' },
+          { type:'text', text:'大量採購', size:'xs', color:CREAM, align:'center' }
+        ]}
+      ]}
+    ]
+  },
+  footer: {
+    type:'box', layout:'vertical', backgroundColor:BG, paddingAll:'lg',
+    contents:[ btn('LINE 洽詢活動服務', 'https://lin.ee/jQ5axSf') ]
+  }
+};
+
+// 卡 6：再次 CTA
+const card6 = {
+  type: 'bubble', size: 'mega',
+  hero: heroImg(`${IMG}/hero-bg.jpg`, '20:10'),
+  body: {
+    type: 'box', layout: 'vertical',
+    backgroundColor: BG, paddingAll: 'xl',
+    justifyContent: 'center',
+    contents: [
+      { type:'text', text:'MuMu Cafe', size:'xl', weight:'bold', color:GOLD, align:'center' },
+      { type:'text', text:'& Dessert Shop', size:'sm', color:INK3, align:'center', margin:'xs' },
+      RULE,
+      { type:'text', text:'電話外送 · 甜點洽詢 · 蛋糕預訂\n活動服務 · 節日禮盒', size:'sm', color:INK2, align:'center', wrap:true, margin:'lg', lineSpacing:'6px' },
+      { type:'text', text:'049-2997250', size:'lg', weight:'bold', color:CREAM, align:'center', margin:'lg' },
+      { type:'text', text:'南投縣埔里鎮中正路454號', size:'xs', color:INK3, align:'center', margin:'xs' },
+    ]
+  },
+  footer: {
+    type:'box', layout:'vertical', spacing:'sm', backgroundColor:BG2, paddingAll:'lg',
+    contents:[
+      btn('立即來電', 'tel:0492997250'),
+      btn('LINE 洽詢預約', 'https://lin.ee/jQ5axSf', 'secondary'),
+    ]
+  }
+};
+
+/* ══════════════════════════════════════
+   組合成 Carousel
+   ══════════════════════════════════════ */
 const FLEX_MESSAGE = {
   type: 'flex',
-  altText: 'MuMu Cafe 名片',
+  altText: 'MuMu Cafe — 義式咖啡 & 手工甜點 · 埔里',
   contents: {
-    type: 'bubble',
-    size: 'kilo',
-    header: {
-      type: 'box',
-      layout: 'vertical',
-      contents: [
-        {
-          type: 'text',
-          text: 'MuMu',
-          size: 'xxl',
-          weight: 'bold',
-          color: '#C8A870',
-          align: 'center'
-        },
-        {
-          type: 'text',
-          text: 'Cafe & Dessert Shop',
-          size: 'xs',
-          color: '#888888',
-          align: 'center',
-          margin: 'sm'
-        }
-      ],
-      paddingAll: 'xl',
-      backgroundColor: '#2C1810'
-    },
-    body: {
-      type: 'box',
-      layout: 'vertical',
-      contents: [
-        {
-          type: 'separator',
-          color: '#C8A870',
-          margin: 'none'
-        },
-        {
-          type: 'box',
-          layout: 'vertical',
-          margin: 'lg',
-          spacing: 'sm',
-          contents: [
-            {
-              type: 'box',
-              layout: 'baseline',
-              spacing: 'sm',
-              contents: [
-                { type: 'icon', url: 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png', size: 'xs' },
-                { type: 'text', text: '義式咖啡 · 手工甜點 · 客製蛋糕', size: 'xs', color: '#F5ECD7', flex: 0 }
-              ]
-            },
-            {
-              type: 'box',
-              layout: 'baseline',
-              spacing: 'sm',
-              margin: 'md',
-              contents: [
-                { type: 'text', text: '電話', size: 'xs', color: '#888888', flex: 2 },
-                { type: 'text', text: '049-2997250', size: 'sm', color: '#F5ECD7', flex: 5, weight: 'bold' }
-              ]
-            },
-            {
-              type: 'box',
-              layout: 'baseline',
-              spacing: 'sm',
-              contents: [
-                { type: 'text', text: '營業', size: 'xs', color: '#888888', flex: 2 },
-                { type: 'text', text: '週三～週一 09:00–21:30', size: 'xs', color: '#F5ECD7', flex: 5, wrap: true }
-              ]
-            },
-            {
-              type: 'box',
-              layout: 'baseline',
-              spacing: 'sm',
-              contents: [
-                { type: 'text', text: '地址', size: 'xs', color: '#888888', flex: 2 },
-                { type: 'text', text: '埔里鎮中正路454號', size: 'xs', color: '#F5ECD7', flex: 5, wrap: true }
-              ]
-            }
-          ]
-        }
-      ],
-      paddingAll: 'lg',
-      backgroundColor: '#1C0C07'
-    },
-    footer: {
-      type: 'box',
-      layout: 'vertical',
-      spacing: 'sm',
-      contents: [
-        {
-          type: 'button',
-          action: {
-            type: 'uri',
-            label: '電話預約外送',
-            uri: 'tel:0492997250'
-          },
-          style: 'primary',
-          color: '#C8A870',
-          height: 'sm'
-        },
-        {
-          type: 'button',
-          action: {
-            type: 'uri',
-            label: 'LINE 洽詢甜點蛋糕',
-            uri: 'https://lin.ee/jQ5axSf'
-          },
-          style: 'secondary',
-          height: 'sm'
-        },
-        {
-          type: 'button',
-          action: {
-            type: 'uri',
-            label: '查看完整菜單',
-            uri: 'https://linket.app/mumu-cafe'
-          },
-          style: 'link',
-          height: 'sm',
-          color: '#888888'
-        }
-      ],
-      paddingAll: 'md',
-      backgroundColor: '#2C1810'
-    }
+    type: 'carousel',
+    contents: [card1, card2, card3, card4, card5, card6]
   }
 };
 
