@@ -209,13 +209,11 @@ body{font-family:'Noto Serif TC',serif;background:var(--pink-lt);color:var(--ink
 #footer{background:linear-gradient(170deg,var(--red-dk) 0%,#2D0016 100%);padding:6rem 1.4rem 4rem;color:var(--ink-light);}
 .f-big{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:clamp(2.8rem,13vw,6.5rem);line-height:.92;letter-spacing:.05em;color:var(--pink-lt);margin-bottom:.15em;}
 .f-big .ac{color:var(--gold);}
-.f-venues{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;border-top:1px solid rgba(252,228,236,.15);border-bottom:1px solid rgba(252,228,236,.15);padding:1.6rem 0;margin:2.5rem 0;}
 .f-venue-item{display:flex;flex-direction:column;gap:.4rem;padding:.6rem;border-right:1px solid rgba(252,228,236,.15);}
 .f-venue-item:last-child{border-right:none;}
 .f-venue-date{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:clamp(1.2rem,4vw,1.7rem);letter-spacing:.05em;color:var(--gold);}
 .f-venue-name{font-family:'Noto Serif TC',serif;font-weight:400;font-size:clamp(.8rem,3vw,1rem);letter-spacing:.1em;color:var(--ink-light);line-height:1.6;}
 @media(max-width:600px){
-  .f-venues{grid-template-columns:1fr;gap:0;}
   .f-venue-item{flex-direction:row;align-items:center;justify-content:space-between;border-right:none;border-bottom:1px solid rgba(252,228,236,.15);padding:1.2rem .4rem;}
   .f-venue-item:last-child{border-bottom:none;}
   .f-venue-date{min-width:3.5rem;}
@@ -399,44 +397,14 @@ body{font-family:'Noto Serif TC',serif;background:var(--pink-lt);color:var(--ink
   </div>
 </div></section>
 
-<!-- §5 INSIGHT (LIGHT) -->
-<section id="insight" class="sec-light"><div class="content-wrap">
-  <div class="eyebrow">
-    <h2>品牌思考題</h2><span>✦</span>
-  </div>
-  <p class="i-q">
-    當你的品牌獲得肯定時，<br><br>
-    你的核心價值是否依然像這朵<em>撫子花</em>一樣，<br><br>
-    <em>優雅且真實地綻放</em>？
-  </p>
-</div></section>
 
 <!-- §6 FOOTER (DARK) -->
 <section id="footer"><div class="content-wrap">
-  <div class="f-big">微醺<br>連結<span class="ac">。</span></div>
-
-  <div class="f-venues">
-    <div class="f-venue-item">
-      <span class="f-venue-date">3 / 30</span>
-      <span class="f-venue-name">MuMu 咖啡</span>
-      <a href="https://linket.net/mumucafe" target="_blank" class="venue-follow" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'yukihikosan-yumenadeshiko'});">追蹤 →</a>
-    </div>
-    <div class="f-venue-item">
-      <span class="f-venue-date">4 / 07</span>
-      <span class="f-venue-name">山上山下<br>埔里店</span>
-      <a href="https://www.instagram.com/3s3s.tw" target="_blank" class="venue-follow">追蹤 →</a>
-    </div>
-    <div class="f-venue-item">
-      <span class="f-venue-date">4 / 11</span>
-      <span class="f-venue-name">坐客咖啡</span>
-      <a href="https://linket.net/zouke-cafe" target="_blank" class="venue-follow" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'yukihikosan-yumenadeshiko'});">追蹤 →</a>
-    </div>
   </div>
 
   <div class="f-btns">
-    <a href="https://forms.gle/fD3LVGXcFnMQswRJ6" target="_blank" class="btn-fill primary" onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'yukihikosan-yumenadeshiko'});">📅 預約下一場微醺</a>
-    <a href="https://lin.ee/UgaIhG7" target="_blank" class="btn-fill dark" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'yukihikosan-yumenadeshiko'});">🍶 立即聯繫嵐爵私選下單</a>
-    <a href="https://lin.ee/19k6X29" target="_blank" class="btn-fill outline" onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'yukihikosan-yumenadeshiko'});">💳 LINKet 品牌數位化服務</a>
+    <a href="https://lin.ee/AzqxpRa" target="_blank" class="btn-fill primary" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'yukihikosan-yumenadeshiko'});">🍶 聯繫嵐爵私選下單</a>
+    <a href="https://linket.app/lanjue" target="_blank" class="btn-fill outline" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'yukihikosan-yumenadeshiko'});">✦ 嵐爵私選名片頁</a>
   </div>
 
   <div class="f-fine">
@@ -451,20 +419,8 @@ body{font-family:'Noto Serif TC',serif;background:var(--pink-lt);color:var(--ink
 
 <!-- 聯名品牌 LOGO 列 -->
 <div class="partner-bar">
-  <a href="https://lin.ee/19k6X29" target="_blank" class="partner-logo" onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'yukihikosan-yumenadeshiko'});">
-    <img src="./logo-lanjue.svg" alt="嵐爵" onerror="this.src='/home/assets/logo-lanjue.svg'">
-  </a>
-  <a href="https://linket.net/mumucafe" target="_blank" class="partner-logo" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'yukihikosan-yumenadeshiko'});">
-    <img src="./logo-mumu.svg" alt="MuMu咖啡" onerror="this.src='/home/assets/logo-mumu.svg'">
-  </a>
-  <a href="https://linket.net/zouke-cafe" target="_blank" class="partner-logo" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'yukihikosan-yumenadeshiko'});">
-    <img src="./logo-zuoke.svg" alt="坐客咖啡" onerror="this.src='/home/assets/logo-zuoke.svg'">
-  </a>
-  <a href="https://www.instagram.com/3s3s.tw" target="_blank" class="partner-logo">
-    <img src="./logo-emo.svg" alt="山上山下" onerror="this.src='/home/assets/logo-emo.svg'">
-  </a>
-  <a href="https://lin.ee/19k6X29" target="_blank" class="partner-logo" onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'yukihikosan-yumenadeshiko'});">
-    <img src="./logo-linket.svg" alt="LINKet" onerror="this.src='/home/assets/logo-linket.svg'">
+  <a href="https://linket.app/lanjue" target="_blank" class="partner-logo" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'yukihikosan-yumenadeshiko'});">
+    <img src="/lanjue/assets/logo-lanjue.svg" alt="嵐爵">
   </a>
 </div>
 
