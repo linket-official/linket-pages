@@ -214,13 +214,11 @@ body{font-family:'Noto Serif TC',serif;background:var(--snow);color:var(--ink);o
 #footer{background:var(--ink);padding:4rem 1.4rem 3.5rem;border-top:3px solid var(--gold);}
 .f-big{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:clamp(2.8rem,13vw,7rem);line-height:.92;letter-spacing:.04em;color:var(--snow);margin-bottom:.15em;}
 .f-big .ac{color:var(--honey);}
-.f-venues{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;border-top:1px solid rgba(245,204,96,.15);border-bottom:1px solid rgba(245,204,96,.15);padding:1.4rem 0;margin:1.8rem 0;}
 .f-venue-item{display:flex;flex-direction:column;gap:.3rem;padding:.6rem;border-right:1px solid rgba(245,204,96,.08);}
 .f-venue-item:last-child{border-right:none;}
 .f-venue-date{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:clamp(.95rem,3.5vw,1.4rem);letter-spacing:.06em;color:var(--honey);}
 .f-venue-name{font-family:'Noto Serif TC',serif;font-weight:700;font-size:clamp(.72rem,2.6vw,.92rem);letter-spacing:.08em;color:rgba(250,248,247,.88);line-height:1.6;}
 @media(max-width:600px){
-  .f-venues{grid-template-columns:1fr;gap:0;}
   .f-venue-item{flex-direction:row;align-items:center;justify-content:space-between;border-right:none;border-bottom:1px solid rgba(245,204,96,.08);padding:.9rem .4rem;}
   .f-venue-item:last-child{border-bottom:none;}
   .f-venue-date{font-size:1.05rem;min-width:3.2rem;}
@@ -405,48 +403,14 @@ body{font-family:'Noto Serif TC',serif;background:var(--snow);color:var(--ink);o
 </div>
 </section>
 
-<!-- §5 INSIGHT -->
-<section id="insight" class="sec"><div class="content-wrap">
-  <div class="eyebrow">
-    <h2>品牌思考題</h2><span>✦</span>
-  </div>
-  <p class="i-q">
-    當你的品牌已經達到穩定期，<br>
-    你是否敢於投入更多成本<br>
-    進行「<em>自我再釀</em>」？<br><br>
-    在原有的基礎之上，<br>
-    你能疊加什麼樣的價值，<br>
-    讓連結從「好用」<br>
-    進化到「<em>令人難忘</em>」？
-  </p>
-</div></section>
 
 <!-- §6 FOOTER -->
 <section id="footer"><div class="content-wrap">
-  <div class="f-big">微醺<br>連結<span class="ac">。</span></div>
-
-  <div class="f-venues">
-    <div class="f-venue-item">
-      <span class="f-venue-date">3 / 30</span>
-      <span class="f-venue-name">MuMu 咖啡</span>
-      <a href="https://linket.net/mumucafe" target="_blank" class="venue-follow" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'saijo'});">追蹤 →</a>
-    </div>
-    <div class="f-venue-item">
-      <span class="f-venue-date">4 / 07</span>
-      <span class="f-venue-name">山上山下<br>埔里店</span>
-      <a href="https://www.instagram.com/3s3s.tw" target="_blank" class="venue-follow">追蹤 →</a>
-    </div>
-    <div class="f-venue-item">
-      <span class="f-venue-date">4 / 11</span>
-      <span class="f-venue-name">坐客咖啡</span>
-      <a href="https://linket.net/zouke-cafe" target="_blank" class="venue-follow" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'saijo'});">追蹤 →</a>
-    </div>
   </div>
 
   <div class="f-btns">
-    <a href="https://forms.gle/fD3LVGXcFnMQswRJ6" target="_blank" class="btn-fill gold" onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'saijo'});">📅 預約下一場微醺</a>
-    <a href="https://lin.ee/AzqxpRa" target="_blank" class="btn-fill dark" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'saijo'});">🍶 立即聯繫嵐爵私選下單</a>
-    <a href="https://lin.ee/19k6X29" target="_blank" class="btn-fill outline" onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'saijo'});">💳 LINKet 品牌數位化服務</a>
+    <a href="https://lin.ee/AzqxpRa" target="_blank" class="btn-fill gold" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'saijo'});">🍶 聯繫嵐爵私選下單</a>
+    <a href="https://linket.app/lanjue" target="_blank" class="btn-fill dark" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'saijo'});">✦ 嵐爵私選名片頁</a>
   </div>
 
   <div class="f-fine">
@@ -462,20 +426,8 @@ body{font-family:'Noto Serif TC',serif;background:var(--snow);color:var(--ink);o
 
 <!-- 聯名品牌 LOGO 列 -->
 <div class="partner-bar">
-  <a href="https://lin.ee/19k6X29" target="_blank" class="partner-logo" onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'saijo'});">
-    <img src="/home/assets/logo-lanjue.svg" alt="嵐爵">
-  </a>
-  <a href="https://linket.net/mumucafe" target="_blank" class="partner-logo" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'saijo'});">
-    <img src="/home/assets/logo-mumu.svg" alt="MuMu咖啡">
-  </a>
-  <a href="https://linket.net/zouke-cafe" target="_blank" class="partner-logo" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'saijo'});">
-    <img src="/home/assets/logo-zuoke.svg" alt="坐客咖啡">
-  </a>
-  <a href="https://www.instagram.com/3s3s.tw" target="_blank" class="partner-logo">
-    <img src="/home/assets/logo-emo.svg" alt="山上山下">
-  </a>
-  <a href="https://lin.ee/19k6X29" target="_blank" class="partner-logo" onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'saijo'});">
-    <img src="/home/assets/logo-linket.svg" alt="LINKet">
+  <a href="https://linket.app/lanjue" target="_blank" class="partner-logo" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'saijo'});">
+    <img src="/lanjue/assets/logo-lanjue.svg" alt="嵐爵">
   </a>
 </div>
 
