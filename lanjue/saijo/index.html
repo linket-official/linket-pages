@@ -224,7 +224,7 @@ body{font-family:'Noto Serif TC',serif;background:var(--snow);color:var(--ink);o
   .f-venue-date{font-size:1.05rem;min-width:3.2rem;}
   .f-venue-name{font-size:.88rem;flex:1;padding:0 .6rem;}
 }
-.f-btns{display:flex;flex-direction:column;gap:.7rem;max-width:360px;}
+.f-btns{display:flex;flex-direction:column;gap:.7rem;max-width:360px;margin:0 auto;width:100%;}
 .btn-fill{display:block;text-align:center;padding:.95rem 1.4rem;font-family:'Cormorant Garamond',serif;font-size:.88rem;letter-spacing:.18em;text-decoration:none;border:none;cursor:pointer;transition:background .2s,color .2s;}
 .btn-fill.gold{background:var(--gold);color:var(--snow);}
 .btn-fill.gold:hover{background:var(--gold2);}
@@ -406,8 +406,6 @@ body{font-family:'Noto Serif TC',serif;background:var(--snow);color:var(--ink);o
 
 <!-- §6 FOOTER -->
 <section id="footer"><div class="content-wrap">
-  </div>
-
   <div class="f-btns">
     <a href="https://lin.ee/AzqxpRa" target="_blank" class="btn-fill gold" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'saijo'});">🍶 聯繫嵐爵私選下單</a>
     <a href="https://linket.app/lanjue" target="_blank" class="btn-fill dark" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'saijo'});">✦ 嵐爵私選名片頁</a>
@@ -427,7 +425,7 @@ body{font-family:'Noto Serif TC',serif;background:var(--snow);color:var(--ink);o
 <!-- 聯名品牌 LOGO 列 -->
 <div class="partner-bar">
   <a href="https://linket.app/lanjue" target="_blank" class="partner-logo" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'saijo'});">
-    <img src="/lanjue/assets/logo-lanjue.svg" alt="嵐爵">
+    <img src="/lanjue/assets/logo-lanjue.svg" alt="嵐爵" onerror="this.style.display='none'">
   </a>
 </div>
 
