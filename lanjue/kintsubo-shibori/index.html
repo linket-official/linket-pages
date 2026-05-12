@@ -1,1 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-29J2988Y8J');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>金壺 初榨酒｜嵐爵私選 × 壺坂酒造</title>
+<meta name="description" content="這款酒選擇留在它真正被需要的地方。採用四階段釀造工藝，酒精濃度高達20%，具備生酒夏季熟成後的醇厚風味，是隱藏版的實力名品。">
 
+<meta property="og:title" content="金壺 初榨酒｜嵐爵私選 × 壺坂酒造">
+<meta property="og:description" content="酒精濃度20%的實力之作。夏季前熟成的醇厚生酒，銷售佔比30%的隱藏名品。">
+<meta property="og:image" content="https://linket.app/lanjue/kintsubo-shibori/og-image.jpg">
+<meta property="og:url" content="https://linket.app/lanjue/kintsubo-shibori/">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="/lanjue/favicon.png">
+<link rel="apple-touch-icon" href="/lanjue/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Noto+Serif+TC:wght@300;400;500;700&family=Shippori+Mincho+B1:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  /* 金壺 初榨 專屬色系：老靈魂金焦糖 */
+  --bg:      #0D0D0D;      /* 純黑底 */
+  --bg2:     #2D1B00;      /* 深焦糖色 (Section/Glow) */
+  --gold:    #D4A017;      /* 金壺金 (主視覺) */
+  --gold-dk: #8C6A12;      /* 暗金 */
+  
+  --ink:     #FFFFFF;      /* 純白字體 */
+  --inkm:    #D9C7B2;      /* 內文暖灰 */
+  --inkf:    #6C5E53;      /* 附註深棕 */
+  
+  --line:    rgba(212,160,23,.2); /* 金色分隔線 */
+  --red:     #FF4D4D;      /* 警示紅 */
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--ink);overflow-x:hidden;}
+
+/* 1. TICKER 跑馬燈 */
+.ticker{overflow:hidden;white-space:nowrap;border-bottom:1px solid var(--line);padding:.7rem 0;background:var(--bg);}
+.ticker-track{display:inline-flex;animation:tick 30s linear infinite;}
+.ticker-track span{font-family:'Shippori Mincho B1',serif;font-weight:600;font-size:.8rem;letter-spacing:.25em;text-transform:uppercase;padding:0 1.4rem;color:var(--inkm);}
+.ticker-track span.ac{color:var(--gold);font-style:normal;}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* 2. HERO */
+#hero{
+  position:relative;width:100%;min-height:100svh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  overflow:hidden;
+  background:radial-gradient(ellipse at center, #2D1B00 0%, #0D0D0D 85%);
+}
+
+/* Background Atmosphere (金色液體質感) */
+.hero-glow{
+  position:absolute;top:40%;left:50%;transform:translate(-50%,-50%);
+  width:clamp(300px, 80vw, 600px);height:clamp(300px, 80vw, 600px);
+  background:radial-gradient(circle, rgba(212,160,23,0.1) 0%, transparent 70%);
+  border-radius:50%;z-index:0;pointer-events:none;
+  animation:glowPulse 8s ease-in-out infinite alternate;
+}
+@keyframes glowPulse{0%{opacity:0.4; transform:translate(-50%,-50%) scale(0.95);} 100%{opacity:0.8; transform:translate(-50%,-50%) scale(1.05);}}
+
+/* Spec Badge (含高酒精警示) */
+.spec-badge{
+  position:absolute;top:2rem;right:1.6rem;z-index:4;
+  display:flex;flex-direction:column;align-items:center;
+  border:1px solid var(--gold);
+  padding:.6rem .8rem;
+  background:rgba(13,13,13,0.8);
+  backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+}
+.spec-score{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:1.5rem;color:var(--gold);line-height:1;}
+.spec-alert{font-size:.6rem; color:var(--red); font-weight:700; margin-top:.2rem; letter-spacing:.1em;}
+
+/* Bottle */
+.hero-bottle-full{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;width:100%;padding:4rem 0 9rem;}
+.hero-bottle-full img{
+  width:clamp(140px,36vw,220px);height:auto;object-fit:contain;
+  filter:drop-shadow(0 30px 50px rgba(0,0,0,.9)) drop-shadow(0 0 30px rgba(212,160,23,0.15));
+  animation:elegantFloat 10s ease-in-out infinite alternate;
+}
+.bottle-ph{
+  width:clamp(130px,32vw,190px); aspect-ratio:1/3.4;
+  background:linear-gradient(170deg,#2D1B00 0%,#0D0D0D 100%);
+  border:1px solid var(--gold); border-radius:4px;
+  display:flex;align-items:center;justify-content:center;
+}
+.bottle-ph span{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:1.1rem;color:var(--gold);text-align:center;}
+@keyframes elegantFloat{0%{transform:translateY(0);} 100%{transform:translateY(-12px);}}
+
+/* Name block */
+.hero-name-block{
+  position:absolute;bottom:0;left:0;right:0;z-index:3;
+  padding:4rem 1.6rem 2.4rem;
+  background:linear-gradient(transparent, rgba(13,13,13,0.98) 50%, #000000 100%);
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:.6rem;
+}
+.hname-big{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:clamp(3rem,15vw,6.5rem);color:var(--ink);letter-spacing:.1em;line-height:1.1;}
+.hname-big span{color:var(--gold);}
+.hname-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.5rem 1rem;padding-top:.8rem;border-top:1px solid var(--line);}
+.hname-jp{font-family:'Shippori Mincho B1',serif;font-weight:400;font-size:clamp(.8rem,3.2vw,1rem);letter-spacing:.25em;color:var(--inkm);}
+.hname-en{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:clamp(.85rem,3.5vw,1.1rem);letter-spacing:.15em;color:var(--gold);}
+.hero-slogan{font-family:'Noto Serif TC',serif;font-weight:300;font-size:clamp(.85rem,3.5vw,1.05rem);letter-spacing:.2em;line-height:2;color:var(--ink);margin-top:.5rem;}
+
+/* SECTIONS 共用 */
+.sec{padding:6rem 1.4rem;background:var(--bg2);}
+.sec-alt{background:var(--bg);}
+.sec+.sec{border-top:1px solid var(--line);}
+.content-wrap{max-width:680px;margin:0 auto;}
+.eyebrow{display:flex;align-items:center;gap:.8rem;margin-bottom:2.5rem;}
+.eyebrow h2{font-family:'Shippori Mincho B1',serif;font-weight:700;font-size:clamp(1.2rem,4.5vw,1.6rem);letter-spacing:.2em;color:var(--ink);}
+.eyebrow span{color:var(--gold);font-weight:900;font-size:1.2rem;}
+
+/* ABOUT */
+.about-body p{font-family:'Noto Serif TC',serif;font-weight:300;font-size:clamp(.9rem,3.5vw,1.05rem);line-height:2.8;letter-spacing:.1em;color:var(--inkm);margin-bottom:1.8rem;}
+.about-body p strong{color:var(--gold);font-weight:500;}
+
+/* 3. SENSORY */
+.spotify-label{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:1.05rem;letter-spacing:.15em;color:var(--gold);margin-bottom:2rem;display:flex;align-items:center;gap:.6rem;}
+.food-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:1.5rem;}
+.food-box{border-radius:2px;overflow:hidden;position:relative;aspect-ratio:3/4;background:var(--bg);border:1px solid var(--line);}
+.food-box img{width:100%;height:100%;object-fit:cover;filter:brightness(.8);transition:1s;}
+.food-lbl{position:absolute;bottom:0;left:0;right:0;padding:1.2rem .8rem;background:linear-gradient(transparent,rgba(0,0,0,.95));font-family:'Noto Serif TC',serif;font-size:.85rem;color:var(--ink);text-align:center;}
+
+/* 4. SPECS (含動態圓環) */
+.ring-wrap{display:flex;align-items:center;justify-content:center;margin-bottom:2.5rem;}
+.ring-chart{position:relative;width:clamp(140px,40vw,180px);height:clamp(140px,40vw,180px);}
+.ring-chart svg{width:100%;height:100%;filter:drop-shadow(0 5px 15px rgba(212,160,23,0.3));}
+.ring-val{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:clamp(2.5rem,8vw,3.2rem);color:var(--gold);}
+.ring-val span{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.65rem;letter-spacing:.15em;color:var(--inkf);margin-top:.2rem;text-transform:uppercase;}
+.spec-table{width:100%;border-collapse:collapse;}
+.spec-table tr{border-bottom:1px solid rgba(255,255,255,.05);}
+.spec-table td{padding:1.5rem 0;vertical-align:top;}
+.spec-table td:first-child{font-family:'Shippori Mincho B1',serif;font-weight:600;font-size:.85rem;letter-spacing:.15em;color:var(--gold);width:32%;padding-top:1.6rem;}
+.spec-table td:last-child{font-family:'Noto Serif TC',serif;font-size:.95rem;font-weight:300;line-height:2;color:var(--inkm);}
+
+/* 🚨 高酒精警示區塊 */
+.alcohol-alert{border:1px solid var(--red); background:rgba(255,77,77,0.05); padding:1.5rem; margin-top:3rem; border-radius:2px; text-align:center;}
+.alert-title{font-weight:700; color:var(--red); font-size:1.1rem; margin-bottom:.5rem; letter-spacing:.2em;}
+.alert-text{font-size:.9rem; color:var(--inkm); font-weight:300;}
+
+/* FOOTER */
+#footer{background:linear-gradient(170deg,var(--bg) 0%,#000000 100%);padding:6rem 1.4rem 4rem;}
+.f-big{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:clamp(3rem,14vw,7rem);line-height:.92;letter-spacing:.05em;color:var(--ink);margin-bottom:.15em;}
+.f-big .ac{color:var(--gold);}
+.f-btns{display:flex;flex-direction:column;gap:1.2rem;max-width:400px;margin:3rem 0;}
+.btn-fill{display:block;text-align:center;padding:1.2rem 1.4rem;font-family:'Noto Serif TC',serif;font-weight:500;font-size:.95rem;letter-spacing:.2em;text-decoration:none;transition:all .3s;border-radius:2px;}
+.btn-fill.primary{background:var(--gold);color:var(--bg);}
+.btn-fill.outline{background:transparent;color:var(--gold);border:1.5px solid var(--gold);}
+
+.f-fine{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.8rem;align-items:flex-end;}
+.f-brand{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:.85rem;letter-spacing:.2em;color:rgba(255,255,255,.4);}
+.f-nav{display:flex;gap:1.5rem;list-style:none;}
+.f-nav a{font-family:'Noto Serif TC',serif;font-weight:400;font-size:.75rem;letter-spacing:.15em;color:rgba(255,255,255,.5);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+.f-nav a:hover{color:var(--gold);}
+
+/* PARTNER & LEGAL */
+.partner-bar{background:#000000;display:flex;align-items:center;justify-content:center;padding:2rem 1.4rem;border-top:1px solid rgba(255,255,255,.05);}
+.partner-logo{opacity:.4;transition:.3s;}
+.partner-logo:hover{opacity:1;}
+.partner-logo img{height:20px;width:auto;filter:brightness(0) invert(1);}
+.legal-bar{background:#000000;color:rgba(255,255,255,.3);text-align:center;padding:1.2rem 1.4rem;font-size:.65rem;letter-spacing:.15em;line-height:2.2;}
+
+/* LINKet Badge (襯線字體) */
+.linket-badge{background:#000000;padding:18px 0;text-align:center;border-top:1px solid rgba(255,255,255,.05);}
+.linket-badge a{font-family:'Cormorant Garamond',serif; font-style:italic; font-size:0.75rem; letter-spacing:0.3em; color:rgba(255,255,255,.4); text-decoration:none; transition:color 0.3s ease; text-transform:uppercase;}
+.linket-badge a span{font-weight:700;color:rgba(255,255,255,.7);font-style:normal;}
+.linket-badge a span.ket{color:#2979ff;}
+
+/* Reveal Animation */
+.reveal { opacity: 0; transform: translateY(20px); transition: all 1s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span>20% ABV</span><span class="ac">✦</span>
+    <span>夏季熟成</span><span class="ac">✦</span>
+    <span>金壺 初榨酒</span><span class="ac">✦</span>
+    <span>SHIBORITATE</span><span class="ac">✦</span>
+    <span>實力派名品</span><span class="ac">✦</span>
+    <span>濃厚甘旨</span><span class="ac">✦</span>
+    <span>20% ABV</span><span class="ac">✦</span>
+    <span>夏季熟成</span><span class="ac">✦</span>
+    <span>金壺 初榨酒</span><span class="ac">✦</span>
+    <span>SHIBORITATE</span><span class="ac">✦</span>
+    <span>實力派名品</span><span class="ac">✦</span>
+    <span>濃厚甘旨</span><span class="ac">✦</span>
+  </div>
+</div>
+
+<section id="hero">
+  <div class="hero-glow"></div>
+
+  <div class="spec-badge">
+    <div class="spec-score">20%</div>
+    <div class="spec-label">Alc / Vol</div>
+    <div class="spec-alert">❗高酒精注意</div>
+  </div>
+
+  <div class="hero-bottle-full">
+    <img src="shibori-bottle.png" alt="金壺 初榨酒" loading="eager"
+      onerror="this.outerHTML='<div class=\'bottle-ph\'><span>金壺<br>初榨酒</span></div>'">
+  </div>
+
+  <div class="hero-name-block">
+    <div class="hname-big">金壺 <span>初榨酒</span></div>
+    <div class="hname-row">
+      <span class="hname-jp">きんつぼ しぼりたて</span>
+      <span class="hname-en">Kintsubo Shiboritate</span>
+    </div>
+    <p class="hero-slogan">這款酒選擇留在它真正被需要的地方。</p>
+  </div>
+</section>
+
+<section class="sec" id="about">
+  <div class="content-wrap">
+    <div class="eyebrow reveal">
+      <h2>無需喧嘩的絕對實力</h2><span>✦</span>
+    </div>
+    <div class="about-body">
+      <p>這款清酒選擇留在它真正被需要的地方，卻擁有眾多死忠愛好者，銷售量更是佔該酒造整體銷量的 <strong>30%</strong>。它象徵著無需高調宣傳，靠著絕對的實力就能穩健立足的隱藏版名品。</p>
+      <p>作為<strong>生酒</strong>，在夏季前進行熟成，使其具有與一般新酒不同的醇厚風味。濃厚且具備重量感的酒體，在每一口啜飲中都能感受到壺坂酒造深厚的釀造底蘊。</p>
+    </div>
+  </div>
+</section>
+
+<section id="sensory" class="sec sec-alt"><div class="content-wrap">
+  <div class="eyebrow reveal">
+    <h2>聽覺與味覺</h2><span>✦</span>
+  </div>
+  <p class="spotify-label">🎵 Jazz Piano & Vinyl — 深夜 Bar 的從容氛圍</p>
+
+  <iframe width="100%" height="166" scrolling=\"no\" frameborder=\"no\" allow=\"autoplay\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/XXXXXX&color=%23d4a017&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true\" style=\"border-radius:2px; margin-bottom:2rem;\"></iframe>
+
+  <div class="food-grid">
+    <div class="food-box reveal">
+      <img src="food-cheese.jpg" alt="陳年起司" onerror="this.parentElement.innerHTML='<div class=\'food-ph\'>🧀</div>'">
+      <p class="food-lbl">陳年起司・鹹香加乘</p>
+    </div>
+    <div class="food-box reveal" style="transition-delay:0.2s;">
+      <img src="food-pork.jpg" alt="紅燒豬腳" onerror="this.parentElement.innerHTML='<div class=\'food-ph\'>🍖</div>'">
+      <p class="food-lbl">濃厚料理・醇厚契合</p>
+    </div>
+  </div>
+
+  <div class="alcohol-alert reveal">
+    <div class="alert-title">【 高酒精濃度注意 】</div>
+    <div class="alert-text">本款作品酒精濃度高達 20%，遠超一般清酒。請務必慢慢品味，酌量飲用，感受其隨時間綻放的層次感。</div>
+  </div>
+</div></section>
+
+<section id="specs" class="sec"><div class="content-wrap">
+  <div class="eyebrow reveal">
+    <h2>職人與工法</h2><span>✦</span>
+  </div>
+
+  <div class="ring-wrap reveal">
+    <div class="ring-chart">
+      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(255,255,255,.05)" stroke-width="4"/>
+        <circle cx="60" cy="60" r="50" fill="none" stroke="var(--gold)" stroke-width="4"
+          stroke-dasharray="314" stroke-dashoffset="251.2"
+          stroke-linecap="round" transform="rotate(-90 60 60)"/>
+      </svg>
+      <div class="ring-val">20%<span>Alc / Vol</span></div>
+    </div>
+  </div>
+
+  <table class="spec-table reveal">
+    <tr><td>酒名</td><td>金壺 初榨酒 (しぼりたて)</td></tr>
+    <tr><td>產地與酒造</td><td>兵庫縣姫路市｜壺坂酒造</td></tr>
+    <tr><td>工法</td><td>採用<strong>四階段釀造工藝</strong>，造就其高酒精度與濃郁飽滿的口感。</td></tr>
+    <tr><td>風味特徵</td><td>生酒於夏季前熟成，帶有深沉且醇厚的特殊風味，餘韻悠長。</td></tr>
+    <tr><td>精米步合</td><td>60%</td></tr>
+    <tr><td>容量</td><td>900 ml</td></tr>
+  </table>
+</div></section>
+
+<!-- §6 FOOTER -->
+<section id="footer"><div class="content-wrap">
+  <div class="f-btns">
+    <a href="https://lin.ee/UgaIhG7" target="_blank" class="btn-fill primary" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'kintsubo-shibori'});">🍶 聯繫嵐爵私選下單</a>
+    <a href="https://linket.app/lanjue" target="_blank" class="btn-fill outline" onclick="gtag('event','click_lanjue_home',{'event_category':'CTA','event_label':'kintsubo-shibori'});">✦ 嵐爵私選名片頁</a>
+  </div>
+  <div class="f-fine">
+    <span class="f-brand">KINTSUBO SHIBORITATE NAMA</span>
+    <ul class="f-nav">
+      <li><a href="#about">關於</a></li>
+      <li><a href="#sensory">搭配</a></li>
+      <li><a href="#specs">工法</a></li>
+    </ul>
+  </div>
+</div></section>
+
+<div class="partner-bar">
+  <a href="https://linket.app/lanjue" target="_blank" class="partner-logo">
+    <img src="/lanjue/assets/logo-lanjue.svg" alt="嵐爵" onerror="this.src='/home/assets/logo-lanjue.svg'">
+  </a>
+</div>
+
+<div class="legal-bar">
+  飲酒勿開車｜未滿十八歲者，禁止飲酒｜本品牌不販賣酒予未滿十八歲者｜飲酒過量有害健康
+</div>
+
+<div class="linket-badge">
+  <a href="https://linket.app/home" target="_blank">
+    Design by <span>LIN</span><span class="ket">Ket</span>
+  </a>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+});
+</script>
+</body>
+</html>
