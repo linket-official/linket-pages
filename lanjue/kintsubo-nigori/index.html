@@ -32,21 +32,21 @@
 <style>
 :root {
   /* 金壺 濁酒 專屬色系：深森綠 + 清新薄荷綠 + 柔黃 */
-  --bg:        #1B5E20;      /* 深森綠 (主底色) */
-  --bg2:       #0A330C;      /* 極暗深森綠 */
+  --bg:        #1C2340;      /* 深森綠 (主底色) */
+  --bg2:       #111728;      /* 極暗深森綠 */
   
-  --mint:      #E8F5E9;      /* 清新薄荷綠 (亮色區塊/文字) */
-  --mint-dk:   #A5D6A7;      /* 暗薄荷 */
+  --mint:      #F5F0E8;      /* 清新薄荷綠 (亮色區塊/文字) */
+  --mint-dk:   #C8B89A;      /* 暗薄荷 */
   
-  --yellow:    #FFFDE7;      /* 柔黃 (高光) */
-  --yellow-dk: #FBC02D;      /* 深黃 (強調色) */
-  --red-alert: #D32F2F;      /* 警告紅 */
+  --yellow:    #FDF8F0;      /* 柔黃 (高光) */
+  --yellow-dk: #C8A96E;      /* 深黃 (強調色) */
+  --red-alert: #8B1A1A;      /* 警告紅 */
   
-  --ink:       #E8F5E9;      /* 淺色字體 */
-  --inkm:      #A5D6A7;      /* 內文淺綠 */
+  --ink:       #F0EBE0;      /* 淺色字體 */
+  --inkm:      #C8B89A;      /* 內文淺綠 */
   
-  --ink-dark:  #1B5E20;      /* 深綠字體 (亮底用) */
-  --ink-darkm: #2E7D32;      /* 內文深綠 (亮底用) */
+  --ink-dark:  #1C2340;      /* 深綠字體 (亮底用) */
+  --ink-darkm: #2A3356;      /* 內文深綠 (亮底用) */
   
   --line:      rgba(165,214,167,.2); /* 薄荷綠分隔線 */
 }
@@ -135,31 +135,52 @@ body{font-family:'Shippori Mincho B1',serif;background:var(--bg);color:var(--ink
 
 /* 🚨 Alert Modal */
 .alert-overlay{
-  position:fixed; inset:0; z-index:9999;
-  background:rgba(10,51,12,0.85); backdrop-filter:blur(8px);
-  -webkit-backdrop-filter:blur(8px);
-  display:flex; align-items:center; justify-content:center;
+  position:fixed;inset:0;z-index:9999;
+  background:rgba(10,12,26,0.92);backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  display:flex;align-items:center;justify-content:center;
 }
 .hero-alert{
-  width:85%; max-width:400px;
-  background:rgba(211,47,47,0.95);
-  border:2px solid var(--yellow-dk);
-  border-radius:4px; padding:2rem 1.5rem;
-  box-shadow:0 10px 30px rgba(0,0,0,.5);
+  width:88%;max-width:380px;
+  background:#F5F0E8;
+  border-top:4px solid #8B1A1A;
+  border-radius:2px;padding:2.4rem 2rem 2rem;
+  box-shadow:0 24px 60px rgba(0,0,0,.7);
   text-align:center;
-  animation:alertPulse 2s infinite alternate;
 }
-.hero-alert h3{color:var(--yellow); font-family:'Noto Serif TC',serif; font-weight:900; font-size:1.2rem; letter-spacing:.1em; margin-bottom:1rem;}
-.hero-alert ul{list-style:none; padding:0; margin:0 0 1.5rem 0;}
-.hero-alert li{color:var(--ink); font-family:'Noto Serif TC',serif; font-size:.95rem; margin-bottom:.4rem; line-height:1.6;}
+.hero-alert .alert-icon{
+  font-size:2.4rem;margin-bottom:.8rem;display:block;
+}
+.hero-alert h3{
+  color:#8B1A1A;font-family:'Noto Serif TC',serif;
+  font-weight:900;font-size:1.05rem;letter-spacing:.12em;
+  margin-bottom:1.2rem;
+}
+.hero-alert ul{
+  list-style:none;padding:0;margin:0 0 1.8rem 0;
+  border-top:1px solid rgba(28,35,64,.1);
+  border-bottom:1px solid rgba(28,35,64,.1);
+  padding:1rem 0;
+}
+.hero-alert li{
+  color:#1C2340;font-family:'Noto Serif TC',serif;
+  font-size:.9rem;margin-bottom:.5rem;line-height:1.7;
+}
+.hero-alert li::before{content:'—　';}
+.hero-alert .alert-sub{
+  color:#666;font-size:.78rem;letter-spacing:.06em;
+  margin-bottom:1.4rem;font-family:'Noto Serif TC',serif;
+}
 .alert-close{
-  background:var(--yellow-dk); color:var(--bg); border:none;
-  padding:0.8rem 2rem; font-family:'Noto Serif TC',serif; font-weight:700;
-  font-size:0.9rem; letter-spacing:0.15em; border-radius:2px; cursor:pointer;
-  transition:all 0.3s;
+  background:#1C2340;color:#F0EBE0;border:none;
+  padding:.85rem 2.2rem;font-family:'Noto Serif TC',serif;
+  font-weight:700;font-size:.88rem;letter-spacing:.18em;
+  border-radius:2px;cursor:pointer;transition:all .3s;
+  width:100%;
 }
-.alert-close:hover{background:var(--yellow); box-shadow:0 4px 12px rgba(251,192,45,.4);}
-@keyframes alertPulse{0%{box-shadow:0 0 10px rgba(211,47,47,.5);} 100%{box-shadow:0 0 30px rgba(211,47,47,1);}}
+.alert-close:hover{background:#C8A96E;color:#1C2340;}
+@keyframes alertFadeIn{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+.hero-alert{animation:alertFadeIn .4s ease both;}
 
 /* Name block */
 .hero-name-block{
@@ -439,23 +460,11 @@ body{font-family:'Shippori Mincho B1',serif;background:var(--bg);color:var(--ink
   <p style="text-align:center; margin-top:2rem; font-family:'Noto Serif TC',serif; font-size:0.9rem; color:var(--mint); letter-spacing:0.15em;">❄ 強烈建議加冰塊或使用冰杯飲用，極致清涼解暑。</p>
 </div></section>
 
-<!-- §5 INSIGHT (LIGHT) -->
-<section id="insight" class="sec-light"><div class="content-wrap">
-  <div class="eyebrow">
-    <h2>品牌思考題</h2><span>✦</span>
-  </div>
-  <p class="i-q">
-    在講求絕對控制的市場裡，<br><br>
-    你是否敢讓你的品牌保留一份「<em>活性</em>」，<br><br>
-    與你的受眾一起<br>
-    <em>持續呼吸、產生化學變化</em>？
-  </p>
-</div></section>
 
 <!-- §6 FOOTER (DARK) -->
 <section id="footer"><div class="content-wrap">
   <div class="f-btns">
-    <a href="https://lin.ee/UgaIhG7" target="_blank" class="btn-fill primary" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'kintsubo-nigori'});">🍶 聯繫嵐爵私選下單</a>
+    <a href="https://lin.ee/AzqxpRa" target="_blank" class="btn-fill primary" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'kintsubo-nigori'});">🍶 聯繫嵐爵私選下單</a>
     <a href="https://linket.app/lanjue" target="_blank" class="btn-fill outline" onclick="gtag('event','click_lanjue_home',{'event_category':'CTA','event_label':'kintsubo-nigori'});">✦ 嵐爵私選名片頁</a>
   </div>
 
@@ -471,8 +480,8 @@ body{font-family:'Shippori Mincho B1',serif;background:var(--bg);color:var(--ink
 
 <!-- 聯名品牌 LOGO 列 -->
 <div class="partner-bar">
-  <a href="https://lin.ee/UgaIhG7" target="_blank" class="partner-logo" onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'kintsubo-nigori'});">
-    <img src="./logo-lanjue.svg" alt="嵐爵" onerror="this.src='/home/assets/logo-lanjue.svg'">
+  <a href="https://linket.app/lanjue" target="_blank" class="partner-logo" onclick="gtag('event','click_sake_event',{'event_category':'CTA','event_label':'kintsubo-nigori'})">
+    <img src="/lanjue/assets/logo-lanjue.svg" alt="嵐爵">
   </a>
 </div>
 
@@ -491,13 +500,16 @@ body{font-family:'Shippori Mincho B1',serif;background:var(--bg);color:var(--ink
 <!-- 🚨 Alert Modal -->
 <div class="alert-overlay" id="alertModal">
   <div class="hero-alert">
-    <h3>⚠ 活性酵母噴發警告</h3>
+    <span class="alert-icon">🍶</span>
+    <h3>開瓶前，請先閱讀</h3>
     <ul>
-      <li>必須全程冷藏保存</li>
-      <li>切勿置於溫暖場域或大力搖晃</li>
-      <li>開瓶時請極度緩慢鬆開瓶蓋</li>
+      <li>本品瓶內存有活性酵母，請全程冷藏</li>
+      <li>請勿置於溫暖場域或大力搖晃</li>
+      <li>開瓶時請緩慢旋開，有噴發可能</li>
+      <li>半解凍後欲再冷凍，請先完全解凍搖勻</li>
     </ul>
-    <button class="alert-close" onclick="document.getElementById('alertModal').style.display='none'">我知道了，關閉視窗</button>
+    <p class="alert-sub">以上為官方標示安全說明，敬請留意</p>
+    <button class="alert-close" onclick="document.getElementById('alertModal').style.display='none'">了解，開始探索</button>
   </div>
 </div>
 
