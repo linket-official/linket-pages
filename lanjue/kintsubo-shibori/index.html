@@ -179,6 +179,11 @@ body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--ink);ove
 /* Reveal Animation */
 .reveal { opacity: 0; transform: translateY(20px); transition: all 1s ease; }
 .reveal.visible { opacity: 1; transform: none; }
+
+.photo-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem;}
+.photo-box{aspect-ratio:16/9;overflow:hidden;border-radius:2px;background:var(--bg2);}
+.photo-box img{width:100%;height:100%;object-fit:cover;filter:brightness(.85);}
+.photo-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2.5rem;opacity:.5;}
 </style>
 </head>
 <body>
@@ -233,6 +238,16 @@ body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--ink);ove
       <p>這款清酒選擇留在它真正被需要的地方，卻擁有眾多死忠愛好者，銷售量更是佔該酒造整體銷量的 <strong>30%</strong>。它象徵著無需高調宣傳，靠著絕對的實力就能穩健立足的隱藏版名品。</p>
       <p>作為<strong>生酒</strong>，在夏季前進行熟成，使其具有與一般新酒不同的醇厚風味。濃厚且具備重量感的酒體，在每一口啜飲中都能感受到壺坂酒造深厚的釀造底蘊。</p>
     </div>
+    <div class="photo-row">
+      <div class="photo-box">
+        <img src="japan-1.jpg" alt="深夜吧台" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=\'photo-ph\'>🥃</div>'">
+      </div>
+      <div class="photo-box">
+        <img src="japan-2.jpg" alt="陳年老物件" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=\'photo-ph\'>📦</div>'">
+      </div>
+    </div>
   </div>
 </section>
 
@@ -259,17 +274,10 @@ body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--ink);ove
     <div class="alert-title">【 高酒精濃度注意 】</div>
     <div class="alert-text">本款作品酒精濃度高達 20%，遠超一般清酒。請務必慢慢品味，酌量飲用，感受其隨時間綻放的層次感。</div>
   </div>
+    </div>
 </div></section>
 
 <section id="specs" class="sec"><div class="content-wrap">
-      <div class="spec-imgs" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
-        <img src="japan-1.jpg" alt="四段釀造 壺坂酒造" loading="lazy"
-             style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:2px;"
-             onerror="this.parentElement.style.display='none'">
-        <img src="japan-2.jpg" alt="生酒 熟成 酒藏" loading="lazy"
-             style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:2px;"
-             onerror="this.parentElement.style.display='none'">
-      </div>
   <div class="eyebrow reveal">
     <h2>職人與工法</h2><span>✦</span>
   </div>
