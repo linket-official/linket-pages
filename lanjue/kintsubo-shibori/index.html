@@ -181,7 +181,7 @@ body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--ink);ove
 .reveal.visible { opacity: 1; transform: none; }
 
 .photo-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem;}
-.photo-box{aspect-ratio:16/9;overflow:hidden;border-radius:2px;background:var(--bg2);}
+.photo-box{aspect-ratio:3/4;overflow:hidden;border-radius:2px;background:var(--bg2);position:relative;border:1px solid rgba(255,255,255,.05);}
 .photo-box img{width:100%;height:100%;object-fit:cover;filter:brightness(.85);}
 .photo-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2.5rem;opacity:.5;}
 </style>
@@ -261,11 +261,11 @@ body{font-family:'Noto Serif TC',serif;background:var(--bg);color:var(--ink);ove
 
   <div class="food-grid">
     <div class="food-box reveal">
-      <img src="food-cheese.jpg" alt="陳年起司" onerror="this.parentElement.innerHTML='<div class=\'food-ph\'>🧀</div>'">
+      <img src="food-1.jpg" alt="深夜吧台配餐" onerror="this.parentElement.innerHTML='<div class=\'food-ph\'>🧀</div>'">
       <p class="food-lbl">陳年起司・鹹香加乘</p>
     </div>
     <div class="food-box reveal" style="transition-delay:0.2s;">
-      <img src="food-pork.jpg" alt="紅燒豬腳" onerror="this.parentElement.innerHTML='<div class=\'food-ph\'>🍖</div>'">
+      <img src="food-2.jpg" alt="醇厚搭配" onerror="this.parentElement.innerHTML='<div class=\'food-ph\'>🍖</div>'">
       <p class="food-lbl">濃厚料理・醇厚契合</p>
     </div>
   </div>
