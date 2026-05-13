@@ -38,8 +38,8 @@
   --paper:     #F3E5D5;      /* 古紙米白 (亮色區塊/文字) */
   --paper-dk:  #DDC5AB;      /* 暗古紙色 */
   
-  --red:       #8B0000;      /* 神社緋紅 (高光/強調) */
-  --red-lt:    #B22222;      /* 亮緋紅 */
+  --red:       #ff5e59;      /* 神社緋紅 (高光/強調) */
+  --red-lt:    #ff5e59;      /* 亮緋紅 */
   
   --ink:       #F3E5D5;      /* 淺色字體 */
   --inkm:      #DDC5AB;      /* 內文淺木色 */
@@ -108,8 +108,8 @@ body{font-family:'Shippori Mincho B1',serif;background:var(--bg);color:var(--ink
 /* Bottle */
 .hero-bottle-full{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;width:100%;padding:4rem 0 10rem;}
 .hero-bottle-full img{
-  width:clamp(140px,36vw,240px);height:auto;object-fit:contain;
-  filter:drop-shadow(0 30px 40px rgba(0,0,0,.8)) drop-shadow(0 0 30px rgba(243,229,213,.1));
+  width:clamp(200px,36vw,300px);height:auto;object-fit:contain;
+  filter:drop-shadow(0 30px 40px rgba(0,0,0,.9)) drop-shadow(0 0 40px rgba(230,57,70,.2));
   animation:elegantFloat 8s ease-in-out infinite alternate;
 }
 .bottle-ph{
@@ -134,7 +134,7 @@ body{font-family:'Shippori Mincho B1',serif;background:var(--bg);color:var(--ink
   background:linear-gradient(transparent, rgba(49,35,26,.95) 40%, #31231A 100%);
   display:flex;flex-direction:column;align-items:center;text-align:center;gap:.6rem;
 }
-.hname-big{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:clamp(3.5rem,16vw,7.5rem);color:var(--paper);letter-spacing:.05em;line-height:.9;text-shadow:0 5px 20px rgba(0,0,0,.8);}
+.hname-big{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:clamp(1.5rem,12vw,6.5rem);color:var(--paper);letter-spacing:.05em;line-height:.9;text-shadow:0 5px 20px rgba(0,0,0,.8);}
 .hname-big span{color:var(--red);}
 .hname-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.5rem 1rem;padding-top:.8rem;border-top:1px solid rgba(243,229,213,.2);}
 .hname-jp{font-family:'Shippori Mincho B1',serif;font-weight:400;font-size:clamp(.85rem,3.2vw,1.1rem);letter-spacing:.25em;color:var(--paper-dk);}
@@ -396,7 +396,7 @@ body{font-family:'Shippori Mincho B1',serif;background:var(--bg);color:var(--ink
   <p class="spotify-label">🎵 Gagaku & Koto Ambient — 雅樂與和琴的自然音律</p>
 
   <!-- YouTube 擴增 -->
-  <iframe width="100%" height="315" src="https://www.youtube.com/embed/Pj13k89t-1k?si=1n0A5P_y4H0R9zZg&amp;start=10" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius: 4px; display: block; border: 1px solid rgba(243,229,213,.2); margin-bottom: 1.5rem;"></iframe>
+  <iframe width="100%" height="315" src="https://www.youtube.com/embed/i4_KiNGCEe8?si=x28f9mLUFiRnl0Cv&amp;start=61" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius: 4px; display: block; border: 1px solid rgba(243,229,213,.2); margin-bottom: 1.5rem;"></iframe>
 
   <div class="food-grid">
     <div class="food-box">
@@ -416,7 +416,7 @@ body{font-family:'Shippori Mincho B1',serif;background:var(--bg);color:var(--ink
 <!-- §6 FOOTER (DARK) -->
 <section id="footer"><div class="content-wrap">
   <div class="f-btns">
-    <a href="https://lin.ee/AzqxpRa" target="_blank" class="btn-fill primary" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'harima-kokon'});">🍶 聯繫嵐爵私選下單</a>
+    <a href="https://line.me/R/ti/p/@375dvhtr" target="_blank" class="btn-fill primary" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'harima-kokon'});">🍶 聯繫嵐爵私選下單</a>
     <a href="https://linket.app/lanjue" target="_blank" class="btn-fill outline" onclick="gtag('event','click_lanjue_home',{'event_category':'CTA','event_label':'harima-kokon'});">✦ 嵐爵私選名片頁</a>
   </div>
 
