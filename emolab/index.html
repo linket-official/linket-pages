@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
   <!-- 版本更新紀錄
-  2026-05-20 Tony 桑心茶室文字與區塊移除，桑心實驗室、山上山下更新預約連結
+  2026-05-20 Tony 
+    桑心茶室文字與區塊移除，桑心實驗室、山上山下更新預約連結
+    品牌卡片文字顏色修正
   -->
 <head>
 <meta charset="UTF-8">
@@ -217,7 +219,7 @@ a.top-badge{display:block;width:100%;background:#fff;text-align:center;padding:.
 .store-card-photo{width:100%;height:180px;object-fit:cover;background:rgba(200,169,106,.06);display:flex;align-items:center;justify-content:center;font-size:.62rem;letter-spacing:.12em;overflow:hidden;flex-shrink:0;color:rgba(200,169,106,.3);}
 .store-card-body{padding:1.2rem 1.2rem .8rem;display:flex;flex-direction:column;gap:.6rem;flex:1;}
 .store-card-name{font-family:'Noto Serif TC',serif;font-size:1.05rem;font-weight:700;letter-spacing:.1em;color:var(--cream);}
-.store-card-info{font-size:.82rem;line-height:1.8;color:var(--muted2);letter-spacing:.04em;}
+.store-card-info{font-size:.82rem;line-height:1.8;color:var(--cream);letter-spacing:.1em;}
 .store-card-links{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.2rem;}
 .store-card-btn{display:block;margin-top:auto;text-align:center;padding:.76rem 1rem;font-family:'Noto Serif TC',serif;font-size:1rem;font-weight:700;letter-spacing:.14em;text-decoration:none;background:var(--rust);color:#fff;border:1px solid var(--rust);border-radius:var(--r);margin-top:1rem;transition:background .2s,color .2s;}
 .store-card-btn:hover{background:var(--rust2);border-color:var(--rust2);}
@@ -423,7 +425,9 @@ a.top-badge{display:block;width:100%;background:#fff;text-align:center;padding:.
     <div class="store-cards reveal">
       <div class="store-card">
         <!-- ⬜ 素材：brand-emoclub.jpg 900×500px -->
+        <!-- 
         <img src="brand-emoclub.jpg" alt="桑心合作社桃米店" style="width:100%;height:180px;object-fit:cover;display:block;">
+        -->
         <div class="store-card-body">
           <div class="store-card-name">桑心合作社・桃米總店</div>
           <div class="store-card-info">
@@ -501,7 +505,8 @@ a.top-badge{display:block;width:100%;background:#fff;text-align:center;padding:.
           <div class="store-card-links">
             <a href="https://maps.app.goo.gl/QNRGBBmLjiFFV4mo6" target="_blank" class="brand-link-tag"><img src="/home/assets/map.svg" alt="">Google Map</a>
           </div>
-          <a href="https://reserve.oddle.me/zh_TW/3s3s" class="store-card-btn"
+          <a href="https://reserve.oddle.me/zh_TW/3s3s" 
+            target="_blank" class="store-card-btn"
              onclick="gtag('event','click_reserve',{'event_category':'CTA','event_label':'emolab'});fbq('track','Lead');">
             線上訂位 →
           </a>
