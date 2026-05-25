@@ -85,7 +85,7 @@ body{
 .hero-bg-img{
   position:absolute;inset:0;width:100%;height:100%;
   object-fit:cover;object-position:center top;
-  z-index:0;pointer-events:none;opacity:.9;
+  z-index:0;pointer-events:none;opacity:.18;
 }
 .hero-deco{
   position:absolute;right:-2%;bottom:0;
@@ -218,7 +218,7 @@ body{
 .ticker{background:var(--ink);padding:0;overflow:hidden;}
 .ticker-track{
   display:flex;align-items:center;
-  animation:tick 45s linear infinite;
+  animation:tick 58.5s linear infinite;
   white-space:nowrap;width:max-content;
 }
 .ticker-track:hover{animation-play-state:paused;}
@@ -226,13 +226,13 @@ body{
 .ticker-item{
   font-family:'Cormorant Garamond',serif;
   font-size:.88rem;letter-spacing:.28em;
-  color:rgba(255,255,255,.42);white-space:nowrap;
+  color:rgba(255,255,255,.68);white-space:nowrap;
   padding:.85rem 0;
 }
 .ticker-item.hl{color:var(--orange);font-weight:600;}
 .ticker-sep{
   width:4px;height:4px;border-radius:50%;
-  background:rgba(226,106,46,.4);flex-shrink:0;
+  background:rgba(226,106,46,.65);flex-shrink:0;
   margin:0 1.4rem;
 }
 
@@ -261,7 +261,13 @@ body{
 .section-desc.light{color:rgba(255,255,255,.75);}
 
 /* ═══ §2 品牌實績（淺底）═══ */
-.about{background:var(--cream);}
+.about{background:var(--cream);position:relative;overflow:hidden;}
+.about::before{
+  content:"";position:absolute;inset:0;
+  background:url("/yuanrung/hero-bg.jpg") center/cover no-repeat;
+  opacity:.06;z-index:0;pointer-events:none;
+}
+.about .inner{position:relative;z-index:1;}
 .mag-quote{
   font-family:'Cormorant Garamond',serif;
   font-size:clamp(1.05rem,2.8vw,1.45rem);
@@ -364,7 +370,13 @@ body{
 .role-card-dash{color:rgba(255,255,255,.4);flex-shrink:0;}
 
 /* ═══ §4 服務入口（淺底）═══ */
-.services-entry{background:var(--cream-2);}
+.services-entry{background:var(--cream-2);position:relative;overflow:hidden;}
+.services-entry::before{
+  content:"";position:absolute;inset:0;
+  background:url("/yuanrung/hero-bg.jpg") center/cover no-repeat;
+  opacity:.05;z-index:0;pointer-events:none;
+}
+.services-entry .inner{position:relative;z-index:1;}
 .entry-list{display:flex;flex-direction:column;gap:.75rem;max-width:520px;margin:2rem auto 0;}
 .entry-item{
   display:flex;align-items:center;gap:1rem;
@@ -483,6 +495,8 @@ body{
 /* ═══ RWD ═══ */
 @media(max-width:640px){
   .inner{padding:0 1.1rem;}
+  .hero-bg-img{content:url("/yuanrung/hero-bg-portrait.jpg");object-position:center top;}
+  .about::before,.services-entry::before{background-image:url("/yuanrung/hero-bg-portrait.jpg");}
   .top-nav .inner{gap:.5rem;}
   .nav-back span{display:none;}
   .nav-emergency{font-size:.68rem;padding:.28rem .75rem;}
@@ -546,6 +560,7 @@ body{
 <!-- §1 HERO -->
 <section class="hero" id="hero">
   <img class="hero-bg-img" src="/yuanrung/hero-bg.jpg" alt="">
+  <div class="hero-deco">SY</div>
   <div class="inner">
     <div class="hero-cols">
 
