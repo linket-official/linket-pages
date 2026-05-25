@@ -80,7 +80,8 @@ body{font-family:'Noto Serif TC',serif;background:var(--cream);color:var(--ink);
 .hero-bg-img{
   position:absolute;inset:0;width:100%;height:100%;
   object-fit:cover;object-position:center;
-  z-index:0;pointer-events:none;opacity:.9;
+  z-index:0;pointer-events:none;opacity:.18;
+  content-visibility:auto;
 }
 /* YR 裝飾大字 */
 .hero-deco{
@@ -195,7 +196,7 @@ body{font-family:'Noto Serif TC',serif;background:var(--cream);color:var(--ink);
 .ticker{background:var(--ink);padding:0;overflow:hidden;}
 .ticker-track{
   display:flex;align-items:center;
-  animation:tick 45s linear infinite;
+  animation:tick 58.5s linear infinite;
   white-space:nowrap;width:max-content;
 }
 .ticker-track:hover{animation-play-state:paused;}
@@ -209,14 +210,20 @@ body{font-family:'Noto Serif TC',serif;background:var(--cream);color:var(--ink);
 .ticker-item.hl{color:var(--orange);font-weight:600;}
 .ticker-sep{
   width:4px;height:4px;border-radius:50%;
-  background:rgba(226,106,46,.4);flex-shrink:0;
+  background:rgba(226,106,46,.65);flex-shrink:0;
   margin:0 1.4rem;
 }
 
 /* ══════════════════════════════════════
    §2 品牌介紹・技術・實績（淺底）
 ══════════════════════════════════════ */
-.about{background:var(--cream);}
+.about{background:var(--cream);position:relative;overflow:hidden;}
+.about::before{
+  content:"";position:absolute;inset:0;
+  background:url("/yuanrung/hero-bg.jpg") center/cover no-repeat;
+  opacity:.06;z-index:0;pointer-events:none;
+}
+.about .inner{position:relative;z-index:1;}
 .section-inner{padding:3.5rem 0;}
 .eyebrow{
   font-family:'Cormorant Garamond',serif;
@@ -413,7 +420,13 @@ body{font-family:'Noto Serif TC',serif;background:var(--cream);color:var(--ink);
 /* ══════════════════════════════════════
    §4 便民服務（淺底，25%）
 ══════════════════════════════════════ */
-.utility{background:var(--cream-2);}
+.utility{background:var(--cream-2);position:relative;overflow:hidden;}
+.utility::before{
+  content:"";position:absolute;inset:0;
+  background:url("/yuanrung/hero-bg.jpg") center/cover no-repeat;
+  opacity:.05;z-index:0;pointer-events:none;
+}
+.utility .inner{position:relative;z-index:1;}
 .utility .section-inner{padding:2.5rem 0;}
 .utility-grid{
   display:flex;flex-direction:column;gap:.7rem;margin-top:2rem;
@@ -599,6 +612,8 @@ body{font-family:'Noto Serif TC',serif;background:var(--cream);color:var(--ink);
 ══════════════════════════════════════ */
 @media(max-width:640px){
   .inner{padding:0 1.1rem;}
+  .hero-bg-img{content:url("/yuanrung/hero-bg-portrait.jpg");object-position:center top;}
+  .about::before,.utility::before{background-image:url("/yuanrung/hero-bg-portrait.jpg");}
 
   /* Nav */
   .top-nav .inner{padding-top:.7rem;padding-bottom:.7rem;gap:.5rem;}
@@ -735,6 +750,7 @@ img,iframe,video{max-width:100%;}
 <!-- ════ §1 HERO ════ -->
 <section class="hero" id="hero">
   <img class="hero-bg-img" src="/yuanrung/hero-bg.jpg" alt="">
+  <div class="hero-deco">YR</div>
   <div class="inner">
     <div class="hero-cols">
 
