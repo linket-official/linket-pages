@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-29J2988Y8J');</script>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+<title>高階健康檢查｜員榮醫療體系</title>
+<meta name="description" content="4 小時完成醫學中心級精密健檢。GE 高階 MRI・128 切 MDCT・無痛腸胃鏡。企業高管・VIP 首選。">
+<meta property="og:title" content="高階健康檢查｜員榮醫療體系">
+<meta property="og:description" content="4 小時完成醫學中心級精密健檢。企業高管・VIP 首選。">
+<meta property="og:image" content="https://linket.app/yuanrung/health-check/og-image.jpg">
+<meta property="og:url" content="https://linket.app/yuanrung/health-check/">
+<link rel="icon" href="/yuanrung/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700;900&family=Playfair+Display:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+/*
+  yuanrung/health-check/index.html
+  v1.0 2026-05-23 高階健檢銷售頁
+*/
+:root{
+  --orange:#e26a2e; --orange-dk:#c45520; --orange-lt:#fdebd5;
+  --cream:#fcf8ef;  --cream-2:#f5ede0;
+  --ink:#6a5449;    --ink-lt:#a08070;
+  --white:#ffffff;  --red:#c0392b;
+  --r:100px; --r-card:14px; --mw:900px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Serif TC',serif;background:var(--cream);color:var(--ink);overflow-x:hidden;}
+.inner{max-width:var(--mw);margin:0 auto;padding:0 2rem;}
+img,iframe{max-width:100%;}
+
+/* NAV */
+.top-nav{
+  position:sticky;top:0;z-index:200;
+  background:rgba(252,248,239,.96);backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(226,106,46,.12);
+}
+.top-nav .inner{display:flex;align-items:center;justify-content:space-between;padding:.9rem 0;}
+.nav-back{
+  display:flex;align-items:center;gap:.5rem;
+  font-family:'Noto Serif TC',serif;
+  font-size:.82rem;letter-spacing:.12em;color:var(--ink-lt);text-decoration:none;transition:color .2s;
+}
+.nav-back:hover{color:var(--orange);}
+.nav-back svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;}
+.nav-brand{font-family:'Noto Serif TC',serif;font-size:.88rem;font-weight:700;letter-spacing:.18em;color:var(--ink);}
+.nav-brand span{color:var(--orange);}
+.nav-cta{
+  font-family:'Noto Serif TC',serif;font-size:.75rem;font-weight:700;letter-spacing:.1em;
+  color:var(--orange);text-decoration:none;border:1.5px solid var(--orange);
+  border-radius:var(--r);padding:.32rem .9rem;transition:all .2s;white-space:nowrap;
+}
+.nav-cta:hover{background:var(--orange);color:var(--white);}
+
+/* §1 HERO */
+.hero{background:var(--ink);position:relative;overflow:hidden;min-height:70svh;display:flex;align-items:center;}
+.hero-bg{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;opacity:.12;pointer-events:none;z-index:0;
+}
+.hero-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(to right,rgba(106,84,73,.85) 0%,rgba(106,84,73,.55) 60%,rgba(106,84,73,.25) 100%);
+}
+.hero .inner{position:relative;z-index:2;padding-top:3.5rem;padding-bottom:3.5rem;}
+.hero-eyebrow{
+  font-family:'Cormorant Garamond',serif;
+  font-size:.85rem;letter-spacing:.45em;font-weight:400;font-style:italic;
+  color:var(--orange);margin-bottom:1rem;
+  display:flex;align-items:center;gap:.8rem;
+}
+.hero-eyebrow::before{content:'';width:22px;height:1.5px;background:var(--orange);flex-shrink:0;}
+.hero-title{
+  font-family:'Noto Serif TC',serif;
+  font-size:clamp(2rem,5.5vw,4rem);
+  font-weight:900;color:var(--white);line-height:1.1;letter-spacing:.04em;margin-bottom:.8rem;
+}
+.hero-title .hl{color:var(--orange);}
+.hero-sub{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.15rem;font-style:italic;
+  color:rgba(255,255,255,.65);letter-spacing:.14em;line-height:1.8;margin-bottom:2rem;
+}
+.hero-ctas{display:flex;gap:.85rem;flex-wrap:wrap;}
+.hero-btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  border-radius:var(--r);font-family:'Noto Serif TC',sans-serif;
+  font-size:.9rem;font-weight:700;letter-spacing:.08em;
+  text-decoration:none;padding:.92rem 1.8rem;transition:all .22s;cursor:pointer;border:none;
+}
+.hero-btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;}
+.hero-btn.primary{background:var(--orange);color:var(--white);box-shadow:0 6px 24px rgba(226,106,46,.35);}
+.hero-btn.primary:hover{background:var(--orange-dk);transform:translateY(-2px);}
+.hero-btn.outline{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.4);}
+.hero-btn.outline:hover{border-color:var(--white);transform:translateY(-2px);}
+/* hero stats 橫條 */
+.hero-stats{
+  display:flex;gap:0;margin-top:2.5rem;
+  border-top:1px solid rgba(255,255,255,.1);
+  padding-top:2rem;flex-wrap:wrap;
+}
+.hero-stat{padding-right:2.5rem;margin-right:2.5rem;border-right:1px solid rgba(255,255,255,.1);}
+.hero-stat:last-child{border-right:none;padding-right:0;margin-right:0;}
+.hero-stat-num{
+  font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;
+  color:var(--orange);display:block;line-height:1;letter-spacing:-.02em;
+}
+.hero-stat-label{font-family:'Noto Serif TC',serif;font-size:.72rem;letter-spacing:.18em;color:rgba(255,255,255,.4);display:block;margin-top:.4rem;}
+
+/* 通用 Section */
+.section-inner{padding:3.5rem 0;}
+.eyebrow{
+  font-family:'Cormorant Garamond',serif;
+  font-size:.85rem;letter-spacing:.45em;font-weight:400;font-style:italic;
+  color:var(--orange);display:flex;align-items:center;gap:.8rem;margin-bottom:1rem;
+}
+.eyebrow::before{content:'';width:22px;height:1.5px;background:var(--orange);flex-shrink:0;}
+.eyebrow.light{color:rgba(255,255,255,.65);}
+.eyebrow.light::before{background:rgba(255,255,255,.5);}
+.section-title{
+  font-family:'Noto Serif TC',serif;
+  font-size:clamp(1.6rem,4vw,2.5rem);font-weight:900;
+  color:var(--ink);line-height:1.2;letter-spacing:.04em;margin-bottom:1rem;
+}
+.section-title.light{color:var(--white);}
+.section-desc{
+  font-family:'Noto Serif TC',serif;
+  font-size:.98rem;font-weight:300;color:var(--ink-lt);line-height:2.1;letter-spacing:.06em;max-width:560px;
+}
+.section-desc.light{color:rgba(255,255,255,.72);}
+
+/* §2 服務特色（淺底）*/
+.features{background:var(--cream);}
+.feature-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:1.2rem;margin-top:2rem;
+}
+.feature-card{
+  background:var(--white);border:1.5px solid rgba(226,106,46,.12);
+  border-radius:var(--r-card);padding:1.6rem 1.4rem;
+  display:flex;flex-direction:column;gap:.8rem;transition:all .22s;
+}
+.feature-card:hover{border-color:var(--orange);box-shadow:0 4px 20px rgba(226,106,46,.1);transform:translateY(-2px);}
+.feature-num{
+  font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;
+  color:rgba(226,106,46,.12);line-height:1;letter-spacing:-.04em;
+}
+.feature-title{font-family:'Noto Serif TC',serif;font-size:1.05rem;font-weight:700;letter-spacing:.08em;color:var(--ink);}
+.feature-desc{font-family:'Noto Serif TC',serif;font-size:.88rem;font-weight:300;color:var(--ink-lt);line-height:2;letter-spacing:.05em;}
+/* 圖片塊 */
+.features-img-row{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:1.2rem;margin-top:2rem;
+}
+.features-img-block{
+  aspect-ratio:4/3;border-radius:var(--r-card);overflow:hidden;
+  background:var(--cream-2);display:flex;align-items:center;justify-content:center;
+}
+.features-img-block img{width:100%;height:100%;object-fit:cover;display:block;}
+.features-img-ph{
+  font-family:'Cormorant Garamond',serif;font-size:.82rem;letter-spacing:.18em;
+  color:var(--ink-lt);text-align:center;font-style:italic;
+}
+
+/* §3 方案（橘底）*/
+.plans{background:var(--orange);}
+.plans-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;margin-top:2rem;}
+.plan-card{
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+  border-radius:var(--r-card);padding:1.4rem 1.2rem;
+  display:flex;flex-direction:column;gap:.7rem;transition:all .22s;
+}
+.plan-card:hover{background:rgba(255,255,255,.18);transform:translateY(-2px);}
+.plan-card.flagship{
+  grid-column:1/-1;background:rgba(255,255,255,.16);
+  border-color:rgba(255,255,255,.4);
+}
+.plan-badge{
+  display:inline-block;background:var(--white);color:var(--orange);
+  border-radius:var(--r);padding:.18rem .75rem;
+  font-family:'Noto Serif TC',serif;font-size:.68rem;font-weight:700;letter-spacing:.12em;align-self:flex-start;
+}
+.plan-name{font-family:'Noto Serif TC',serif;font-size:1.05rem;font-weight:700;letter-spacing:.08em;color:var(--white);}
+.plan-items{
+  font-family:'Noto Serif TC',serif;font-size:.85rem;font-weight:300;
+  color:rgba(255,255,255,.78);line-height:2;letter-spacing:.05em;
+}
+.plan-cta{
+  display:flex;align-items:center;justify-content:center;gap:.45rem;
+  background:var(--white);color:var(--orange);border-radius:var(--r);
+  padding:.65rem 1rem;font-family:'Noto Serif TC',sans-serif;
+  font-size:.85rem;font-weight:700;letter-spacing:.08em;
+  text-decoration:none;margin-top:auto;transition:all .2s;
+}
+.plan-cta:hover{background:var(--cream);transform:translateY(-1px);}
+.plan-cta svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;}
+
+/* §4 FAQ（淺底）*/
+.faq{background:var(--cream-2);}
+.faq-list{display:flex;flex-direction:column;gap:.6rem;margin-top:2rem;max-width:640px;}
+.faq-item{
+  background:var(--white);border:1.5px solid rgba(226,106,46,.1);
+  border-radius:var(--r-card);overflow:hidden;
+}
+.faq-q{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.1rem 1.4rem;cursor:pointer;gap:1rem;
+  font-family:'Noto Serif TC',serif;font-size:.92rem;font-weight:700;
+  letter-spacing:.06em;color:var(--ink);
+}
+.faq-q svg{width:18px;height:18px;stroke:var(--orange);fill:none;stroke-width:2;flex-shrink:0;transition:transform .25s;}
+.faq-item.open .faq-q svg{transform:rotate(180deg);}
+.faq-a{
+  display:none;padding:0 1.4rem 1.2rem;
+  font-family:'Noto Serif TC',serif;font-size:.88rem;font-weight:300;
+  color:var(--ink-lt);line-height:2;letter-spacing:.05em;
+}
+.faq-item.open .faq-a{display:block;}
+
+/* §5 底部 CTA（橘底）*/
+.bottom-cta{background:var(--orange);text-align:center;}
+.bottom-cta .section-inner{display:flex;flex-direction:column;align-items:center;gap:1.4rem;}
+.bottom-cta-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;}
+.bottom-btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  border-radius:var(--r);font-family:'Noto Serif TC',sans-serif;
+  font-size:.9rem;font-weight:700;letter-spacing:.1em;
+  padding:.88rem 2rem;text-decoration:none;transition:all .22s;cursor:pointer;border:none;
+}
+.bottom-btn.p1{background:var(--white);color:var(--orange);}
+.bottom-btn.p1:hover{background:var(--cream);}
+.bottom-btn.ghost{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.5);}
+.bottom-btn.ghost:hover{background:rgba(255,255,255,.15);border-color:var(--white);}
+.bottom-btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* footer badge */
+.back-to-top{
+  display:block;text-align:center;padding:.72rem 1rem;
+  font-family:'Noto Serif TC',serif;font-size:.85rem;letter-spacing:.2em;
+  color:rgba(255,255,255,.35);text-decoration:none;background:var(--ink);
+  border-top:1px solid rgba(255,255,255,.05);transition:color .2s;
+}
+.back-to-top:hover{color:var(--orange);}
+.design-by{
+  display:block;width:100%;background:var(--ink);text-align:center;
+  padding:.52rem;font-size:.82rem;letter-spacing:.18em;
+  color:rgba(255,255,255,.30);text-decoration:none;
+}
+.design-by .lin{color:#1685C8;font-weight:700;}
+.design-by .ket{color:rgba(255,255,255,.85);font-weight:700;}
+
+/* RWD */
+@media(max-width:640px){
+  .inner{padding:0 1.1rem;}
+  .nav-back span{display:none;}
+  .section-inner{padding:2.5rem 0;}
+  .hero-title{font-size:clamp(1.9rem,9.5vw,2.8rem);}
+  .hero-stats{flex-wrap:wrap;gap:0;display:grid;grid-template-columns:1fr 1fr;}
+  .hero-stat{padding:.8rem .5rem;border-right:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);margin:0;}
+  .hero-stat:nth-child(2n){border-right:none;}
+  .hero-ctas{flex-direction:column;}
+  .hero-btn{width:100%;justify-content:center;}
+  .feature-grid,.plans-grid,.features-img-row{grid-template-columns:1fr;}
+  .plan-card.flagship{grid-column:1;}
+  .faq-list{max-width:100%;}
+  .bottom-cta-btns{flex-direction:column;align-items:center;}
+  .bottom-btn{width:100%;max-width:300px;justify-content:center;}
+}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+</style>
+</head>
+<body id="top">
+
+<!-- NAV -->
+<nav class="top-nav">
+  <div class="inner">
+    <a class="nav-back" href="/yuanrung/">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      <span>員榮醫療體系</span>
+    </a>
+    <div class="nav-brand"><span>員榮</span>高階健檢</div>
+    <a class="nav-cta" href="tel:04-8326161"
+      onclick="gtag('event','click_health_check',{'event_category':'CTA','event_label':'yuanrung'})">
+      立即諮詢
+    </a>
+  </div>
+</nav>
+
+<!-- §1 HERO -->
+<section class="hero" id="hero">
+  <img class="hero-bg" src="/yuanrung/svc-health-check.jpg" alt="">
+  <div class="hero-overlay"></div>
+  <div class="inner">
+    <div class="hero-eyebrow">ADVANCED HEALTH CHECKUP</div>
+    <h1 class="hero-title">
+      <span class="hl">4 小時</span>，完成<br>醫學中心級精密健檢。
+    </h1>
+    <p class="hero-sub">
+      GE 高階 MRI・128 切 MDCT・無痛腸胃鏡<br>
+      企業高管・VIP 首選
+    </p>
+    <div class="hero-ctas">
+      <a class="hero-btn primary" href="tel:04-8326161"
+        onclick="gtag('event','click_health_check',{'event_category':'CTA','event_label':'yuanrung'})">
+        立即諮詢｜Contact Now
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l.95-1.85a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </a>
+      <a class="hero-btn outline" href="https://alien4817.github.io/test0619/" target="_blank"
+        onclick="gtag('event','click_health_check',{'event_category':'CTA','event_label':'yuanrung'})">
+        健檢方案導覽｜View Plans
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-num">4H</span>
+        <span class="hero-stat-label">完成全套精密健檢</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">4+</span>
+        <span class="hero-stat-label">客製化方案</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">GE</span>
+        <span class="hero-stat-label">高階 MRI 設備</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §2 服務特色 -->
+<section class="features" id="features">
+  <div class="inner">
+    <div class="section-inner">
+      <div class="eyebrow reveal">WHY YUAN RUNG</div>
+      <h2 class="section-title reveal">為什麼選擇員榮高階健檢</h2>
+      <div class="features-img-row">
+        <div class="features-img-block reveal">
+          <img src="/yuanrung/hc-photo-1.jpg" alt="高階健檢設備"
+            onerror="this.outerHTML='<div class=features-img-ph>健檢中心<br>Health Center</div>'">
+        </div>
+        <div class="features-img-block reveal">
+          <img src="/yuanrung/hc-photo-2.jpg" alt="健檢環境"
+            onerror="this.outerHTML='<div class=features-img-ph>醫療設備<br>Medical Equipment</div>'">
+        </div>
+      </div>
+      <div class="feature-grid" style="margin-top:1.6rem;">
+        <div class="feature-card reveal">
+          <span class="feature-num">01</span>
+          <div class="feature-title">4 小時完成醫學中心級健檢</div>
+          <p class="feature-desc">傳統大醫院需兩天一夜，員榮以頂級設備與流程優化，讓您半天完成全套精密健檢，不耽誤工作行程。</p>
+        </div>
+        <div class="feature-card reveal">
+          <span class="feature-num">02</span>
+          <div class="feature-title">GE 高階 MRI・128 切 MDCT</div>
+          <p class="feature-desc">引進美國奇異 GE 高階磁振造影與 128 切多偵測器電腦斷層，影像精準度媲美醫學中心。</p>
+        </div>
+        <div class="feature-card reveal">
+          <span class="feature-num">03</span>
+          <div class="feature-title">客製化企業方案</div>
+          <p class="feature-desc">提供企業高管・父母長輩・婚前孕前等客製化健檢專案，可依需求量身規劃心血管・代謝・腫瘤評估。</p>
+        </div>
+        <div class="feature-card reveal">
+          <span class="feature-num">04</span>
+          <div class="feature-title">專科醫師全程諮詢</div>
+          <p class="feature-desc">檢查完成後由專科醫師面對面解說報告，不只給數值，更提供個人化健康建議與追蹤計畫。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §3 方案介紹 -->
+<section class="plans" id="plans">
+  <div class="inner">
+    <div class="section-inner">
+      <div class="eyebrow light reveal">HEALTH CHECK PLANS</div>
+      <h2 class="section-title light reveal">方案介紹</h2>
+      <p class="section-desc light reveal" style="margin-bottom:.5rem;">依需求選擇方案，詳細費用與預約請來電諮詢，專人為您規劃最適合的健康評估計畫。</p>
+      <div class="plans-grid">
+        <div class="plan-card flagship reveal">
+          <span class="plan-badge">旗艦方案</span>
+          <div class="plan-name">全身尊爵健檢</div>
+          <div class="plan-items">全身腫瘤 MRI 篩檢・低劑量肺癌 LDCT<br>心臟鈣化指數・無痛胃鏡・無痛大腸鏡<br>全方位防癌與血管病變深度評估</div>
+          <a class="plan-cta" href="tel:04-8326161"
+            onclick="gtag('event','click_health_check',{'event_category':'CTA','event_label':'yuanrung'})">
+            專人諮詢｜Contact
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+        <div class="plan-card reveal">
+          <span class="plan-badge">精英方案</span>
+          <div class="plan-name">柏金 / 貴族健檢</div>
+          <div class="plan-items">多部位靶向 MRI・核心生化指標<br>高階超音波影像診斷<br>特定系統腫瘤高風險族群適用</div>
+          <a class="plan-cta" href="tel:04-8326161"
+            onclick="gtag('event','click_health_check',{'event_category':'CTA','event_label':'yuanrung'})">
+            專人諮詢｜Contact
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+        <div class="plan-card reveal">
+          <span class="plan-badge">對象專屬</span>
+          <div class="plan-name">女仕 / 男仕樂活</div>
+          <div class="plan-items">全身 MRI 八大部位腫瘤篩檢<br>低劑量肺癌 LDCT・心臟鈣化指數<br>女性另含乳房攝影・骨質密度</div>
+          <a class="plan-cta" href="tel:04-8326161"
+            onclick="gtag('event','click_health_check',{'event_category':'CTA','event_label':'yuanrung'})">
+            專人諮詢｜Contact
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+        <div class="plan-card reveal">
+          <span class="plan-badge">靶向專案</span>
+          <div class="plan-name">保心護肺 / 頭頸部</div>
+          <div class="plan-items">心臟鈣化指數 + LDCT 肺癌篩檢<br>MRA 腦血管・頸動脈狹窄評估<br>特定家族病史高風險族群首選</div>
+          <a class="plan-cta" href="tel:04-8326161"
+            onclick="gtag('event','click_health_check',{'event_category':'CTA','event_label':'yuanrung'})">
+            專人諮詢｜Contact
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §4 FAQ -->
+<section class="faq" id="faq">
+  <div class="inner">
+    <div class="section-inner">
+      <div class="eyebrow reveal">FAQ</div>
+      <h2 class="section-title reveal">常見問題</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            健檢需要提前預約嗎？
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="faq-a">是的，高階健檢項目需提前預約，建議至少提前一週安排。來電 04-8326161，專人為您安排最適合的時段。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            健檢當天需要空腹嗎？
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="faq-a">含腸胃鏡的方案需前一天晚上 10 點後禁食。其他影像健檢項目請依預約時的護理師說明，詳情來電確認。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            可以替父母或長輩安排健檢嗎？
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="faq-a">可以。員榮提供「寵愛媽咪」「寵愛父親」等長輩專屬方案，針對年長族群常見的心血管、腫瘤、骨質疏鬆進行客製化評估。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            企業可以為員工安排團體健檢嗎？
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="faq-a">可以。員榮有完整的企業健康合作方案，可依員工人數與預算客製規劃，請洽社醫部 04-8326161。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            健檢報告多久出來？
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="faq-a">一般於健檢後 7–10 個工作天完成報告，並安排專科醫師面對面解說。詳細時程依方案與檢查項目而定。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §5 底部 CTA -->
+<section class="bottom-cta">
+  <div class="inner">
+    <div class="section-inner">
+      <div class="eyebrow light" style="justify-content:center;" reveal>NEXT STEP</div>
+      <h2 class="section-title light reveal">立即安排您的健康評估</h2>
+      <p class="section-desc light reveal">員榮專人為您規劃最適合的健檢方案。</p>
+      <div class="bottom-cta-btns">
+        <a class="bottom-btn p1" href="tel:04-8326161"
+          onclick="gtag('event','click_health_check',{'event_category':'CTA','event_label':'yuanrung'})">
+          來電預約｜04-8326161
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l.95-1.85a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </a>
+        <a class="bottom-btn ghost" href="https://alien4817.github.io/test0619/" target="_blank"
+          onclick="gtag('event','click_health_check',{'event_category':'CTA','event_label':'yuanrung'})">
+          健檢方案導覽
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a class="bottom-btn ghost" href="/yuanrung/">
+          返回員榮醫療體系
+          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<a class="back-to-top" href="#top">↑ 回到頂部｜Back to Top</a>
+<a class="design-by" href="https://linket.app/home" target="_blank">
+  Design by &nbsp;<span class="lin">LIN</span><span class="ket">Ket</span>
+</a>
+
+<script>
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);} });
+}, {threshold:.08});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
