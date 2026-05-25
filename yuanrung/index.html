@@ -76,11 +76,11 @@ body{font-family:'Noto Serif TC',serif;background:var(--cream);color:var(--ink);
 /* ══════════════════════════════════════
    §1 HERO — Version A 雙欄
 ══════════════════════════════════════ */
-.hero{background:var(--cream);position:relative;overflow:hidden;}
+.hero{background:var(--cream-2);position:relative;overflow:hidden;}
 .hero-bg-img{
   position:absolute;inset:0;width:100%;height:100%;
   object-fit:cover;object-position:center;
-  z-index:0;pointer-events:none;opacity:.1;
+  z-index:0;pointer-events:none;opacity:.18;
 }
 /* YR 裝飾大字 */
 .hero-deco{
@@ -619,7 +619,7 @@ body{font-family:'Noto Serif TC',serif;background:var(--cream);color:var(--ink);
   .hero-deco{font-size:45vw;right:-5%;bottom:-3%;opacity:.6;}
   .hero-title{font-size:clamp(1.9rem,9.5vw,2.6rem);letter-spacing:.03em;}
   .hero-subtitle{font-size:.95rem;letter-spacing:.1em;}
-  .s{justify-content:center;}
+  .hero-tags{justify-content:center;}
   .hero-stats{justify-content:center;gap:1.2rem;}
   .hero-stat-num{font-size:1.8rem;}
   .hero-right{padding:2rem 0 2.5rem;align-items:center;}
@@ -696,7 +696,7 @@ body{font-family:'Noto Serif TC',serif;background:var(--cream);color:var(--ink);
 ══════════════════════════════════════ */
 img,iframe,video{max-width:100%;}
 .hero-title,.section-title,.svc-name,.location-name{word-break:keep-all;overflow-wrap:break-word;}
-.,.tech-pill,.bs-item,.contact-pill-val{white-space:nowrap;}
+.hero-tag,.tech-pill,.bs-item,.contact-pill-val{white-space:nowrap;}
 
 @media(prefers-reduced-motion:reduce){
   .reveal{opacity:1;transform:none;transition:none;}
