@@ -9,7 +9,7 @@
 <meta name="description" content="4 小時完成醫學中心級精密健檢。GE 高階 MRI・128 切 MDCT・無痛腸胃鏡。企業高管・VIP 首選。">
 <meta property="og:title" content="高階健康檢查｜員榮醫療體系">
 <meta property="og:description" content="4 小時完成醫學中心級精密健檢。企業高管・VIP 首選。">
-<meta property="og:image" content="https://linket.app/yuanrung/health-check/og-image.jpg">
+<meta property="og:image" content="https://linket.app/yuanrung/og-image.jpg">
 <meta property="og:url" content="https://linket.app/yuanrung/health-check/">
 <link rel="icon" href="/yuanrung/favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700;900&family=Playfair+Display:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
@@ -17,6 +17,7 @@
 /*
   yuanrung/health-check/index.html
   v1.0 2026-05-23 高階健檢銷售頁
+  v1.1 2026-05-23 素材路徑 /yuanrung/health-check/；og-image 改共用
 */
 :root{
   --orange:#e26a2e; --orange-dk:#c45520; --orange-lt:#fdebd5;
@@ -273,6 +274,9 @@ img,iframe{max-width:100%;}
   .bottom-btn{width:100%;max-width:300px;justify-content:center;}
 }
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+.img-error{background:var(--cream-2);}
+.img-error::after{content:'圖片載入中';display:flex;align-items:center;justify-content:center;width:100%;height:100%;font-family:'Cormorant Garamond',serif;font-size:.82rem;letter-spacing:.18em;color:var(--ink-lt);font-style:italic;}
 </style>
 </head>
 <body id="top">
@@ -342,12 +346,12 @@ img,iframe{max-width:100%;}
       <h2 class="section-title reveal">為什麼選擇員榮高階健檢</h2>
       <div class="features-img-row">
         <div class="features-img-block reveal">
-          <img src="/yuanrung/hc-photo-1.jpg" alt="高階健檢設備"
-            onerror="this.outerHTML='<div class=features-img-ph>健檢中心<br>Health Center</div>'">
+          <img src="/yuanrung/health-check/hc-photo-1.jpg" alt="高階健檢設備"
+            onerror="this.style.display='none';this.parentElement.classList.add('img-error')" style="width:100%;height:100%;object-fit:cover;display:block;">
         </div>
         <div class="features-img-block reveal">
-          <img src="/yuanrung/hc-photo-2.jpg" alt="健檢環境"
-            onerror="this.outerHTML='<div class=features-img-ph>醫療設備<br>Medical Equipment</div>'">
+          <img src="/yuanrung/health-check/hc-photo-2.jpg" alt="健檢環境"
+            onerror="this.style.display='none';this.parentElement.classList.add('img-error')" style="width:100%;height:100%;object-fit:cover;display:block;">
         </div>
       </div>
       <div class="feature-grid" style="margin-top:1.6rem;">
