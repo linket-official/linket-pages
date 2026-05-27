@@ -2,10 +2,11 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
+<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
 <!-- GA4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-29J2988Y8J');</script>
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>司霈沂｜員榮醫療體系 社醫部組長</title>
 <meta name="description" content="員榮醫療體系社醫部組長・企業合作・健康管理・社區醫療連結。">
 <meta property="og:title" content="司霈沂 SIH, PEI-YI｜員榮醫療體系 社醫部組長">
@@ -15,7 +16,11 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="/yuanrung/favicon.png">
 <link rel="apple-touch-icon" href="/yuanrung/favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<!-- Fonts: preconnect 先建立連線，非阻塞載入 -->
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap"></noscript>
 <style>
 /*
   yuanrung/sih-pei-yi/index.html
@@ -555,7 +560,7 @@ body{
 
 <!-- §1 HERO -->
 <section class="hero" id="hero">
-  <img class="hero-bg-img" src="/yuanrung/hero-bg.jpg" alt="">
+  <img class="hero-bg-img" src="/yuanrung/hero-bg.jpg" alt="" fetchpriority="high">
   <div class="hero-deco">SY</div>
   <div class="inner">
     <div class="hero-cols">
@@ -563,12 +568,12 @@ body{
       <!-- Left -->
       <div class="hero-left">
         <div class="hero-logo-wrap">
-          <img src="/yuanrung/yuanrung-logo.svg" alt="員榮醫療體系"
+          <img src="/yuanrung/yuanrung-logo.svg" alt="員榮醫療體系" width="200" height="60"
             onerror="this.style.display='none'">
         </div>
         <!-- 人物照 
         <div class="hero-portrait-wrap">
-          <img class="hero-portrait"
+          <img class="hero-portrait" fetchpriority="high"
             src="/yuanrung/sih-pei-yi/portrait.jpg" alt="司霈沂"
             onerror="this.outerHTML='<div style=\'width:clamp(100px,22vw,150px);aspect-ratio:1;border-radius:50%;background:var(--orange-lt);border:2.5px solid rgba(226,106,46,.28);\'></div>'">
         </div>
@@ -737,7 +742,7 @@ body{
       <h2 class="section-title light reveal">社醫部・對外合作核心窗口</h2>
       <div class="dept-grid">
         <div class="dept-img-block reveal">
-          <img src="/yuanrung/sih-pei-yi/dept-photo.jpg" alt="員榮社醫部"
+          <img src="/yuanrung/sih-pei-yi/dept-photo.jpg" loading="lazy" alt="員榮社醫部"
             onerror="this.outerHTML='<div class=dept-img-ph>社醫部<br>Dept. Photo</div>'">
         </div>
         <div class="dept-text reveal">
