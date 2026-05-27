@@ -2,10 +2,11 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
+<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
 <!-- GA4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-29J2988Y8J');</script>
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>員榮醫療體系｜HEALING HANDS, CARING HEARTS.</title>
 <meta name="description" content="深耕南彰化近50年，醫學中心級技術，尊重生命・全人醫療。急診・掛號・高階健檢・企業合作。">
 <meta property="og:title" content="員榮醫療體系｜HEALING HANDS, CARING HEARTS.">
@@ -15,7 +16,11 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="/yuanrung/favicon.png">
 <link rel="apple-touch-icon" href="/yuanrung/favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<!-- Fonts: preconnect 先建立連線，非阻塞載入 -->
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap"></noscript>
 <style>
 /* ══════════════════════════════════════
    DESIGN TOKENS
@@ -749,7 +754,7 @@ img,iframe,video{max-width:100%;}
 
 <!-- ════ §1 HERO ════ -->
 <section class="hero" id="hero">
-  <img class="hero-bg-img" src="/yuanrung/hero-bg.jpg" alt="">
+  <img class="hero-bg-img" src="/yuanrung/hero-bg.jpg" alt="" fetchpriority="high">
   <div class="hero-deco">YR</div>
   <div class="inner">
     <div class="hero-cols">
@@ -758,7 +763,7 @@ img,iframe,video{max-width:100%;}
       <div class="hero-left">
         <!-- LOGO 佔位（待提供 SVG）-->
         <div class="hero-logo-wrap">
-          <img src="/yuanrung/yuanrung-logo.svg" alt="員榮醫療體系"
+          <img src="/yuanrung/yuanrung-logo.svg" alt="員榮醫療體系" width="200" height="60"
             onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
           <div class="hero-logo-fallback" style="display:none;">
             <span style="font-family:'Noto Serif TC',serif;font-size:1.1rem;font-weight:900;letter-spacing:.18em;color:var(--orange);">員榮醫療體系</span>
@@ -965,7 +970,7 @@ img,iframe,video{max-width:100%;}
         <!-- 01 高階健檢 -->
         <div class="svc-card reveal">
           <div class="svc-img-block">
-            <img src="/yuanrung/svc-health-check.jpg" alt="高階健康檢查"
+            <img src="/yuanrung/svc-health-check.jpg" loading="lazy" alt="高階健康檢查"
               onerror="this.outerHTML='<div class=svc-img-ph>高階健康檢查<br>Advanced Health Check</div>'">
             <span class="svc-img-num">01</span>
           </div>
@@ -983,7 +988,7 @@ img,iframe,video{max-width:100%;}
         <!-- 02 細胞再生 -->
         <div class="svc-card reveal">
           <div class="svc-img-block">
-            <img src="/yuanrung/svc-regenerative.jpg" alt="細胞與再生醫療"
+            <img src="/yuanrung/svc-regenerative.jpg" loading="lazy" alt="細胞與再生醫療"
               onerror="this.outerHTML='<div class=svc-img-ph>細胞與再生醫療<br>Cell & Regenerative</div>'">
             <span class="svc-img-num">02</span>
           </div>
@@ -1001,7 +1006,7 @@ img,iframe,video{max-width:100%;}
         <!-- 03 醫美 -->
         <div class="svc-card reveal">
           <div class="svc-img-block">
-            <img src="/yuanrung/svc-aesthetics.jpg" alt="醫美與功能治療"
+            <img src="/yuanrung/svc-aesthetics.jpg" loading="lazy" alt="醫美與功能治療"
               onerror="this.outerHTML='<div class=svc-img-ph>醫美與功能治療<br>Medical Aesthetics</div>'">
             <span class="svc-img-num">03</span>
           </div>
@@ -1019,7 +1024,7 @@ img,iframe,video{max-width:100%;}
         <!-- 04 心血管 -->
         <div class="svc-card reveal">
           <div class="svc-img-block">
-            <img src="/yuanrung/svc-cardio.jpg" alt="心血管特殊治療"
+            <img src="/yuanrung/svc-cardio.jpg" loading="lazy" alt="心血管特殊治療"
               onerror="this.outerHTML='<div class=svc-img-ph>心血管特殊治療<br>Cardiovascular Care</div>'">
             <span class="svc-img-num">04</span>
           </div>
