@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<!--
+  萊漾 León Day LINKet Page · 品牌登場頁
+  slug: leon-day
+  方案: T2 標準版
+  GA4 label: leon-day
+  ─────────────────────
+  v1.0  2026-06-02  初版建置（Claude 產出）
+  v1.1  2026-06-02  色調奶白主/深綠輔、Hero按鈕標準結構、雜誌排版
+  v1.2  2026-06-02  Hero對齊BellaSPA標準；§2產品卡片；§3品牌故事；移除認證區
+  v1.3  2026-06-02  升級完整登場頁：§2產品卡、§3品牌故事、§4認證精簡帶、Footer完整
+  v1.4  2026-06-02  架構重組：移除Watermark；新增§2觀點宣言、§3主理人、§4加拿大油品專題、§5德國果汁專題；§6品牌故事精簡；§7認證帶
+  v1.5  2026-06-02  §3主理人從absolute改Grid雙欄；補全站假圖色塊；修正RWD；間距整體優化
+  v1.6  2026-06-03  Design Skill v1.0 套用：字體升級（Fraunces/Cormorant/芫荽/Josefin）；section padding clamp化；Signature Moment強化；CTA改底線文字；luxury easing；Breathing Space加入；裝飾水印加大
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>萊漾 León Day｜簡單吃，健康過</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-29J2988Y8J');</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-P8PS42TD');</script>
+<meta property="og:title" content="萊漾 León Day｜簡單吃，健康過">
+<meta property="og:description" content="加拿大有機油品與德國天然果汁。全台第一支頂級亞麻仁油，Demeter 認證果汁，Live a Simple Life。">
+<meta property="og:image" content="https://linket.app/leon-day/assets/og-brand.jpg">
+<meta property="og:url" content="https://linket.app/leon-day/">
+<meta property="og:type" content="website">
+<link rel="apple-touch-icon" href="/leon-day/assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Design Skill v1.0：Fraunces(有機感) + Cormorant Garamond(精緻引言) + Josefin Sans(Eyebrow) + Noto Serif TC(中文主體) -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200;300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,200;1,9..144,300;1,9..144,400&family=Josefin+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+<!-- emfont CDN：芫荽體（楷書引言）-->
+<script src="https://font.emtech.cc/pkg/emfont.min.js"></script>
+<style>
+:root{
+  --c1:#5A7A5D; --c1-lt:#7a9e7e;
+  --c2:#2A3028;
+  --c4:#F7F3EC; --c5:#EDE7DC;
+  --cbtn1:#5A7A5D; --cbtn1t:#F7F3EC;
+  --ink:#2A3028; --ink-lt:rgba(42,48,40,.55);
+  --r:8px;
+  /* Design Skill v1.0 */
+  --ease-lux:cubic-bezier(.25,.1,.1,1);
+  --ease-spring:cubic-bezier(.34,1.56,.64,1);
+  --section-y:clamp(4rem,9vw,7rem);
+  --section-y-sm:clamp(2.5rem,6vw,4.5rem);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Serif TC',serif;font-weight:300;background:var(--c4);color:var(--ink);-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+img{display:block;max-width:100%;}
+
+/* ── HERO ── */
+.hero{width:100%;min-height:100svh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:var(--c4);}
+.hero-bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;opacity:.15;filter:sepia(.1) contrast(1.04);}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(247,243,236,.94) 0%,rgba(247,243,236,.65) 55%,rgba(247,243,236,.20) 100%);}
+.hero-content{position:relative;z-index:1;width:100%;max-width:680px;padding:5rem 1.6rem 4rem;display:flex;flex-direction:column;align-items:center;text-align:center;}
+@media(min-width:700px){.hero-content{flex-direction:row;align-items:center;gap:5rem;text-align:left;padding:4rem 2.5rem;max-width:960px;}}
+.hero-left{flex:1 1 0;display:flex;flex-direction:column;align-items:center;gap:.55rem;color:var(--ink);}
+@media(min-width:700px){.hero-left{align-items:flex-start;}}
+.hero-logo-wrap{width:130px;height:46px;margin-bottom:.5rem;}
+.hero-logo-ph{width:130px;height:46px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:.82rem;font-weight:500;letter-spacing:.28em;color:var(--c1);border:1.5px solid rgba(90,122,93,.32);border-radius:4px;}
+.hero-role{font-size:.70rem;font-weight:300;letter-spacing:.28em;color:var(--ink-lt);text-transform:uppercase;font-family:'Josefin Sans',sans-serif;}
+.hero-name{font-size:clamp(2rem,7vw,3.2rem);font-family:'Fraunces',serif;font-weight:300;font-style:italic;letter-spacing:.02em;line-height:1.08;color:var(--ink);}
+.hero-name .name-day{display:block;font-size:clamp(.95rem,3vw,1.5rem);font-family:'Josefin Sans',sans-serif;font-style:normal;font-weight:300;letter-spacing:.28em;color:var(--c1);opacity:.82;margin-top:.2rem;}
+.hero-divider{width:20px;height:1px;background:var(--c1);opacity:.4;margin:.1rem auto;}
+@media(min-width:700px){.hero-divider{margin:.1rem 0;}}
+.hero-slogan{font-size:.84rem;font-weight:300;line-height:2.4;letter-spacing:.10em;color:var(--ink);opacity:.70;}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.76rem;letter-spacing:.14em;color:var(--c1);opacity:.62;}
+.hero-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:.3rem;}
+@media(min-width:700px){.hero-tags{justify-content:flex-start;}}
+.h-tag{font-size:.62rem;font-family:'Josefin Sans',sans-serif;font-weight:300;letter-spacing:.14em;color:var(--c1);border-bottom:1px solid rgba(90,122,93,.35);padding:.05rem .15rem .2rem;opacity:.78;}
+.hero-right{flex:1 1 0;display:flex;flex-direction:column;align-items:center;width:100%;max-width:320px;}
+@media(min-width:700px){.hero-right{align-items:flex-start;}}
+.hero-icons{display:flex;justify-content:center;gap:.8rem;margin-bottom:2rem;flex-wrap:wrap;}
+/* icons 區強制置中，桌機也置中 */
+.hero-icon-link{width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:transparent;border:none;border-radius:50%;box-shadow:0 1px 4px rgba(90,122,93,.14),0 0 0 1px rgba(90,122,93,.13);transition:opacity .2s,transform .2s;}
+.hero-icon-link:hover{opacity:.72;transform:translateY(-2px);}
+.hero-icon-link img{width:36px;height:36px;display:block;background:transparent;}
+.icon-placeholder{width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(90,122,93,.38);display:flex;align-items:center;justify-content:center;font-size:.58rem;color:var(--c1);opacity:.7;}
+.hero-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;padding:1rem 1.4rem;font-family:'Noto Serif TC',serif;font-size:.88rem;font-weight:400;letter-spacing:.18em;border:1px solid var(--c1);margin-bottom:.95rem;transition:.3s;border-radius:100px;cursor:pointer;text-decoration:none;gap:.15rem;}
+.hero-btn.p1{background:var(--c1);color:var(--cbtn1t);}
+.hero-btn.p1:hover{background:var(--c1-lt);}
+.hero-btn.ghost{background:transparent;color:var(--ink);border-color:rgba(42,48,40,.25);}
+.hero-btn.ghost:hover{background:rgba(90,122,93,.07);}
+.hero-btn-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.60rem;letter-spacing:.14em;opacity:.58;line-height:1;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;}}
+.hero-anim{opacity:0;animation:fadeUp .6s var(--ease-lux) forwards;}
+.a1{animation-delay:.05s;}.a2{animation-delay:.15s;}.a3{animation-delay:.25s;}
+.a4{animation-delay:.35s;}.a5{animation-delay:.45s;}.a6{animation-delay:.55s;}.a7{animation-delay:.65s;}
+.hero-btn-row{display:flex;gap:.8rem;width:100%;margin-bottom:.95rem;}
+.btn-sm{flex:1;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid rgba(90,122,93,.22);color:var(--ink);opacity:.6;font-size:.72rem;font-family:'Josefin Sans',sans-serif;letter-spacing:.22em;padding:.85rem .4rem;transition:.3s;cursor:pointer;border-radius:100px;}
+.btn-sm:hover{border-color:var(--c1);opacity:1;}
+.btn-sm.share{display:none;}
+.btn-sm.share.visible{display:flex;}
+
+/* ── QR MODAL ── */
+.qr-overlay{display:none;position:fixed;inset:0;z-index:999;background:rgba(247,243,236,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);align-items:center;justify-content:center;}
+.qr-overlay.active{display:flex;animation:qrIn .3s ease;}
+@keyframes qrIn{from{opacity:0;}to{opacity:1;}}
+.qr-modal{background:#fff;border:1px solid rgba(90,122,93,.18);padding:3rem 2.4rem;max-width:300px;width:90%;display:flex;flex-direction:column;align-items:center;text-align:center;border-radius:12px;}
+.qr-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;letter-spacing:.16em;color:var(--ink);margin-bottom:1.2rem;}
+.qr-code-box{width:180px;height:180px;margin:0 auto 1.2rem;border:1px solid rgba(90,122,93,.14);padding:8px;border-radius:4px;}
+.qr-url{font-size:.72rem;letter-spacing:.14em;color:var(--ink-lt);margin-bottom:1.5rem;}
+.qr-close{background:transparent;border:1px solid var(--c1);color:var(--c1);padding:.7rem 2.4rem;letter-spacing:.18em;cursor:pointer;transition:.3s;font-family:'Noto Serif TC',serif;font-size:.78rem;border-radius:100px;}
+.qr-close:hover{background:var(--c1);color:var(--cbtn1t);}
+
+
+/* ── SECTIONS 共用 ── */
+.bg-cream{background:var(--c4);color:var(--ink);}
+.bg-warm{background:var(--c5);color:var(--ink);}
+.sec-wrap{position:relative;overflow:hidden;}
+.sec-wrap::before{content:'';position:absolute;inset:0;background-size:cover;background-position:center;opacity:.05;pointer-events:none;}
+.sec-inner{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:var(--section-y) 1.6rem;}
+/* sec-eyebrow / sec-h2 由 §6 覆蓋定義，此處保留空位 */
+.sec-cta-wrap{margin-top:2.4rem;text-align:center;}
+
+/* ── §2 觀點宣言（Signature Moment）── */
+.manifesto{
+  background:var(--c2);
+  position:relative;overflow:hidden;
+  padding:clamp(5rem,12vw,9rem) 1.6rem;
+}
+/* Noise texture（品牌質感）*/
+.manifesto::before{
+  content:'';position:absolute;inset:0;
+  background-image:url('/leon-day/assets/brand-bg.jpg'),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.055'/%3E%3C/svg%3E");
+  background-size:cover,auto;
+  background-position:center,center;
+  opacity:.08;pointer-events:none;
+  mix-blend-mode:overlay;
+}
+.manifesto-inner{position:relative;z-index:1;max-width:680px;margin:0 auto;text-align:center;}
+.manifesto-line{width:28px;height:1px;background:rgba(255,255,255,.22);margin:0 auto 2.8rem;}
+/* Cormorant Garamond：Signature Moment 大字 */
+.manifesto-quote{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.8rem,6vw,3.2rem);
+  font-weight:300;
+  font-style:italic;
+  letter-spacing:.04em;line-height:1.45;
+  color:rgba(255,255,255,.92);
+  margin-bottom:2rem;
+}
+.manifesto-quote em{font-style:normal;color:var(--c1-lt);}
+.manifesto-sub{
+  font-family:'Josefin Sans',sans-serif;
+  font-size:.72rem;font-weight:300;
+  letter-spacing:.32em;text-transform:uppercase;
+  color:rgba(255,255,255,.35);
+  margin-bottom:2.8rem;
+}
+.manifesto-line-btm{width:28px;height:1px;background:rgba(255,255,255,.22);margin:0 auto;}
+
+/* ── §3 主理人（Grid雙欄去背風格）── */
+.taro-section{
+  background:var(--c4);
+  position:relative;
+  overflow:hidden;
+}
+.taro-grid{
+  display:grid;
+  grid-template-columns:minmax(0,420px) 1fr;
+  max-width:1080px;
+  margin:0 auto;
+  min-height:640px;
+  align-items:center;
+}
+/* 左欄：照片欄 */
+.taro-photo-col{
+  position:relative;
+  overflow:hidden;
+  background:var(--c5);       /* 假圖底色 */
+  min-height:640px;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+}
+/* 假圖色塊 */
+.taro-photo-col::before{
+  content:'portrait-taro.png';
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:.62rem;
+  letter-spacing:.12em;
+  color:rgba(90,122,93,.35);
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+}
+/* 去背照片本體 */
+.taro-photo{
+  position:relative;
+  z-index:1;
+  width:100%;
+  max-width:420px;
+  height:100%;
+  object-fit:contain;
+  object-position:bottom center;
+  display:block;
+}
+/* 右欄：文字欄 */
+.taro-text-col{
+  padding:4rem 3.5rem 4rem 3rem;
+  display:flex;
+  flex-direction:column;
+  gap:1.4rem;
+}
+.taro-eyebrow{
+  font-size:.64rem;font-weight:300;
+  letter-spacing:.32em;text-transform:uppercase;
+  font-family:'Josefin Sans',sans-serif;
+  color:var(--c1);opacity:.72;
+}
+.taro-name-big{
+  font-family:'Fraunces',serif;
+  font-size:clamp(2.4rem,5vw,3.8rem);
+  font-weight:300;
+  font-style:italic;
+  letter-spacing:.02em;
+  line-height:1;
+  color:var(--ink);
+}
+.taro-name-big span{
+  display:block;
+  font-family:'Josefin Sans',sans-serif;
+  font-style:normal;
+  font-size:clamp(1rem,2vw,1.4rem);
+  font-weight:300;
+  letter-spacing:.28em;
+  color:var(--c1);
+  opacity:.72;
+  margin-top:.3rem;
+}
+.taro-title-row{
+  font-size:.72rem;font-weight:300;
+  letter-spacing:.18em;
+  font-family:'Josefin Sans',sans-serif;
+  color:var(--ink-lt);
+  border-left:2px solid var(--c1);
+  padding-left:.8rem;
+  line-height:1.8;
+}
+/* 芫荽體楷書引言（emfont）*/
+.taro-quote{
+  font-size:clamp(.95rem,1.9vw,1.1rem);
+  letter-spacing:.06em;line-height:2.1;
+  color:var(--ink);opacity:.78;
+}
+.taro-link{
+  display:inline-flex;align-items:center;gap:.4rem;
+  font-size:.72rem;font-weight:300;letter-spacing:.18em;
+  color:var(--c1);
+  border-bottom:1px solid rgba(90,122,93,.3);
+  padding-bottom:.18rem;
+  transition:opacity .2s;
+  width:fit-content;
+}
+.taro-link:hover{opacity:.7;}
+
+/* RWD：手機改上下 */
+@media(max-width:640px){
+  .taro-grid{
+    grid-template-columns:1fr;
+    min-height:unset;
+  }
+  .taro-photo-col{
+    min-height:340px;
+    order:1;
+  }
+  .taro-text-col{
+    order:2;
+    padding:2rem 1.6rem 2.4rem;
+    align-items:center;
+    text-align:center;
+  }
+  .taro-title-row{
+    border-left:none;
+    border-top:1px solid rgba(90,122,93,.18);
+    padding-left:0;padding-top:.6rem;
+    text-align:center;
+  }
+  .taro-name-big{text-align:center;}
+  .taro-link{margin:0 auto;}
+}
+
+/* ── §4 §5 選品專題 共用 ── */
+.feature-section{position:relative;overflow:hidden;}
+.feature-section::before{content:'';position:absolute;inset:0;background-size:cover;background-position:center;pointer-events:none;}
+.feature-inner{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:var(--section-y) 1.6rem;}
+
+/* 專題頂部：圖文左右 */
+.feature-layout{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;margin-bottom:3.5rem;border-radius:10px;overflow:hidden;min-height:400px;}
+.feature-layout.reverse .feature-img{order:2;}
+.feature-layout.reverse .feature-text{order:1;}
+@media(max-width:640px){
+  .feature-layout,.feature-layout.reverse{grid-template-columns:1fr;min-height:unset;}
+  .feature-layout.reverse .feature-img,.feature-layout.reverse .feature-text{order:unset;}
+}
+.feature-img{position:relative;min-height:380px;background:var(--c5);}
+.feature-img::after{content:attr(data-ph);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.62rem;letter-spacing:.12em;color:rgba(90,122,93,.4);font-family:'Cormorant Garamond',serif;font-style:italic;pointer-events:none;}
+.feature-img-inner{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.85;}
+.feature-text{background:var(--c2);padding:3rem 2.4rem;display:flex;flex-direction:column;justify-content:center;gap:1.4rem;}
+@media(max-width:640px){.feature-text{padding:2.2rem 1.6rem;}.feature-img{min-height:300px;}}
+/* Josefin Sans Eyebrow */
+.feature-eyebrow{
+  font-family:'Josefin Sans',sans-serif;
+  font-size:.64rem;font-weight:300;
+  letter-spacing:.3em;text-transform:uppercase;
+  color:var(--c1-lt);opacity:.85;
+}
+/* Fraunces 有機大標題 */
+.feature-h2{
+  font-family:'Fraunces',serif;
+  font-size:clamp(1.5rem,4vw,2.2rem);
+  font-weight:300;
+  font-style:italic;
+  letter-spacing:.03em;line-height:1.2;
+  color:rgba(255,255,255,.92);
+}
+.feature-body{font-size:.84rem;font-weight:300;line-height:2.3;letter-spacing:.05em;color:rgba(255,255,255,.62);}
+/* Aesop 式底線文字 CTA（不填滿色）*/
+.feature-cta{
+  display:inline-flex;align-items:center;gap:.4rem;
+  font-family:'Josefin Sans',sans-serif;
+  font-size:.72rem;font-weight:300;letter-spacing:.22em;
+  color:rgba(255,255,255,.75);
+  border-bottom:1px solid rgba(255,255,255,.28);
+  padding-bottom:.2rem;
+  width:fit-content;
+  transition:color .2s,border-color .2s;
+  cursor:pointer;text-decoration:none;
+  margin-top:.4rem;
+}
+.feature-cta:hover{color:#fff;border-color:rgba(255,255,255,.65);}
+
+/* 產品卡 */
+.prod-cards-wrap{display:flex;flex-direction:column;gap:0;}
+.prod-cards-label{font-size:.64rem;font-weight:300;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-lt);font-family:'Josefin Sans',sans-serif;margin-bottom:1.4rem;margin-top:.4rem;}
+.card-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-bottom:1.4rem;}
+@media(max-width:520px){.card-grid-2{grid-template-columns:1fr;gap:1.2rem;}}
+/* 三欄：手機改兩欄 */
+.card-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+@media(max-width:640px){.card-grid-3{grid-template-columns:1fr 1fr;gap:1rem;}}
+@media(max-width:360px){.card-grid-3{grid-template-columns:1fr;}}
+.prod-card{position:relative;overflow:hidden;border:1px solid rgba(90,122,93,.16);border-radius:10px;background:var(--c5);transition:transform .3s var(--ease-lux),box-shadow .3s var(--ease-lux);aspect-ratio:4/5;display:flex;flex-direction:column;justify-content:flex-end;}
+.prod-card:hover{transform:translateY(-4px);box-shadow:0 10px 32px rgba(90,122,93,.11);}
+.prod-card-sm{position:relative;overflow:hidden;border:1px solid rgba(90,122,93,.14);border-radius:8px;background:var(--c5);transition:transform .3s var(--ease-lux),box-shadow .3s var(--ease-lux);aspect-ratio:3/4;display:flex;flex-direction:column;justify-content:flex-end;}
+.prod-card-sm:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(90,122,93,.10);}
+.prod-card-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.12;transition:opacity .3s;}
+.prod-card:hover .prod-card-bg,.prod-card-sm:hover .prod-card-bg{opacity:.18;}
+.prod-card-body{position:relative;z-index:1;padding:1.2rem 1.1rem 1.3rem;display:flex;flex-direction:column;gap:.35rem;background:linear-gradient(to top,rgba(237,231,220,.98) 0%,rgba(237,231,220,.72) 60%,transparent 100%);}
+.prod-origin{font-size:.60rem;font-weight:300;letter-spacing:.22em;text-transform:uppercase;font-family:'Josefin Sans',sans-serif;color:var(--c1);opacity:.72;}
+.prod-name{font-size:.92rem;font-weight:500;letter-spacing:.08em;color:var(--ink);line-height:1.4;}
+.prod-name-en{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.76rem;letter-spacing:.12em;color:var(--c1);opacity:.65;}
+.prod-desc{font-size:.76rem;font-weight:300;line-height:1.9;letter-spacing:.04em;color:var(--ink);opacity:.68;margin-top:.15rem;}
+.prod-vol{font-size:.62rem;font-family:'Josefin Sans',sans-serif;letter-spacing:.18em;color:var(--ink-lt);margin-top:.1rem;}
+.sec-cta-wrap{margin-top:2.2rem;text-align:center;}
+/* Aesop 式底線文字 CTA */
+.btn-text-cta{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:'Josefin Sans',sans-serif;
+  font-size:.72rem;font-weight:300;letter-spacing:.22em;
+  color:var(--c1);
+  border-bottom:1px solid rgba(90,122,93,.32);
+  padding-bottom:.22rem;
+  transition:border-color .2s,opacity .2s;
+}
+.btn-text-cta:hover{border-color:var(--c1);opacity:.75;}
+
+/* 專題分隔 */
+.feature-divider{height:1px;background:linear-gradient(to right,transparent,rgba(90,122,93,.18),transparent);margin:0 2.5rem;}
+
+/* ── §6 品牌故事 ── */
+.brand-inner{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:var(--section-y) 1.6rem;display:grid;grid-template-columns:1fr 1.8fr;gap:4rem;align-items:start;}
+@media(max-width:640px){.brand-inner{grid-template-columns:1fr;gap:1.8rem;padding:var(--section-y-sm) 1.6rem;}}
+.brand-deco-col{position:sticky;top:2rem;}
+/* Cormorant Garamond 裝飾大字水印 — 更大更有張力 */
+.brand-deco-big{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(6rem,18vw,14rem);
+  font-weight:300;
+  font-style:italic;
+  line-height:.88;letter-spacing:-.02em;
+  color:transparent;
+  -webkit-text-stroke:1.5px rgba(90,122,93,.15);
+  user-select:none;
+}
+.brand-year{display:block;margin-top:.9rem;font-size:.62rem;font-weight:300;font-family:'Josefin Sans',sans-serif;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-lt);}
+.brand-text-col{display:flex;flex-direction:column;gap:1.6rem;}
+.brand-body{font-size:.88rem;font-weight:300;line-height:2.4;letter-spacing:.05em;color:var(--ink);opacity:.75;}
+/* Cormorant Garamond 斜體引言 */
+.brand-quote{
+  border-left:2px solid var(--c1);
+  padding:.6rem 0 .6rem 1.2rem;
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:clamp(1rem,2.2vw,1.2rem);
+  letter-spacing:.06em;color:var(--c1);opacity:.78;line-height:1.85;
+}
+.brand-pills{display:flex;flex-wrap:wrap;gap:.5rem;}
+.brand-pill{font-size:.66rem;font-weight:300;font-family:'Josefin Sans',sans-serif;letter-spacing:.14em;border:1px solid rgba(90,122,93,.35);border-radius:100px;padding:.22rem .85rem;color:var(--c1);}
+.sec-eyebrow{font-size:.68rem;font-weight:300;letter-spacing:.32em;text-transform:uppercase;font-family:'Josefin Sans',sans-serif;color:var(--c1);opacity:.72;margin-bottom:.5rem;}
+.sec-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:500;letter-spacing:.08em;color:var(--ink);}
+
+/* ── Breathing Space（Aman 節奏）── */
+.breathing{
+  padding:clamp(2rem,6vw,4rem) 1.6rem;
+  display:flex;align-items:center;justify-content:center;
+  border-top:1px solid rgba(90,122,93,.1);
+  border-bottom:1px solid rgba(90,122,93,.1);
+  margin:0 auto;
+  max-width:680px;
+}
+.breathing-text{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:clamp(.82rem,1.8vw,.95rem);
+  letter-spacing:.12em;
+  color:var(--ink-lt);
+  text-align:center;
+  line-height:1.9;
+}
+
+/* ── §7 認證帶 ── */
+.cert-strip{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem 1.6rem;padding:clamp(2rem,5vw,3.5rem) 1.6rem;border-top:1px solid rgba(90,122,93,.12);border-bottom:1px solid rgba(90,122,93,.12);margin:0 1.6rem;}
+.cert-tag{font-size:.68rem;font-weight:300;letter-spacing:.14em;font-family:'Josefin Sans',sans-serif;color:var(--ink-lt);display:flex;align-items:center;gap:.4rem;}
+.cert-tag::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--c1);opacity:.55;flex-shrink:0;}
+
+/* ── FOOTER ── */
+.footer{background:var(--c5);padding:4rem 1.6rem 2.4rem;text-align:center;position:relative;overflow:hidden;}
+.footer::before{content:'';position:absolute;inset:0;background-image:url('/leon-day/assets/hero-bg.jpg');background-size:cover;background-position:center;opacity:.04;pointer-events:none;}
+.footer-inner{position:relative;z-index:1;}
+.footer-logo-ph{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;letter-spacing:.28em;color:var(--c1);margin-bottom:.4rem;opacity:.7;}
+.footer-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.78rem;letter-spacing:.18em;color:var(--ink-lt);margin-bottom:2.4rem;}
+.footer-icons{display:flex;justify-content:center;gap:1rem;margin-bottom:1.8rem;}
+.footer-icon-link{width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:transparent;border:none;border-radius:50%;box-shadow:0 1px 4px rgba(90,122,93,.12),0 0 0 1px rgba(90,122,93,.12);transition:opacity .2s,transform .2s;}
+.footer-icon-link:hover{opacity:.72;transform:translateY(-2px);}
+.footer-icon-link img{width:36px;height:36px;background:transparent;}
+.footer-btns{display:flex;flex-direction:column;gap:.8rem;max-width:300px;margin:0 auto 2.4rem;}
+.footer-btn{display:flex;align-items:center;justify-content:center;width:100%;padding:1.1rem 1.4rem;font-family:'Noto Serif TC',serif;font-size:.86rem;font-weight:400;letter-spacing:.18em;border:1px solid var(--c1);transition:.3s;border-radius:100px;cursor:pointer;text-decoration:none;}
+.footer-btn.p1{background:var(--c1);color:var(--cbtn1t);}
+.footer-btn.p1:hover{background:var(--c1-lt);}
+.footer-btn.ghost{background:transparent;color:var(--ink);border-color:rgba(42,48,40,.25);}
+.footer-btn.ghost:hover{background:rgba(90,122,93,.07);}
+.legal-block{max-width:520px;margin:0 auto 1.6rem;padding:.9rem 1rem;border:1px solid rgba(42,48,40,.1);border-radius:var(--r);text-align:left;background:rgba(247,243,236,.7);}
+.legal-title{display:block;font-size:.64rem;font-weight:400;font-family:'Josefin Sans',sans-serif;letter-spacing:.14em;color:var(--ink-lt);margin-bottom:.4rem;}
+.legal-block p{font-size:.66rem;font-weight:200;line-height:1.9;letter-spacing:.04em;color:var(--ink);opacity:.48;}
+.copyright{font-size:.62rem;font-weight:200;font-family:'Josefin Sans',sans-serif;letter-spacing:.18em;color:var(--ink-lt);margin-bottom:.35rem;}
+.design-by{font-size:.62rem;letter-spacing:.2em;color:var(--ink-lt);}
+.db-lin{color:#1685C8;}.db-ket{color:var(--c2);}
+
+/* ── REVEAL / BACK TO TOP ── */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .7s var(--ease-lux),transform .7s var(--ease-lux);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.rd1{transition-delay:.12s;}.rd2{transition-delay:.24s;}.rd3{transition-delay:.36s;}
+.back-top{position:fixed;bottom:1.4rem;right:1.4rem;width:44px;height:44px;background:rgba(42,48,40,.7);border:1px solid rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .3s;z-index:99;backdrop-filter:blur(6px);}
+.back-top.show{opacity:1;}
+.back-top svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2;}
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8PS42TD" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- QR Modal -->
+<div class="qr-overlay" id="qrModal" onclick="if(event.target===this)closeQr()">
+  <div class="qr-modal">
+    <div class="qr-title">León Day</div>
+    <div class="qr-code-box"><div id="qrcode-canvas"></div></div>
+    <div class="qr-url">linket.app/leon-day</div>
+    <button class="qr-close" onclick="closeQr()">關 閉</button>
+  </div>
+</div>
+
+<!-- ── HERO ── -->
+<section class="hero" id="top">
+  <img src="/leon-day/assets/hero-bg.jpg" class="hero-bg-img" aria-hidden="true" onerror="this.style.display='none'">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-logo-wrap hero-anim a1">
+        <div class="hero-logo-ph">LÉON DAY</div>
+      </div>
+      <h1 class="hero-role hero-anim a2">萊漾有限公司</h1>
+      <div class="hero-name hero-anim a2">
+        萊漾
+        <span class="name-day">León Day</span>
+      </div>
+      <div class="hero-divider hero-anim a3"></div>
+      <p class="hero-slogan hero-anim a3">簡單吃，健康過<br>Live a Simple Life</p>
+      <div class="hero-sub hero-anim a4">Nature · Organic · Health food</div>
+      <div class="hero-tags hero-anim a4">
+        <span class="h-tag">#加拿大有機</span>
+        <span class="h-tag">#Demeter 認證</span>
+        <span class="h-tag">#全台頂級標準</span>
+      </div>
+    </div>
+    <div class="hero-right">
+      <!-- 社群 icons — 置中，5 個 -->
+      <div class="hero-icons hero-anim a5">
+        <a class="hero-icon-link" href="https://lin.ee/7jwUJjsJ" target="_blank" rel="noopener" aria-label="LINE" onclick="gtag('event','click_line_icon',{'event_category':'CTA','event_label':'leon-day'})">
+          <img src="/assets/line.svg" alt="LINE" onerror="this.parentElement.innerHTML='<div class=\'icon-placeholder\'>L</div>'">
+        </a>
+        <a class="hero-icon-link" href="https://www.leonday.day/" target="_blank" rel="noopener" aria-label="官網" onclick="gtag('event','click_web',{'event_category':'CTA','event_label':'leon-day'})">
+          <img src="/assets/web.svg" alt="Web" onerror="this.parentElement.innerHTML='<div class=\'icon-placeholder\'>W</div>'">
+        </a>
+        <a class="hero-icon-link" href="https://www.instagram.com/leonday.tw/" target="_blank" rel="noopener" aria-label="Instagram" onclick="gtag('event','click_ig_follow',{'event_category':'CTA','event_label':'leon-day'})">
+          <img src="/assets/instagram.svg" alt="IG" onerror="this.parentElement.innerHTML='<div class=\'icon-placeholder\'>IG</div>'">
+        </a>
+        <a class="hero-icon-link" href="https://www.facebook.com/leondaytw" target="_blank" rel="noopener" aria-label="Facebook" onclick="gtag('event','click_fb',{'event_category':'CTA','event_label':'leon-day'})">
+          <img src="/assets/facebook.svg" alt="FB" onerror="this.parentElement.innerHTML='<div class=\'icon-placeholder\'>FB</div>'">
+        </a>
+        <a class="hero-icon-link" href="tel:0277428957" aria-label="電話" onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'leon-day'})">
+          <img src="/assets/phone.svg" alt="電話" onerror="this.parentElement.innerHTML='<div class=\'icon-placeholder\'>T</div>'">
+        </a>
+      </div>
+
+      <!-- 主按鈕 -->
+      <a href="https://lin.ee/7jwUJjsJ" target="_blank" rel="noopener"
+         class="hero-btn p1 hero-anim a6"
+         onclick="gtag('event','click_line_consumer',{'event_category':'CTA','event_label':'leon-day'})">
+        萊漾產品訂購｜LINE@
+        <span class="hero-btn-sub">Consumer Line</span>
+      </a>
+
+      <a href="https://lin.ee/PoMk7a5" target="_blank" rel="noopener"
+         class="hero-btn p1 hero-anim a6"
+         onclick="gtag('event','click_line_b2b',{'event_category':'CTA','event_label':'leon-day'})">
+        商家企業合作｜LINE@ for Business
+        <span class="hero-btn-sub">B2B Partnership</span>
+      </a>
+
+      <a href="#canada-oil"
+         class="hero-btn ghost hero-anim a7"
+         onclick="gtag('event','click_anchor_oil',{'event_category':'CTA','event_label':'leon-day'})">
+        加拿大精選油
+        <span class="hero-btn-sub">Canada Organic Oils</span>
+      </a>
+
+      <a href="#germany-juice"
+         class="hero-btn ghost hero-anim a7"
+         onclick="gtag('event','click_anchor_juice',{'event_category':'CTA','event_label':'leon-day'})">
+        德國果汁選品
+        <span class="hero-btn-sub">German Demeter Juices</span>
+      </a>
+
+      <a href="#brand"
+         class="hero-btn ghost hero-anim a7"
+         onclick="gtag('event','click_anchor_about',{'event_category':'CTA','event_label':'leon-day'})">
+        關於萊漾
+        <span class="hero-btn-sub">About Us</span>
+      </a>
+
+      <div class="hero-btn-row hero-anim a7">
+        <button class="btn-sm" onclick="openQr()">QR Code</button>
+        <button class="btn-sm share" id="shareBtn" onclick="shareThis()">Share</button>
+      </div>
+    </div><!-- /hero-right -->
+  </div><!-- /hero-content -->
+</section>
+
+<!-- ══ §2 觀點宣言 ══ -->
+<section class="manifesto" id="manifesto">
+  <div class="manifesto-inner">
+    <div class="manifesto-line reveal"></div>
+    <p class="manifesto-quote reveal">
+      好油不是偶然的選擇，<br>
+      而是對<em>來源</em>的徹底信任。
+    </p>
+    <div class="manifesto-sub reveal">Nature · Organic · Health food · Daily</div>
+    <div class="manifesto-line-btm reveal"></div>
+  </div>
+</section>
+
+<!-- ══ §3 主理人 ══ -->
+<section class="taro-section" id="taro">
+  <div class="taro-grid">
+    <!-- 左欄：照片欄（假圖底色 + 實際去背照）-->
+    <div class="taro-photo-col reveal">
+      <img src="/leon-day/assets/portrait-taro.png"
+           class="taro-photo"
+           alt="陳玉蓮 Taro Chen"
+           onerror="this.style.display='none'">
+    </div>
+    <!-- 右欄：文字 -->
+    <div class="taro-text-col">
+      <div class="taro-eyebrow reveal">Brand Director · 萊漾品牌總監</div>
+      <div class="taro-name-big reveal">
+        陳玉蓮
+        <span>Taro Chen</span>
+      </div>
+      <div class="taro-title-row reveal">
+        萊漾有限公司<br>León Day
+      </div>
+      <blockquote class="taro-quote em-iansui reveal">
+        「懷孕之後，所有的營養補充<br>
+        都來自自家產品。<br>
+        這是對自家選油，最誠實的代言。」
+      </blockquote>
+      <a href="/leon-day/owner/" class="taro-link reveal"
+         onclick="gtag('event','click_owner_page',{'event_category':'CTA','event_label':'leon-day'})">
+        了解品牌總監 →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ §4 加拿大選油專題 ══ -->
+<section class="feature-section" id="canada-oil" style="background:var(--c4);">
+  <div class="feature-inner">
+
+    <!-- 專題圖文：圖左文右 -->
+    <div class="feature-layout reveal">
+      <div class="feature-img" data-ph="feature-canada.jpg">
+        <div class="feature-img-inner" style="background-image:url('/leon-day/assets/feature-canada.jpg');"></div>
+      </div>
+      <div class="feature-text">
+        <div class="feature-eyebrow">Canada · Organic Oil</div>
+        <h2 class="feature-h2">一口好油，<br>從土地開始</h2>
+        <p class="feature-body">
+          萊漾精選加拿大頂級有機油品，從產地到製程全程把關。
+          Omega-3 是人體無法自行合成的必需脂肪酸，
+          每一瓶都是對純粹來源最誠實的承諾。
+        </p>
+        <a href="/leon-day/organic-oil/"
+           class="feature-cta"
+           onclick="gtag('event','click_oil_page',{'event_category':'CTA','event_label':'leon-day'})">
+          探索選油指南 →
+        </a>
+      </div>
+    </div>
+
+    <!-- 產品卡 -->
+    <div class="prod-cards-wrap">
+      <div class="prod-cards-label">加拿大有機油品</div>
+      <div class="card-grid-2 reveal">
+        <div class="prod-card">
+          <div class="prod-card-bg" style="background-image:url('/leon-day/assets/product-flax.jpg')"></div>
+          <div class="prod-card-body">
+            <div class="prod-origin">Canada · 加拿大</div>
+            <div class="prod-name">有機冷壓亞麻仁油</div>
+            <div class="prod-name-en">Organic Flaxseed Oil</div>
+            <p class="prod-desc">Omega-3 精準補充，有助調整體質。孕婦・術後・日常保養適用。</p>
+            <div class="prod-vol">250ml</div>
+          </div>
+        </div>
+        <div class="prod-card rd1">
+          <div class="prod-card-bg" style="background-image:url('/leon-day/assets/product-mct.jpg')"></div>
+          <div class="prod-card-body">
+            <div class="prod-origin">Canada · 加拿大</div>
+            <div class="prod-name">有機 MCT 油</div>
+            <div class="prod-name-en">Organic MCT Oil</div>
+            <p class="prod-desc">椰子油萃取中鏈脂肪酸，小腸直接吸收，快速轉化為能量。</p>
+            <div class="prod-vol">250ml</div>
+          </div>
+        </div>
+      </div>
+      <div class="sec-cta-wrap reveal">
+        <a class="btn-text-cta"
+           href="https://lin.ee/7jwUJjsJ" target="_blank" rel="noopener"
+           onclick="gtag('event','click_line_oil_cta',{'event_category':'CTA','event_label':'leon-day'})">
+          選購諮詢｜LINE →
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="feature-divider"></div>
+
+<!-- ══ §5 德國果汁專題 ══ -->
+<section class="feature-section" id="germany-juice" style="background:var(--c5);">
+  <div class="feature-inner">
+
+    <!-- 專題圖文：圖右文左（reverse）-->
+    <div class="feature-layout reverse reveal">
+      <div class="feature-img" data-ph="feature-germany.jpg">
+        <div class="feature-img-inner" style="background-image:url('/leon-day/assets/feature-germany.jpg');"></div>
+      </div>
+      <div class="feature-text">
+        <div class="feature-eyebrow">Germany · Demeter Certified</div>
+        <h2 class="feature-h2">世界最高等級，<br>來自德國的果汁</h2>
+        <p class="feature-body">
+          Demeter 人智學農法，是目前全球有機農業中認證標準最嚴格的體系，
+          將農場視為完整的生命有機體。
+          100% 原汁，無添加，是可以喝的日常食療。
+        </p>
+        <a href="https://lin.ee/7jwUJjsJ" target="_blank" rel="noopener"
+           class="feature-cta"
+           onclick="gtag('event','click_line_juice_cta',{'event_category':'CTA','event_label':'leon-day'})">
+          諮詢購買｜LINE →
+        </a>
+      </div>
+    </div>
+
+    <!-- 產品卡 -->
+    <div class="prod-cards-wrap">
+      <div class="prod-cards-label">德國 Demeter 認證果汁</div>
+      <div class="card-grid-3 reveal">
+        <div class="prod-card-sm">
+          <div class="prod-card-bg" style="background-image:url('/leon-day/assets/product-root.jpg')"></div>
+          <div class="prod-card-body">
+            <div class="prod-origin">Germany · Demeter</div>
+            <div class="prod-name">根菜汁</div>
+            <div class="prod-name-en">Root Vegetable Juice</div>
+            <div class="prod-vol">700ml</div>
+          </div>
+        </div>
+        <div class="prod-card-sm rd1">
+          <div class="prod-card-bg" style="background-image:url('/leon-day/assets/product-apple.jpg')"></div>
+          <div class="prod-card-body">
+            <div class="prod-origin">Germany · Demeter</div>
+            <div class="prod-name">蘋果汁</div>
+            <div class="prod-name-en">Apple Juice</div>
+            <div class="prod-vol">700ml</div>
+          </div>
+        </div>
+        <div class="prod-card-sm rd2">
+          <div class="prod-card-bg" style="background-image:url('/leon-day/assets/product-vinegar.jpg')"></div>
+          <div class="prod-card-body">
+            <div class="prod-origin">Germany · Demeter</div>
+            <div class="prod-name">蘋果醋</div>
+            <div class="prod-name-en">Apple Cider Vinegar</div>
+            <div class="prod-vol">750ml</div>
+          </div>
+        </div>
+      </div>
+      <div class="sec-cta-wrap reveal">
+        <a class="btn-text-cta"
+           href="https://lin.ee/7jwUJjsJ" target="_blank" rel="noopener"
+           onclick="gtag('event','click_line_juice_footer',{'event_category':'CTA','event_label':'leon-day'})">
+          選購諮詢｜LINE →
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ §6 品牌故事 ══ -->
+<section class="sec-wrap" style="background:var(--c4);overflow:hidden;position:relative;" id="brand">
+  <div class="brand-inner">
+    <div class="brand-deco-col reveal">
+      <div class="brand-deco-big">León</div>
+      <span class="brand-year">EST. 2022</span>
+    </div>
+    <div class="brand-text-col">
+      <div class="sec-eyebrow reveal">Brand Story</div>
+      <h2 class="sec-h2 reveal">León 的誕生</h2>
+      <p class="brand-body reveal">
+        2022 年，好友的寶寶在 2 月 22 日降臨，小名 León。
+        西班牙文中是「小獅子」與「陽光」。那一刻，品牌創辦人感受到生命最純粹的能量——
+        決定用這個名字，創立萊漾。
+      </p>
+      <blockquote class="brand-quote reveal">
+        「Day 代表 Daily。<br>
+        健康不是偶爾的儀式，而是每天的選擇。」
+      </blockquote>
+      <div class="brand-pills reveal rd1">
+        <span class="brand-pill">有機即永續</span>
+        <span class="brand-pill">原型食物優先</span>
+        <span class="brand-pill">Live a Simple Life</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ Breathing Space（Aman 節奏）══ -->
+<div style="padding:clamp(2.5rem,7vw,5rem) 0;display:flex;justify-content:center;">
+  <div class="breathing reveal">
+    <div class="breathing-text">
+      有機即永續 · 健康從一口好油開始 · Live a Simple Life
+    </div>
+  </div>
+</div>
+
+<!-- ══ §7 認證帶 ══ -->
+<div class="cert-strip reveal">
+  <span class="cert-tag">USDA 有機認證</span>
+  <span class="cert-tag">加拿大國家有機</span>
+  <span class="cert-tag">Non-GMO Project</span>
+  <span class="cert-tag">Demeter 人智學農法</span>
+  <span class="cert-tag">Kosher・HALAL</span>
+  <span class="cert-tag">SGS 五大未檢出</span>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="footer" id="contact">
+  <div class="footer-inner">
+    <div class="footer-logo-ph">LÉON DAY</div>
+    <div class="footer-sub">Nature · Organic · Health food</div>
+    <div class="footer-icons">
+      <a class="footer-icon-link" href="https://www.instagram.com/leonday.tw/" target="_blank" rel="noopener" aria-label="Instagram">
+        <img src="/assets/instagram.svg" alt="IG" onerror="this.parentElement.innerHTML='<div class=\'icon-placeholder\'>IG</div>'">
+      </a>
+      <a class="footer-icon-link" href="https://www.facebook.com/leondaytw" target="_blank" rel="noopener" aria-label="Facebook">
+        <img src="/assets/facebook.svg" alt="FB" onerror="this.parentElement.innerHTML='<div class=\'icon-placeholder\'>FB</div>'">
+      </a>
+    </div>
+    <div class="footer-btns">
+      <a class="footer-btn p1" href="https://lin.ee/7jwUJjsJ" target="_blank" rel="noopener" onclick="gtag('event','click_line_consumer_footer',{'event_category':'CTA','event_label':'leon-day'})">消費者諮詢｜LINE</a>
+      <a class="footer-btn ghost" href="https://lin.ee/PoMk7a5" target="_blank" rel="noopener" onclick="gtag('event','click_line_b2b_footer',{'event_category':'CTA','event_label':'leon-day'})">B2B 合作洽詢｜LINE</a>
+    </div>
+    <div class="legal-block">
+      <span class="legal-title">【產品聲明與免責說明】</span>
+      <p>本網站所呈現之產品均為一般食品，非藥物，不具醫療效果，亦不構成任何醫療診斷、疾病治療或預防之建議。購買前請諮詢醫師或專業營養師。個別體驗因人而異，不構成療效保證。</p>
+    </div>
+    <p class="copyright">© 2026 萊漾有限公司 · 統編 90004914</p>
+    <a class="design-by" href="https://linket.app" target="_blank">Design by <span class="db-lin">LIN</span><span class="db-ket">Ket</span></a>
+  </div>
+</footer>
+
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
+
+<script>
+(function(){const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');});},{threshold:.1});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));})();
+(function(){const b=document.getElementById('backTop');window.addEventListener('scroll',()=>b.classList.toggle('show',scrollY>300));})();
+(function(){const b=document.getElementById('shareBtn');if(b&&navigator.share)b.classList.add('visible');})();
+function shareThis(){if(!navigator.share)return;navigator.share({title:'萊漾 León Day',text:'簡單吃，健康過',url:'https://linket.app/leon-day/'}).then(()=>gtag('event','click_share',{'event_category':'CTA','event_label':'leon-day'})).catch(()=>{});}
+let qrL=false,qrI=null;
+function openQr(){document.getElementById('qrModal').classList.add('active');document.body.style.overflow='hidden';if(!qrL){const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';s.onload=()=>{qrL=true;if(!qrI)qrI=new QRCode(document.getElementById('qrcode-canvas'),{text:'https://linket.app/leon-day/',width:164,height:164,colorDark:'#2A3028',colorLight:'#fff',correctLevel:QRCode.CorrectLevel.M});};document.head.appendChild(s);}else if(!qrI)qrI=new QRCode(document.getElementById('qrcode-canvas'),{text:'https://linket.app/leon-day/',width:164,height:164,colorDark:'#2A3028',colorLight:'#fff',correctLevel:QRCode.CorrectLevel.M});gtag('event','click_qr_modal',{'event_category':'CTA','event_label':'leon-day'});}
+function closeQr(){document.getElementById('qrModal').classList.remove('active');document.body.style.overflow='';}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeQr();});
+</script>
+</body>
+</html>
