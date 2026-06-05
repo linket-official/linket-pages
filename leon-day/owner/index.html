@@ -313,7 +313,7 @@ img{display:block;max-width:100%;}
     <img src="/leon-day/assets/logo.svg" alt="León Day" style="width:clamp(80px,15vw,150px);height:auto;margin:0 auto 1rem;display:block;object-fit:contain;" onerror="this.style.display='none'">
     <div class="qr-title">León Day</div>
     <div class="qr-code-box"><div id="qrcode-canvas"></div></div>
-    <div class="qr-url">linket.app/leon-day</div>
+    <div class="qr-url">linket.app/leon-day/owner</div>
     <button class="qr-close" onclick="closeQr()">關 閉</button>
   </div>
 </div>
@@ -715,7 +715,7 @@ img{display:block;max-width:100%;}
 (function(){const b=document.getElementById('shareBtn');if(b&&navigator.share)b.classList.add('visible');})();
 function shareThis(){if(!navigator.share)return;navigator.share({title:'萊漾 León Day',text:'León Day 品牌總監 · Taro Chen',url:'https://linket.app/leon-day/owner/'}).then(()=>gtag('event','click_share',{'event_category':'CTA','event_label':'leon-day-owner'})).catch(()=>{});}
 let qrL=false,qrI=null;
-function openQr(){document.getElementById('qrModal').classList.add('active');document.body.style.overflow='hidden';if(!qrL){const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';s.onload=()=>{qrL=true;if(!qrI)qrI=new QRCode(document.getElementById('qrcode-canvas'),{text:'https://linket.app/leon-day/',width:164,height:164,colorDark:'#2A3028',colorLight:'#fff',correctLevel:QRCode.CorrectLevel.M})};document.head.appendChild(s);}else if(!qrI)qrI=new QRCode(document.getElementById('qrcode-canvas'),{text:'https://linket.app/leon-day/',width:164,height:164,colorDark:'#2A3028',colorLight:'#fff',correctLevel:QRCode.CorrectLevel.M});gtag('event','click_qr_modal',{'event_category':'CTA','event_label':'leon-day-owner'});}
+function openQr(){document.getElementById('qrModal').classList.add('active');document.body.style.overflow='hidden';if(!qrL){const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';s.onload=()=>{qrL=true;if(!qrI)qrI=new QRCode(document.getElementById('qrcode-canvas'),{text:'https://linket.app/leon-day/owner',width:164,height:164,colorDark:'#2A3028',colorLight:'#fff',correctLevel:QRCode.CorrectLevel.M})};document.head.appendChild(s);}else if(!qrI)qrI=new QRCode(document.getElementById('qrcode-canvas'),{text:'https://linket.app/leon-day/owner',width:164,height:164,colorDark:'#2A3028',colorLight:'#fff',correctLevel:QRCode.CorrectLevel.M});gtag('event','click_qr_modal',{'event_category':'CTA','event_label':'leon-day-owner'});}
 function closeQr(){document.getElementById('qrModal').classList.remove('active');document.body.style.overflow='';}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeQr();});
 </script>
