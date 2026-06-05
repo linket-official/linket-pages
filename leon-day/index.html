@@ -188,7 +188,7 @@ img{display:block;max-width:100%;}
 .bv-hero-img{position:absolute;inset:0;overflow:hidden;background-size:cover;background-position:center;} .bv-hero-wrap{position:relative;}
 .bv-hero-img-el{width:100%;height:100%;object-fit:cover;object-position:center;}
 /* 底部漸層 Scrim */
-.bv-hero-scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(30,30,24,.78) 0%,rgba(30,30,24,.3) 40%,transparent 80%);}
+.bv-hero-scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(30,30,24,.78) 0%,rgba(30,30,24,.3) 40%,transparent 50%);}
 .bv-hero-text{position:absolute;bottom:0;left:0;right:0;padding:clamp(1.2rem,3vw,2.4rem) clamp(1.6rem,5vw,4rem) clamp(1.4rem,3vw,2rem);display:flex;flex-direction:column;gap:.7rem;}
 /* 手機主圖 */
 @media(max-width:640px){.bv-hero-wrap{aspect-ratio:4/5;}}
@@ -215,7 +215,7 @@ img{display:block;max-width:100%;}
 .bv-item:hover .bv-item-img{transform:scale(1.03);}
 .bv-item:hover .bv-item-detail{opacity:1;transform:none;}
 .bv-item:hover .bv-item-name-mini{opacity:0;}
-.bv-item.active .bv-item-detail{opacity:0;transform:none;}
+.bv-item.active .bv-item-detail{opacity:1;transform:none;}
 .bv-item.active .bv-item-name-mini{opacity:0;}
 .bv-item:hover .bv-item-scrim{background:linear-gradient(to top,rgba(30,30,24,.92) 0%,rgba(30,30,24,.6) 60%,transparent 100%);}
 .bv-item-img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s cubic-bezier(.25,.1,.1,1);}
@@ -507,7 +507,7 @@ img{display:block;max-width:100%;}
   <div class="bv-inner">
     <div class="bv-hero-wrap reveal">
       <div class="bv-hero-img" style="background:linear-gradient(145deg,#2a2e28,#1a2018);">
-        <div style="width:100%;height:100%;background-image:url('/leon-day/assets/feature-germany.jpg');background-size:cover;background-position:center;opacity:.5;filter:brightness(.7) saturate(.8);background-color:#2a2e28;"></div>
+        <div style="width:100%;height:100%;background-image:url('/leon-day/assets/feature-germany.jpg');background-size:cover;background-position:center;opacity:1;filter:brightness(.7) saturate(.8);background-color:#2a2e28;"></div>
       </div>
       <div class="bv-hero-scrim"></div>
       <div class="bv-hero-text">
