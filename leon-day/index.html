@@ -188,7 +188,7 @@ img{display:block;max-width:100%;}
 .bv-hero-img{position:absolute;inset:0;overflow:hidden;background-size:cover;background-position:center;} .bv-hero-wrap{position:relative;}
 .bv-hero-img-el{width:100%;height:100%;object-fit:cover;object-position:center;}
 /* 底部漸層 Scrim */
-.bv-hero-scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(30,30,24,.78) 0%,rgba(30,30,24,.3) 40%,transparent 50%);}
+.bv-hero-scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(30,30,24,.78) 0%,rgba(30,30,24,.3) 40%,transparent 80%);}
 .bv-hero-text{position:absolute;bottom:0;left:0;right:0;padding:clamp(1.2rem,3vw,2.4rem) clamp(1.6rem,5vw,4rem) clamp(1.4rem,3vw,2rem);display:flex;flex-direction:column;gap:.7rem;}
 /* 手機主圖 */
 @media(max-width:640px){.bv-hero-wrap{aspect-ratio:4/5;}}
@@ -212,33 +212,25 @@ img{display:block;max-width:100%;}
 @media(max-width:680px){.bv-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:360px){.bv-grid{grid-template-columns:1fr;}}
 .bv-item{position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--c5);cursor:pointer;}
-.bv-item:hover .bv-item-img{transform:scale(1.03);}
-.bv-item:hover .bv-item-detail{opacity:1;transform:none;}
-.bv-item:hover .bv-item-name-mini{opacity:0;}
-.bv-item.active .bv-item-detail{opacity:1;transform:none;}
-.bv-item.active .bv-item-name-mini{opacity:0;}
-.bv-item:hover .bv-item-scrim{background:linear-gradient(to top,rgba(30,30,24,.92) 0%,rgba(30,30,24,.6) 60%,transparent 100%);}
+.bv-item:hover .bv-item-img,.bv-item.active .bv-item-img{transform:scale(1.03);}
 .bv-item-img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s cubic-bezier(.25,.1,.1,1);}
 .bv-item-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--ease-lux);}
 .bv-item-scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(30,30,24,.82) 0%,transparent 55%);}
-.bv-item-text{position:absolute;bottom:0;left:0;right:0;padding:1.2rem 1.1rem;}
-.bv-item-origin{font-family:'IBM Plex Sans',sans-serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:.3rem;text-shadow:0 1px 4px rgba(0,0,0,.6);}
-.bv-item-name{font-family:'Noto Serif TC',serif;font-size:clamp(1.05rem,2.6vw,1.65rem);font-weight:400;letter-spacing:.06em;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.6);line-height:1.2;}
-/* 產品卡：預設只顯示品名小字，hover/active 顯示全資訊 */
-.bv-item-name-mini{font-family:'Noto Serif TC',serif;font-size:.72rem;font-weight:300;letter-spacing:.06em;color:rgba(255,255,255,.85);text-shadow:0 1px 4px rgba(0,0,0,.6);transition:opacity .25s ease;position:absolute;left:1rem;bottom:1rem;z-index:4;pointer-events:none;}
-/* 全資訊區：預設隱藏 */
-.bv-item-detail{opacity:0;transform:translateY(6px);transition:opacity .3s ease,transform .3s ease;display:flex;flex-direction:column;gap:.3rem;position:relative;z-index:3;}
-/* 品名大字：預設隱藏 */
-.bv-item-name{font-family:'Noto Serif TC',serif;font-size:clamp(1.05rem,2.6vw,1.65rem);font-weight:400;letter-spacing:.06em;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.6);line-height:1.2;}
-.bv-item-en{font-family:'Fraunces',serif;font-style:italic;font-size:1.1rem;font-weight:200;letter-spacing:.08em;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.4);}
-.bv-item-vol{font-family:'IBM Plex Sans',sans-serif;font-size:.9rem;letter-spacing:.14em;color:rgba(255,255,255,.8);}
-/* hover/active 狀態 */
-.bv-item:hover .bv-item-detail,
-.bv-item.active .bv-item:hover .bv-item-name-mini,
-.bv-item.active 
-/* scrim 加深 */
-.bv-item:hover .bv-item-scrim,
-.bv-item.active .bv-item-scrim{background:linear-gradient(to top,rgba(30,30,24,.92) 0%,rgba(30,30,24,.5) 60%,transparent 100%);}
+.bv-item-text{position:absolute;bottom:0;left:0;right:0;padding:1rem 1rem 1.1rem;}
+/* 中文名小字：預設左下顯示 */
+.bv-item-name-mini{position:absolute;left:1rem;bottom:1rem;z-index:4;pointer-events:none;font-family:'Noto Serif TC',serif;font-size:.75rem;font-weight:300;letter-spacing:.06em;color:rgba(255,255,255,.85);text-shadow:0 1px 4px rgba(0,0,0,.6);transition:opacity .25s ease;}
+/* detail：預設隱藏 */
+.bv-item-detail{opacity:0;transform:translateY(6px);transition:opacity .3s ease,transform .3s ease;display:flex;flex-direction:column;gap:.35rem;}
+.bv-item:hover .bv-item-detail,.bv-item.active .bv-item-detail{opacity:1;transform:none;}
+.bv-item:hover .bv-item-name-mini,.bv-item.active .bv-item-name-mini{opacity:0;}
+/* hover/active：detail 顯示，mini 隱藏 */
+/* detail 內各元素 */
+.bv-item-origin{font-family:'IBM Plex Sans',sans-serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:.15rem;}
+.bv-item-name{font-family:'Noto Serif TC',serif;font-size:clamp(.9rem,2vw,1.2rem);font-weight:400;letter-spacing:.06em;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.6);line-height:1.3;}
+.bv-item-en{font-family:'Fraunces',serif;font-style:italic;font-size:.95rem;font-weight:200;letter-spacing:.08em;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.4);}
+.bv-item-vol{font-family:'IBM Plex Sans',sans-serif;font-size:.82rem;letter-spacing:.14em;color:rgba(255,255,255,.8);}
+/* 手機：detail 常駐顯示，mini 隱藏 */
+
 /* 節區分隔線（Bottega 風格）*/
 .bv-rule{height:1px;background:rgba(42,48,40,.12);margin:clamp(3rem,8vw,6rem) 0;}
 /* §4 奶白底，§5 深色底 */
@@ -507,7 +499,7 @@ img{display:block;max-width:100%;}
   <div class="bv-inner">
     <div class="bv-hero-wrap reveal">
       <div class="bv-hero-img" style="background:linear-gradient(145deg,#2a2e28,#1a2018);">
-        <div style="width:100%;height:100%;background-image:url('/leon-day/assets/feature-germany.jpg');background-size:cover;background-position:center;opacity:1;filter:brightness(.7) saturate(.8);background-color:#2a2e28;"></div>
+        <div style="width:100%;height:100%;background-image:url('/leon-day/assets/feature-germany.jpg');background-size:cover;background-position:center;background-color:#2a2e28;"></div>
       </div>
       <div class="bv-hero-scrim"></div>
       <div class="bv-hero-text">
@@ -658,16 +650,19 @@ img{display:block;max-width:100%;}
 <script>
 (function(){const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');});},{threshold:.1});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));})();
 (function(){const b=document.getElementById('backTop');window.addEventListener('scroll',()=>b.classList.toggle('show',scrollY>300));})();
-// 產品卡手機 touch：點擊切換 active，同區其他卡收起
+// 產品卡手機 touch：點擊切換 active，加 requestAnimationFrame 避免跳動
 (function(){
   function initCards(){
     document.querySelectorAll('.bv-grid').forEach(function(grid){
       var items=grid.querySelectorAll('.bv-item');
       items.forEach(function(item){
-        item.addEventListener('click',function(){
+        item.addEventListener('click',function(e){
           var isActive=item.classList.contains('active');
+          // 先移除所有，下一幀再加新的，避免同幀 opacity 跳動
           items.forEach(function(i){i.classList.remove('active');});
-          if(!isActive)item.classList.add('active');
+          if(!isActive){
+            requestAnimationFrame(function(){item.classList.add('active');});
+          }
         });
       });
     });
