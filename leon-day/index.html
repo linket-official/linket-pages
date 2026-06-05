@@ -183,13 +183,24 @@ img{display:block;max-width:100%;}
 .bv-section{position:relative;overflow:hidden;}
 .bv-inner{max-width:1080px;margin:0 auto;padding:clamp(5rem,10vw,8rem) 1.6rem;}
 /* 頂部：全幅主圖 + 文字覆蓋（Bottega full-bleed）*/
-.bv-hero-wrap{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;margin-bottom:clamp(2rem,5vw,4rem);}
+.bv-hero-wrap{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;margin-bottom:0;border-radius:0;}
 @media(max-width:640px){.bv-hero-wrap{aspect-ratio:4/5;}}
 .bv-hero-img{position:absolute;inset:0;overflow:hidden;background-size:cover;background-position:center;} .bv-hero-wrap{position:relative;}
 .bv-hero-img-el{width:100%;height:100%;object-fit:cover;object-position:center;}
 /* 底部漸層 Scrim */
-.bv-hero-scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(30,30,24,.72) 0%,rgba(30,30,24,.35) 50%,transparent 100%);}
-.bv-hero-text{position:absolute;bottom:0;left:0;right:0;padding:clamp(2rem,5vw,4rem) clamp(1.6rem,5vw,4rem);display:flex;flex-direction:column;gap:1rem;}
+.bv-hero-scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(30,30,24,.78) 0%,rgba(30,30,24,.3) 40%,transparent 80%);}
+.bv-hero-text{position:absolute;bottom:0;left:0;right:0;padding:clamp(1.2rem,3vw,2.4rem) clamp(1.6rem,5vw,4rem) clamp(1.4rem,3vw,2rem);display:flex;flex-direction:column;gap:.7rem;}
+/* 手機主圖 */
+@media(max-width:640px){.bv-hero-wrap{aspect-ratio:4/5;}}
+/* 手機文字色塊（連接主圖）*/
+.bv-mobile-text{
+  display:flex;flex-direction:row;align-items:center;gap:2rem;
+  background:var(--c2);
+  padding:clamp(1.4rem,3vw,2rem) clamp(1.6rem,5vw,4rem);
+  margin-bottom:clamp(2rem,5vw,4rem);
+}
+@media(max-width:640px){.bv-mobile-text{display:flex;flex-direction:column;gap:1rem;background:var(--c2);padding:1.6rem;margin-bottom:clamp(2rem,5vw,4rem);}}
+.bv-mobile-body{font-family:'Noto Serif TC',serif;font-size:.88rem;font-weight:300;line-height:2.2;letter-spacing:.05em;color:rgba(255,255,255,.75);flex:1;}
 .bv-eyebrow{font-family:'IBM Plex Sans',sans-serif;font-size:.68rem;font-weight:200;letter-spacing:.32em;text-transform:uppercase;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6);}
 .bv-title{font-family:'Fraunces','Cormorant Garamond','Noto Serif TC',serif;font-size:clamp(1.8rem,5vw,3.5rem);font-weight:200;font-style:italic;letter-spacing:.03em;line-height:1.1;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.4);}
 .bv-body{font-family:'Noto Serif TC',serif;font-size:.88rem;font-weight:300;line-height:2.3;letter-spacing:.05em;color:#fff;max-width:560px;text-shadow:0 1px 8px rgba(0,0,0,.4);}
@@ -202,14 +213,32 @@ img{display:block;max-width:100%;}
 @media(max-width:360px){.bv-grid{grid-template-columns:1fr;}}
 .bv-item{position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--c5);cursor:pointer;}
 .bv-item:hover .bv-item-img{transform:scale(1.03);}
+.bv-item:hover .bv-item-detail{opacity:1;transform:none;}
+.bv-item:hover .bv-item-name-mini{opacity:0;}
+.bv-item.active .bv-item-detail{opacity:1;transform:none;}
+.bv-item.active .bv-item-name-mini{opacity:0;}
+.bv-item:hover .bv-item-scrim{background:linear-gradient(to top,rgba(30,30,24,.92) 0%,rgba(30,30,24,.6) 60%,transparent 100%);}
 .bv-item-img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s cubic-bezier(.25,.1,.1,1);}
 .bv-item-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--ease-lux);}
 .bv-item-scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(30,30,24,.82) 0%,transparent 55%);}
-.bv-item-text{position:absolute;bottom:0;left:0;right:0;padding:1.4rem;}
+.bv-item-text{position:absolute;bottom:0;left:0;right:0;padding:1.2rem 1.1rem;}
 .bv-item-origin{font-family:'IBM Plex Sans',sans-serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:.3rem;text-shadow:0 1px 4px rgba(0,0,0,.6);}
 .bv-item-name{font-family:'Noto Serif TC',serif;font-size:clamp(1.05rem,2.6vw,1.65rem);font-weight:400;letter-spacing:.06em;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.6);line-height:1.2;}
+/* 產品卡：預設只顯示品名小字，hover/active 顯示全資訊 */
+.bv-item-name-mini{font-family:'Noto Serif TC',serif;font-size:.72rem;font-weight:300;letter-spacing:.06em;color:rgba(255,255,255,.85);text-shadow:0 1px 4px rgba(0,0,0,.6);transition:opacity .25s ease;position:absolute;left:1rem;bottom:1rem;z-index:4;pointer-events:none;}
+/* 全資訊區：預設隱藏 */
+.bv-item-detail{opacity:0;transform:translateY(6px);transition:opacity .3s ease,transform .3s ease;display:flex;flex-direction:column;gap:.3rem;position:relative;z-index:3;}
+/* 品名大字：預設隱藏 */
+.bv-item-name{font-family:'Noto Serif TC',serif;font-size:clamp(1.05rem,2.6vw,1.65rem);font-weight:400;letter-spacing:.06em;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.6);line-height:1.2;}
 .bv-item-en{font-family:'Fraunces',serif;font-style:italic;font-size:1.1rem;font-weight:200;letter-spacing:.08em;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.4);}
-.bv-item-vol{font-family:'IBM Plex Sans',sans-serif;font-size:1rem;letter-spacing:.14em;color:#fff;margin-top:.2rem;}
+.bv-item-vol{font-family:'IBM Plex Sans',sans-serif;font-size:.9rem;letter-spacing:.14em;color:rgba(255,255,255,.8);}
+/* hover/active 狀態 */
+.bv-item:hover .bv-item-detail,
+.bv-item.active .bv-item:hover .bv-item-name-mini,
+.bv-item.active 
+/* scrim 加深 */
+.bv-item:hover .bv-item-scrim,
+.bv-item.active .bv-item-scrim{background:linear-gradient(to top,rgba(30,30,24,.92) 0%,rgba(30,30,24,.5) 60%,transparent 100%);}
 /* 節區分隔線（Bottega 風格）*/
 .bv-rule{height:1px;background:rgba(42,48,40,.12);margin:clamp(3rem,8vw,6rem) 0;}
 /* §4 奶白底，§5 深色底 */
@@ -418,12 +447,15 @@ img{display:block;max-width:100%;}
       <div class="bv-hero-text">
         <div class="bv-eyebrow">Canada · Organic Oil</div>
         <h2 class="bv-title">一口好油，<br>從土地開始</h2>
-        <p class="bv-body">萊漾精選加拿大頂級有機油品，從產地到製程全程把關。Omega-3 是人體無法自行合成的必需脂肪酸，每一瓶都是對純粹來源最誠實的承諾。</p>
-        <a href="/leon-day/organic-oil/" class="bv-cta"
-           onclick="gtag('event','click_oil_page',{'event_category':'CTA','event_label':'leon-day'})">
-          探索選油指南 →
-        </a>
       </div>
+    </div>
+    <!-- 手機文字區（桌機隱藏）-->
+    <div class="bv-mobile-text">
+      <p class="bv-mobile-body">萊漾精選加拿大頂級有機油品，從產地到製程全程把關。Omega-3 是人體無法自行合成的必需脂肪酸，每一瓶都是對純粹來源最誠實的承諾。</p>
+      <a href="/leon-day/organic-oil/" class="bv-cta" style="color:rgba(255,255,255,.75);border-color:rgba(255,255,255,.4);width:fit-content;"
+         onclick="gtag('event','click_oil_page_mobile',{'event_category':'CTA','event_label':'leon-day'})">
+        探索選油指南 →
+      </a>
     </div>
     <!-- 產品格線 -->
     <div class="bv-grid-label reveal">加拿大有機油品</div>
@@ -434,10 +466,13 @@ img{display:block;max-width:100%;}
         </div>
         <div class="bv-item-scrim"></div>
         <div class="bv-item-text">
-          <div class="bv-item-origin">Canada</div>
-          <div class="bv-item-name">有機冷壓亞麻仁油</div>
-          <div class="bv-item-en">Flaxseed Oil</div>
-          <div class="bv-item-vol">250ml</div>
+          <div class="bv-item-name-mini">有機冷壓亞麻仁油</div>
+          <div class="bv-item-detail">
+            <div class="bv-item-origin">Canada</div>
+            <div class="bv-item-name">有機冷壓亞麻仁油</div>
+            <div class="bv-item-en">Flaxseed Oil</div>
+            <div class="bv-item-vol">250ml</div>
+          </div>
         </div>
       </div>
       <div class="bv-item">
@@ -446,10 +481,13 @@ img{display:block;max-width:100%;}
         </div>
         <div class="bv-item-scrim"></div>
         <div class="bv-item-text">
-          <div class="bv-item-origin">Canada</div>
-          <div class="bv-item-name">有機 MCT 油</div>
-          <div class="bv-item-en">MCT Oil</div>
-          <div class="bv-item-vol">250ml</div>
+          <div class="bv-item-name-mini">有機 MCT 油</div>
+          <div class="bv-item-detail">
+            <div class="bv-item-origin">Canada</div>
+            <div class="bv-item-name">有機 MCT 油</div>
+            <div class="bv-item-en">MCT Oil</div>
+            <div class="bv-item-vol">250ml</div>
+          </div>
         </div>
       </div>
 
@@ -475,12 +513,15 @@ img{display:block;max-width:100%;}
       <div class="bv-hero-text">
         <div class="bv-eyebrow">Germany · Demeter Certified</div>
         <h2 class="bv-title">世界最高等級，<br>來自德國的果汁</h2>
-        <p class="bv-body">Demeter 人智學農法，是目前全球有機農業中認證標準最嚴格的體系，將農場視為完整的生命有機體。100% 原汁，無添加。</p>
-        <a href="https://lin.ee/7jwUJjsJ" target="_blank" rel="noopener" class="bv-cta"
-           onclick="gtag('event','click_line_juice_cta',{'event_category':'CTA','event_label':'leon-day'})">
-          諮詢購買｜LINE →
-        </a>
       </div>
+    </div>
+    <!-- 手機文字區（桌機隱藏）-->
+    <div class="bv-mobile-text">
+      <p class="bv-mobile-body">Demeter 人智學農法，是目前全球有機農業中認證標準最嚴格的體系，將農場視為完整的生命有機體。100% 原汁，無添加。</p>
+      <a href="https://lin.ee/7jwUJjsJ" target="_blank" rel="noopener" class="bv-cta" style="color:rgba(255,255,255,.75);border-color:rgba(255,255,255,.4);width:fit-content;"
+         onclick="gtag('event','click_line_juice_mobile',{'event_category':'CTA','event_label':'leon-day'})">
+        諮詢購買｜LINE →
+      </a>
     </div>
     <div class="bv-grid-label reveal">德國 Demeter 認證果汁</div>
     <div class="bv-grid reveal">
@@ -490,30 +531,39 @@ img{display:block;max-width:100%;}
         </div>
         <div class="bv-item-scrim"></div>
         <div class="bv-item-text">
-          <div class="bv-item-origin">Germany · Demeter</div>
-          <div class="bv-item-name">根菜汁</div>
-          <div class="bv-item-en">Root Vegetable Juice</div>
-          <div class="bv-item-vol">700ml</div>
+          <div class="bv-item-name-mini">根菜汁</div>
+          <div class="bv-item-detail">
+            <div class="bv-item-origin">Germany · Demeter</div>
+            <div class="bv-item-name">根菜汁</div>
+            <div class="bv-item-en">Root Vegetable Juice</div>
+            <div class="bv-item-vol">700ml</div>
+          </div>
         </div>
       </div>
       <div class="bv-item">
         <div class="bv-item-img" style="background-image:url('/leon-day/assets/product-apple.jpg');background-size:cover;background-position:center;background-color:#3a3828;"></div>
         <div class="bv-item-scrim"></div>
         <div class="bv-item-text">
-          <div class="bv-item-origin">Germany · Demeter</div>
-          <div class="bv-item-name">蘋果汁</div>
-          <div class="bv-item-en">Apple Juice</div>
-          <div class="bv-item-vol">700ml</div>
+          <div class="bv-item-name-mini">蘋果汁</div>
+          <div class="bv-item-detail">
+            <div class="bv-item-origin">Germany · Demeter</div>
+            <div class="bv-item-name">蘋果汁</div>
+            <div class="bv-item-en">Apple Juice</div>
+            <div class="bv-item-vol">700ml</div>
+          </div>
         </div>
       </div>
       <div class="bv-item">
         <div class="bv-item-img" style="background-image:url('/leon-day/assets/product-vinegar.jpg');background-size:cover;background-position:center;background-color:#302e28;"></div>
         <div class="bv-item-scrim"></div>
         <div class="bv-item-text">
-          <div class="bv-item-origin">Germany · Demeter</div>
-          <div class="bv-item-name">蘋果醋</div>
-          <div class="bv-item-en">Apple Cider Vinegar</div>
-          <div class="bv-item-vol">750ml</div>
+          <div class="bv-item-name-mini">蘋果醋</div>
+          <div class="bv-item-detail">
+            <div class="bv-item-origin">Germany · Demeter</div>
+            <div class="bv-item-name">蘋果醋</div>
+            <div class="bv-item-en">Apple Cider Vinegar</div>
+            <div class="bv-item-vol">750ml</div>
+          </div>
         </div>
       </div>
 
@@ -608,6 +658,36 @@ img{display:block;max-width:100%;}
 <script>
 (function(){const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');});},{threshold:.1});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));})();
 (function(){const b=document.getElementById('backTop');window.addEventListener('scroll',()=>b.classList.toggle('show',scrollY>300));})();
+// 產品卡手機 touch：點擊切換 active，同區其他卡收起
+(function(){
+  function initCards(){
+    document.querySelectorAll('.bv-grid').forEach(function(grid){
+      var items=grid.querySelectorAll('.bv-item');
+      items.forEach(function(item){
+        item.addEventListener('click',function(){
+          var isActive=item.classList.contains('active');
+          items.forEach(function(i){i.classList.remove('active');});
+          if(!isActive)item.classList.add('active');
+        });
+      });
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initCards);}else{initCards();}
+})();
+// 產品卡點擊切換（手機）
+(function(){
+  const isTouchDevice=()=>window.matchMedia('(hover:none)').matches;
+  document.querySelectorAll('.bv-grid').forEach(grid=>{
+    grid.querySelectorAll('.bv-item').forEach(item=>{
+      item.addEventListener('click',function(){
+        if(!isTouchDevice())return;
+        const wasActive=this.classList.contains('active');
+        grid.querySelectorAll('.bv-item').forEach(i=>i.classList.remove('active'));
+        if(!wasActive)this.classList.add('active');
+      });
+    });
+  });
+})();
 (function(){const b=document.getElementById('shareBtn');if(b&&navigator.share)b.classList.add('visible');})();
 function shareThis(){if(!navigator.share)return;navigator.share({title:'萊漾 León Day',text:'簡單吃，健康過',url:'https://linket.app/leon-day/'}).then(()=>gtag('event','click_share',{'event_category':'CTA','event_label':'leon-day'})).catch(()=>{});}
 let qrL=false,qrI=null;
