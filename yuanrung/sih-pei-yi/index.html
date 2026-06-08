@@ -141,10 +141,9 @@ body{
   margin-bottom:1.4rem;
 }
 .hero-portrait{
-  width:clamp(100px,22vw,150px);
-  border-radius:50%;
-  border:2.5px solid rgba(226,106,46,.28);
-  box-shadow:0 0 0 7px rgba(226,106,46,.06);
+  width:clamp(120px,20vw,180px);
+  aspect-ratio:3/4;
+  border-radius:var(--r-card);
   object-fit:cover;object-position:center top;display:block;
 }
 .hero-subtitle{
@@ -514,7 +513,7 @@ body{
   .hero-logo-wrap img{object-position:center;}
   .hero-eyebrow{justify-content:center;}
   .hero-eyebrow::before{display:none;}
-  .hero-portrait{width:clamp(90px,30vw,130px);}
+  .hero-portrait{width:clamp(100px,30vw,140px);}
   .hero-name{font-size:clamp(2rem,10vw,3rem);}
   .hero-tags{justify-content:center;}
   .hero-stats{justify-content:center;gap:1.2rem;}
@@ -571,13 +570,12 @@ body{
           <img src="/yuanrung/yuanrung-logo.svg" alt="員榮醫療體系" width="200" height="60"
             onerror="this.style.display='none'">
         </div>
-        <!-- 人物照 
+        <!-- 人物照 -->
         <div class="hero-portrait-wrap">
           <img class="hero-portrait" fetchpriority="high"
-            src="/yuanrung/sih-pei-yi/portrait.jpg" alt="司霈沂"
-            onerror="this.outerHTML='<div style=\'width:clamp(100px,22vw,150px);aspect-ratio:1;border-radius:50%;background:var(--orange-lt);border:2.5px solid rgba(226,106,46,.28);\'></div>'">
+            src="/yuanrung/sih-pei-yi/portrait.png" alt="司霈沂"
+            onerror="this.style.display='none'">
         </div>
-        -->
         <div class="hero-role">社醫部組長</div>
         <h1 class="hero-name">司&thinsp;霈&thinsp;沂</h1>
         <div class="hero-name-en">SIH, PEI-YI</div>
