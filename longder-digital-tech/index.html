@@ -198,15 +198,16 @@ a{text-decoration:none;color:inherit;}
 
 /* ── §4 產品分類 ── */
 .prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--c4);border-radius:var(--r);overflow:hidden;}
-@media(max-width:700px){.prod-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:700px){.prod-grid{grid-template-columns:1fr;}}
+@media(min-width:701px) and (max-width:900px){.prod-grid{grid-template-columns:repeat(2,1fr);}}
 .prod-card{background:var(--white);padding:1.4rem 1.2rem;display:flex;flex-direction:column;gap:.5rem;transition:.25s var(--ease);cursor:pointer;position:relative;}
 .prod-card:hover{background:#f0f6ff;z-index:1;}
 .prod-card-img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center;border-radius:4px;background:var(--c4);margin-bottom:.3rem;display:block;}
 .prod-card-img-ph{width:100%;aspect-ratio:4/3;background:var(--c4);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:.3rem;}
 .prod-card-name{font-size:.96rem;font-weight:700;letter-spacing:.08em;color:var(--ink);}
 .prod-card-desc{font-size:.82rem;font-weight:300;line-height:1.7;letter-spacing:.04em;color:var(--ink-lt);}
-.prod-card-cta{display:none;font-family:'IBM Plex Sans',sans-serif;font-size:.68rem;font-weight:400;letter-spacing:.1em;color:var(--c1);margin-top:.3rem;}
-.prod-card:hover .prod-card-cta{display:flex;align-items:center;gap:.2rem;}
+.prod-card-cta{display:none;}
+
 .prod-card-last{background:var(--c2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;padding:1.4rem;cursor:pointer;transition:.25s;}
 .prod-card-last:hover{background:var(--c1);}
 .prod-card-last-text{font-size:.82rem;font-weight:500;letter-spacing:.1em;color:var(--white);text-align:center;}
@@ -227,6 +228,8 @@ a{text-decoration:none;color:inherit;}
 .catalog-btn.ghost:hover{border-color:rgba(255,255,255,.7);color:var(--white);}
 
 /* ── §6 交通資訊 ── */
+.location-map-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.85rem 1.6rem;background:var(--c1);color:#fff;border-radius:100px;font-family:'Noto Sans TC',sans-serif;font-size:.88rem;font-weight:500;letter-spacing:.08em;transition:.25s;margin-top:.8rem;}
+.location-map-btn:hover{background:var(--c1-lt);}
 .location-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;}
 @media(max-width:640px){.location-grid{grid-template-columns:1fr;}}
 .location-map{width:100%;aspect-ratio:4/3;border:none;border-radius:var(--r);display:block;background:var(--c4);}
@@ -246,10 +249,9 @@ a{text-decoration:none;color:inherit;}
 .footer-icons{display:flex;justify-content:flex-start;gap:.8rem;margin-bottom:1rem;}
 @media(max-width:700px){.footer-icons{justify-content:center;}}
 .footer-logo-wrap{width:clamp(180px,30vw,220px);height:auto;margin:2rem auto 2rem;display:flex;justify-content:center;}
-.footer-logo-ph{width:clamp(120px,18vw,150px);height:clamp(80px,12vw,100px);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Sans',sans-serif;font-size:1.1rem;font-weight:600;letter-spacing:.22em;color:var(--white);border:2px solid rgba(255,255,255,.25);border-radius:4px;}
 .footer-logo-img{width:100%;height:auto;display:block;object-fit:contain;}
 .footer-icon-link{width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:transparent;border:none;border-radius:0;}
-.footer-icon-link img{width:36px;height:36px;display:block;}  
+.footer-icon-link img{width:36px;height:36px;display:block;}
 .footer-btns{display:flex;flex-direction:column;gap:.7rem;max-width:320px;margin:0 auto 1.8rem;}
 .footer-btn{display:flex;align-items:center;justify-content:center;width:100%;padding:1rem 1.2rem;font-family:'Noto Sans TC',sans-serif;font-size:.88rem;font-weight:500;letter-spacing:.1em;border-radius:100px;transition:.25s;gap:.3rem;}
 .footer-btn.p1{background:var(--c1);color:var(--white);border:2px solid var(--c1);}
@@ -260,7 +262,6 @@ a{text-decoration:none;color:inherit;}
 .footer-copy{font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;letter-spacing:.14em;color:rgba(255,255,255,.6);margin-bottom:.3rem;}
 .design-by{font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;letter-spacing:.16em;color:rgba(255,255,255,.45);}
 .db-lin{color:rgba(22,133,200,.5);}.db-ket{color:rgba(255,255,255,.3);}
-
 /* Back to Top */
 .back-top{position:fixed;bottom:1.4rem;right:1.4rem;width:44px;height:44px;background:var(--c1);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .3s;z-index:99;border:none;}
 .back-top.show{opacity:1;}
@@ -276,6 +277,15 @@ a{text-decoration:none;color:inherit;}
 .cert-doc-ph-name{font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;font-weight:500;letter-spacing:.1em;color:rgba(255,255,255,.6);text-align:center;}
 .cert-doc-ph-sub{font-family:'IBM Plex Sans',sans-serif;font-size:.6rem;letter-spacing:.1em;color:rgba(255,255,255,.3);}
 .cert-doc-label{font-family:'IBM Plex Sans',sans-serif;font-size:1.2rem;font-weight:400;letter-spacing:.12em;color:rgba(255,255,255,.9);text-align:center;}
+
+/* ── Quiz Step4 + 圖片生成 ── */
+.quiz-input-group{display:flex;flex-direction:column;gap:1rem;margin-bottom:1rem;}
+.quiz-input{width:100%;padding:.85rem 1.1rem;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.2);border-radius:100px;font-family:'Noto Sans TC',sans-serif;font-size:.9rem;color:#fff;letter-spacing:.06em;outline:none;transition:.2s;}
+.quiz-input::placeholder{color:rgba(255,255,255,.35);}
+.quiz-input:focus{border-color:var(--c1);background:rgba(255,255,255,.1);}
+.quiz-cta-row-3{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;}
+.quiz-cta-row-3 .quiz-btn{flex:1;min-width:0;text-align:center;}
+@media(max-width:500px){.quiz-cta-row-3{flex-direction:column;}}
 </style>
 </head>
 <body>
@@ -284,6 +294,9 @@ a{text-decoration:none;color:inherit;}
 <div class="qr-modal-overlay" id="qrModal" onclick="closeQrModalOnBg(event)">
   <div class="qr-modal">
     <div class="qr-modal-title">LONGDER</div>
+    <img src="/longder-digital-tech/assets/longder-logo-dark.svg" alt="LONGDER"
+         id="qrModalLogo" style="width:180px;height:auto;display:block;margin:0 auto .8rem;object-fit:contain;"
+         onerror="this.style.display='none'">
     <div class="qr-modal-code"><div id="qrcode-canvas"></div></div>
     <div class="qr-modal-url">linket.app/longder-digital-tech</div>
     <div class="qr-modal-hint">掃描 QR Code 開啟頁面</div>
@@ -451,8 +464,9 @@ a{text-decoration:none;color:inherit;}
         <div class="quiz-step-dot active" id="dot1"></div>
         <div class="quiz-step-dot" id="dot2"></div>
         <div class="quiz-step-dot" id="dot3"></div>
+        <div class="quiz-step-dot" id="dot4"></div>
       </div>
-      <div class="quiz-step-label reveal rd1" id="quizStepLabel">STEP 1 / 3</div>
+      <div class="quiz-step-label reveal rd1" id="quizStepLabel">STEP 1 / 4</div>
       <div class="quiz-panel active" id="step1">
         <div class="quiz-question">貼紙要貼在哪裡？</div>
         <div class="quiz-options">
@@ -479,23 +493,34 @@ a{text-decoration:none;color:inherit;}
       <div class="quiz-panel" id="step3">
         <div class="quiz-question">大約的用量？</div>
         <div class="quiz-options" style="grid-template-columns:1fr;">
-          <div class="quiz-option" onclick="quizResult('small')">少量多樣（1 – 1,000 張）</div>
-          <div class="quiz-option" onclick="quizResult('mid')">中量訂製（1,000 – 10,000 張）</div>
-          <div class="quiz-option" onclick="quizResult('large')">大宗採購（10,000 張以上）</div>
+          <div class="quiz-option" onclick="quizFromStep3('small')">少量多樣（1 – 1,000 張）</div>
+          <div class="quiz-option" onclick="quizFromStep3('mid')">中量訂製（1,000 – 10,000 張）</div>
+          <div class="quiz-option" onclick="quizFromStep3('large')">大宗採購（10,000 張以上）</div>
         </div>
       </div>
+      <!-- Step 4：聯絡資訊 -->
+      <div class="quiz-panel" id="step4">
+        <div class="quiz-question">最後一步：留下您的聯絡資訊</div>
+        <div class="quiz-input-group">
+          <input class="quiz-input" id="q4Company" type="text" placeholder="公司名稱" autocomplete="organization">
+          <input class="quiz-input" id="q4Name" type="text" placeholder="姓名" autocomplete="name">
+          <input class="quiz-input" id="q4Contact" type="text" placeholder="聯繫方式（電話 / Email / LINE）" autocomplete="tel">
+        </div>
+        <button class="quiz-next-btn show" onclick="quizGenerateResult()">產生諮詢單 →</button>
+      </div>
+
       <div class="quiz-result" id="quizResult">
         <div class="quiz-result-tag">🎯 最適合你的是</div>
         <div class="quiz-result-product" id="resultProduct">熱感條碼標籤</div>
         <div class="quiz-result-desc" id="resultDesc">防油防水・免碳帶感熱・手搖飲杯貼首選。</div>
-        <div class="quiz-cta-row">
-          <a class="quiz-btn p1" href="https://line.me/R/ti/p/@hyg9056l?utm_source=quiz&utm_medium=longder-page" target="_blank" rel="noopener"
-             onclick="gtag('event','quiz_cta',{'event_category':'Quiz','event_label':'longder-quiz'})">加入 LINE 詢報價</a>
-          <a class="quiz-btn ghost" href="https://line.me/R/ti/p/@hyg9056l?utm_source=quiz&utm_medium=longder-page-sample" target="_blank" rel="noopener"
-             onclick="gtag('event','quiz_cta',{'event_category':'Quiz','event_label':'longder-quiz'})">索取這款樣品</a>
+        <!-- 諮詢單圖片預覽 -->
+        <canvas id="orderCanvas" style="display:none;"></canvas>
+        <div class="quiz-cta-row-3" style="margin-top:1.2rem;">
+          <button class="quiz-btn p1" id="downloadBtn" onclick="downloadOrder()">下載諮詢單</button>
+          <a class="quiz-btn ghost" href="https://line.me/R/ti/p/@hyg9056l?utm_source=quiz&utm_medium=longder-page" target="_blank" rel="noopener"
+             onclick="gtag('event','quiz_cta',{'event_category':'Quiz','event_label':'longder-quiz'})">加入官方 LINE</a>
+          <button class="quiz-btn ghost" onclick="quizReset()">重新測驗</button>
         </div>
-        <button class="quiz-restart" onclick="copyResult()" id="copyBtn">複製推薦結果</button>
-        <button class="quiz-restart" onclick="quizReset()">← 重新選擇</button>
       </div>
     </div>
   </div>
@@ -624,13 +649,7 @@ a{text-decoration:none;color:inherit;}
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.5736732395544!2d120.17912417587252!3d22.965922918438636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e75ea7e73a249%3A0xf168074f77c12c32!2z6b6N5b635pW45L2N56eR5oqA5pyJ6ZmQ5YWs5Y-4772c5Y-w5Y2XQTTpm7vohabmqJnnsaTvvZzlj7DljZfljZfljYDmqJnnsaTosrzntJnvvZzlj7DljZfnhrHmhJ_ntJk!5e0!3m2!1szh-TW!2stw!4v1780921397531!5m2!1szh-TW!2stw"
           allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="龍德數位科技地圖">
         </iframe>
-        <div style="margin-top:.8rem;">
-          <a href="https://maps.app.goo.gl/ZEuZWggwr5E7ZwK9A" target="_blank" rel="noopener"
-             style="font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;letter-spacing:.12em;color:var(--c1);"
-             onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'longder'})">
-            在 Google Maps 中開啟 →
-          </a>
-        </div>
+
       </div>
       <div class="location-info reveal rd2">
         <div class="location-row">
@@ -668,6 +687,11 @@ a{text-decoration:none;color:inherit;}
             <div class="location-row-value">週一至週五 08:30 – 18:00</div>
           </div>
         </div>
+        <a href="https://maps.app.goo.gl/ZEuZWggwr5E7ZwK9A" target="_blank" rel="noopener"
+           class="location-map-btn"
+           onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'longder'})">
+          🗺 在 Google Maps 中開啟
+        </a>
       </div>
     </div>
   </div>
@@ -708,7 +732,7 @@ a{text-decoration:none;color:inherit;}
          onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'longder'})">
         官方LINE｜Line@
       </a>
-      <a class="footer-btn p1" href="tel:0800060121"
+      <a class="footer-btn p2" href="tel:0800060121"
          onclick="gtag('event','click_tel_footer',{'event_category':'CTA','event_label':'longder'})">
         諮詢專線｜Contact Us
       </a>
@@ -746,16 +770,142 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeQrModal();});
 function animateCount(el,target,duration,suffix){const start=performance.now();function update(now){const p=Math.min((now-start)/duration,1);const ease=1-Math.pow(1-p,3);el.textContent=Math.round(ease*target).toLocaleString()+suffix;if(p<1)requestAnimationFrame(update);}requestAnimationFrame(update);}
 const numObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const t=parseInt(e.target.dataset.target),s=e.target.dataset.suffix||'';animateCount(e.target,t,1800,s);numObs.unobserve(e.target);}});},{threshold:.3});
 document.querySelectorAll('[data-target]').forEach(el=>numObs.observe(el));
-let q1='',q2=[],q2arr=[];
-function quizNext(step,val){if(step===1){q1=val;showPanel('step2');updateProgress(2);}}
-function toggleMulti(el,val){el.classList.toggle('multi-selected');if(el.classList.contains('multi-selected')){if(!q2arr.includes(val))q2arr.push(val);}else{q2arr=q2arr.filter(v=>v!==val);}const btn=document.getElementById('step2NextBtn');btn.classList.toggle('show',q2arr.length>0);}
-function quizFromStep2(){q2=q2arr.join(',');showPanel('step3');updateProgress(3);}
-function showPanel(id){document.querySelectorAll('.quiz-panel').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');}
-function updateProgress(step){['dot1','dot2','dot3'].forEach((id,i)=>{const d=document.getElementById(id);d.classList.remove('active','done');if(i<step-1)d.classList.add('done');else if(i===step-1)d.classList.add('active');});document.getElementById('quizStepLabel').textContent='STEP '+step+' / 3';}
-const results={dining:{product:'熱感條碼標籤',desc:'防油防水・免碳帶感熱・手搖飲杯貼首選，符合 BPA Free 安全標準。'},logistics:{product:'熱感條碼標籤',desc:'物流出貨條碼首選，耐磨防水，大宗採購出廠價最優。'},office:{product:'三用電腦標籤（A4）',desc:'專利耐溫膠，雷射/噴墨/影印機三用不卡紙，270小格規格齊全。'},medical:{product:'保護膜標籤',desc:'透明 PET/BOPP 薄膜，防水防刮耐酒精，醫療院所首選。'},farm:{product:'產銷履歷標籤',desc:'耐低溫防潮，冷鏈適用，VDP 即時列印，符合農產品履歷法規。'},retail:{product:'數位印刷客製（VDP）',desc:'少量多樣一條龍，可變資料列印（流水號/QR Code），免模版費。'}};
-function quizResult(qty){const r=results[q1]||results.office;document.getElementById('resultProduct').textContent=r.product;document.getElementById('resultDesc').textContent=r.desc+(qty==='large'?' 大宗採購享出廠優惠價，可提供正式報價單。':'');document.querySelectorAll('.quiz-panel').forEach(p=>p.classList.remove('active'));document.getElementById('quizResult').classList.add('show');updateProgress(3);gtag('event','quiz_complete',{'event_category':'Quiz','event_label':'longder-quiz'});}
-function copyResult(){const product=document.getElementById('resultProduct').textContent;const desc=document.getElementById('resultDesc').textContent;const text='【龍德數位科技 推薦貼紙】\n'+product+'\n'+desc+'\n\n詢價：https://line.me/R/ti/p/@hyg9056l';navigator.clipboard.writeText(text).then(()=>{const btn=document.getElementById('copyBtn');btn.textContent='已複製 ✓';setTimeout(()=>{btn.textContent='複製推薦結果';},2000);}).catch(()=>{});}
-function quizReset(){q1='';q2=[];q2arr=[];document.querySelectorAll('.multi-selected').forEach(el=>el.classList.remove('multi-selected'));document.getElementById('step2NextBtn').classList.remove('show');document.getElementById('quizResult').classList.remove('show');showPanel('step1');updateProgress(1);}
+let q1='',q2=[],q2arr=[],q3='';
+function quizNext(step,val){
+  if(step===1){q1=val;showPanel('step2');updateProgress(2);}
+}
+function toggleMulti(el,val){
+  el.classList.toggle('multi-selected');
+  if(el.classList.contains('multi-selected')){if(!q2arr.includes(val))q2arr.push(val);}
+  else{q2arr=q2arr.filter(v=>v!==val);}
+  const btn=document.getElementById('step2NextBtn');
+  if(btn)btn.classList.toggle('show',q2arr.length>0);
+}
+function quizFromStep2(){q2=q2arr.join('・');showPanel('step3');updateProgress(3);}
+function quizFromStep3(val){q3=val;showPanel('step4');updateProgress(4);}
+function showPanel(id){document.querySelectorAll('.quiz-panel').forEach(p=>p.classList.remove('active'));const el=document.getElementById(id);if(el)el.classList.add('active');}
+function updateProgress(step){
+  ['dot1','dot2','dot3','dot4'].forEach((id,i)=>{
+    const d=document.getElementById(id);if(!d)return;
+    d.classList.remove('active','done');
+    if(i<step-1)d.classList.add('done');
+    else if(i===step-1)d.classList.add('active');
+  });
+  const lbl=document.getElementById('quizStepLabel');
+  if(lbl)lbl.textContent='STEP '+step+' / 4';
+}
+const results={
+  dining:{product:'熱感條碼標籤',desc:'防油防水・免碳帶感熱・手搖飲杯貼首選，符合 BPA Free 安全標準。'},
+  logistics:{product:'熱感條碼標籤',desc:'物流出貨條碼首選，耐磨防水，大宗採購出廠價最優。'},
+  office:{product:'三用電腦標籤（A4）',desc:'專利耐溫膠，雷射/噴墨/影印機三用不卡紙，270小格規格齊全。'},
+  medical:{product:'保護膜標籤',desc:'透明 PET/BOPP 薄膜，防水防刮耐酒精，醫療院所首選。'},
+  farm:{product:'產銷履歷標籤',desc:'耐低溫防潮，冷鏈適用，VDP 即時列印，符合農產品履歷法規。'},
+  retail:{product:'數位印刷客製（VDP）',desc:'少量多樣一條龍，可變資料列印（流水號/QR Code），免模版費。'}
+};
+const stepLabels={
+  dining:'飲料杯・食品包裝',logistics:'紙箱・物流包裹',office:'文件・辦公用途',
+  medical:'醫療器材・化學容器',farm:'農產品・冷鏈包裝',retail:'商品外包裝・零售',
+  small:'少量多樣（1–1,000張）',mid:'中量訂製（1,000–10,000張）',large:'大宗採購（10,000張以上）'
+};
+function quizGenerateResult(){
+  const company=(document.getElementById('q4Company')||{}).value||'';
+  const name=(document.getElementById('q4Name')||{}).value||'';
+  const contact=(document.getElementById('q4Contact')||{}).value||'';
+  const r=results[q1]||results.office;
+  const product=r.product;
+  const desc=r.desc+(q3==='large'?' 大宗採購享出廠優惠價。':'');
+  // 更新顯示
+  const rp=document.getElementById('resultProduct');
+  const rd=document.getElementById('resultDesc');
+  if(rp)rp.textContent=product;
+  if(rd)rd.textContent=desc;
+  document.querySelectorAll('.quiz-panel').forEach(p=>p.classList.remove('active'));
+  const res=document.getElementById('quizResult');
+  if(res)res.classList.add('show');
+  updateProgress(4);
+  gtag('event','quiz_complete',{'event_category':'Quiz','event_label':'longder-quiz'});
+  // Canvas 生成
+  generateOrderCanvas({product,desc,company,name,contact});
+}
+function generateOrderCanvas({product,desc,company,name,contact}){
+  const canvas=document.getElementById('orderCanvas');
+  if(!canvas)return;
+  const W=640,H=820;
+  canvas.width=W;canvas.height=H;
+  const ctx=canvas.getContext('2d');
+  // 背景
+  ctx.fillStyle='#f4f7fa';ctx.fillRect(0,0,W,H);
+  // 頂部色條
+  ctx.fillStyle='#1c3f5b';ctx.fillRect(0,0,W,80);
+  // Logo 文字（SVG 無法直接 drawImage，用文字代替）
+  ctx.fillStyle='#ffffff';ctx.font='bold 28px IBM Plex Sans, Arial';ctx.textAlign='center';
+  ctx.fillText('LONGDER 龍德數位科技',W/2,52);
+  // 標題
+  ctx.fillStyle='#1c3f5b';ctx.font='bold 22px Noto Sans TC, Arial';ctx.textAlign='center';
+  ctx.fillText('貼紙諮詢單',W/2,120);
+  // 分隔線
+  ctx.strokeStyle='#2d6592';ctx.lineWidth=2;
+  ctx.beginPath();ctx.moveTo(40,135);ctx.lineTo(W-40,135);ctx.stroke();
+  // 內容
+  const rows=[
+    ['貼紙位置',stepLabels[q1]||q1],
+    ['貼紙需求',q2||'—'],
+    ['訂單量',stepLabels[q3]||q3],
+    ['推薦產品',product],
+    ['產品說明',desc],
+    ['公司名稱',company||'—'],
+    ['聯絡人',name||'—'],
+    ['聯繫方式',contact||'—'],
+  ];
+  ctx.textAlign='left';
+  let y=170;
+  rows.forEach(([label,val])=>{
+    ctx.fillStyle='#2d6592';ctx.font='bold 14px Noto Sans TC, Arial';
+    ctx.fillText(label,50,y);
+    ctx.fillStyle='#1a1a1a';ctx.font='15px Noto Sans TC, Arial';
+    // 自動換行
+    const maxW=W-180;const words=val.split('');let line='';let lineY=y;
+    ctx.fillStyle='#1a1a1a';ctx.font='15px Arial';
+    const words2=val;
+    let lx=150,ly=y,lw=0;
+    for(let c of words2){
+      const tw=ctx.measureText(line+c).width;
+      if(tw>maxW&&line.length>0){ctx.fillText(line,lx,ly);line=c;ly+=20;}
+      else{line+=c;}
+    }
+    if(line)ctx.fillText(line,lx,ly);
+    y=Math.max(y+24,ly+28);
+    // 底線
+    ctx.strokeStyle='rgba(45,101,146,.15)';ctx.lineWidth=1;
+    ctx.beginPath();ctx.moveTo(40,y-8);ctx.lineTo(W-40,y-8);ctx.stroke();
+  });
+  // 底部
+  ctx.fillStyle='#1c3f5b';ctx.fillRect(0,H-50,W,50);
+  ctx.fillStyle='rgba(255,255,255,.7)';ctx.font='12px IBM Plex Sans, Arial';ctx.textAlign='center';
+  ctx.fillText('longder.tw@msa.hinet.net  |  0800-060-121  |  linket.app/longder-digital-tech',W/2,H-20);
+  // 顯示預覽
+  canvas.style.display='block';
+  canvas.style.maxWidth='100%';
+  canvas.style.borderRadius='8px';
+  canvas.style.margin='1rem auto';
+}
+function downloadOrder(){
+  const canvas=document.getElementById('orderCanvas');
+  if(!canvas||canvas.style.display==='none')return;
+  const link=document.createElement('a');
+  link.download='LONGDER-諮詢單.png';
+  link.href=canvas.toDataURL('image/png');
+  link.click();
+  gtag('event','quiz_download',{'event_category':'Quiz','event_label':'longder-quiz'});
+}
+function quizReset(){
+  q1='';q2=[];q2arr=[];q3='';
+  document.querySelectorAll('.multi-selected').forEach(el=>el.classList.remove('multi-selected'));
+  const s2btn=document.getElementById('step2NextBtn');if(s2btn)s2btn.classList.remove('show');
+  const qr=document.getElementById('quizResult');if(qr)qr.classList.remove('show');
+  const canvas=document.getElementById('orderCanvas');if(canvas)canvas.style.display='none';
+  showPanel('step1');updateProgress(1);
+}
 </script>
 </body>
 </html>
