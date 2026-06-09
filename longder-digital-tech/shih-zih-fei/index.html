@@ -769,7 +769,7 @@ a{text-decoration:none;color:inherit;}
 (function(){const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');});},{threshold:.08});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));})();
 (function(){const b=document.getElementById('backTop');if(b)window.addEventListener('scroll',()=>b.classList.toggle('show',scrollY>300));})();
 (function(){const b=document.getElementById('shareBtn');if(b&&navigator.share)b.style.display='';})();
-function shareThis(){navigator.share({title:'龍德數位科技',text:'台灣標籤貼紙上游第一手廠商，超過60年歷史',url:'https://linket.app/longder-digital-tech/'}).then(()=>gtag('event','click_share',{'event_category':'CTA','event_label':'longder-owner'})).catch(()=>{});}
+function shareThis(){navigator.share({title:'龍德數位科技',text:'台灣標籤貼紙上游第一手廠商，超過60年歷史',url:'https://linket.app/longder-digital-tech/shih-zih-fei'}).then(()=>gtag('event','click_share',{'event_category':'CTA','event_label':'longder-owner'})).catch(()=>{});}
 let qrLoaded=false,qrInstance=null;
 function loadQrLib(cb){if(qrLoaded){cb();return;}const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';s.onload=()=>{qrLoaded=true;cb();};document.head.appendChild(s);}
 function renderQrCode(){const el=document.getElementById('qrcode-canvas');if(!el||qrInstance)return;qrInstance=new QRCode(el,{text:'https://linket.app/longder-digital-tech/shih-zih-fei',width:180,height:180,colorDark:'#1c3f5b',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M});}
