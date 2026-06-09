@@ -291,8 +291,8 @@ a{text-decoration:none;color:inherit;}
 /* ── 施姿妃 主理人區塊 ── */
 .owner-block{display:flex;flex-direction:column;align-items:flex-start;gap:.6rem;margin:.4rem 0 .2rem;}
 @media(max-width:700px){.owner-block{align-items:center;}}
-.owner-portrait{width:clamp(160px,35vw,200px);height:auto;aspect-ratio:3/4;object-fit:cover;object-position:top center;display:block;}
-.owner-name{font-family:'Noto Sans TC',sans-serif;font-size:clamp(1.4rem,5vw,1.8rem);font-weight:700;letter-spacing:.12em;color:var(--white);}
+.owner-portrait{width:clamp(200px,40vw,250px);height:auto;aspect-ratio:3/4;object-fit:cover;object-position:top center;display:block;}
+.owner-name{font-family:'Noto Sans TC',sans-serif;font-size:clamp(1.8rem,8vw,2.4rem);font-weight:700;letter-spacing:.2em;color:var(--white);}
 </style>
 </head>
 <body>
@@ -530,8 +530,8 @@ a{text-decoration:none;color:inherit;}
         <!-- 諮詢單圖片預覽 -->
         <canvas id="orderCanvas" style="display:none;"></canvas>
         <div class="quiz-cta-row-3" style="margin-top:1.2rem;">
-          <button class="quiz-btn p1" id="downloadBtn" onclick="downloadOrder()">下載諮詢單</button>
-          <a class="quiz-btn ghost" href="https://line.me/R/ti/p/@hyg9056l?utm_source=quiz&utm_medium=longder-page" target="_blank" rel="noopener"
+          <button class="quiz-btn p1" id="downloadBtn" onclick="shareOrder()">分享諮詢單</button>
+          <a class="quiz-btn p1" href="https://line.me/R/ti/p/@hyg9056l?utm_source=quiz&utm_medium=longder-page" target="_blank" rel="noopener"
              onclick="gtag('event','quiz_cta',{'event_category':'Quiz','event_label':'longder-quiz'})">加入官方 LINE</a>
           <button class="quiz-btn ghost" onclick="quizReset()">重新測驗</button>
         </div>
@@ -746,9 +746,9 @@ a{text-decoration:none;color:inherit;}
          onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'longder-owner'})">
         官方LINE｜Line@
       </a>
-      <a class="footer-btn p2" href="tel:0800060121"
+      <a class="footer-btn p1" href="tel:0930820187"
          onclick="gtag('event','click_tel_footer',{'event_category':'CTA','event_label':'longder-owner'})">
-        諮詢專線｜Contact Us
+        直撥手機｜0930-820-187
       </a>
       <a class="footer-btn ghost" href="https://maps.app.goo.gl/rCT3cFBbJRbwXNDK7" target="_blank" rel="noopener"
          onclick="gtag('event','click_map_footer',{'event_category':'CTA','event_label':'longder-owner'})">
@@ -904,14 +904,28 @@ function generateOrderCanvas({product,desc,company,name,contact}){
   canvas.style.borderRadius='8px';
   canvas.style.margin='1rem auto';
 }
-function downloadOrder(){
+function shareOrder(){
   const canvas=document.getElementById('orderCanvas');
   if(!canvas||canvas.style.display==='none')return;
+  gtag('event','quiz_share',{'event_category':'Quiz','event_label':'longder-quiz'});
+  if(navigator.canShare){
+    canvas.toBlob(function(blob){
+      const file=new File([blob],'LONGDER-諮詢單.png',{type:'image/png'});
+      if(navigator.canShare({files:[file]})){
+        navigator.share({files:[file],title:'LONGDER 龍德數位科技 諮詢單',text:'貼紙諮詢單'}).catch(()=>{});
+      } else {
+        fallbackDownload(canvas);
+      }
+    },'image/png');
+  } else {
+    fallbackDownload(canvas);
+  }
+}
+function fallbackDownload(canvas){
   const link=document.createElement('a');
   link.download='LONGDER-諮詢單.png';
   link.href=canvas.toDataURL('image/png');
   link.click();
-  gtag('event','quiz_download',{'event_category':'Quiz','event_label':'longder-quiz'});
 }
 function quizReset(){
   q1='';q2=[];q2arr=[];q3='';
