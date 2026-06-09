@@ -206,7 +206,7 @@ a{text-decoration:none;color:inherit;}
 .prod-card-img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center;border-radius:4px;background:var(--c4);margin-bottom:.3rem;display:block;}
 .prod-card-img-ph{width:100%;aspect-ratio:4/3;background:var(--c4);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:.3rem;}
 .prod-card-name{font-size:.96rem;font-weight:700;letter-spacing:.08em;color:var(--ink);}
-.prod-card-desc{font-size:.82rem;font-weight:300;line-height:1.7;letter-spacing:.04em;color:var(--ink-lt);}
+.prod-card-desc{font-size:.85rem;font-weight:500;line-height:1.7;letter-spacing:.04em;color:var(--ink-lt);}
 .prod-card-cta{display:none;}
 
 .prod-card-last{background:var(--c2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;padding:1.4rem;cursor:pointer;transition:.25s;}
@@ -404,10 +404,6 @@ a{text-decoration:none;color:inherit;}
          onclick="gtag('event','click_cert',{'event_category':'CTA','event_label':'longder-owner'})">
         官方認證｜Certification
       </a>
-      <a class="hero-btn ghost" href="#catalog"
-         onclick="gtag('event','click_catalog',{'event_category':'CTA','event_label':'longder-owner'})">
-        線上型錄｜DM Online
-      </a>
       <div class="hero-btn-row" style="display:flex;gap:.6rem;">
         <button class="hero-btn ghost" style="flex:1;font-size:.85rem;" onclick="openQrModal()">QR Code</button>
         <button class="hero-btn ghost" style="flex:1;font-size:.85rem;" id="shareBtn" onclick="shareThis()">分享</button>
@@ -594,7 +590,7 @@ a{text-decoration:none;color:inherit;}
         <div class="prod-card-name">其他各類印刷品</div>
         <img src="/longder-digital-tech/assets/product-print.jpg" alt="其他各類印刷品" class="prod-card-img" onerror="this.style.display='none'">
         <div class="prod-card-desc" style="line-height:2;">
-          · 宣傳廣告系列（海報・DM・廣告字）<br>
+          · 宣傳廣告系列<br>
           <p>海報、DM、傳單、型錄、卡片、布條、濕紙巾、面紙、咖啡包。</p><br>
           · 型錄・卡片・布條・旗幟・邀請函<br>
           · 節慶系列（紅包・桌曆）<br>
@@ -748,7 +744,7 @@ a{text-decoration:none;color:inherit;}
       </a>
       <a class="footer-btn p1" href="tel:0930820187"
          onclick="gtag('event','click_tel_footer',{'event_category':'CTA','event_label':'longder-owner'})">
-        直撥手機｜0930-820-187
+        與我聯繫｜Contact Us
       </a>
       <a class="footer-btn ghost" href="https://maps.app.goo.gl/rCT3cFBbJRbwXNDK7" target="_blank" rel="noopener"
          onclick="gtag('event','click_map_footer',{'event_category':'CTA','event_label':'longder-owner'})">
@@ -760,7 +756,7 @@ a{text-decoration:none;color:inherit;}
       </button>
     </div>
     <div class="footer-divider"></div>
-    <p class="footer-copy">© 2026 龍德數位科技有限公司 · 統編 28636453 · Since 1961</p>
+    <p class="footer-copy">© 2026 龍德數位科技有限公司 · 統編 28636453 </p>
     <a class="design-by" href="https://linket.app" target="_blank">Design by <span class="db-lin">LIN</span><span class="db-ket">Ket</span></a>
   </div>
 </footer>
@@ -776,7 +772,7 @@ a{text-decoration:none;color:inherit;}
 function shareThis(){navigator.share({title:'龍德數位科技',text:'台灣標籤貼紙上游第一手廠商，超過60年歷史',url:'https://linket.app/longder-digital-tech/'}).then(()=>gtag('event','click_share',{'event_category':'CTA','event_label':'longder-owner'})).catch(()=>{});}
 let qrLoaded=false,qrInstance=null;
 function loadQrLib(cb){if(qrLoaded){cb();return;}const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';s.onload=()=>{qrLoaded=true;cb();};document.head.appendChild(s);}
-function renderQrCode(){const el=document.getElementById('qrcode-canvas');if(!el||qrInstance)return;qrInstance=new QRCode(el,{text:'https://linket.app/longder-digital-tech/',width:180,height:180,colorDark:'#1c3f5b',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M});}
+function renderQrCode(){const el=document.getElementById('qrcode-canvas');if(!el||qrInstance)return;qrInstance=new QRCode(el,{text:'https://linket.app/longder-digital-tech/shih-zih-fei',width:180,height:180,colorDark:'#1c3f5b',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M});}
 function openQrModal(){const m=document.getElementById('qrModal');if(!m)return;m.classList.add('active');document.body.style.overflow='hidden';loadQrLib(renderQrCode);gtag('event','click_qr_modal',{'event_category':'CTA','event_label':'longder-owner'});}
 function closeQrModal(){const m=document.getElementById('qrModal');if(!m)return;m.classList.remove('active');document.body.style.overflow='';}
 function closeQrModalOnBg(e){const m=document.getElementById('qrModal');if(m&&e.target===m)closeQrModal();}
