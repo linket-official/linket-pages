@@ -1,0 +1,797 @@
+<!--
+  龍德數位科技有限公司｜LONGDER Digital Technology
+  slug: longder-digital-tech
+  方案: LINKet Tier 3 標準版（品牌主頁）
+  v1.0  2026-06-06  初版建置
+  v1.1  2026-06-06  Hero按鈕重組（6顆依序排列）；移除主理人導入按鈕；認證書區新增（§4.5）；Maps改正確embed碼；Flipsnack嵌入：§1 Hero + §2 品牌定位 + §3 互動測驗 + §4 產品分類 + §5 線上型錄 + §6 交通資訊 + §7 Footer
+  設計：深藍科技 × 無襯線黑體 × B2B 信賴感
+-->
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-29J2988Y8J');</script>
+<title>龍德數位科技｜台灣標籤貼紙上游第一手廠商</title>
+<meta name="description" content="龍德數位科技，超過60年歷史，台南安平自有廠房。G7色彩認證・SGS無毒・FSC森林認證。免製版數位印刷，流水序號・QR Code一條龍生產。">
+<meta property="og:title" content="龍德數位科技｜台灣標籤貼紙上游第一手廠商">
+<meta property="og:description" content="超過60年歷史，跳過中間商直供出廠價。G7・SGS・FSC・BPA Free 四大認證，ESG 安全供應鏈首選。">
+<meta property="og:image" content="https://linket.app/longder-digital-tech/assets/og-image.jpg">
+<meta property="og:url" content="https://linket.app/longder-digital-tech/">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" sizes="180x180" href="/longder-digital-tech/assets/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/longder-digital-tech/assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+/* ── Token ── */
+:root{
+  --c1:#2d6592;--c1-lt:#4a86b8;--c1-dk:#1e4e74;
+  --c2:#1c3f5b;--c2-dk:#0f2438;
+  --c3:#f4f7fa;--c4:#e8edf2;
+  --ink:#1a1a1a;--ink-lt:rgba(26,26,26,.55);
+  --white:#fff;--gold:#C8A84B;
+  --r:6px;--mw:960px;
+  --ease:cubic-bezier(.25,.1,.1,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans TC','IBM Plex Sans',sans-serif;color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+
+/* ── Hero ── */
+.hero-section{position:relative;min-height:100svh;display:flex;align-items:stretch;overflow:hidden;background:var(--c2-dk);}
+.hero-bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:.18;pointer-events:none;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(12,26,40,.95) 0%,rgba(28,63,91,.82) 55%,rgba(28,63,91,.90) 100%);z-index:1;}
+.hero-content{position:relative;z-index:2;width:100%;max-width:var(--mw);margin:0 auto;padding:3rem 1.6rem;display:flex;flex-direction:row;align-items:center;gap:3rem;}
+@media(max-width:700px){.hero-content{flex-direction:column;align-items:center;text-align:center;padding:2.4rem 1.4rem;}}
+
+/* Hero 左欄 */
+.hero-left{flex:1 1 0;display:flex;flex-direction:column;align-items:flex-start;gap:.55rem;color:var(--white);}
+@media(max-width:700px){.hero-left{align-items:center;}}
+.hero-since{font-family:'IBM Plex Sans',sans-serif;font-size:.68rem;font-weight:300;letter-spacing:.35em;color:rgba(255,255,255,.45);text-transform:uppercase;}
+.hero-logo-wrap{width:clamp(120px,18vw,150px);height:auto;margin-bottom:.8rem;display:flex;justify-content:center;}
+.hero-logo-ph{width:clamp(120px,18vw,150px);height:clamp(80px,12vw,100px);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Sans',sans-serif;font-size:1.1rem;font-weight:600;letter-spacing:.22em;color:var(--white);border:2px solid rgba(255,255,255,.25);border-radius:4px;}
+.hero-logo-img{width:100%;height:auto;display:block;object-fit:contain;}
+.hero-tagline{font-size:.78rem;font-weight:400;letter-spacing:.12em;color:rgba(255,255,255,.55);margin-top:.2rem;}
+/* 主理人 */
+.hero-director-row{display:flex;align-items:flex-end;gap:1.2rem;margin:.6rem 0 .4rem;}
+@media(max-width:700px){.hero-director-row{justify-content:center;}}
+.hero-portrait{width:clamp(180px,40vw,200px);height:auto;aspect-ratio:3/4;object-fit:cover;object-position:top center;display:block;}
+.hero-director-info{display:flex;flex-direction:column;gap:.3rem;padding-bottom:.4rem;}
+.hero-name{font-size:clamp(1.5rem,5vw,2rem);font-weight:700;letter-spacing:.12em;color:var(--white);line-height:1.1;}
+.hero-name-en{font-family:'IBM Plex Sans',sans-serif;font-size:.82rem;font-weight:300;letter-spacing:.22em;color:rgba(255,255,255,.55);}
+.hero-role{font-size:.72rem;font-weight:400;letter-spacing:.15em;color:var(--c1-lt);margin-top:.15rem;}
+.hero-badges{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.4rem;}
+.hero-contact-info{font-family:'IBM Plex Sans',sans-serif;font-size:.68rem;font-weight:300;letter-spacing:.06em;color:rgba(255,255,255,.45);line-height:2;margin-top:.2rem;}
+.h-badge{font-family:'IBM Plex Sans',sans-serif;font-size:.58rem;font-weight:400;letter-spacing:.1em;color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.2);border-radius:2px;padding:.12rem .4rem;}
+.cert-badges{display:flex;align-items:center;gap:.8rem;margin:.6rem 0 .3rem;}
+.cert-badge{width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.25);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.1rem;flex-shrink:0;}
+.cert-badge img{width:36px;height:36px;object-fit:contain;display:block;}
+.cert-badge-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;}
+.cert-badge-name{font-family:'IBM Plex Sans',sans-serif;font-size:.42rem;font-weight:600;letter-spacing:.08em;color:rgba(255,255,255,.7);text-align:center;line-height:1.2;}
+
+/* Hero 右欄 */
+.hero-right{flex:0 0 auto;width:clamp(240px,32vw,300px);display:flex;flex-direction:column;gap:.7rem;}
+@media(max-width:700px){.hero-right{width:100%;max-width:320px;}}
+.hero-icons{display:flex;justify-content:flex-start;gap:.8rem;margin-bottom:.3rem;}
+@media(max-width:700px){.hero-icons{justify-content:center;}}
+.hero-icon-link{width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:transparent;border:none;border-radius:0;}
+.hero-icon-link img{width:36px;height:36px;display:block;}
+.hero-btn{display:flex;align-items:center;justify-content:center;width:100%;padding:1rem 1.2rem;font-family:'Noto Sans TC','IBM Plex Sans',sans-serif;font-size:.88rem;font-weight:500;letter-spacing:.1em;border-radius:100px(--r);transition:all .25s var(--ease);cursor:pointer;gap:.4rem;}
+.hero-btn.p1{background:var(--c1);color:var(--white);border:2px solid var(--c1);}
+.hero-btn.p1:hover{background:var(--c1-lt);border-color:var(--c1-lt);}
+.hero-btn.p2{background:var(--c2);color:var(--white);border:2px solid rgba(255,255,255,.3);}
+.hero-btn.p2:hover{background:rgba(255,255,255,.12);}
+.hero-btn.ghost{background:transparent;color:rgba(255,255,255,.75);border:1.5px solid rgba(255,255,255,.3);}
+.hero-btn.ghost:hover{border-color:rgba(255,255,255,.65);color:var(--white);}
+.hero-btn-sub{font-family:'IBM Plex Sans',sans-serif;font-size:.68rem;letter-spacing:.1em;color:rgba(255,255,255,.35);text-align:center;margin-top:-.2rem;}
+
+/* Hero animation */
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+.hero-left>*{opacity:0;animation:fadeUp .55s var(--ease) forwards;}
+.hero-left>*:nth-child(1){animation-delay:.05s;}
+.hero-left>*:nth-child(2){animation-delay:.12s;}
+.hero-left>*:nth-child(3){animation-delay:.18s;}
+.hero-left>*:nth-child(4){animation-delay:.25s;}
+.hero-left>*:nth-child(5){animation-delay:.32s;}
+.hero-left>*:nth-child(6){animation-delay:.38s;}
+.hero-right>*:nth-child(1){opacity:0;animation:fadeUp .55s var(--ease) .3s forwards;}
+.hero-right>*:nth-child(2){opacity:0;animation:fadeUp .55s var(--ease) .4s forwards;}
+.hero-right>*:nth-child(3){opacity:0;animation:fadeUp .55s var(--ease) .5s forwards;}
+.hero-right>*:nth-child(4){opacity:0;animation:fadeUp .55s var(--ease) .6s forwards;}
+.hero-right>*:nth-child(5){opacity:0;animation:fadeUp .55s var(--ease) .7s forwards;}
+.hero-right>*:nth-child(6){opacity:0;animation:fadeUp .55s var(--ease) .78s forwards;}
+
+/* ── QR Modal ── */
+.qr-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:9999;display:none;align-items:center;justify-content:center;backdrop-filter:blur(4px);}
+.qr-modal-overlay.active{display:flex;}
+.qr-modal{background:#fff;border-radius:12px;padding:2rem;text-align:center;max-width:280px;width:90%;}
+.qr-modal-title{font-family:'IBM Plex Sans',sans-serif;font-size:.7rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--c1);margin-bottom:1.2rem;}
+.qr-modal-code{display:flex;justify-content:center;margin-bottom:.8rem;}
+.qr-modal-url{font-family:'IBM Plex Sans',sans-serif;font-size:.65rem;letter-spacing:.1em;color:var(--ink-lt);margin-bottom:.6rem;}
+.qr-modal-hint{font-size:.7rem;color:var(--ink-lt);margin-bottom:1.2rem;}
+.qr-modal-close{background:var(--c2);color:#fff;border:none;border-radius:var(--r);padding:.6rem 1.4rem;font-size:.78rem;letter-spacing:.1em;cursor:pointer;}
+
+/* ── Ticker ── */
+.ticker-wrap{width:100%;overflow:hidden;background:var(--c1);padding:.55rem 0;border-top:1px solid rgba(255,255,255,.12);}
+.ticker{display:flex;width:max-content;}
+.ticker-content{display:flex;gap:2.5rem;padding-right:2.5rem;white-space:nowrap;animation:tick 30s linear infinite;font-family:'IBM Plex Sans',sans-serif;font-size:.7rem;font-weight:400;letter-spacing:.18em;color:rgba(255,255,255,.75);text-transform:uppercase;}
+@keyframes tick{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.ticker-content span{display:flex;align-items:center;gap:.6rem;}
+.ticker-content span::before{content:'◆';font-size:.45rem;color:rgba(255,255,255,.45);}
+
+/* ── Section 共用 ── */
+.bg-dark{background:var(--c2);color:var(--white);position:relative;overflow:hidden;}
+.bg-light{background:var(--c3);color:var(--ink);}
+.bg-white{background:var(--white);color:var(--ink);}
+.section-inner{max-width:var(--mw);margin:0 auto;padding:clamp(3rem,7vw,5rem) 1.6rem;}
+.section-eyebrow{font-family:'IBM Plex Sans',sans-serif;font-size:.68rem;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--c1);margin-bottom:.6rem;}
+.bg-dark .section-eyebrow{color:var(--c1-lt);}
+.section-h2{font-size:clamp(1.4rem,4vw,2rem);font-weight:700;letter-spacing:.08em;line-height:1.2;margin-bottom:.5rem;}
+.section-sub{font-size:.88rem;font-weight:300;line-height:2;letter-spacing:.05em;color:var(--ink-lt);max-width:560px;}
+.bg-dark .section-sub{color:rgba(255,255,255,.55);}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease);}
+.reveal.visible{opacity:1;transform:none;}
+.rd1{transition-delay:.08s;}.rd2{transition-delay:.16s;}.rd3{transition-delay:.24s;}.rd4{transition-delay:.32s;}
+
+/* ── §2 品牌定位 ── */
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:clamp(2rem,5vw,3.5rem) 0;}
+@media(max-width:500px){.stats-row{grid-template-columns:1fr;gap:1.2rem;}}
+.stat-card{background:var(--c2-dk);padding:2rem 1.4rem;text-align:center;border-radius:var(--r);}
+.stat-num{font-family:'IBM Plex Sans',sans-serif;font-size:clamp(2.4rem,7vw,4rem);font-weight:600;color:var(--gold);line-height:1;letter-spacing:-.01em;}
+.stat-label{font-size:.78rem;font-weight:300;letter-spacing:.14em;color:rgba(255,255,255,.5);margin-top:.5rem;}
+.adv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-bottom:2.5rem;}
+@media(max-width:640px){.adv-grid{grid-template-columns:1fr;}}
+.adv-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:1.8rem 1.4rem;transition:.25s;}
+.adv-card:hover{background:rgba(255,255,255,.07);border-color:var(--c1);}
+.adv-icon{font-size:1.6rem;margin-bottom:.8rem;}
+.adv-title{font-size:.92rem;font-weight:700;letter-spacing:.1em;color:var(--white);margin-bottom:.5rem;}
+.adv-body{font-size:.78rem;font-weight:300;line-height:1.9;letter-spacing:.04em;color:rgba(255,255,255,.5);}
+.badge-row{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;padding-top:1.6rem;border-top:1px solid rgba(255,255,255,.08);}
+.trust-badge{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:.5rem .9rem;}
+.trust-badge-name{font-family:'IBM Plex Sans',sans-serif;font-size:.65rem;font-weight:500;letter-spacing:.1em;color:rgba(255,255,255,.7);}
+.trust-badge-desc{font-family:'IBM Plex Sans',sans-serif;font-size:.58rem;letter-spacing:.06em;color:rgba(255,255,255,.35);}
+
+/* ── §3 互動測驗 ── */
+.quiz-wrap{max-width:680px;margin:0 auto;}
+.quiz-progress{display:flex;gap:.5rem;margin-bottom:2rem;}
+.quiz-step-dot{flex:1;height:3px;background:rgba(255,255,255,.15);border-radius:2px;transition:.3s;}
+.quiz-step-dot.active{background:var(--c1);}
+.quiz-step-dot.done{background:var(--c1-lt);}
+.quiz-step-label{font-family:'IBM Plex Sans',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:1rem;}
+.quiz-question{font-size:clamp(1rem,3vw,1.4rem);font-weight:700;letter-spacing:.06em;color:var(--white);margin-bottom:1.6rem;line-height:1.4;}
+.quiz-options{display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem;}
+@media(max-width:480px){.quiz-options{grid-template-columns:1fr;}}
+.quiz-option{display:flex;align-items:center;gap:.7rem;background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.14);border-radius:var(--r);padding:.9rem 1rem;cursor:pointer;transition:.2s var(--ease);font-size:.82rem;font-weight:400;letter-spacing:.06em;color:rgba(255,255,255,.75);}
+.quiz-option:hover{border-color:var(--c1);color:var(--white);background:rgba(45,101,146,.2);}
+.quiz-option.selected{border-color:var(--c1);background:rgba(45,101,146,.3);color:var(--white);}
+.quiz-option.multi-selected{border-color:var(--c1);background:rgba(45,101,146,.3);color:var(--white);}
+.quiz-option.multi-selected::after{content:'✓';margin-left:auto;font-size:.7rem;color:var(--c1-lt);}
+.quiz-next-btn{width:100%;margin-top:1rem;padding:.9rem;background:var(--c1);color:#fff;border:none;border-radius:100px;font-family:'Noto Sans TC',sans-serif;font-size:.88rem;font-weight:500;letter-spacing:.1em;cursor:pointer;transition:.25s;display:none;}
+.quiz-next-btn:hover{background:var(--c1-lt);}
+.quiz-next-btn.show{display:block;}
+.quiz-option-icon{font-size:1.1rem;flex-shrink:0;}
+.quiz-result{display:none;text-align:center;}
+.quiz-result.show{display:block;}
+.quiz-result-tag{display:inline-block;font-family:'IBM Plex Sans',sans-serif;font-size:.65rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);border-radius:2px;padding:.18rem .7rem;margin-bottom:1rem;}
+.quiz-result-product{font-size:clamp(1.2rem,4vw,1.8rem);font-weight:700;letter-spacing:.08em;color:var(--white);margin-bottom:.8rem;}
+.quiz-result-desc{font-size:.84rem;font-weight:300;line-height:2;letter-spacing:.06em;color:rgba(255,255,255,.6);margin-bottom:1.8rem;}
+.quiz-cta-row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;}
+.quiz-btn{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;padding:.9rem 1.6rem;font-family:'Noto Sans TC',sans-serif;font-size:.84rem;font-weight:500;letter-spacing:.1em;border-radius:100px(--r);transition:.25s var(--ease);}
+.quiz-btn.p1{background:var(--c1);color:var(--white);border:2px solid var(--c1);}
+.quiz-btn.p1:hover{background:var(--c1-lt);}
+.quiz-btn.ghost{background:transparent;color:rgba(255,255,255,.7);border:1.5px solid rgba(255,255,255,.3);}
+.quiz-btn.ghost:hover{border-color:rgba(255,255,255,.6);color:var(--white);}
+.quiz-restart{font-family:'IBM Plex Sans',sans-serif;font-size:.7rem;font-weight:300;letter-spacing:.14em;color:rgba(255,255,255,.3);border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:.15rem;cursor:pointer;background:none;border-top:none;border-left:none;border-right:none;margin-top:1.2rem;transition:.2s;}
+.quiz-restart:hover{color:rgba(255,255,255,.6);}
+/* quiz 步驟面板 */
+.quiz-panel{display:none;}.quiz-panel.active{display:block;}
+@keyframes slideIn{from{opacity:0;transform:translateX(16px);}to{opacity:1;transform:none;}}
+.quiz-panel.active{animation:slideIn .25s var(--ease);}
+
+/* ── §4 產品分類 ── */
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--c4);border-radius:var(--r);overflow:hidden;}
+@media(max-width:700px){.prod-grid{grid-template-columns:repeat(2,1fr);}}
+.prod-card{background:var(--white);padding:1.4rem 1.2rem;display:flex;flex-direction:column;gap:.5rem;transition:.25s var(--ease);cursor:pointer;position:relative;}
+.prod-card:hover{background:#f0f6ff;z-index:1;}
+.prod-card-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px;background:var(--c4);margin-bottom:.3rem;}
+.prod-card-img-ph{width:100%;aspect-ratio:4/3;background:var(--c4);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:.3rem;}
+.prod-card-name{font-size:.86rem;font-weight:700;letter-spacing:.08em;color:var(--ink);}
+.prod-card-desc{font-size:.72rem;font-weight:300;line-height:1.7;letter-spacing:.04em;color:var(--ink-lt);}
+.prod-card-cta{display:none;font-family:'IBM Plex Sans',sans-serif;font-size:.68rem;font-weight:400;letter-spacing:.1em;color:var(--c1);margin-top:.3rem;}
+.prod-card:hover .prod-card-cta{display:flex;align-items:center;gap:.2rem;}
+.prod-card-last{background:var(--c2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;padding:1.4rem;cursor:pointer;transition:.25s;}
+.prod-card-last:hover{background:var(--c1);}
+.prod-card-last-text{font-size:.82rem;font-weight:500;letter-spacing:.1em;color:var(--white);text-align:center;}
+.prod-section-cta{margin-top:2rem;text-align:center;}
+.prod-cta-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.9rem 2rem;background:var(--c1);color:var(--white);border-radius:100px(--r);font-family:'Noto Sans TC',sans-serif;font-size:.86rem;font-weight:500;letter-spacing:.1em;transition:.25s var(--ease);}
+.prod-cta-btn:hover{background:var(--c1-lt);}
+
+/* ── §5 線上型錄 ── */
+.catalog-embed{width:100%;aspect-ratio:16/9;border:none;border-radius:var(--r);overflow:hidden;display:block;}
+@media(max-width:600px){.catalog-embed{display:none;}}
+.catalog-mobile-cta{display:none;}
+@media(max-width:600px){.catalog-mobile-cta{display:flex;flex-direction:column;align-items:center;gap:1rem;}}
+.catalog-cta-row{display:flex;gap:.8rem;justify-content:center;margin-top:1.6rem;flex-wrap:wrap;}
+.catalog-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.85rem 1.6rem;border-radius:100px(--r);font-family:'Noto Sans TC',sans-serif;font-size:.84rem;font-weight:500;letter-spacing:.1em;transition:.25s;}
+.catalog-btn.p1{background:var(--white);color:var(--c2);}
+.catalog-btn.p1:hover{background:var(--c3);}
+.catalog-btn.ghost{background:transparent;color:rgba(255,255,255,.7);border:1.5px solid rgba(255,255,255,.3);}
+.catalog-btn.ghost:hover{border-color:rgba(255,255,255,.7);color:var(--white);}
+
+/* ── §6 交通資訊 ── */
+.location-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;}
+@media(max-width:640px){.location-grid{grid-template-columns:1fr;}}
+.location-map{width:100%;aspect-ratio:4/3;border:none;border-radius:var(--r);display:block;background:var(--c4);}
+.location-info{display:flex;flex-direction:column;gap:1rem;}
+.location-row{display:flex;gap:.8rem;align-items:flex-start;}
+.location-row-icon{width:18px;height:18px;flex-shrink:0;opacity:.5;margin-top:.1rem;}
+.location-row-content{flex:1;}
+.location-row-label{font-family:'IBM Plex Sans',sans-serif;font-size:.62rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--c1);margin-bottom:.15rem;}
+.location-row-value{font-size:.84rem;font-weight:400;letter-spacing:.06em;color:var(--ink);line-height:1.65;}
+.location-row-value a{color:var(--c1);}
+
+/* ── Footer ── */
+.footer{background:var(--c2-dk);padding:clamp(2.5rem,6vw,4rem) 1.6rem;text-align:center;position:relative;}
+.footer-inner{max-width:var(--mw);margin:0 auto;}
+.footer-logo-ph{font-family:'IBM Plex Sans',sans-serif;font-size:.88rem;font-weight:600;letter-spacing:.25em;color:rgba(255,255,255,.4);margin-bottom:.3rem;text-transform:uppercase;}
+.footer-tagline{font-family:'IBM Plex Sans',sans-serif;font-size:.65rem;letter-spacing:.2em;color:rgba(255,255,255,.25);margin-bottom:1.8rem;}
+.footer-icons{display:flex;justify-content:center;gap:1.2rem;margin-bottom:1.6rem;}
+.footer-icon-link{width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:transparent;border:none;}
+.footer-icon-link img{width:36px;height:36px;display:block;filter:brightness(0) invert(1);opacity:.5;}
+.footer-icon-link:hover img{opacity:.8;}
+.footer-btns{display:flex;flex-direction:column;gap:.7rem;max-width:280px;margin:0 auto 1.8rem;}
+.footer-btn{display:flex;align-items:center;justify-content:center;width:100%;padding:1rem 1.2rem;font-family:'Noto Sans TC',sans-serif;font-size:.86rem;font-weight:500;letter-spacing:.1em;border-radius:100px(--r);transition:.25s;gap:.3rem;}
+.footer-btn.p1{background:var(--c1);color:var(--white);border:2px solid var(--c1);}
+.footer-btn.p1:hover{background:var(--c1-lt);}
+.footer-btn.ghost{background:transparent;color:rgba(255,255,255,.6);border:1.5px solid rgba(255,255,255,.2);}
+.footer-btn.ghost:hover{border-color:rgba(255,255,255,.5);color:var(--white);}
+.footer-divider{height:1px;background:rgba(255,255,255,.08);margin:1.2rem 0;}
+.footer-copy{font-family:'IBM Plex Sans',sans-serif;font-size:.62rem;letter-spacing:.14em;color:rgba(255,255,255,.2);margin-bottom:.3rem;}
+.design-by{font-family:'IBM Plex Sans',sans-serif;font-size:.62rem;letter-spacing:.16em;color:rgba(255,255,255,.15);}
+.db-lin{color:rgba(22,133,200,.5);}.db-ket{color:rgba(255,255,255,.3);}
+
+/* Back to Top */
+.back-top{position:fixed;bottom:1.4rem;right:1.4rem;width:44px;height:44px;background:var(--c1);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .3s;z-index:99;border:none;}
+.back-top.show{opacity:1;}
+.back-top svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2.5;}
+
+/* ── §4.5 認證書 ── */
+.cert-docs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;max-width:640px;margin:0 auto;}
+@media(max-width:500px){.cert-docs-grid{grid-template-columns:1fr;gap:1.4rem;}}
+.cert-doc-card{display:flex;flex-direction:column;align-items:center;gap:.8rem;}
+.cert-doc-img{width:100%;border-radius:var(--r);box-shadow:0 4px 24px rgba(0,0,0,.3);display:block;}
+.cert-doc-ph{width:100%;aspect-ratio:3/4;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);flex-direction:column;align-items:center;justify-content:center;gap:.6rem;}
+.cert-doc-ph-icon{font-size:2rem;}
+.cert-doc-ph-name{font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;font-weight:500;letter-spacing:.1em;color:rgba(255,255,255,.6);text-align:center;}
+.cert-doc-ph-sub{font-family:'IBM Plex Sans',sans-serif;font-size:.6rem;letter-spacing:.1em;color:rgba(255,255,255,.3);}
+.cert-doc-label{font-family:'IBM Plex Sans',sans-serif;font-size:.7rem;font-weight:400;letter-spacing:.12em;color:rgba(255,255,255,.5);text-align:center;}
+</style>
+</head>
+<body>
+
+<!-- QR Modal -->
+<div class="qr-modal-overlay" id="qrModal" onclick="closeQrModalOnBg(event)">
+  <div class="qr-modal">
+    <div class="qr-modal-title">LONGDER</div>
+    <div class="qr-modal-code"><div id="qrcode-canvas"></div></div>
+    <div class="qr-modal-url">linket.app/longder-digital-tech</div>
+    <div class="qr-modal-hint">掃描 QR Code 開啟頁面</div>
+    <button class="qr-modal-close" onclick="closeQrModal()">關 閉</button>
+  </div>
+</div>
+
+<!-- ══ §1 HERO ══ -->
+<section class="hero-section" id="top">
+  <img src="/longder-digital-tech/assets/hero-bg.jpg" class="hero-bg-img" alt="" aria-hidden="true" onerror="this.style.display='none'">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+
+    <!-- 左欄 -->
+    <div class="hero-left">
+      <!-- ① LOGO 150x300 橫式比例 -->
+      <div class="hero-logo-wrap">
+        <img src="/longder-digital-tech/assets/longder-logo.svg" alt="LONGDER 龍德數位科技"
+             class="hero-logo-img" style="width:100%;height:auto;display:block;object-fit:contain;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="hero-logo-ph" style="display:none">LONGDER</div>
+      </div>
+      <!-- ② G7 + SGS 圓形標章 -->
+      <div class="cert-badges">
+        <div class="cert-badge">
+          <img src="/longder-digital-tech/assets/badge-g7.png" alt="G7 Master"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="cert-badge-ph" style="display:none"><div class="cert-badge-name">G7<br>MASTER</div></div>
+        </div>
+        <div class="cert-badge">
+          <img src="/longder-digital-tech/assets/badge-sgs.png" alt="SGS"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="cert-badge-ph" style="display:none"><div class="cert-badge-name">SGS</div></div>
+        </div>
+      </div>
+      <!-- ③ Hashtags -->
+      <div class="hero-badges">
+        <span class="h-badge">#商標貼紙</span>
+        <span class="h-badge">#電腦標籤</span>
+        <span class="h-badge">#條碼貼紙</span>
+        <span class="h-badge">#各類印刷</span>
+      </div>
+      <!-- ④ 聯絡資訊 -->
+      <div class="hero-contact-info">
+        TEL. 0800-060-121 ｜ TEL. 06-265-7021<br>
+        統編. 28636453 ｜ FAX. 06-263-3855<br>
+        台南市安平工業區新和一路3巷3號
+      </div>
+    </div>
+    <div class="hero-right">
+      <!-- Icons: LINE + FB + 電話 + 官網 + Map -->
+      <div class="hero-icons">
+        <a class="hero-icon-link" href="https://line.me/R/ti/p/@hyg9056l" target="_blank" rel="noopener" aria-label="LINE"
+           onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'longder'})">
+          <img src="/assets/line.svg" alt="LINE" onerror="this.style.visibility='hidden'">
+        </a>
+        <a class="hero-icon-link" href="https://m.facebook.com/p/龍德數位科技有限公司-100063707659672/" target="_blank" rel="noopener" aria-label="Facebook"
+           onclick="gtag('event','click_fb',{'event_category':'CTA','event_label':'longder'})">
+          <img src="/assets/facebook.svg" alt="Facebook" onerror="this.style.visibility='hidden'">
+        </a>
+        <a class="hero-icon-link" href="https://www.longder.com.tw/" target="_blank" rel="noopener" aria-label="官網"
+           onclick="gtag('event','click_web',{'event_category':'CTA','event_label':'longder'})">
+          <img src="/assets/web.svg" alt="官網" onerror="this.style.visibility='hidden'">
+        </a>
+        <a class="hero-icon-link" href="https://maps.app.goo.gl/rCT3cFBbJRbwXNDK7" target="_blank" rel="noopener" aria-label="Google Maps"
+           onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'longder'})">
+          <img src="/assets/map.svg" alt="地圖" onerror="this.style.visibility='hidden'">
+        </a>
+        <a class="hero-icon-link" href="tel:062657021" aria-label="電話"
+           onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'longder'})">
+          <img src="/assets/phone.svg" alt="電話" onerror="this.style.visibility='hidden'">
+        </a>
+      </div>
+      <!-- 6顆按鈕 -->
+      <a class="hero-btn p1" href="https://line.me/R/ti/p/@hyg9056l" target="_blank" rel="noopener"
+         onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'longder'})">
+        官方LINE｜Line@
+      </a>
+      <a class="hero-btn p2" href="tel:0800060121"
+         onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'longder'})">
+        諮詢專線｜Contact us
+        <span style="display:block;font-size:.65rem;font-weight:300;opacity:.65;letter-spacing:.06em;">0800-060-121</span>
+      </a>
+      <a class="hero-btn ghost" href="#about"
+         onclick="gtag('event','click_about',{'event_category':'CTA','event_label':'longder'})">
+        關於龍德｜About Us
+      </a>
+      <a class="hero-btn ghost" href="#products"
+         onclick="gtag('event','click_products',{'event_category':'CTA','event_label':'longder'})">
+        商品介紹｜Product Display
+      </a>
+      <a class="hero-btn ghost" href="#certification"
+         onclick="gtag('event','click_cert',{'event_category':'CTA','event_label':'longder'})">
+        官方認證｜Certification
+      </a>
+      <a class="hero-btn ghost" href="#catalog"
+         onclick="gtag('event','click_catalog',{'event_category':'CTA','event_label':'longder'})">
+        線上型錄｜DM Online
+      </a>
+      <div class="hero-btn-row" style="display:flex;gap:.6rem;">
+        <button class="hero-btn ghost" style="flex:1;font-size:.78rem;" onclick="openQrModal()">QR Code</button>
+        <button class="hero-btn ghost" style="flex:1;font-size:.78rem;" id="shareBtn" onclick="shareThis()">分享</button>
+      </div>
+    </div></div>
+  </div>
+</section>
+
+<!-- Ticker -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <div class="ticker-content">
+      <span>上游第一手廠商</span><span>G7 色彩認證</span><span>SGS 無毒認證</span><span>FSC 森林認證</span><span>BPA Free</span><span>免製版數位印刷</span><span>超過 60 年歷史</span><span>台南安平工業區自有廠房</span><span>VDP 可變資料列印</span><span>正式報價單</span>
+      <span>上游第一手廠商</span><span>G7 色彩認證</span><span>SGS 無毒認證</span><span>FSC 森林認證</span><span>BPA Free</span><span>免製版數位印刷</span><span>超過 60 年歷史</span><span>台南安平工業區自有廠房</span><span>VDP 可變資料列印</span><span>正式報價單</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ §2 品牌定位 ══ -->
+<section class="bg-dark" id="about">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">Brand Story</div>
+      <h2 class="section-h2">台灣標籤貼紙<br>上游第一手供應商</h2>
+      <p class="section-sub" style="margin-top:.5rem;">民國50年，龍德前身「競新堂」在台南安平落腳。超過60年，從手工印刷走向數位整合，服務範疇涵蓋全台教育體系、政府機關、醫療產業、物流通路。今日的龍德，是許多中小型印刷廠與影印店的代工原廠——跳過中間商，原廠直供，提供正式報價單。G7色彩認證、SGS無毒、FSC歐洲森林認證、BPA Free無雙酚A，四項認證代表的是龍德對供應鏈品質的承諾。</p>
+    </div>
+    <div class="stats-row reveal rd1">
+      <div class="stat-card">
+        <div class="stat-num" data-target="60" data-suffix="+">0+</div>
+        <div class="stat-label">年歷史</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" data-target="4" data-suffix="">0</div>
+        <div class="stat-label">大 ESG 認證</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" data-target="1961" data-suffix="">0</div>
+        <div class="stat-label">年創立</div>
+      </div>
+    </div>
+    <div class="adv-grid reveal rd2">
+      <div class="adv-card">
+        <div class="adv-icon">🏭</div>
+        <div class="adv-title">上游第一手廠商</div>
+        <div class="adv-body">台南安平自有廠房，跳過中間商直供出廠價。可提供正式報價單，適合企業採購與政府訪價需求。</div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">⚡</div>
+        <div class="adv-title">免製版數位印刷</div>
+        <div class="adv-body">無需製版流程，可變資料列印（VDP）：流水序號、獨立 QR Code、農產品產銷履歷，少量多樣一條龍生產。</div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">🌿</div>
+        <div class="adv-title">ESG 安全認證</div>
+        <div class="adv-body">FSC 森林認證・SGS 無毒・BPA Free 無雙酚A・G7 色彩認證，符合綠色供應鏈標準。</div>
+      </div>
+    </div>
+    <div class="badge-row reveal rd3">
+      <div class="trust-badge"><div><div class="trust-badge-name">G7 MASTER</div><div class="trust-badge-desc">Idealliance 色彩認證</div></div></div>
+      <div class="trust-badge"><div><div class="trust-badge-name">SGS</div><div class="trust-badge-desc">無毒檢驗認證</div></div></div>
+      <div class="trust-badge"><div><div class="trust-badge-name">FSC</div><div class="trust-badge-desc">歐洲進口森林認證</div></div></div>
+      <div class="trust-badge"><div><div class="trust-badge-name">BPA FREE</div><div class="trust-badge-desc">感熱紙無雙酚A</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ §3 互動測驗 ══ -->
+<section class="bg-white" id="quiz" style="background:var(--c2-dk);">
+  <div class="section-inner">
+    <div class="quiz-wrap">
+      <div class="reveal" style="text-align:center;margin-bottom:2rem;">
+        <div class="section-eyebrow" style="color:var(--c1-lt);">Interactive</div>
+        <h2 class="section-h2" style="color:var(--white);">選對標籤材質<br>降低採購成本</h2>
+        <p style="font-size:.84rem;color:rgba(255,255,255,.45);letter-spacing:.06em;margin-top:.4rem;">3 個問題，找出最符合需求的標籤規格，直接進入詢價流程。</p>
+      </div>
+      <div class="quiz-progress reveal rd1" id="quizProgress">
+        <div class="quiz-step-dot active" id="dot1"></div>
+        <div class="quiz-step-dot" id="dot2"></div>
+        <div class="quiz-step-dot" id="dot3"></div>
+      </div>
+      <div class="quiz-step-label reveal rd1" id="quizStepLabel">STEP 1 / 3</div>
+      <div class="quiz-panel active" id="step1">
+        <div class="quiz-question">貼紙要貼在哪裡？</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizNext(1,'dining')">飲料杯・食品包裝</div>
+          <div class="quiz-option" onclick="quizNext(1,'logistics')">紙箱・物流包裹</div>
+          <div class="quiz-option" onclick="quizNext(1,'office')">文件・辦公用途</div>
+          <div class="quiz-option" onclick="quizNext(1,'medical')">醫療器材・化學容器</div>
+          <div class="quiz-option" onclick="quizNext(1,'farm')">農產品・冷鏈包裝</div>
+          <div class="quiz-option" onclick="quizNext(1,'retail')">商品外包裝・零售</div>
+        </div>
+      </div>
+      <div class="quiz-panel" id="step2">
+        <div class="quiz-question">最需要哪項特性？<span style="font-size:.72rem;color:rgba(255,255,255,.35);font-weight:300;margin-left:.5rem;">可複選</span></div>
+        <div class="quiz-options" id="step2Options">
+          <div class="quiz-option" onclick="toggleMulti(this,'waterproof')">防水防油</div>
+          <div class="quiz-option" onclick="toggleMulti(this,'scratch')">防刮耐磨</div>
+          <div class="quiz-option" onclick="toggleMulti(this,'eco')">環保認證</div>
+          <div class="quiz-option" onclick="toggleMulti(this,'qrcode')">流水序號・QR Code</div>
+          <div class="quiz-option" onclick="toggleMulti(this,'heat')">耐高溫</div>
+          <div class="quiz-option" onclick="toggleMulti(this,'price')">超高 CP 值</div>
+        </div>
+        <button class="quiz-next-btn" id="step2NextBtn" onclick="quizFromStep2()">下一步 →</button>
+      </div>
+      <div class="quiz-panel" id="step3">
+        <div class="quiz-question">大約的用量？</div>
+        <div class="quiz-options" style="grid-template-columns:1fr;">
+          <div class="quiz-option" onclick="quizResult('small')">少量多樣（1 – 1,000 張）</div>
+          <div class="quiz-option" onclick="quizResult('mid')">中量訂製（1,000 – 10,000 張）</div>
+          <div class="quiz-option" onclick="quizResult('large')">大宗採購（10,000 張以上）</div>
+        </div>
+      </div>
+      <div class="quiz-result" id="quizResult">
+        <div class="quiz-result-tag">🎯 最適合你的是</div>
+        <div class="quiz-result-product" id="resultProduct">熱感條碼標籤</div>
+        <div class="quiz-result-desc" id="resultDesc">防油防水・免碳帶感熱・手搖飲杯貼首選。</div>
+        <div class="quiz-cta-row">
+          <a class="quiz-btn p1" href="https://line.me/R/ti/p/@hyg9056l?utm_source=quiz&utm_medium=longder-page" target="_blank" rel="noopener"
+             onclick="gtag('event','quiz_cta',{'event_category':'Quiz','event_label':'longder-quiz'})">加入 LINE 詢報價</a>
+          <a class="quiz-btn ghost" href="https://line.me/R/ti/p/@hyg9056l?utm_source=quiz&utm_medium=longder-page-sample" target="_blank" rel="noopener"
+             onclick="gtag('event','quiz_cta',{'event_category':'Quiz','event_label':'longder-quiz'})">索取這款樣品</a>
+        </div>
+        <button class="quiz-restart" onclick="copyResult()" id="copyBtn">複製推薦結果</button>
+        <button class="quiz-restart" onclick="quizReset()">← 重新選擇</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ §4 產品分類 ══ -->
+<section class="bg-light" id="products">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">Products</div>
+      <h2 class="section-h2">8 大產品分類</h2>
+    </div>
+    <div class="prod-grid reveal rd1" style="margin-top:1.8rem;">
+      <div class="prod-card">
+        <div class="prod-card-img-ph">📋</div>
+        <div class="prod-card-name">辦公、文具標籤（現貨）</div>
+        <div class="prod-card-desc">A4電腦標籤・自黏標籤・彩色標籤・保護膜系列</div>
+        <div class="prod-card-cta"><a href="https://line.me/R/ti/p/@hyg9056l" target="_blank" rel="noopener" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'longder'})">加入 LINE 詢這類 →</a></div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-card-img-ph">🍱</div>
+        <div class="prod-card-name">食品、烘焙類</div>
+        <div class="prod-card-desc">產品資訊標籤・營養標籤・封口貼・膜封・效期標籤</div>
+        <div class="prod-card-cta"><a href="https://line.me/R/ti/p/@hyg9056l" target="_blank" rel="noopener" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'longder'})">加入 LINE 詢這類 →</a></div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-card-img-ph">🥤</div>
+        <div class="prod-card-name">餐飲類</div>
+        <div class="prod-card-desc">彩色飲料杯貼・熱感飲料杯杯貼・電子發票・出單紙</div>
+        <div class="prod-card-cta"><a href="https://line.me/R/ti/p/@hyg9056l" target="_blank" rel="noopener" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'longder'})">加入 LINE 詢這類 →</a></div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-card-img-ph">🌾</div>
+        <div class="prod-card-name">農產生鮮超市標籤、吊牌</div>
+        <div class="prod-card-desc">產銷履歷標籤・吊牌・可自動貼標・溯源農藥條碼</div>
+        <div class="prod-card-cta"><a href="https://line.me/R/ti/p/@hyg9056l" target="_blank" rel="noopener" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'longder'})">加入 LINE 詢這類 →</a></div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-card-img-ph">⚙️</div>
+        <div class="prod-card-name">製造業</div>
+        <div class="prod-card-desc">電子業標籤・一般標籤紙・標籤機・站立標・碳帶</div>
+        <div class="prod-card-cta"><a href="https://line.me/R/ti/p/@hyg9056l" target="_blank" rel="noopener" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'longder'})">加入 LINE 詢這類 →</a></div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-card-img-ph">🔒</div>
+        <div class="prod-card-name">防偽、變動性標籤</div>
+        <div class="prod-card-desc">易碎標籤・VDP 可變資料・防破壞防偽系列</div>
+        <div class="prod-card-cta"><a href="https://line.me/R/ti/p/@hyg9056l" target="_blank" rel="noopener" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'longder'})">加入 LINE 詢這類 →</a></div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-card-img-ph">📦</div>
+        <div class="prod-card-name">物流標</div>
+        <div class="prod-card-desc">貨物標籤・條碼標籤・超商出貨貼紙</div>
+        <div class="prod-card-cta"><a href="https://line.me/R/ti/p/@hyg9056l" target="_blank" rel="noopener" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'longder'})">加入 LINE 詢這類 →</a></div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-card-img-ph">🖨️</div>
+        <div class="prod-card-name">其他各類印刷品</div>
+        <div class="prod-card-desc" style="line-height:2;">
+          · 客儒廣告系列（海報・DM・廣告字）<br>
+          · 型錄・卡片・布條・旗幟・邀請函<br>
+          · 節慶系列（紅包・點掛）<br>
+          · 辦公系列（名片・信封）
+        </div>
+        <div class="prod-card-cta"><a href="https://line.me/R/ti/p/@hyg9056l" target="_blank" rel="noopener" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'longder'})">加入 LINE 詢這類 →</a></div>
+      </div>
+    </div>
+    <div class="prod-section-cta reveal rd2">
+      <a class="prod-cta-btn" href="https://line.me/R/ti/p/@hyg9056l" target="_blank" rel="noopener"
+         onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'longder'})">
+        加入 LINE 詢報價
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ §4.5 官方認證 ══ -->
+<section class="bg-dark" id="certification">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center;margin-bottom:2rem;">
+      <div class="section-eyebrow" style="color:var(--c1-lt);">Certification</div>
+      <h2 class="section-h2">官方認證</h2>
+      <p class="section-sub" style="margin:0 auto;text-align:center;margin-top:.4rem;">G7 色彩認證・SGS 無毒・FSC 森林認證・BPA Free，符合 ESG 綠色採購標準。</p>
+    </div>
+    <div class="cert-docs-grid reveal rd1">
+      <div class="cert-doc-card">
+        <img src="/longder-digital-tech/assets/cert-sgs.jpg" alt="SGS 無毒認證書" class="cert-doc-img"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="cert-doc-ph" style="display:none">
+          <div class="cert-doc-ph-icon">📄</div>
+          <div class="cert-doc-ph-name">SGS 無毒認證書</div>
+          <div class="cert-doc-ph-sub">直式 A4</div>
+        </div>
+        <div class="cert-doc-label">SGS 無毒檢驗認證</div>
+      </div>
+      <div class="cert-doc-card">
+        <img src="/longder-digital-tech/assets/cert-g7.jpg" alt="G7 Master Facility 認證書" class="cert-doc-img"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="cert-doc-ph" style="display:none">
+          <div class="cert-doc-ph-icon">📄</div>
+          <div class="cert-doc-ph-name">G7 Master Facility</div>
+          <div class="cert-doc-ph-sub">橫式 A4</div>
+        </div>
+        <div class="cert-doc-label">Idealliance G7 色彩認證</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ §5 線上型錄 ══ -->
+<section class="bg-dark" id="catalog">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center;margin-bottom:1.8rem;">
+      <div class="section-eyebrow">Catalog</div>
+      <h2 class="section-h2">線上型錄</h2>
+      <p class="section-sub" style="margin:0 auto;text-align:center;">翻閱完整產品型錄，找到您需要的解決方案。<br>需要報價？加 LINE，我們幫您挑選最適合的材質。</p>
+    </div>
+    <div class="reveal rd1">
+      <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:var(--r);">
+        <iframe src="https://www.flipsnack.com/B965BD77C6F/dm-new/full-view.html"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
+          seamless allowfullscreen scrolling="no" frameborder="0"
+          loading="lazy" title="龍德數位科技線上型錄">
+        </iframe>
+      </div>
+      <div class="catalog-mobile-cta">
+        <div style="font-size:.84rem;color:rgba(255,255,255,.55);letter-spacing:.06em;text-align:center;">在行動裝置上瀏覽完整型錄</div>
+        <a href="https://www.flipsnack.com/B965BD77C6F/dm-new" target="_blank" rel="noopener" class="catalog-btn p1"
+           onclick="gtag('event','click_catalog',{'event_category':'CTA','event_label':'longder'})">
+          開啟線上型錄
+        </a>
+      </div>
+    </div>
+    <div class="catalog-cta-row reveal rd2">
+      <a class="catalog-btn p1" href="https://line.me/R/ti/p/@hyg9056l" target="_blank" rel="noopener"
+         onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'longder'})">
+        加入 LINE 詢報價
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ §6 交通資訊 ══ -->
+<section class="bg-light" id="location">
+  <div class="section-inner">
+    <div class="reveal" style="margin-bottom:2rem;">
+      <div class="section-eyebrow">Location</div>
+      <h2 class="section-h2">交通資訊</h2>
+    </div>
+    <div class="location-grid">
+      <div class="reveal rd1">
+        <iframe class="location-map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.5736732395544!2d120.17912417587252!3d22.965922918438636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e75ea7e73a249%3A0xf168074f77c12c32!2z6b6N5b635pW45L2N56eR5oqA5pyJ6ZmQ5YWs5Y-4772c5Y-w5Y2XQTTpm7vohabmqJnnsaTvvZzlj7DljZfljZfljYDmqJnnsaTosrzntJnvvZzlj7DljZfnhrHmhJ_ntJk!5e0!3m2!1szh-TW!2stw!4v1780921397531!5m2!1szh-TW!2stw"
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="龍德數位科技地圖">
+        </iframe>
+        <div style="margin-top:.8rem;">
+          <a href="https://maps.app.goo.gl/ZEuZWggwr5E7ZwK9A" target="_blank" rel="noopener"
+             style="font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;letter-spacing:.12em;color:var(--c1);"
+             onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'longder'})">
+            在 Google Maps 中開啟 →
+          </a>
+        </div>
+      </div>
+      <div class="location-info reveal rd2">
+        <div class="location-row">
+          <svg class="location-row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div class="location-row-content">
+            <div class="location-row-label">地址</div>
+            <div class="location-row-value">702 台南市南區彰南里<br>新和一路3巷3號（安平工業區）</div>
+          </div>
+        </div>
+        <div class="location-row">
+          <svg class="location-row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <div class="location-row-content">
+            <div class="location-row-label">免付費專線</div>
+            <div class="location-row-value"><a href="tel:0800060121" onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'longder'})">0800-060-121</a></div>
+          </div>
+        </div>
+        <div class="location-row">
+          <svg class="location-row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <div class="location-row-content">
+            <div class="location-row-label">公司電話</div>
+            <div class="location-row-value"><a href="tel:0662657021" onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'longder'})">(06) 265-7021</a></div>
+          </div>
+        </div>
+        <div class="location-row">
+          <svg class="location-row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <div class="location-row-content">
+            <div class="location-row-label">Email</div>
+            <div class="location-row-value"><a href="mailto:longder.tw@msa.hinet.net" onclick="gtag('event','click_mail',{'event_category':'CTA','event_label':'longder'})">longder.tw@msa.hinet.net</a></div>
+          </div>
+        </div>
+        <div class="location-row">
+          <svg class="location-row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <div class="location-row-content">
+            <div class="location-row-label">營業時間</div>
+            <div class="location-row-value">週一至週五 08:30 – 18:00</div>
+          </div>
+        </div>
+        <div class="location-row">
+          <svg class="location-row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          <div class="location-row-content">
+            <div class="location-row-label">統一編號</div>
+            <div class="location-row-value">28636453</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ §7 Footer ══ -->
+<footer class="footer" id="contact">
+  <div class="footer-inner">
+    <div class="footer-logo-ph">LONGDER</div>
+    <div class="footer-tagline">龍德數位科技有限公司・Since 1961</div>
+    <div class="footer-icons">
+      <a class="footer-icon-link" href="https://line.me/R/ti/p/@hyg9056l" target="_blank" rel="noopener" aria-label="LINE"
+         onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'longder'})">
+        <img src="/assets/line.svg" alt="LINE" onerror="this.style.visibility='hidden'">
+      </a>
+      <a class="footer-icon-link" href="https://m.facebook.com/p/龍德數位科技有限公司-100063707659672/" target="_blank" rel="noopener" aria-label="Facebook"
+         onclick="gtag('event','click_fb',{'event_category':'CTA','event_label':'longder'})">
+        <img src="/assets/facebook.svg" alt="Facebook" onerror="this.style.visibility='hidden'">
+      </a>
+      <a class="footer-icon-link" href="https://www.longder.com.tw/" target="_blank" rel="noopener" aria-label="官網"
+         onclick="gtag('event','click_web',{'event_category':'CTA','event_label':'longder'})">
+        <img src="/assets/web.svg" alt="官網" onerror="this.style.visibility='hidden'">
+      </a>
+      <a class="footer-icon-link" href="https://maps.app.goo.gl/rCT3cFBbJRbwXNDK7" target="_blank" rel="noopener" aria-label="Google Maps"
+         onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'longder'})">
+        <img src="/assets/map.svg" alt="地圖" onerror="this.style.visibility='hidden'">
+      </a>
+      <a class="footer-icon-link" href="tel:062657021" aria-label="電話"
+         onclick="gtag('event','click_tel_footer',{'event_category':'CTA','event_label':'longder'})">
+        <img src="/assets/phone.svg" alt="電話" onerror="this.style.visibility='hidden'">
+      </a>
+    </div>
+    <div class="footer-btns">
+      <a class="footer-btn p1" href="https://line.me/R/ti/p/@hyg9056l" target="_blank" rel="noopener"
+         onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'longder'})">
+        官方LINE｜Line@
+      </a>
+      <a class="footer-btn ghost" href="tel:0800060121"
+         onclick="gtag('event','click_tel_footer',{'event_category':'CTA','event_label':'longder'})">
+        諮詢專線｜Contact us　0800-060-121
+      </a>
+      <a class="footer-btn ghost" href="https://maps.app.goo.gl/rCT3cFBbJRbwXNDK7" target="_blank" rel="noopener"
+         onclick="gtag('event','click_map_footer',{'event_category':'CTA','event_label':'longder'})">
+        拜訪龍德｜Google Map
+      </a>
+      <button class="footer-btn ghost" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+              onclick="gtag('event','click_backtop',{'event_category':'CTA','event_label':'longder'})">
+        ↑ Back to Top
+      </button>
+    </div>
+    <div class="footer-divider"></div>
+    <p class="footer-copy">© 2026 龍德數位科技有限公司 · 統編 28636453 · Since 1961</p>
+    <a class="design-by" href="https://linket.app" target="_blank">Design by <span class="db-lin">LIN</span><span class="db-ket">Ket</span></a>
+  </div>
+</footer>
+
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+(function(){const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');});},{threshold:.08});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));})();
+(function(){const b=document.getElementById('backTop');window.addEventListener('scroll',()=>b.classList.toggle('show',scrollY>300));})();
+(function(){const b=document.getElementById('shareBtn');if(b&&navigator.share)b.style.display='';})();
+function shareThis(){navigator.share({title:'龍德數位科技',text:'台灣標籤貼紙上游第一手廠商，超過60年歷史',url:'https://linket.app/longder-digital-tech/'}).then(()=>gtag('event','click_share',{'event_category':'CTA','event_label':'longder'})).catch(()=>{});}
+let qrLoaded=false,qrInstance=null;
+function loadQrLib(cb){if(qrLoaded){cb();return;}const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';s.onload=()=>{qrLoaded=true;cb();};document.head.appendChild(s);}
+function renderQrCode(){const el=document.getElementById('qrcode-canvas');if(!el||qrInstance)return;qrInstance=new QRCode(el,{text:'https://linket.app/longder-digital-tech/',width:180,height:180,colorDark:'#1c3f5b',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M});}
+function openQrModal(){document.getElementById('qrModal').classList.add('active');document.body.style.overflow='hidden';loadQrLib(renderQrCode);gtag('event','click_qr_modal',{'event_category':'CTA','event_label':'longder'});}
+function closeQrModal(){document.getElementById('qrModal').classList.remove('active');document.body.style.overflow='';}
+function closeQrModalOnBg(e){if(e.target===document.getElementById('qrModal'))closeQrModal();}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeQrModal();});
+function animateCount(el,target,duration,suffix){const start=performance.now();function update(now){const p=Math.min((now-start)/duration,1);const ease=1-Math.pow(1-p,3);el.textContent=Math.round(ease*target).toLocaleString()+suffix;if(p<1)requestAnimationFrame(update);}requestAnimationFrame(update);}
+const numObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const t=parseInt(e.target.dataset.target),s=e.target.dataset.suffix||'';animateCount(e.target,t,1800,s);numObs.unobserve(e.target);}});},{threshold:.3});
+document.querySelectorAll('[data-target]').forEach(el=>numObs.observe(el));
+let q1='',q2=[],q2arr=[];
+function quizNext(step,val){if(step===1){q1=val;showPanel('step2');updateProgress(2);}}
+function toggleMulti(el,val){el.classList.toggle('multi-selected');if(el.classList.contains('multi-selected')){if(!q2arr.includes(val))q2arr.push(val);}else{q2arr=q2arr.filter(v=>v!==val);}const btn=document.getElementById('step2NextBtn');btn.classList.toggle('show',q2arr.length>0);}
+function quizFromStep2(){q2=q2arr.join(',');showPanel('step3');updateProgress(3);}
+function showPanel(id){document.querySelectorAll('.quiz-panel').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');}
+function updateProgress(step){['dot1','dot2','dot3'].forEach((id,i)=>{const d=document.getElementById(id);d.classList.remove('active','done');if(i<step-1)d.classList.add('done');else if(i===step-1)d.classList.add('active');});document.getElementById('quizStepLabel').textContent='STEP '+step+' / 3';}
+const results={dining:{product:'熱感條碼標籤',desc:'防油防水・免碳帶感熱・手搖飲杯貼首選，符合 BPA Free 安全標準。'},logistics:{product:'熱感條碼標籤',desc:'物流出貨條碼首選，耐磨防水，大宗採購出廠價最優。'},office:{product:'三用電腦標籤（A4）',desc:'專利耐溫膠，雷射/噴墨/影印機三用不卡紙，270小格規格齊全。'},medical:{product:'保護膜標籤',desc:'透明 PET/BOPP 薄膜，防水防刮耐酒精，醫療院所首選。'},farm:{product:'產銷履歷標籤',desc:'耐低溫防潮，冷鏈適用，VDP 即時列印，符合農產品履歷法規。'},retail:{product:'數位印刷客製（VDP）',desc:'少量多樣一條龍，可變資料列印（流水號/QR Code），免模版費。'}};
+function quizResult(qty){const r=results[q1]||results.office;document.getElementById('resultProduct').textContent=r.product;document.getElementById('resultDesc').textContent=r.desc+(qty==='large'?' 大宗採購享出廠優惠價，可提供正式報價單。':'');document.querySelectorAll('.quiz-panel').forEach(p=>p.classList.remove('active'));document.getElementById('quizResult').classList.add('show');updateProgress(3);gtag('event','quiz_complete',{'event_category':'Quiz','event_label':'longder-quiz'});}
+function copyResult(){const product=document.getElementById('resultProduct').textContent;const desc=document.getElementById('resultDesc').textContent;const text='【龍德數位科技 推薦貼紙】\n'+product+'\n'+desc+'\n\n詢價：https://line.me/R/ti/p/@hyg9056l';navigator.clipboard.writeText(text).then(()=>{const btn=document.getElementById('copyBtn');btn.textContent='已複製 ✓';setTimeout(()=>{btn.textContent='複製推薦結果';},2000);}).catch(()=>{});}
+function quizReset(){q1='';q2=[];q2arr=[];document.querySelectorAll('.multi-selected').forEach(el=>el.classList.remove('multi-selected'));document.getElementById('step2NextBtn').classList.remove('show');document.getElementById('quizResult').classList.remove('show');showPanel('step1');updateProgress(1);}
+</script>
+</body>
+</html>
