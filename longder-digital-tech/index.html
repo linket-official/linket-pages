@@ -51,21 +51,21 @@ a{text-decoration:none;color:inherit;}
 /* Hero 左欄 */
 .hero-left{flex:1 1 0;display:flex;flex-direction:column;align-items:flex-start;gap:.55rem;color:var(--white);}
 @media(max-width:700px){.hero-left{align-items:center;}}
-.hero-since{font-family:'IBM Plex Sans',sans-serif;font-size:.68rem;font-weight:300;letter-spacing:.35em;color:rgba(255,255,255,.45);text-transform:uppercase;}
+.hero-since{font-family:'IBM Plex Sans',sans-serif;font-size:.68rem;font-weight:300;letter-spacing:.35em;color:rgba(255,255,255,.75);text-transform:uppercase;}
 .hero-logo-wrap{width:clamp(120px,18vw,150px);height:auto;margin-bottom:.8rem;display:flex;justify-content:center;}
 .hero-logo-ph{width:clamp(120px,18vw,150px);height:clamp(80px,12vw,100px);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Sans',sans-serif;font-size:1.1rem;font-weight:600;letter-spacing:.22em;color:var(--white);border:2px solid rgba(255,255,255,.25);border-radius:4px;}
 .hero-logo-img{width:100%;height:auto;display:block;object-fit:contain;}
-.hero-tagline{font-size:.78rem;font-weight:400;letter-spacing:.12em;color:rgba(255,255,255,.55);margin-top:.2rem;}
+.hero-tagline{font-size:.78rem;font-weight:400;letter-spacing:.12em;color:#fff;margin-top:.2rem;}
 /* 主理人 */
 .hero-director-row{display:flex;align-items:flex-end;gap:1.2rem;margin:.6rem 0 .4rem;}
 @media(max-width:700px){.hero-director-row{justify-content:center;}}
 .hero-portrait{width:clamp(180px,40vw,200px);height:auto;aspect-ratio:3/4;object-fit:cover;object-position:top center;display:block;}
 .hero-director-info{display:flex;flex-direction:column;gap:.3rem;padding-bottom:.4rem;}
 .hero-name{font-size:clamp(1.5rem,5vw,2rem);font-weight:700;letter-spacing:.12em;color:var(--white);line-height:1.1;}
-.hero-name-en{font-family:'IBM Plex Sans',sans-serif;font-size:.82rem;font-weight:300;letter-spacing:.22em;color:rgba(255,255,255,.55);}
+.hero-name-en{font-family:'IBM Plex Sans',sans-serif;font-size:.82rem;font-weight:300;letter-spacing:.22em;color:rgba(255,255,255,.85);}
 .hero-role{font-size:.72rem;font-weight:400;letter-spacing:.15em;color:var(--c1-lt);margin-top:.15rem;}
 .hero-badges{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.4rem;}
-.hero-contact-info{font-family:'IBM Plex Sans',sans-serif;font-size:.68rem;font-weight:300;letter-spacing:.06em;color:rgba(255,255,255,.45);line-height:2;margin-top:.2rem;}
+.hero-contact-info{font-family:'IBM Plex Sans',sans-serif;font-size:.68rem;font-weight:300;letter-spacing:.06em;color:rgba(255,255,255,.8);line-height:2;margin-top:.2rem;}
 .h-badge{font-family:'IBM Plex Sans',sans-serif;font-size:.58rem;font-weight:400;letter-spacing:.1em;color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.2);border-radius:2px;padding:.12rem .4rem;}
 .cert-badges{display:flex;align-items:center;gap:.8rem;margin:.6rem 0 .3rem;}
 .cert-badge{width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.25);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.1rem;flex-shrink:0;}
@@ -87,7 +87,7 @@ a{text-decoration:none;color:inherit;}
 .hero-btn.p2:hover{background:rgba(255,255,255,.12);}
 .hero-btn.ghost{background:transparent;color:rgba(255,255,255,.75);border:1.5px solid rgba(255,255,255,.3);}
 .hero-btn.ghost:hover{border-color:rgba(255,255,255,.65);color:var(--white);}
-.hero-btn-sub{font-family:'IBM Plex Sans',sans-serif;font-size:.68rem;letter-spacing:.1em;color:rgba(255,255,255,.35);text-align:center;margin-top:-.2rem;}
+.hero-btn-sub{font-family:'IBM Plex Sans',sans-serif;font-size:.68rem;letter-spacing:.1em;color:rgba(255,255,255,.75);text-align:center;margin-top:-.2rem;}
 
 /* Hero animation */
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
@@ -132,9 +132,9 @@ a{text-decoration:none;color:inherit;}
 .section-inner{max-width:var(--mw);margin:0 auto;padding:clamp(3rem,7vw,5rem) 1.6rem;}
 .section-eyebrow{font-family:'IBM Plex Sans',sans-serif;font-size:.68rem;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--c1);margin-bottom:.6rem;}
 .bg-dark .section-eyebrow{color:var(--c1-lt);}
-.section-h2{font-size:clamp(1.4rem,4vw,2rem);font-weight:700;letter-spacing:.08em;line-height:1.2;margin-bottom:.5rem;}
-.section-sub{font-size:.88rem;font-weight:300;line-height:2;letter-spacing:.05em;color:var(--ink-lt);max-width:560px;}
-.bg-dark .section-sub{color:rgba(255,255,255,.55);}
+.section-h2{font-size:clamp(1.525rem,4.15vw,2.125rem);font-weight:700;letter-spacing:.08em;line-height:1.2;margin-bottom:.5rem;}
+.section-sub{font-size:1rem;font-weight:300;line-height:2;letter-spacing:.05em;color:var(--ink-lt);max-width:560px;}
+.bg-dark .section-sub{color:rgba(255,255,255,.85);}
 
 /* Reveal */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease);}
@@ -152,12 +152,12 @@ a{text-decoration:none;color:inherit;}
 .adv-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:1.8rem 1.4rem;transition:.25s;}
 .adv-card:hover{background:rgba(255,255,255,.07);border-color:var(--c1);}
 .adv-icon{font-size:1.6rem;margin-bottom:.8rem;}
-.adv-title{font-size:.92rem;font-weight:700;letter-spacing:.1em;color:var(--white);margin-bottom:.5rem;}
-.adv-body{font-size:.78rem;font-weight:300;line-height:1.9;letter-spacing:.04em;color:rgba(255,255,255,.5);}
+.adv-title{font-size:1rem;font-weight:700;letter-spacing:.1em;color:var(--white);margin-bottom:.5rem;}
+.adv-body{font-size:.88rem;font-weight:300;line-height:1.9;letter-spacing:.04em;color:#fff;}
 .badge-row{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;padding-top:1.6rem;border-top:1px solid rgba(255,255,255,.08);}
 .trust-badge{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:.5rem .9rem;}
 .trust-badge-name{font-family:'IBM Plex Sans',sans-serif;font-size:.65rem;font-weight:500;letter-spacing:.1em;color:rgba(255,255,255,.7);}
-.trust-badge-desc{font-family:'IBM Plex Sans',sans-serif;font-size:.58rem;letter-spacing:.06em;color:rgba(255,255,255,.35);}
+.trust-badge-desc{font-family:'IBM Plex Sans',sans-serif;font-size:.68rem;letter-spacing:.06em;color:rgba(255,255,255,.8);}
 
 /* ── §3 互動測驗 ── */
 .quiz-wrap{max-width:680px;margin:0 auto;}
@@ -165,11 +165,11 @@ a{text-decoration:none;color:inherit;}
 .quiz-step-dot{flex:1;height:3px;background:rgba(255,255,255,.15);border-radius:2px;transition:.3s;}
 .quiz-step-dot.active{background:var(--c1);}
 .quiz-step-dot.done{background:var(--c1-lt);}
-.quiz-step-label{font-family:'IBM Plex Sans',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:1rem;}
+.quiz-step-label{font-family:'IBM Plex Sans',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.8);margin-bottom:1rem;}
 .quiz-question{font-size:clamp(1rem,3vw,1.4rem);font-weight:700;letter-spacing:.06em;color:var(--white);margin-bottom:1.6rem;line-height:1.4;}
 .quiz-options{display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem;}
 @media(max-width:480px){.quiz-options{grid-template-columns:1fr;}}
-.quiz-option{display:flex;align-items:center;gap:.7rem;background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.14);border-radius:var(--r);padding:.9rem 1rem;cursor:pointer;transition:.2s var(--ease);font-size:.82rem;font-weight:400;letter-spacing:.06em;color:rgba(255,255,255,.75);}
+.quiz-option{display:flex;align-items:center;gap:.7rem;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.25);border-radius:100px;padding:.9rem 1.2rem;cursor:pointer;transition:.2s var(--ease);font-size:.88rem;font-weight:400;letter-spacing:.06em;color:#fff;}
 .quiz-option:hover{border-color:var(--c1);color:var(--white);background:rgba(45,101,146,.2);}
 .quiz-option.selected{border-color:var(--c1);background:rgba(45,101,146,.3);color:var(--white);}
 .quiz-option.multi-selected{border-color:var(--c1);background:rgba(45,101,146,.3);color:var(--white);}
@@ -182,7 +182,7 @@ a{text-decoration:none;color:inherit;}
 .quiz-result.show{display:block;}
 .quiz-result-tag{display:inline-block;font-family:'IBM Plex Sans',sans-serif;font-size:.65rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);border-radius:2px;padding:.18rem .7rem;margin-bottom:1rem;}
 .quiz-result-product{font-size:clamp(1.2rem,4vw,1.8rem);font-weight:700;letter-spacing:.08em;color:var(--white);margin-bottom:.8rem;}
-.quiz-result-desc{font-size:.84rem;font-weight:300;line-height:2;letter-spacing:.06em;color:rgba(255,255,255,.6);margin-bottom:1.8rem;}
+.quiz-result-desc{font-size:.92rem;font-weight:300;line-height:2;letter-spacing:.06em;color:#fff;margin-bottom:1.8rem;}
 .quiz-cta-row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;}
 .quiz-btn{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;padding:.9rem 1.6rem;font-family:'Noto Sans TC',sans-serif;font-size:.84rem;font-weight:500;letter-spacing:.1em;border-radius:100px(--r);transition:.25s var(--ease);}
 .quiz-btn.p1{background:var(--c1);color:var(--white);border:2px solid var(--c1);}
@@ -201,10 +201,10 @@ a{text-decoration:none;color:inherit;}
 @media(max-width:700px){.prod-grid{grid-template-columns:repeat(2,1fr);}}
 .prod-card{background:var(--white);padding:1.4rem 1.2rem;display:flex;flex-direction:column;gap:.5rem;transition:.25s var(--ease);cursor:pointer;position:relative;}
 .prod-card:hover{background:#f0f6ff;z-index:1;}
-.prod-card-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px;background:var(--c4);margin-bottom:.3rem;}
+.prod-card-img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center;border-radius:4px;background:var(--c4);margin-bottom:.3rem;display:block;}
 .prod-card-img-ph{width:100%;aspect-ratio:4/3;background:var(--c4);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:.3rem;}
-.prod-card-name{font-size:.86rem;font-weight:700;letter-spacing:.08em;color:var(--ink);}
-.prod-card-desc{font-size:.72rem;font-weight:300;line-height:1.7;letter-spacing:.04em;color:var(--ink-lt);}
+.prod-card-name{font-size:.96rem;font-weight:700;letter-spacing:.08em;color:var(--ink);}
+.prod-card-desc{font-size:.82rem;font-weight:300;line-height:1.7;letter-spacing:.04em;color:var(--ink-lt);}
 .prod-card-cta{display:none;font-family:'IBM Plex Sans',sans-serif;font-size:.68rem;font-weight:400;letter-spacing:.1em;color:var(--c1);margin-top:.3rem;}
 .prod-card:hover .prod-card-cta{display:flex;align-items:center;gap:.2rem;}
 .prod-card-last{background:var(--c2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;padding:1.4rem;cursor:pointer;transition:.25s;}
@@ -235,14 +235,14 @@ a{text-decoration:none;color:inherit;}
 .location-row-icon{width:18px;height:18px;flex-shrink:0;opacity:.5;margin-top:.1rem;}
 .location-row-content{flex:1;}
 .location-row-label{font-family:'IBM Plex Sans',sans-serif;font-size:.62rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--c1);margin-bottom:.15rem;}
-.location-row-value{font-size:.84rem;font-weight:400;letter-spacing:.06em;color:var(--ink);line-height:1.65;}
+.location-row-value{font-size:.94rem;font-weight:400;letter-spacing:.06em;color:var(--ink);line-height:1.65;}
 .location-row-value a{color:var(--c1);}
 
 /* ── Footer ── */
 .footer{background:var(--c2-dk);padding:clamp(2.5rem,6vw,4rem) 1.6rem;text-align:center;position:relative;}
 .footer-inner{max-width:var(--mw);margin:0 auto;}
 .footer-logo-ph{font-family:'IBM Plex Sans',sans-serif;font-size:.88rem;font-weight:600;letter-spacing:.25em;color:rgba(255,255,255,.4);margin-bottom:.3rem;text-transform:uppercase;}
-.footer-tagline{font-family:'IBM Plex Sans',sans-serif;font-size:.65rem;letter-spacing:.2em;color:rgba(255,255,255,.25);margin-bottom:1.8rem;}
+.footer-tagline{font-family:'IBM Plex Sans',sans-serif;font-size:.75rem;letter-spacing:.2em;color:rgba(255,255,255,.7);margin-bottom:1.8rem;}
 .footer-icons{display:flex;justify-content:center;gap:1.2rem;margin-bottom:1.6rem;}
 .footer-icon-link{width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:transparent;border:none;}
 .footer-icon-link img{width:36px;height:36px;display:block;filter:brightness(0) invert(1);opacity:.5;}
@@ -254,8 +254,8 @@ a{text-decoration:none;color:inherit;}
 .footer-btn.ghost{background:transparent;color:rgba(255,255,255,.6);border:1.5px solid rgba(255,255,255,.2);}
 .footer-btn.ghost:hover{border-color:rgba(255,255,255,.5);color:var(--white);}
 .footer-divider{height:1px;background:rgba(255,255,255,.08);margin:1.2rem 0;}
-.footer-copy{font-family:'IBM Plex Sans',sans-serif;font-size:.62rem;letter-spacing:.14em;color:rgba(255,255,255,.2);margin-bottom:.3rem;}
-.design-by{font-family:'IBM Plex Sans',sans-serif;font-size:.62rem;letter-spacing:.16em;color:rgba(255,255,255,.15);}
+.footer-copy{font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;letter-spacing:.14em;color:rgba(255,255,255,.6);margin-bottom:.3rem;}
+.design-by{font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;letter-spacing:.16em;color:rgba(255,255,255,.45);}
 .db-lin{color:rgba(22,133,200,.5);}.db-ket{color:rgba(255,255,255,.3);}
 
 /* Back to Top */
@@ -272,7 +272,7 @@ a{text-decoration:none;color:inherit;}
 .cert-doc-ph-icon{font-size:2rem;}
 .cert-doc-ph-name{font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;font-weight:500;letter-spacing:.1em;color:rgba(255,255,255,.6);text-align:center;}
 .cert-doc-ph-sub{font-family:'IBM Plex Sans',sans-serif;font-size:.6rem;letter-spacing:.1em;color:rgba(255,255,255,.3);}
-.cert-doc-label{font-family:'IBM Plex Sans',sans-serif;font-size:.7rem;font-weight:400;letter-spacing:.12em;color:rgba(255,255,255,.5);text-align:center;}
+.cert-doc-label{font-family:'IBM Plex Sans',sans-serif;font-size:.8rem;font-weight:400;letter-spacing:.12em;color:rgba(255,255,255,.9);text-align:center;}
 </style>
 </head>
 <body>
@@ -290,7 +290,7 @@ a{text-decoration:none;color:inherit;}
 
 <!-- ══ §1 HERO ══ -->
 <section class="hero-section" id="top">
-  <img src="/longder-digital-tech/assets/hero-bg.jpg" class="hero-bg-img" alt="" aria-hidden="true" onerror="this.style.display='none'">
+  <img src="/longder-digital-tech/assets/hero-bg.jpg" class="hero-bg-img" alt="" aria-hidden="true" onerror="this.style.opacity='0'">
   <div class="hero-overlay"></div>
   <div class="hero-content">
 
@@ -452,7 +452,7 @@ a{text-decoration:none;color:inherit;}
       <div class="reveal" style="text-align:center;margin-bottom:2rem;">
         <div class="section-eyebrow" style="color:var(--c1-lt);">Interactive</div>
         <h2 class="section-h2" style="color:var(--white);">選對標籤材質<br>降低採購成本</h2>
-        <p style="font-size:.84rem;color:rgba(255,255,255,.45);letter-spacing:.06em;margin-top:.4rem;">3 個問題，找出最符合需求的標籤規格，直接進入詢價流程。</p>
+        <p style="font-size:.84rem;color:rgba(255,255,255,.8);letter-spacing:.06em;margin-top:.4rem;">3 個問題，找出最符合需求的標籤規格，直接進入詢價流程。</p>
       </div>
       <div class="quiz-progress reveal rd1" id="quizProgress">
         <div class="quiz-step-dot active" id="dot1"></div>
@@ -472,7 +472,7 @@ a{text-decoration:none;color:inherit;}
         </div>
       </div>
       <div class="quiz-panel" id="step2">
-        <div class="quiz-question">最需要哪項特性？<span style="font-size:.72rem;color:rgba(255,255,255,.35);font-weight:300;margin-left:.5rem;">可複選</span></div>
+        <div class="quiz-question">最需要哪項特性？<span style="font-size:.72rem;color:rgba(255,255,255,.7);font-weight:300;margin-left:.5rem;">可複選</span></div>
         <div class="quiz-options" id="step2Options">
           <div class="quiz-option" onclick="toggleMulti(this,'waterproof')">防水防油</div>
           <div class="quiz-option" onclick="toggleMulti(this,'scratch')">防刮耐磨</div>
@@ -517,49 +517,49 @@ a{text-decoration:none;color:inherit;}
     </div>
     <div class="prod-grid reveal rd1" style="margin-top:1.8rem;">
       <div class="prod-card">
-        <div class="prod-card-img-ph">📋</div>
+        <img src="/longder-digital-tech/assets/product-office.jpg" alt="辦公、文具標籤（現貨）" class="prod-card-img" onerror="this.style.display='none'">
         <div class="prod-card-name">辦公、文具標籤（現貨）</div>
         <div class="prod-card-desc">A4電腦標籤・自黏標籤・彩色標籤・保護膜系列</div>
         <div class="prod-card-cta"><a href="https://line.me/R/ti/p/@hyg9056l" target="_blank" rel="noopener" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'longder'})">加入 LINE 詢這類 →</a></div>
       </div>
       <div class="prod-card">
-        <div class="prod-card-img-ph">🍱</div>
+        <img src="/longder-digital-tech/assets/product-food.jpg" alt="食品、烘焙類" class="prod-card-img" onerror="this.style.display='none'">
         <div class="prod-card-name">食品、烘焙類</div>
         <div class="prod-card-desc">產品資訊標籤・營養標籤・封口貼・膜封・效期標籤</div>
         <div class="prod-card-cta"><a href="https://line.me/R/ti/p/@hyg9056l" target="_blank" rel="noopener" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'longder'})">加入 LINE 詢這類 →</a></div>
       </div>
       <div class="prod-card">
-        <div class="prod-card-img-ph">🥤</div>
+        <img src="/longder-digital-tech/assets/product-dining.jpg" alt="餐飲類" class="prod-card-img" onerror="this.style.display='none'">
         <div class="prod-card-name">餐飲類</div>
         <div class="prod-card-desc">彩色飲料杯貼・熱感飲料杯杯貼・電子發票・出單紙</div>
         <div class="prod-card-cta"><a href="https://line.me/R/ti/p/@hyg9056l" target="_blank" rel="noopener" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'longder'})">加入 LINE 詢這類 →</a></div>
       </div>
       <div class="prod-card">
-        <div class="prod-card-img-ph">🌾</div>
+        <img src="/longder-digital-tech/assets/product-farm.jpg" alt="農產生鮮超市標籤、吊牌" class="prod-card-img" onerror="this.style.display='none'">
         <div class="prod-card-name">農產生鮮超市標籤、吊牌</div>
         <div class="prod-card-desc">產銷履歷標籤・吊牌・可自動貼標・溯源農藥條碼</div>
         <div class="prod-card-cta"><a href="https://line.me/R/ti/p/@hyg9056l" target="_blank" rel="noopener" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'longder'})">加入 LINE 詢這類 →</a></div>
       </div>
       <div class="prod-card">
-        <div class="prod-card-img-ph">⚙️</div>
+        <img src="/longder-digital-tech/assets/product-mfg.jpg" alt="製造業" class="prod-card-img" onerror="this.style.display='none'">
         <div class="prod-card-name">製造業</div>
         <div class="prod-card-desc">電子業標籤・一般標籤紙・標籤機・站立標・碳帶</div>
         <div class="prod-card-cta"><a href="https://line.me/R/ti/p/@hyg9056l" target="_blank" rel="noopener" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'longder'})">加入 LINE 詢這類 →</a></div>
       </div>
       <div class="prod-card">
-        <div class="prod-card-img-ph">🔒</div>
+        <img src="/longder-digital-tech/assets/product-security.jpg" alt="防偽、變動性標籤" class="prod-card-img" onerror="this.style.display='none'">
         <div class="prod-card-name">防偽、變動性標籤</div>
         <div class="prod-card-desc">易碎標籤・VDP 可變資料・防破壞防偽系列</div>
         <div class="prod-card-cta"><a href="https://line.me/R/ti/p/@hyg9056l" target="_blank" rel="noopener" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'longder'})">加入 LINE 詢這類 →</a></div>
       </div>
       <div class="prod-card">
-        <div class="prod-card-img-ph">📦</div>
+        <img src="/longder-digital-tech/assets/product-logistics.jpg" alt="物流標" class="prod-card-img" onerror="this.style.display='none'">
         <div class="prod-card-name">物流標</div>
         <div class="prod-card-desc">貨物標籤・條碼標籤・超商出貨貼紙</div>
         <div class="prod-card-cta"><a href="https://line.me/R/ti/p/@hyg9056l" target="_blank" rel="noopener" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'longder'})">加入 LINE 詢這類 →</a></div>
       </div>
       <div class="prod-card">
-        <div class="prod-card-img-ph">🖨️</div>
+        <img src="/longder-digital-tech/assets/product-print.jpg" alt="其他各類印刷品" class="prod-card-img" onerror="this.style.display='none'">
         <div class="prod-card-name">其他各類印刷品</div>
         <div class="prod-card-desc" style="line-height:2;">
           · 客儒廣告系列（海報・DM・廣告字）<br>
@@ -629,7 +629,7 @@ a{text-decoration:none;color:inherit;}
         </iframe>
       </div>
       <div class="catalog-mobile-cta">
-        <div style="font-size:.84rem;color:rgba(255,255,255,.55);letter-spacing:.06em;text-align:center;">在行動裝置上瀏覽完整型錄</div>
+        <div style="font-size:.84rem;color:rgba(255,255,255,.85);letter-spacing:.06em;text-align:center;">在行動裝置上瀏覽完整型錄</div>
         <a href="https://www.flipsnack.com/B965BD77C6F/dm-new" target="_blank" rel="noopener" class="catalog-btn p1"
            onclick="gtag('event','click_catalog',{'event_category':'CTA','event_label':'longder'})">
           開啟線上型錄
