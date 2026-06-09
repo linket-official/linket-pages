@@ -252,7 +252,7 @@ a{text-decoration:none;color:inherit;}
 .footer-logo-img{width:100%;height:auto;display:block;object-fit:contain;}
 .footer-icon-link{width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:transparent;border:none;border-radius:0;}
 .footer-icon-link img{width:36px;height:36px;display:block;}
-.footer-btns{display:flex;flex-direction:column;gap:.7rem;max-width:320px;margin:0 auto 1.8rem;}
+.footer-btns{display:flex;flex-direction:column;gap:.7rem;max-width:400px;margin:0 auto 1.8rem;}
 .footer-btn{display:flex;align-items:center;justify-content:center;width:100%;padding:1rem 1.2rem;font-family:'Noto Sans TC',sans-serif;font-size:.88rem;font-weight:500;letter-spacing:.1em;border-radius:100px;transition:.25s;gap:.3rem;}
 .footer-btn.p1{background:var(--c1);color:var(--white);border:2px solid var(--c1);}
 .footer-btn.p1:hover{background:var(--c1-lt);}
@@ -458,7 +458,7 @@ a{text-decoration:none;color:inherit;}
       <div class="reveal" style="text-align:center;margin-bottom:2rem;">
         <div class="section-eyebrow" style="color:var(--c1-lt);">Interactive</div>
         <h2 class="section-h2" style="color:var(--white);">選對標籤材質<br>降低採購成本</h2>
-        <p style="font-size:.84rem;color:rgba(255,255,255,.8);letter-spacing:.06em;margin-top:.4rem;">3 個問題，找出最符合需求的標籤規格，直接進入詢價流程。</p>
+        <p style="font-size:.84rem;color:rgba(255,255,255,.8);letter-spacing:.06em;margin-top:.4rem;">找出最符合需求的標籤規格，直接進入詢價流程。</p>
       </div>
       <div class="quiz-progress reveal rd1" id="quizProgress">
         <div class="quiz-step-dot active" id="dot1"></div>
@@ -510,9 +510,9 @@ a{text-decoration:none;color:inherit;}
       </div>
 
       <div class="quiz-result" id="quizResult">
-        <div class="quiz-result-tag">🎯 最適合你的是</div>
-        <div class="quiz-result-product" id="resultProduct">熱感條碼標籤</div>
-        <div class="quiz-result-desc" id="resultDesc">防油防水・免碳帶感熱・手搖飲杯貼首選。</div>
+        <div class="quiz-result-tag" style="display:none"></div>
+        <div id="resultProduct" style="display:none"></div>
+        <div id="resultDesc" style="display:none"></div>
         <!-- 諮詢單圖片預覽 -->
         <canvas id="orderCanvas" style="display:none;"></canvas>
         <div class="quiz-cta-row-3" style="margin-top:1.2rem;">
@@ -805,7 +805,9 @@ const results={
 const stepLabels={
   dining:'飲料杯・食品包裝',logistics:'紙箱・物流包裹',office:'文件・辦公用途',
   medical:'醫療器材・化學容器',farm:'農產品・冷鏈包裝',retail:'商品外包裝・零售',
-  small:'少量多樣（1–1,000張）',mid:'中量訂製（1,000–10,000張）',large:'大宗採購（10,000張以上）'
+  small:'少量多樣（1–1,000張）',mid:'中量訂製（1,000–10,000張）',large:'大宗採購（10,000張以上）',
+  waterproof:'防水防油',scratch:'防刮耐磨',eco:'環保認證',
+  qrcode:'流水序號・QR Code',heat:'耐高溫',price:'超高CP值'
 };
 function quizGenerateResult(){
   const company=(document.getElementById('q4Company')||{}).value||'';
@@ -847,12 +849,11 @@ function generateOrderCanvas({product,desc,company,name,contact}){
   ctx.strokeStyle='#2d6592';ctx.lineWidth=2;
   ctx.beginPath();ctx.moveTo(40,135);ctx.lineTo(W-40,135);ctx.stroke();
   // 內容
+  const q2zh=q2arr.map(v=>stepLabels[v]||v).join('・')||'—';
   const rows=[
     ['貼紙位置',stepLabels[q1]||q1],
-    ['貼紙需求',q2||'—'],
+    ['貼紙需求',q2zh],
     ['訂單量',stepLabels[q3]||q3],
-    ['推薦產品',product],
-    ['產品說明',desc],
     ['公司名稱',company||'—'],
     ['聯絡人',name||'—'],
     ['聯繫方式',contact||'—'],
