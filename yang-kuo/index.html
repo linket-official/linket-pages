@@ -69,7 +69,6 @@ img{max-width:100%;display:block;}
  pointer-events:none;z-index:0;
 }
 /* 暨大：淺灰 */
-.hero-ncnu{background:var(--nc-bg);position:relative;overflow:hidden;}
 .hero-ncnu::before{
  content:'';position:absolute;inset:0;
  background: radial-gradient(ellipse 70% 50% at 30% 60%, rgba(26,43,85,.06) 0%, transparent 70%);
@@ -208,7 +207,7 @@ img{max-width:100%;display:block;}
 /* ── Hero 背景圖 ── */
 .hero-yangkuo{background-image:url('/yang-kuo/assets/hero-bg-navy.jpg'),linear-gradient(160deg,var(--yk-navy) 0%,var(--yk-wine) 100%);background-size:cover;background-position:center;}
 .hero-yangkuo::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(13,28,59,.82) 0%,rgba(66,14,19,.72) 100%);pointer-events:none;z-index:0;}
-.hero-ncnu{background-image:url('/yang-kuo/assets/hero-bg-gray.jpg'),var(--nc-bg);background-size:cover;background-position:center;}
+.hero-ncnu{background-image:url('/yang-kuo/assets/hero-bg-gray.jpg');background-color:var(--nc-bg);background-size:cover;background-position:center;position:relative;overflow:hidden;}
 .hero-ncnu::before{content:'';position:absolute;inset:0;background:rgba(238,236,235,.85);pointer-events:none;z-index:0;}
 .about-top{background-image:url('/yang-kuo/assets/section-bg-navy.jpg');background-size:cover;background-position:center;position:relative;}
 .about-top::before{content:'';position:absolute;inset:0;background:rgba(13,28,59,.88);z-index:0;pointer-events:none;}
