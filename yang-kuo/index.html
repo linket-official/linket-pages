@@ -78,30 +78,30 @@ img{max-width:100%;display:block;}
 .hero-inner{position:relative;z-index:1;max-width:var(--mw);margin:0 auto;padding:2.4rem 1.6rem 3rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:0;}
 
 /* 主理人照片 */
-.hero-portrait{width:clamp(140px,40vw,200px);height:auto;aspect-ratio:3/4;object-fit:cover;object-position:top center;border-radius:4px;margin-bottom:1.4rem;}
+.hero-portrait{width:clamp(160px,50vw,220px);height:auto;aspect-ratio:3/4;object-fit:cover;object-position:top center;border-radius:4px;margin-bottom:1.4rem;}
 .hero-portrait-ph{width:clamp(140px,40vw,200px);aspect-ratio:3/4;background:rgba(255,255,255,.08);border-radius:4px;margin-bottom:1.4rem;display:flex;align-items:center;justify-content:center;font-size:2rem;}
 .ncnu-mode .hero-portrait-ph{background:rgba(26,26,46,.08);}
 
 /* 姓名 */
 .hero-name{font-family:'Noto Serif TC',serif;font-size:clamp(1.8rem,8vw,2.6rem);font-weight:700;letter-spacing:.2em;color:#fff;line-height:1.1;margin-bottom:.5rem;}
 .ncnu-mode .hero-name{color:var(--nc-ink);}
-.hero-name-en{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(.9rem,3vw,1.2rem);font-weight:300;letter-spacing:.16em;color:rgba(255,255,255,.5);margin-bottom:1rem;}
+.hero-name-en{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1rem,3.5vw,1.2rem);font-weight:300;letter-spacing:.16em;color:rgba(255,255,255,.5);margin-bottom:1rem;}
 .ncnu-mode .hero-name-en{color:rgba(26,26,46,.45);}
 
 /* 職稱（切換）*/
-.hero-role{font-family:'Noto Serif TC',serif;font-size:.82rem;font-weight:400;letter-spacing:.14em;color:var(--yk-gold);margin-bottom:.6rem;}
+.hero-role{font-family:'Noto Serif TC',serif;font-size:1rem;font-weight:500;letter-spacing:.14em;color:var(--yk-gold);margin-bottom:.6rem;}
 .ncnu-mode [data-show="ncnu"] .hero-role{color:var(--nc-gold);}
 
 /* 標籤（切換）*/
 .hero-badges{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin-bottom:1.4rem;}
-.hero-badge{font-family:'IBM Plex Sans',sans-serif;font-size:.6rem;font-weight:400;letter-spacing:.1em;padding:.2rem .7rem;border-radius:2px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.65);}
+.hero-badge{font-family:'IBM Plex Sans',sans-serif;font-size:.85rem;font-weight:400;letter-spacing:.1em;padding:.2rem .7rem;border-radius:2px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.65);}
 .ncnu-mode .hero-badge{border-color:rgba(26,26,46,.18);color:rgba(26,26,46,.55);}
 
 /* icons */
 .hero-icons{display:flex;gap:.8rem;justify-content:center;margin-bottom:1.2rem;}
 .hero-icon-link{width:44px;height:44px;display:flex;align-items:center;justify-content:center;}
-.hero-icon-link img{width:36px;height:36px;display:block;}
-.ncnu-mode .hero-icon-link img{filter:brightness(0);}
+.hero-icon-link img{width:44px;height:44px;display:block;}
+.ncnu-mode .hero-icon-link img{width:44px;height:44px;display:block;}
 
 /* CTA 按鈕 */
 .hero-btns{display:flex;flex-direction:column;gap:.65rem;width:100%;max-width:320px;}
@@ -141,11 +141,11 @@ img{max-width:100%;display:block;}
 .ncnu-mode .biz-card:last-child{border-color:rgba(26,26,46,.12);}
 .biz-icon{display:none;}
 .biz-img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:4px;margin-bottom:.8rem;display:block;background:rgba(255,255,255,.04);}
-.biz-name{font-family:'Noto Serif TC',serif;font-size:.88rem;font-weight:700;letter-spacing:.08em;color:#fff;margin-bottom:.4rem;}
+.biz-name{font-family:'Noto Serif TC',serif;font-size:1.2rem;font-weight:700;letter-spacing:.08em;color:#fff;margin-bottom:.4rem;}
 .ncnu-mode .biz-name{color:var(--nc-ink);}
-.biz-desc{font-family:'Noto Serif TC',serif;font-size:.74rem;font-weight:300;line-height:1.9;letter-spacing:.04em;color:rgba(255,255,255,.6);}
+.biz-desc{font-family:'Noto Serif TC',serif;font-size:.95rem;font-weight:300;line-height:1.9;letter-spacing:.04em;color:rgba(255,255,255,.6);}
 .ncnu-mode .biz-desc{color:rgba(26,26,46,.55);}
-.biz-tag{font-family:'IBM Plex Sans',sans-serif;font-size:.58rem;letter-spacing:.1em;color:var(--yk-gold);margin-top:.5rem;}
+.biz-tag{font-family:'IBM Plex Sans',sans-serif;font-size:.8rem;letter-spacing:.1em;color:var(--yk-gold);margin-top:.5rem;}
 .ncnu-mode .biz-tag{color:var(--nc-gold);}
 
 /* 品牌理念 */
@@ -156,14 +156,14 @@ img{max-width:100%;display:block;}
 .b2b-title{font-family:'Noto Serif TC',serif;font-size:.82rem;font-weight:400;letter-spacing:.12em;color:rgba(255,255,255,.55);text-align:center;margin-bottom:1.2rem;margin-top:0;}
 .ncnu-mode .b2b-title{color:rgba(26,26,46,.4);}
 .b2b-btns{display:flex;flex-direction:column;gap:.65rem;max-width:320px;margin:0 auto;}
-.b2b-btn{display:flex;align-items:center;justify-content:center;width:100%;padding:.9rem 1.2rem;font-family:'Noto Serif TC',sans-serif;font-size:.86rem;font-weight:500;letter-spacing:.08em;border-radius:100px;transition:.25s var(--ease);gap:.4rem;background:rgba(255,255,255,.08);color:#fff;border:1.5px solid rgba(255,255,255,.2);}
+.b2b-btn{display:flex;align-items:center;justify-content:center;width:100%;padding:.9rem 1.2rem;font-family:'Noto Serif TC',sans-serif;font-size:.95rem;font-weight:500;letter-spacing:.08em;border-radius:100px;transition:.25s var(--ease);gap:.4rem;background:rgba(255,255,255,.08);color:#fff;border:1.5px solid rgba(255,255,255,.2);}
 .b2b-btn:hover{background:rgba(255,255,255,.16);}
 .ncnu-mode .b2b-btn{background:rgba(26,26,46,.05);color:var(--nc-ink);border-color:rgba(26,26,46,.15);}
 .ncnu-mode .b2b-btn:hover{background:rgba(26,26,46,.1);}
-.b2b-btn .sub{font-size:.65rem;font-weight:300;opacity:.6;display:block;letter-spacing:.06em;}
+.b2b-btn .sub{font-size:.8rem;font-weight:300;opacity:.6;display:block;letter-spacing:.06em;}
 
 /* ── §3 聯絡資訊 ── */
-.contact-map-btn{display:inline-flex;align-items:center;justify-content:center;padding:.8rem 1.6rem;background:var(--yk-gold);color:#fff;border-radius:100px;font-family:'Noto Serif TC',serif;font-size:.86rem;font-weight:500;letter-spacing:.08em;transition:.25s;margin-top:.2rem;}
+.contact-map-btn{display:inline-flex;align-items:center;justify-content:center;padding:.8rem 1.6rem;background:var(--yk-gold);color:#fff;border-radius:100px;font-family:'Noto Serif TC',serif;font-size:.86rem;font-weight:500;letter-spacing:.08em;transition:.25s;margin-top:1rem;}
 .contact-map-btn:hover{background:#b8982b;}
 .ncnu-mode .contact-map-btn{background:var(--nc-blue);}
 .ncnu-mode .contact-map-btn:hover{background:#1a3068;}
@@ -187,12 +187,12 @@ img{max-width:100%;display:block;}
 .ncnu-mode .footer{background:rgba(26,26,46,.08);}
 .footer-inner{max-width:var(--mw);margin:0 auto;}
 .footer-copy{font-family:'IBM Plex Sans',sans-serif;font-size:.62rem;letter-spacing:.14em;color:rgba(255,255,255,.25);margin-bottom:.35rem;}
-.ncnu-mode .footer-copy{color:rgba(26,26,46,.55);}
-.ncnu-mode .design-by{color:rgba(26,26,46,.35);}
-.ncnu-mode .db-lin{color:rgba(22,83,160,.6);}
-.ncnu-mode .db-ket{color:rgba(26,26,46,.4);}
+.ncnu-mode .footer-copy{color:rgba(255,255,255,.25);}
+.ncnu-mode .design-by{color:rgba(255,255,255,.15);}
+.ncnu-mode .db-lin{color:rgba(22,133,200,.5);}
+.ncnu-mode .db-ket{color:rgba(255,255,255,.3);}
 .design-by{font-family:'IBM Plex Sans',sans-serif;font-size:.62rem;letter-spacing:.16em;color:rgba(255,255,255,.15);}
-.ncnu-mode .design-by{color:rgba(26,26,46,.2);}
+.ncnu-mode .design-by{color:rgba(255,255,255,.15);}
 .db-lin{color:rgba(22,133,200,.5);}.db-ket{color:rgba(255,255,255,.3);}
 
 /* ── Back to Top ── */
@@ -255,12 +255,12 @@ img{max-width:100%;display:block;}
 
     <!-- LOGO（切換）-->
     <div class="hero-logo-wrap" data-show="yangkuo">
-      <img src="/yang-kuo/assets/yangkuo-logo.svg" alt="洋果農產行" class="hero-logo-img"
+      <img src="/yang-kuo/assets/yangkuo-logo.svg?v=2" alt="洋果農產行" class="hero-logo-img"
            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="hero-logo-ph" style="display:none">YANG KUO</div>
     </div>
     <div class="hero-logo-wrap hidden" data-show="ncnu">
-      <img src="/yang-kuo/assets/ncnu-logo.svg" alt="暨大校友總會" class="hero-logo-img"
+      <img src="/yang-kuo/assets/ncnu-logo.svg?v=2" alt="暨大校友總會" class="hero-logo-img"
            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="hero-logo-ph" style="display:none">NCNU</div>
     </div>
@@ -340,7 +340,7 @@ img{max-width:100%;display:block;}
          onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'yang-kuo'})">
         電話連繫｜Contact
       </a>
-      <a class="h-btn p2" href="https://line.me/ti/p/yR9Je4YCDT" target="_blank" rel="noopener"
+      <a class="h-btn p1" href="https://line.me/ti/p/yR9Je4YCDT" target="_blank" rel="noopener"
          onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'yang-kuo'})">
         LINE 聯繫｜LINE @
       </a>
@@ -400,20 +400,20 @@ img{max-width:100%;display:block;}
  <div class="biz-card">
  <img src="/yang-kuo/assets/biz-farm.jpg" alt="洋果農產行" class="biz-img" onerror="this.style.display='none'">
  <div class="biz-name">洋果農產行</div>
- <div class="biz-desc">農產品批發・台中北屯集散・每日穩定供貨・靈活採購窗口</div>
  <div class="biz-tag">統編 88549904</div>
+ <div class="biz-desc">農產品批發・台中北屯集散・每日穩定供貨・靈活採購窗口</div>
  </div>
  <div class="biz-card">
  <img src="/yang-kuo/assets/biz-factory.jpg" alt="洋果實業有限公司" class="biz-img" onerror="this.style.display='none'">
  <div class="biz-name">洋果實業有限公司</div>
- <div class="biz-desc">農產初級加工（洗/切/包裝）・法人化採購資格・契作農民</div>
  <div class="biz-tag">統編 96805292</div>
+ <div class="biz-desc">農產初級加工（洗/切/包裝）・法人化採購資格・契作農民</div>
  </div>
  <div class="biz-card">
  <img src="/yang-kuo/assets/biz-cold.jpg" alt="日順倉儲有限公司" class="biz-img" onerror="this.style.display='none'">
  <div class="biz-name">日順倉儲有限公司</div>
- <div class="biz-desc">30年冷鏈物流・多溫層倉儲・高雄前鎮港進出口理貨・3.5噸冷藏車最後一哩路</div>
  <div class="biz-tag">統編 94250732</div>
+ <div class="biz-desc">30年冷鏈物流・多溫層倉儲・高雄前鎮港進出口理貨・3.5噸冷藏車最後一哩路</div>
  </div>
  </div>
  <p class="brand-motto reveal rd2">
@@ -429,17 +429,17 @@ img{max-width:100%;display:block;}
  <div class="b2b-btns reveal rd1">
  <a class="b2b-btn" href="https://line.me/ti/p/yR9Je4YCDT" target="_blank" rel="noopener"
  onclick="gtag('event','click_b2b_supply',{'event_category':'CTA','event_label':'yang-kuo'})">
- 尋找穩定農產貨源
+ 尋找穩定農產貨源<br>
  <span class="sub">洋果農產行・批發採購・初級加工</span>
  </a>
  <a class="b2b-btn" href="https://line.me/ti/p/yR9Je4YCDT" target="_blank" rel="noopener"
  onclick="gtag('event','click_b2b_cold',{'event_category':'CTA','event_label':'yang-kuo'})">
- 需要冷鏈倉儲代工
+ 需要冷鏈倉儲代工<br>
  <span class="sub">日順倉儲・多溫層管理・物流配送</span>
  </a>
  <a class="b2b-btn" href="https://line.me/ti/p/yR9Je4YCDT" target="_blank" rel="noopener"
  onclick="gtag('event','click_b2b_bni',{'event_category':'CTA','event_label':'yang-kuo'})">
- BNI / 商務引薦
+ BNI / 商務引薦<br>
  <span class="sub">產業媒合・1-on-1 洽談大寶</span>
  </a>
  </div>
@@ -492,15 +492,6 @@ img{max-width:100%;display:block;}
  <a href="tel:0927036992"
  onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'yang-kuo'})">
  0927-036992
- </a>
- </span>
- </div>
- <div class="c-row">
- <span class="c-label">LINE</span>
- <span class="c-value">
- <a href="https://line.me/ti/p/yR9Je4YCDT" target="_blank" rel="noopener"
- onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'yang-kuo'})">
- 加入 LINE
  </a>
  </span>
  </div>
