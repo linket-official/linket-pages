@@ -520,14 +520,15 @@ img{max-width:100%;display:block;}
 // ── QR Modal ──
 let qrLoaded=false,qrInstance=null;
 function loadQrLib(cb){if(qrLoaded){cb();return;}const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';s.onload=()=>{qrLoaded=true;cb();};document.head.appendChild(s);}
-function renderQrCode(){const el=document.getElementById('qrcode-canvas');if(!el||qrInstance)return;qrInstance=new QRCode(el,{text:'https://linket.app/yang-kuo/',width:180,height:180,colorDark:'#0D1C3B',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M});}
+function getPageUrl(){return currentId==='ncnu'?'https://linket.app/yang-kuo/#ncnu':'https://linket.app/yang-kuo/';}
+function renderQrCode(){const el=document.getElementById('qrcode-canvas');if(!el)return;if(qrInstance){qrInstance.clear();qrInstance.makeCode(getPageUrl());return;}qrInstance=new QRCode(el,{text:getPageUrl(),width:180,height:180,colorDark:'#0D1C3B',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M});}
 function openQrModal(){const m=document.getElementById('qrModal');if(!m)return;m.classList.add('active');document.body.style.overflow='hidden';loadQrLib(renderQrCode);gtag('event','click_qr_modal',{'event_category':'CTA','event_label':'yang-kuo'});}
 function closeQrModal(){const m=document.getElementById('qrModal');if(!m)return;m.classList.remove('active');document.body.style.overflow='';}
 function closeQrModalOnBg(e){const m=document.getElementById('qrModal');if(m&&e.target===m)closeQrModal();}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeQrModal();});
 // ── Share ──
 (function(){if(navigator.share){['shareBtn','shareBtnNcnu'].forEach(id=>{const b=document.getElementById(id);if(b)b.style.display='';});} })();
-function shareThis(){navigator.share({title:'賴泓名｜洋果實業',text:'洋果農產行・洋果實業・日順倉儲，農產供應鏈整合',url:'https://linket.app/yang-kuo/'}).then(()=>gtag('event','click_share',{'event_category':'CTA','event_label':'yang-kuo'})).catch(()=>{});}
+function shareThis(){const isNcnu=currentId==='ncnu';navigator.share({title:isNcnu?'賴泓名｜暨大校友總會':'賴泓名｜洋果實業',text:isNcnu?'中華民國國立暨南國際大學校友總會 理事':'洋果農產行・洋果實業・日順倉儲，農產供應鏈整合',url:getPageUrl()}).then(()=>gtag('event','click_share',{'event_category':'CTA','event_label':'yang-kuo'})).catch(()=>{});}
 // ── Back to Top ──
 (function(){const b=document.getElementById('backTop');if(b)window.addEventListener('scroll',()=>b.classList.toggle('show',scrollY>300));})();
 
