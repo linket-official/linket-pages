@@ -69,11 +69,6 @@ img{max-width:100%;display:block;}
  pointer-events:none;z-index:0;
 }
 /* 暨大：淺灰 */
-.hero-ncnu::before{
- content:'';position:absolute;inset:0;
- background: radial-gradient(ellipse 70% 50% at 30% 60%, rgba(26,43,85,.06) 0%, transparent 70%);
- pointer-events:none;z-index:0;
-}
 .hero-inner{position:relative;z-index:1;max-width:var(--mw);margin:0 auto;padding:2.4rem 1.6rem 3rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:0;}
 
 /* 主理人照片 */
@@ -208,7 +203,7 @@ img{max-width:100%;display:block;}
 .hero-yangkuo{background-image:url('/yang-kuo/assets/hero-bg-navy.jpg'),linear-gradient(160deg,var(--yk-navy) 0%,var(--yk-wine) 100%);background-size:cover;background-position:center;}
 .hero-yangkuo::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(13,28,59,.82) 0%,rgba(66,14,19,.72) 100%);pointer-events:none;z-index:0;}
 .hero-ncnu{background-image:url('/yang-kuo/assets/hero-bg-gray.jpg');background-color:var(--nc-bg);background-size:cover;background-position:center;position:relative;overflow:hidden;}
-.hero-ncnu::before{content:'';position:absolute;inset:0;background:rgba(238,236,235,.85);pointer-events:none;z-index:0;}
+.hero-ncnu::before{content:'';position:absolute;inset:0;background:rgba(238,236,235,.55);pointer-events:none;z-index:0;}
 .about-top{background-image:url('/yang-kuo/assets/section-bg-navy.jpg');background-size:cover;background-position:center;position:relative;}
 .about-top::before{content:'';position:absolute;inset:0;background:rgba(13,28,59,.88);z-index:0;pointer-events:none;}
 .about-top .about-inner{position:relative;z-index:1;}
@@ -580,9 +575,20 @@ function switchIdentity(id){
  b.classList.toggle('active', b.dataset.id === id)
  );
 
+ try{history.replaceState(null,'','#'+id);}catch(e){}
  // GA4
  gtag('event','identity_switch',{'event_category':'UI','event_label':id});
 }
+
+// ── URL Hash 切換 ──
+(function(){
+  const id=location.hash.replace('#','');
+  if(id==='ncnu'||id==='yangkuo') switchIdentity(id);
+})();
+window.addEventListener('popstate',function(){
+  const id=location.hash.replace('#','')||'yangkuo';
+  if(id==='ncnu'||id==='yangkuo') switchIdentity(id);
+});
 </script>
 </body>
 </html>
