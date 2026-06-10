@@ -1,0 +1,598 @@
+<!--
+ 洋果實業有限公司｜賴泓名 主登場頁
+ slug: yang-kuo
+ 方案: LINKet 標準版（雙身份切換）
+ yang-kuo-v1.0 2026-06-06 初版建置：雙身份切換（洋果/暨大）；§1 Hero + §2 事業體+B2B分流 + §3 聯絡資訊 + §4 Footer
+ 設計：洋果深藍×酒紅穿插 / 暨大淺灰 / 宋體×Cormorant 襯線組合
+-->
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-29J2988Y8J');</script>
+<title>賴泓名｜洋果實業・冷鏈物流・暨大校友總會</title>
+<meta name="description" content="洋果農產行・洋果實業・日順倉儲，批發到冷鏈一站整合。賴泓名，台中北屯農產集散，穩定供應・務實合作。">
+<meta property="og:title" content="賴泓名｜洋果實業・農產供應鏈整合">
+<meta property="og:description" content="農產批發、初級加工、冷鏈倉儲三大事業體整合，B2B 採購最佳夥伴。">
+<meta property="og:image" content="https://linket.app/yang-kuo/assets/og-image.jpg">
+<meta property="og:url" content="https://linket.app/yang-kuo/">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" sizes="180x180" href="/yang-kuo/assets/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/yang-kuo/assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200;300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=IBM+Plex+Sans:ital,wght@0,200;0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+/* ── Token ── */
+:root{
+ /* 洋果身份 */
+ --yk-navy: #0D1C3B;
+ --yk-wine: #420E13;
+ --yk-gold: #C8A84B;
+ --yk-text: #fff;
+ /* 暨大身份 */
+ --nc-bg: #EEECEB;
+ --nc-bg2: #E0DDD8;
+ --nc-ink: #1A1A2E;
+ --nc-blue: #1A2B55;
+ --nc-gold: #8B6914;
+ /* 通用 */
+ --cream: #F5F0E8;
+ --ink: #1A1A2E;
+ --ink-lt: rgba(26,26,46,.55);
+ --r: 6px;
+ --mw: 720px;
+ --ease: cubic-bezier(.25,.1,.1,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Serif TC',serif;color:var(--ink);background:#0D1C3B;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+
+/* ── 身份切換 Toggle ── */
+.ncnu-mode .ncnu-mode /* ── 身份切換過渡 ── */
+[data-show]{transition:opacity .3s var(--ease);}
+[data-show].hidden{display:none;}
+
+/* ── Hero ── */
+/* 洋果：深藍與酒紅穿插 */
+.hero-yangkuo{
+ background: linear-gradient(160deg, var(--yk-navy) 0%, var(--yk-navy) 50%, var(--yk-wine) 100%);
+ position:relative;overflow:hidden;
+}
+.hero-yangkuo::before{
+ content:'';position:absolute;inset:0;
+ background: radial-gradient(ellipse 80% 60% at 65% 40%, rgba(66,14,19,.55) 0%, transparent 70%);
+ pointer-events:none;z-index:0;
+}
+/* 暨大：淺灰 */
+.hero-ncnu{background:var(--nc-bg);position:relative;overflow:hidden;}
+.hero-ncnu::before{
+ content:'';position:absolute;inset:0;
+ background: radial-gradient(ellipse 70% 50% at 30% 60%, rgba(26,43,85,.06) 0%, transparent 70%);
+ pointer-events:none;z-index:0;
+}
+.hero-inner{position:relative;z-index:1;max-width:var(--mw);margin:0 auto;padding:2.4rem 1.6rem 3rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:0;}
+
+/* 主理人照片 */
+.hero-portrait{width:clamp(140px,40vw,200px);height:auto;aspect-ratio:3/4;object-fit:cover;object-position:top center;border-radius:4px;margin-bottom:1.4rem;}
+.hero-portrait-ph{width:clamp(140px,40vw,200px);aspect-ratio:3/4;background:rgba(255,255,255,.08);border-radius:4px;margin-bottom:1.4rem;display:flex;align-items:center;justify-content:center;font-size:2rem;}
+.ncnu-mode .hero-portrait-ph{background:rgba(26,26,46,.08);}
+
+/* 姓名 */
+.hero-name{font-family:'Noto Serif TC',serif;font-size:clamp(1.8rem,8vw,2.6rem);font-weight:700;letter-spacing:.2em;color:#fff;line-height:1.1;margin-bottom:.5rem;}
+.ncnu-mode .hero-name{color:var(--nc-ink);}
+.hero-name-en{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(.9rem,3vw,1.2rem);font-weight:300;letter-spacing:.16em;color:rgba(255,255,255,.5);margin-bottom:1rem;}
+.ncnu-mode .hero-name-en{color:rgba(26,26,46,.45);}
+
+/* 職稱（切換）*/
+.hero-role{font-family:'Noto Serif TC',serif;font-size:.82rem;font-weight:400;letter-spacing:.14em;color:var(--yk-gold);margin-bottom:.6rem;}
+.ncnu-mode [data-show="ncnu"] .hero-role{color:var(--nc-gold);}
+
+/* 標籤（切換）*/
+.hero-badges{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin-bottom:1.4rem;}
+.hero-badge{font-family:'IBM Plex Sans',sans-serif;font-size:.6rem;font-weight:400;letter-spacing:.1em;padding:.2rem .7rem;border-radius:2px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.65);}
+.ncnu-mode .hero-badge{border-color:rgba(26,26,46,.18);color:rgba(26,26,46,.55);}
+
+/* icons */
+.hero-icons{display:flex;gap:.8rem;justify-content:center;margin-bottom:1.2rem;}
+.hero-icon-link{width:44px;height:44px;display:flex;align-items:center;justify-content:center;}
+.hero-icon-link img{width:36px;height:36px;display:block;}
+.ncnu-mode .hero-icon-link img{filter:brightness(0);}
+
+/* CTA 按鈕 */
+.hero-btns{display:flex;flex-direction:column;gap:.65rem;width:100%;max-width:320px;}
+.h-btn{display:flex;align-items:center;justify-content:center;width:100%;padding:.95rem 1.2rem;font-family:'Noto Serif TC',sans-serif;font-size:.88rem;font-weight:500;letter-spacing:.1em;border-radius:100px;transition:.25s var(--ease);gap:.3rem;}
+.h-btn.p1{background:rgba(200,168,75,.9);color:#fff;border:2px solid transparent;}
+.h-btn.p1:hover{background:var(--yk-gold);}
+.h-btn.p2{background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.25);}
+.h-btn.p2:hover{background:rgba(255,255,255,.2);}
+.ncnu-mode .h-btn.p1{background:var(--nc-blue);border-color:var(--nc-blue);}
+.ncnu-mode .h-btn.p1:hover{background:#1a3068;}
+.ncnu-mode .h-btn.p2{background:rgba(26,26,46,.06);color:var(--nc-ink);border-color:rgba(26,26,46,.2);}
+
+/* 切換動畫 */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
+.hero-inner>*{animation:fadeUp .5s var(--ease) forwards;}
+
+/* ── §2 事業體 + B2B 分流 ── */
+.about-section{padding:0;}
+/* 洋果：深藍+酒紅區塊交替 */
+.about-top{background:var(--yk-navy);padding:clamp(2.8rem,6vw,4.5rem) 1.6rem;}
+.about-bottom{background:var(--yk-wine);padding:clamp(2.4rem,5vw,3.5rem) 1.6rem;}
+/* 暨大：淺灰雙區 */
+.ncnu-mode .about-top{background:var(--nc-bg);}
+.ncnu-mode .about-bottom{background:var(--nc-bg2);}
+.about-inner{max-width:var(--mw);margin:0 auto;}
+.section-eyebrow{font-family:'IBM Plex Sans',sans-serif;font-size:.65rem;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:.6rem;}
+.section-h2{font-family:'Noto Serif TC',serif;font-size:clamp(1.3rem,4vw,1.7rem);font-weight:700;letter-spacing:.1em;color:#fff;margin-bottom:.5rem;line-height:1.3;}
+.ncnu-mode .section-eyebrow{color:rgba(26,26,46,.4);}
+.ncnu-mode .section-h2{color:var(--nc-ink);}
+
+/* 三欄卡片 */
+.biz-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2rem 0 1.5rem;}
+@media(max-width:580px){.biz-grid{grid-template-columns:1fr;gap:.8rem;}}
+.biz-card{background:transparent;border:none;border-top:1px solid rgba(255,255,255,.15);padding:1.4rem 0;}
+.biz-card:last-child{border-bottom:1px solid rgba(255,255,255,.15);}
+.ncnu-mode .biz-card{border-color:rgba(26,26,46,.12);}
+.ncnu-mode .biz-card:last-child{border-color:rgba(26,26,46,.12);}
+.biz-icon{display:none;}
+.biz-img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:4px;margin-bottom:.8rem;display:block;background:rgba(255,255,255,.04);}
+.biz-name{font-family:'Noto Serif TC',serif;font-size:.88rem;font-weight:700;letter-spacing:.08em;color:#fff;margin-bottom:.4rem;}
+.ncnu-mode .biz-name{color:var(--nc-ink);}
+.biz-desc{font-family:'Noto Serif TC',serif;font-size:.74rem;font-weight:300;line-height:1.9;letter-spacing:.04em;color:rgba(255,255,255,.6);}
+.ncnu-mode .biz-desc{color:rgba(26,26,46,.55);}
+.biz-tag{font-family:'IBM Plex Sans',sans-serif;font-size:.58rem;letter-spacing:.1em;color:var(--yk-gold);margin-top:.5rem;}
+.ncnu-mode .biz-tag{color:var(--nc-gold);}
+
+/* 品牌理念 */
+.brand-motto{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(.95rem,2.5vw,1.2rem);font-weight:400;line-height:1.8;letter-spacing:.04em;color:rgba(255,255,255,.65);text-align:center;padding:0 1rem 1.5rem;border-bottom:1px solid rgba(255,255,255,.1);}
+.ncnu-mode .brand-motto{color:rgba(26,26,46,.5);border-color:rgba(26,26,46,.1);}
+
+/* B2B 分流 CTA */
+.b2b-title{font-family:'Noto Serif TC',serif;font-size:.82rem;font-weight:400;letter-spacing:.12em;color:rgba(255,255,255,.55);text-align:center;margin-bottom:1.2rem;margin-top:0;}
+.ncnu-mode .b2b-title{color:rgba(26,26,46,.4);}
+.b2b-btns{display:flex;flex-direction:column;gap:.65rem;max-width:320px;margin:0 auto;}
+.b2b-btn{display:flex;align-items:center;justify-content:center;width:100%;padding:.9rem 1.2rem;font-family:'Noto Serif TC',sans-serif;font-size:.86rem;font-weight:500;letter-spacing:.08em;border-radius:100px;transition:.25s var(--ease);gap:.4rem;background:rgba(255,255,255,.08);color:#fff;border:1.5px solid rgba(255,255,255,.2);}
+.b2b-btn:hover{background:rgba(255,255,255,.16);}
+.ncnu-mode .b2b-btn{background:rgba(26,26,46,.05);color:var(--nc-ink);border-color:rgba(26,26,46,.15);}
+.ncnu-mode .b2b-btn:hover{background:rgba(26,26,46,.1);}
+.b2b-btn .sub{font-size:.65rem;font-weight:300;opacity:.6;display:block;letter-spacing:.06em;}
+
+/* ── §3 聯絡資訊 ── */
+.contact-map-btn{display:inline-flex;align-items:center;justify-content:center;padding:.8rem 1.6rem;background:var(--yk-gold);color:#fff;border-radius:100px;font-family:'Noto Serif TC',serif;font-size:.86rem;font-weight:500;letter-spacing:.08em;transition:.25s;margin-top:.2rem;}
+.contact-map-btn:hover{background:#b8982b;}
+.ncnu-mode .contact-map-btn{background:var(--nc-blue);}
+.ncnu-mode .contact-map-btn:hover{background:#1a3068;}
+.contact-section{background:var(--yk-navy);padding:clamp(2.8rem,6vw,4.5rem) 1.6rem;}
+.ncnu-mode .contact-section{background:var(--nc-bg);}
+.contact-inner{max-width:var(--mw);margin:0 auto;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.6rem;}
+@media(max-width:580px){.contact-grid{grid-template-columns:1fr;}}
+.contact-map{width:100%;aspect-ratio:4/3;border:none;border-radius:var(--r);display:block;background:rgba(255,255,255,.06);}
+.contact-info{display:flex;flex-direction:column;gap:.9rem;justify-content:center;}
+.c-row{display:flex;flex-direction:column;gap:.15rem;}
+.c-label{font-family:'IBM Plex Sans',sans-serif;font-size:.6rem;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.4);}
+.ncnu-mode .c-label{color:rgba(26,26,46,.35);}
+.c-value{font-family:'Noto Serif TC',serif;font-size:.84rem;font-weight:400;letter-spacing:.06em;color:rgba(255,255,255,.85);line-height:1.6;}
+.ncnu-mode .c-value{color:rgba(26,26,46,.8);}
+.c-value a{color:rgba(255,255,255,.85);}
+.ncnu-mode .c-value a{color:var(--nc-blue);}
+
+/* ── §4 Footer ── */
+.footer{background:rgba(0,0,0,.4);padding:2rem 1.6rem;text-align:center;}
+.ncnu-mode .footer{background:rgba(26,26,46,.08);}
+.footer-inner{max-width:var(--mw);margin:0 auto;}
+.footer-copy{font-family:'IBM Plex Sans',sans-serif;font-size:.62rem;letter-spacing:.14em;color:rgba(255,255,255,.25);margin-bottom:.35rem;}
+.ncnu-mode .footer-copy{color:rgba(26,26,46,.55);}
+.ncnu-mode .design-by{color:rgba(26,26,46,.35);}
+.ncnu-mode .db-lin{color:rgba(22,83,160,.6);}
+.ncnu-mode .db-ket{color:rgba(26,26,46,.4);}
+.design-by{font-family:'IBM Plex Sans',sans-serif;font-size:.62rem;letter-spacing:.16em;color:rgba(255,255,255,.15);}
+.ncnu-mode .design-by{color:rgba(26,26,46,.2);}
+.db-lin{color:rgba(22,133,200,.5);}.db-ket{color:rgba(255,255,255,.3);}
+
+/* ── Back to Top ── */
+.back-top{position:fixed;bottom:1.4rem;right:1.4rem;width:44px;height:44px;background:var(--yk-gold);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .3s;z-index:99;border:none;}
+.back-top.show{opacity:1;}
+.back-top svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2.5;}
+
+/* ── Reveal ── */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .6s var(--ease);}
+.reveal.visible{opacity:1;transform:none;}
+.rd1{transition-delay:.08s;}.rd2{transition-delay:.16s;}.rd3{transition-delay:.24s;}
+
+/* ── Hero 背景圖 ── */
+.hero-yangkuo{background-image:url('/yang-kuo/assets/hero-bg-navy.jpg'),linear-gradient(160deg,var(--yk-navy) 0%,var(--yk-wine) 100%);background-size:cover;background-position:center;}
+.hero-yangkuo::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(13,28,59,.82) 0%,rgba(66,14,19,.72) 100%);pointer-events:none;z-index:0;}
+.hero-ncnu{background-image:url('/yang-kuo/assets/hero-bg-gray.jpg'),var(--nc-bg);background-size:cover;background-position:center;}
+.hero-ncnu::before{content:'';position:absolute;inset:0;background:rgba(238,236,235,.85);pointer-events:none;z-index:0;}
+.about-top{background-image:url('/yang-kuo/assets/section-bg-navy.jpg');background-size:cover;background-position:center;position:relative;}
+.about-top::before{content:'';position:absolute;inset:0;background:rgba(13,28,59,.88);z-index:0;pointer-events:none;}
+.about-top .about-inner{position:relative;z-index:1;}
+.about-bottom{position:relative;}
+.about-bottom::before{content:'';position:absolute;inset:0;background-image:url('/yang-kuo/assets/section-bg-wine.jpg');background-size:cover;background-position:center;opacity:.25;z-index:0;pointer-events:none;}
+.about-bottom .about-inner{position:relative;z-index:1;}
+
+/* ── QR Modal ── */
+.qr-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:9999;display:none;align-items:center;justify-content:center;backdrop-filter:blur(4px);}
+.qr-modal-overlay.active{display:flex;}
+.qr-modal{background:#fff;border-radius:12px;padding:2rem;text-align:center;max-width:280px;width:90%;}
+.qr-modal-title{font-family:'IBM Plex Sans',sans-serif;font-size:.7rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--yk-navy);margin-bottom:1.2rem;}
+.qr-modal-code{display:flex;justify-content:center;margin-bottom:.8rem;}
+.qr-modal-url{font-family:'IBM Plex Sans',sans-serif;font-size:.65rem;letter-spacing:.1em;color:rgba(26,26,46,.5);margin-bottom:.6rem;}
+.qr-modal-hint{font-size:.7rem;color:rgba(26,26,46,.45);margin-bottom:1.2rem;}
+.qr-modal-close{background:var(--yk-navy);color:#fff;border:none;border-radius:100px;padding:.6rem 1.4rem;font-size:.78rem;letter-spacing:.1em;cursor:pointer;}
+
+/* ── Hero LOGO（切換）── */
+.hero-logo-wrap{width:clamp(140px,35vw,200px);height:auto;margin-bottom:1.2rem;display:flex;justify-content:center;}
+.hero-logo-img{width:100%;height:auto;object-fit:contain;display:block;}
+.hero-logo-ph{width:clamp(140px,35vw,200px);height:56px;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Sans',sans-serif;font-size:1rem;font-weight:600;letter-spacing:.22em;color:rgba(255,255,255,.4);border:1.5px solid rgba(255,255,255,.18);border-radius:4px;}
+.ncnu-mode .hero-logo-ph{color:rgba(26,26,46,.3);border-color:rgba(26,26,46,.12);}
+</style>
+</head>
+<body id="pageBody">
+
+
+
+<!-- ══ §1 HERO ══ -->
+
+<!-- QR Modal -->
+<div class="qr-modal-overlay" id="qrModal" onclick="closeQrModalOnBg(event)">
+  <div class="qr-modal">
+    <div class="qr-modal-title">YANG KUO</div>
+    <div class="qr-modal-code"><div id="qrcode-canvas"></div></div>
+    <div class="qr-modal-url">linket.app/yang-kuo</div>
+    <div class="qr-modal-hint">掃描 QR Code 開啟頁面</div>
+    <button class="qr-modal-close" onclick="closeQrModal()">關 閉</button>
+  </div>
+</div>
+<section class="hero-yangkuo" id="top">
+ <div class="hero-inner">
+
+    <!-- LOGO（切換）-->
+    <div class="hero-logo-wrap" data-show="yangkuo">
+      <img src="/yang-kuo/assets/yangkuo-logo.svg" alt="洋果農產行" class="hero-logo-img"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="hero-logo-ph" style="display:none">YANG KUO</div>
+    </div>
+    <div class="hero-logo-wrap hidden" data-show="ncnu">
+      <img src="/yang-kuo/assets/ncnu-logo.svg" alt="暨大校友總會" class="hero-logo-img"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="hero-logo-ph" style="display:none">NCNU</div>
+    </div>
+
+        <!-- 主理人照片（共用）-->
+ <img src="/yang-kuo/assets/portrait.png" alt="賴泓名 大寶" class="hero-portrait"
+ onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+ <div class="hero-portrait-ph" style="display:none"></div>
+
+ <!-- 姓名（共用）-->
+ <h1 class="hero-name">賴泓名</h1>
+ <div class="hero-name-en">Lai Hung-Ming · 大寶</div>
+
+ <!-- 職稱（切換）-->
+ <div class="hero-role" data-show="yangkuo">
+ 洋果農產行・洋果實業有限公司｜負責人
+ </div>
+ <div class="hero-role hidden" data-show="ncnu">
+ 中華民國國立暨南國際大學校友總會｜理事・博士候選人
+ </div>
+
+ <!-- 標籤（切換）-->
+ <div class="hero-badges" data-show="yangkuo">
+ <span class="hero-badge">#農產流通</span>
+ <span class="hero-badge">#倉儲物流</span>
+ <span class="hero-badge">#冷鏈配送</span>
+ <span class="hero-badge">#企業合作</span>
+ </div>
+ <div class="hero-badges hidden" data-show="ncnu">
+ <span class="hero-badge">#暨大校友</span>
+ <span class="hero-badge">#產業對接</span>
+ <span class="hero-badge">#博士候選人</span>
+ <span class="hero-badge">#BNI商務</span>
+ </div>
+
+ <!-- icons（依身份切換）-->
+    <div class="hero-icons" data-show="yangkuo">
+      <a class="hero-icon-link" href="https://line.me/ti/p/yR9Je4YCDT" target="_blank" rel="noopener" aria-label="LINE"
+         onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'yang-kuo'})">
+        <img src="/assets/line.svg" alt="LINE" onerror="this.style.visibility='hidden'">
+      </a>
+      <a class="hero-icon-link" href="tel:0927036992" aria-label="電話"
+         onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'yang-kuo'})">
+        <img src="/assets/phone.svg" alt="電話" onerror="this.style.visibility='hidden'">
+      </a>
+      <a class="hero-icon-link" href="mailto:wok06021@gmail.com" aria-label="Email"
+         onclick="gtag('event','click_email',{'event_category':'CTA','event_label':'yang-kuo'})">
+        <img src="/assets/mail.svg" alt="Email" onerror="this.style.visibility='hidden'">
+      </a>
+      <a class="hero-icon-link" href="https://maps.app.goo.gl/r9cG8M8pgL2WptM48" target="_blank" rel="noopener" aria-label="地圖"
+         onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'yang-kuo'})">
+        <img src="/assets/map.svg" alt="地圖" onerror="this.style.visibility='hidden'">
+      </a>
+    </div>
+    <div class="hero-icons hidden" data-show="ncnu">
+      <a class="hero-icon-link" href="https://line.me/ti/p/yR9Je4YCDT" target="_blank" rel="noopener" aria-label="LINE"
+         onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'yang-kuo'})">
+        <img src="/assets/line.svg" alt="LINE" onerror="this.style.visibility='hidden'">
+      </a>
+      <a class="hero-icon-link" href="tel:0927036992" aria-label="電話"
+         onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'yang-kuo'})">
+        <img src="/assets/phone.svg" alt="電話" onerror="this.style.visibility='hidden'">
+      </a>
+      <a class="hero-icon-link" href="mailto:wok06021@gmail.com" aria-label="Email"
+         onclick="gtag('event','click_email',{'event_category':'CTA','event_label':'yang-kuo'})">
+        <img src="/assets/mail.svg" alt="Email" onerror="this.style.visibility='hidden'">
+      </a>
+      <a class="hero-icon-link" href="https://maps.app.goo.gl/xTet3LqukMqm9gqp6" target="_blank" rel="noopener" aria-label="地圖"
+         onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'yang-kuo'})">
+        <img src="/assets/map.svg" alt="地圖" onerror="this.style.visibility='hidden'">
+      </a>
+    </div>
+
+    <!-- CTA 按鈕（切換）-->
+ <div class="hero-btns" data-show="yangkuo">
+      <a class="h-btn p1" href="tel:0927036992"
+         onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'yang-kuo'})">
+        電話連繫｜Contact
+      </a>
+      <a class="h-btn p2" href="https://line.me/ti/p/yR9Je4YCDT" target="_blank" rel="noopener"
+         onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'yang-kuo'})">
+        LINE 聯繫｜LINE @
+      </a>
+      <a class="h-btn p2" href="#about"
+         onclick="gtag('event','click_about',{'event_category':'CTA','event_label':'yang-kuo'})">
+        關於我們｜About Us
+      </a>
+      <a class="h-btn p2" href="#contact"
+         onclick="gtag('event','click_visit_yangkuo',{'event_category':'CTA','event_label':'yang-kuo'})">
+        拜訪洋果｜Visit Us
+      </a>
+      <button class="h-btn p2" onclick="switchIdentity('ncnu');window.scrollTo({top:0,behavior:'smooth'});">
+        暨大校友總會｜NCNU
+      </button>
+      <div style="display:flex;gap:.6rem;width:100%;margin-top:.1rem;">
+        <button class="h-btn p2" style="flex:1;font-size:.78rem;" onclick="openQrModal()">QR Code</button>
+        <button class="h-btn p2" style="flex:1;font-size:.78rem;display:none;" id="shareBtn" onclick="shareThis()">Share</button>
+      </div>
+    </div>
+ <div class="hero-btns hidden" data-show="ncnu">
+      <a class="h-btn p1" href="tel:0927036992"
+         onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'yang-kuo'})">
+        電話連繫｜Contact
+      </a>
+      <a class="h-btn p2" href="https://line.me/ti/p/yR9Je4YCDT" target="_blank" rel="noopener"
+         onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'yang-kuo'})">
+        LINE 聯繫｜LINE @
+      </a>
+      <a class="h-btn p2" href="#contact"
+         onclick="gtag('event','click_visit_ncnu',{'event_category':'CTA','event_label':'yang-kuo'})">
+        拜訪暨大｜Visit NCNU
+      </a>
+      <button class="h-btn p2" onclick="switchIdentity('yangkuo');window.scrollTo({top:0,behavior:'smooth'});"
+              style="cursor:pointer;">
+        洋果實業｜Yang Kuo
+      </button>
+      <div style="display:flex;gap:.6rem;width:100%;margin-top:.1rem;">
+        <button class="h-btn p2" style="flex:1;font-size:.78rem;" onclick="openQrModal()">QR Code</button>
+        <button class="h-btn p2" style="flex:1;font-size:.78rem;display:none;" id="shareBtnNcnu" onclick="shareThis()">Share</button>
+      </div>
+    </div>
+
+ </div>
+</section>
+
+<!-- ══ §2 三大事業體 + B2B 分流 ══ -->
+<div class="about-section" id="about" data-show="yangkuo">
+
+ <!-- 上區：事業體介紹 -->
+ <div class="about-top">
+ <div class="about-inner">
+ <div class="reveal">
+ <div class="section-eyebrow">Business Units</div>
+ <h2 class="section-h2">三大事業體</h2>
+ </div>
+ <div class="biz-grid reveal rd1">
+ <div class="biz-card">
+ <img src="/yang-kuo/assets/biz-farm.jpg" alt="洋果農產行" class="biz-img" onerror="this.style.display='none'">
+ <div class="biz-name">洋果農產行</div>
+ <div class="biz-desc">農產品批發・台中北屯集散・每日穩定供貨・靈活採購窗口</div>
+ <div class="biz-tag">統編 88549904</div>
+ </div>
+ <div class="biz-card">
+ <img src="/yang-kuo/assets/biz-factory.jpg" alt="洋果實業有限公司" class="biz-img" onerror="this.style.display='none'">
+ <div class="biz-name">洋果實業有限公司</div>
+ <div class="biz-desc">農產初級加工（洗/切/包裝）・法人化採購資格・契作農民</div>
+ <div class="biz-tag">統編 96805292</div>
+ </div>
+ <div class="biz-card">
+ <img src="/yang-kuo/assets/biz-cold.jpg" alt="日順倉儲有限公司" class="biz-img" onerror="this.style.display='none'">
+ <div class="biz-name">日順倉儲有限公司</div>
+ <div class="biz-desc">30年冷鏈物流・多溫層倉儲・高雄前鎮港進出口理貨・3.5噸冷藏車最後一哩路</div>
+ <div class="biz-tag">統編 94250732</div>
+ </div>
+ </div>
+ <p class="brand-motto reveal rd2">
+ 「穩定供應・務實合作。長期以實體經營與產業信任為基礎，<br>協助 B2B 合作夥伴降低供應鏈風險。」
+ </p>
+ </div>
+ </div>
+
+ <!-- 下區：B2B 分流 -->
+ <div class="about-bottom">
+ <div class="about-inner">
+ <p class="b2b-title reveal">你的需求，對應的事業體</p>
+ <div class="b2b-btns reveal rd1">
+ <a class="b2b-btn" href="https://line.me/ti/p/yR9Je4YCDT" target="_blank" rel="noopener"
+ onclick="gtag('event','click_b2b_supply',{'event_category':'CTA','event_label':'yang-kuo'})">
+ 尋找穩定農產貨源
+ <span class="sub">洋果農產行・批發採購・初級加工</span>
+ </a>
+ <a class="b2b-btn" href="https://line.me/ti/p/yR9Je4YCDT" target="_blank" rel="noopener"
+ onclick="gtag('event','click_b2b_cold',{'event_category':'CTA','event_label':'yang-kuo'})">
+ 需要冷鏈倉儲代工
+ <span class="sub">日順倉儲・多溫層管理・物流配送</span>
+ </a>
+ <a class="b2b-btn" href="https://line.me/ti/p/yR9Je4YCDT" target="_blank" rel="noopener"
+ onclick="gtag('event','click_b2b_bni',{'event_category':'CTA','event_label':'yang-kuo'})">
+ BNI / 商務引薦
+ <span class="sub">產業媒合・1-on-1 洽談大寶</span>
+ </a>
+ </div>
+ </div>
+ </div>
+</div>
+
+<!-- ══ §3 聯絡資訊 ══ -->
+<section class="contact-section" id="contact">
+ <div class="contact-inner">
+ <div class="reveal">
+ <div class="section-eyebrow">Contact</div>
+ <h2 class="section-h2" data-show="yangkuo">拜訪洋果</h2>
+      <h2 class="section-h2 hidden" data-show="ncnu">拜訪暨大</h2>
+ </div>
+ <div class="contact-grid reveal rd1">
+ <!-- 地圖（切換）-->
+ <div>
+ <div data-show="yangkuo">
+ <iframe class="contact-map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.182815806352!2d120.7144908!3d24.165320499999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d898cdb3d47%3A0x26ab2efad9839504!2z5rSL5p6c6L6y55Si6KGM!5e0!3m2!1szh-TW!2stw!4v1781011420845!5m2!1szh-TW!2stw"
+            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="洋果農產行地圖">
+ </iframe>
+ 
+ 
+          <a href="https://maps.app.goo.gl/YYxfzpzUbrQG4wp69" target="_blank" rel="noopener" class="contact-map-btn" onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'yang-kuo'})">拜訪洋果｜Google Maps</a>
+        </div>
+ <div data-show="ncnu" class="hidden">
+ <iframe class="contact-map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3646.2740439881513!2d120.92777029999999!3d23.950747699999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3468d82386bbae73%3A0xf8104b6caf56bdae!2z5ZyL56uL5pqo5Y2X5ZyL6Zqb5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1781011744349!5m2!1szh-TW!2stw"
+            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="暨大校友總會地圖">
+ </iframe>
+ <a href="https://maps.app.goo.gl/Wf1S4ixygF5dPSwN7" target="_blank" rel="noopener" class="contact-map-btn" onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'yang-kuo'})">拜訪暨大｜Google Maps</a>
+ </div>
+ </div>
+
+ <!-- 聯絡資訊欄（切換）-->
+ <div class="contact-info">
+ <div class="c-row" data-show="yangkuo">
+ <span class="c-label">地址</span>
+ <span class="c-value">台中市北屯區景賢二路7號</span>
+ </div>
+ <div class="c-row hidden" data-show="ncnu">
+ <span class="c-label">地址</span>
+ <span class="c-value">545301 南投縣埔里鎮大學路1號</span>
+ </div>
+ <div class="c-row">
+ <span class="c-label">手機</span>
+ <span class="c-value">
+ <a href="tel:0927036992"
+ onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'yang-kuo'})">
+ 0927-036992
+ </a>
+ </span>
+ </div>
+ <div class="c-row">
+ <span class="c-label">LINE</span>
+ <span class="c-value">
+ <a href="https://line.me/ti/p/yR9Je4YCDT" target="_blank" rel="noopener"
+ onclick="gtag('event','click_line_consult',{'event_category':'CTA','event_label':'yang-kuo'})">
+ 加入 LINE
+ </a>
+ </span>
+ </div>
+ <div class="c-row">
+ <span class="c-label">Email</span>
+ <span class="c-value">
+ <a href="mailto:wok06021@gmail.com">wok06021@gmail.com</a>
+ </span>
+ </div>
+ 
+ </div>
+ 
+  </div>
+</section>
+
+<!-- ══ §4 Footer ══ -->
+<footer class="footer" id="footer">
+ <div class="footer-inner">
+ <p class="footer-copy">© 2026 賴泓名 · 洋果實業有限公司 · 統編 96805292</p>
+ <a class="design-by" href="https://linket.app" target="_blank">
+ Design by <span class="db-lin">LIN</span><span class="db-ket">Ket</span>
+ </a>
+ </div>
+</footer>
+
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部">
+ <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+
+// ── QR Modal ──
+let qrLoaded=false,qrInstance=null;
+function loadQrLib(cb){if(qrLoaded){cb();return;}const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';s.onload=()=>{qrLoaded=true;cb();};document.head.appendChild(s);}
+function renderQrCode(){const el=document.getElementById('qrcode-canvas');if(!el||qrInstance)return;qrInstance=new QRCode(el,{text:'https://linket.app/yang-kuo/',width:180,height:180,colorDark:'#0D1C3B',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M});}
+function openQrModal(){const m=document.getElementById('qrModal');if(!m)return;m.classList.add('active');document.body.style.overflow='hidden';loadQrLib(renderQrCode);gtag('event','click_qr_modal',{'event_category':'CTA','event_label':'yang-kuo'});}
+function closeQrModal(){const m=document.getElementById('qrModal');if(!m)return;m.classList.remove('active');document.body.style.overflow='';}
+function closeQrModalOnBg(e){const m=document.getElementById('qrModal');if(m&&e.target===m)closeQrModal();}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeQrModal();});
+// ── Share ──
+(function(){if(navigator.share){['shareBtn','shareBtnNcnu'].forEach(id=>{const b=document.getElementById(id);if(b)b.style.display='';});} })();
+function shareThis(){navigator.share({title:'賴泓名｜洋果實業',text:'洋果農產行・洋果實業・日順倉儲，農產供應鏈整合',url:'https://linket.app/yang-kuo/'}).then(()=>gtag('event','click_share',{'event_category':'CTA','event_label':'yang-kuo'})).catch(()=>{});}
+// ── Back to Top ──
+(function(){const b=document.getElementById('backTop');if(b)window.addEventListener('scroll',()=>b.classList.toggle('show',scrollY>300));})();
+
+// ── Reveal ──
+(function(){
+ const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');});},{threshold:.08});
+ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+})();
+
+// ── 身份切換 ──
+let currentId = 'yangkuo';
+
+function switchIdentity(id){
+ if(id === currentId) return;
+ currentId = id;
+
+ // hero section 背景
+ const hero = document.getElementById('top');
+ if(id === 'yangkuo'){
+ hero.className = 'hero-yangkuo';
+ document.getElementById('pageBody').classList.remove('ncnu-mode');
+ } else {
+ hero.className = 'hero-ncnu';
+ document.getElementById('pageBody').classList.add('ncnu-mode');
+ }
+
+ // 切換 data-show 元素
+ document.querySelectorAll('[data-show]').forEach(el => {
+ const match = el.dataset.show === id;
+ if(match){
+ el.classList.remove('hidden');
+ // 淡入
+ el.style.opacity = '0';
+ requestAnimationFrame(()=>{
+ el.style.transition = 'opacity .3s ease';
+ el.style.opacity = '1';
+ });
+ } else {
+ el.classList.add('hidden');
+ }
+ });
+
+ // toggle button
+ document.querySelectorAll('.id-switch-btn').forEach(b =>
+ b.classList.toggle('active', b.dataset.id === id)
+ );
+
+ // GA4
+ gtag('event','identity_switch',{'event_category':'UI','event_label':id});
+}
+</script>
+</body>
+</html>
