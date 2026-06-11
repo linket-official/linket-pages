@@ -236,6 +236,9 @@ button,.cal-day,.cal-nav,.stepper-btn{
 .actual-date-box{margin-top:.4rem;padding-top:.8rem;border-top:1px dashed rgba(106,84,73,.2);}
 .actual-date-label{font-size:.9rem;font-weight:700;color:var(--ink);margin-bottom:.5rem;display:block;}
 .actual-mini-cal{margin-top:.5rem;}
+.actual-warn{margin-top:.7rem;padding:.7rem .9rem;border-radius:10px;font-size:.9rem;line-height:1.7;}
+.actual-warn.warn{background:var(--orange-lt);color:var(--orange-dk);border:1.5px solid rgba(226,106,46,.3);}
+.actual-warn.err{background:var(--due-lt);color:var(--due);border:1.5px solid rgba(168,68,26,.4);font-weight:700;}
 
 /* Banner */
 .banner{
@@ -309,6 +312,17 @@ button,.cal-day,.cal-nav,.stepper-btn{
 }
 .modal-box img{width:100%;border-radius:10px;border:1px solid rgba(0,0,0,.08);display:block;}
 .modal-hint{font-size:.85rem;color:var(--ink-lt);margin-top:.9rem;line-height:1.8;}
+.cal-event-list{display:flex;flex-direction:column;gap:.6rem;}
+.cal-event-link{
+  display:flex;align-items:center;gap:.6rem;
+  background:var(--cream-2);border:1.5px solid rgba(226,106,46,.2);
+  border-radius:12px;padding:.9rem 1rem;text-decoration:none;
+  min-height:56px;transition:border-color .15s;
+}
+.cal-event-link:active{border-color:var(--orange-dk);}
+.cal-event-title{flex:1;font-size:.98rem;font-weight:700;color:var(--ink);}
+.cal-event-date{font-family:'Playfair Display',var(--sans);font-size:1rem;font-weight:900;color:var(--orange-dk);white-space:nowrap;}
+.cal-event-link svg{width:18px;height:18px;stroke:var(--ink-lt);fill:none;stroke-width:2.2;flex-shrink:0;}
 
 /* Footer */
 .tool-footer{background:var(--ink);padding:2.4rem 0 1.6rem;margin-top:2rem;}
@@ -544,6 +558,22 @@ button,.cal-day,.cal-nav,.stepper-btn{
 
 </div>
 
+<div class="modal-overlay" id="calModal" onclick="if(event.target===this)closeCalModal()">
+  <div class="modal-box" style="text-align:left;">
+    <h3 style="font-size:1.2rem;font-weight:900;color:var(--ink);margin-bottom:.3rem;">加入手機行事曆</h3>
+    <p style="font-size:.92rem;color:var(--ink-lt);line-height:1.7;margin-bottom:1rem;">點下方提醒，即可加入 Google 日曆（建議）。每則提醒會在前一晚通知您。</p>
+    <div id="calEventList" class="cal-event-list"></div>
+    <div style="margin-top:1.1rem;padding-top:1rem;border-top:1px dashed rgba(106,84,73,.2);">
+      <p style="font-size:.85rem;color:var(--ink-lt);line-height:1.7;margin-bottom:.7rem;">使用 iPhone 內建行事曆（Apple）的話，請改用下載檔案：</p>
+      <button class="btn-secondary" onclick="downloadICSFile()">
+        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        下載提醒檔案（.ics）
+      </button>
+    </div>
+    <button class="btn-secondary" style="margin-top:.7rem;" onclick="closeCalModal()">關閉</button>
+  </div>
+</div>
+
 <div class="modal-overlay" id="imgModal" onclick="if(event.target===this)closeImgModal()">
   <div class="modal-box">
     <img id="imgPreview" alt="領藥時間表">
@@ -610,6 +640,7 @@ let imgBlobUrl = null;
 // pickupLog: { 1:{done:true, date:'YYYY-MM-DD'}, 2:{...} }  第1次的date即看診日
 let pickupLog = {};
 let activeMiniCal = null; // 當前展開的mini行事曆ref
+let activeMiniCalIdx = null;
 
 function addDaysD(date, days){ const d=new Date(date); d.setDate(d.getDate()+days); return d; }
 function fmt(d){
@@ -713,8 +744,11 @@ function compute(){
   const expiry=addDaysD(first,90);
   document.getElementById('r-expiry').innerHTML=renderDate(expiry);
 
+  // 最後有效領藥日 = 效期前一天（逾此日處方箋作廢）
+  const lastValidDay = addDaysD(expiry,-1);
+
   // 計算每次的領藥區間與用完日
-  const rows=[]; // {idx, early, std, medsEnd, done, actualDate}
+  const rows=[]; // {idx, early, std, medsEnd, done, actualDate, overExpiry, capped}
   let prevMedsEnd=null;
   for(let k=1;k<=pickupCount;k++){
     const log=pickupLog[k]||{};
@@ -725,10 +759,20 @@ function compute(){
       std=new Date(prevMedsEnd);            // 標準領藥日=上次用完日
       early=addDaysD(prevMedsEnd,-10);      // 最早可領
     }
+    // 效期判定（僅針對第2次起的未來次數）
+    let overExpiry=false, capped=false, cappedStd=std;
+    if(k>1 && !log.done){
+      if(early.getTime() > lastValidDay.getTime()){
+        overExpiry=true;                    // 連最早可領日都已超過效期 → 整個失效
+      } else if(std.getTime() > lastValidDay.getTime()){
+        capped=true; cappedStd=new Date(lastValidDay); // 區間尾端被效期截斷
+      }
+    }
     // 實際領藥日（用於往後推算）
     const baseForNext = (log.done && log.date) ? parseYmd(log.date) : std;
     const medsEnd = addDaysD(baseForNext, cycleDays);
-    rows.push({idx:k, early:early, std:std, medsEnd:medsEnd, done:!!log.done, actualDate:log.date||null});
+    rows.push({idx:k, early:early, std:capped?cappedStd:std, rawStd:std, medsEnd:medsEnd,
+      done:!!log.done, actualDate:log.date||null, overExpiry:overExpiry, capped:capped});
     prevMedsEnd = medsEnd;
   }
 
@@ -756,6 +800,8 @@ function renderCards(){
     let overdue=false, dueNow=false;
     if(r.done){
       cls+=' done'; statusTag='<span class="pickup-status done-tag">✓ 已領藥</span>';
+    } else if(r.overExpiry){
+      cls+=' overdue'; statusTag='<span class="pickup-status overdue-tag">超過效期</span>';
     } else {
       if(today.getTime()>stdM.getTime()){ cls+=' overdue'; overdue=true; statusTag='<span class="pickup-status overdue-tag">已逾期</span>'; }
       else if(today.getTime()>=earlyM.getTime()){ cls+=' due-now'; dueNow=true; statusTag='<span class="pickup-status todo">可領藥囉</span>'; }
@@ -768,27 +814,38 @@ function renderCards(){
     html+='<div class="pickup-info">';
     if(isFirst){
       html+='<div class="pickup-info-item"><span class="pickup-info-label">領藥日期（看診日）</span><span class="pickup-info-val">'+renderDate(r.actualDate?parseYmd(r.actualDate):r.std)+'</span></div>';
+    } else if(r.overExpiry){
+      html+='<div class="pickup-info-item"><span class="pickup-info-label">可領藥期間</span>'
+        +'<span class="pickup-info-val" style="color:var(--due);">已超過90天效期</span>'
+        +'<span class="pickup-info-note">此次領藥時間已超出處方箋有效期限，無法領藥，須回診請醫師重新開立。</span></div>';
     } else {
+      const capNote = r.capped ? '<span class="pickup-info-note" style="color:var(--due);font-weight:700;">※ 最後領藥日已受效期限制，請務必在此日前領取</span>' : '';
       html+='<div class="pickup-info-item"><span class="pickup-info-label">可領藥期間</span>'
         +'<span class="pickup-info-val">'+fmt(r.early).short+' ～ '+fmt(r.std).short+'</span>'
-        +'<span class="pickup-info-note">最早可領（藥品剩餘≤10天）～ 最後領藥（藥品用完）</span></div>';
+        +'<span class="pickup-info-note">最早可領（藥品剩餘≤10天）～ 最後領藥（藥品用完）</span>'
+        +capNote+'</div>';
       if(r.done && r.actualDate){
         html+='<div class="pickup-info-item"><span class="pickup-info-label">您實際領藥日</span><span class="pickup-info-val">'+renderDate(parseYmd(r.actualDate))+'</span></div>';
       }
     }
-    html+='<div class="pickup-info-item"><span class="pickup-info-label">藥品預計用完日</span><span class="pickup-info-val">'+renderDate(r.medsEnd)+'</span></div>';
+    if(!r.overExpiry){
+      html+='<div class="pickup-info-item"><span class="pickup-info-label">藥品預計用完日</span><span class="pickup-info-val">'+renderDate(r.medsEnd)+'</span></div>';
+    }
     html+='</div>';
 
     // 操作區
     html+='<div class="pickup-actions">';
     if(!isFirst){
-      if(r.done){
+      if(r.overExpiry){
+        html+='<div class="pickup-info-note" style="text-align:center;color:var(--due);font-weight:700;">⚠️ 已超過處方箋效期，請回診重新開立</div>';
+      } else if(r.done){
         html+='<button class="btn-mark undo" onclick="unmarkPickup('+r.idx+')"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>取消已領藥標記</button>';
       } else {
         html+='<button class="btn-mark todo" onclick="markPickup('+r.idx+')"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>標記已領藥</button>';
         html+='<div class="actual-date-box" id="actualbox-'+r.idx+'" hidden>'
           +'<span class="actual-date-label">請確認您實際領藥的日期：</span>'
           +'<div class="cal-widget actual-mini-cal" id="minical-'+r.idx+'"></div>'
+          +'<div class="actual-warn" id="actualwarn-'+r.idx+'" hidden></div>'
           +'<button class="btn-mark todo" style="margin-top:.7rem;" onclick="confirmPickup('+r.idx+')">確認領藥日期</button>'
           +'</div>';
       }
@@ -802,23 +859,50 @@ function renderCards(){
 
 /* ===== 領藥標記 ===== */
 function markPickup(idx){
-  // 展開mini行事曆，預設今天
   const box=document.getElementById('actualbox-'+idx);
   box.hidden=false;
-  activeMiniCal=createCalendar('minical-'+idx, new Date(), null);
+  // 預設帶入該次「最早可領日」與今天之中較晚者，較貼近真實情境
+  const row=lastResult.rows.find(function(r){return r.idx===idx;});
+  const today=new Date();
+  let init=today;
+  if(row){ const e=new Date(row.early); if(e.getTime()>today.getTime()) init=e; }
+  activeMiniCal=createCalendar('minical-'+idx, init, null);
+  activeMiniCalIdx=idx;
   box.scrollIntoView({behavior:'smooth',block:'center'});
 }
 function confirmPickup(idx){
   const d=activeMiniCal?activeMiniCal.getDate():null;
   if(!d){alert('請先點選您實際領藥的日期喔！');return;}
+  const row=lastResult.rows.find(function(r){return r.idx===idx;});
+  const warn=document.getElementById('actualwarn-'+idx);
+  const picked=new Date(d); picked.setHours(0,0,0,0);
+  const lastValid=addDaysD(lastResult.expiry,-1); lastValid.setHours(0,0,0,0);
+  const earliest=new Date(row.early); earliest.setHours(0,0,0,0);
+
+  // 防呆1：超過90天效期 → 阻擋
+  if(picked.getTime()>lastValid.getTime()){
+    if(warn){ warn.hidden=false; warn.className='actual-warn err';
+      warn.innerHTML='您選的日期（'+fmt(picked).full+'）已超過處方箋90天效期（最後 '+fmt(lastValid).full+'），此處方箋已無法領藥，需回診重新開立。'; }
+    return;
+  }
+  // 防呆2：早於「最早可領日」→ 提示但不阻擋（保留出國等例外）
+  if(picked.getTime()<earliest.getTime()){
+    if(warn && warn.dataset.confirmed!=='1'){
+      warn.hidden=false; warn.className='actual-warn warn';
+      warn.innerHTML='您選的日期（'+fmt(picked).short+'）比建議的最早可領日（'+fmt(earliest).short+'）還早，藥局可能無法受理。若確定要記錄此日期，請再按一次「確認領藥日期」。';
+      warn.dataset.confirmed='1';
+      return;
+    }
+  }
   gtag('event','click_mark_pickup',{'event_category':'Tool','event_label':'chronic-rx-calculator'});
   pickupLog[idx]={done:true, date:fmt(d).ymd};
+  activeMiniCal=null; activeMiniCalIdx=null; // 重置，避免指向已移除的DOM
   compute(); saveStorage();
 }
 function unmarkPickup(idx){
-  // 取消此次及之後所有次數的標記（因為後續依賴此次）
   for(let k=idx;k<=pickupCount;k++){ if(k>1) delete pickupLog[k]; }
   gtag('event','click_unmark_pickup',{'event_category':'Tool','event_label':'chronic-rx-calculator'});
+  activeMiniCal=null; activeMiniCalIdx=null;
   compute(); saveStorage();
 }
 
@@ -827,9 +911,20 @@ function checkDueStatus(){
   const banner=document.getElementById('dueBanner');
   const text=banner.querySelector('.banner-text');
   const today=todayMidnight();
-  // 找第一個未領的次數
-  const next=lastResult.rows.find(function(r){return !r.done;});
-  if(!next){ banner.className='banner success'; text.innerHTML='<strong>太棒了！</strong>所有領藥都已完成標記，記得在建議回診時間回診領新處方箋。'; banner.hidden=false; return; }
+  // 找第一個未領、且未超過效期的次數
+  const next=lastResult.rows.find(function(r){return !r.done && !r.overExpiry;});
+  // 是否有次數已超效期
+  const hasOverExpiry=lastResult.rows.some(function(r){return r.overExpiry;});
+  if(!next){
+    if(hasOverExpiry){
+      banner.className='banner due';
+      text.innerHTML='<strong>注意：</strong>部分領藥時間已超過90天效期，剩餘的藥無法再憑此處方箋領取，請回診請醫師重新開立。';
+    } else {
+      banner.className='banner success';
+      text.innerHTML='<strong>太棒了！</strong>所有領藥都已完成標記，記得在建議回診時間回診領新處方箋。';
+    }
+    banner.hidden=false; return;
+  }
   const std=new Date(next.std); std.setHours(0,0,0,0);
   const early=new Date(next.early); early.setHours(0,0,0,0);
   if(today.getTime()>std.getTime()){
@@ -866,12 +961,16 @@ function copySchedule(){
   lastResult.rows.forEach(function(r){
     if(r.idx===1){
       L.push('第1次領藥（看診）：'+fmt(r.actualDate?parseYmd(r.actualDate):r.std).full+(r.done?' ✓已領':''));
+      L.push('　（藥品預計用完：'+fmt(r.medsEnd).full+'）');
+    } else if(r.overExpiry){
+      L.push('第'+r.idx+'次領藥：⚠️ 已超過90天效期，需回診重新開立');
     } else if(r.done && r.actualDate){
       L.push('第'+r.idx+'次領藥：'+fmt(parseYmd(r.actualDate)).full+' ✓已領');
+      L.push('　（藥品預計用完：'+fmt(r.medsEnd).full+'）');
     } else {
-      L.push('第'+r.idx+'次領藥：'+fmt(r.early).full+' ～ '+fmt(r.std).full);
+      L.push('第'+r.idx+'次領藥：'+fmt(r.early).full+' ～ '+fmt(r.std).full+(r.capped?'（最後領藥日受效期限制）':''));
+      L.push('　（藥品預計用完：'+fmt(r.medsEnd).full+'）');
     }
-    L.push('　（藥品預計用完：'+fmt(r.medsEnd).full+'）');
   });
   L.push('————————————');
   L.push('建議回診：'+fmt(lastResult.visitEarly).full+' ～ '+fmt(lastResult.visitStd).full);
@@ -897,25 +996,62 @@ function copySchedule(){
   setTimeout(function(){btn.classList.remove('copied');btn.innerHTML=orig;},2200);
 }
 
-/* ===== 加入行事曆 ===== */
-function addToCalendar(){
-  gtag('event','click_add_calendar',{'event_category':'Tool','event_label':'chronic-rx-calculator'});
-  if(!lastResult) return;
+/* ===== 加入行事曆（彈窗，iOS Chrome友善）===== */
+function buildICS(){
   let ics='BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//LINKet//YuanRung RX Calculator//ZH\r\nCALSCALE:GREGORIAN\r\n';
   function ev(title,dA,dB,desc,idx){
     const s=fmtICS(dA), e=fmtICS(addDaysD(dB,1));
     ics+='BEGIN:VEVENT\r\nUID:yr-rx-'+idx+'-'+s+'@linket.app\r\nDTSTART;VALUE=DATE:'+s+'\r\nDTEND;VALUE=DATE:'+e+'\r\nSUMMARY:'+title+'\r\nDESCRIPTION:'+desc+'\r\nEND:VEVENT\r\n';
   }
-  lastResult.rows.forEach(function(r){
-    if(r.idx===1||r.done) return; // 已領的不再提醒
-    ev('員榮醫療｜第'+r.idx+'次領藥（可領期間）', r.early, r.std,
-      '最早 '+fmt(r.early).full+'，最後 '+fmt(r.std).full+' 前須領藥', 'p'+r.idx);
-  });
-  ev('員榮醫療｜回診領新處方箋', lastResult.visitEarly, lastResult.visitStd,
-    '請於 '+fmt(lastResult.visitStd).full+' 前回診，慢箋將於 '+fmt(lastResult.expiry).full+' 到期', 'visit');
+  getCalEvents().forEach(function(c,i){ ev(c.title,c.dA,c.dB,c.desc,'e'+i); });
   ics+='END:VCALENDAR';
-  window.location.href='data:text/calendar;charset=utf-8,'+encodeURIComponent(ics);
+  return ics;
 }
+function getCalEvents(){
+  const list=[];
+  lastResult.rows.forEach(function(r){
+    if(r.idx===1||r.done||r.overExpiry) return;
+    list.push({title:'員榮醫療｜第'+r.idx+'次領藥提醒', dA:r.early, dB:r.std,
+      desc:'最早 '+fmt(r.early).full+'，最後 '+fmt(r.std).full+' 前須領藥'});
+  });
+  list.push({title:'員榮醫療｜回診領新處方箋', dA:lastResult.visitEarly, dB:lastResult.visitStd,
+    desc:'請於 '+fmt(lastResult.visitStd).full+' 前回診，慢箋將於 '+fmt(lastResult.expiry).full+' 到期'});
+  return list;
+}
+function gcalLink(c){
+  const s=fmtICS(c.dA), e=fmtICS(addDaysD(c.dB,1));
+  return 'https://calendar.google.com/calendar/render?action=TEMPLATE'
+    +'&text='+encodeURIComponent(c.title)
+    +'&dates='+s+'/'+e
+    +'&details='+encodeURIComponent(c.desc);
+}
+function addToCalendar(){
+  gtag('event','click_add_calendar',{'event_category':'Tool','event_label':'chronic-rx-calculator'});
+  if(!lastResult) return;
+  const events=getCalEvents();
+  let html='';
+  events.forEach(function(c){
+    html+='<a class="cal-event-link" href="'+gcalLink(c)+'" target="_blank" rel="noopener" '
+      +'onclick="gtag(\'event\',\'click_gcal_single\',{\'event_category\':\'Tool\',\'event_label\':\'chronic-rx-calculator\'})">'
+      +'<span class="cal-event-title">'+c.title.replace('員榮醫療｜','')+'</span>'
+      +'<span class="cal-event-date">'+fmt(c.dA).short+(fmtICS(c.dA)!==fmtICS(c.dB)?' ～ '+fmt(c.dB).short:'')+'</span>'
+      +'<svg viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>'
+      +'</a>';
+  });
+  document.getElementById('calEventList').innerHTML=html;
+  document.getElementById('calModal').classList.add('on');
+}
+function downloadICSFile(){
+  gtag('event','click_download_ics',{'event_category':'Tool','event_label':'chronic-rx-calculator'});
+  const ics=buildICS();
+  const blob=new Blob([ics],{type:'text/calendar;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url; a.download='員榮醫療_領藥提醒.ics';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(function(){URL.revokeObjectURL(url);},1000);
+}
+function closeCalModal(){document.getElementById('calModal').classList.remove('on');}
 
 /* ===== 圖片 ===== */
 async function generateImage(){
@@ -961,10 +1097,12 @@ async function generateImage(){
   lastResult.rows.forEach(function(r){
     if(r.idx===1){
       rowR('第1次領藥（看診）',fmt(r.actualDate?parseYmd(r.actualDate):r.std).full,'藥品用完：'+fmt(r.medsEnd).short,false,r.done);
+    } else if(r.overExpiry){
+      rowR('第'+r.idx+'次領藥','已超過90天效期','需回診重新開立',true,false);
     } else if(r.done&&r.actualDate){
       rowR('第'+r.idx+'次領藥',fmt(parseYmd(r.actualDate)).full,'已領藥，藥品用完：'+fmt(r.medsEnd).short,true,true);
     } else {
-      rowR('第'+r.idx+'次領藥',fmt(r.early).short+' ～ '+fmt(r.std).short,'藥品用完：'+fmt(r.medsEnd).short,true,false);
+      rowR('第'+r.idx+'次領藥',fmt(r.early).short+' ～ '+fmt(r.std).short,(r.capped?'最後領藥日受效期限制':'藥品用完：'+fmt(r.medsEnd).short),true,false);
     }
   });
   sTitle('回診資訊');
