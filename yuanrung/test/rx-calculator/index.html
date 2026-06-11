@@ -9,7 +9,17 @@
   _redirects 新增一行：
     /yuanrung/test/rx-calculator   /yuanrung/test/rx-calculator/index.html   200
   正式整合路徑（待確認後執行）：/yuanrung/rx-calculator/
-  測試階段加 noindex，避免被搜尋引擎索引
+
+  v0.4 變更紀錄（2026-06-11）參考蝦仁藥師計算機優點優化
+  - 字體全面改為黑體/無襯線(Noto Sans TC)，僅數字保留Playfair
+  - 新增「複製時程表」文字分享功能(LINE友善純文字)
+  - 強化相關法規說明(條列健保醫療辦法第23-25條+遺失補發規定)
+  - 重構為「個人領藥筆記」：每次領藥卡片可「標記已領藥」並記錄實際日期，
+    自動順延後續次數；已領/未領狀態視覺區隔；localStorage保存領藥紀錄
+  - 每次領藥顯示「藥品預計用完日」
+  - 移除原「預先規劃多次領藥」進階區(被領藥筆記機制取代)
+  - 保留：大行事曆、加減器、區間顯示、防呆banner、春節提醒、圖片彈窗、
+    加入行事曆(data URI)、品牌Logo/Footer、FAQ
 -->
 <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
@@ -19,8 +29,8 @@
 <meta name="description" content="點選日期，自動算出下次領藥時間並加入手機日曆提醒。">
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:wght@700;900&display=swap" onload="this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:wght@700;900&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Playfair+Display:wght@700;900&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Playfair+Display:wght@700;900&display=swap"></noscript>
 <style>
 :root{
   --orange:#e26a2e; --orange-dk:#c45520; --orange-lt:#fdebd5;
@@ -28,24 +38,48 @@
   --ink:#5a4339;
   --ink-lt:#8a6f5f;
   --green:#3d7a4d; --green-lt:#e8f3ea;
+  --due:#a8441a; --due-lt:#f7e2d4;
   --r:100px; --r-card:16px;
   --mw:680px;
+  --sans:'Noto Sans TC',system-ui,-apple-system,sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{
-  font-family:'Noto Serif TC',serif;
+  font-family:var(--sans);
   background:var(--cream);color:var(--ink);
-  font-size:19px;line-height:1.85;
+  font-size:19px;line-height:1.8;
   -webkit-font-smoothing:antialiased;
-  padding-bottom:3rem;
 }
-.wrap{max-width:var(--mw);margin:0 auto;padding:0 1.1rem;}
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 1.1rem 3rem;}
+button,.cal-day,.cal-nav,.stepper-btn{
+  touch-action:manipulation;-webkit-tap-highlight-color:transparent;user-select:none;
+  font-family:var(--sans);
+}
+
+/* 品牌頂部 */
+.brand-top{background:var(--cream);text-align:center;padding:1rem 0 .4rem;}
+.brand-top a{display:inline-block;}
+.brand-top img{height:38px;width:auto;display:block;}
+
+/* Header */
 .tool-header{background:var(--ink);color:#fff;padding:1.6rem 0 1.4rem;text-align:center;}
-.tool-header .brand{font-size:.85rem;letter-spacing:.25em;color:rgba(255,255,255,.6);margin-bottom:.5rem;}
-.tool-header h1{font-size:1.7rem;font-weight:900;letter-spacing:.06em;line-height:1.5;}
+.tool-header .brand{font-size:.85rem;letter-spacing:.2em;color:rgba(255,255,255,.6);margin-bottom:.5rem;}
+.tool-header h1{font-size:1.7rem;font-weight:900;letter-spacing:.04em;line-height:1.5;}
 .tool-header h1 span{color:#ffb27a;}
 .tool-header p{font-size:1rem;color:rgba(255,255,255,.78);margin-top:.6rem;line-height:1.9;}
+
+/* 資訊列 */
+.info-bar{
+  display:flex;flex-direction:column;gap:.6rem;
+  background:var(--cream-2);border-radius:var(--r-card);
+  padding:1rem 1.2rem;margin-top:1.2rem;
+}
+.info-item{display:flex;justify-content:space-between;align-items:center;gap:1rem;font-size:.95rem;}
+.info-label{color:var(--ink-lt);font-weight:700;flex-shrink:0;}
+.info-value{font-weight:900;color:var(--ink);font-family:'Playfair Display',var(--sans);font-size:1.15rem;text-align:right;}
+
+/* Cards */
 .card{
   background:#fff;border:1.5px solid rgba(226,106,46,.16);
   border-radius:var(--r-card);padding:1.5rem 1.3rem;
@@ -59,65 +93,62 @@ body{
   display:inline-flex;align-items:center;justify-content:center;
   width:34px;height:34px;border-radius:50%;
   background:var(--orange-dk);color:#fff;
-  font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;
+  font-family:'Playfair Display',var(--sans);font-size:1.1rem;font-weight:900;
   flex-shrink:0;
 }
-.card-desc{font-size:.95rem;color:var(--ink);opacity:.8;line-height:1.95;margin-bottom:1.2rem;}
+.card-desc{font-size:.95rem;color:var(--ink);opacity:.8;line-height:1.9;margin-bottom:1.2rem;}
+
+/* 大行事曆 */
 .cal-widget{background:var(--cream-2);border:2px solid rgba(226,106,46,.18);border-radius:14px;padding:1rem .8rem;}
 .cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:.8rem;}
 .cal-nav{
-  width:48px;height:48px;border-radius:50%;border:none;
+  width:46px;height:46px;border-radius:50%;border:none;
   background:#fff;font-size:1.6rem;font-weight:900;color:var(--orange-dk);
   cursor:pointer;display:flex;align-items:center;justify-content:center;
   flex-shrink:0;line-height:1;
 }
 .cal-nav:active{background:var(--orange-lt);}
-.cal-title{font-size:1.25rem;font-weight:900;color:var(--ink);letter-spacing:.04em;}
-.cal-weekdays{display:grid;grid-template-columns:repeat(7,1fr);text-align:center;font-size:.85rem;font-weight:700;color:var(--ink-lt);margin-bottom:.4rem;}
-.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;}
+.cal-title{font-size:1.15rem;font-weight:900;color:var(--ink);letter-spacing:.02em;}
+.cal-weekdays{display:grid;grid-template-columns:repeat(7,1fr);text-align:center;font-size:.82rem;font-weight:700;color:var(--ink-lt);margin-bottom:.4rem;}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;}
 .cal-day{
   aspect-ratio:1;display:flex;align-items:center;justify-content:center;
-  border-radius:10px;border:none;background:#fff;
-  font-size:1.05rem;font-weight:700;color:var(--ink);cursor:pointer;
-  min-height:44px;font-family:'Noto Serif TC',serif;
+  border-radius:9px;border:none;background:#fff;
+  font-size:1rem;font-weight:700;color:var(--ink);cursor:pointer;
+  width:100%;
 }
 .cal-day.empty{background:transparent;cursor:default;}
 .cal-day.today{box-shadow:inset 0 0 0 2.5px var(--orange);}
 .cal-day.selected{background:var(--orange-dk);color:#fff;}
 .cal-selected-display{
-  margin-top:.9rem;text-align:center;font-size:1.25rem;font-weight:900;
-  color:var(--orange-dk);background:#fff;border-radius:10px;padding:.8rem;
-  letter-spacing:.04em;
+  margin-top:.9rem;text-align:center;font-size:1.15rem;font-weight:900;
+  color:var(--orange-dk);background:#fff;border-radius:10px;padding:.75rem;
+  letter-spacing:.02em;
 }
+
+/* Steppers */
 .stepper-row{display:flex;align-items:center;justify-content:center;gap:1rem;}
 .stepper-btn{
   width:56px;height:56px;border-radius:50%;border:2px solid var(--orange-dk);
   background:#fff;color:var(--orange-dk);font-size:1.8rem;font-weight:900;
   cursor:pointer;display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;line-height:1;transition:all .15s;
+  flex-shrink:0;line-height:1;transition:background .1s,color .1s;
 }
 .stepper-btn:active{background:var(--orange-dk);color:#fff;}
 .stepper-display{
   min-width:120px;text-align:center;background:var(--cream-2);
   border-radius:14px;padding:.8rem 1rem;
 }
-.stepper-value{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;color:var(--ink);line-height:1;}
-.stepper-unit{font-size:.85rem;color:var(--ink-lt);letter-spacing:.1em;margin-top:.2rem;}
-.advanced-toggle{
-  display:flex;align-items:center;justify-content:space-between;
-  width:100%;background:var(--cream-2);border:none;border-radius:12px;
-  padding:1rem 1.1rem;font-family:'Noto Serif TC',serif;font-size:1rem;
-  font-weight:700;color:var(--ink);cursor:pointer;min-height:56px;
-}
-.advanced-toggle svg{width:20px;height:20px;stroke:var(--ink);fill:none;stroke-width:2.2;transition:transform .2s;}
-.advanced-toggle.open svg{transform:rotate(180deg);}
-.advanced-body{margin-top:1rem;}
+.stepper-value{font-family:'Playfair Display',var(--sans);font-size:2.2rem;font-weight:900;color:var(--ink);line-height:1;}
+.stepper-unit{font-size:.85rem;color:var(--ink-lt);letter-spacing:.08em;margin-top:.2rem;}
+
+/* Buttons */
 .btn-primary{
   display:flex;align-items:center;justify-content:center;gap:.6rem;
   width:100%;background:var(--orange-dk);color:#fff;border:none;
-  border-radius:var(--r);font-family:'Noto Serif TC',serif;
-  font-size:1.12rem;font-weight:700;letter-spacing:.1em;
-  padding:1.05rem 1.5rem;cursor:pointer;transition:all .2s;
+  border-radius:var(--r);font-family:var(--sans);
+  font-size:1.12rem;font-weight:700;letter-spacing:.06em;
+  padding:1.05rem 1.5rem;cursor:pointer;transition:background .15s;
   margin-top:1.4rem;min-height:58px;
 }
 .btn-primary:active{background:#a8441a;}
@@ -126,48 +157,128 @@ body{
   display:flex;align-items:center;justify-content:center;gap:.5rem;
   width:100%;background:#fff;color:var(--ink);
   border:2px solid rgba(106,84,73,.22);
-  border-radius:var(--r);font-family:'Noto Serif TC',serif;
-  font-size:1rem;font-weight:700;letter-spacing:.06em;
-  padding:.9rem 1.2rem;cursor:pointer;transition:all .2s;
+  border-radius:var(--r);font-family:var(--sans);
+  font-size:1rem;font-weight:700;letter-spacing:.04em;
+  padding:.9rem 1.2rem;cursor:pointer;transition:border-color .15s,color .15s,background .15s;
   min-height:52px;
 }
 .btn-secondary:active{border-color:var(--orange-dk);color:var(--orange-dk);}
+.btn-secondary.copied{background:var(--green);color:#fff;border-color:var(--green);}
 .btn-secondary svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2.2;flex-shrink:0;}
 .btn-row{display:flex;flex-direction:column;gap:.7rem;margin-top:1.1rem;}
+
+/* Result section */
 .result-section-title{
-  font-size:1.05rem;font-weight:900;color:var(--orange-dk);
-  letter-spacing:.06em;margin:1.3rem 0 .7rem;
+  font-size:1.08rem;font-weight:900;color:var(--orange-dk);
+  letter-spacing:.04em;margin:1.3rem 0 .7rem;
   display:flex;align-items:center;gap:.5rem;
 }
 .result-section-title:first-child{margin-top:0;}
 .result-section-title::before{content:'';width:20px;height:3px;background:var(--orange-dk);border-radius:2px;flex-shrink:0;}
 .result-row{
-  display:flex;flex-direction:column;gap:.25rem;
+  display:flex;flex-direction:column;gap:.3rem;
   background:var(--cream-2);border-radius:12px;
-  padding:1rem 1.1rem;margin-bottom:.7rem;
+  padding:1.1rem 1.2rem;margin-bottom:.7rem;
   border-left:5px solid var(--orange-dk);
 }
 .result-row:last-child{margin-bottom:0;}
 .result-row.deadline{border-left-color:var(--ink-lt);}
-.result-label{font-size:.92rem;font-weight:700;color:var(--ink);}
+.result-label{font-size:1.05rem;font-weight:900;color:var(--ink);}
 .result-date{
-  font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:900;
+  font-family:'Playfair Display',var(--sans);font-size:1.7rem;font-weight:900;
   color:var(--ink);letter-spacing:.02em;
 }
-.result-date .y{font-size:.8rem;color:var(--ink-lt);font-family:'Noto Serif TC',serif;font-weight:400;margin-right:.2rem;}
-.result-context{font-size:.85rem;color:var(--ink-lt);}
+.result-date .y{font-size:1.05rem;color:var(--ink-lt);font-family:var(--sans);font-weight:700;margin-right:.25rem;}
+.result-context{font-size:1.02rem;color:var(--ink-lt);line-height:1.7;}
+.date-range{display:flex;flex-wrap:wrap;align-items:baseline;gap:.4rem .5rem;}
+.date-range .result-date{font-size:1.4rem;}
+.date-range .range-sep{font-size:1.3rem;color:var(--ink-lt);font-weight:700;}
+
+/* ===== 領藥筆記卡片 ===== */
+.pickup-card{
+  background:#fff;border:2px solid rgba(226,106,46,.18);
+  border-radius:14px;padding:1.2rem;margin-bottom:.9rem;
+  position:relative;overflow:hidden;
+}
+.pickup-card.done{background:var(--green-lt);border-color:rgba(61,122,77,.35);}
+.pickup-card.due-now{border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-lt);}
+.pickup-card.overdue{background:var(--due-lt);border-color:rgba(168,68,26,.4);}
+.pickup-card-head{display:flex;align-items:center;justify-content:space-between;gap:.6rem;margin-bottom:.9rem;flex-wrap:wrap;}
+.pickup-badge{
+  display:inline-flex;align-items:center;gap:.4rem;
+  background:var(--orange-dk);color:#fff;
+  font-size:1.15rem;font-weight:900;letter-spacing:.04em;
+  padding:.45rem .9rem;border-radius:10px;
+}
+.pickup-card.done .pickup-badge{background:var(--green);}
+.pickup-card.overdue .pickup-badge{background:var(--due);}
+.pickup-status{font-size:.92rem;font-weight:900;padding:.3rem .7rem;border-radius:8px;}
+.pickup-status.todo{background:var(--orange-lt);color:var(--orange-dk);}
+.pickup-status.done-tag{background:var(--green);color:#fff;}
+.pickup-status.overdue-tag{background:var(--due);color:#fff;}
+.pickup-info{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1rem;}
+.pickup-info-item{display:flex;flex-direction:column;gap:.15rem;}
+.pickup-info-label{font-size:.85rem;font-weight:700;color:var(--ink-lt);}
+.pickup-info-val{font-family:'Playfair Display',var(--sans);font-size:1.3rem;font-weight:900;color:var(--ink);}
+.pickup-info-val .y{font-size:.82rem;color:var(--ink-lt);font-family:var(--sans);font-weight:700;margin-right:.2rem;}
+.pickup-info-note{font-size:.85rem;color:var(--ink-lt);}
+.pickup-actions{display:flex;flex-direction:column;gap:.6rem;}
+.btn-mark{
+  display:flex;align-items:center;justify-content:center;gap:.5rem;
+  width:100%;border:none;border-radius:var(--r);
+  font-family:var(--sans);font-size:1rem;font-weight:700;letter-spacing:.04em;
+  padding:.85rem;cursor:pointer;min-height:50px;transition:opacity .15s;
+}
+.btn-mark.todo{background:var(--green);color:#fff;}
+.btn-mark.todo:active{opacity:.85;}
+.btn-mark.undo{background:#fff;color:var(--ink-lt);border:1.5px solid rgba(106,84,73,.22);}
+.btn-mark svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.3;flex-shrink:0;}
+.actual-date-box{margin-top:.4rem;padding-top:.8rem;border-top:1px dashed rgba(106,84,73,.2);}
+.actual-date-label{font-size:.9rem;font-weight:700;color:var(--ink);margin-bottom:.5rem;display:block;}
+.actual-mini-cal{margin-top:.5rem;}
+
+/* Banner */
 .banner{
   background:var(--orange-lt);border:1.5px solid rgba(226,106,46,.32);
   border-radius:var(--r-card);padding:1.1rem 1.2rem;margin-top:1.2rem;
   display:flex;gap:.8rem;align-items:flex-start;
 }
 .banner svg{width:24px;height:24px;stroke:var(--orange-dk);fill:none;stroke-width:2.2;flex-shrink:0;margin-top:.1rem;}
-.banner-text{font-size:.92rem;color:var(--ink);line-height:1.95;}
+.banner-text{font-size:.96rem;color:var(--ink);line-height:1.9;}
 .banner-text strong{color:var(--orange-dk);}
 .banner.success{background:var(--green-lt);border-color:rgba(61,122,77,.3);}
 .banner.success svg{stroke:var(--green);}
-.rule-list{font-size:.92rem;color:var(--ink);line-height:2.1;padding-left:1.3rem;}
+.banner.due{background:var(--due-lt);border-color:rgba(168,68,26,.4);}
+.banner.due svg{stroke:var(--due);}
+.banner.due .banner-text strong{color:var(--due);}
+
+/* 法規 */
+.law-item{margin-bottom:1.2rem;}
+.law-item:last-child{margin-bottom:0;}
+.law-q{font-size:1rem;font-weight:900;color:var(--ink);margin-bottom:.35rem;}
+.law-a{font-size:.93rem;color:var(--ink);line-height:1.9;opacity:.92;}
+.law-a strong{color:var(--orange-dk);}
+.law-src{font-size:.82rem;color:var(--ink-lt);margin-top:1rem;padding-top:.9rem;border-top:1px solid rgba(106,84,73,.12);line-height:1.8;}
+
+/* FAQ收合 */
+.advanced-toggle{
+  display:flex;align-items:center;justify-content:space-between;
+  width:100%;background:var(--cream-2);border:none;border-radius:12px;
+  padding:1rem 1.1rem;font-family:var(--sans);font-size:1rem;
+  font-weight:700;color:var(--ink);cursor:pointer;min-height:56px;text-align:left;
+}
+.advanced-toggle svg{width:20px;height:20px;stroke:var(--ink);fill:none;stroke-width:2.2;transition:transform .2s;flex-shrink:0;}
+.advanced-toggle.open svg{transform:rotate(180deg);}
+.advanced-body{margin-top:1rem;}
+.faq-item{margin-bottom:1.3rem;}
+.faq-item:last-child{margin-bottom:0;}
+.faq-q{font-size:1.02rem;font-weight:900;color:var(--orange-dk);margin-bottom:.4rem;}
+.faq-a{font-size:.95rem;color:var(--ink);line-height:1.9;}
+
+.rule-list{font-size:.95rem;color:var(--ink);line-height:2.05;padding-left:1.3rem;}
 .rule-list li{margin-bottom:.3rem;}
+
+/* Restore */
 .restore-bar{
   display:flex;justify-content:space-between;align-items:center;gap:1rem;
   background:var(--cream-2);border-radius:var(--r-card);
@@ -175,31 +286,109 @@ body{
 }
 .restore-bar button{
   background:none;border:none;color:var(--orange-dk);font-weight:700;
-  font-family:'Noto Serif TC',serif;font-size:.92rem;cursor:pointer;
-  letter-spacing:.06em;text-decoration:underline;flex-shrink:0;
-  min-height:44px;
+  font-family:var(--sans);font-size:.92rem;cursor:pointer;
+  letter-spacing:.04em;text-decoration:underline;flex-shrink:0;min-height:44px;
 }
+
 .disclaimer{
   margin-top:2rem;font-size:.82rem;color:var(--ink-lt);
   line-height:2.1;text-align:center;padding:0 .5rem;
 }
+
+/* Modal */
+.modal-overlay{
+  display:none;position:fixed;inset:0;z-index:999;
+  background:rgba(90,67,57,.85);backdrop-filter:blur(8px);
+  align-items:center;justify-content:center;padding:1.2rem;
+}
+.modal-overlay.on{display:flex;}
+.modal-box{
+  background:#fff;border-radius:18px;padding:1.3rem;
+  max-width:420px;width:100%;text-align:center;
+  max-height:90vh;overflow-y:auto;
+}
+.modal-box img{width:100%;border-radius:10px;border:1px solid rgba(0,0,0,.08);display:block;}
+.modal-hint{font-size:.85rem;color:var(--ink-lt);margin-top:.9rem;line-height:1.8;}
+
+/* Footer */
+.tool-footer{background:var(--ink);padding:2.4rem 0 1.6rem;margin-top:2rem;}
+.footer-icons{display:flex;justify-content:center;gap:1rem;margin-bottom:1.5rem;}
+.footer-icon-link{
+  width:44px;height:44px;display:flex;align-items:center;justify-content:center;
+  text-decoration:none;transition:opacity .2s;flex-shrink:0;
+}
+.footer-icon-link:active{opacity:.7;}
+.footer-icon-link img{width:34px;height:34px;display:block;}
+.footer-cta-row{display:flex;flex-direction:column;align-items:center;gap:.7rem;padding:0 1.2rem;margin-bottom:1.6rem;}
+.footer-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:100%;max-width:320px;
+  border-radius:var(--r);font-family:var(--sans);
+  font-size:.95rem;font-weight:700;letter-spacing:.06em;
+  padding:.9rem 1.6rem;text-decoration:none;cursor:pointer;border:none;min-height:50px;
+}
+.footer-btn.p1{background:var(--orange);color:#fff;}
+.footer-btn.ghost{background:transparent;color:rgba(255,255,255,.7);border:1.5px solid rgba(255,255,255,.2);}
+.footer-legal{
+  font-size:.7rem;color:rgba(255,255,255,.32);
+  letter-spacing:.03em;line-height:2;
+  max-width:560px;margin:0 auto;text-align:center;padding:0 1.2rem;
+}
+.footer-design{
+  display:block;text-align:center;margin-top:1.2rem;
+  font-size:.78rem;letter-spacing:.18em;
+  color:rgba(255,255,255,.30);text-decoration:none;
+}
+.footer-design .lin{color:#1685C8;font-weight:700;}
+.footer-design .ket{color:rgba(255,255,255,.85);font-weight:700;}
+
 [hidden]{display:none!important;}
 @media(min-width:480px){
   .tool-header h1{font-size:2rem;}
+}
+@media(max-width:380px){
+  body{font-size:18px;}
+  .wrap{padding:0 .8rem 3rem;}
+  .card{padding:1.2rem .9rem;}
+  .cal-widget{padding:.8rem .5rem;}
+  .cal-grid{gap:3px;}
+  .cal-day{font-size:.92rem;}
+  .cal-title{font-size:1.05rem;}
+  .cal-nav{width:42px;height:42px;font-size:1.4rem;}
+  .stepper-btn{width:50px;height:50px;font-size:1.6rem;}
+  .result-date{font-size:1.45rem;}
+  .date-range .result-date{font-size:1.2rem;}
 }
 </style>
 </head>
 <body>
 
+<div class="brand-top">
+  <a href="https://linket.app/yuanrung" onclick="gtag('event','click_brand_logo',{'event_category':'CTA','event_label':'chronic-rx-calculator'})">
+    <img src="/yuanrung/yuanrung-logo.svg" alt="員榮醫療體系" onerror="this.parentElement.style.display='none'">
+  </a>
+</div>
+
 <header class="tool-header">
-  <div class="wrap">
+  <div class="wrap" style="padding-bottom:0;">
     <div class="brand">員榮醫療體系 · 用藥小工具（測試版）</div>
     <h1>慢性處方箋<br><span>領藥小幫手</span></h1>
-    <p>點選日曆選日期，幫您算好下次領藥時間，<br>還能加入手機日曆提醒，不用自己算！</p>
+    <p>算好領藥時間、標記已領藥，<br>還能加入手機日曆與分享給家人！</p>
   </div>
 </header>
 
 <div class="wrap">
+
+  <div class="info-bar">
+    <div class="info-item">
+      <span class="info-label">今天日期</span>
+      <span class="info-value" id="todayDisplay"></span>
+    </div>
+    <div class="info-item">
+      <span class="info-label">最後一次填寫領藥日期</span>
+      <span class="info-value" id="lastFilledDisplay">尚無紀錄</span>
+    </div>
+  </div>
 
   <div class="restore-bar" id="restoreBar" hidden>
     <span>已為您找回上次的紀錄</span>
@@ -207,8 +396,8 @@ body{
   </div>
 
   <div class="card">
-    <div class="card-title"><span class="num">1</span>看診/領藥日期</div>
-    <div class="card-desc">請點選您這次拿到藥的日子（今天會以橘框標示）。</div>
+    <div class="card-title"><span class="num">1</span>第1次領藥（看診）日期</div>
+    <div class="card-desc">請點選您拿到這張慢性處方箋、第一次領藥的日子（今天會以橘框標示）。</div>
     <div class="cal-widget" id="calMain"></div>
   </div>
 
@@ -226,29 +415,15 @@ body{
   </div>
 
   <div class="card">
-    <div class="card-title"><span class="num">3</span>要幫您算未來幾次領藥？</div>
-    <div class="card-desc" id="pickupMaxNote">依您的處方天數，可選擇 2~3 次領藥</div>
+    <div class="card-title"><span class="num">3</span>這張處方箋可領幾次藥？</div>
+    <div class="card-desc" id="pickupMaxNote">處方箋上會註明，一般是2~3次</div>
     <div class="stepper-row">
       <button class="stepper-btn" onclick="adjustPickup(-1)" aria-label="減少">－</button>
       <div class="stepper-display">
-        <div class="stepper-value" id="pickupVal">2</div>
+        <div class="stepper-value" id="pickupVal">3</div>
         <div class="stepper-unit">次</div>
       </div>
       <button class="stepper-btn" onclick="adjustPickup(1)" aria-label="增加">＋</button>
-    </div>
-  </div>
-
-  <div class="card">
-    <button class="advanced-toggle" id="advToggle" onclick="toggleAdvanced()">
-      <span>已經領過第2次藥了嗎？（選填）</span>
-      <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-    </button>
-    <div class="advanced-body" id="advBody" hidden>
-      <div class="card-desc" style="margin-top:1rem;">如果第2次實際領藥日跟預估不同，請點選實際日期，後面的領藥時間會自動重新計算。</div>
-      <div class="cal-widget" id="calActual"></div>
-      <button class="btn-secondary" style="margin-top:1rem;" onclick="clearActual()">
-        清除實際日期，使用預估值
-      </button>
     </div>
   </div>
 
@@ -259,42 +434,48 @@ body{
 
   <div id="resultsWrap" hidden>
 
+    <div class="banner due" id="dueBanner" hidden>
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <div class="banner-text"></div>
+    </div>
+
     <div class="card">
-      <div class="card-title"><span class="num">📋</span>計算結果</div>
+      <div class="card-title"><span class="num">📋</span>我的領藥筆記</div>
+      <div class="card-desc">每次領完藥，按一下「標記已領藥」，後面的時間會自動幫您算對！</div>
 
       <div class="result-section-title">基本資訊</div>
-      <div class="result-row">
-        <span class="result-label">看診/領藥日期</span>
-        <span class="result-date" id="r-first"></span>
-      </div>
       <div class="result-row deadline">
         <span class="result-label">處方有效期限（首次領藥後90天）</span>
         <span class="result-date" id="r-expiry"></span>
-        <span class="result-context">超過此日期，慢箋作廢，須回診重新開立</span>
+        <span class="result-context">逾期慢箋作廢、無法補發，須回診重新開立</span>
       </div>
 
-      <div id="pickupResults"></div>
+      <div class="result-section-title">領藥進度</div>
+      <div id="pickupCards"></div>
 
       <div class="result-section-title">回診資訊</div>
-      <div class="result-row">
-        <span class="result-label">最早可回診日期</span>
-        <span class="result-date" id="r-visit-early"></span>
-        <span class="result-context">藥品剩餘≤10天時</span>
-      </div>
       <div class="result-row deadline">
-        <span class="result-label">建議回診日期（藥品用完時）</span>
-        <span class="result-date" id="r-visit-std"></span>
-        <span class="result-context">請在這之前回診，避免斷藥</span>
+        <span class="result-label">建議回診時間</span>
+        <div class="date-range">
+          <span class="result-date" id="r-visit-early"></span>
+          <span class="range-sep">～</span>
+          <span class="result-date" id="r-visit-std"></span>
+        </div>
+        <span class="result-context">最早可回診（藥品剩餘≤10天）～ 最後回診時間（避免斷藥）</span>
       </div>
 
       <div class="btn-row">
-        <button class="btn-secondary" onclick="downloadImage()">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-          產生領藥時間表圖片
+        <button class="btn-secondary" id="copyBtn" onclick="copySchedule()">
+          <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          複製時程表（傳給家人）
         </button>
-        <button class="btn-primary" onclick="downloadICS()" style="margin-top:0;">
-          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          下載全部提醒（.ics 加入手機日曆）
+        <button class="btn-secondary" onclick="generateImage()">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          領取領藥時間圖片
+        </button>
+        <button class="btn-primary" onclick="addToCalendar()" style="margin-top:0;">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          加入行事曆
         </button>
       </div>
     </div>
@@ -303,23 +484,57 @@ body{
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
       <div class="banner-text" id="holidayText"></div>
     </div>
+  </div>
 
-    <div class="banner success" id="recalcSuccess" hidden>
-      <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-      <div class="banner-text">已依實際領藥日重新計算！</div>
+  <!-- 相關法規 -->
+  <div class="card">
+    <div class="card-title"><span class="num">📖</span>相關法規與注意事項</div>
+    <div class="law-item">
+      <div class="law-q">📅 處方箋有效期限（健保醫療辦法 第23條）</div>
+      <div class="law-a">慢箋有效期間自醫師開立日起算，至多 <strong>90天</strong>。一般藥品每次給予 <strong>30天以下</strong>用藥量；腹膜透析液依病情得一次給予31天以下。逾期後處方箋即失效。</div>
     </div>
+    <div class="law-item">
+      <div class="law-q">💊 提前領藥規定（健保醫療辦法 第24條）</div>
+      <div class="law-a">領藥時間為：建議於上次給藥期間屆滿前 <strong>10天內</strong>，憑原處方箋及健保卡領取下一次藥品。</div>
+    </div>
+    <div class="law-item">
+      <div class="law-q">✈️ 出國預領藥品（健保醫療辦法 第25條）</div>
+      <div class="law-a">如預定出國、返回離島或為遠洋漁船船員出海作業，得於領藥時出具切結書及相關證明文件（如機票、船票），<strong>得一次領取該處方箋總用藥量</strong>。</div>
+    </div>
+    <div class="law-item">
+      <div class="law-q">⚠️ 遺失補發規定</div>
+      <div class="law-a">慢箋若遺失或逾期，<strong>醫療機構不得補發</strong>。需重新掛號就醫，由醫師重新開立新的處方箋。</div>
+    </div>
+    <p class="law-src">※ 以上資訊整理自《全民健康保險醫療辦法》，若有修法或異動，請以衛生福利部中央健康保險署最新公告為準。如遇春節等長假，健保署會另行公告提前領藥規則（如115年春節可提前14天），請留意院方公告。</p>
   </div>
 
   <div class="card">
-    <div class="card-title"><span class="num">ℹ️</span>慢性處方箋小知識</div>
-    <ul class="rule-list">
-      <li>慢性處方箋有效期限為<strong>首次領藥日起90天內</strong></li>
-      <li>每次領藥天數通常為21~30天，依醫師處方為準</li>
-      <li>藥品<strong>剩餘10天內</strong>即可提前領下一次的藥</li>
-      <li>提前或延後領藥，後面的領藥時間會跟著順延，但不能超過90天效期</li>
-      <li>90天到期後<strong>沒有寬限期</strong>，須回診請醫師重新開立處方箋</li>
-      <li>如遇春節等長假，健保署會另行公告提前領藥規則，請留意院方公告</li>
-    </ul>
+    <button class="advanced-toggle" id="faqToggle" onclick="toggleFaq()">
+      <span>💬 常見問題：領藥時間怎麼算最準？</span>
+      <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="advanced-body" id="faqBody" hidden>
+      <div class="faq-item">
+        <div class="faq-q">Q. 「標記已領藥」有什麼用？</div>
+        <div class="faq-a">每次去領完藥，按一下該次的「標記已領藥」並確認領藥日期，工具會記住您的進度，並依照您實際領藥的日子，自動把後面幾次的時間重新算對——不管您提早或延後領，都不用自己計算。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q. 可以比「剩10天」更早去領藥嗎？</div>
+        <div class="faq-a">健保規定原則上是「藥品剩餘≤10天」才能提前領藥，更早藥局系統通常無法受理。若即將長期出國，可依第25條出具證明文件一次領取，請洽藥師或醫師。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q. 如果延後領藥，後面會領不到嗎？</div>
+        <div class="faq-a">只要還在90天效期內都能領，後面時間會自動順延。但建議盡量按時領，避免越拖越緊湊甚至超過效期而需重新看診。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q. 我會知道自己延遲了嗎？</div>
+        <div class="faq-a">會。工具會自動比對「今天」和「建議領藥時間」，若已超過，畫面最上方會出現橘色提醒，該次卡片也會標示逾期。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q. 長時間出國怎麼辦？</div>
+        <div class="faq-a">依健保醫療辦法第25條，出國可出具切結書與機票等證明，一次領取總用藥量。建議出國前主動回診向醫師說明行程。</div>
+      </div>
+    </div>
   </div>
 
   <p class="disclaimer">
@@ -329,20 +544,72 @@ body{
 
 </div>
 
+<div class="modal-overlay" id="imgModal" onclick="if(event.target===this)closeImgModal()">
+  <div class="modal-box">
+    <img id="imgPreview" alt="領藥時間表">
+    <div class="btn-row">
+      <button class="btn-primary" onclick="shareImage()" style="margin-top:0;">
+        <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        分享 / 儲存圖片
+      </button>
+      <button class="btn-secondary" onclick="closeImgModal()">關閉</button>
+    </div>
+    <p class="modal-hint">📌 長按圖片可直接儲存到相簿，<br>或點「分享」傳到LINE等通訊軟體。</p>
+  </div>
+</div>
+
 <canvas id="imgCanvas" hidden></canvas>
 
+<footer class="tool-footer">
+  <div class="footer-icons">
+    <a class="footer-icon-link" href="https://www.instagram.com/yuanr.ung/" target="_blank" aria-label="IG"
+      onclick="gtag('event','click_ig',{'event_category':'CTA','event_label':'chronic-rx-calculator'})">
+      <img src="/assets/instagram.svg" alt="Instagram">
+    </a>
+    <a class="footer-icon-link" href="https://www.facebook.com/YuanRungHospital" target="_blank" aria-label="FB"
+      onclick="gtag('event','click_fb',{'event_category':'CTA','event_label':'chronic-rx-calculator'})">
+      <img src="/assets/facebook.svg" alt="Facebook">
+    </a>
+    <a class="footer-icon-link" href="https://www.youtube.com/@YuanRungHospital/featured" target="_blank" aria-label="YouTube"
+      onclick="gtag('event','click_youtube',{'event_category':'CTA','event_label':'chronic-rx-calculator'})">
+      <img src="/assets/youtube.svg" alt="YouTube">
+    </a>
+    <a class="footer-icon-link" href="https://yuanrung.com.tw/yr-tw" target="_blank" aria-label="官網"
+      onclick="gtag('event','click_web',{'event_category':'CTA','event_label':'chronic-rx-calculator'})">
+      <img src="/assets/web.svg" alt="官網">
+    </a>
+  </div>
+  <div class="footer-cta-row">
+    <a class="footer-btn p1" href="https://linket.app/yuanrung"
+      onclick="gtag('event','click_back_to_yuanrung',{'event_category':'CTA','event_label':'chronic-rx-calculator'})">
+      回到員榮醫療體系首頁
+    </a>
+    <a class="footer-btn ghost" href="tel:04-8335209"
+      onclick="gtag('event','click_emergency',{'event_category':'CTA','event_label':'chronic-rx-calculator'})">
+      急診專線｜04-8335209
+    </a>
+  </div>
+  <p class="footer-legal">本工具為員榮醫療體系便民服務之一，僅供領藥日期試算參考，不構成醫療建議。實際領藥期限請以處方箋標示及藥師指示為準。</p>
+  <a class="footer-design" href="https://linket.app/home" target="_blank">
+    Design by &nbsp;<span class="lin">LIN</span><span class="ket">Ket</span>
+  </a>
+</footer>
+
 <script>
-const STORAGE_KEY = 'linket_yr_rx_calc_v2';
+const STORAGE_KEY = 'linket_yr_rx_calc_v3';
 const HOLIDAY_NOTICE = {
-  start: '2026-02-14', end: '2026-02-22',
-  earlyFrom: '2026-01-31',
-  label: '115年春節連假（2/14-2/22）'
+  start:'2026-02-14', end:'2026-02-22', earlyFrom:'2026-01-31',
+  label:'115年春節連假（2/14-2/22）'
 };
 const WD = ['日','一','二','三','四','五','六'];
 
 let cycleDays = 28;
-let pickupCount = 2;
+let pickupCount = 3;
 let lastResult = null;
+let imgBlobUrl = null;
+// pickupLog: { 1:{done:true, date:'YYYY-MM-DD'}, 2:{...} }  第1次的date即看診日
+let pickupLog = {};
+let activeMiniCal = null; // 當前展開的mini行事曆ref
 
 function addDaysD(date, days){ const d=new Date(date); d.setDate(d.getDate()+days); return d; }
 function fmt(d){
@@ -353,310 +620,405 @@ function fmtICS(d){
   const y=d.getFullYear(), m=String(d.getMonth()+1).padStart(2,'0'), day=String(d.getDate()).padStart(2,'0');
   return ''+y+m+day;
 }
-function inRange(d, s, e){
-  const t=d.getTime();
-  return t>=new Date(s+'T00:00:00').getTime() && t<=new Date(e+'T23:59:59').getTime();
-}
-function renderDate(d){
-  const f=fmt(d);
-  return '<span class="y">'+f.full.split('年')[0]+'年</span>'+f.full.split('年')[1];
-}
+function inRange(d,s,e){const t=d.getTime();return t>=new Date(s+'T00:00:00').getTime()&&t<=new Date(e+'T23:59:59').getTime();}
+function renderDate(d){const f=fmt(d);return '<span class="y">'+f.full.split('年')[0]+'年</span>'+f.full.split('年')[1];}
+function todayMidnight(){const d=new Date();d.setHours(0,0,0,0);return d;}
+function parseYmd(s){return new Date(s+'T00:00:00');}
 
-function createCalendar(containerId, initialDate){
+/* ===== 大行事曆 ===== */
+function createCalendar(containerId, initialDate, onSelect){
   const container = document.getElementById(containerId);
   let viewDate = initialDate ? new Date(initialDate) : new Date();
   let selected = initialDate ? new Date(initialDate) : null;
-
   function render(){
     const y=viewDate.getFullYear(), m=viewDate.getMonth();
-    const firstDay = new Date(y,m,1).getDay();
-    const daysInMonth = new Date(y,m+1,0).getDate();
-    const today = new Date();
-    let html = '<div class="cal-header">'
-      + '<button class="cal-nav" data-act="prev">‹</button>'
-      + '<span class="cal-title">'+y+'年'+(m+1)+'月</span>'
-      + '<button class="cal-nav" data-act="next">›</button>'
-      + '</div>'
-      + '<div class="cal-weekdays">'+WD.map(function(w){return '<span>'+w+'</span>';}).join('')+'</div>'
-      + '<div class="cal-grid">';
+    const firstDay=new Date(y,m,1).getDay();
+    const daysInMonth=new Date(y,m+1,0).getDate();
+    const today=new Date();
+    let html='<div class="cal-header">'
+      +'<button class="cal-nav" data-act="prev">‹</button>'
+      +'<span class="cal-title">'+y+'年'+(m+1)+'月</span>'
+      +'<button class="cal-nav" data-act="next">›</button></div>'
+      +'<div class="cal-weekdays">'+WD.map(function(w){return '<span>'+w+'</span>';}).join('')+'</div>'
+      +'<div class="cal-grid">';
     for(let i=0;i<firstDay;i++) html+='<div class="cal-day empty"></div>';
-    for(let d=1; d<=daysInMonth; d++){
-      const isToday = today.getFullYear()===y && today.getMonth()===m && today.getDate()===d;
-      const isSel = selected && selected.getFullYear()===y && selected.getMonth()===m && selected.getDate()===d;
-      html+='<button type="button" class="cal-day '+(isToday?'today':'')+' '+(isSel?'selected':'')+'" data-day="'+d+'">'+d+'</button>';
+    for(let d=1;d<=daysInMonth;d++){
+      const isT=today.getFullYear()===y&&today.getMonth()===m&&today.getDate()===d;
+      const isS=selected&&selected.getFullYear()===y&&selected.getMonth()===m&&selected.getDate()===d;
+      html+='<button type="button" class="cal-day '+(isT?'today':'')+' '+(isS?'selected':'')+'" data-day="'+d+'">'+d+'</button>';
     }
-    html+='</div><div class="cal-selected-display">'+(selected ? (fmt(selected).full+'（'+WD[selected.getDay()]+'）') : '請點選日期')+'</div>';
-    container.innerHTML = html;
-
+    html+='</div><div class="cal-selected-display">'+(selected?(fmt(selected).full+'（'+WD[selected.getDay()]+'）'):'請點選日期')+'</div>';
+    container.innerHTML=html;
     container.querySelector('[data-act="prev"]').onclick=function(){viewDate.setMonth(viewDate.getMonth()-1);render();};
     container.querySelector('[data-act="next"]').onclick=function(){viewDate.setMonth(viewDate.getMonth()+1);render();};
     container.querySelectorAll('.cal-day[data-day]').forEach(function(btn){
-      btn.onclick=function(){
-        selected = new Date(y, m, Number(btn.dataset.day));
-        render();
-      };
+      btn.onclick=function(){selected=new Date(y,m,Number(btn.dataset.day));render();if(onSelect)onSelect(selected);};
     });
   }
   render();
   return {
-    getDate: function(){return selected;},
-    setDate: function(d){ selected=new Date(d); viewDate=new Date(d); render(); },
-    clear: function(){ selected=null; render(); }
+    getDate:function(){return selected;},
+    setDate:function(d){selected=new Date(d);viewDate=new Date(d);render();},
+    clear:function(){selected=null;render();}
   };
 }
-
 const calMain = createCalendar('calMain', new Date());
-const calActual = createCalendar('calActual', null);
 
+/* ===== Steppers ===== */
 const MIN_PICKUP = 2;
 function maxPickupCount(){ return cycleDays<=22 ? 4 : 3; }
 function adjustCycle(delta){
-  cycleDays = Math.min(30, Math.max(21, cycleDays+delta));
-  document.getElementById('cycleVal').textContent = cycleDays;
-  const max = maxPickupCount();
-  if(pickupCount>max) pickupCount=max;
-  if(pickupCount<MIN_PICKUP) pickupCount=MIN_PICKUP;
-  document.getElementById('pickupVal').textContent = pickupCount;
-  document.getElementById('pickupMaxNote').textContent = '依您的處方天數，可選擇 '+MIN_PICKUP+'~'+max+' 次領藥';
+  cycleDays=Math.min(30,Math.max(21,cycleDays+delta));
+  document.getElementById('cycleVal').textContent=cycleDays;
+  const max=maxPickupCount();
+  if(pickupCount>max)pickupCount=max;
+  if(pickupCount<MIN_PICKUP)pickupCount=MIN_PICKUP;
+  document.getElementById('pickupVal').textContent=pickupCount;
+  document.getElementById('pickupMaxNote').textContent='處方箋上會註明，'+(max===4?'21~22天最多可領4次':'一般是2~3次');
 }
 function adjustPickup(delta){
-  const max = maxPickupCount();
-  pickupCount = Math.min(max, Math.max(MIN_PICKUP, pickupCount+delta));
-  document.getElementById('pickupVal').textContent = pickupCount;
+  const max=maxPickupCount();
+  pickupCount=Math.min(max,Math.max(MIN_PICKUP,pickupCount+delta));
+  document.getElementById('pickupVal').textContent=pickupCount;
+}
+function toggleFaq(){
+  const body=document.getElementById('faqBody');
+  const btn=document.getElementById('faqToggle');
+  body.hidden=!body.hidden;btn.classList.toggle('open',!body.hidden);
 }
 
-function toggleAdvanced(){
-  const body = document.getElementById('advBody');
-  const btn = document.getElementById('advToggle');
-  body.hidden = !body.hidden;
-  btn.classList.toggle('open', !body.hidden);
-}
-function clearActual(){
-  calActual.clear();
-}
-
+/* ===== 主計算 ===== */
 function runCalc(){
-  const first = calMain.getDate();
-  if(!first){ alert('請先在上方行事曆點選看診/領藥日期喔！'); return; }
+  const first=calMain.getDate();
+  if(!first){alert('請先在上方行事曆點選第1次領藥（看診）的日期喔！');return;}
   gtag('event','click_calc_submit',{'event_category':'Tool','event_label':'chronic-rx-calculator'});
-  const actualD2 = calActual.getDate();
-  computeAll(first, cycleDays, pickupCount, actualD2);
+  // 第1次領藥日預設為看診日（除非已有紀錄）
+  if(!pickupLog[1]) pickupLog[1]={done:true, date:fmt(first).ymd};
+  else pickupLog[1].date=fmt(first).ymd;
+  compute();
   saveStorage();
-  document.getElementById('resultsWrap').hidden = false;
-  document.getElementById('resultsWrap').scrollIntoView({behavior:'smooth', block:'start'});
+  document.getElementById('resultsWrap').hidden=false;
+  document.getElementById('resultsWrap').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
-function computeAll(first, cycle, N, actualD2){
-  const periodEnd = [null];
-  let cur = new Date(first);
-  for(let k=1; k<=N+1; k++){ cur = addDaysD(cur, cycle); periodEnd[k]=new Date(cur); }
+/*
+  計算邏輯（吸收參考工具）：
+  - 每次領藥的「藥品用完日」= 該次實際領藥日 + cycleDays
+  - 下一次「最早可領」= 上一次藥品用完日 - 10；「最後領藥」= 上一次藥品用完日
+  - 若某次已標記領藥(有實際date)，以實際date往後推；否則以「標準領藥日(=上次用完日)」往後推
+  - first(第1次)的實際領藥日即看診日
+*/
+function compute(){
+  const first=calMain.getDate();
+  const expiry=addDaysD(first,90);
+  document.getElementById('r-expiry').innerHTML=renderDate(expiry);
 
-  const periodEndAdj = periodEnd.slice();
-  if(actualD2 && N>=1){
-    let curA = addDaysD(actualD2, cycle);
-    periodEndAdj[2] = curA;
-    for(let k=3; k<=N+1; k++){ curA = addDaysD(curA, cycle); periodEndAdj[k]=new Date(curA); }
+  // 計算每次的領藥區間與用完日
+  const rows=[]; // {idx, early, std, medsEnd, done, actualDate}
+  let prevMedsEnd=null;
+  for(let k=1;k<=pickupCount;k++){
+    const log=pickupLog[k]||{};
+    let early=null, std=null;
+    if(k===1){
+      early=new Date(first); std=new Date(first);
+    } else {
+      std=new Date(prevMedsEnd);            // 標準領藥日=上次用完日
+      early=addDaysD(prevMedsEnd,-10);      // 最早可領
+    }
+    // 實際領藥日（用於往後推算）
+    const baseForNext = (log.done && log.date) ? parseYmd(log.date) : std;
+    const medsEnd = addDaysD(baseForNext, cycleDays);
+    rows.push({idx:k, early:early, std:std, medsEnd:medsEnd, done:!!log.done, actualDate:log.date||null});
+    prevMedsEnd = medsEnd;
   }
 
-  const expiry = addDaysD(first, 90);
-  const visitStd = periodEndAdj[N+1];
-  const visitEarly = addDaysD(visitStd, -10);
+  // 回診：最後一次藥品用完日 為基準
+  const visitStd = new Date(prevMedsEnd);
+  const visitEarly = addDaysD(prevMedsEnd,-10);
+  document.getElementById('r-visit-early').innerHTML=renderDate(visitEarly);
+  document.getElementById('r-visit-std').innerHTML=renderDate(visitStd);
 
-  document.getElementById('r-first').innerHTML = renderDate(first);
-  document.getElementById('r-expiry').innerHTML = renderDate(expiry);
-  document.getElementById('r-visit-early').innerHTML = renderDate(visitEarly);
-  document.getElementById('r-visit-std').innerHTML = renderDate(visitStd);
-
-  const wrap = document.getElementById('pickupResults');
-  let html = '';
-  const cards = [];
-  for(let k=1; k<=N; k++){
-    const std = periodEndAdj[k];
-    const early = addDaysD(std, -10);
-    const adjustedNote = (k>=2 && actualD2) ? '<div class="result-context">已依實際第2次領藥日重新計算</div>' : '';
-    const estimateNote = (k>=2 && !actualD2) ? '<div class="result-context">預估值，依實際第2次領藥日可能調整</div>' : '';
-    html += '<div class="result-section-title">第 '+(k+1)+' 次領藥</div>'
-      + '<div class="result-row">'
-      + '<span class="result-label">最早可第'+(k+1)+'次領藥日期</span>'
-      + '<span class="result-date">'+renderDate(early)+'</span>'
-      + '<span class="result-context">藥品剩餘≤10天時</span>'
-      + '</div>'
-      + '<div class="result-row deadline">'
-      + '<span class="result-label">標準第'+(k+1)+'次領藥日期</span>'
-      + '<span class="result-date">'+renderDate(std)+'</span>'
-      + '<span class="result-context">藥品用完時</span>'
-      + adjustedNote + estimateNote
-      + '</div>';
-    cards.push({label:'第'+(k+1)+'次領藥', early:early, std:std});
-  }
-  wrap.innerHTML = html;
-
-  lastResult = {first:first, expiry:expiry, cards:cards, visitEarly:visitEarly, visitStd:visitStd, cycle:cycle, N:N, actualD2:actualD2};
-
+  lastResult={first:first, expiry:expiry, rows:rows, visitEarly:visitEarly, visitStd:visitStd};
+  renderCards();
   checkHoliday();
-  if(actualD2){
-    const ok = document.getElementById('recalcSuccess');
-    ok.hidden = false;
-    setTimeout(function(){ok.hidden=true;}, 3500);
-  }
+  checkDueStatus();
 }
 
-function checkHoliday(){
-  const banner = document.getElementById('holidayBanner');
-  const text = document.getElementById('holidayText');
-  let dates = [lastResult.visitEarly, lastResult.visitStd];
-  lastResult.cards.forEach(function(c){ dates.push(c.early, c.std); });
-  const hit = dates.some(function(d){return inRange(d, HOLIDAY_NOTICE.earlyFrom, HOLIDAY_NOTICE.end);});
-  if(hit){
-    text.innerHTML = '提醒：您的領藥時間可能遇到<strong>'+HOLIDAY_NOTICE.label+'</strong>。健保署公告自 <strong>'+fmt(new Date(HOLIDAY_NOTICE.earlyFrom+'T00:00:00')).full+'</strong> 起可提前領藥，建議提早規劃，避免連假期間藥局休息！';
-    banner.hidden = false;
-  } else {
-    banner.hidden = true;
-  }
-}
+function renderCards(){
+  const wrap=document.getElementById('pickupCards');
+  const today=todayMidnight();
+  let html='';
+  lastResult.rows.forEach(function(r){
+    const isFirst=r.idx===1;
+    let cls='pickup-card', statusTag='', badgeTxt='第 '+r.idx+' 次領藥';
+    const stdM=new Date(r.std); stdM.setHours(0,0,0,0);
+    const earlyM=new Date(r.early); earlyM.setHours(0,0,0,0);
+    let overdue=false, dueNow=false;
+    if(r.done){
+      cls+=' done'; statusTag='<span class="pickup-status done-tag">✓ 已領藥</span>';
+    } else {
+      if(today.getTime()>stdM.getTime()){ cls+=' overdue'; overdue=true; statusTag='<span class="pickup-status overdue-tag">已逾期</span>'; }
+      else if(today.getTime()>=earlyM.getTime()){ cls+=' due-now'; dueNow=true; statusTag='<span class="pickup-status todo">可領藥囉</span>'; }
+      else { statusTag='<span class="pickup-status todo">待領藥</span>'; }
+    }
 
-function downloadICS(){
-  gtag('event','click_calendar_ics',{'event_category':'Tool','event_label':'chronic-rx-calculator'});
-  if(!lastResult) return;
-  let ics = 'BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//LINKet//YuanRung RX Calculator//ZH\r\nCALSCALE:GREGORIAN\r\n';
-  function addEvent(title, date, desc, idx){
-    const start = fmtICS(date);
-    const endObj = addDaysD(date,1);
-    const end = fmtICS(endObj);
-    ics += 'BEGIN:VEVENT\r\nUID:yr-rx-'+idx+'-'+start+'@linket.app\r\nDTSTART;VALUE=DATE:'+start+'\r\nDTEND;VALUE=DATE:'+end+'\r\nSUMMARY:'+title+'\r\nDESCRIPTION:'+desc+'\r\nEND:VEVENT\r\n';
-  }
-  lastResult.cards.forEach(function(c,i){
-    addEvent('員榮醫療｜'+c.label+'提醒', c.early, '最晚請於 '+fmt(c.std).full+' 前領藥（藥品用完時）', 'p'+i);
+    html+='<div class="'+cls+'" id="pcard-'+r.idx+'">';
+    html+='<div class="pickup-card-head"><span class="pickup-badge">'+(r.done?'✓ ':'')+badgeTxt+'</span>'+statusTag+'</div>';
+
+    html+='<div class="pickup-info">';
+    if(isFirst){
+      html+='<div class="pickup-info-item"><span class="pickup-info-label">領藥日期（看診日）</span><span class="pickup-info-val">'+renderDate(r.actualDate?parseYmd(r.actualDate):r.std)+'</span></div>';
+    } else {
+      html+='<div class="pickup-info-item"><span class="pickup-info-label">可領藥期間</span>'
+        +'<span class="pickup-info-val">'+fmt(r.early).short+' ～ '+fmt(r.std).short+'</span>'
+        +'<span class="pickup-info-note">最早可領（藥品剩餘≤10天）～ 最後領藥（藥品用完）</span></div>';
+      if(r.done && r.actualDate){
+        html+='<div class="pickup-info-item"><span class="pickup-info-label">您實際領藥日</span><span class="pickup-info-val">'+renderDate(parseYmd(r.actualDate))+'</span></div>';
+      }
+    }
+    html+='<div class="pickup-info-item"><span class="pickup-info-label">藥品預計用完日</span><span class="pickup-info-val">'+renderDate(r.medsEnd)+'</span></div>';
+    html+='</div>';
+
+    // 操作區
+    html+='<div class="pickup-actions">';
+    if(!isFirst){
+      if(r.done){
+        html+='<button class="btn-mark undo" onclick="unmarkPickup('+r.idx+')"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>取消已領藥標記</button>';
+      } else {
+        html+='<button class="btn-mark todo" onclick="markPickup('+r.idx+')"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>標記已領藥</button>';
+        html+='<div class="actual-date-box" id="actualbox-'+r.idx+'" hidden>'
+          +'<span class="actual-date-label">請確認您實際領藥的日期：</span>'
+          +'<div class="cal-widget actual-mini-cal" id="minical-'+r.idx+'"></div>'
+          +'<button class="btn-mark todo" style="margin-top:.7rem;" onclick="confirmPickup('+r.idx+')">確認領藥日期</button>'
+          +'</div>';
+      }
+    } else {
+      html+='<div class="pickup-info-note" style="text-align:center;">（第1次領藥日即上方看診日，如需修改請回到步驟1）</div>';
+    }
+    html+='</div></div>';
   });
-  addEvent('員榮醫療｜回診領新處方箋', lastResult.visitEarly, '建議於 '+fmt(lastResult.visitStd).full+' 前回診，慢箋將於 '+fmt(lastResult.expiry).full+' 到期', 'visit');
-  ics += 'END:VCALENDAR';
-
-  const blob = new Blob([ics], {type:'text/calendar;charset=utf-8'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href=url; a.download='員榮醫療_領藥提醒.ics';
-  document.body.appendChild(a); a.click(); document.body.removeChild(a);
-  URL.revokeObjectURL(url);
+  wrap.innerHTML=html;
 }
 
-async function downloadImage(){
+/* ===== 領藥標記 ===== */
+function markPickup(idx){
+  // 展開mini行事曆，預設今天
+  const box=document.getElementById('actualbox-'+idx);
+  box.hidden=false;
+  activeMiniCal=createCalendar('minical-'+idx, new Date(), null);
+  box.scrollIntoView({behavior:'smooth',block:'center'});
+}
+function confirmPickup(idx){
+  const d=activeMiniCal?activeMiniCal.getDate():null;
+  if(!d){alert('請先點選您實際領藥的日期喔！');return;}
+  gtag('event','click_mark_pickup',{'event_category':'Tool','event_label':'chronic-rx-calculator'});
+  pickupLog[idx]={done:true, date:fmt(d).ymd};
+  compute(); saveStorage();
+}
+function unmarkPickup(idx){
+  // 取消此次及之後所有次數的標記（因為後續依賴此次）
+  for(let k=idx;k<=pickupCount;k++){ if(k>1) delete pickupLog[k]; }
+  gtag('event','click_unmark_pickup',{'event_category':'Tool','event_label':'chronic-rx-calculator'});
+  compute(); saveStorage();
+}
+
+/* ===== 防呆banner ===== */
+function checkDueStatus(){
+  const banner=document.getElementById('dueBanner');
+  const text=banner.querySelector('.banner-text');
+  const today=todayMidnight();
+  // 找第一個未領的次數
+  const next=lastResult.rows.find(function(r){return !r.done;});
+  if(!next){ banner.className='banner success'; text.innerHTML='<strong>太棒了！</strong>所有領藥都已完成標記，記得在建議回診時間回診領新處方箋。'; banner.hidden=false; return; }
+  const std=new Date(next.std); std.setHours(0,0,0,0);
+  const early=new Date(next.early); early.setHours(0,0,0,0);
+  if(today.getTime()>std.getTime()){
+    banner.className='banner due';
+    text.innerHTML='<strong>提醒：</strong>第 '+next.idx+' 次領藥的建議時間（最後 '+fmt(next.std).full+'）已經過了，請儘速回藥局領藥！';
+    banner.hidden=false;
+  } else if(today.getTime()>=early.getTime()){
+    banner.className='banner success';
+    text.innerHTML='<strong>現在</strong>正是第 '+next.idx+' 次領藥的可領期間，記得去領藥並回來標記喔！';
+    banner.hidden=false;
+  } else { banner.hidden=true; }
+}
+
+/* ===== 春節 ===== */
+function checkHoliday(){
+  const banner=document.getElementById('holidayBanner');
+  const text=document.getElementById('holidayText');
+  let dates=[lastResult.visitEarly,lastResult.visitStd];
+  lastResult.rows.forEach(function(r){dates.push(r.early,r.std);});
+  const hit=dates.some(function(d){return inRange(d,HOLIDAY_NOTICE.earlyFrom,HOLIDAY_NOTICE.end);});
+  if(hit){
+    text.innerHTML='提醒：您的領藥時間可能遇到<strong>'+HOLIDAY_NOTICE.label+'</strong>。健保署公告自 <strong>'+fmt(parseYmd(HOLIDAY_NOTICE.earlyFrom)).full+'</strong> 起可提前領藥，建議提早規劃，避免連假期間藥局休息！';
+    banner.hidden=false;
+  } else banner.hidden=true;
+}
+
+/* ===== 複製時程表 ===== */
+function copySchedule(){
+  gtag('event','click_copy_schedule',{'event_category':'Tool','event_label':'chronic-rx-calculator'});
+  if(!lastResult) return;
+  const L=[];
+  L.push('💊 員榮醫療｜慢箋領藥時程表');
+  L.push('————————————');
+  lastResult.rows.forEach(function(r){
+    if(r.idx===1){
+      L.push('第1次領藥（看診）：'+fmt(r.actualDate?parseYmd(r.actualDate):r.std).full+(r.done?' ✓已領':''));
+    } else if(r.done && r.actualDate){
+      L.push('第'+r.idx+'次領藥：'+fmt(parseYmd(r.actualDate)).full+' ✓已領');
+    } else {
+      L.push('第'+r.idx+'次領藥：'+fmt(r.early).full+' ～ '+fmt(r.std).full);
+    }
+    L.push('　（藥品預計用完：'+fmt(r.medsEnd).full+'）');
+  });
+  L.push('————————————');
+  L.push('建議回診：'+fmt(lastResult.visitEarly).full+' ～ '+fmt(lastResult.visitStd).full);
+  L.push('處方有效期限：'+fmt(lastResult.expiry).full+'（逾期作廢需重新看診）');
+  L.push('————————————');
+  L.push('由員榮醫療體系「領藥小幫手」製作');
+  const text=L.join('\n');
+
+  const ta=document.createElement('textarea');
+  ta.value=text; ta.style.position='fixed'; ta.style.left='-9999px';
+  document.body.appendChild(ta); ta.focus(); ta.select();
+  let ok=false;
+  try{ ok=document.execCommand('copy'); }catch(e){}
+  document.body.removeChild(ta);
+
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).catch(function(){});
+  }
+  const btn=document.getElementById('copyBtn');
+  const orig=btn.innerHTML;
+  btn.classList.add('copied');
+  btn.innerHTML='<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>已複製，可貼到LINE了！';
+  setTimeout(function(){btn.classList.remove('copied');btn.innerHTML=orig;},2200);
+}
+
+/* ===== 加入行事曆 ===== */
+function addToCalendar(){
+  gtag('event','click_add_calendar',{'event_category':'Tool','event_label':'chronic-rx-calculator'});
+  if(!lastResult) return;
+  let ics='BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//LINKet//YuanRung RX Calculator//ZH\r\nCALSCALE:GREGORIAN\r\n';
+  function ev(title,dA,dB,desc,idx){
+    const s=fmtICS(dA), e=fmtICS(addDaysD(dB,1));
+    ics+='BEGIN:VEVENT\r\nUID:yr-rx-'+idx+'-'+s+'@linket.app\r\nDTSTART;VALUE=DATE:'+s+'\r\nDTEND;VALUE=DATE:'+e+'\r\nSUMMARY:'+title+'\r\nDESCRIPTION:'+desc+'\r\nEND:VEVENT\r\n';
+  }
+  lastResult.rows.forEach(function(r){
+    if(r.idx===1||r.done) return; // 已領的不再提醒
+    ev('員榮醫療｜第'+r.idx+'次領藥（可領期間）', r.early, r.std,
+      '最早 '+fmt(r.early).full+'，最後 '+fmt(r.std).full+' 前須領藥', 'p'+r.idx);
+  });
+  ev('員榮醫療｜回診領新處方箋', lastResult.visitEarly, lastResult.visitStd,
+    '請於 '+fmt(lastResult.visitStd).full+' 前回診，慢箋將於 '+fmt(lastResult.expiry).full+' 到期', 'visit');
+  ics+='END:VCALENDAR';
+  window.location.href='data:text/calendar;charset=utf-8,'+encodeURIComponent(ics);
+}
+
+/* ===== 圖片 ===== */
+async function generateImage(){
   gtag('event','click_generate_image',{'event_category':'Tool','event_label':'chronic-rx-calculator'});
   if(!lastResult) return;
-  await document.fonts.load('900 28px "Noto Serif TC"');
-  await document.fonts.load('700 22px "Noto Serif TC"');
-  await document.fonts.load('400 18px "Noto Serif TC"');
+  await document.fonts.load('900 28px "Noto Sans TC"');
+  await document.fonts.load('700 18px "Noto Sans TC"');
+  await document.fonts.load('900 26px "Playfair Display"');
   await document.fonts.ready;
 
-  const rowH = 92;
-  const headerH = 110;
-  const footerH = 110;
-  const baseRows = 2;
-  const visitRows = 2;
-  const pickupRows = lastResult.cards.length * 2;
-  const titleRows = 1 + lastResult.cards.length + 1;
-  const totalRows = baseRows + pickupRows + visitRows;
-  const W = 760;
-  const H = headerH + titleRows*46 + totalRows*rowH + footerH;
+  const rowH=82, headerH=110, footerH=96;
+  const N=lastResult.rows.length;
+  const totalRows=N+2; // N次領藥 + 回診 + 效期
+  const titleRows=3;
+  const W=720;
+  const H=headerH+titleRows*42+totalRows*rowH+footerH;
+  const canvas=document.getElementById('imgCanvas');
+  canvas.width=W;canvas.height=H;
+  const ctx=canvas.getContext('2d');
 
-  const canvas = document.getElementById('imgCanvas');
-  canvas.width = W; canvas.height = H;
-  const ctx = canvas.getContext('2d');
+  ctx.fillStyle='#fcf8ef';ctx.fillRect(0,0,W,H);
+  ctx.strokeStyle='rgba(226,106,46,.25)';ctx.lineWidth=3;ctx.strokeRect(8,8,W-16,H-16);
+  ctx.fillStyle='#5a4339';ctx.fillRect(0,0,W,headerH);
+  ctx.fillStyle='#fff';ctx.font='900 30px "Noto Sans TC"';
+  ctx.fillText('員榮醫療｜領藥時間表',32,50);
+  ctx.font='400 16px "Noto Sans TC"';ctx.fillStyle='rgba(255,255,255,.7)';
+  ctx.fillText('Chronic Prescription Pickup Schedule',32,82);
 
-  ctx.fillStyle = '#fcf8ef'; ctx.fillRect(0,0,W,H);
-  ctx.strokeStyle = 'rgba(226,106,46,.25)'; ctx.lineWidth=3;
-  ctx.strokeRect(8,8,W-16,H-16);
-
-  ctx.fillStyle = '#5a4339'; ctx.fillRect(0,0,W,headerH);
-  ctx.fillStyle = '#ffffff';
-  ctx.font = '900 30px "Noto Serif TC"';
-  ctx.fillText('員榮醫療｜領藥時間表', 32, 50);
-  ctx.font = '400 17px "Noto Serif TC"';
-  ctx.fillStyle = 'rgba(255,255,255,.7)';
-  ctx.fillText('Chronic Prescription Pickup Schedule', 32, 82);
-
-  let y = headerH + 40;
-  const labelX = 32, dateX = W-32;
-
-  function sectionTitle(text){
-    ctx.fillStyle = '#c45520';
-    ctx.font = '900 20px "Noto Serif TC"';
-    ctx.fillText(text, labelX, y);
-    ctx.fillRect(labelX, y+10, 26, 4);
-    y += 46;
+  let y=headerH+38; const labelX=32,dateX=W-32;
+  function sTitle(t){ctx.fillStyle='#c45520';ctx.font='900 19px "Noto Sans TC"';ctx.fillText(t,labelX,y);ctx.fillRect(labelX,y+9,24,4);y+=42;}
+  function rowR(label,dateStr,context,deadline,done){
+    ctx.fillStyle=done?'#e8f3ea':(deadline?'#f5ede0':'#fdebd5');
+    ctx.fillRect(labelX-4,y-28,W-2*labelX+8,rowH-12);
+    ctx.fillStyle='#5a4339';ctx.font='700 16px "Noto Sans TC"';
+    ctx.fillText((done?'✓ ':'')+label,labelX+12,y);
+    ctx.font='900 25px "Playfair Display"';
+    const w=ctx.measureText(dateStr).width;
+    ctx.fillText(dateStr,dateX-w-12,y+30);
+    if(context){ctx.font='400 13px "Noto Sans TC"';ctx.fillStyle='#8a6f5f';ctx.fillText(context,labelX+12,y+30);}
+    y+=rowH;
   }
-  function row(label, dateObj, context, isDeadline){
-    ctx.fillStyle = isDeadline ? '#f5ede0' : '#fdebd5';
-    ctx.fillRect(labelX-4, y-30, W-2*labelX+8, rowH-16);
-    ctx.fillStyle = '#5a4339';
-    ctx.font = '700 18px "Noto Serif TC"';
-    ctx.fillText(label, labelX+12, y);
-    ctx.font = '900 30px "Playfair Display"';
-    const dateStr = fmt(dateObj).full;
-    const w = ctx.measureText(dateStr).width;
-    ctx.fillText(dateStr, dateX-w-12, y+34);
-    if(context){
-      ctx.font = '400 15px "Noto Serif TC"';
-      ctx.fillStyle = '#8a6f5f';
-      ctx.fillText(context, labelX+12, y+34);
+  sTitle('領藥進度');
+  lastResult.rows.forEach(function(r){
+    if(r.idx===1){
+      rowR('第1次領藥（看診）',fmt(r.actualDate?parseYmd(r.actualDate):r.std).full,'藥品用完：'+fmt(r.medsEnd).short,false,r.done);
+    } else if(r.done&&r.actualDate){
+      rowR('第'+r.idx+'次領藥',fmt(parseYmd(r.actualDate)).full,'已領藥，藥品用完：'+fmt(r.medsEnd).short,true,true);
+    } else {
+      rowR('第'+r.idx+'次領藥',fmt(r.early).short+' ～ '+fmt(r.std).short,'藥品用完：'+fmt(r.medsEnd).short,true,false);
     }
-    y += rowH;
-  }
-
-  sectionTitle('基本資訊');
-  row('看診/領藥日期', lastResult.first, '', false);
-  row('處方有效期限', lastResult.expiry, '逾期需回診重新開立', true);
-
-  lastResult.cards.forEach(function(c){
-    sectionTitle(c.label);
-    row('最早可領藥', c.early, '藥品剩餘≤10天時', false);
-    row('標準領藥日', c.std, '藥品用完時', true);
   });
+  sTitle('回診資訊');
+  rowR('建議回診時間',fmt(lastResult.visitEarly).short+' ～ '+fmt(lastResult.visitStd).short,'避免斷藥',true,false);
+  sTitle('注意');
+  rowR('處方有效期限',fmt(lastResult.expiry).full,'逾期作廢需重新看診',true,false);
 
-  sectionTitle('回診資訊');
-  row('最早可回診', lastResult.visitEarly, '藥品剩餘≤10天時', false);
-  row('建議回診日', lastResult.visitStd, '藥品用完時，避免斷藥', true);
+  ctx.fillStyle='#8a6f5f';ctx.font='400 14px "Noto Sans TC"';
+  ctx.fillText('本表僅供參考，實際以處方箋及藥師指示為準。',labelX,H-52);
+  ctx.fillText('員榮醫療體系 × LINKet',labelX,H-28);
 
-  ctx.fillStyle = '#8a6f5f';
-  ctx.font = '400 14px "Noto Serif TC"';
-  ctx.fillText('本表僅供領藥日期參考，實際以處方箋及藥師指示為準。', labelX, H-60);
-  ctx.fillText('員榮醫療體系 × LINKet', labelX, H-32);
-
-  const link = document.createElement('a');
-  link.download = '員榮醫療_領藥時間表.png';
-  link.href = canvas.toDataURL('image/png');
-  link.click();
+  canvas.toBlob(function(blob){
+    if(imgBlobUrl)URL.revokeObjectURL(imgBlobUrl);
+    imgBlobUrl=URL.createObjectURL(blob);
+    document.getElementById('imgPreview').src=imgBlobUrl;
+    document.getElementById('imgModal').classList.add('on');
+    window.__imgBlob=blob;
+  },'image/png');
+}
+function closeImgModal(){document.getElementById('imgModal').classList.remove('on');}
+async function shareImage(){
+  gtag('event','click_share_image',{'event_category':'Tool','event_label':'chronic-rx-calculator'});
+  const blob=window.__imgBlob; if(!blob)return;
+  const file=new File([blob],'員榮醫療_領藥時間表.png',{type:'image/png'});
+  if(navigator.canShare&&navigator.canShare({files:[file]})){
+    try{await navigator.share({files:[file],title:'員榮醫療｜領藥時間表'});}catch(e){}
+  } else { alert('您的瀏覽器不支援直接分享，請長按上方圖片儲存到相簿。'); }
 }
 
+/* ===== localStorage ===== */
 function saveStorage(){
   try{
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({
-      first: fmt(calMain.getDate()).ymd,
-      cycle: cycleDays,
-      pickupCount: pickupCount,
-      actualD2: calActual.getDate() ? fmt(calActual.getDate()).ymd : null
+    localStorage.setItem(STORAGE_KEY,JSON.stringify({
+      first:fmt(calMain.getDate()).ymd, cycle:cycleDays, pickupCount:pickupCount, log:pickupLog
     }));
+    document.getElementById('lastFilledDisplay').textContent=fmt(calMain.getDate()).full;
   }catch(e){}
 }
 function loadStorage(){
+  document.getElementById('todayDisplay').textContent=fmt(new Date()).full+'（'+WD[new Date().getDay()]+'）';
   try{
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if(!raw) return;
-    const data = JSON.parse(raw);
+    const raw=localStorage.getItem(STORAGE_KEY); if(!raw)return;
+    const data=JSON.parse(raw);
     calMain.setDate(data.first);
-    cycleDays = data.cycle;
-    document.getElementById('cycleVal').textContent = cycleDays;
-    const max = maxPickupCount();
-    pickupCount = Math.min(Math.max(data.pickupCount||2, MIN_PICKUP), max);
-    document.getElementById('pickupVal').textContent = pickupCount;
-    document.getElementById('pickupMaxNote').textContent = '依您的處方天數，可選擇 '+MIN_PICKUP+'~'+max+' 次領藥';
-    if(data.actualD2){
-      calActual.setDate(data.actualD2);
-      document.getElementById('advBody').hidden = false;
-      document.getElementById('advToggle').classList.add('open');
-    }
-    document.getElementById('restoreBar').hidden = false;
-    computeAll(calMain.getDate(), cycleDays, pickupCount, calActual.getDate());
-    document.getElementById('resultsWrap').hidden = false;
+    cycleDays=data.cycle; document.getElementById('cycleVal').textContent=cycleDays;
+    const max=maxPickupCount();
+    pickupCount=Math.min(Math.max(data.pickupCount||3,MIN_PICKUP),max);
+    document.getElementById('pickupVal').textContent=pickupCount;
+    document.getElementById('pickupMaxNote').textContent='處方箋上會註明，'+(max===4?'21~22天最多可領4次':'一般是2~3次');
+    pickupLog=data.log||{};
+    document.getElementById('lastFilledDisplay').textContent=fmt(parseYmd(data.first)).full;
+    document.getElementById('restoreBar').hidden=false;
+    compute();
+    document.getElementById('resultsWrap').hidden=false;
   }catch(e){}
 }
 function clearStorage(){
@@ -664,8 +1026,7 @@ function clearStorage(){
   gtag('event','click_clear_record',{'event_category':'Tool','event_label':'chronic-rx-calculator'});
   location.reload();
 }
-
-window.addEventListener('DOMContentLoaded', loadStorage);
+window.addEventListener('DOMContentLoaded',loadStorage);
 </script>
 </body>
 </html>
