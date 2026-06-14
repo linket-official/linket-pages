@@ -80,7 +80,7 @@ img{max-width:100%;display:block;}
 .hero::before{
   content:'';position:absolute;inset:0;
   background:url('/asmrt-puli/assets/hero-bg.jpg') center/cover no-repeat;
-  opacity:.8;z-index:0;pointer-events:none;
+  opacity:.55;z-index:0;pointer-events:none;
 }
 @media(max-width:700px){.hero{grid-template-columns:1fr;min-height:auto;}}
 
@@ -122,7 +122,7 @@ img{max-width:100%;display:block;}
   padding:4rem 3.5rem 4rem 2rem;
   position:relative;
   z-index:2;
-  background:rgba(238,244,246,.80);
+  background:rgba(238,244,246,.75);
 }
 @media(max-width:900px){.hero-text-col{padding:3rem 2rem;}}
 @media(max-width:700px){.hero-text-col{padding:2.5rem 1.6rem 3rem;order:2;text-align:center;align-items:center;}}
@@ -197,11 +197,11 @@ img{max-width:100%;display:block;}
 .h-btn-row .h-btn{flex:1;font-size:.75rem;padding:.8rem .6rem;}
 
 /* Hero 動效 */
-@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
 to{opacity:1;transform:none;}}
 @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
 /* dummy: */to{opacity:1;transform:none;}}
-.hero-left-col>*{opacity:0;animation:fadeUp .6s var(--ease-lux) forwards;}
+.hero-left-col>*{opacity:0;animation:fadeUp .75s cubic-bezier(0,.5,.3,1) forwards;}
 .hero-left-col>*:nth-child(1){animation-delay:.05s;}
 .hero-left-col>*:nth-child(2){animation-delay:.12s;}
 .hero-left-col>*:nth-child(3){animation-delay:.2s;}
@@ -209,7 +209,7 @@ to{opacity:1;transform:none;}}
 .hero-left-col>*:nth-child(5){animation-delay:.33s;}
 .hero-left-col>*:nth-child(6){animation-delay:.38s;}
 .hero-left-col>*:nth-child(7){animation-delay:.43s;}
-.hero-text-col>*{opacity:0;animation:fadeUp .6s var(--ease-lux) forwards;}
+.hero-text-col>*{opacity:0;animation:fadeUp .75s cubic-bezier(0,.5,.3,1) forwards;}
 .hero-text-col>*:nth-child(1){animation-delay:.1s;}
 .hero-text-col>*:nth-child(2){animation-delay:.18s;}
 .hero-text-col>*:nth-child(3){animation-delay:.25s;}
@@ -321,7 +321,7 @@ to{opacity:1;transform:none;}}
   font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;
   color:var(--teal);margin-bottom:.3rem;
 }
-.menu-name{font-family:'Noto Serif TC',serif;font-size:.95rem;font-weight:700;letter-spacing:.06em;color:#fff;line-height:1.4;}
+.menu-name{font-family:'Noto Serif TC',serif;font-size:1.2rem;font-weight:700;letter-spacing:.06em;color:#fff;line-height:1.4;}
 .menu-price{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--gold);letter-spacing:.02em;}
 .menu-fit{font-family:'Noto Serif TC',serif;font-size:.76rem;font-weight:300;line-height:1.8;color:rgba(255,255,255,.55);flex:1;}
 .menu-cta{
@@ -455,8 +455,9 @@ to{opacity:1;transform:none;}}
   display:flex;flex-direction:column;align-items:center;
   justify-content:center;text-align:center;
   padding:4rem 2.5rem 3rem;
-  background:rgba(248,245,240,.82);
+  background:rgba(255,255,255,.55);
   position:relative;z-index:2;
+  will-change:transform;
 }
 .hero-logo{width:clamp(180px,25vw,220px);height:auto;display:block;object-fit:contain;margin-bottom:1.4rem;filter:brightness(0) saturate(100%) invert(18%) sepia(50%) saturate(800%) hue-rotate(175deg) brightness(70%);}
 .hero-logo-ph{width:clamp(100px,16vw,140px);height:48px;border:1.5px solid var(--border);border-radius:4px;
@@ -473,11 +474,11 @@ to{opacity:1;transform:none;}}
   display:flex;align-items:center;justify-content:center;
   font-size:1.5rem;color:var(--ink-lt);margin-bottom:1.4rem;
 }
-.hero-owner-name{font-family:'Noto Serif TC',serif;font-size:clamp(1.5rem,4vw,2rem);font-weight:700;letter-spacing:.18em;color:var(--ink);line-height:1.1;}
+.hero-owner-name{font-family:'Noto Serif TC',serif;font-size:clamp(1.8rem,8vw,2.2rem);font-weight:700;letter-spacing:.18em;color:var(--ink);line-height:1.1;}
 .hero-owner-name-en{font-family:'DM Serif Display',serif;font-style:italic;font-size:clamp(.85rem,1.8vw,1rem);color:var(--ink-lt);letter-spacing:.08em;margin-top:.2rem;}
-.hero-owner-role{font-family:'Noto Serif TC',serif;font-size:.82rem;font-weight:400;letter-spacing:.14em;color:var(--teal);margin-top:.3rem;}
-.hero-owner-studio{font-family:'DM Sans',sans-serif;font-size:.72rem;font-weight:300;letter-spacing:.1em;color:var(--ink-lt);margin-top:.2rem;}
-.hero-owner-addr{font-family:'DM Sans',sans-serif;font-size:.68rem;font-weight:300;letter-spacing:.06em;color:var(--ink-lt);margin-top:.15rem;}
+.hero-owner-role{font-family:'Noto Serif TC',serif;font-size:1rem;font-weight:500;letter-spacing:.2em;color:var(--teal);margin-top:.8rem;}
+.hero-owner-studio{font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:500;letter-spacing:.4em;color:var(--ink-lt);margin-top:.8rem;}
+.hero-owner-addr{font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:500;letter-spacing:.4em;color:var(--ink-lt);margin-top:.2rem;}
 .hero-divider-short{width:30px;height:1.5px;background:var(--teal);border-radius:4px;margin:.8rem auto;}
 
 /* ── v4.0：Hero 右欄（icons+按鈕）── */
