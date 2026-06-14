@@ -1,0 +1,992 @@
+<!--
+  ASMRT 永康健康管理工作室｜陳名葳 主登場頁
+  slug: asmrt-puli
+  方案: LINKet 標準版（Tier 2）
+  asmrt-v3.0  2026-06-06  全新設計：奶白米色系 × 深藍綠 × DM Serif Display × Noto Serif TC
+  asmrt-v4.0  2026-06-14  Hero 左欄重構(LeonDay owner模式)；§3文案擴充三段式；§4菜單重排+樣式升級；§5 SOP文案更新；§6認證卡片重構；§7停車說明更新；Footer重構+完整免責聲明
+-->
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-29J2988Y8J');</script>
+<title>ASMRT 永康健康管理工作室｜陳名葳 健康管理師・埔里</title>
+<meta name="description" content="陳名葳健康管理師，透過科學且溫和的引導，幫助您重新覺察身體的使用模式。筋膜張力整合・動態肌能保養・科技體態管理。南投縣埔里鎮。">
+<meta property="og:title" content="ASMRT 永康健康管理工作室｜陳名葳 健康管理師">
+<meta property="og:description" content="身體會說話。只要給它溫和、適當的引導，每個人都能重新找到舒適的平衡感。">
+<meta property="og:image" content="https://linket.app/asmrt-puli/assets/og-image.jpg">
+<meta property="og:url" content="https://linket.app/asmrt-puli/">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" sizes="180x180" href="/asmrt-puli/assets/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/asmrt-puli/assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Noto+Serif+TC:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* ── Design Token ── */
+:root{
+  --warm:    #F8F5F0;   /* 奶白主底 */
+  --mist:    #EEF4F6;   /* 淡藍灰，服務區底 */
+  --dk:      #1B3A4B;   /* 深藍綠，深色區 */
+  --dk-deep: #112535;   /* 更深，Hero overlay */
+  --teal:    #2A7A8C;   /* 點綴主色 */
+  --teal-lt: #3D8FA0;   /* hover */
+  --gold:    #B8923A;   /* 認證金（稍暗，奶白底更搭）*/
+  --ink:     #1B3A4B;   /* 主文字 = 深藍綠 */
+  --ink-lt:  rgba(27,58,75,.5);
+  --border:  rgba(27,58,75,.12);
+  --white:   #ffffff;
+  --r:       8px;
+  --mw:      960px;
+  --ease:    cubic-bezier(.25,.1,.1,1);
+  --ease-lux:cubic-bezier(.16,1,.3,1);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Noto Serif TC',serif;
+  color:var(--ink);
+  background:var(--warm);
+  -webkit-font-smoothing:antialiased;
+}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+
+/* ── QR Modal ── */
+.qr-modal-overlay{position:fixed;inset:0;background:rgba(27,58,75,.6);z-index:9999;display:none;align-items:center;justify-content:center;backdrop-filter:blur(6px);}
+.qr-modal-overlay.active{display:flex;}
+.qr-modal{background:var(--warm);border-radius:16px;padding:2rem;text-align:center;max-width:280px;width:90%;}
+.qr-modal-title{font-family:'DM Sans',sans-serif;font-size:.65rem;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--teal);margin-bottom:1.2rem;}
+.qr-modal-code{display:flex;justify-content:center;margin-bottom:.8rem;}
+.qr-modal-url{font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.1em;color:var(--ink-lt);margin-bottom:.5rem;}
+.qr-modal-hint{font-size:.72rem;color:var(--ink-lt);margin-bottom:1.2rem;font-family:'Noto Serif TC',serif;font-weight:300;}
+.qr-modal-close{background:var(--dk);color:#fff;border:none;border-radius:100px;padding:.65rem 1.6rem;font-size:.78rem;letter-spacing:.1em;cursor:pointer;font-family:'DM Sans',sans-serif;}
+
+/* ── Hero（Magazine Split）── */
+.hero{
+  position:relative;
+  background:var(--warm);
+  min-height:100svh;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  overflow:hidden;
+}
+@media(max-width:700px){.hero{grid-template-columns:1fr;min-height:auto;}}
+
+/* 左欄：主理人照片 */
+.hero-img-col{
+  position:relative;
+  overflow:hidden;
+  min-height:100svh;
+}
+@media(max-width:700px){.hero-img-col{min-height:60svh;order:1;}}
+.hero-portrait{
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:top center;
+  display:block;
+}
+.hero-portrait-ph{
+  width:100%;height:100%;
+  background:var(--mist);
+  display:flex;align-items:center;justify-content:center;
+  font-size:4rem;color:var(--ink-lt);
+}
+/* Magazine Split Scrim：右側漸層融合 */
+.hero-img-col::after{
+  content:'';
+  position:absolute;
+  top:0;right:-1px;bottom:0;
+  width:55%;
+  background:linear-gradient(to right,transparent,var(--warm));
+  pointer-events:none;
+  z-index:1;
+}
+
+/* 右欄：文字 + CTA */
+.hero-text-col{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:4rem 3.5rem 4rem 2rem;
+  position:relative;
+  z-index:2;
+}
+@media(max-width:900px){.hero-text-col{padding:3rem 2rem;}}
+@media(max-width:700px){.hero-text-col{padding:2.5rem 1.6rem 3rem;order:2;text-align:center;align-items:center;}}
+
+/* Compliance banner */
+.compliance-banner{
+  display:inline-flex;align-items:center;gap:.4rem;
+  font-family:'DM Sans',sans-serif;
+  font-size:.62rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--teal);
+  border:1px solid var(--teal);
+  border-radius:100px;
+  padding:.3rem .9rem;
+  margin-bottom:1.8rem;
+  width:fit-content;
+}
+
+.hero-eyebrow{
+  font-family:'DM Sans',sans-serif;
+  font-size:.68rem;font-weight:400;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--ink-lt);
+  margin-bottom:.6rem;
+}
+.hero-name{
+  font-family:'Noto Serif TC',serif;
+  font-size:clamp(2.2rem,5vw,3rem);
+  font-weight:700;letter-spacing:.14em;
+  color:var(--ink);line-height:1.1;
+  margin-bottom:.4rem;
+}
+.hero-name-en{
+  font-family:'DM Serif Display',serif;
+  font-style:italic;
+  font-size:clamp(.9rem,2vw,1.1rem);
+  font-weight:400;letter-spacing:.08em;
+  color:var(--ink-lt);
+  margin-bottom:.4rem;
+}
+.hero-role{
+  font-family:'Noto Serif TC',serif;
+  font-size:.82rem;font-weight:400;letter-spacing:.14em;
+  color:var(--teal);
+  margin-bottom:.3rem;
+}
+.hero-studio{
+  font-family:'DM Sans',sans-serif;
+  font-size:.72rem;font-weight:300;letter-spacing:.1em;
+  color:var(--ink-lt);
+  margin-bottom:2rem;
+}
+
+/* Hero icons */
+.hero-icons{display:flex;gap:.6rem;margin-bottom:1.4rem;}
+.hero-icon-link{width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:transparent;border:none;border-radius:0;}
+.hero-icon-link img{width:32px;height:32px;display:block;}
+
+/* Hero buttons */
+.hero-btns{display:flex;flex-direction:column;gap:.6rem;max-width:280px;}
+.h-btn{
+  display:flex;align-items:center;justify-content:center;
+  width:100%;padding:.95rem 1.4rem;
+  font-family:'Noto Serif TC',sans-serif;
+  font-size:.88rem;font-weight:500;letter-spacing:.1em;
+  border-radius:100px;
+  transition:.3s var(--ease);
+}
+.h-btn.p1{background:var(--dk);color:#fff;border:2px solid var(--dk);}
+.h-btn.p1:hover{background:var(--teal);border-color:var(--teal);}
+.h-btn.p2{background:transparent;color:var(--ink);border:1.5px solid var(--border);}
+.h-btn.p2:hover{border-color:var(--dk);color:var(--dk);}
+.h-btn-row{display:flex;gap:.5rem;}
+.h-btn-row .h-btn{flex:1;font-size:.75rem;padding:.8rem .6rem;}
+
+/* Hero 動效 */
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+.hero-text-col>*{opacity:0;animation:fadeUp .6s var(--ease-lux) forwards;}
+.hero-text-col>*:nth-child(1){animation-delay:.1s;}
+.hero-text-col>*:nth-child(2){animation-delay:.18s;}
+.hero-text-col>*:nth-child(3){animation-delay:.25s;}
+.hero-text-col>*:nth-child(4){animation-delay:.3s;}
+.hero-text-col>*:nth-child(5){animation-delay:.35s;}
+.hero-text-col>*:nth-child(6){animation-delay:.4s;}
+.hero-text-col>*:nth-child(7){animation-delay:.5s;}
+.hero-text-col>*:nth-child(8){animation-delay:.6s;}
+
+/* ── §2 Quote（深色 Breathing Space）── */
+.quote-section{
+  background:var(--dk);
+  padding:clamp(4rem,10vw,7rem) 1.6rem;
+  text-align:center;
+}
+.quote-inner{max-width:680px;margin:0 auto;}
+.quote-eyebrow{
+  font-family:'DM Sans',sans-serif;
+  font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;
+  color:rgba(255,255,255,.4);margin-bottom:1.5rem;
+}
+.quote-text{
+  font-family:'DM Serif Display',serif;
+  font-style:italic;
+  font-size:clamp(1.2rem,3.5vw,2rem);
+  font-weight:400;line-height:1.7;letter-spacing:.03em;
+  color:rgba(255,255,255,.88);
+}
+.quote-text::before{
+  content:'"';
+  display:block;
+  font-size:3.5rem;line-height:.5;
+  color:var(--teal);
+  margin-bottom:.8rem;
+  font-family:'DM Serif Display',serif;
+}
+.quote-author{
+  font-family:'DM Sans',sans-serif;
+  font-size:.68rem;letter-spacing:.2em;
+  color:rgba(255,255,255,.35);
+  margin-top:1.5rem;text-transform:uppercase;
+}
+
+/* ── Reveal ── */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s var(--ease-lux),transform .65s var(--ease-lux);}
+.reveal.visible{opacity:1;transform:none;}
+.rd1{transition-delay:.08s;}.rd2{transition-delay:.16s;}.rd3{transition-delay:.24s;}.rd4{transition-delay:.32s;}
+
+/* ── Section 共用 ── */
+.sec-inner{max-width:var(--mw);margin:0 auto;padding:clamp(3.5rem,8vw,6rem) 1.6rem;}
+.sec-eyebrow{
+  font-family:'DM Sans',sans-serif;
+  font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--teal);margin-bottom:.6rem;
+}
+.sec-h2{
+  font-family:'Noto Serif TC',serif;
+  font-size:clamp(1.4rem,3.5vw,2rem);
+  font-weight:700;letter-spacing:.08em;
+  color:var(--ink);margin-bottom:.5rem;line-height:1.25;
+}
+.sec-sub{
+  font-family:'Noto Serif TC',serif;
+  font-size:.9rem;font-weight:300;line-height:2;
+  letter-spacing:.06em;color:var(--ink-lt);max-width:560px;
+}
+/* dark section overrides */
+.dk-sec{background:var(--dk);color:#fff;}
+.dk-sec .sec-eyebrow{color:rgba(42,122,140,.85);}
+.dk-sec .sec-h2{color:#fff;}
+.dk-sec .sec-sub{color:rgba(255,255,255,.6);}
+
+/* ── §3 關於 ASMRT ── */
+.about-sec{background:var(--warm);}
+.about-body{
+  font-family:'Noto Serif TC',serif;
+  font-size:.92rem;font-weight:300;line-height:2.2;
+  letter-spacing:.07em;color:var(--ink);
+  max-width:600px;margin:1.5rem 0 2.5rem;
+}
+.about-list{display:flex;flex-direction:column;gap:.5rem;margin-bottom:2.5rem;}
+.about-list-item{
+  display:flex;align-items:flex-start;gap:.8rem;
+  padding:.75rem 0;border-bottom:1px solid var(--border);
+}
+.about-list-item:last-child{border-bottom:none;}
+.about-dot{width:5px;height:5px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:.6rem;}
+.about-list-text{font-family:'Noto Serif TC',serif;font-size:.88rem;font-weight:400;letter-spacing:.06em;line-height:1.8;color:var(--ink);}
+/* 適合族群 */
+.crowd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+@media(max-width:640px){.crowd-grid{grid-template-columns:repeat(2,1fr);}}
+.crowd-card{
+  background:var(--dk);
+  border-radius:var(--r);
+  padding:1.5rem 1.1rem;
+}
+.crowd-title{font-family:'Noto Serif TC',serif;font-size:.84rem;font-weight:700;letter-spacing:.1em;color:#fff;margin-bottom:.5rem;}
+.crowd-desc{font-family:'Noto Serif TC',serif;font-size:.72rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.6);}
+
+/* ── §4 服務菜單 ── */
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:rgba(255,255,255,.08);border-radius:var(--r);overflow:hidden;margin-top:2.5rem;}
+@media(max-width:700px){.menu-grid{grid-template-columns:1fr;}}
+@media(min-width:701px) and (max-width:900px){.menu-grid{grid-template-columns:repeat(2,1fr);}}
+.menu-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);padding:2rem 1.6rem;display:flex;flex-direction:column;gap:.5rem;transition:.3s var(--ease);}
+.menu-card:hover{background:rgba(255,255,255,.13);}
+.menu-tag{
+  font-family:'DM Sans',sans-serif;
+  font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--teal);margin-bottom:.3rem;
+}
+.menu-name{font-family:'Noto Serif TC',serif;font-size:.95rem;font-weight:700;letter-spacing:.06em;color:#fff;line-height:1.4;}
+.menu-price{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--gold);letter-spacing:.02em;}
+.menu-fit{font-family:'Noto Serif TC',serif;font-size:.76rem;font-weight:300;line-height:1.8;color:rgba(255,255,255,.55);flex:1;}
+.menu-cta{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:.65rem 1.3rem;
+  background:transparent;color:rgba(255,255,255,.8);
+  border:1.5px solid rgba(255,255,255,.4);
+  border-radius:100px;
+  font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.1em;
+  transition:.25s;margin-top:.4rem;width:fit-content;
+}
+.menu-cta:hover{background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.7);}
+
+/* ── §5 SOP ── */
+.sop-sec{background:var(--warm);}
+.sop-container{margin-top:2rem;}
+.sop-wave-wrap{overflow:hidden;}
+.sop-wave{width:100%;height:64px;display:block;}
+.sop-steps{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  gap:1.5rem;margin-top:2rem;
+}
+@media(max-width:700px){.sop-steps{grid-template-columns:1fr;gap:1.8rem;}}
+.sop-step{position:relative;display:flex;flex-direction:column;gap:.4rem;}
+.sop-step::after{
+  content:'→';
+  position:absolute;right:-1.2rem;top:1.2rem;
+  font-size:1rem;color:var(--border);
+  font-family:'DM Sans',sans-serif;
+}
+.sop-step:last-child::after{display:none;}
+@media(max-width:700px){.sop-step::after{display:none;}}
+.sop-num{
+  font-family:'DM Serif Display',serif;
+  font-style:italic;font-size:2.8rem;
+  color:var(--teal);opacity:.18;
+  line-height:1;
+}
+.sop-title{
+  font-family:'Noto Serif TC',serif;
+  font-size:.86rem;font-weight:700;letter-spacing:.1em;
+  color:var(--ink);margin-top:-.3rem;
+}
+.sop-desc{
+  font-family:'Noto Serif TC',serif;
+  font-size:.74rem;font-weight:300;line-height:1.9;
+  letter-spacing:.04em;color:var(--ink-lt);
+}
+.sop-cta-wrap{text-align:center;margin-top:2rem;padding-bottom:2rem;}
+
+/* ── §6 主理人（深色）── */
+.owner-sec{background:var(--dk);}
+.owner-cert-grid{
+  display:flex;flex-direction:column;
+  border-top:1px solid rgba(255,255,255,.12);
+  max-width:640px;margin:2.5rem auto 0;
+}
+.owner-cert-item{
+  padding:1rem 0;
+  border-bottom:1px solid rgba(255,255,255,.12);
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+}
+.cert-img-wrap{width:80px;flex-shrink:0;}
+.cert-img{width:100%;height:48px;object-fit:contain;display:block;}
+.cert-img-ph{width:80px;height:48px;background:rgba(255,255,255,.06);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.cert-info{flex:1;}
+.cert-name{font-family:'Noto Serif TC',serif;font-size:.88rem;font-weight:500;letter-spacing:.08em;color:#fff;}
+.cert-org{font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:.15rem;}
+
+/* ── §7 交通 ── */
+.location-sec{background:var(--warm);}
+.location-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start;}
+@media(max-width:640px){.location-grid{grid-template-columns:1fr;}}
+.location-map{width:100%;aspect-ratio:4/3;border:none;border-radius:var(--r);display:block;background:var(--mist);}
+.location-info{display:flex;flex-direction:column;gap:1.1rem;}
+.loc-row{display:flex;gap:.8rem;align-items:flex-start;}
+.loc-svg{width:18px;height:18px;flex-shrink:0;margin-top:.15rem;opacity:.4;}
+.loc-label{font-family:'DM Sans',sans-serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:.15rem;}
+.loc-val{font-family:'Noto Serif TC',serif;font-size:.84rem;font-weight:400;letter-spacing:.06em;color:var(--ink);line-height:1.7;}
+.loc-val a{color:var(--teal);}
+.parking-box{background:var(--mist);border-radius:var(--r);padding:1.1rem 1.3rem;margin-top:.3rem;}
+.parking-label{font-family:'DM Sans',sans-serif;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:.5rem;}
+.parking-item{font-family:'Noto Serif TC',serif;font-size:.78rem;font-weight:300;line-height:1.9;color:var(--ink-lt);}
+.loc-btns{display:flex;flex-direction:column;gap:.6rem;margin-top:.8rem;}
+.loc-btn{
+  display:flex;align-items:center;justify-content:center;
+  padding:.85rem 1.4rem;border-radius:100px;
+  font-family:'Noto Serif TC',sans-serif;font-size:.86rem;font-weight:500;letter-spacing:.1em;
+  transition:.25s var(--ease);
+}
+.loc-btn.p1{background:var(--dk);color:#fff;border:2px solid var(--dk);}
+.loc-btn.p1:hover{background:var(--teal);border-color:var(--teal);}
+.loc-btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--border);}
+.loc-btn.ghost:hover{border-color:var(--dk);color:var(--dk);}
+
+/* ── §8 Footer ── */
+.footer{background:var(--dk-deep);padding:clamp(3rem,7vw,5rem) 1.6rem;text-align:center;}
+.footer-inner{max-width:var(--mw);margin:0 auto;}
+.footer-icons{display:flex;justify-content:center;gap:1rem;margin-bottom:1.5rem;}
+.footer-icon-link{width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:transparent;border:none;}
+.footer-icon-link img{width:32px;height:32px;display:block;}
+.footer-btns{display:flex;flex-direction:column;gap:.6rem;max-width:280px;margin:0 auto 2rem;}
+.f-btn{
+  display:flex;align-items:center;justify-content:center;
+  width:100%;padding:.95rem 1.4rem;
+  font-family:'Noto Serif TC',sans-serif;font-size:.88rem;font-weight:500;letter-spacing:.1em;
+  border-radius:100px;transition:.25s;
+}
+.f-btn.p1{background:#fff;color:var(--dk);border:2px solid #fff;}
+.f-btn.p1:hover{background:var(--warm);}
+.f-btn.ghost{background:transparent;color:rgba(255,255,255,.65);border:1.5px solid rgba(255,255,255,.22);}
+.f-btn.ghost:hover{border-color:rgba(255,255,255,.55);color:#fff;}
+.footer-divider{height:1px;background:rgba(255,255,255,.1);margin:1.5rem 0;}
+.disclaimer{max-width:580px;margin:0 auto 1.5rem;text-align:left;}
+.disclaimer-label{font-family:'DM Sans',sans-serif;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.6rem;}
+.disclaimer-text{font-family:'Noto Serif TC',serif;font-size:.74rem;font-weight:300;line-height:2;letter-spacing:.05em;color:rgba(255,255,255,.3);}
+.footer-copy{font-family:'DM Sans',sans-serif;font-size:.62rem;letter-spacing:.14em;color:rgba(255,255,255,.2);margin-bottom:.3rem;}
+.design-by{font-family:'DM Sans',sans-serif;font-size:.62rem;letter-spacing:.16em;color:rgba(255,255,255,.15);}
+.db-lin{color:rgba(42,122,140,.6);}.db-ket{color:rgba(255,255,255,.3);}
+
+/* Back to Top */
+.back-top{position:fixed;bottom:1.4rem;right:1.4rem;width:44px;height:44px;background:var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .3s;z-index:99;border:none;}
+.back-top.show{opacity:1;}
+.back-top svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2.5;}
+
+/* ── v4.0：Hero 左欄重構（LeonDay owner 模式）── */
+.hero{grid-template-columns:1fr 1fr;}
+@media(max-width:700px){.hero{grid-template-columns:1fr;}}
+.hero-img-col{display:none;}  /* Magazine Split 圖片欄隱藏 */
+.hero-left-col{
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:center;text-align:center;
+  padding:4rem 2.5rem 3rem;
+  background:var(--warm);
+  position:relative;z-index:2;
+}
+.hero-logo{width:clamp(100px,16vw,140px);height:auto;display:block;object-fit:contain;margin-bottom:1.4rem;}
+.hero-logo-ph{width:clamp(100px,16vw,140px);height:48px;border:1.5px solid var(--border);border-radius:4px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.2em;color:var(--ink-lt);margin-bottom:1.4rem;}
+.hero-portrait-new{
+  width:clamp(160px,45vw,220px);height:auto;
+  aspect-ratio:3/4;object-fit:cover;object-position:top center;
+  border-radius:4px;display:block;margin-bottom:1.4rem;
+}
+.hero-portrait-new-ph{
+  width:clamp(160px,45vw,220px);aspect-ratio:3/4;
+  background:var(--mist);border-radius:4px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;color:var(--ink-lt);margin-bottom:1.4rem;
+}
+.hero-owner-name{font-family:'Noto Serif TC',serif;font-size:clamp(1.5rem,4vw,2rem);font-weight:700;letter-spacing:.18em;color:var(--ink);line-height:1.1;}
+.hero-owner-name-en{font-family:'DM Serif Display',serif;font-style:italic;font-size:clamp(.85rem,1.8vw,1rem);color:var(--ink-lt);letter-spacing:.08em;margin-top:.2rem;}
+.hero-owner-role{font-family:'Noto Serif TC',serif;font-size:.82rem;font-weight:400;letter-spacing:.14em;color:var(--teal);margin-top:.3rem;}
+.hero-owner-studio{font-family:'DM Sans',sans-serif;font-size:.72rem;font-weight:300;letter-spacing:.1em;color:var(--ink-lt);margin-top:.2rem;}
+.hero-owner-addr{font-family:'DM Sans',sans-serif;font-size:.68rem;font-weight:300;letter-spacing:.06em;color:var(--ink-lt);margin-top:.15rem;}
+.hero-divider-short{width:30px;height:1.5px;background:var(--teal);border-radius:4px;margin:.8rem auto;}
+
+/* ── v4.0：Hero 右欄（icons+按鈕）── */
+.hero-text-col{
+  background:var(--mist);
+  display:flex;flex-direction:column;justify-content:center;
+  padding:4rem 2.5rem;
+}
+.hero-icons{flex-wrap:wrap;}
+@media(max-width:700px){
+  .hero-left-col,.hero-text-col{padding:2.4rem 1.4rem;}
+  .hero-text-col{text-align:center;align-items:center;}
+  .hero-icons{justify-content:center;}
+  .hero-btns{width:100%;}
+  .compliance-banner{margin:0 auto;}
+}
+
+/* ── v4.0：§3 About 三段式 ── */
+.about-qa-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:1.4rem 1.6rem;margin:1.2rem 0;}
+.about-qa-card .about-sub-h{margin-top:0;}
+.about-sec .sec-inner{background:var(--warm);}
+.about-sub-h{font-family:'Noto Serif TC',serif;font-size:1rem;font-weight:700;letter-spacing:.1em;color:var(--ink);margin:1.8rem 0 .6rem;padding-bottom:.4rem;border-bottom:1.5px solid var(--border);}
+.about-crowd-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem;margin-top:1rem;}
+@media(min-width:600px){.about-crowd-grid{grid-template-columns:repeat(3,1fr);}}
+.about-crowd-card{background:var(--dk);border-radius:6px;padding:1rem;text-align:center;}
+.about-crowd-title{font-family:'Noto Serif TC',serif;font-size:.84rem;font-weight:700;letter-spacing:.08em;color:#fff;}
+.about-crowd-desc{font-family:'Noto Serif TC',serif;font-size:.72rem;font-weight:300;line-height:1.8;color:rgba(255,255,255,.65);margin-top:.25rem;}
+
+/* ── v4.0：§4 菜單升級 ── */
+.menu-name-lg{font-size:1.1rem;} /* 60% 放大 */
+.menu-price-v4{font-family:'DM Serif Display',serif;font-size:1.15rem;color:var(--gold);letter-spacing:.02em;line-height:1.6;margin-bottom:.4rem;}
+.menu-fit-v4{font-family:'Noto Serif TC',serif;font-size:.86rem;font-weight:500;line-height:1.8;color:rgba(255,255,255,.6);flex:1;}
+
+/* ── v4.0：§5 SOP 字體放大 ── */
+.sop-title-v4{font-family:'Noto Serif TC',serif;font-size:1rem;font-weight:700;letter-spacing:.1em;color:var(--ink);}
+.sop-desc-v4{font-family:'Noto Serif TC',serif;font-size:.9rem;font-weight:500;line-height:1.9;letter-spacing:.04em;color:rgba(27,58,75,.75);}
+
+/* ── v4.0：§6 認證卡片重構 ── */
+.cert-grid-v4{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2rem;}
+@media(max-width:640px){.cert-grid-v4{grid-template-columns:1fr;}}
+.cert-card-v4{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;}
+.cert-card-v4 .cert-img-v4{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:rgba(255,255,255,.05);}
+.cert-card-v4.portrait .cert-img-v4{aspect-ratio:3/4;}
+.cert-card-v4 .cert-img-ph-v4{width:100%;aspect-ratio:4/3;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font-size:1.5rem;}
+.cert-card-v4.portrait .cert-img-ph-v4{aspect-ratio:3/4;}
+.cert-card-v4 .cert-label-v4{padding:.9rem;border-top:1px solid rgba(255,255,255,.08);}
+.cert-card-v4 .cert-name-v4{font-family:'Noto Serif TC',serif;font-size:.84rem;font-weight:500;letter-spacing:.08em;color:#fff;}
+.cert-card-v4 .cert-org-v4{font-family:'DM Sans',sans-serif;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:.15rem;}
+
+/* ── v4.0：§6 主理人 intro ── */
+.owner-intro{display:flex;flex-direction:column;align-items:center;gap:1rem;margin:1.5rem auto 2.5rem;max-width:500px;text-align:center;}
+.owner-intro-portrait{width:clamp(100px,25vw,140px);aspect-ratio:3/4;object-fit:cover;object-position:top center;border-radius:4px;display:block;}
+.owner-intro-portrait-ph{width:clamp(100px,25vw,140px);aspect-ratio:3/4;background:rgba(255,255,255,.1);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;}
+.owner-slogan{font-family:'DM Serif Display',serif;font-style:italic;font-size:clamp(1rem,2.5vw,1.2rem);color:rgba(255,255,255,.85);letter-spacing:.04em;line-height:1.8;}
+
+/* ── v4.0：§7 停車說明字體 ── */
+.parking-item-v4{font-family:'Noto Serif TC',serif;font-size:.84rem;font-weight:500;line-height:2;color:rgba(27,58,75,.8);}
+.parking-cat{font-family:'Noto Serif TC',serif;font-size:.84rem;font-weight:700;color:var(--teal);margin-top:.6rem;letter-spacing:.1em;}
+
+/* ── v4.0：Footer Logo + 按鈕調整 ── */
+.footer-logo{width:clamp(80px,15vw,110px);margin:0 auto 1.5rem;display:block;}
+.footer-logo-ph{width:clamp(80px,15vw,110px);height:36px;margin:0 auto 1.5rem;border:1px solid rgba(255,255,255,.2);
+  border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:.6rem;letter-spacing:.15em;color:rgba(255,255,255,.3);}
+.disclaimer-box{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:1.5rem;text-align:left;margin:0 auto 1.5rem;max-width:680px;}
+.disclaimer-box ol{padding-left:1.2em;}
+.disclaimer-box li{font-family:'Noto Serif TC',serif;font-size:.72rem;font-weight:300;line-height:2.1;letter-spacing:.04em;color:rgba(255,255,255,.35);margin-bottom:.4rem;}
+.disclaimer-box li b{font-weight:500;color:rgba(255,255,255,.45);}
+</style>
+</head>
+<body>
+
+<!-- QR Modal -->
+<div class="qr-modal-overlay" id="qrModal" onclick="closeQrModalOnBg(event)">
+  <div class="qr-modal">
+    <img src="/asmrt-puli/assets/asmrt-logo.svg" alt="ASMRT" style="width:80px;height:auto;display:block;margin:0 auto .8rem;" onerror="this.style.display='none'">
+    <div class="qr-modal-title">ASMRT 永康</div>
+    <div class="qr-modal-code"><div id="qrcode-canvas"></div></div>
+    <div class="qr-modal-url">linket.app/asmrt-puli</div>
+    <div class="qr-modal-hint">掃描 QR Code 開啟頁面</div>
+    <button class="qr-modal-close" onclick="closeQrModal()">關 閉</button>
+  </div>
+</div>
+
+<!-- ══ §1 HERO（Magazine Split）══ -->
+<section class="hero" id="top">
+
+  <!-- 左欄：LOGO + 照片 + 姓名資訊 -->
+  <div class="hero-left-col">
+    <img src="/asmrt-puli/assets/asmrt-logo.svg" alt="ASMRT" class="hero-logo"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="hero-logo-ph" style="display:none">ASMRT</div>
+    <img src="/asmrt-puli/assets/portrait.png" alt="陳名葳 健康管理師"
+         class="hero-portrait-new"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="hero-portrait-new-ph" style="display:none">portrait</div>
+    <div class="hero-divider-short"></div>
+    <div class="hero-owner-name">陳名葳</div>
+    <div class="hero-owner-name-en">Chen Ming-Wei</div>
+    <div class="hero-owner-role">健康管理師</div>
+    <div class="hero-owner-studio">ASMRT 永康健康管理工作室</div>
+    <div class="hero-owner-addr">南投縣埔里鎮光華街95巷15號</div>
+  </div>
+
+  <!-- 右欄：icons + 6顆按鈕 -->
+  <div class="hero-text-col">
+    <div class="hero-icons">
+      <a class="hero-icon-link" href="https://lin.ee/90FudDy" target="_blank" rel="noopener" aria-label="LINE"
+         onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'asmrt-puli'})">
+        <img src="/assets/line.svg" alt="LINE" onerror="this.style.visibility='hidden'">
+      </a>
+      <a class="hero-icon-link" href="tel:0917248336" aria-label="電話"
+         onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'asmrt-puli'})">
+        <img src="/assets/phone.svg" alt="電話" onerror="this.style.visibility='hidden'">
+      </a>
+      <a class="hero-icon-link" href="https://www.facebook.com/p/永康健康管理-100054565699224/" target="_blank" rel="noopener" aria-label="Facebook"
+         onclick="gtag('event','click_fb',{'event_category':'CTA','event_label':'asmrt-puli'})">
+        <img src="/assets/facebook.svg" alt="Facebook" onerror="this.style.visibility='hidden'">
+      </a>
+      <a class="hero-icon-link" href="mailto:will35453545@gmail.com" aria-label="Email"
+         onclick="gtag('event','click_mail',{'event_category':'CTA','event_label':'asmrt-puli'})">
+        <img src="/assets/mail.svg" alt="Email" onerror="this.style.visibility='hidden'">
+      </a>
+      <a class="hero-icon-link" href="https://maps.app.goo.gl/3KuDu6DxSAcuWSyN8" target="_blank" rel="noopener" aria-label="地圖"
+         onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'asmrt-puli'})">
+        <img src="/assets/map.svg" alt="地圖" onerror="this.style.visibility='hidden'">
+      </a>
+    </div>
+    <div class="hero-btns">
+      <a class="h-btn p1" href="tel:0917248336"
+         onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'asmrt-puli'})">
+        電話聯繫｜Contact Us
+      </a>
+      <a class="h-btn p2" href="https://lin.ee/90FudDy" target="_blank" rel="noopener"
+         onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'asmrt-puli'})">
+        LINE 預約｜LINE @
+      </a>
+      <a class="h-btn p2" href="#about"
+         onclick="gtag('event','click_about',{'event_category':'CTA','event_label':'asmrt-puli'})">
+        關於 ASMRT｜About ASMRT
+      </a>
+      <a class="h-btn p2" href="#services"
+         onclick="gtag('event','click_menu',{'event_category':'CTA','event_label':'asmrt-puli'})">
+        服務項目與流程｜Service
+      </a>
+      <a class="h-btn p2" href="#about-me"
+         onclick="gtag('event','click_aboutme',{'event_category':'CTA','event_label':'asmrt-puli'})">
+        關於健康管理師｜About Me
+      </a>
+      <a class="h-btn p2" href="#location"
+         onclick="gtag('event','click_location',{'event_category':'CTA','event_label':'asmrt-puli'})">
+        工作室據點｜Visit Us
+      </a>
+      <div class="h-btn-row">
+        <button class="h-btn p2" onclick="openQrModal()">QR Code</button>
+        <button class="h-btn p2" id="shareBtn" style="display:none;" onclick="shareThis()">Share</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ §2 Quote（Breathing Space）══ -->
+<section class="quote-section">
+  <div class="quote-inner reveal">
+    <div class="quote-eyebrow">ASMRT Philosophy</div>
+    <div class="quote-text">
+      身體會說話。只要給它溫和、適當的引導，每個人都能重新找到舒適的平衡感。
+    </div>
+    <div class="quote-author">陳名葳・健康管理師</div>
+  </div>
+</section>
+
+<!-- ══ §3 關於 ASMRT ══ -->
+<section class="about-sec" id="about">
+  <div class="sec-inner">
+    <div class="reveal">
+      <div class="sec-eyebrow">About ASMRT</div>
+      <h2 class="sec-h2">關於 ASMRT 健康管理</h2>
+    </div>
+    <p class="about-body reveal rd1">
+      ASMRT 就像替身體做一場「動態保養」，不只是舒緩，而是幫你學會如何用更健康的方式生活。
+    </p>
+
+    <div class="about-qa-card reveal rd1">
+      <div class="about-sub-h">什麼是 ASMRT？</div>
+      <p class="about-body" style="margin-top:0;">
+        我們每天都要面對長時間的坐姿、手機使用、搬抬動作，身體難免會累積一些緊繃與負擔。<br>
+        ASMRT（動態核心舒緩）是一種結合動作與放鬆的健康管理方式。透過專業動作檢視與動態引導找回核心能量，協助你重新覺察身體的使用模式，讓動作更順暢、更省力。
+      </p>
+    </div>
+
+    <div class="about-qa-card reveal rd2">
+      <div class="about-sub-h">為什麼需要 ASMRT？</div>
+      <div class="about-list">
+        <div class="about-list-item"><div class="about-dot"></div><div class="about-list-text">如果你長時間久坐辦公、滑手機，常感到身體緊繃</div></div>
+        <div class="about-list-item"><div class="about-dot"></div><div class="about-list-text">如果你希望在日常活動或運動後，保持身體靈活</div></div>
+        <div class="about-list-item"><div class="about-dot"></div><div class="about-list-text">如果你想要建立更長久、自然的身體使用方式</div></div>
+      </div>
+      <p class="about-body" style="margin-top:.8rem;">
+        ASMRT 就是一種日常保養，幫助你更輕鬆面對生活中的各種挑戰。
+      </p>
+    </div>
+
+    <div class="about-sub-h reveal rd3">誰適合體驗 ASMRT？</div>
+    <div class="about-crowd-grid reveal rd3">
+      <div class="about-crowd-card"><div class="about-crowd-title">上班族・學生</div><div class="about-crowd-desc">因長時間坐姿或站立，想要讓身體更放鬆</div></div>
+      <div class="about-crowd-card"><div class="about-crowd-title">家庭主婦</div><div class="about-crowd-desc">在日常家務與搬抬後，想要舒緩身體負擔</div></div>
+      <div class="about-crowd-card"><div class="about-crowd-title">運動愛好者</div><div class="about-crowd-desc">希望在訓練後維持良好狀態</div></div>
+      <div class="about-crowd-card"><div class="about-crowd-title">銀髮族</div><div class="about-crowd-desc">想要透過安全方式維持活動力</div></div>
+      <div class="about-crowd-card" style="grid-column:span 2;"><div class="about-crowd-title">任何想「不再緊繃、動得更自然」的人</div></div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:.6rem;max-width:320px;margin:2.5rem auto 0;" class="reveal rd4">
+      <a class="loc-btn p1" href="https://lin.ee/90FudDy" target="_blank" rel="noopener"
+         onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'asmrt-puli'})">LINE 預約｜LINE @</a>
+      <a class="loc-btn ghost" href="#services"
+         onclick="gtag('event','click_menu',{'event_category':'CTA','event_label':'asmrt-puli'})">服務項目與流程｜Service</a>
+      <a class="loc-btn ghost" href="#location"
+         onclick="gtag('event','click_location',{'event_category':'CTA','event_label':'asmrt-puli'})">工作室據點｜Visit Us</a>
+    </div>
+  </div>
+</section>
+
+<section class="dk-sec" id="services">
+  <div class="sec-inner">
+    <div class="reveal">
+      <div class="sec-eyebrow">Service Menu</div>
+      <h2 class="sec-h2">ASMRT 服務項目</h2>
+    </div>
+    <div class="menu-grid reveal rd1">
+
+      <div class="menu-card">
+        <div class="menu-name">ASMRT 動態肌能保養</div>
+        <div class="menu-price-v4">$900｜40分鐘</div>
+        <div class="menu-fit-v4">適合對象：久坐族、姿勢緊繃、身體僵硬、想提升日常靈活度者</div>
+        <a class="menu-cta" href="https://lin.ee/90FudDy" target="_blank" rel="noopener"
+           onclick="gtag('event','click_service',{'event_category':'CTA','event_label':'asmrt-puli'})">預約此項目 →</a>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-name menu-name-lg">IBMA 筋膜張力整合</div>
+        <div class="menu-price-v4">$900｜40分鐘<br>$1,800｜90分鐘</div>
+        <div class="menu-fit-v4">適合對象：想全身放鬆、舒緩緊繃者</div>
+        <a class="menu-cta" href="https://lin.ee/90FudDy" target="_blank" rel="noopener"
+           onclick="gtag('event','click_service',{'event_category':'CTA','event_label':'asmrt-puli'})">預約此項目 →</a>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-name">深層筋膜舒緩＋運動保養</div>
+        <div class="menu-price-v4">$900｜40分鐘<br>$1,800｜90分鐘</div>
+        <div class="menu-fit-v4">適合對象：運動後保養、肌肉緊繃者</div>
+        <a class="menu-cta" href="https://lin.ee/90FudDy" target="_blank" rel="noopener"
+           onclick="gtag('event','click_service',{'event_category':'CTA','event_label':'asmrt-puli'})">預約此項目 →</a>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-name">核心舒展＋筋膜張力整合</div>
+        <div class="menu-price-v4">$990｜50分鐘<br>$1,900｜100分鐘</div>
+        <div class="menu-fit-v4">適合對象：想要一次完成全身保養與深層放鬆者</div>
+        <a class="menu-cta" href="https://lin.ee/90FudDy" target="_blank" rel="noopener"
+           onclick="gtag('event','click_service',{'event_category':'CTA','event_label':'asmrt-puli'})">預約此項目 →</a>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-name">義式科技體態管理</div>
+        <div class="menu-price-v4">$1,500｜30分鐘<br>$2,300｜50分鐘</div>
+        <div class="menu-fit-v4">適合對象：對體態或身體舒適度不滿意者</div>
+        <a class="menu-cta" href="https://lin.ee/90FudDy" target="_blank" rel="noopener"
+           onclick="gtag('event','click_service',{'event_category':'CTA','event_label':'asmrt-puli'})">預約此項目 →</a>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-name">DFM 手法＋科技調理</div>
+        <div class="menu-price-v4">$990｜30分鐘<br>$1,800｜50分鐘</div>
+        <div class="menu-fit-v4">適合對象：局部緊繃程度較高者</div>
+        <a class="menu-cta" href="https://lin.ee/90FudDy" target="_blank" rel="noopener"
+           onclick="gtag('event','click_service',{'event_category':'CTA','event_label':'asmrt-puli'})">預約此項目 →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="sop-sec" id="sop">
+  <div class="sec-inner">
+    <div class="reveal">
+      <div class="sec-eyebrow">How It Works</div>
+      <h2 class="sec-h2">初次服務流程</h2>
+    </div>
+    <div class="sop-container reveal rd1">
+      <div class="sop-wave-wrap">
+        <svg class="sop-wave" viewBox="0 0 1000 64" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,32 C200,64 400,0 500,32 C600,64 800,0 1000,32" fill="none" stroke="#2A7A8C" stroke-width="1" stroke-dasharray="5,4" opacity=".35"/>
+          <circle cx="0"    cy="32" r="4" fill="#2A7A8C" opacity=".5"/>
+          <circle cx="250"  cy="46" r="4" fill="#2A7A8C" opacity=".5"/>
+          <circle cx="500"  cy="32" r="4" fill="#2A7A8C" opacity=".5"/>
+          <circle cx="750"  cy="18" r="4" fill="#2A7A8C" opacity=".5"/>
+          <circle cx="1000" cy="32" r="4" fill="#2A7A8C" opacity=".5"/>
+        </svg>
+      </div>
+            <div class="sop-steps">
+        <div class="sop-step">
+          <div class="sop-num">01</div>
+          <div class="sop-title-v4">狀態了解<br>與初步檢視</div>
+          <div class="sop-desc-v4">管理師將透過問卷了解您的生活習慣、姿勢習慣與身體緊繃原因，初步建立個人檔案。</div>
+        </div>
+        <div class="sop-step">
+          <div class="sop-num">02</div>
+          <div class="sop-title-v4">足底壓力<br>分佈觀察</div>
+          <div class="sop-desc-v4">利用足底壓力儀，觀察站姿的重心分佈與足弓支撐面積，了解身體重心是否偏移。</div>
+        </div>
+        <div class="sop-step">
+          <div class="sop-num">03</div>
+          <div class="sop-title-v4">體態平衡<br>觀察</div>
+          <div class="sop-desc-v4">透過簡單的動作與拍照比對，檢視體態平衡、身體排列與動作順暢度。</div>
+        </div>
+        <div class="sop-step">
+          <div class="sop-num">04</div>
+          <div class="sop-title-v4">客製化<br>體驗保養</div>
+          <div class="sop-desc-v4">根據初步檢視的結果，安排合適的保養部位與內容，讓第一次體驗就能針對緊繃處進行放鬆與調整。</div>
+        </div>
+        <div class="sop-step">
+          <div class="sop-num">05</div>
+          <div class="sop-title-v4">課後自我<br>保養建議</div>
+          <div class="sop-desc-v4">保養結束後，管理師將針對您的姿勢與生活習慣提供日常指導，幫助維持良好的身體狀態。</div>
+        </div>
+      </div>
+      
+      </div>
+    </div>
+    <div class="sop-cta-wrap reveal rd2">
+      <a class="loc-btn p1" style="max-width:280px;margin:0 auto;display:flex;align-items:center;justify-content:center;" href="https://lin.ee/90FudDy" target="_blank" rel="noopener"
+         onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'asmrt-puli'})">
+        LINE 預約初次服務
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ §6 主理人介紹（深色）══ -->
+<section class="dk-sec" id="about-me">
+  <div class="sec-inner">
+    <div class="reveal" style="text-align:center;margin-bottom:1rem;">
+      <div class="sec-eyebrow">Health Manager</div>
+      <h2 class="sec-h2">健康管理師｜陳名葳</h2>
+    </div>
+
+    <div class="owner-intro reveal rd1">
+      <img src="/asmrt-puli/assets/portrait.png" alt="陳名葳" class="owner-intro-portrait"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="owner-intro-portrait-ph" style="display:none">portrait</div>
+      <div class="owner-slogan">用溫和、科學的方法，<br>陪你重新認識自己的身體。</div>
+    </div>
+
+    <div class="cert-grid-v4 reveal rd2">
+
+      <div class="cert-card-v4">
+        <img src="/asmrt-puli/assets/cert-asmrt.jpg" alt="ASMRT 高階技術認證" class="cert-img-v4"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="cert-img-ph-v4" style="display:none">cert</div>
+        <div class="cert-label-v4">
+          <div class="cert-name-v4">ASMRT 高階技術認證</div>
+          <div class="cert-org-v4">ASMRT</div>
+        </div>
+      </div>
+
+      <div class="cert-card-v4">
+        <img src="/asmrt-puli/assets/cert-metagenics.jpg" alt="Metagenics 培訓認證" class="cert-img-v4"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="cert-img-ph-v4" style="display:none">cert</div>
+        <div class="cert-label-v4">
+          <div class="cert-name-v4">Metagenics 培訓認證</div>
+          <div class="cert-org-v4">Metagenics</div>
+        </div>
+      </div>
+
+      <div class="cert-card-v4">
+        <img src="/asmrt-puli/assets/cert-tw.jpg" alt="健康管理師乙級" class="cert-img-v4"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="cert-img-ph-v4" style="display:none">cert</div>
+        <div class="cert-label-v4">
+          <div class="cert-name-v4">中華民國 健康管理師乙級</div>
+          <div class="cert-org-v4">中華民國</div>
+        </div>
+      </div>
+
+      <div class="cert-card-v4 portrait">
+        <img src="/asmrt-puli/assets/cert-fisiowarm.jpg" alt="Fisiowarm 認證" class="cert-img-v4"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="cert-img-ph-v4" style="display:none">cert</div>
+        <div class="cert-label-v4">
+          <div class="cert-name-v4">Fisiowarm 認證</div>
+          <div class="cert-org-v4">Fisiowarm</div>
+        </div>
+      </div>
+
+      <div class="cert-card-v4 portrait">
+        <img src="/asmrt-puli/assets/cert-ibma.jpg" alt="IBMA 個人高級伸展教練" class="cert-img-v4"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="cert-img-ph-v4" style="display:none">cert</div>
+        <div class="cert-label-v4">
+          <div class="cert-name-v4">IBMA 個人高級伸展教練</div>
+          <div class="cert-org-v4">IBMA</div>
+        </div>
+      </div>
+
+      <div class="cert-card-v4 portrait">
+        <img src="/asmrt-puli/assets/cert-iha.jpg" alt="IHA 國際運動按摩技術員" class="cert-img-v4"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="cert-img-ph-v4" style="display:none">cert</div>
+        <div class="cert-label-v4">
+          <div class="cert-name-v4">IHA 國際運動按摩技術員</div>
+          <div class="cert-org-v4">IHA</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="location-sec" id="location">
+  <div class="sec-inner">
+    <div class="reveal" style="margin-bottom:2rem;">
+      <div class="sec-eyebrow">Location</div>
+      <h2 class="sec-h2">工作室據點</h2>
+    </div>
+    <div class="location-grid">
+      <div class="reveal rd1">
+        <iframe class="location-map"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3646.013563887453!2d120.96602214232787!3d23.959960500000008!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3468d9811c0fba6f%3A0xc81155bb64ed3636!2zQVNNUlTmsLjlurflgaXlurfnrqHnkIblt6XkvZzlrqQ!5e0!3m2!1szh-TW!2stw!4v1781080185329!5m2!1szh-TW!2stw"
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="ASMRT 永康">
+        </iframe>
+      </div>
+      <div class="location-info reveal rd2">
+        <div class="loc-row">
+          <svg class="loc-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div><div class="loc-label">地址</div><div class="loc-val">南投縣埔里鎮光華街95巷15號</div></div>
+        </div>
+        <div class="loc-row">
+          <svg class="loc-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          <div><div class="loc-label">電話</div><div class="loc-val"><a href="tel:0917248336" onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'asmrt-puli'})">0917-248336</a></div></div>
+        </div>
+        <div class="parking-box">
+          <div class="parking-label">停車說明</div>
+          <div class="parking-cat">摩托車｜</div>
+          <div class="parking-item-v4">・可直接停放在工作室門口。</div>
+          <div class="parking-cat">汽車｜</div>
+          <div class="parking-item-v4">・工作室門口可停車</div>
+          <div class="parking-item-v4">・或導航至埔里鎮南安路140號</div>
+          <div class="parking-item-v4">・南安路上有公共路邊停車格</div>
+          <div class="parking-item-v4">・步行約4-6分鐘抵達工作室</div>
+        </div>
+        <div class="loc-btns">
+          <a class="loc-btn p1" href="https://maps.app.goo.gl/3KuDu6DxSAcuWSyN8" target="_blank" rel="noopener"
+             onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'asmrt-puli'})">工作室導航</a>
+          <a class="loc-btn ghost" href="tel:0917248336"
+             onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'asmrt-puli'})">問路專線 0917-248336</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ §8 Footer ══ -->
+<footer class="footer" id="footer">
+  <div class="footer-inner">
+    <img src="/asmrt-puli/assets/asmrt-logo.svg" alt="ASMRT" class="footer-logo"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="footer-logo-ph" style="display:none">ASMRT</div>
+    <div class="footer-icons">
+      <a class="footer-icon-link" href="https://lin.ee/90FudDy" target="_blank" rel="noopener" aria-label="LINE"
+         onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'asmrt-puli'})">
+        <img src="/assets/line.svg" alt="LINE" onerror="this.style.visibility='hidden'">
+      </a>
+      <a class="footer-icon-link" href="tel:0917248336" aria-label="電話"
+         onclick="gtag('event','click_tel_footer',{'event_category':'CTA','event_label':'asmrt-puli'})">
+        <img src="/assets/phone.svg" alt="電話" onerror="this.style.visibility='hidden'">
+      </a>
+      <a class="footer-icon-link" href="https://www.facebook.com/p/永康健康管理-100054565699224/" target="_blank" rel="noopener" aria-label="Facebook"
+         onclick="gtag('event','click_fb',{'event_category':'CTA','event_label':'asmrt-puli'})">
+        <img src="/assets/facebook.svg" alt="Facebook" onerror="this.style.visibility='hidden'">
+      </a>
+    </div>
+    <div class="footer-btns">
+      <a class="f-btn p1" href="https://lin.ee/90FudDy" target="_blank" rel="noopener"
+         onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'asmrt-puli'})">LINE 預約諮詢｜LINE @</a>
+      <a class="f-btn ghost" href="#location"
+         onclick="gtag('event','click_location',{'event_category':'CTA','event_label':'asmrt-puli'})">工作室據點｜Google Map</a>
+      <a class="f-btn ghost" href="#top">Back to Top</a>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="disclaimer-box">
+      <div class="disclaimer-label" style="margin-bottom:.8rem;">【網站服務聲明與免責說明】</div>
+      <ol>
+        <li>本網站及「ASMRT 永康健康管理工作室」所提供之所有服務項目（包含 ASMRT 動態核心舒緩、筋膜放鬆、肌能引導、儀器輔助調理等），均屬<b>「一般生活健康管理」與「民俗調理」</b>範疇。旨在協助顧客紓解筋骨、消除疲勞、維持體態平衡及提升日常活動品質，不具醫療性質。</li>
+        <li>本工作室非《醫療法》所定義之醫療機構，健康管理師亦非執行醫療、護理或物理治療業務。本服務絕不涉及任何醫療診斷、疾病治療、病理復健、處方開立或改變人體生理結構等醫療行為。</li>
+        <li>網站內文案提及之「檢視」、「觀察」、「引導」及「調整」等詞彙，僅指針對顧客當下之動作模式、體態表現及肌肉緊繃度進行一般性了解，並給予日常健康保養建議，不具備任何醫療或物理治療之判斷依據效力。</li>
+        <li>網站及社群平台中顧客之評價、心得與回饋，皆為顧客個人主觀之感官舒適度體驗。由於每位客人的體質、生活習慣及當下身體狀況不同，實際體驗感受因人而異，不代表對所有人皆有相同之保養效果，亦不作為任何保養效果之保證。</li>
+        <li>若您有急性疼痛、明顯外傷、發炎、確診疾病或正在接受醫療療程者，請務必優先尋求專業醫師或物理治療師之診斷與治療。本工作室保留依據顧客健康狀況，決定是否提供保養服務之最終權利。</li>
+      </ol>
+    </div>
+    <div class="footer-divider"></div>
+    <p class="footer-copy">© 2026 ASMRT 永康健康管理工作室・陳名葳</p>
+    <a class="design-by" href="https://linket.app" target="_blank">Design by <span class="db-lin">LIN</span><span class="db-ket">Ket</span></a>
+  </div>
+</footer>
+
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+// ── Reveal ──
+(function(){const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');});},{threshold:.08});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));})();
+
+// ── Back to Top ──
+(function(){const b=document.getElementById('backTop');if(b)window.addEventListener('scroll',()=>b.classList.toggle('show',scrollY>300));})();
+
+// ── Share ──
+(function(){const b=document.getElementById('shareBtn');if(b&&navigator.share)b.style.display='';})();
+function shareThis(){navigator.share({title:'ASMRT 永康健康管理工作室',text:'陳名葳 健康管理師・南投縣埔里鎮',url:'https://linket.app/asmrt-puli/'}).then(()=>gtag('event','click_share',{'event_category':'CTA','event_label':'asmrt-puli'})).catch(()=>{});}
+
+// ── QR Modal ──
+let qrLoaded=false,qrInstance=null;
+function loadQrLib(cb){if(qrLoaded){cb();return;}const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';s.onload=()=>{qrLoaded=true;cb();};document.head.appendChild(s);}
+function renderQrCode(){const el=document.getElementById('qrcode-canvas');if(!el||qrInstance)return;qrInstance=new QRCode(el,{text:'https://linket.app/asmrt-puli/',width:180,height:180,colorDark:'#1B3A4B',colorLight:'#F8F5F0',correctLevel:QRCode.CorrectLevel.M});}
+function openQrModal(){const m=document.getElementById('qrModal');if(!m)return;m.classList.add('active');document.body.style.overflow='hidden';loadQrLib(renderQrCode);gtag('event','click_qr_modal',{'event_category':'CTA','event_label':'asmrt-puli'});}
+function closeQrModal(){const m=document.getElementById('qrModal');if(!m)return;m.classList.remove('active');document.body.style.overflow='';}
+function closeQrModalOnBg(e){const m=document.getElementById('qrModal');if(m&&e.target===m)closeQrModal();}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeQrModal();});
+</script>
+</body>
+</html>
