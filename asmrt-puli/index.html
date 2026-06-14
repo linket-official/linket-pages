@@ -3,7 +3,9 @@
   slug: asmrt-puli
   方案: LINKet 標準版（Tier 2）
   asmrt-v3.0  2026-06-06  全新設計：奶白米色系 × 深藍綠 × DM Serif Display × Noto Serif TC
-  asmrt-v4.0  2026-06-14  Hero 左欄重構(LeonDay owner模式)；§3文案擴充三段式；§4菜單重排+樣式升級；§5 SOP文案更新；§6認證卡片重構；§7停車說明更新；Footer重構+完整免責聲明
+  asmrt-v4.0  2026-06-14
+  asmrt-v4.1~4.2  2026-06-14  各項修正
+  asmrt-v4.3  2026-06-14  Hero背景方案A(兩欄透明)；進場動畫全面補強(hero-left-col/menu-card/sop-step/cert/flow-item/crowd-card/footer)  Hero 左欄重構(LeonDay owner模式)；§3文案擴充三段式；§4菜單重排+樣式升級；§5 SOP文案更新；§6認證卡片重構；§7停車說明更新；Footer重構+完整免責聲明
 -->
 <!DOCTYPE html>
 <html lang="zh-Hant">
@@ -120,7 +122,7 @@ img{max-width:100%;display:block;}
   padding:4rem 3.5rem 4rem 2rem;
   position:relative;
   z-index:2;
-  background:transparent;
+  background:rgba(238,244,246,.80);
 }
 @media(max-width:900px){.hero-text-col{padding:3rem 2rem;}}
 @media(max-width:700px){.hero-text-col{padding:2.5rem 1.6rem 3rem;order:2;text-align:center;align-items:center;}}
@@ -195,7 +197,18 @@ img{max-width:100%;display:block;}
 .h-btn-row .h-btn{flex:1;font-size:.75rem;padding:.8rem .6rem;}
 
 /* Hero 動效 */
-@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}
+to{opacity:1;transform:none;}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+/* dummy: */to{opacity:1;transform:none;}}
+.hero-left-col>*{opacity:0;animation:fadeUp .6s var(--ease-lux) forwards;}
+.hero-left-col>*:nth-child(1){animation-delay:.05s;}
+.hero-left-col>*:nth-child(2){animation-delay:.12s;}
+.hero-left-col>*:nth-child(3){animation-delay:.2s;}
+.hero-left-col>*:nth-child(4){animation-delay:.27s;}
+.hero-left-col>*:nth-child(5){animation-delay:.33s;}
+.hero-left-col>*:nth-child(6){animation-delay:.38s;}
+.hero-left-col>*:nth-child(7){animation-delay:.43s;}
 .hero-text-col>*{opacity:0;animation:fadeUp .6s var(--ease-lux) forwards;}
 .hero-text-col>*:nth-child(1){animation-delay:.1s;}
 .hero-text-col>*:nth-child(2){animation-delay:.18s;}
@@ -244,6 +257,7 @@ img{max-width:100%;display:block;}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .65s var(--ease-lux),transform .65s var(--ease-lux);}
 .reveal.visible{opacity:1;transform:none;}
 .rd1{transition-delay:.08s;}.rd2{transition-delay:.16s;}.rd3{transition-delay:.24s;}.rd4{transition-delay:.32s;}
+.rd5{transition-delay:.40s;}
 
 /* ── Section 共用 ── */
 .sec-inner{max-width:var(--mw);margin:0 auto;padding:clamp(3.5rem,8vw,6rem) 1.6rem;}
@@ -441,7 +455,7 @@ img{max-width:100%;display:block;}
   display:flex;flex-direction:column;align-items:center;
   justify-content:center;text-align:center;
   padding:4rem 2.5rem 3rem;
-  background:var(--warm);
+  background:rgba(248,245,240,.82);
   position:relative;z-index:2;
 }
 .hero-logo{width:clamp(180px,25vw,220px);height:auto;display:block;object-fit:contain;margin-bottom:1.4rem;filter:brightness(0) saturate(100%) invert(18%) sepia(50%) saturate(800%) hue-rotate(175deg) brightness(70%);}
@@ -467,11 +481,6 @@ img{max-width:100%;display:block;}
 .hero-divider-short{width:30px;height:1.5px;background:var(--teal);border-radius:4px;margin:.8rem auto;}
 
 /* ── v4.0：Hero 右欄（icons+按鈕）── */
-.hero-text-col{
-  background:var(--mist);
-  display:flex;flex-direction:column;justify-content:center;
-  padding:4rem 2.5rem;
-}
 .hero-icons{flex-wrap:wrap;}
 @media(max-width:700px){
   .hero-left-col,.hero-text-col{padding:2.4rem 1.4rem;}
@@ -667,10 +676,10 @@ img{max-width:100%;display:block;}
 
     <div class="about-sub-h reveal rd3">誰適合體驗 ASMRT？</div>
     <div class="about-crowd-grid reveal rd3">
-      <div class="about-crowd-card"><div class="about-crowd-title">上班族・學生</div><div class="about-crowd-desc">因長時間坐姿或站立，想要讓身體更放鬆</div></div>
-      <div class="about-crowd-card"><div class="about-crowd-title">家庭主婦</div><div class="about-crowd-desc">在日常家務與搬抬後，想要舒緩身體負擔</div></div>
-      <div class="about-crowd-card"><div class="about-crowd-title">運動愛好者</div><div class="about-crowd-desc">希望在訓練後維持良好狀態</div></div>
-      <div class="about-crowd-card"><div class="about-crowd-title">銀髮族</div><div class="about-crowd-desc">想要透過安全方式維持活動力</div></div>
+      <div class="about-crowd-card reveal rd1"><div class="about-crowd-title">上班族・學生</div><div class="about-crowd-desc">因長時間坐姿或站立，想要讓身體更放鬆</div></div>
+      <div class="about-crowd-card reveal rd2"><div class="about-crowd-title">家庭主婦</div><div class="about-crowd-desc">在日常家務與搬抬後，想要舒緩身體負擔</div></div>
+      <div class="about-crowd-card reveal rd3"><div class="about-crowd-title">運動愛好者</div><div class="about-crowd-desc">希望在訓練後維持良好狀態</div></div>
+      <div class="about-crowd-card reveal rd4"><div class="about-crowd-title">銀髮族</div><div class="about-crowd-desc">想要透過安全方式維持活動力</div></div>
       <div class="about-crowd-card" style="grid-column:span 2;"><div class="about-crowd-title">任何想「不再緊繃、動得更自然」的人</div></div>
     </div>
 
@@ -693,7 +702,7 @@ img{max-width:100%;display:block;}
     </div>
     <div class="menu-grid reveal rd1">
 
-      <div class="menu-card">
+      <div class="menu-card reveal">
         <div class="menu-name">ASMRT 動態肌能保養</div>
         <div class="menu-price-v4">$900｜40分鐘</div>
         <div class="menu-fit-v4">適合對象：久坐族、姿勢緊繃、身體僵硬、想提升日常靈活度者</div>
@@ -701,7 +710,7 @@ img{max-width:100%;display:block;}
            onclick="gtag('event','click_service',{'event_category':'CTA','event_label':'asmrt-puli'})">預約此項目 →</a>
       </div>
 
-      <div class="menu-card">
+      <div class="menu-card reveal rd1">
         <div class="menu-name menu-name-lg">IBMA 筋膜張力整合</div>
         <div class="menu-price-v4">$900｜40分鐘<br>$1,800｜90分鐘</div>
         <div class="menu-fit-v4">適合對象：想全身放鬆、舒緩緊繃者</div>
@@ -709,7 +718,7 @@ img{max-width:100%;display:block;}
            onclick="gtag('event','click_service',{'event_category':'CTA','event_label':'asmrt-puli'})">預約此項目 →</a>
       </div>
 
-      <div class="menu-card">
+      <div class="menu-card reveal rd2">
         <div class="menu-name">深層筋膜舒緩＋運動保養</div>
         <div class="menu-price-v4">$900｜40分鐘<br>$1,800｜90分鐘</div>
         <div class="menu-fit-v4">適合對象：運動後保養、肌肉緊繃者</div>
@@ -717,7 +726,7 @@ img{max-width:100%;display:block;}
            onclick="gtag('event','click_service',{'event_category':'CTA','event_label':'asmrt-puli'})">預約此項目 →</a>
       </div>
 
-      <div class="menu-card">
+      <div class="menu-card reveal rd3">
         <div class="menu-name">核心舒展＋筋膜張力整合</div>
         <div class="menu-price-v4">$990｜50分鐘<br>$1,900｜100分鐘</div>
         <div class="menu-fit-v4">適合對象：想要一次完成全身保養與深層放鬆者</div>
@@ -725,7 +734,7 @@ img{max-width:100%;display:block;}
            onclick="gtag('event','click_service',{'event_category':'CTA','event_label':'asmrt-puli'})">預約此項目 →</a>
       </div>
 
-      <div class="menu-card">
+      <div class="menu-card reveal rd1">
         <div class="menu-name">義式科技體態管理</div>
         <div class="menu-price-v4">$1,500｜30分鐘<br>$2,300｜50分鐘</div>
         <div class="menu-fit-v4">適合對象：對體態或身體舒適度不滿意者</div>
@@ -733,7 +742,7 @@ img{max-width:100%;display:block;}
            onclick="gtag('event','click_service',{'event_category':'CTA','event_label':'asmrt-puli'})">預約此項目 →</a>
       </div>
 
-      <div class="menu-card">
+      <div class="menu-card reveal rd2">
         <div class="menu-name">DFM 手法＋科技調理</div>
         <div class="menu-price-v4">$990｜30分鐘<br>$1,800｜50分鐘</div>
         <div class="menu-fit-v4">適合對象：局部緊繃程度較高者</div>
@@ -763,27 +772,27 @@ img{max-width:100%;display:block;}
         </svg>
       </div>
             <div class="sop-steps">
-        <div class="sop-step">
+        <div class="sop-step reveal">
           <div class="sop-num">01</div>
           <div class="sop-title-v4">狀態了解<br>與初步檢視</div>
           <div class="sop-desc-v4">管理師將透過問卷了解您的生活習慣、姿勢習慣與身體緊繃原因，初步建立個人檔案。</div>
         </div>
-        <div class="sop-step">
+        <div class="sop-step reveal rd1">
           <div class="sop-num">02</div>
           <div class="sop-title-v4">足底壓力<br>分佈觀察</div>
           <div class="sop-desc-v4">利用足底壓力儀，觀察站姿的重心分佈與足弓支撐面積，了解身體重心是否偏移。</div>
         </div>
-        <div class="sop-step">
+        <div class="sop-step reveal rd2">
           <div class="sop-num">03</div>
           <div class="sop-title-v4">體態平衡<br>觀察</div>
           <div class="sop-desc-v4">透過簡單的動作與拍照比對，檢視體態平衡、身體排列與動作順暢度。</div>
         </div>
-        <div class="sop-step">
+        <div class="sop-step reveal rd3">
           <div class="sop-num">04</div>
           <div class="sop-title-v4">客製化<br>體驗保養</div>
           <div class="sop-desc-v4">根據初步檢視的結果，安排合適的保養部位與內容，讓第一次體驗就能針對緊繃處進行放鬆與調整。</div>
         </div>
-        <div class="sop-step">
+        <div class="sop-step reveal rd4">
           <div class="sop-num">05</div>
           <div class="sop-title-v4">課後自我<br>保養建議</div>
           <div class="sop-desc-v4">保養結束後，管理師將針對您的姿勢與生活習慣提供日常指導，幫助維持良好的身體狀態。</div>
@@ -818,7 +827,7 @@ img{max-width:100%;display:block;}
 
     <div class="cert-grid-v4 reveal rd2">
 
-      <div class="cert-card-v4">
+      <div class="cert-card-v4 reveal">
         <img src="/asmrt-puli/assets/cert-asmrt.jpg" alt="ASMRT 高階技術認證" class="cert-img-v4"
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="cert-img-ph-v4" style="display:none">cert</div>
@@ -828,7 +837,7 @@ img{max-width:100%;display:block;}
         </div>
       </div>
 
-      <div class="cert-card-v4">
+      <div class="cert-card-v4 reveal rd1">
         <img src="/asmrt-puli/assets/cert-metagenics.jpg" alt="Metagenics 培訓認證" class="cert-img-v4"
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="cert-img-ph-v4" style="display:none">cert</div>
@@ -838,7 +847,7 @@ img{max-width:100%;display:block;}
         </div>
       </div>
 
-      <div class="cert-card-v4">
+      <div class="cert-card-v4 reveal rd2">
         <img src="/asmrt-puli/assets/cert-tw.jpg" alt="健康管理師乙級" class="cert-img-v4"
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="cert-img-ph-v4" style="display:none">cert</div>
@@ -848,7 +857,7 @@ img{max-width:100%;display:block;}
         </div>
       </div>
 
-      <div class="cert-card-v4 portrait">
+      <div class="cert-card-v4 portrait reveal rd1">
         <img src="/asmrt-puli/assets/cert-fisiowarm.jpg" alt="Fisiowarm 認證" class="cert-img-v4"
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="cert-img-ph-v4" style="display:none">cert</div>
@@ -858,7 +867,7 @@ img{max-width:100%;display:block;}
         </div>
       </div>
 
-      <div class="cert-card-v4 portrait">
+      <div class="cert-card-v4 portrait reveal rd2">
         <img src="/asmrt-puli/assets/cert-ibma.jpg" alt="IBMA 個人高級伸展教練" class="cert-img-v4"
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="cert-img-ph-v4" style="display:none">cert</div>
@@ -868,7 +877,7 @@ img{max-width:100%;display:block;}
         </div>
       </div>
 
-      <div class="cert-card-v4 portrait">
+      <div class="cert-card-v4 portrait reveal rd3">
         <img src="/asmrt-puli/assets/cert-iha.jpg" alt="IHA 國際運動按摩技術員" class="cert-img-v4"
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="cert-img-ph-v4" style="display:none">cert</div>
@@ -931,7 +940,7 @@ img{max-width:100%;display:block;}
     <img src="/asmrt-puli/assets/asmrt-logo.svg" alt="ASMRT" class="footer-logo"
          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
     <div class="footer-logo-ph" style="display:none">ASMRT</div>
-    <div class="footer-icons">
+    <div class="footer-icons reveal">
       <a class="footer-icon-link" href="https://lin.ee/90FudDy" target="_blank" rel="noopener" aria-label="LINE"
          onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'asmrt-puli'})">
         <img src="/assets/line.svg" alt="LINE" onerror="this.style.visibility='hidden'">
@@ -945,7 +954,7 @@ img{max-width:100%;display:block;}
         <img src="/assets/facebook.svg" alt="Facebook" onerror="this.style.visibility='hidden'">
       </a>
     </div>
-    <div class="footer-btns">
+    <div class="footer-btns reveal rd1">
       <a class="f-btn p1" href="https://lin.ee/90FudDy" target="_blank" rel="noopener"
          onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'asmrt-puli'})">LINE 預約諮詢｜LINE @</a>
       <a class="f-btn ghost" href="#location"
