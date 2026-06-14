@@ -75,6 +75,11 @@ img{max-width:100%;display:block;}
   grid-template-columns:1fr 1fr;
   overflow:hidden;
 }
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:url('/asmrt-puli/assets/hero-bg.jpg') center/cover no-repeat;
+  opacity:.8;z-index:0;pointer-events:none;
+}
 @media(max-width:700px){.hero{grid-template-columns:1fr;min-height:auto;}}
 
 /* 左欄：主理人照片 */
@@ -115,6 +120,7 @@ img{max-width:100%;display:block;}
   padding:4rem 3.5rem 4rem 2rem;
   position:relative;
   z-index:2;
+  background:transparent;
 }
 @media(max-width:900px){.hero-text-col{padding:3rem 2rem;}}
 @media(max-width:700px){.hero-text-col{padding:2.5rem 1.6rem 3rem;order:2;text-align:center;align-items:center;}}
@@ -438,7 +444,7 @@ img{max-width:100%;display:block;}
   background:var(--warm);
   position:relative;z-index:2;
 }
-.hero-logo{width:clamp(100px,16vw,140px);height:auto;display:block;object-fit:contain;margin-bottom:1.4rem;}
+.hero-logo{width:clamp(180px,25vw,220px);height:auto;display:block;object-fit:contain;margin-bottom:1.4rem;filter:brightness(0) saturate(100%) invert(18%) sepia(50%) saturate(800%) hue-rotate(175deg) brightness(70%);}
 .hero-logo-ph{width:clamp(100px,16vw,140px);height:48px;border:1.5px solid var(--border);border-radius:4px;
   display:flex;align-items:center;justify-content:center;
   font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.2em;color:var(--ink-lt);margin-bottom:1.4rem;}
@@ -509,16 +515,16 @@ img{max-width:100%;display:block;}
 
 /* ── v4.0：§6 主理人 intro ── */
 .owner-intro{display:flex;flex-direction:column;align-items:center;gap:1rem;margin:1.5rem auto 2.5rem;max-width:500px;text-align:center;}
-.owner-intro-portrait{width:clamp(100px,25vw,140px);aspect-ratio:3/4;object-fit:cover;object-position:top center;border-radius:4px;display:block;}
+.owner-intro-portrait{width:clamp(160px,45vw,220px);height:auto;aspect-ratio:3/4;object-fit:cover;object-position:top center;border-radius:4px;display:block;}
 .owner-intro-portrait-ph{width:clamp(100px,25vw,140px);aspect-ratio:3/4;background:rgba(255,255,255,.1);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;}
-.owner-slogan{font-family:'DM Serif Display',serif;font-style:italic;font-size:clamp(1rem,2.5vw,1.2rem);color:rgba(255,255,255,.85);letter-spacing:.04em;line-height:1.8;}
+.owner-slogan{font-family:'DM Serif Display',serif;font-style:italic;font-size:clamp(1.4rem,3.5vw,1.68rem);color:rgba(255,255,255,.85);letter-spacing:.04em;line-height:1.8;}
 
 /* ── v4.0：§7 停車說明字體 ── */
 .parking-item-v4{font-family:'Noto Serif TC',serif;font-size:.84rem;font-weight:500;line-height:2;color:rgba(27,58,75,.8);}
 .parking-cat{font-family:'Noto Serif TC',serif;font-size:.84rem;font-weight:700;color:var(--teal);margin-top:.6rem;letter-spacing:.1em;}
 
 /* ── v4.0：Footer Logo + 按鈕調整 ── */
-.footer-logo{width:clamp(80px,15vw,110px);margin:0 auto 1.5rem;display:block;}
+.footer-logo{width:clamp(180px,25vw,220px);margin:0 auto 1.5rem;display:block;filter:brightness(0) invert(1);}
 .footer-logo-ph{width:clamp(80px,15vw,110px);height:36px;margin:0 auto 1.5rem;border:1px solid rgba(255,255,255,.2);
   border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:.6rem;letter-spacing:.15em;color:rgba(255,255,255,.3);}
 .disclaimer-box{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:1.5rem;text-align:left;margin:0 auto 1.5rem;max-width:680px;}
@@ -532,8 +538,7 @@ img{max-width:100%;display:block;}
 <!-- QR Modal -->
 <div class="qr-modal-overlay" id="qrModal" onclick="closeQrModalOnBg(event)">
   <div class="qr-modal">
-    <img src="/asmrt-puli/assets/asmrt-logo.svg" alt="ASMRT" style="width:80px;height:auto;display:block;margin:0 auto .8rem;" onerror="this.style.display='none'">
-    <div class="qr-modal-title">ASMRT 永康</div>
+    <img src="/asmrt-puli/assets/asmrt-logo.svg" alt="ASMRT" style="width:180px;height:auto;display:block;margin:0 auto 1rem;filter:brightness(0) saturate(100%) invert(18%) sepia(50%) saturate(800%) hue-rotate(175deg) brightness(70%);" onerror="this.style.display='none'">
     <div class="qr-modal-code"><div id="qrcode-canvas"></div></div>
     <div class="qr-modal-url">linket.app/asmrt-puli</div>
     <div class="qr-modal-hint">掃描 QR Code 開啟頁面</div>
@@ -590,7 +595,7 @@ img{max-width:100%;display:block;}
          onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'asmrt-puli'})">
         電話聯繫｜Contact Us
       </a>
-      <a class="h-btn p2" href="https://lin.ee/90FudDy" target="_blank" rel="noopener"
+      <a class="h-btn p1" href="https://lin.ee/90FudDy" target="_blank" rel="noopener"
          onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'asmrt-puli'})">
         LINE 預約｜LINE @
       </a>
