@@ -142,6 +142,15 @@ body{
   font-style:italic;letter-spacing:.35em;
   color:var(--ink-lt);margin-bottom:1rem;
 }
+.hero-portrait-wrap{
+  margin-bottom:1.4rem;
+}
+.hero-portrait{
+  width:clamp(160px,30vw,200px);
+  aspect-ratio:3/4;
+  border-radius:var(--r-card);
+  object-fit:cover;object-position:center top;display:block;
+}
 .hero-subtitle{
   font-family:'Noto Serif TC',serif;
   font-size:1rem;font-weight:500;letter-spacing:.08em;
@@ -662,6 +671,7 @@ body{
   .hero-logo-wrap img{object-position:center;}
   .hero-eyebrow{justify-content:center;}
   .hero-eyebrow::before{display:none;}
+  .hero-portrait{width:clamp(180px,40vw,200px);}
   .hero-name{font-size:clamp(2rem,10vw,3rem);}
   .hero-tags{justify-content:center;}
   .hero-stats{justify-content:center;gap:1.2rem;}
