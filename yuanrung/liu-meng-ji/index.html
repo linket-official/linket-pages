@@ -133,18 +133,18 @@ body{
 }
 .hero-name{
   font-family:'Noto Serif TC',serif;
-  font-size:clamp(2.6rem,6vw,4rem);font-weight:900;
+  font-size:clamp(2rem,6vw,3rem);font-weight:900;
   color:var(--ink);letter-spacing:.1em;line-height:1.15;margin-bottom:.3rem;
 }
 .hero-name-en{
   font-family:'Cormorant Garamond',serif;
-  font-size:clamp(.95rem,2vw,1.15rem);
+  font-size:clamp(.95rem,3vw,1.2rem);
   font-style:italic;letter-spacing:.35em;
   color:var(--ink-lt);margin-bottom:1rem;
 }
 .hero-subtitle{
   font-family:'Noto Serif TC',serif;
-  font-size:.88rem;font-weight:300;letter-spacing:.08em;
+  font-size:1rem;font-weight:500;letter-spacing:.08em;
   color:var(--ink-lt);line-height:1.9;margin-bottom:1.4rem;
 }
 .hero-tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.8rem;}
@@ -325,7 +325,7 @@ body{
 }
 .dept-body{
   font-family:'Noto Serif TC',serif;
-  font-size:.9rem;font-weight:300;
+  font-size:1.2rem;font-weight:500;
   color:rgba(255,255,255,.8);line-height:2.1;letter-spacing:.06em;
 }
 .role-cards{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-top:.5rem;}
@@ -335,7 +335,7 @@ body{
   border-radius:var(--r-card);padding:.9rem 1rem;
   display:flex;align-items:flex-start;gap:.6rem;
   font-family:'Noto Serif TC',serif;
-  font-size:.82rem;font-weight:300;
+  font-size:1rem;font-weight:400;
   letter-spacing:.06em;line-height:1.7;
   color:rgba(255,255,255,.82);
 }
@@ -373,7 +373,7 @@ body{
 .pub-body{flex:1;}
 .pub-title{
   font-family:'Noto Serif TC',serif;
-  font-size:.92rem;font-weight:700;
+  font-size:1.2rem;font-weight:700;
   letter-spacing:.06em;color:var(--ink);
   line-height:1.7;margin-bottom:.4rem;
 }
@@ -385,7 +385,7 @@ body{
 }
 .pub-desc{
   font-family:'Noto Serif TC',serif;
-  font-size:.78rem;font-weight:300;
+  font-size:.85rem;font-weight:300;
   color:var(--ink-lt);letter-spacing:.05em;line-height:1.9;
 }
 
@@ -413,13 +413,13 @@ body{
 .affiliation-body{}
 .affiliation-org{
   font-family:'Noto Serif TC',serif;
-  font-size:.88rem;font-weight:700;
+  font-size:.9rem;font-weight:700;
   letter-spacing:.08em;color:var(--ink);
   line-height:1.6;margin-bottom:.2rem;
 }
 .affiliation-role{
   font-family:'Noto Serif TC',serif;
-  font-size:.76rem;font-weight:300;
+  font-size:1.2rem;font-weight:300;
   letter-spacing:.08em;color:var(--orange);
 }
 
@@ -450,8 +450,8 @@ body{
 .podcast-title span{color:var(--orange);}
 .podcast-desc{
   font-family:'Noto Serif TC',serif;
-  font-size:.88rem;font-weight:300;
-  color:rgba(255,255,255,.6);line-height:2;letter-spacing:.06em;
+  font-size:1rem;font-weight:500;
+  color:rgba(255,255,255,.8);line-height:2;letter-spacing:.06em;
   margin-bottom:1.6rem;
 }
 .podcast-embed{}
@@ -733,13 +733,11 @@ body{
           <img src="/yuanrung/yuanrung-logo.svg" alt="員榮醫療體系" width="200" height="60"
             onerror="this.style.display='none'">
         </div>
-        <!-- 人物照（上傳 portrait.png 後取消 comment）
         <div class="hero-portrait-wrap">
           <img class="hero-portrait" fetchpriority="high"
             src="/yuanrung/liu-meng-ji/portrait.png" alt="劉孟基"
             onerror="this.outerHTML='<div style=\'width:clamp(100px,22vw,150px);aspect-ratio:1;border-radius:50%;background:var(--orange-lt);border:2.5px solid rgba(226,106,46,.28);\'></div>'">
         </div>
-        -->
         <div class="hero-role">醫療部副主任・藥劑科主任</div>
         <h1 class="hero-name">劉&thinsp;孟&thinsp;基</h1>
         <div class="hero-name-en">LIU, MENG-JI &nbsp;Ph.D.</div>
@@ -806,7 +804,7 @@ body{
         </a>
         <a class="hero-btn ghost" href="#podcast">
           廣播頻道｜Podcast
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="8"/></svg>
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
         <div class="hero-btn-row">
           <a class="hero-btn-sm" href="#" onclick="openQR();return false;">
