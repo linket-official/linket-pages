@@ -96,7 +96,7 @@ body{
 .hero{background:var(--cream-2);position:relative;overflow:hidden;}
 .hero-bg-img{
   position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;object-position:center;opacity:.12;z-index:0;
+  object-fit:cover;object-position:center top;opacity:.8;z-index:0;pointer-events:none;
 }
 .hero-deco{
   position:absolute;right:-2%;bottom:0;
@@ -739,13 +739,12 @@ body{
             onerror="this.outerHTML='<div style=\'width:clamp(100px,22vw,150px);aspect-ratio:1;border-radius:50%;background:var(--orange-lt);border:2.5px solid rgba(226,106,46,.28);\'></div>'">
         </div>
         -->
-        <div class="hero-eyebrow">Medical Dept. Vice Director</div>
         <div class="hero-role">醫療部副主任・藥劑科主任</div>
         <h1 class="hero-name">劉&thinsp;孟&thinsp;基</h1>
         <div class="hero-name-en">LIU, MENG-JI &nbsp;Ph.D.</div>
         <p class="hero-subtitle">
-          整合資訊科技與藥事照護的先行者<br>
-          深耕員榮・推動智慧醫療實踐
+          Healing Hands, Caring Hearts.<br>
+          深耕南彰化・接軌國際
         </p>
         <div class="hero-tags">
           <span class="hero-tag">藥事照護</span>
@@ -755,12 +754,12 @@ body{
         </div>
         <div class="hero-stats">
           <div>
-            <span class="hero-stat-num">Ph.D<span style="font-size:.5em;color:var(--ink-lt);font-family:'Noto Serif TC',serif;font-weight:300;">.</span></span>
-            <span class="hero-stat-label">資訊管理博士</span>
+            <span class="hero-stat-num">50<sup style="font-size:.45em;color:var(--ink-lt)">+</sup></span>
+            <span class="hero-stat-label">年深耕南彰化</span>
           </div>
           <div>
-            <span class="hero-stat-num">2<sup style="font-size:.45em;color:var(--ink-lt)">+</sup></span>
-            <span class="hero-stat-label">國際學術發表</span>
+            <span class="hero-stat-num">18</span>
+            <span class="hero-stat-label">項 SNQ 認證</span>
           </div>
         </div>
       </div>
@@ -772,20 +771,17 @@ body{
             onclick="gtag('event','click_fb',{'event_category':'CTA','event_label':'liu-meng-ji'})">
             <img src="/assets/facebook.svg" alt="Facebook">
           </a>
-          <a class="hero-icon-link" href="https://yuanrung.com.tw/yr-tw" target="_blank" aria-label="官網">
+          <a class="hero-icon-link" href="https://linket.app/yuanrung" target="_blank" aria-label="官網"
+            onclick="gtag('event','click_web',{'event_category':'CTA','event_label':'liu-meng-ji'})">
             <img src="/assets/web.svg" alt="官網">
-          </a>
-          <a class="hero-icon-link" href="https://open.spotify.com/show/1gx92p8MZJrooPSgARfPCk" target="_blank" aria-label="Podcast"
-            onclick="gtag('event','click_podcast',{'event_category':'CTA','event_label':'liu-meng-ji'})">
-            <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="#a08070" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="8"/></svg>
           </a>
           <a class="hero-icon-link" href="mailto:alien4817@gmail.com" aria-label="Email"
             onclick="gtag('event','click_email',{'event_category':'CTA','event_label':'liu-meng-ji'})">
-            <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="#a08070" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <img src="/assets/mail.svg" alt="Email" onerror="this.outerHTML='<svg viewBox=\'0 0 24 24\' width=\'36\' height=\'36\' fill=\'none\' stroke=\'#a08070\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z\'/><polyline points=\'22,6 12,13 2,6\'/></svg>'">
           </a>
           <a class="hero-icon-link" href="tel:0953908608" aria-label="手機"
             onclick="gtag('event','click_tel_icon',{'event_category':'CTA','event_label':'liu-meng-ji'})">
-            <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="#a08070" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            <img src="/assets/tel.svg" alt="手機" onerror="this.outerHTML='<svg viewBox=\'0 0 24 24\' width=\'36\' height=\'36\' fill=\'none\' stroke=\'#a08070\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><rect x=\'5\' y=\'2\' width=\'14\' height=\'20\' rx=\'2\' ry=\'2\'/><line x1=\'12\' y1=\'18\' x2=\'12.01\' y2=\'18\'/></svg>'">
           </a>
         </div>
 
@@ -800,20 +796,16 @@ body{
           <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
         <a class="hero-btn outline" href="#about">
-          員榮醫療體系｜About
+          員榮醫療體系｜About Yuanrung
           <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
-        <a class="hero-btn ghost" href="#research">
-          研究與專業｜Research
+        <a class="hero-btn ghost" href="#dept">
+          關於劉主任｜About Me
           <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
         <a class="hero-btn ghost" href="#podcast">
-          Podcast｜收聽節目
+          廣播頻道｜Podcast
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="8"/></svg>
-        </a>
-        <a class="hero-btn ghost" href="/yuanrung/">
-          員榮醫療體系主頁｜Home
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
         <div class="hero-btn-row">
           <a class="hero-btn-sm" href="#" onclick="openQR();return false;">
@@ -1155,12 +1147,17 @@ body{
         onclick="gtag('event','click_fb',{'event_category':'CTA','event_label':'liu-meng-ji'})">
         <img src="/assets/facebook.svg" alt="Facebook">
       </a>
-      <a class="footer-icon-link" href="https://yuanrung.com.tw/yr-tw" target="_blank" aria-label="官網">
+      <a class="footer-icon-link" href="https://linket.app/yuanrung" target="_blank" aria-label="官網"
+        onclick="gtag('event','click_web',{'event_category':'CTA','event_label':'liu-meng-ji'})">
         <img src="/assets/web.svg" alt="官網">
       </a>
-      <a class="footer-icon-link" href="https://open.spotify.com/show/1gx92p8MZJrooPSgARfPCk" target="_blank" aria-label="Podcast"
-        onclick="gtag('event','click_podcast',{'event_category':'CTA','event_label':'liu-meng-ji'})">
-        <img src="/assets/spotify.svg" alt="Podcast" onerror="this.outerHTML='<svg viewBox=\'0 0 24 24\' width=\'36\' height=\'36\' fill=\'none\' stroke=\'rgba(255,255,255,.6)\' stroke-width=\'1.5\'><circle cx=\'12\' cy=\'12\' r=\'10\'/><circle cx=\'12\' cy=\'12\' r=\'4\'/><line x1=\'12\' y1=\'2\' x2=\'12\' y2=\'8\'/></svg>'">
+      <a class="footer-icon-link" href="mailto:alien4817@gmail.com" aria-label="Email"
+        onclick="gtag('event','click_email',{'event_category':'CTA','event_label':'liu-meng-ji'})">
+        <img src="/assets/mail.svg" alt="Email" onerror="this.outerHTML='<svg viewBox=\'0 0 24 24\' width=\'36\' height=\'36\' fill=\'none\' stroke=\'rgba(255,255,255,.6)\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z\'/><polyline points=\'22,6 12,13 2,6\'/></svg>'">
+      </a>
+      <a class="footer-icon-link" href="tel:0953908608" aria-label="電話"
+        onclick="gtag('event','click_tel_icon',{'event_category':'CTA','event_label':'liu-meng-ji'})">
+        <img src="/assets/tel.svg" alt="電話" onerror="this.outerHTML='<svg viewBox=\'0 0 24 24\' width=\'36\' height=\'36\' fill=\'none\' stroke=\'rgba(255,255,255,.6)\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><rect x=\'5\' y=\'2\' width=\'14\' height=\'20\' rx=\'2\' ry=\'2\'/><line x1=\'12\' y1=\'18\' x2=\'12.01\' y2=\'18\'/></svg>'">
       </a>
     </div>
     <div class="footer-cta-row">
