@@ -306,11 +306,11 @@ body{
 /* ═══ §3 關於劉主任（橘底）═══ */
 .dept{background:var(--orange);}
 .dept-grid{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:2rem;align-items:center;
+  display:grid;grid-template-columns:1fr;
+  gap:2rem;align-items:start;max-width:760px;margin:0 auto;
 }
 .dept-img-block{
-  aspect-ratio:4/3;border-radius:var(--r-card);overflow:hidden;
+  aspect-ratio:16/9;border-radius:var(--r-card);overflow:hidden;
   background:rgba(255,255,255,.1);
   border:1px solid rgba(255,255,255,.15);
   display:flex;align-items:center;justify-content:center;
@@ -682,8 +682,7 @@ body{
   .section-inner{padding:2.5rem 0;}
   .info-grid{grid-template-columns:repeat(2,1fr);}
   .awards-row{grid-template-columns:1fr;}
-  .dept-grid{grid-template-columns:1fr;}
-  .dept-img-block{aspect-ratio:16/9;}
+  .dept-grid{max-width:none;}
   .role-cards{grid-template-columns:1fr;}
   .affiliation-list{grid-template-columns:1fr;}
   .pub-card{flex-direction:column;gap:.6rem;}
@@ -693,15 +692,6 @@ body{
   .contact-map-grid{grid-template-columns:1fr!important;}
   .footer-cta-row{flex-direction:column;align-items:center;}
   .footer-btn{width:100%;max-width:300px;justify-content:center;}
-}
-  .inner{padding:0 1.6rem;}
-  .hero-left{padding:2.5rem 1.8rem 2.5rem 0;}
-  .hero-right{padding:2.5rem 0 2.5rem 1.8rem;}
-  .info-grid{grid-template-columns:repeat(2,1fr);}
-  .dept-grid{grid-template-columns:1fr;}
-  .affiliation-list{grid-template-columns:1fr;}
-  .podcast-inner{grid-template-columns:1fr;}
-  .contact-grid{grid-template-columns:1fr;}
 }
 @media(prefers-reduced-motion:reduce){
   .reveal{opacity:1;transform:none;transition:none;}
