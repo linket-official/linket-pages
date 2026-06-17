@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>劉孟基｜員榮醫療體系 醫療部副主任</title>
 <meta name="description" content="員榮醫療體系醫療部副主任・藥劑科主任・資管博士。整合資訊科技與藥事照護，推動智慧醫療實踐。">
-<meta property="og:title" content="劉孟基 LIU, MENG-JI｜員榮醫療體系 醫療部副主任">
+<meta property="og:title" content="劉孟基｜員榮醫療體系 醫療部副主任">
 <meta property="og:description" content="藥劑科主任・資管博士・遠距藥事照護研究者。整合科技與藥事，打造更好的醫療服務體驗。">
 <meta property="og:image" content="https://linket.app/yuanrung/og-image.jpg">
 <meta property="og:url" content="https://linket.app/yuanrung/liu-meng-ji/">
@@ -83,13 +83,14 @@ body{
 .nav-tools{display:flex;gap:.5rem;align-items:center;}
 .nav-tool-btn{
   width:34px;height:34px;border-radius:50%;
-  background:rgba(106,84,73,.08);border:1.5px solid rgba(106,84,73,.15);
   display:flex;align-items:center;justify-content:center;
-  cursor:pointer;transition:all .2s;text-decoration:none;
-  flex-shrink:0;
+  cursor:pointer;transition:transform .2s;text-decoration:none;
+  flex-shrink:0;overflow:hidden;
 }
-.nav-tool-btn:hover{background:var(--orange-lt);border-color:var(--orange);}
-.nav-tool-btn svg{width:15px;height:15px;stroke:var(--ink-lt);fill:none;stroke-width:1.8;stroke-linecap:round;transition:stroke .2s;}
+.nav-tool-btn:hover{transform:scale(1.08);}
+.nav-tool-btn img{width:100%;height:100%;display:block;object-fit:cover;}
+/* 內聯SVG備援（素材未上傳前的回退樣式，避免破圖）*/
+.nav-tool-btn svg{width:34px;height:34px;stroke:var(--ink-lt);fill:none;stroke-width:1.8;stroke-linecap:round;background:rgba(106,84,73,.08);border:1.5px solid rgba(106,84,73,.15);border-radius:50%;padding:9px;box-sizing:border-box;transition:stroke .2s;}
 .nav-tool-btn:hover svg{stroke:var(--orange);}
 
 /* ═══ §1 HERO ═══ */
@@ -706,10 +707,10 @@ body{
     <div class="nav-brand"><span>員榮</span>醫療體系</div>
     <div class="nav-tools">
       <a class="nav-tool-btn" href="#" onclick="openQR();return false;" title="QR Code">
-        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h7M14 21h7M14 17.5h7"/></svg>
+        <img src="/assets/qrcode.svg" alt="QR Code" onerror="this.outerHTML='<svg viewBox=\'0 0 24 24\'><rect x=\'3\' y=\'3\' width=\'7\' height=\'7\'/><rect x=\'14\' y=\'3\' width=\'7\' height=\'7\'/><rect x=\'3\' y=\'14\' width=\'7\' height=\'7\'/><path d=\'M14 14h7M14 21h7M14 17.5h7\'/></svg>'">
       </a>
       <a class="nav-tool-btn" href="#" onclick="shareCard();return false;" title="分享">
-        <svg viewBox="0 0 24 24"><path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98M21 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm12 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>
+        <img src="/assets/share.svg" alt="分享" onerror="this.outerHTML='<svg viewBox=\'0 0 24 24\'><path d=\'M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98M21 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm12 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z\'/></svg>'">
       </a>
     </div>
     <a class="nav-emergency" href="tel:04-8335209"
@@ -732,10 +733,10 @@ body{
           <img src="/yuanrung/yuanrung-logo.svg" alt="員榮醫療體系" width="200" height="60"
             onerror="this.style.display='none'">
         </div>
-        <!-- 人物照（上傳 portrait.jpg 後取消 comment）
+        <!-- 人物照（上傳 portrait.png 後取消 comment）
         <div class="hero-portrait-wrap">
           <img class="hero-portrait" fetchpriority="high"
-            src="/yuanrung/liu-meng-ji/portrait.jpg" alt="劉孟基"
+            src="/yuanrung/liu-meng-ji/portrait.png" alt="劉孟基"
             onerror="this.outerHTML='<div style=\'width:clamp(100px,22vw,150px);aspect-ratio:1;border-radius:50%;background:var(--orange-lt);border:2.5px solid rgba(226,106,46,.28);\'></div>'">
         </div>
         -->
@@ -781,7 +782,7 @@ body{
           </a>
           <a class="hero-icon-link" href="tel:0953908608" aria-label="手機"
             onclick="gtag('event','click_tel_icon',{'event_category':'CTA','event_label':'liu-meng-ji'})">
-            <img src="/assets/tel.svg" alt="手機" onerror="this.outerHTML='<svg viewBox=\'0 0 24 24\' width=\'36\' height=\'36\' fill=\'none\' stroke=\'#a08070\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><rect x=\'5\' y=\'2\' width=\'14\' height=\'20\' rx=\'2\' ry=\'2\'/><line x1=\'12\' y1=\'18\' x2=\'12.01\' y2=\'18\'/></svg>'">
+            <img src="/assets/phone.svg" alt="手機" onerror="this.outerHTML='<svg viewBox=\'0 0 24 24\' width=\'36\' height=\'36\' fill=\'none\' stroke=\'#a08070\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><rect x=\'5\' y=\'2\' width=\'14\' height=\'20\' rx=\'2\' ry=\'2\'/><line x1=\'12\' y1=\'18\' x2=\'12.01\' y2=\'18\'/></svg>'">
           </a>
         </div>
 
@@ -1157,7 +1158,7 @@ body{
       </a>
       <a class="footer-icon-link" href="tel:0953908608" aria-label="電話"
         onclick="gtag('event','click_tel_icon',{'event_category':'CTA','event_label':'liu-meng-ji'})">
-        <img src="/assets/tel.svg" alt="電話" onerror="this.outerHTML='<svg viewBox=\'0 0 24 24\' width=\'36\' height=\'36\' fill=\'none\' stroke=\'rgba(255,255,255,.6)\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><rect x=\'5\' y=\'2\' width=\'14\' height=\'20\' rx=\'2\' ry=\'2\'/><line x1=\'12\' y1=\'18\' x2=\'12.01\' y2=\'18\'/></svg>'">
+        <img src="/assets/phone.svg" alt="電話" onerror="this.outerHTML='<svg viewBox=\'0 0 24 24\' width=\'36\' height=\'36\' fill=\'none\' stroke=\'rgba(255,255,255,.6)\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><rect x=\'5\' y=\'2\' width=\'14\' height=\'20\' rx=\'2\' ry=\'2\'/><line x1=\'12\' y1=\'18\' x2=\'12.01\' y2=\'18\'/></svg>'">
       </a>
     </div>
     <div class="footer-cta-row">
