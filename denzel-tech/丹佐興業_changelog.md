@@ -4,7 +4,7 @@ status: 進行中-設計優化
 priority: 中
 stage: 單點最終修正完成(待Tony提供正式LOGO後即可部署)
 deadline: 未定
-last_feedback: "單點修正：hero文案/ticker拿掉代理兩字/合作夥伴LOGO恢復原色+真實照片底圖+justify；確認linket.app/assets共用icon庫GitHub上真實存在；Tony確認部署前自行處理正式LOGO置換"
+last_feedback: "Tony抓到兩個外部依賴問題：合作夥伴3個LOGO+Hero/Footer底圖stack-image-1.jpg都還是熱連結denzel-tech.com正式網站，且專案資料夾內沒有本機備份；已下載4張圖localize進assets/，路徑改完"
 updated: 2026-06-24
 ---
 
@@ -46,6 +46,16 @@ updated: 2026-06-24
 
 ## 版本紀錄
 > 新版本在最上面，每版只列「改了什麼」，不用整段話讀完才知道重點。
+
+### v2.6（06-24）素材清單重整＋補上 _redirects
+- 素材清單比照 leon-day／龍德兩個既有案例的 changelog 寫法，從一份大表拆成 A~G 分類（Logo／人物照／背景圖／案例照／合作夥伴 LOGO／OG分享圖／共用Icon），原本「外部連結」表格已併入 C、E（因 v2.5 本機化後不再是外部檔案）
+- 補上 `_redirects` 路由規則：`/denzel-tech /denzel-tech//index.html 200`（Tony 確認此專案部署順序是先上傳資料夾再設路由，跟既有案例慣例的「先路由後上傳」相反，故寫法不同）
+
+### v2.5（06-24）外部圖片本機化
+- Tony 抓到：合作夥伴 3 個 LOGO（HomeLink／電小二／冠宇數位科技）+ Hero／Footer 共用底圖 `stack-image-1.jpg`，都還是熱連結官網 `denzel-tech.com`，一旦官網改版或下架，頁面圖片會直接消失，且專案資料夾內沒有本機備份
+- 用 curl（瀏覽器 UA）把 4 張圖下載下來，存進 `assets/partners/`（homelink-logo.jpg／dianxiaoer-logo.png／champion-logo.png）與 `assets/denzel-stack-bg.jpg`
+- `index.html` 與部署鏡像 `denzel-tech/index.html` 同步改路徑為相對路徑 `./assets/...`，兩份檔案改完仍完全一致
+- 確認改完後頁面已無任何指向 `denzel-tech.com` 的圖片連結（官網本身連結、mailto、contact 等文字連結維持不變，不受影響）
 
 ### v2.4（06-23）單點最終修正
 - Hero 標語：「讓場域自己運作」→「讓場域自動化」
@@ -153,43 +163,87 @@ updated: 2026-06-24
 
 ---
 
-## 素材清單（2026-06-24 更新，含實測尺寸）
+## 素材清單（2026-06-24 更新，比對 leon-day／龍德 changelog 分類寫法重整）
 
-### 本機檔案
-| 檔名 | 格式 | 尺寸／比例(px) | 路徑 | 描述 |
-|---|---|---|---|---|
-| denzel-logo.png | PNG | 1336×1640（約 4:5） | `./denzel-logo.png` | Hero 左欄／QR彈窗／Footer LOGO，也是 favicon、og-image 的來源圖。⚠️ 目前是截圖去背版，待 Tony 提供正式 SVG 後置換 |
-| denzel-portrait-badge.png | PNG | 900×1200（3:4） | `./denzel-portrait-badge.png` | Hero 右欄主理人圓形徽章照，Tony 手工製作去背版，已定版 |
-| favicon.png | PNG | 512×512（1:1） | `./favicon.png` | 瀏覽器分頁圖示／手機加到主畫面圖示，用 Pillow 從 LOGO 裁出純圖標製作。⚠️ Tony 換正式 LOGO 後需重新產生 |
-| og-image.jpg | JPEG | 1200×630（1.91:1，社群分享標準比例） | `./og-image.jpg` | LINE／FB 等分享連結時顯示的預覽圖，Pillow 合成。⚠️ Tony 換正式 LOGO 後需重新產生；**目前文案仍是舊版「讓場域自己運作」，需同步改成「讓場域自動化」** |
-| line.svg | SVG（向量） | 50×50 viewBox（頁面顯示 34px） | `assets/line.svg` | Hero／Footer 社群 icon：LINE，共用圖庫 |
-| facebook.svg | SVG（向量） | 50×50 viewBox（頁面顯示 34px） | `assets/facebook.svg` | Hero／Footer 社群 icon：Facebook |
-| instagram.svg | SVG（向量） | 50×50 viewBox（頁面顯示 34px） | `assets/instagram.svg` | Hero／Footer 社群 icon：Instagram |
-| mail.svg | SVG（向量） | 50×50 viewBox（頁面顯示 34px） | `assets/mail.svg` | Hero／Footer 社群 icon：Email |
-| web.svg | SVG（向量） | 50×50 viewBox（頁面顯示 34px） | `assets/web.svg` | Hero／Footer 社群 icon：官網連結 |
-| homelink-438.jpg | JPEG | 528×704（3:4） | `assets/cases/homelink-438.jpg` | §03 案例輪播＋§04 合作夥伴卡底圖：社區大樓 438 戶智取櫃 |
-| homelink-145.jpg | JPEG | 529×397（約 4:3） | `assets/cases/homelink-145.jpg` | §03 案例輪播：社區大樓 145 戶智取櫃 |
-| homelink-11.jpg | JPEG | 525×393（約 4:3） | `assets/cases/homelink-11.jpg` | §03 案例輪播：社區大樓 11 戶智取櫃 |
-| dianxiaoer-shiyuan.jpg | JPEG | 273×179（約 3:2） | `assets/cases/dianxiaoer-shiyuan.jpg` | §03 案例輪播＋§04 合作夥伴卡底圖：師園鹽酥雞自助點餐機（原始解析度偏低，建議跟 Tony 要更高解析度版本） |
-| dianxiaoer-songwu.jpg | JPEG | 768×1024（3:4） | `assets/cases/dianxiaoer-songwu.jpg` | §03 案例輪播：松屋 POS 系統 |
-| dianxiaoer-akiba.jpg | JPEG | 984×1311（約 3:4） | `assets/cases/dianxiaoer-akiba.jpg` | §03 案例輪播：佐藤精肉店 akiba 自助點餐機 |
-| dianxiaoer-beimen.jpeg | JPEG | 768×1024（3:4） | `assets/cases/dianxiaoer-beimen.jpeg` | §03 案例輪播：北門綠豆沙牛乳大王 |
-| temple-xiahai.jpg | JPEG | 2048×1365（3:2） | `assets/cases/temple-xiahai.jpg` | §03 案例輪播＋§04 合作夥伴卡底圖：松山霞海城隍廟數位光明燈 |
-| temple-xianse.jpg | JPEG | 4013×3010（4:3） | `assets/cases/temple-xianse.jpg` | §03 案例輪播：三重先嗇宮數位光明燈 |
-| temple-shenqiu.jpg | JPEG | 2048×1536（4:3） | `assets/cases/temple-shenqiu.jpg` | §03 案例輪播：板橋深丘福德宮數位光明燈 |
+### A. Logo／品牌識別
+| 檔名 | 格式 | 尺寸／比例 | 路徑 | 用途 | 狀態 |
+|---|---|---|---|---|---|
+| denzel-logo.png | PNG | 1336×1640（約 4:5） | `./denzel-logo.png` | Hero 左欄／QR彈窗／Footer LOGO，也是 favicon、og-image 的來源圖 | ⚠️ 截圖去背版，待 Tony 提供正式 SVG 後置換 |
+| favicon.png | PNG | 512×512（1:1） | `./favicon.png` | 瀏覽器分頁圖示／手機加到主畫面圖示，用 Pillow 從 LOGO 裁出純圖標製作 | ⚠️ 換正式 LOGO 後需重新產生 |
 
-### 外部連結（⚠️ 非本機檔案，掛在 denzel-tech.com 官網伺服器上）
-| 檔名 | 格式 | 尺寸(px) | 路徑（完整網址） | 描述 |
+---
+
+### B. 人物照
+| 檔名 | 格式 | 尺寸／比例 | 路徑 | 用途 | 備註 | 狀態 |
+|---|---|---|---|---|---|---|
+| denzel-portrait-badge.png | PNG | 900×1200（3:4） | `./denzel-portrait-badge.png` | Hero 右欄主理人圓形徽章照 | Tony 手工製作去背版 | ✅ 已定版 |
+
+---
+
+### C. 背景圖
+| 檔名 | 格式 | 尺寸 | 路徑 | 用途 | 備註 | 狀態 |
+|---|---|---|---|---|---|---|
+| denzel-stack-bg.jpg | JPEG | 768×1024 | `assets/denzel-stack-bg.jpg` | Hero 背景＋Footer 底圖共用（opacity .32 + grayscale） | 原熱連結 `denzel-tech.com/images/stack-image-1.jpg`，06-24 下載本機化 | ✅ 已本機化 |
+
+---
+
+### D. 案例照（§03 輪播＋§04 合作夥伴卡底圖共用）
+| 檔名 | 格式 | 尺寸／比例 | 路徑 | 用途 | 備註 | 狀態 |
+|---|---|---|---|---|---|---|
+| homelink-438.jpg | JPEG | 528×704（3:4） | `assets/cases/homelink-438.jpg` | §03 輪播＋§04 底圖：社區大樓 438 戶智取櫃 | — | ✅ |
+| homelink-145.jpg | JPEG | 529×397（約 4:3） | `assets/cases/homelink-145.jpg` | §03 輪播：社區大樓 145 戶智取櫃 | — | ✅ |
+| homelink-11.jpg | JPEG | 525×393（約 4:3） | `assets/cases/homelink-11.jpg` | §03 輪播：社區大樓 11 戶智取櫃 | — | ✅ |
+| dianxiaoer-shiyuan.jpg | JPEG | 273×179（約 3:2） | `assets/cases/dianxiaoer-shiyuan.jpg` | §03 輪播＋§04 底圖：師園鹽酥雞自助點餐機 | 原始解析度偏低，建議跟 Tony 要更高解析度版本 | ✅ |
+| dianxiaoer-songwu.jpg | JPEG | 768×1024（3:4） | `assets/cases/dianxiaoer-songwu.jpg` | §03 輪播：松屋 POS 系統 | — | ✅ |
+| dianxiaoer-akiba.jpg | JPEG | 984×1311（約 3:4） | `assets/cases/dianxiaoer-akiba.jpg` | §03 輪播：佐藤精肉店 akiba 自助點餐機 | — | ✅ |
+| dianxiaoer-beimen.jpeg | JPEG | 768×1024（3:4） | `assets/cases/dianxiaoer-beimen.jpeg` | §03 輪播：北門綠豆沙牛乳大王 | — | ✅ |
+| temple-xiahai.jpg | JPEG | 2048×1365（3:2） | `assets/cases/temple-xiahai.jpg` | §03 輪播＋§04 底圖：松山霞海城隍廟數位光明燈 | — | ✅ |
+| temple-xianse.jpg | JPEG | 4013×3010（4:3） | `assets/cases/temple-xianse.jpg` | §03 輪播：三重先嗇宮數位光明燈 | — | ✅ |
+| temple-shenqiu.jpg | JPEG | 2048×1536（4:3） | `assets/cases/temple-shenqiu.jpg` | §03 輪播：板橋深丘福德宮數位光明燈 | — | ✅ |
+
+---
+
+### E. 合作夥伴 LOGO（§04 專用）
+| 檔名 | 格式 | 尺寸 | 路徑 | 用途 | 備註 | 狀態 |
+|---|---|---|---|---|---|---|
+| homelink-logo.jpg | JPEG | 834×209 | `assets/partners/homelink-logo.jpg` | §04 合作夥伴卡：HomeLink LOGO | 原熱連結官網 `/storage/partners/...`，06-24 下載本機化 | ✅ |
+| dianxiaoer-logo.png | PNG | 240×240 | `assets/partners/dianxiaoer-logo.png` | §04 合作夥伴卡：電小二 LOGO | 同上 | ✅ |
+| champion-logo.png | PNG | 140×114 | `assets/partners/champion-logo.png` | §04 合作夥伴卡：冠宇數位科技 LOGO | 同上 | ✅ |
+
+---
+
+### F. OG 分享圖
+| 檔名 | 格式 | 尺寸 | 路徑 | 用途 | 狀態 |
+|---|---|---|---|---|---|
+| og-image.jpg | JPEG | 1200×630（1.91:1） | `./og-image.jpg` | LINE／FB 分享連結預覽圖，Pillow 合成 | ⚠️ Tony 換正式 LOGO 後需重新產生；**文案仍是舊版「讓場域自己運作」，需同步改成「讓場域自動化」** |
+
+---
+
+### G. 共用 Icon（Hero／Footer 社群連結）
+| 檔名 | 格式 | 尺寸 | 路徑 | 用途 |
 |---|---|---|---|---|
-| stack-image-1.jpg | JPEG | 768×1024 | `https://denzel-tech.com/images/stack-image-1.jpg` | Hero 與 Footer 共用的背景攝影素材。⚠️ 風險：官網如果改版搬走這張圖，丹佐頁面的背景會直接消失，建議跟其他案例照片一樣下載到 `assets/` 本機化 |
-| 01KVAXV8PJBQAX5JFC3THDP3PG.jpg | JPEG | 834×209 | `https://denzel-tech.com/storage/partners/01KVAXV8PJBQAX5JFC3THDP3PG.jpg` | §04 合作夥伴卡：HomeLink LOGO，同上風險 |
-| 01KVAXX9FY04P5B6YN4R5AY17Q.png | PNG | 240×240 | `https://denzel-tech.com/storage/partners/01KVAXX9FY04P5B6YN4R5AY17Q.png` | §04 合作夥伴卡：電小二 LOGO，同上風險 |
-| 01KVAY2MH8KAR19ATC918RK2P6.png | PNG | 140×114 | `https://denzel-tech.com/storage/partners/01KVAY2MH8KAR19ATC918RK2P6.png` | §04 合作夥伴卡：冠宇數位科技 LOGO，同上風險 |
+| line.svg | SVG | 50×50 viewBox（顯示 34px） | `assets/line.svg` | LINE |
+| facebook.svg | SVG | 50×50 viewBox（顯示 34px） | `assets/facebook.svg` | Facebook |
+| instagram.svg | SVG | 50×50 viewBox（顯示 34px） | `assets/instagram.svg` | Instagram |
+| mail.svg | SVG | 50×50 viewBox（顯示 34px） | `assets/mail.svg` | Email |
+| web.svg | SVG | 50×50 viewBox（顯示 34px） | `assets/web.svg` | 官網連結 |
+
+---
 
 ### 專案資料夾內、但頁面目前沒用到的檔案
 這些是製作過程中的素材，不在線上頁面裡顯示，沒事不用處理：
 - `denzel-portrait-circle.png`、`denzel-portrait.jpg`、`portrait.png`（主理人照的舊版本/中間檔）
 - `LINE_NOTE_260620_1~4.jpg`（Tony 當初用 LINE 傳的需求筆記截圖）
+
+---
+
+## _redirects（`linket-pages/_redirects` 根目錄）
+
+```
+/denzel-tech             /denzel-tech//index.html      200
+```
+
+> 部署順序：先上傳專案資料夾，再更新路由（跟 leon-day／龍德先上路由後上傳專案的順序相反，這個順序下用此寫法沒問題）。
 
 ---
 
