@@ -1,0 +1,864 @@
+<!--
+  財團法人博幼社會福利基金會｜品牌登場頁 v2.1
+  slug: boyo-org
+  方案: T3 團隊版（體驗階段，2026年7月深聊前體驗素材）
+  GA4 label: boyo-org
+  頁面架構: linket.app/boyo-org（本頁，純品牌，不露出任何人名）→ linket.app/boyo-org/jhang-rong-hua（個人頁）
+  ─────────────────────
+  v2.0  2026-06-25  重做：將原本錯置在張榮華頁的 Story/Journey/Impact/SDGs 內容歸位回品牌頁；
+                     新增 Breathing Space(已查證李家同語錄)／FAQ＋FAQPage結構化資料／countUp動畫；
+                     修正手機 Journey 觸控熱區 36px→44px
+  v2.1  2026-06-25  Tony回饋：品牌頁不應出現任何人名。移除Hero CTA／FAQ／Footer contact-card內「張榮華」
+                     字樣，改為通用「企業合作窗口」，連結仍指向 /jhang-rong-hua/ 個人頁承接人脈串聯戰略
+                     依據：架構書v2.md（loop-skill驗證通過）
+  v2.2  2026-06-25  Tony回饋（9點修正）：Hero改淺色版面配置（沿用張榮華頁風格）；全站移除emoji；
+                     非標題內容統一justify；套用真實LOGO/icon素材；Hero按鈕重排（CTA優先＋內容導覽）；
+                     新增「拜訪據點」17中心北中南東互動地圖（boyo.org.tw查證真實地址）；
+                     ESG卡片補SDG標籤；Footer改公版順序。第9點繪本互動遊戲方向另開loop討論，本版不含
+  v2.3  2026-06-25  Tony細修8點：Hero桌機分左右欄／導覽鈕全寬／捐款鈕改深咖啡／QR分享鈕補外框／
+                     QR彈窗補LOGO；新增Ticker跑馬燈；故事區補假圖；Impact黃底文字改深咖啡（對比度）；
+                     SDG改真實9項指標（查證boyo.org.tw/boyoV2/boyo_sdgs）＋輪播＋大版面badge，
+                     正名「博幼無ESG主體，是企業ESG夥伴」改標籤為SDGs；拜訪據點tab等寬／地圖預設顯示／
+                     前往鈕改黃底咖啡字；Footer順序調整＋移除企業合作窗口卡片＋icon取消外框＋design by改公版文字
+-->
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-29J2988Y8J');</script>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+<title>財團法人博幼社會福利基金會｜讓知識帶希望回家</title>
+<meta name="description" content="2002年創立，深耕偏鄉教育22年。17個直營中心，3,653位學生，讓知識帶希望回家。用教育終結世襲貧窮。">
+<meta property="og:title" content="財團法人博幼社會福利基金會｜讓知識帶希望回家">
+<meta property="og:description" content="用教育終結世襲貧窮。2002年創立，深耕偏鄉教育22年，17個直營中心，3,653位學生受益。">
+<meta property="og:image" content="https://linket.app/boyo-org/assets/og-image.jpg">
+<meta property="og:url" content="https://linket.app/boyo-org/">
+<meta property="og:type" content="website">
+<link rel="icon" sizes="180x180" href="./assets/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Noto+Serif+TC:wght@200;300;400;500;600;700&family=Shippori+Mincho+B1:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "企業要怎麼跟博幼基金會合作？",
+      "acceptedAnswer": { "@type": "Answer", "text": "可透過企業合作窗口對接，電話 04-37023217 #451，或透過官方LINE洽詢。博幼提供企業高管健康福利、CSR合作等多種合作形式，並對接9項聯合國永續發展目標（SDGs）設計合作方案。" }
+    },
+    {
+      "@type": "Question",
+      "name": "捐款的錢實際上怎麼運用？",
+      "acceptedAnswer": { "@type": "Answer", "text": "博幼財務報表公開透明，主要支出投入課業輔導教材、224位英數專職師資及輔導員薪資、社工輔導服務（餐食補助、職場參訪）、以及追蹤畢業生至25歲的獎助學金與職涯諮詢。" }
+    },
+    {
+      "@type": "Question",
+      "name": "博幼怎麼確保長期成效，不是只給短期物資？",
+      "acceptedAnswer": { "@type": "Answer", "text": "博幼核心理念是「不做物資救濟，專注長期課業輔導」。透過精熟學習（哪裡不會從哪裡教起）、積極性社工輔導、持續追蹤至25歲三大服務，目前已追蹤2,408位畢業生，25歲以上已就業者平均月薪NT$36,524。" }
+    }
+  ]
+}
+</script>
+<style>
+:root {
+  --bg-paper:    #FFFBF5;
+  --bg-sand:     #F7EFE5;
+  --text-main:   #544238;
+  --text-light:  #8A766A;
+  --sun:         #F3B340;
+  --sun-light:   #FDF3DD;
+  --leaf:        #7E9960;
+  --leaf-light:  #E8EFE1;
+  --sky:         #6B94A3;
+  --dawn:        #D97F7A;
+  --bg-dark:     #3D2010;
+  --r-pill:      999px;
+  --r-card:      30px;
+  --mw:          1040px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Serif TC','Shippori Mincho B1',serif;font-weight:400;background:var(--bg-paper);color:var(--text-main);line-height:1.9;letter-spacing:.05em;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+img{display:block;max-width:100%;}
+.inner{max-width:var(--mw);margin:0 auto;padding:0 1.6rem;}
+.fallback-box{border:2px dashed var(--sun);display:flex;align-items:center;justify-content:center;color:var(--sun);font-size:.75rem;letter-spacing:.1em;background:var(--sun-light);border-radius:var(--r-pill);font-family:'Fredoka',sans-serif;font-weight:600;}
+
+/* ── HERO（v2.2 改淺色版面，沿用張榮華頁風格） ── */
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#FFFFFF 0%,var(--bg-paper) 100%);padding:5.5rem 1.6rem 4.5rem;border-bottom:2px dashed rgba(84,66,56,.1);}
+.hero::before{content:'';position:absolute;top:-10%;left:-10%;width:50%;height:50%;background:radial-gradient(circle,var(--sun-light) 0%,transparent 70%);border-radius:50%;z-index:0;}
+.hero::after{content:'';position:absolute;bottom:-10%;right:-10%;width:60%;height:60%;background:radial-gradient(circle,var(--leaf-light) 0%,transparent 70%);border-radius:50%;z-index:0;}
+.hero .inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;}
+.hero-cols{display:flex;flex-direction:column;align-items:center;width:100%;}
+.hero-left-col,.hero-right-col{display:flex;flex-direction:column;align-items:center;width:100%;}
+@media(min-width:860px){
+  .hero-cols{flex-direction:row;align-items:flex-start;justify-content:center;gap:4.5rem;text-align:left;}
+  .hero-left-col{align-items:flex-start;text-align:left;width:340px;flex:0 0 340px;padding-top:.5rem;}
+  .hero-left-col .stat-row{justify-content:flex-start;}
+  .hero-right-col{align-items:center;width:340px;flex:0 0 340px;}
+}
+.hero-logo-wrap{width:100%;max-width:260px;margin-bottom:2.5rem;}
+.hero-logo-wrap img{width:100%;height:auto;display:block;}
+.hero-role{font-size:.78rem;letter-spacing:.22em;color:var(--sun);text-transform:uppercase;font-weight:500;margin-bottom:.5rem;}
+.hero-name{font-family:'Shippori Mincho B1','Playfair Display',serif;font-size:clamp(1.7rem,4vw,2rem);font-weight:700;letter-spacing:.1em;color:var(--text-main);line-height:1.4;margin-top:2.5rem;}
+.hero-name-en{font-family:'Playfair Display',serif;font-size:.85rem;font-weight:400;letter-spacing:.16em;color:var(--text-light);margin-bottom:1.4rem;}
+.hero-slogan{font-size:.95rem;font-weight:500;letter-spacing:.1em;color:var(--text-main);line-height:2;margin-bottom:1rem;}
+.stat-row{display:flex;justify-content:center;gap:1.8rem;flex-wrap:wrap;margin-top:2rem;margin-bottom:2.2rem;}
+.stat-item{text-align:center;}
+.stat-num{font-family:'Fredoka',sans-serif;font-size:clamp(1.4rem,5vw,2rem);font-weight:600;color:var(--sun);display:block;line-height:1;}
+.stat-label{font-size:.65rem;letter-spacing:.1em;color:var(--text-light);display:block;margin-top:.3rem;}
+
+.hero-icons{display:flex;justify-content:center;gap:1rem;margin-bottom:1.4rem;width:100%;flex-wrap:wrap;}
+.hero-icon-link{width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);border-radius:50%;transition:opacity .2s,transform .2s;flex-shrink:0;}
+.hero-icon-link:hover{opacity:.78;transform:translateY(-2px);}
+.hero-icon-link img{width:60%;height:60%;display:block;}
+.hero .hero-icon-link{background:#fff;border:none;box-shadow:0 5px 15px rgba(84,66,56,.08);}
+.hero .hero-icon-link:hover{opacity:1;transform:translateY(-3px);box-shadow:0 8px 20px rgba(84,66,56,.14);}
+
+.hero-btn{display:flex;align-items:center;justify-content:center;width:100%;max-width:330px;border-radius:var(--r-pill);font-family:'Noto Serif TC',serif;font-size:.88rem;font-weight:600;letter-spacing:.08em;text-decoration:none;padding:.9rem 1.1rem;margin-bottom:.85rem;line-height:1.3;transition:opacity .2s,transform .2s;cursor:pointer;}
+.hero-btn:hover{opacity:.88;transform:translateY(-2px);}
+.hero-btn.p1{background:var(--sun);color:#fff;font-weight:700;border:1px solid transparent;box-shadow:0 8px 22px rgba(243,179,64,.28);}
+.hero-btn.donate{background:transparent;border:1.5px solid var(--sun);color:var(--sun);font-weight:600;}
+.hero-btn.ghost{background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.32);color:rgba(255,255,255,.88);}
+.hero-btn.ghost:hover{background:rgba(255,255,255,.12);}
+.hero .hero-btn.donate{background:var(--text-main);color:var(--bg-paper);border:1px solid transparent;font-weight:700;box-shadow:0 8px 22px rgba(84,66,56,.25);}
+.hero-btn.nav{background:var(--bg-sand);color:var(--text-main);font-weight:600;}
+.hero-btn.nav:hover{background:var(--sun-light);color:var(--sun);}
+.hero-btn-row{display:flex;gap:.65rem;width:100%;max-width:330px;justify-content:center;margin-top:1rem;}
+.hero-btn.qr,.hero-btn.share{flex:1;background:transparent;border:1.5px solid rgba(84,66,56,.22);color:var(--text-light);font-size:.76rem;letter-spacing:.1em;padding:.6rem;margin-bottom:0;}
+.hero-btn.share{display:none;}
+.hero-btn.share.visible{display:flex;}
+.share-icon{width:14px;height:14px;margin-right:.3rem;flex-shrink:0;}
+
+@media(max-width:600px){
+  .hero{padding:4rem 1.2rem 3.5rem;}
+}
+
+/* ── QR MODAL（沿用） ── */
+.qr-modal-overlay{display:none;position:fixed;inset:0;z-index:999;background:rgba(84,66,56,.85);backdrop-filter:blur(12px);align-items:center;justify-content:center;}
+.qr-modal-overlay.active{display:flex;animation:fadeIn .25s ease;}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+.qr-modal{background:#fff;border:4px solid var(--sun-light);padding:3rem 2.4rem;max-width:320px;width:88%;display:flex;flex-direction:column;align-items:center;border-radius:32px;}
+.qr-modal-logo{width:220px;margin-bottom:1.2rem;}
+.qr-modal-title{font-size:1rem;font-weight:700;letter-spacing:.1em;color:var(--text-main);margin-bottom:1.4rem;text-align:center;}
+.qr-modal-code{width:190px;height:190px;background:#fff;border:2px dashed var(--sun);border-radius:18px;display:flex;align-items:center;justify-content:center;padding:10px;margin-bottom:1.2rem;}
+.qr-modal-url{font-size:.8rem;letter-spacing:.1em;color:var(--sun);margin-bottom:1.4rem;font-family:'Fredoka',sans-serif;font-weight:600;}
+.qr-modal-close{background:var(--bg-sand);border:none;border-radius:var(--r-pill);padding:.85rem 2.4rem;font-family:'Shippori Mincho B1',serif;font-size:.82rem;letter-spacing:.16em;color:var(--text-main);cursor:pointer;font-weight:700;}
+.qr-modal-close:hover{background:var(--sun);color:#fff;}
+
+/* ── Ticker 跑馬燈（v2.3新增，來源 interactive-modules.md §9-A，⚠已知bug：刪除時注意keyframe保留） ── */
+.ticker-wrap{width:100%;overflow:hidden;background:var(--leaf);padding:.85rem 0;}
+.ticker{display:flex;width:max-content;}
+.ticker-content{display:flex;gap:2.4rem;padding-right:2.4rem;white-space:nowrap;animation:tick-boyo 26s linear infinite;font-family:'Fredoka',sans-serif;font-size:.82rem;letter-spacing:.1em;color:#fff;font-weight:500;}
+@keyframes tick-boyo{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* ── Breathing Space（創辦理念金句） ── */
+.breathing{background:#2C1508;padding:clamp(4rem,10vw,7rem) 1.6rem;text-align:center;position:relative;overflow:hidden;}
+.breathing::before{content:'BOYO';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:clamp(4rem,18vw,9rem);font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,.03);pointer-events:none;white-space:nowrap;}
+.breathing-inner{position:relative;z-index:1;max-width:680px;margin:0 auto;}
+.breathing-quote{font-family:'Noto Serif TC',serif;font-size:clamp(1.2rem,3.6vw,1.6rem);font-weight:500;line-height:2;letter-spacing:.06em;color:rgba(255,255,255,.92);margin-bottom:1.4rem;}
+.breathing-attr{font-family:'Fredoka',sans-serif;font-size:.78rem;letter-spacing:.18em;color:var(--sun);text-transform:uppercase;}
+
+/* ── 共用 section header ── */
+.story-wrap{max-width:var(--mw);margin:0 auto;padding:0 1.6rem;}
+.sec-header{text-align:center;margin-bottom:4rem;}
+.sec-label{font-family:'Fredoka',sans-serif;color:var(--sun);font-size:.95rem;letter-spacing:.22em;margin-bottom:.9rem;text-transform:uppercase;font-weight:600;}
+.sec-title{font-size:clamp(1.7rem,4.5vw,2.2rem);font-weight:700;color:var(--text-main);letter-spacing:.1em;line-height:1.4;margin-bottom:1rem;}
+.esg-intro{max-width:600px;margin:1.4rem auto 0;font-size:.92rem;color:var(--text-light);line-height:2;}
+
+/* ── ③ Story 理念敘事 ── */
+.story-section{padding:6rem 0 7rem;position:relative;background:var(--bg-paper);}
+.quote-hero{text-align:center;margin-bottom:5rem;max-width:800px;margin-left:auto;margin-right:auto;background:#fff;padding:3.4rem 2rem;border-radius:36px;box-shadow:0 10px 40px rgba(84,66,56,.04);border:1px dashed rgba(84,66,56,.12);}
+.quote-text{font-size:clamp(1.1rem,3.6vw,1.4rem);line-height:2.1;color:var(--text-main);font-weight:600;letter-spacing:.08em;text-align:justify;}
+.quote-text em{font-style:normal;color:var(--sun);font-weight:800;}
+.storybook-article{display:grid;grid-template-columns:1fr;gap:2.5rem;margin-bottom:6rem;align-items:center;}
+@media(min-width:800px){.storybook-article{grid-template-columns:1fr 1fr;gap:4.5rem;}.storybook-article.reverse .sa-text{order:1;}.storybook-article.reverse .sa-img{order:2;}}
+.sa-img{position:relative;aspect-ratio:1/1;background:var(--bg-sand);box-shadow:0 15px 35px rgba(84,66,56,.08);overflow:hidden;border-radius:60% 40% 30% 70% / 60% 30% 70% 40%;border:8px solid #fff;}
+.sa-img.alt{border-radius:40% 60% 70% 30% / 40% 50% 60% 50%;border-color:var(--sun-light);}
+.sa-img img{position:relative;z-index:2;width:100%;height:100%;object-fit:cover;}
+.sa-text{display:flex;flex-direction:column;align-items:flex-start;}
+.sa-icon{font-size:2.6rem;margin-bottom:1.2rem;background:#fff;width:72px;height:72px;display:flex;align-items:center;justify-content:center;border-radius:50%;box-shadow:0 5px 20px rgba(84,66,56,.06);}
+.sa-title{font-size:1.4rem;font-weight:800;color:var(--text-main);margin-bottom:1.2rem;letter-spacing:.08em;}
+.sa-desc{font-size:.95rem;color:var(--text-light);line-height:2.1;font-weight:400;text-align:justify;letter-spacing:.05em;}
+.img-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.85rem;color:var(--text-light);letter-spacing:.1em;padding:1.6rem;text-align:center;background:var(--sun-light);z-index:1;}
+
+/* ── ④ Journey 成長軌跡 ── */
+.journey-sec{padding:5rem 0 8rem;background:var(--bg-sand);}
+.journey-path{max-width:780px;margin:0 auto;position:relative;padding:1.5rem 0;}
+.journey-path::before{content:'';position:absolute;left:30px;top:0;bottom:0;width:2px;border-left:3px dashed var(--sun);opacity:.5;}
+@media(min-width:768px){.journey-path::before{left:50%;transform:translateX(-50%);}}
+.j-step{display:flex;flex-direction:column;position:relative;margin-bottom:4rem;padding-left:80px;}
+.j-step:last-child{margin-bottom:0;}
+@media(min-width:768px){.j-step{flex-direction:row;align-items:center;justify-content:flex-end;padding-left:0;width:50%;}.j-step:nth-child(odd){justify-content:flex-start;left:50%;padding-left:50px;}.j-step:nth-child(even){left:0;padding-right:50px;text-align:right;}}
+.j-node{position:absolute;left:8px;top:0;width:44px;height:44px;background:#fff;border:3px solid var(--sun);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.15rem;z-index:2;box-shadow:0 4px 10px rgba(243,179,64,.3);}
+@media(min-width:768px){.j-step:nth-child(odd) .j-node{left:-22px;}.j-step:nth-child(even) .j-node{right:-22px;left:auto;}}
+.j-card{background:#fff;padding:1.8rem;border-radius:22px;box-shadow:0 10px 30px rgba(84,66,56,.04);position:relative;width:100%;}
+.j-age{font-family:'Fredoka',sans-serif;font-size:.85rem;font-weight:600;color:var(--sun);letter-spacing:.14em;margin-bottom:.5rem;text-transform:uppercase;}
+.j-title{font-size:1.2rem;font-weight:700;color:var(--text-main);margin-bottom:.9rem;}
+.j-desc{font-size:.9rem;color:var(--text-light);line-height:1.85;font-weight:400;}
+@media(min-width:768px){.j-step:nth-child(even) .j-card{text-align:right;}}
+
+/* ── ⑤ Impact 數據（countUp） ── */
+.impact-sec{padding:7rem 0 7rem;}
+.bubble-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:1.8rem;max-width:900px;margin:0 auto;}
+.b-card{background:#fff;border-radius:28px;padding:2.2rem 1.8rem;text-align:center;box-shadow:0 10px 30px rgba(84,66,56,.05);flex:1 1 200px;min-width:200px;}
+.b-num{font-family:'Fredoka',sans-serif;font-size:2.6rem;font-weight:600;color:var(--sun);line-height:1.1;margin-bottom:.4rem;}
+.b-num .unit{font-size:1rem;font-family:'Shippori Mincho B1',serif;font-weight:600;color:var(--text-main);margin-left:.2rem;}
+.b-lbl{font-size:.88rem;color:var(--text-light);font-weight:600;letter-spacing:.08em;}
+.b-card.highlight{flex:1 1 100%;background:var(--sun);color:var(--text-main);padding:3.2rem 2rem;border-radius:36px;box-shadow:0 15px 40px rgba(243,179,64,.3);}
+.b-card.highlight .b-num{color:var(--text-main);font-size:clamp(3rem,7vw,4.2rem);}
+.b-card.highlight .b-num .unit{color:var(--text-main);}
+.b-card.highlight .b-lbl{color:var(--text-main);font-size:1.05rem;}
+.b-card.highlight p{font-size:.92rem;color:var(--text-main);font-weight:500;margin-top:.8rem;opacity:.85;}
+
+/* ── ⑥ SDGs（v2.3改真實9項指標＋輪播＋大版面badge） ── */
+.sdg-sec{padding:5rem 0 6rem;background:var(--bg-sand);}
+.sdg-carousel{position:relative;}
+.sdg-track{display:flex;gap:1.6rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:.4rem .4rem 1.6rem;scrollbar-width:none;}
+.sdg-track::-webkit-scrollbar{display:none;}
+.sdg-sticker{scroll-snap-align:start;flex:0 0 270px;display:flex;flex-direction:column;align-items:flex-start;text-align:left;background:#fff;padding:2rem 1.7rem;border-radius:28px;box-shadow:0 10px 30px rgba(84,66,56,.05);}
+@media(min-width:700px){.sdg-sticker{flex:0 0 320px;}}
+.sdg-badge-row{display:flex;align-items:center;gap:1rem;margin-bottom:1.1rem;width:100%;}
+.sdg-badge-num{width:64px;height:64px;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;flex-shrink:0;}
+.sdg-badge-tag{font-family:'Fredoka',sans-serif;font-size:.58rem;letter-spacing:.1em;opacity:.92;}
+.sdg-badge-big{font-family:'Fredoka',sans-serif;font-size:1.7rem;font-weight:700;line-height:1;}
+.sdg-info h3{font-size:1.1rem;font-weight:700;color:var(--text-main);}
+.sdg-info p{font-size:.88rem;color:var(--text-light);line-height:1.85;}
+.sdg-arrow{position:absolute;top:38%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:#fff;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.3rem;color:var(--text-main);box-shadow:0 8px 24px rgba(84,66,56,.2);z-index:3;transition:.25s;}
+.sdg-arrow:hover{background:var(--sun);color:#fff;transform:translateY(-50%) scale(1.08);}
+.sdg-arrow.prev{left:-8px;}
+.sdg-arrow.next{right:-8px;}
+@media(max-width:700px){.sdg-arrow{display:none;}}
+.cta-wrap{display:flex;justify-content:center;margin-top:3.5rem;flex-direction:column;align-items:center;gap:1rem;}
+.cta-title{font-size:1.3rem;font-weight:800;color:var(--text-main);margin-bottom:1.2rem;text-align:center;}
+
+/* ── ⑦ FAQ ── */
+.faq-sec{padding:6rem 0 6rem;background:var(--bg-paper);}
+.faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:1rem;}
+.faq-item{background:#fff;border-radius:22px;box-shadow:0 8px 24px rgba(84,66,56,.04);overflow:hidden;}
+.faq-q{display:flex;align-items:center;justify-content:space-between;gap:1rem;width:100%;text-align:left;padding:1.3rem 1.6rem;background:none;border:none;cursor:pointer;font-family:'Noto Serif TC',serif;font-size:1.1rem;font-weight:700;color:var(--text-main);min-height:44px;}
+.faq-q-mark{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--sun-light);color:var(--sun);display:flex;align-items:center;justify-content:center;font-weight:700;transition:.3s;}
+.faq-item.open .faq-q-mark{transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+.faq-item.open .faq-a{max-height:340px;}
+.faq-a-inner{padding:0 1.6rem 1.4rem;font-size:1rem;color:var(--text-light);line-height:2;}
+
+/* ── Footer ── */
+.footer{background:var(--text-main);color:var(--bg-paper);padding:6rem 1.6rem 4.5rem;text-align:center;}
+.f-title{font-size:1.4rem;font-weight:700;letter-spacing:.12em;margin-bottom:.8rem;color:#fff;}
+.f-sub{font-family:'Fredoka',sans-serif;font-weight:500;font-size:.85rem;letter-spacing:.22em;color:var(--sun);margin-bottom:2.6rem;text-transform:uppercase;}
+.f-btns{display:flex;flex-direction:column;align-items:center;max-width:420px;margin:0 auto 1.6rem;}
+.f-btns .hero-btn{margin-bottom:1rem;}
+.f-info-table{max-width:480px;margin:0 auto 2.2rem;text-align:left;font-size:.88rem;color:rgba(255,251,245,.7);border-collapse:collapse;width:100%;letter-spacing:.06em;}
+.f-info-table tr{border-bottom:1px dashed rgba(255,255,255,.1);}
+.f-info-table tr:last-child{border-bottom:none;}
+.f-info-table td{padding:1rem .5rem;vertical-align:top;}
+.f-info-table td:first-child{font-weight:600;width:30%;color:var(--sun);letter-spacing:.1em;}
+.back-to-top{display:inline-flex;align-items:center;gap:.6rem;border:2px solid var(--sun);color:var(--sun);background:transparent;padding:.85rem 2.6rem;text-decoration:none;font-size:.85rem;letter-spacing:.16em;margin-bottom:3rem;border-radius:var(--r-pill);font-weight:700;min-height:44px;}
+.back-to-top:hover{background:var(--sun);color:#fff;}
+.design-by{font-size:.72rem;color:rgba(255,255,255,.45);letter-spacing:.2em;font-family:'Fredoka',sans-serif;font-weight:500;}
+.db-lin{color:rgba(22,133,200,.75);}
+.db-ket{color:rgba(255,255,255,.4);}
+
+.reveal{opacity:0;transform:translateY(28px);transition:1.1s cubic-bezier(.2,.8,.2,1);}
+.reveal.visible{opacity:1;transform:none;}
+
+@media(max-width:768px){
+  .story-section{padding:4rem 0 5rem;}
+  .quote-hero{padding:2.4rem 1.4rem;margin-bottom:4rem;}
+  .storybook-article{margin-bottom:4.5rem;}
+}
+
+/* ── v2.2 Tony回饋：非標題內容統一justify ── */
+.breathing-quote,.j-desc,.faq-a-inner,.sdg-info p,.esg-intro{text-align:justify;}
+.b-card.highlight p{text-align:center;}
+
+/* ── v2.2 SDG卡片補標籤，避免單看數字看不懂 ── */
+.sdg-tag{display:block;font-size:.5rem;letter-spacing:.12em;opacity:.85;margin-bottom:-.05rem;}
+
+/* ── v2.2/v2.3/v2.4 Footer 公版補件：統一欄寬／LOGO白底放大／icon比照Hero樣式／copyright ── */
+.footer-inner{max-width:480px;margin:0 auto;}
+.footer-logo{background:#fff;border-radius:28px;padding:1.6rem 2rem;width:auto;max-width:292px;margin:0 auto 2rem;box-shadow:0 8px 24px rgba(0,0,0,.18);}
+.footer-logo img{width:100%;height:auto;display:block;max-width:292px;}
+.footer .hero-icon-link{background:#fff;border:none;box-shadow:0 5px 15px rgba(0,0,0,.18);}
+.footer .hero-icon-link:hover{opacity:1;transform:translateY(-3px);}
+.f-copyright{font-size:.72rem;color:rgba(255,251,245,.45);letter-spacing:.05em;margin-top:1.6rem;margin-bottom:.6rem;line-height:1.8;}
+
+/* ── v2.2 拜訪據點：17中心北中南東分類＋互動地圖 ── */
+.visit-sec{padding:5rem 0 6rem;background:var(--bg-paper);}
+.region-tabs{display:flex;justify-content:center;gap:.7rem;flex-wrap:wrap;margin-bottom:2.6rem;max-width:760px;margin-left:auto;margin-right:auto;}
+.region-tab{flex:1 1 160px;max-width:220px;font-family:'Fredoka',sans-serif;font-size:.85rem;font-weight:600;letter-spacing:.06em;padding:.7rem 1rem;border-radius:var(--r-pill);background:var(--bg-sand);color:var(--text-main);border:none;cursor:pointer;min-height:44px;transition:.2s;text-align:center;}
+.region-tab.active{background:var(--sun);color:#fff;}
+.region-panel{display:none;}
+.region-panel.active{display:grid;grid-template-columns:1fr;gap:1.4rem;}
+@media(min-width:760px){.region-panel.active{grid-template-columns:1fr 1fr;}}
+.center-card{background:#fff;border-radius:26px;padding:1.8rem 1.6rem;box-shadow:0 8px 26px rgba(84,66,56,.05);}
+.center-card-name{font-size:1.2rem;font-weight:700;color:var(--text-main);margin-bottom:.9rem;}
+.center-sub{margin-bottom:1.1rem;padding-bottom:1.1rem;border-bottom:1px dashed rgba(84,66,56,.12);}
+.center-sub:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.center-sub-name{font-size:.8rem;font-weight:600;color:var(--sun);margin-bottom:.4rem;letter-spacing:.04em;}
+.center-addr{font-size:.85rem;color:var(--text-light);line-height:1.8;margin-bottom:.6rem;}
+.center-tel{font-size:.85rem;color:var(--text-main);font-weight:600;display:inline-flex;align-items:center;gap:.4rem;margin-bottom:.8rem;min-height:32px;}
+.center-map{width:100%;aspect-ratio:16/10;border:none;border-radius:16px;margin-bottom:.8rem;display:block;}
+.center-actions{display:flex;gap:.6rem;flex-wrap:wrap;}
+.center-btn{font-family:'Fredoka',sans-serif;font-size:1rem;letter-spacing:.06em;padding:.55rem 1.1rem;border-radius:var(--r-pill);background:var(--bg-sand);color:var(--text-main);border:none;cursor:pointer;min-height:40px;display:inline-flex;align-items:center;gap:.3rem;text-decoration:none;}
+.center-btn:hover{background:var(--sun-light);color:var(--sun);}
+.center-btn.go{background:var(--sun);color:var(--text-main);font-weight:700;}
+.center-btn.go:hover{background:#ECA322;}
+</style>
+</head>
+<body id="top">
+
+<!-- ── HERO（v2.2 淺色版面） ── -->
+<section class="hero">
+  <div class="inner">
+    <div class="hero-cols">
+      <div class="hero-left-col">
+        <div class="hero-logo-wrap">
+          <img src="./assets/boyo-logo.png" alt="博幼基金會" onerror="this.style.display='none'">
+        </div>
+        <div class="hero-name">讓知識帶希望回家</div>
+        <div class="hero-name-en">Boyo Foundation · Since 2002</div>
+        <div class="stat-row">
+          <div class="stat-item"><span class="stat-num" data-target="17">0</span><span class="stat-label">直營中心</span></div>
+          <div class="stat-item"><span class="stat-num" data-target="3653">0</span><span class="stat-label">服務學生</span></div>
+          <div class="stat-item"><span class="stat-num" data-target="2408">0</span><span class="stat-label">追蹤畢業生</span></div>
+        </div>
+        <div class="hero-slogan">「教育脫貧，讓知識帶希望回家」</div>
+      </div>
+      <div class="hero-right-col">
+        <div class="hero-icons">
+          <a class="hero-icon-link" href="https://page.line.me/riu9002p" target="_blank" rel="noopener" aria-label="LINE" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'boyo-org'})"><img src="./assets/line.svg" alt="LINE" onerror="this.style.display='none'"></a>
+          <a class="hero-icon-link" href="https://www.youtube.com/@boyonantou" target="_blank" rel="noopener" aria-label="YouTube" onclick="gtag('event','click_youtube',{'event_category':'CTA','event_label':'boyo-org'})"><img src="./assets/youtube.svg" alt="YT" onerror="this.style.display='none'"></a>
+          <a class="hero-icon-link" href="https://www.facebook.com/BoyoSWF" target="_blank" rel="noopener" aria-label="Facebook" onclick="gtag('event','click_fb',{'event_category':'CTA','event_label':'boyo-org'})"><img src="./assets/facebook.svg" alt="FB" onerror="this.style.display='none'"></a>
+          <a class="hero-icon-link" href="https://www.boyo.org.tw/" target="_blank" rel="noopener" aria-label="官網" onclick="gtag('event','click_web',{'event_category':'CTA','event_label':'boyo-org'})"><img src="./assets/web.svg" alt="Web" onerror="this.style.display='none'"></a>
+        </div>
+        <!-- 實質CTA優先：LINE諮詢／捐款 -->
+        <a class="hero-btn p1" href="https://page.line.me/riu9002p" target="_blank" rel="noopener" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'boyo-org'})">
+          官方LINE諮詢｜LINE
+        </a>
+        <a class="hero-btn donate" href="https://www.boyo.org.tw/boyoV2/donate" target="_blank" rel="noopener" onclick="gtag('event','click_donate',{'event_category':'CTA','event_label':'boyo-org'})">
+          立即捐款支持｜Donate
+        </a>
+        <a class="hero-btn nav" href="#about" onclick="gtag('event','click_nav_about',{'event_category':'CTA','event_label':'boyo-org'})">關於博幼｜About</a>
+        <a class="hero-btn nav" href="#impact" onclick="gtag('event','click_nav_impact',{'event_category':'CTA','event_label':'boyo-org'})">博幼成果｜Impact</a>
+        <a class="hero-btn nav" href="#sdgs" onclick="gtag('event','click_nav_sdgs',{'event_category':'CTA','event_label':'boyo-org'})">永續目標｜SDGs</a>
+        <a class="hero-btn nav" href="#visit" onclick="gtag('event','click_nav_visit',{'event_category':'CTA','event_label':'boyo-org'})">拜訪據點｜Visit</a>
+        <div class="hero-btn-row">
+          <button class="hero-btn qr" onclick="openQrModal()" aria-label="QR Code">⊞ QR CODE</button>
+          <button class="hero-btn share" id="shareBtn" onclick="shareThisPage()" aria-label="分享">Share</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Ticker（v2.3新增） ── -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <div class="ticker-content">
+      <span>用教育終結世襲貧窮</span><span>17個直營中心</span><span>3,653位學生</span><span>22年深耕偏鄉教育</span><span>2,408位追蹤畢業生</span><span>李家同教授創辦</span><span>精熟學習＋積極性社工輔導</span><span>用教育終結世襲貧窮</span><span>17個直營中心</span><span>3,653位學生</span><span>22年深耕偏鄉教育</span><span>2,408位追蹤畢業生</span><span>李家同教授創辦</span><span>精熟學習＋積極性社工輔導</span>
+    </div>
+  </div>
+</div>
+
+<div class="qr-modal-overlay" id="qrModal" onclick="closeQrModalOnBg(event)">
+  <div class="qr-modal">
+    <img class="qr-modal-logo" src="./assets/boyo-logo.png" alt="博幼基金會" onerror="this.style.display='none'">
+    <div class="qr-modal-title">財團法人博幼社會福利基金會</div>
+    <div class="qr-modal-code"><div id="qrcode-canvas"></div></div>
+    <div class="qr-modal-url">linket.app/boyo-org</div>
+    <button class="qr-modal-close" onclick="closeQrModal()">關 閉</button>
+  </div>
+</div>
+
+<!-- ── Breathing Space：創辦理念金句（已查證真實語錄） ── -->
+<section class="breathing">
+  <div class="breathing-inner">
+    <p class="breathing-quote reveal">
+      「窮困孩子的唯一希望來自教育。我們不做物資救濟，專注長期課業輔導，讓偏鄉孩子具備選擇職業與生活模式的能力。」
+    </p>
+    <div class="breathing-attr reveal">—— 李家同教授・博幼基金會創辦人</div>
+  </div>
+</section>
+
+<!-- ── Story 理念敘事 ── -->
+<section class="story-section" id="about">
+  <div class="story-wrap">
+    <div class="quote-hero reveal">
+      <div class="sec-label">Our Story</div>
+      <h2 class="sec-title">寫一本名為希望的繪本</h2>
+      <div class="quote-text">
+        我們不提供短期的物資施予，而是給予<em>翻轉命運的長效陪伴</em>。讓每個偏鄉的孩子，都能為自己寫下美好的童年。
+      </div>
+    </div>
+    <div class="storybook-article reveal">
+      <div class="sa-img"><div class="img-placeholder">精熟學習照片<br>待提供</div><img src="./assets/photo-1.jpg" alt="精熟學習" onerror="this.style.display='none'"></div>
+      <div class="sa-text">
+        <h3 class="sa-title">找回學習的自信</h3>
+        <p class="sa-desc">不隨學校進度囫圇吞棗。我們為孩子準備專屬的教材，透過「哪裡不會從哪裡教起」的溫柔引導，幫助他們真正掌握基礎學力，重新發現學習的樂趣。</p>
+      </div>
+    </div>
+    <div class="storybook-article reverse reveal">
+      <div class="sa-img alt"><div class="img-placeholder">社工輔導照片<br>待提供</div><img src="./assets/photo-2.jpg" alt="社工輔導" onerror="this.style.display='none'"></div>
+      <div class="sa-text">
+        <h3 class="sa-title">無條件的情緒接住</h3>
+        <p class="sa-desc">教育不僅是書本上的知識。我們結合專業社工，提供餐食、心理諮商與職涯參訪。我們關心孩子的功課，更在乎他們的心是否被安穩地接住。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Journey 成長軌跡 ── -->
+<section class="journey-sec">
+  <div class="story-wrap">
+    <div class="sec-header reveal">
+      <div class="sec-label">The Journey</div>
+      <h2 class="sec-title">成長的篇章：博幼的長效陪伴</h2>
+    </div>
+    <div class="journey-path">
+      <div class="j-step reveal">
+        <div class="j-node">01</div>
+        <div class="j-card"><div class="j-age">Stage 01 ｜ 國小啟蒙</div><h3 class="j-title">學力扎根與陪伴</h3><p class="j-desc">每天放學後的免費課輔，建立閱讀、數學與英文的基礎，並提供穩定的晚餐與安全的避風港。</p></div>
+      </div>
+      <div class="j-step reveal">
+        <div class="j-node">02</div>
+        <div class="j-card"><div class="j-age">Stage 02 ｜ 國中青春</div><h3 class="j-title">適性發展與防範中輟</h3><p class="j-desc">社工深入家庭，協助解決青春期的叛逆與家庭困境，引導孩子發掘興趣，順利銜接高中職升學。</p></div>
+      </div>
+      <div class="j-step reveal">
+        <div class="j-node">03</div>
+        <div class="j-card"><div class="j-age">Stage 03 ｜ 高中至大學</div><h3 class="j-title">獎助學金與視野開拓</h3><p class="j-desc">提供高額助學金減輕打工壓力。安排企業參訪與職涯工作坊，讓偏鄉青年敢於對未來懷抱夢想。</p></div>
+      </div>
+      <div class="j-step reveal">
+        <div class="j-node">04</div>
+        <div class="j-card"><div class="j-age">Stage 04 ｜ 25歲里程碑</div><h3 class="j-title">穩定就業，翻轉人生</h3><p class="j-desc">持續追蹤輔導至 25 歲，確保孩子具備足夠的競爭力對接社會，真正打破世襲貧窮的循環。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Impact 數據（countUp） ── -->
+<section class="impact-sec" id="impact">
+  <div class="story-wrap">
+    <div class="sec-header reveal">
+      <div class="sec-label">The Impact</div>
+      <h2 class="sec-title">結出的美好果實</h2>
+      <p class="esg-intro">此為 2026.05 取得的客戶確認數據，2026年7月深聊時若有更新版本將替換。</p>
+    </div>
+    <div class="bubble-grid">
+      <div class="b-card highlight reveal">
+        <div class="b-num"><span class="cnt" data-target="36524">0</span><span class="unit">NT$</span></div>
+        <div class="b-lbl">25歲以上畢業生平均月薪</div>
+        <p>大幅超越弱勢家庭基礎，真正實現階級流動</p>
+      </div>
+      <div class="b-card reveal"><div class="b-num"><span class="cnt" data-target="3653">0</span><span class="unit">位</span></div><div class="b-lbl">每日接受免費課輔</div></div>
+      <div class="b-card reveal"><div class="b-num"><span class="cnt" data-target="17">0</span><span class="unit">個</span></div><div class="b-lbl">全台直營課輔中心</div></div>
+      <div class="b-card reveal"><div class="b-num"><span class="cnt" data-target="2408">0</span><span class="unit">位</span></div><div class="b-lbl">追蹤輔導畢業生</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SDGs（v2.3改真實9項，查證自 boyo.org.tw/boyoV2/boyo_sdgs，2026-06-25） ── -->
+<section class="sdg-sec" id="sdgs">
+  <div class="story-wrap">
+    <div class="sec-header reveal">
+      <div class="sec-label">SDGs</div>
+      <h2 class="sec-title">永續的社會影響力</h2>
+      <p class="esg-intro">博幼是非營利基金會，嚴格說沒有「ESG」（ESG是企業自評框架），但博幼對接了 9 項聯合國永續發展目標（SDGs），是企業實踐 ESG／CSR 策略時合適的永續夥伴。左右滑動查看完整指標。</p>
+    </div>
+    <div class="sdg-carousel">
+      <div class="sdg-track reveal" id="sdgTrack">
+        <div class="sdg-sticker"><div class="sdg-badge-row"><div class="sdg-badge-num" style="background:#E5243B"><span class="sdg-badge-tag">SDG</span><span class="sdg-badge-big">1</span></div><div class="sdg-info"><h3>消除貧窮</h3></div></div><p>已就業 25 歲以上課輔畢業生平均月薪 36,524 元，協助弱勢家庭脫離世襲貧窮循環。</p></div>
+        <div class="sdg-sticker"><div class="sdg-badge-row"><div class="sdg-badge-num" style="background:#DDA63A"><span class="sdg-badge-tag">SDG</span><span class="sdg-badge-big">2</span></div><div class="sdg-info"><h3>消除飢餓</h3></div></div><p>提供午晚餐與點心補助、食物箱，並規劃營養補充計劃與營養教育課程。</p></div>
+        <div class="sdg-sticker"><div class="sdg-badge-row"><div class="sdg-badge-num" style="background:#4C9F38"><span class="sdg-badge-tag">SDG</span><span class="sdg-badge-big">3</span></div><div class="sdg-info"><h3>健康與福祉</h3></div></div><p>社工輔導關懷學童身心發展，落實防菸、酒、檳榔、毒品教育。</p></div>
+        <div class="sdg-sticker"><div class="sdg-badge-row"><div class="sdg-badge-num" style="background:#C5192D"><span class="sdg-badge-tag">SDG</span><span class="sdg-badge-big">4</span></div><div class="sdg-info"><h3>優質教育</h3></div></div><p>差異化教學、自編補救教材、培訓社區課輔老師，並提供獎助學金與多元人文活動。</p></div>
+        <div class="sdg-sticker"><div class="sdg-badge-row"><div class="sdg-badge-num" style="background:#FF3A21"><span class="sdg-badge-tag">SDG</span><span class="sdg-badge-big">5</span></div><div class="sdg-info"><h3>性別平等</h3></div></div><p>開設性別教育課程，培訓部落媽媽成為課輔老師，輔導安置機構少女課業與生活。</p></div>
+        <div class="sdg-sticker"><div class="sdg-badge-row"><div class="sdg-badge-num" style="background:#A21942"><span class="sdg-badge-tag">SDG</span><span class="sdg-badge-big">8</span></div><div class="sdg-info"><h3>優質工作與經濟成長</h3></div></div><p>提供偏鄉居民就業機會、職業探索與金融理財教育，協助畢業生與安置機構離院生就業。</p></div>
+        <div class="sdg-sticker"><div class="sdg-badge-row"><div class="sdg-badge-num" style="background:#DD1367"><span class="sdg-badge-tag">SDG</span><span class="sdg-badge-big">10</span></div><div class="sdg-info"><h3>減少不平等</h3></div></div><p>提供偏鄉弱勢學子免費課輔服務，並將課輔模式移植到外部合作單位。</p></div>
+        <div class="sdg-sticker"><div class="sdg-badge-row"><div class="sdg-badge-num" style="background:#00689D"><span class="sdg-badge-tag">SDG</span><span class="sdg-badge-big">16</span></div><div class="sdg-info"><h3>促進公平與正義</h3></div></div><p>社工輔導高關懷學生，協助安置機構曝險少年的輔導與陪伴。</p></div>
+        <div class="sdg-sticker"><div class="sdg-badge-row"><div class="sdg-badge-num" style="background:#19486A"><span class="sdg-badge-tag">SDG</span><span class="sdg-badge-big">17</span></div><div class="sdg-info"><h3>全球夥伴關係</h3></div></div><p>泰北大谷地計劃，培訓當地華文老師。</p></div>
+      </div>
+      <button class="sdg-arrow prev" onclick="sdgScrollManual(-1)" aria-label="上一個">‹</button>
+      <button class="sdg-arrow next" onclick="sdgScrollManual(1)" aria-label="下一個">›</button>
+    </div>
+    <div class="cta-wrap reveal">
+      <h3 class="cta-title">成為翻轉生命的故事作者</h3>
+      <a href="https://www.boyo.org.tw/boyoV2/donate" target="_blank" rel="noopener" class="hero-btn donate" style="max-width:380px;background:var(--text-main);color:var(--bg-paper);border:1px solid transparent;box-shadow:0 8px 22px rgba(84,66,56,.25);" onclick="gtag('event','click_donate',{'event_category':'CTA','event_label':'boyo-org'})">立即線上捐款 支持偏鄉</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── 拜訪據點（v2.2新增，17中心地址查證自boyo.org.tw/boyoV2/service_location，2026-06-25） ── -->
+<section class="visit-sec" id="visit">
+  <div class="story-wrap">
+    <div class="sec-header reveal">
+      <div class="sec-label">Visit Us</div>
+      <h2 class="sec-title">拜訪博幼，<br>看見第一線的教育現場</h2>
+      <p class="esg-intro">博幼全台共 17 個直營課輔中心，分布北中南東四區。點選分區查看據點地址、電話與地圖，歡迎企業夥伴實地參訪。</p>
+    </div>
+
+    <div class="region-tabs reveal">
+      <button class="region-tab active" onclick="switchRegion(this,'north')">北區｜5中心</button>
+      <button class="region-tab" onclick="switchRegion(this,'central')">中區｜6中心</button>
+      <button class="region-tab" onclick="switchRegion(this,'south')">南區・離島｜4中心</button>
+      <button class="region-tab" onclick="switchRegion(this,'east')">東區｜2中心</button>
+    </div>
+
+    <div class="region-panel active" id="region-north">
+      <div class="center-card reveal">
+        <div class="center-card-name">宜蘭中心</div>
+        <div class="center-sub">
+          <div class="center-sub-name">大同國中辦公室</div>
+          <div class="center-addr">267010 宜蘭縣大同鄉太平村泰雅路四段35號（大同國中）</div>
+          <a class="center-tel" href="tel:039809709">電話｜03-9809709</a>
+          <iframe class="center-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%E5%AE%9C%E8%98%AD%E7%B8%A3%E5%A4%A7%E5%90%8C%E9%84%89%E5%A4%AA%E5%B9%B3%E6%9D%91%E6%B3%B0%E9%9B%85%E8%B7%AF%E5%9B%9B%E6%AE%B535%E8%99%9F&output=embed"></iframe>
+          <div class="center-actions">
+            <a class="center-btn go" href="https://www.google.com/maps/dir/?api=1&destination=宜蘭縣大同鄉太平村泰雅路四段35號" target="_blank" rel="noopener" onclick="gtag('event','click_visit_go',{'event_category':'CTA','event_label':'boyo-org'})">前往 →</a>
+          </div>
+        </div>
+        <div class="center-sub">
+          <div class="center-sub-name">松羅辦公室</div>
+          <div class="center-addr">267002 宜蘭縣大同鄉松羅西巷15號（舊松羅派出所）</div>
+          <a class="center-tel" href="tel:039801096">電話｜03-9801096</a>
+          <iframe class="center-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%E5%AE%9C%E8%98%AD%E7%B8%A3%E5%A4%A7%E5%90%8C%E9%84%89%E6%9D%BE%E7%BE%85%E8%A5%BF%E5%B7%B715%E8%99%9F&output=embed"></iframe>
+          <div class="center-actions">
+            <a class="center-btn go" href="https://www.google.com/maps/dir/?api=1&destination=宜蘭縣大同鄉松羅西巷15號" target="_blank" rel="noopener" onclick="gtag('event','click_visit_go',{'event_category':'CTA','event_label':'boyo-org'})">前往 →</a>
+          </div>
+        </div>
+        <div class="center-sub">
+          <div class="center-sub-name">南澳辦公室</div>
+          <div class="center-addr">270010 宜蘭縣蘇澳鎮蘇花路二段310號</div>
+          <a class="center-tel" href="tel:039984487">電話｜03-9984487</a>
+          <iframe class="center-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%E5%AE%9C%E8%98%AD%E7%B8%A3%E8%98%87%E6%BE%B3%E9%8E%AE%E8%98%87%E8%8A%B1%E8%B7%AF%E4%BA%8C%E6%AE%B5310%E8%99%9F&output=embed"></iframe>
+          <div class="center-actions">
+            <a class="center-btn go" href="https://www.google.com/maps/dir/?api=1&destination=宜蘭縣蘇澳鎮蘇花路二段310號" target="_blank" rel="noopener" onclick="gtag('event','click_visit_go',{'event_category':'CTA','event_label':'boyo-org'})">前往 →</a>
+          </div>
+        </div>
+      </div>
+      <div class="center-card reveal">
+        <div class="center-card-name">基隆中心</div>
+        <div class="center-addr">204014 基隆市安樂區壯觀里29鄰樂利二街62巷140號（google地圖搜尋「博幼基隆中心」，於7-11樂添門市對面）</div>
+        <a class="center-tel" href="tel:024348159">電話｜02-2434-8159</a>
+        <iframe class="center-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%E5%9F%BA%E9%9A%86%E5%B8%82%E5%AE%89%E6%A8%82%E5%8D%80%E5%A3%AF%E8%A7%80%E9%87%8C29%E9%84%B0%E6%A8%82%E5%88%A9%E4%BA%8C%E8%A1%9762%E5%B7%B7140%E8%99%9F&output=embed"></iframe>
+          <div class="center-actions">
+            <a class="center-btn go" href="https://www.google.com/maps/dir/?api=1&destination=基隆市安樂區壯觀里29鄰樂利二街62巷140號" target="_blank" rel="noopener" onclick="gtag('event','click_visit_go',{'event_category':'CTA','event_label':'boyo-org'})">前往 →</a>
+        </div>
+      </div>
+      <div class="center-card reveal">
+        <div class="center-card-name">竹東中心</div>
+        <div class="center-addr">310014 新竹縣竹東鎮中豐路2段351號2樓</div>
+        <a class="center-tel" href="tel:035104518">電話｜03-5104518</a>
+        <iframe class="center-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%E6%96%B0%E7%AB%B9%E7%B8%A3%E7%AB%B9%E6%9D%B1%E9%8E%AE%E4%B8%AD%E8%B1%90%E8%B7%AF2%E6%AE%B5351%E8%99%9F&output=embed"></iframe>
+          <div class="center-actions">
+            <a class="center-btn go" href="https://www.google.com/maps/dir/?api=1&destination=新竹縣竹東鎮中豐路2段351號" target="_blank" rel="noopener" onclick="gtag('event','click_visit_go',{'event_category':'CTA','event_label':'boyo-org'})">前往 →</a>
+        </div>
+      </div>
+      <div class="center-card reveal">
+        <div class="center-card-name">尖石前山中心</div>
+        <div class="center-addr">313002 新竹縣尖石鄉嘉樂村2鄰36號2樓</div>
+        <a class="center-tel" href="tel:035842890">電話｜03-5842890</a>
+        <iframe class="center-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%E6%96%B0%E7%AB%B9%E7%B8%A3%E5%B0%96%E7%9F%B3%E9%84%89%E5%98%89%E6%A8%82%E6%9D%912%E9%84%B036%E8%99%9F&output=embed"></iframe>
+          <div class="center-actions">
+            <a class="center-btn go" href="https://www.google.com/maps/dir/?api=1&destination=新竹縣尖石鄉嘉樂村2鄰36號" target="_blank" rel="noopener" onclick="gtag('event','click_visit_go',{'event_category':'CTA','event_label':'boyo-org'})">前往 →</a>
+        </div>
+      </div>
+      <div class="center-card reveal">
+        <div class="center-card-name">尖石後山中心</div>
+        <div class="center-sub">
+          <div class="center-sub-name">秀巒辦公室</div>
+          <div class="center-addr">313004 新竹縣尖石鄉秀巒村4鄰控溪24號</div>
+          <a class="center-tel" href="tel:035847585">電話｜03-5847585</a>
+          <iframe class="center-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%E6%96%B0%E7%AB%B9%E7%B8%A3%E5%B0%96%E7%9F%B3%E9%84%89%E7%A7%80%E5%B7%92%E6%9D%914%E9%84%B0%E6%8E%A7%E6%BA%AA24%E8%99%9F&output=embed"></iframe>
+          <div class="center-actions">
+            <a class="center-btn go" href="https://www.google.com/maps/dir/?api=1&destination=新竹縣尖石鄉秀巒村4鄰控溪24號" target="_blank" rel="noopener" onclick="gtag('event','click_visit_go',{'event_category':'CTA','event_label':'boyo-org'})">前往 →</a>
+          </div>
+        </div>
+        <div class="center-sub">
+          <div class="center-sub-name">石磊辦公室</div>
+          <div class="center-addr">313005 新竹縣尖石鄉玉峰村10鄰石磊50號</div>
+          <a class="center-tel" href="tel:035847103">電話｜03-5847103</a>
+          <iframe class="center-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%E6%96%B0%E7%AB%B9%E7%B8%A3%E5%B0%96%E7%9F%B3%E9%84%89%E7%8E%89%E5%B3%B0%E6%9D%9110%E9%84%B0%E7%9F%B3%E7%A3%8A50%E8%99%9F&output=embed"></iframe>
+          <div class="center-actions">
+            <a class="center-btn go" href="https://www.google.com/maps/dir/?api=1&destination=新竹縣尖石鄉玉峰村10鄰石磊50號" target="_blank" rel="noopener" onclick="gtag('event','click_visit_go',{'event_category':'CTA','event_label':'boyo-org'})">前往 →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="region-panel" id="region-central">
+      <div class="center-card reveal">
+        <div class="center-card-name">沙鹿中心</div>
+        <div class="center-addr">433303 台中市沙鹿區台灣大道7段200號（靜宜大學主顧樓101教室）</div>
+        <a class="center-tel" href="tel:0426530033">電話｜04-26530033</a>
+        <iframe class="center-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E6%B2%99%E9%B9%BF%E5%8D%80%E5%8F%B0%E7%81%A3%E5%A4%A7%E9%81%937%E6%AE%B5200%E8%99%9F&output=embed"></iframe>
+          <div class="center-actions">
+            <a class="center-btn go" href="https://www.google.com/maps/dir/?api=1&destination=台中市沙鹿區台灣大道7段200號" target="_blank" rel="noopener" onclick="gtag('event','click_visit_go',{'event_category':'CTA','event_label':'boyo-org'})">前往 →</a>
+        </div>
+      </div>
+      <div class="center-card reveal">
+        <div class="center-card-name">埔里中心（基金會總部）</div>
+        <div class="center-addr">545011 南投縣埔里鎮安四街131號</div>
+        <a class="center-tel" href="tel:0492915055">電話｜049-2915055</a>
+        <iframe class="center-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%E5%8D%97%E6%8A%95%E7%B8%A3%E5%9F%94%E9%87%8C%E9%8E%AE%E5%AE%89%E5%9B%9B%E8%A1%97131%E8%99%9F&output=embed"></iframe>
+          <div class="center-actions">
+            <a class="center-btn go" href="https://www.google.com/maps/dir/?api=1&destination=南投縣埔里鎮安四街131號" target="_blank" rel="noopener" onclick="gtag('event','click_visit_go',{'event_category':'CTA','event_label':'boyo-org'})">前往 →</a>
+        </div>
+      </div>
+      <div class="center-card reveal">
+        <div class="center-card-name">信義陳有蘭中心</div>
+        <div class="center-addr">556001 南投縣信義鄉明德村玉山路52-4號</div>
+        <a class="center-tel" href="tel:0492792885">電話｜049-2792885</a>
+        <iframe class="center-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%E5%8D%97%E6%8A%95%E7%B8%A3%E4%BF%A1%E7%BE%A9%E9%84%89%E6%98%8E%E5%BE%B7%E6%9D%91%E7%8E%89%E5%B1%B1%E8%B7%AF52-4%E8%99%9F&output=embed"></iframe>
+          <div class="center-actions">
+            <a class="center-btn go" href="https://www.google.com/maps/dir/?api=1&destination=南投縣信義鄉明德村玉山路52-4號" target="_blank" rel="noopener" onclick="gtag('event','click_visit_go',{'event_category':'CTA','event_label':'boyo-org'})">前往 →</a>
+        </div>
+      </div>
+      <div class="center-card reveal">
+        <div class="center-card-name">信義濁水中心</div>
+        <div class="center-addr">553005 南投縣水里鄉民和村民和路157號</div>
+        <a class="center-tel" href="tel:0492742446">電話｜049-2742446</a>
+        <iframe class="center-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%E5%8D%97%E6%8A%95%E7%B8%A3%E6%B0%B4%E9%87%8C%E9%84%89%E6%B0%91%E5%92%8C%E6%9D%91%E6%B0%91%E5%92%8C%E8%B7%AF157%E8%99%9F&output=embed"></iframe>
+          <div class="center-actions">
+            <a class="center-btn go" href="https://www.google.com/maps/dir/?api=1&destination=南投縣水里鄉民和村民和路157號" target="_blank" rel="noopener" onclick="gtag('event','click_visit_go',{'event_category':'CTA','event_label':'boyo-org'})">前往 →</a>
+        </div>
+      </div>
+      <div class="center-card reveal">
+        <div class="center-card-name">國姓中心</div>
+        <div class="center-addr">544008 南投縣國姓鄉國姓村國姓路433-16號</div>
+        <a class="center-tel" href="tel:0497009400">電話｜049-7009400</a>
+        <iframe class="center-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%E5%8D%97%E6%8A%95%E7%B8%A3%E5%9C%8B%E5%A7%93%E9%84%89%E5%9C%8B%E5%A7%93%E6%9D%91%E5%9C%8B%E5%A7%93%E8%B7%AF433-16%E8%99%9F&output=embed"></iframe>
+          <div class="center-actions">
+            <a class="center-btn go" href="https://www.google.com/maps/dir/?api=1&destination=南投縣國姓鄉國姓村國姓路433-16號" target="_blank" rel="noopener" onclick="gtag('event','click_visit_go',{'event_category':'CTA','event_label':'boyo-org'})">前往 →</a>
+        </div>
+      </div>
+      <div class="center-card reveal">
+        <div class="center-card-name">彰化中心</div>
+        <div class="center-addr">500042 彰化縣彰化市彰南路四段420號</div>
+        <a class="center-tel" href="tel:047384815">電話｜04-7384815</a>
+        <iframe class="center-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%E5%BD%B0%E5%8C%96%E7%B8%A3%E5%BD%B0%E5%8C%96%E5%B8%82%E5%BD%B0%E5%8D%97%E8%B7%AF%E5%9B%9B%E6%AE%B5420%E8%99%9F&output=embed"></iframe>
+          <div class="center-actions">
+            <a class="center-btn go" href="https://www.google.com/maps/dir/?api=1&destination=彰化縣彰化市彰南路四段420號" target="_blank" rel="noopener" onclick="gtag('event','click_visit_go',{'event_category':'CTA','event_label':'boyo-org'})">前往 →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="region-panel" id="region-south">
+      <div class="center-card reveal">
+        <div class="center-card-name">雲林中心</div>
+        <div class="center-addr">653005 雲林縣口湖鄉下崙村福安路179-6號</div>
+        <a class="center-tel" href="tel:057990062">電話｜05-7990062</a>
+        <iframe class="center-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%E9%9B%B2%E6%9E%97%E7%B8%A3%E5%8F%A3%E6%B9%96%E9%84%89%E4%B8%8B%E5%B4%99%E6%9D%91%E7%A6%8F%E5%AE%89%E8%B7%AF179-6%E8%99%9F&output=embed"></iframe>
+          <div class="center-actions">
+            <a class="center-btn go" href="https://www.google.com/maps/dir/?api=1&destination=雲林縣口湖鄉下崙村福安路179-6號" target="_blank" rel="noopener" onclick="gtag('event','click_visit_go',{'event_category':'CTA','event_label':'boyo-org'})">前往 →</a>
+        </div>
+      </div>
+      <div class="center-card reveal">
+        <div class="center-card-name">嘉義中心</div>
+        <div class="center-sub">
+          <div class="center-sub-name">石棹辦公室</div>
+          <div class="center-addr">604026 嘉義縣竹崎鄉中和村永和1之10號（石棹加油站斜對面）</div>
+          <a class="center-tel" href="tel:052561179">電話｜05-2561179</a>
+          <iframe class="center-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%E5%98%89%E7%BE%A9%E7%B8%A3%E7%AB%B9%E5%B4%8E%E9%84%89%E4%B8%AD%E5%92%8C%E6%9D%91%E6%B0%B8%E5%92%8C1%E4%B9%8B10%E8%99%9F&output=embed"></iframe>
+          <div class="center-actions">
+            <a class="center-btn go" href="https://www.google.com/maps/dir/?api=1&destination=嘉義縣竹崎鄉中和村永和1之10號" target="_blank" rel="noopener" onclick="gtag('event','click_visit_go',{'event_category':'CTA','event_label':'boyo-org'})">前往 →</a>
+          </div>
+        </div>
+        <div class="center-sub">
+          <div class="center-sub-name">大埔辦公室</div>
+          <div class="center-addr">607041 嘉義縣大埔鄉大埔村366號（旁邊第二間）</div>
+          <a class="center-tel" href="tel:052522307">電話｜05-2522307</a>
+          <iframe class="center-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%E5%98%89%E7%BE%A9%E7%B8%A3%E5%A4%A7%E5%9F%94%E9%84%89%E5%A4%A7%E5%9F%94%E6%9D%91366%E8%99%9F&output=embed"></iframe>
+          <div class="center-actions">
+            <a class="center-btn go" href="https://www.google.com/maps/dir/?api=1&destination=嘉義縣大埔鄉大埔村366號" target="_blank" rel="noopener" onclick="gtag('event','click_visit_go',{'event_category':'CTA','event_label':'boyo-org'})">前往 →</a>
+          </div>
+        </div>
+      </div>
+      <div class="center-card reveal">
+        <div class="center-card-name">屏東中心</div>
+        <div class="center-addr">920002 屏東縣潮州鎮光春里光春路252號4樓</div>
+        <a class="center-tel" href="tel:087891996">電話｜08-7891996</a>
+        <iframe class="center-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%E5%B1%8F%E6%9D%B1%E7%B8%A3%E6%BD%AE%E5%B7%9E%E9%8E%AE%E5%85%89%E6%98%A5%E9%87%8C%E5%85%89%E6%98%A5%E8%B7%AF252%E8%99%9F&output=embed"></iframe>
+          <div class="center-actions">
+            <a class="center-btn go" href="https://www.google.com/maps/dir/?api=1&destination=屏東縣潮州鎮光春里光春路252號" target="_blank" rel="noopener" onclick="gtag('event','click_visit_go',{'event_category':'CTA','event_label':'boyo-org'})">前往 →</a>
+        </div>
+      </div>
+      <div class="center-card reveal">
+        <div class="center-card-name">澎湖中心</div>
+        <div class="center-sub">
+          <div class="center-sub-name">馬公辦公室</div>
+          <div class="center-addr">880005 澎湖縣馬公市三多路56號2樓</div>
+          <a class="center-tel" href="tel:069269097">電話｜06-9269097</a>
+          <iframe class="center-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%E6%BE%8E%E6%B9%96%E7%B8%A3%E9%A6%AC%E5%85%AC%E5%B8%82%E4%B8%89%E5%A4%9A%E8%B7%AF56%E8%99%9F&output=embed"></iframe>
+          <div class="center-actions">
+            <a class="center-btn go" href="https://www.google.com/maps/dir/?api=1&destination=澎湖縣馬公市三多路56號" target="_blank" rel="noopener" onclick="gtag('event','click_visit_go',{'event_category':'CTA','event_label':'boyo-org'})">前往 →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="region-panel" id="region-east">
+      <div class="center-card reveal">
+        <div class="center-card-name">台東中心</div>
+        <div class="center-addr">956004 台東縣關山鎮德高里西莊44號</div>
+        <a class="center-tel" href="tel:089930073">電話｜089-930073</a>
+        <iframe class="center-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%E5%8F%B0%E6%9D%B1%E7%B8%A3%E9%97%9C%E5%B1%B1%E9%8E%AE%E5%BE%B7%E9%AB%98%E9%87%8C%E8%A5%BF%E8%8E%8A44%E8%99%9F&output=embed"></iframe>
+          <div class="center-actions">
+            <a class="center-btn go" href="https://www.google.com/maps/dir/?api=1&destination=台東縣關山鎮德高里西莊44號" target="_blank" rel="noopener" onclick="gtag('event','click_visit_go',{'event_category':'CTA','event_label':'boyo-org'})">前往 →</a>
+        </div>
+      </div>
+      <div class="center-card reveal">
+        <div class="center-card-name">花蓮中心</div>
+        <div class="center-addr">971001 花蓮縣新城鄉仁愛路27號</div>
+        <a class="center-tel" href="tel:038612334">電話｜03-8612334</a>
+        <iframe class="center-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%E8%8A%B1%E8%93%AE%E7%B8%A3%E6%96%B0%E5%9F%8E%E9%84%89%E4%BB%81%E6%84%9B%E8%B7%AF27%E8%99%9F&output=embed"></iframe>
+          <div class="center-actions">
+            <a class="center-btn go" href="https://www.google.com/maps/dir/?api=1&destination=花蓮縣新城鄉仁愛路27號" target="_blank" rel="noopener" onclick="gtag('event','click_visit_go',{'event_category':'CTA','event_label':'boyo-org'})">前往 →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ（待7月跟業主確認真實常見問題後可擴充，目前3題已依公開資料/brief確認內容撰寫） ── -->
+<section class="faq-sec" id="faq">
+  <div class="story-wrap">
+    <div class="sec-header reveal">
+      <div class="sec-label">FAQ</div>
+      <h2 class="sec-title">常見問題</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">企業要怎麼跟博幼基金會合作？<span class="faq-q-mark">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">可透過企業合作窗口對接，電話 04-37023217 #451，或透過官方LINE洽詢。博幼提供企業高管健康福利、CSR合作等多種合作形式，並對接9項聯合國永續發展目標（SDGs）。</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">捐款的錢實際上怎麼運用？<span class="faq-q-mark">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">博幼財務報表公開透明，主要支出投入課業輔導教材、224位英數專職師資及輔導員薪資、社工輔導服務，以及追蹤畢業生至25歲的獎助學金與職涯諮詢。</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">博幼怎麼確保長期成效，不是只給短期物資？<span class="faq-q-mark">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">核心理念是「不做物資救濟，專注長期課業輔導」。透過精熟學習、積極性社工輔導、持續追蹤至25歲三大服務，目前已追蹤2,408位畢業生，25歲以上已就業者平均月薪NT$36,524。</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer（v2.2 改公版順序：LOGO/企業名/企業資料/icon svg/CTA/back to top/copyright/design by） ── -->
+<footer class="footer">
+  <div class="footer-inner">
+  <div class="footer-logo reveal">
+    <img src="./assets/boyo-logo.png" alt="博幼基金會" onerror="this.style.display='none'">
+  </div>
+
+  <div class="hero-icons reveal">
+    <a class="hero-icon-link" href="https://page.line.me/riu9002p" target="_blank" rel="noopener" aria-label="LINE" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'boyo-org'})"><img src="./assets/line.svg" alt="LINE" onerror="this.style.display='none'"></a>
+    <a class="hero-icon-link" href="https://www.youtube.com/@boyonantou" target="_blank" rel="noopener" aria-label="YouTube" onclick="gtag('event','click_youtube',{'event_category':'CTA','event_label':'boyo-org'})"><img src="./assets/youtube.svg" alt="YT" onerror="this.style.display='none'"></a>
+    <a class="hero-icon-link" href="https://www.facebook.com/BoyoSWF" target="_blank" rel="noopener" aria-label="Facebook" onclick="gtag('event','click_fb',{'event_category':'CTA','event_label':'boyo-org'})"><img src="./assets/facebook.svg" alt="FB" onerror="this.style.display='none'"></a>
+    <a class="hero-icon-link" href="https://www.boyo.org.tw/" target="_blank" rel="noopener" aria-label="官網" onclick="gtag('event','click_web',{'event_category':'CTA','event_label':'boyo-org'})"><img src="./assets/web.svg" alt="Web" onerror="this.style.display='none'"></a>
+  </div>
+
+  <div class="f-btns reveal">
+    <a href="https://page.line.me/riu9002p" target="_blank" rel="noopener" class="hero-btn p1" onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'boyo-org'})">官方LINE諮詢｜LINE</a>
+    <a href="https://www.boyo.org.tw/boyoV2/donate" target="_blank" rel="noopener" class="hero-btn ghost" onclick="gtag('event','click_donate',{'event_category':'CTA','event_label':'boyo-org'})">立即捐款支持｜Donate</a>
+    <a href="https://www.boyo.org.tw/" target="_blank" rel="noopener" class="hero-btn ghost" onclick="gtag('event','click_web',{'event_category':'CTA','event_label':'boyo-org'})">博幼官網｜Website</a>
+  </div>
+
+  <a href="#top" class="back-to-top reveal">▲ BACK TO TOP ▲</a>
+
+  <div class="f-title reveal">財團法人博幼社會福利基金會</div>
+  <div class="f-sub reveal">BOYO SOCIAL WELFARE FOUNDATION</div>
+
+  <table class="f-info-table reveal">
+    <tr><td>統編</td><td>14935826</td></tr>
+    <tr><td>勸募字號</td><td>衛部救字第1141364062號</td></tr>
+    <tr><td>立案字號</td><td>內授中社字第0970700417號</td></tr>
+    <tr><td>地址</td><td>545011 南投縣埔里鎮安四街131號</td></tr>
+    <tr><td>總機</td><td>049-2915055</td></tr>
+  </table>
+
+  <div class="f-copyright reveal">© 2026 財團法人博幼社會福利基金會｜Boyo Social Welfare Foundation｜All Rights Reserved</div>
+
+  <div class="reveal">
+    <a class="design-by" href="https://linket.app" target="_blank" rel="noopener">Design by <span class="db-lin">LIN</span><span class="db-ket">Ket</span></a>
+  </div>
+  </div>
+</footer>
+
+<script>
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+/* countUp：Hero數據＋Impact數據共用 */
+const countObserver=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      animateCount(e.target);
+      countObserver.unobserve(e.target);
+    }
+  });
+},{threshold:.4});
+document.querySelectorAll('.stat-num,.cnt').forEach(el=>countObserver.observe(el));
+function animateCount(el){
+  const target=parseInt(el.dataset.target,10);
+  if(!target){return;}
+  const dur=1400;const start=performance.now();
+  function step(now){
+    const p=Math.min((now-start)/dur,1);
+    el.textContent=Math.floor(p*target).toLocaleString('en-US');
+    if(p<1){requestAnimationFrame(step);}else{el.textContent=target.toLocaleString('en-US');}
+  }
+  requestAnimationFrame(step);
+}
+
+/* 拜訪據點：分區切換（地圖已直接內嵌，不需延遲載入按鈕） */
+function switchRegion(tab,region){
+  document.querySelectorAll('.region-tab').forEach(t=>t.classList.remove('active'));
+  tab.classList.add('active');
+  document.querySelectorAll('.region-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('region-'+region).classList.add('active');
+  gtag('event','click_region_tab',{'event_category':'CTA','event_label':'boyo-org','region_label':region});
+}
+
+/* SDG輪播：左右箭頭／自動輪播，捲到底自動回頭 */
+function sdgScroll(dir){
+  const track=document.getElementById('sdgTrack');
+  const card=track.querySelector('.sdg-sticker');
+  const step=card.offsetWidth+26;
+  const maxScroll=track.scrollWidth-track.clientWidth;
+  let target=track.scrollLeft+step*dir;
+  if(target>=maxScroll-4){target=0;}
+  else if(target<=4&&dir<0){target=maxScroll;}
+  track.scrollTo({left:target,behavior:'smooth'});
+}
+function sdgScrollManual(dir){clearInterval(sdgAutoplay);sdgScroll(dir);gtag('event','click_sdg_scroll',{'event_category':'CTA','event_label':'boyo-org'});}
+let sdgAutoplay=setInterval(()=>sdgScroll(1),4500);
+document.getElementById('sdgTrack')?.addEventListener('pointerdown',()=>clearInterval(sdgAutoplay));
+
+/* FAQ accordion */
+function toggleFaq(btn){
+  const item=btn.closest('.faq-item');
+  const wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+  if(!wasOpen){item.classList.add('open');gtag('event','click_faq',{'event_category':'CTA','event_label':'boyo-org'});}
+}
+
+/* Share */
+(function(){const b=document.getElementById('shareBtn');if(b&&navigator.share)b.classList.add('visible');})();
+function shareThisPage(){if(!navigator.share)return;navigator.share({title:'財團法人博幼社會福利基金會',text:'用教育終結世襲貧窮。深耕偏鄉教育22年。',url:'https://linket.app/boyo-org'}).then(()=>gtag('event','click_share',{'event_category':'CTA','event_label':'boyo-org'})).catch(()=>{});}
+
+/* QR */
+let qrLoaded=false,qrInst=null;
+function loadQr(cb){if(qrLoaded){cb();return;}const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';s.onload=()=>{qrLoaded=true;cb();};document.head.appendChild(s);}
+function renderQr(){const el=document.getElementById('qrcode-canvas');if(!el||qrInst)return;qrInst=new QRCode(el,{text:'https://linket.app/boyo-org',width:170,height:170,colorDark:'#3D2010',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M});}
+function openQrModal(){document.getElementById('qrModal').classList.add('active');document.body.style.overflow='hidden';loadQr(renderQr);gtag('event','click_qr_modal',{'event_category':'CTA','event_label':'boyo-org'});}
+function closeQrModal(){document.getElementById('qrModal').classList.remove('active');document.body.style.overflow='';}
+function closeQrModalOnBg(e){if(e.target===document.getElementById('qrModal'))closeQrModal();}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeQrModal();});
+</script>
+</body>
+</html>
