@@ -1,0 +1,1061 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>零到一 AI 基礎溝通課｜暨南大學 AI 協作實戰課</title>
+  <meta name="description" content="一堂專為非技術背景設計的 AI 協作實戰課。7/25 於暨南大學開課，學會用 Claude Pro 或 ChatGPT Plus 建立真正可交付的 AI 協作流程。">
+  <meta property="og:url" content="https://linket.app/ncnu-ai">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="零到一 AI 基礎溝通課｜暨南大學">
+  <meta property="og:description" content="花一天，當一次「非工程師用 AI 跑工作室」的學徒。不背公式、不寫程式，帶走一套不會過期的 AI 協作思維。">
+  <meta property="og:image" content="https://linket.app/ncnu-ai/assets/clay-ai-communication-v2.png">
+  <link rel="canonical" href="https://linket.app/ncnu-ai">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="零到一 AI 基礎溝通課｜暨南大學">
+  <meta name="twitter:description" content="花一天，當一次「非工程師用 AI 跑工作室」的學徒。不背公式、不寫程式。">
+  <meta name="twitter:image" content="https://linket.app/ncnu-ai/assets/clay-ai-communication-v2.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "零到一 AI 基礎溝通課",
+    "startDate": "2026-07-25T09:00+08:00",
+    "endDate": "2026-07-25T16:00+08:00",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": {
+      "@type": "Place",
+      "name": "國立暨南國際大學",
+      "address": { "@type": "PostalAddress", "addressLocality": "南投縣埔里鎮", "addressCountry": "TW" }
+    },
+    "image": "https://linket.app/ncnu-ai/assets/clay-ai-communication-v2.png",
+    "description": "一堂專為非技術背景設計的 AI 協作實戰課，用專業級付費 AI 帶你建立能交付的協作流程。",
+    "organizer": { "@type": "Organization", "name": "國立暨南國際大學（研發處／創業育成中心）" },
+    "offers": {
+      "@type": "Offer",
+      "price": "2500",
+      "priceCurrency": "TWD",
+      "availability": "https://schema.org/InStock",
+      "url": "https://cell.ncnu.edu.tw/Course/InfoListDetail?COU_ID=aaa5800c-905c-4703-b3e3-5f33fb06c32b"
+    }
+  }
+  </script>
+  <style>
+    :root {
+      --ink: #001526;
+      --blue: #1685C8;
+      --white: #FFFFFF;
+      --soft: #EAF3FA;
+      --line: rgba(0, 21, 38, .12);
+      --shadow: 0 22px 60px rgba(0, 21, 38, .12);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--white);
+      font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.75;
+      letter-spacing: 0;
+      font-weight: 400;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -4rem;
+      z-index: 100;
+      padding: .7rem 1rem;
+      background: var(--ink);
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .skip-link:focus {
+      top: 1rem;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, .92);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav-inner {
+      width: min(1120px, calc(100% - 32px));
+      min-height: 64px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav img {
+      width: 118px;
+      height: auto;
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 18px;
+      color: rgba(0, 21, 38, .72);
+      font-size: .92rem;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .btn {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      padding: .78rem 1.1rem;
+      border: 2px solid var(--ink);
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: var(--white);
+      font-weight: 700;
+      line-height: 1.15;
+      text-decoration: none;
+    }
+
+    .btn.blue {
+      border-color: var(--blue);
+      background: var(--blue);
+    }
+
+    .btn.ghost {
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .section {
+      padding: clamp(4rem, 9vw, 7rem) 0;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      margin: 0 0 .9rem;
+      color: #185FA5;
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+    }
+
+    .nb {
+      white-space: nowrap;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 1.1rem;
+      font-size: clamp(1.8rem, 5.2vw, 3.1rem);
+      line-height: 1.2;
+      letter-spacing: 0;
+      font-weight: 800;
+      text-wrap: balance;
+    }
+
+    h2 {
+      margin-bottom: 1.1rem;
+      font-size: clamp(1.5rem, 3.4vw, 2.35rem);
+      line-height: 1.32;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    h3 {
+      margin-bottom: .5rem;
+      font-size: 1.05rem;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .lead {
+      color: rgba(0, 21, 38, .74);
+      font-size: clamp(1rem, 1.5vw, 1.15rem);
+      line-height: 1.85;
+      font-weight: 400;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: auto;
+      padding: clamp(2.5rem, 7vw, 5rem) 0 3.5rem;
+      background:
+        radial-gradient(circle at 80% 24%, rgba(22, 133, 200, .16), transparent 24%),
+        linear-gradient(135deg, var(--soft) 0%, var(--white) 52%, var(--soft) 100%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0, 21, 38, .05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 21, 38, .05) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.85), rgba(0,0,0,.12));
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero-title .blue-text {
+      color: var(--blue);
+    }
+
+    .info-strip {
+      display: grid;
+      gap: .55rem;
+      margin: 1.6rem 0 1.35rem;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .info-strip span {
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      padding: .75rem .9rem;
+      background: rgba(255, 255, 255, .72);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .8rem;
+      align-items: center;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-visual picture {
+      position: relative;
+      z-index: 2;
+      display: block;
+      width: min(100%, 440px);
+    }
+
+    .hero-visual::before,
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      background: var(--blue);
+      transform: skewY(-7deg);
+    }
+
+    .hero-visual::before {
+      inset: 15% -10% auto 22%;
+      height: 82px;
+    }
+
+    .hero-visual::after {
+      inset: auto 12% 12% -5%;
+      height: 92px;
+    }
+
+    .hero-visual img {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: auto;
+      max-height: min(76vw, 440px);
+      object-fit: contain;
+      box-shadow: var(--shadow);
+    }
+
+    .statement {
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .statement h2 {
+      color: var(--white);
+    }
+
+    .statement .lead {
+      color: rgba(255, 255, 255, .78);
+    }
+
+    .pain-list,
+    .cards,
+    .industry-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .split-feature,
+    .statement-grid,
+    .takeaway-grid,
+    .schedule-grid,
+    .industry-layout {
+      display: grid;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .visual-panel {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--soft);
+    }
+
+    .visual-panel img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .visual-panel.dark {
+      border-color: rgba(255, 255, 255, .18);
+      background: var(--ink);
+    }
+
+    .section-intro {
+      max-width: 680px;
+    }
+
+    .pain-item,
+    .card,
+    .industry-card,
+    .timeline-item,
+    .teacher-panel,
+    .fit-panel,
+    .signup-panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+    }
+
+    .pain-item,
+    .card,
+    .industry-card {
+      padding: 1.25rem;
+    }
+
+    .pain-number {
+      display: inline-flex;
+      width: 42px;
+      height: 42px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      background: var(--blue);
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    .section.soft {
+      background: var(--soft);
+    }
+
+    .feature-row {
+      display: grid;
+      gap: 1.1rem;
+      margin-top: 2rem;
+    }
+
+    .feature-copy {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .feature-pill {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      padding: 1rem 1.1rem;
+      background: var(--soft);
+      border-left: 10px solid var(--blue);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 1.25rem 1.25rem 1.25rem 4.5rem;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: 1.35rem;
+      top: 1.45rem;
+      width: 28px;
+      height: 28px;
+      background: var(--blue);
+    }
+
+    .time {
+      color: #185FA5;
+      font-weight: 700;
+      letter-spacing: .03em;
+    }
+
+    .industry-grid {
+      align-self: stretch;
+    }
+
+    .industry-card:nth-child(1),
+    .industry-card:nth-child(4),
+    .industry-card:nth-child(7) {
+      background: var(--ink);
+      color: var(--white);
+      border-color: var(--ink);
+    }
+
+    .industry-card:nth-child(1) p,
+    .industry-card:nth-child(4) p,
+    .industry-card:nth-child(7) p {
+      color: rgba(255, 255, 255, .78);
+    }
+
+    .teacher-grid {
+      display: grid;
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .teacher-photo {
+      position: relative;
+      min-height: auto;
+      padding: 1.25rem 1.25rem 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: var(--soft);
+    }
+
+    .teacher-photo picture {
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: min(100%, 320px);
+    }
+
+    .teacher-photo::before {
+      content: "";
+      position: absolute;
+      left: -10%;
+      right: -10%;
+      top: auto;
+      bottom: 0;
+      height: 40%;
+      background: var(--blue);
+      transform: skewY(-7deg);
+      z-index: 0;
+    }
+
+    .teacher-photo img {
+      position: static;
+      left: auto;
+      bottom: auto;
+      z-index: 1;
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      object-fit: contain;
+      transform: none;
+    }
+
+    .teacher-panel {
+      padding: 1.35rem;
+    }
+
+    .fit-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .fit-panel {
+      padding: 1.25rem;
+    }
+
+    .check-list {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      display: grid;
+      gap: .75rem;
+      font-weight: 500;
+    }
+
+    .check-list li {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: .65rem;
+      align-items: start;
+    }
+
+    .check-list li::before {
+      content: "";
+      width: 16px;
+      height: 16px;
+      margin-top: .42rem;
+      background: var(--blue);
+    }
+
+    .faq {
+      display: grid;
+      gap: .75rem;
+      margin-top: 2rem;
+    }
+
+    .faq-item {
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    .faq button {
+      width: 100%;
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 1.1rem;
+      border: 0;
+      background: transparent;
+      color: var(--ink);
+      font: inherit;
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .faq button::after {
+      content: "+";
+      color: var(--blue);
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    .faq button[aria-expanded="true"]::after {
+      content: "-";
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 1.1rem 1.1rem;
+      color: rgba(0, 21, 38, .78);
+      font-weight: 400;
+    }
+
+    .faq-answer.open {
+      display: block;
+    }
+
+    .signup {
+      background:
+        radial-gradient(circle at 82% 20%, rgba(22, 133, 200, .30), transparent 26%),
+        var(--ink);
+      color: var(--white);
+    }
+
+    .signup h2,
+    .signup .lead {
+      color: var(--white);
+    }
+
+    .signup-panel {
+      margin-top: 2rem;
+      padding: 1.35rem;
+      background: var(--white);
+      color: var(--ink);
+      display: grid;
+      gap: 1rem;
+    }
+
+    .signup-steps {
+      margin-top: 2rem;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .step-card {
+      min-height: 100%;
+      padding: 1.1rem;
+      border: 1px solid rgba(255, 255, 255, .22);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      margin-bottom: .85rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius);
+      background: var(--blue);
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    .step-help {
+      margin: 1rem 0 0;
+      color: rgba(255, 255, 255, .78);
+      font-size: .95rem;
+    }
+
+    a:focus-visible,
+    .btn:focus-visible,
+    .faq button:focus-visible,
+    .nav-links a:focus-visible {
+      outline: 3px solid var(--blue);
+      outline-offset: 2px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+
+    footer {
+      padding: 2rem 0;
+      background: var(--ink);
+      color: rgba(255, 255, 255, .78);
+    }
+
+    .footer-inner {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      display: grid;
+      gap: 1rem;
+    }
+
+    footer img {
+      width: 132px;
+      height: auto;
+    }
+
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+      }
+
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(340px, .92fr);
+      }
+
+      .hero-visual {
+        justify-content: flex-end;
+      }
+
+      .hero-visual picture {
+        width: min(100%, 460px);
+      }
+
+      .hero-visual img {
+        max-height: 460px;
+      }
+
+      .info-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .pain-list,
+      .cards {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .split-feature,
+      .statement-grid,
+      .takeaway-grid,
+      .schedule-grid,
+      .industry-layout {
+        grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+      }
+
+      .statement-grid,
+      .schedule-grid {
+        grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+      }
+
+      .takeaway-grid,
+      .industry-layout {
+        align-items: start;
+      }
+
+      .cards.four {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .industry-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .feature-row {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .teacher-grid,
+      .fit-grid,
+      .signup-panel {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .teacher-photo {
+        padding: 2rem 2rem 0;
+      }
+
+      .signup-steps {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .teacher-photo img {
+        bottom: auto;
+      }
+
+      .teacher-photo picture {
+        width: min(100%, 315px);
+      }
+
+      .footer-inner {
+        grid-template-columns: .8fr 1.2fr;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要內容</a>
+  <nav class="nav" aria-label="主要導覽">
+    <div class="nav-inner">
+      <a href="#top" aria-label="回到頁首"><img src="assets/logo-blue.svg" width="145" height="39" alt="LINKet"></a>
+      <div class="nav-links">
+        <a href="#schedule">課程流程</a>
+        <a href="#teacher">講師</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <a class="btn blue" href="https://cell.ncnu.edu.tw/Course/InfoListDetail?COU_ID=aaa5800c-905c-4703-b3e3-5f33fb06c32b" target="_blank" rel="noopener">立即報名 →</a>
+    </div>
+  </nav>
+
+  <main id="main">
+    <header class="hero" id="top">
+      <div class="wrap hero-grid">
+        <section class="hero-title" aria-labelledby="hero-title">
+          <p class="eyebrow">國立暨南國際大學 · AI 協作實戰課</p>
+          <h1 id="hero-title">花一天，當一次「<span class="nb">非工程師</span>用 <span class="blue-text">AI</span> <span class="nb">跑工作室</span>」的學徒</h1>
+          <p class="lead">一堂專為非技術背景設計的 AI 協作實戰課。不背公式、不寫程式，帶走一套工具再怎麼變都不會過期的協作思維。</p>
+          <div class="info-strip" aria-label="課程資訊">
+            <span>7/25（六）09:00–16:00</span>
+            <span>暨南大學｜NT$2,500／人</span>
+            <span>名額有限，額滿為止</span>
+            <span>自備付費 AI：Claude Pro 或 ChatGPT Plus</span>
+          </div>
+          <div class="hero-actions">
+            <a class="btn blue" href="https://cell.ncnu.edu.tw/Course/InfoListDetail?COU_ID=aaa5800c-905c-4703-b3e3-5f33fb06c32b" target="_blank" rel="noopener">立即報名 →</a>
+            <a class="btn ghost" href="#faq">先看 FAQ</a>
+          </div>
+        </section>
+        <figure class="hero-visual">
+          <picture>
+            <source srcset="assets/clay-ai-communication-v2-920.webp" type="image/webp">
+            <img src="assets/clay-ai-communication-v2.png" width="1254" height="1254" alt="真人與 AI 機器人黏土公仔對話協作">
+          </picture>
+        </figure>
+      </div>
+    </header>
+
+    <section class="section" aria-labelledby="pain-title">
+      <div class="wrap split-feature">
+        <figure class="visual-panel">
+          <picture>
+            <source srcset="assets/section-pain-clay-920.webp" type="image/webp">
+            <img loading="lazy" src="assets/section-pain-clay.png" width="1536" height="1112" alt="工作者面對大量 AI 工具與資訊而卡住的 3D 黏土示意圖">
+          </picture>
+        </figure>
+        <div>
+          <p class="eyebrow">為什麼開這堂</p>
+          <h2 id="pain-title">你是不是也有這種感覺——</h2>
+          <div class="pain-list">
+            <article class="pain-item"><span class="pain-number">1</span><p>AI 每週都有新工具，學不完、也不知道哪個真的有用。</p></article>
+            <article class="pain-item"><span class="pain-number">2</span><p>網路上一堆「prompt 公式」，背了一堆，真的要用還是卡住。</p></article>
+            <article class="pain-item"><span class="pain-number">3</span><p>上過 AI 課，帶回一疊筆記，回到工作還是不會用。</p></article>
+          </div>
+          <p class="lead" style="margin-top:2rem;">問題不在工具，在<strong>沒有人示範「真的靠 AI 在工作」是什麼樣子</strong>。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section statement" aria-labelledby="different-title">
+      <div class="wrap statement-grid">
+        <div>
+          <p class="eyebrow">這堂課的定位</p>
+          <h2 id="different-title">這不是工具教學，是一次「協作」的示範</h2>
+          <p class="lead">我是 Tony，一個看不懂程式碼的品牌設計師。但我真的用 AI 在經營一間工作室、接真實客戶案。這堂課我不教你背指令——因為公式會過期；我帶你建立一套跟 AI 協作的思維：給它脈絡、看它產出、告訴它哪裡不對、一起收斂。這套流程不管工具怎麼換都用得上。整天用真實客戶案示範，你看我做一次，再做你自己的版本。</p>
+        </div>
+        <div class="feature-copy">
+          <figure class="visual-panel dark">
+            <picture>
+              <source srcset="assets/section-collaboration-clay-920.webp" type="image/webp">
+              <img loading="lazy" src="assets/section-collaboration-clay.png" width="1536" height="1112" alt="人與 AI 來回協作的 3D 黏土示意圖">
+            </picture>
+          </figure>
+          <div class="feature-row">
+            <div class="feature-pill">師徒觀摩制，不是聽講</div>
+            <div class="feature-pill">全程真實客戶案，不用假例子</div>
+            <div class="feature-pill">產出導向，帶走成品不是筆記</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft" aria-labelledby="takeaway-title">
+      <div class="wrap takeaway-grid">
+        <div class="section-intro">
+          <p class="eyebrow">你會帶走什麼</p>
+          <h2 id="takeaway-title">一天結束，你手上會多這些</h2>
+          <figure class="visual-panel">
+            <picture>
+              <source srcset="assets/section-takeaway-clay-920.webp" type="image/webp">
+              <img loading="lazy" src="assets/section-takeaway-clay.png" width="1536" height="1112" alt="課程完成後帶走工具包與協作成果的 3D 黏土示意圖">
+            </picture>
+          </figure>
+        </div>
+        <div class="cards four">
+          <article class="card"><h3>一個數位同事</h3><p>針對你的職業，現場建好一個專屬 AI 協作夥伴，設定存好帶回工作用。</p></article>
+          <article class="card"><h3>一套協作思維</h3><p>不綁工具的 AI 溝通流程，工具再變都適用。</p></article>
+          <article class="card"><h3>一份判斷力</h3><p>知道什麼時候讓 AI 生成、什麼時候要它查證。</p></article>
+          <article class="card"><h3>一個 AI 共學包</h3><p>課程材料＋AI 助教引導詞，回家讓 AI 帶你繼續練。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="schedule" aria-labelledby="schedule-title">
+      <div class="wrap schedule-grid">
+        <div>
+          <p class="eyebrow">課程流程</p>
+          <h2 id="schedule-title">6 小時，四段，從第一分鐘就動手</h2>
+          <div class="timeline">
+            <article class="timeline-item"><div class="time">09:00–10:30</div><h3>AI 不只是工具，更是你的合作夥伴</h3><p>看我用 AI 接案，然後你用自己的真實需求做出「第一版」。</p></article>
+            <article class="timeline-item"><div class="time">10:30–12:00</div><h3>打造你的數位同事</h3><p>用多面向提問把指令強化成「第二版」，建成你的專屬 AI 夥伴。</p></article>
+            <article class="timeline-item"><div class="time">13:00–14:30</div><h3>像資深設計師一樣改稿</h3><p>學四個改稿動作，把 AI 初稿修到能交付。</p></article>
+            <article class="timeline-item"><div class="time">14:30–16:00</div><h3>交出你的第一個作品</h3><p>分組共創、發表，帶走你的 AI 共學包。</p></article>
+          </div>
+        </div>
+        <figure class="visual-panel">
+          <picture>
+            <source srcset="assets/section-schedule-clay-920.webp" type="image/webp">
+            <img loading="lazy" src="assets/section-schedule-clay.png" width="1536" height="1109" alt="四段課程從需求到作品的 3D 黏土路線示意圖">
+          </picture>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section soft" aria-labelledby="industry-title">
+      <div class="wrap industry-layout">
+        <div>
+          <p class="eyebrow">各行各業</p>
+          <h2 id="industry-title">不管你做哪一行，AI 都能變成你的即戰力</h2>
+          <p class="lead">這堂課不綁定某個職業——你帶你自己的真實需求來，帶一個能立刻用的成果走。</p>
+          <figure class="visual-panel">
+            <picture>
+              <source srcset="assets/section-industry-clay-920.webp" type="image/webp">
+              <img loading="lazy" src="assets/section-industry-clay.png" width="1536" height="1112" alt="不同行業把 AI 變成工作夥伴的 3D 黏土示意圖">
+            </picture>
+          </figure>
+        </div>
+        <div class="industry-grid">
+          <article class="industry-card"><h3>行政／總務</h3><p>一個照你語氣草擬公文與回信的 AI 助理</p></article>
+          <article class="industry-card"><h3>業務／客服</h3><p>一套問答與跟進話術庫，回覆速度翻倍</p></article>
+          <article class="industry-card"><h3>行銷／小編</h3><p>一個懂品牌調性的貼文與標題發想夥伴</p></article>
+          <article class="industry-card"><h3>設計／接案</h3><p>一條拆需求到對稿的 AI 協作流程</p></article>
+          <article class="industry-card"><h3>餐飲／店家</h3><p>一個餐飲行銷與評論回覆的 AI 小幫手</p></article>
+          <article class="industry-card"><h3>教育／講師</h3><p>一個幫你出教案與練習題的備課夥伴</p></article>
+          <article class="industry-card"><h3>自營／一人公司</h3><p>一個當第二大腦、分擔雜事的 AI 同事</p></article>
+          <article class="industry-card"><h3>傳產第二代</h3><p>一套用 AI 梳理品牌、對外溝通的起手式</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="teacher" aria-labelledby="teacher-title">
+      <div class="wrap teacher-grid">
+        <figure class="teacher-photo">
+          <picture>
+            <source srcset="assets/tony-cutout-630.webp" type="image/webp">
+            <img loading="lazy" src="assets/tony-cutout.png" width="1080" height="1920" alt="講師林志昇 Tony Lin">
+          </picture>
+        </figure>
+        <section class="teacher-panel">
+          <p class="eyebrow">講師介紹</p>
+          <h2 id="teacher-title">你的講師：一個真的在用 AI 跑工作室的設計師</h2>
+          <p>林志昇 Tony Lin。國立臺灣科技大學設計系商業設計組畢業，LINKet 創辦人／Tony Design Studio 設計總監，十年跨領域設計經驗，橫跨品牌整合、商業空間與展場設計。現在他把 AI 協作深度整合進工作室日常——從客戶溝通、提案到設計交付，AI 是真正的協作夥伴。這堂課，就是把他每天在做的事，攤開來教你。</p>
+        </section>
+      </div>
+    </section>
+
+    <section class="section soft" aria-labelledby="fit-title">
+      <div class="wrap">
+        <p class="eyebrow">適合誰</p>
+        <h2 id="fit-title">這堂課為你而開，如果你——</h2>
+        <div class="fit-grid">
+          <section class="fit-panel">
+            <h3>適合</h3>
+            <ul class="check-list">
+              <li>非技術背景、想真的把 AI 用進工作</li>
+              <li>行政/業務/行銷/設計/接案/開店/自營</li>
+              <li>上過 AI 課但還是不會用</li>
+              <li>零程式基礎、只要會打字</li>
+              <li>願意備一個付費 AI 帳號（Claude Pro／ChatGPT Plus）</li>
+            </ul>
+          </section>
+          <section class="fit-panel">
+            <h3>需要注意</h3>
+            <p>這是協作思維課，不是某軟體的操作班；當天大量動手，請帶筆電。</p>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="wrap">
+        <p class="eyebrow">常見問題</p>
+        <h2 id="faq-title">常見問題</h2>
+        <div class="faq">
+          <article class="faq-item"><button type="button" aria-expanded="false">Q：完全零基礎跟得上嗎？</button><div class="faq-answer">跟得上。開場有超簡單暖身，全程手把手，你用自己的需求做。</div></article>
+          <article class="faq-item"><button type="button" aria-expanded="false">Q：需要自備付費 AI 嗎？</button><div class="faq-answer">需要。這堂玩真的，用專業級付費 AI（Claude Pro 或 ChatGPT Plus，月費約 US$20）帶你做出能交付的成果，不是入門工具的 demo。現場講師幫你把環境建置好，零基礎不用怕。</div></article>
+          <article class="faq-item"><button type="button" aria-expanded="false">Q：要帶什麼？</button><div class="faq-answer">一台能上網的筆電、一個付費 AI 帳號（Claude Pro／ChatGPT Plus），和一個你真正想解決的工作問題。</div></article>
+          <article class="faq-item"><button type="button" aria-expanded="false">Q：跟後面的課有關係嗎？</button><div class="faq-answer">這是 8 堂系列第一堂，先打好 AI 協作地基，後面進到更進階應用。</div></article>
+          <article class="faq-item"><button type="button" aria-expanded="false">Q：課後有東西複習嗎？</button><div class="faq-answer">有。你會帶走「AI 共學包」，回家用瀏覽器就能讓 AI 助教帶你繼續練。</div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section signup" id="signup" aria-labelledby="signup-title">
+      <div class="wrap">
+        <p class="eyebrow">立即報名</p>
+        <h2>報名只要 4 步，約 5 分鐘</h2>
+        <div class="signup-steps" aria-label="報名 4 步驟">
+          <article class="step-card">
+            <span class="step-number">1</span>
+            <h3>進入報名頁</h3>
+            <p>註冊／登入帳號</p>
+          </article>
+          <article class="step-card">
+            <span class="step-number">2</span>
+            <h3>搜尋課程</h3>
+            <p>搜尋「零到一 AI 基礎溝通課」</p>
+          </article>
+          <article class="step-card">
+            <span class="step-number">3</span>
+            <h3>送出報名</h3>
+            <p>點選報名、送出</p>
+          </article>
+          <article class="step-card">
+            <span class="step-number">4</span>
+            <h3>確認繳費</h3>
+            <p>收確認 email，完成繳費即報名成功</p>
+          </article>
+        </div>
+        <p class="step-help">報名卡住？在貼文留言或私訊 Tony，我幫你完成。</p>
+        <h2 id="signup-title">7/25，來當一天的 AI 學徒</h2>
+        <p class="lead">時間 7/25（六）09:00–16:00｜地點 暨南大學｜費用 NT$2,500／人｜即日起報名至 7/25，額滿為止</p>
+        <div class="signup-panel">
+          <div>
+            <h3>課程資訊</h3>
+            <p>自備付費 AI：Claude Pro 或 ChatGPT Plus（月費約 US$20），現場講師幫建置。</p>
+          </div>
+          <div>
+            <a class="btn blue" href="https://cell.ncnu.edu.tw/Course/InfoListDetail?COU_ID=aaa5800c-905c-4703-b3e3-5f33fb06c32b" target="_blank" rel="noopener">立即報名 →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <img src="assets/logo-white.svg" width="145" height="39" alt="LINKet">
+      <div>
+        <strong>主辦：國立暨南國際大學（研發處／創業育成中心）</strong><br>
+        <a href="https://cell.ncnu.edu.tw/Course/InfoListDetail?COU_ID=aaa5800c-905c-4703-b3e3-5f33fb06c32b" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:underline;">前往報名頁 →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // FAQ 展開收合：保留語意狀態，讓鍵盤與輔助工具都能讀到目前狀態。
+    document.querySelectorAll(".faq button").forEach((button) => {
+      button.addEventListener("click", () => {
+        const answer = button.nextElementSibling;
+        const expanded = button.getAttribute("aria-expanded") === "true";
+        button.setAttribute("aria-expanded", String(!expanded));
+        answer.classList.toggle("open", !expanded);
+      });
+    });
+  </script>
+</body>
+</html>
