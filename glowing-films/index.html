@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<!--
+  發光映像 GLOWING FILMS｜李孟璁 導演｜LINKet
+  slug: glowing-films
+  v1.0  2026-06-30  初版建置
+  v1.1  2026-07-08  正式LOGO＋GA4事件追蹤補齊
+  v1.2  2026-07-08  Hero改制式左右兩欄
+  v2.0  2026-07-13  全面重做（架構書v4）：官網深爬內容／page-skeleton起手／膠囊按鈕＋雜訊質感＋古銅金
+  v2.1  2026-07-13  Tony細修：字體改方案A(Noto Sans TC黑體＋Bebas Neue)；Hero刪Story Architect/導演排上方/李孟璁拉字距/刪GLOWING FILMS英文；
+        RWD修正；Hero按鈕改LINE/致電李導演/四種說故事的方式/拜訪＋補QR+Share模組；正名區justify刪來源；
+        成就區TTQS/金管會改認證照片；四大服務標題→四種說故事的方式；內容渠道→導演賣故事+按鈕直排；拜訪區改龍德式資訊列
+  v2.2  2026-07-13  Tony大方向細修：移除viewport maximum-scale(恢復縮放)；全區(含淺底)加噪點漸層質感；Hero icon×1.4/logo margin-bottom 2rem/tags增故事建築師+人設規劃師/Share按鈕常駐+剪貼簿fallback；
+        QR彈窗改放logo刪標題行；新增「發光印象」跑馬燈；成就區加導言+致理教學改業界經驗+TTQS/金管會換真實照片(webp)；四種說故事「看案例」改按鈕；
+        導演賣故事加官方簡介+嵌入2集Apple Podcast；拜訪區改黑底+換穩定地圖embed；Footer icon×1.4
+  素材已到位：橫式Logo(logo-04)/Footer白色版/TTQS+金管會照片
+  待確認：正名區文案本人措辭、LINE連結格式待實測
+  LINKet by Tony Design Studio
+-->
+<meta charset="UTF-8">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-29J2988Y8J');</script>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>李孟璁 導演｜發光映像 GLOWING FILMS・故事建築師</title>
+<meta name="description" content="發光映像 GLOWING FILMS，李孟璁導演。品牌形象影片／知識課程影音／劇情微電影／募資專案影片，用故事打造品牌信任。台北市大安區。">
+<meta property="og:title" content="李孟璁 導演｜發光映像 GLOWING FILMS">
+<meta property="og:description" content="故事說得好，客戶追著跑。">
+<meta property="og:image" content="https://linket.app/glowing-films/og-image.jpg">
+<meta property="og:url" content="https://linket.app/glowing-films">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://linket.app/glowing-films">
+<link rel="icon" href="./assets/favicon.png">
+<link rel="apple-touch-icon" href="./assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"發光映像有限公司 GLOWING FILMS","address":{"@type":"PostalAddress","streetAddress":"忠孝東路四段15號8樓之1","addressLocality":"大安區","addressRegion":"台北市","addressCountry":"TW"},"telephone":"+886961102370"}
+</script>
+<style>
+:root{
+  --ink:#161616;
+  --ink-d:#0d0d0d;
+  --ink2:rgba(22,22,22,.6);
+  --ink3:rgba(22,22,22,.3);
+  --cream:#fdfdfb;
+  --white:#ffffff;
+  --accent:#B8925A;
+  --r:999px;
+  --mw:920px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans TC',sans-serif;background:var(--cream);color:var(--ink);line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+.en{font-family:'Bebas Neue',sans-serif;}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+
+/* 共用噪點材質（淺底用；深底另有自己的 .bg-dark::before） */
+.noise-light::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.05;pointer-events:none;z-index:0;}
+
+/* ═ HERO ═ */
+.hero-section{position:relative;min-height:92svh;display:flex;flex-direction:column;background:linear-gradient(180deg,#fefefc 0%,#f6f4ef 100%);overflow:hidden;}
+.hero-section::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.05;pointer-events:none;z-index:0;}
+.hero-content{position:relative;z-index:2;flex:1;display:flex;align-items:center;max-width:var(--mw);margin:0 auto;padding:4.5rem 1.4rem;width:100%;}
+.hero-cols{display:flex;flex-direction:column;align-items:center;gap:2.2rem;width:100%;}
+.hero-left{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.5rem;}
+.hero-logo{margin:.2rem 0 2rem;}
+.hero-logo img{height:58px;width:auto;display:block;}
+.hero-role{font-size:.95rem;font-weight:500;letter-spacing:.62em;color:var(--ink2);padding-left:.62em;}
+.hero-name{font-size:clamp(1.9rem,6vw,2.5rem);font-weight:900;color:var(--ink);letter-spacing:.2em;padding-left:.2em;}
+.hero-slogan{font-size:1.15rem;font-weight:700;color:var(--ink);border-top:2px solid var(--accent);padding-top:.8rem;margin-top:.5rem;}
+.hero-tags{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin-top:.2rem;}
+.h-tag{font-size:.68rem;letter-spacing:.06em;color:var(--accent);border:1px solid var(--accent);border-radius:var(--r);padding:.22rem .65rem;background:transparent;}
+
+.hero-right{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;max-width:340px;margin:0 auto;width:100%;}
+.hero-icons{display:flex;justify-content:center;flex-wrap:wrap;gap:.7rem;width:100%;}
+.hero-icon-link{width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:var(--white);border:none;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,.14),0 0 0 1px rgba(0,0,0,.1);transition:opacity .2s,transform .2s;}
+.hero-icon-link:hover{opacity:.78;transform:translateY(-2px);}
+.hero-icon-link img{width:31px;height:31px;display:block;}
+.hero-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.1rem;width:100%;max-width:320px;border-radius:var(--r);font-size:.95rem;font-weight:700;letter-spacing:.08em;padding:.8rem 1rem;line-height:1.25;text-align:center;transition:all .25s;}
+.hero-btn.p1{background:var(--ink);color:var(--white);}
+.hero-btn.p1:hover{background:var(--accent);}
+.hero-btn.ghost{background:rgba(0,0,0,.04);border:1.5px solid var(--ink3);color:var(--ink);}
+.hero-btn.ghost:hover{background:rgba(0,0,0,.08);border-color:var(--accent);color:var(--accent);}
+.btn-en{font-family:'Bebas Neue',sans-serif;font-size:.82rem;letter-spacing:.16em;opacity:.6;font-weight:400;line-height:1;}
+/* QR / Share 小按鈕列 */
+.hero-btn-row{display:flex;gap:.6rem;width:100%;max-width:320px;}
+.btn-sm{flex:1;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.04);border:1px solid var(--ink3);color:var(--ink2);font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:.16em;padding:.6rem .4rem;border-radius:var(--r);cursor:pointer;transition:all .2s;}
+.btn-sm:hover{border-color:var(--accent);color:var(--accent);}
+
+/* ═ QR MODAL ═ */
+.qr-overlay{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.55);backdrop-filter:blur(8px);align-items:center;justify-content:center;}
+.qr-overlay.open{display:flex;}
+.qr-box{background:var(--cream);border:1px solid var(--ink3);border-radius:14px;padding:2rem 1.8rem;text-align:center;max-width:300px;width:90%;display:flex;flex-direction:column;align-items:center;}
+.qr-logo{width:160px;height:auto;margin:0 auto 1rem;display:block;}
+#qrcode{margin:0 auto 1rem;}
+.qr-url{font-family:'Bebas Neue',sans-serif;font-size:.9rem;letter-spacing:.1em;color:var(--ink3);margin-bottom:1.2rem;}
+.qr-close{cursor:pointer;font-family:'Bebas Neue',sans-serif;font-size:.9rem;letter-spacing:.2em;color:var(--accent);border:1px solid var(--accent);padding:.5rem 1.4rem;border-radius:var(--r);background:transparent;}
+
+/* ═ SECTIONS 共用 ═ */
+section{position:relative;}
+.bg-light{background:linear-gradient(180deg,#fefefc 0%,#f7f5f0 100%);color:var(--ink);position:relative;overflow:hidden;}
+.bg-light::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.05;pointer-events:none;z-index:0;}
+.bg-dark{background:var(--ink-d);color:rgba(255,255,255,.92);position:relative;overflow:hidden;}
+.bg-dark::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.03;pointer-events:none;z-index:0;}
+.sec-inner{max-width:var(--mw);margin:0 auto;padding:clamp(3rem,7vw,5.5rem) 1.4rem;position:relative;z-index:1;}
+.sec-eyebrow{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.28em;color:var(--accent);text-align:center;margin-bottom:.4rem;display:block;}
+.sec-title{font-size:clamp(1.4rem,4vw,1.8rem);font-weight:900;letter-spacing:.04em;text-align:center;margin-bottom:.8rem;}
+.sec-rule{width:2.5rem;height:2px;background:var(--accent);margin:0 auto 2.2rem;}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease;}
+.reveal.visible{opacity:1;transform:none;}
+
+.mid-btn{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;padding:.8rem 1.7rem;border-radius:var(--r);font-size:.88rem;font-weight:700;letter-spacing:.06em;transition:all .25s;}
+.mid-btn.solid{background:var(--ink);color:var(--white);}
+.mid-btn.solid:hover{background:var(--accent);}
+.mid-btn.outline{border:1.5px solid var(--ink3);color:var(--ink);}
+.mid-btn.outline:hover{border-color:var(--accent);color:var(--accent);}
+
+/* ═ 正名區塊 ═ */
+.naming-quote{font-size:1.3rem;font-weight:700;text-align:center;line-height:1.7;margin-bottom:1.6rem;}
+.naming-body{font-size:.94rem;color:rgba(255,255,255,.75);text-align:justify;max-width:580px;margin:0 auto;}
+
+/* ═ 成就數字 ═ */
+.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.8rem 1rem;text-align:center;align-items:end;}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:2.6rem;line-height:1;color:var(--ink);letter-spacing:.02em;}
+.stat-num small{font-family:'Noto Sans TC',sans-serif;font-weight:700;font-size:1.1rem;}
+.stat-label{font-size:.76rem;color:var(--ink2);letter-spacing:.02em;margin-top:.35rem;}
+/* 認證小卡片（TTQS／金管會，獨立於數字列，橫式圖文卡）*/
+.cert-cards{display:grid;grid-template-columns:1fr;gap:1.1rem;max-width:640px;margin:2.8rem auto 0;}
+.cert-card{display:flex;gap:1rem;align-items:center;background:var(--white);border:1px solid rgba(0,0,0,.07);border-radius:14px;padding:.9rem;box-shadow:0 6px 20px rgba(0,0,0,.06);}
+.cert-card img{width:118px;height:78px;object-fit:cover;border-radius:9px;flex:0 0 118px;}
+.cert-card-title{font-size:.92rem;font-weight:700;color:var(--ink);margin-bottom:.25rem;}
+.cert-card-desc{font-size:.76rem;line-height:1.65;color:var(--ink2);}
+
+/* ═ 四大服務 ═ */
+.service-grid{display:grid;grid-template-columns:1fr;gap:1.4rem;}
+.service-card{background:var(--white);border-radius:14px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.28);}
+.service-thumb{aspect-ratio:16/9;overflow:hidden;background:#000;}
+.service-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+.service-card:hover .service-thumb img{transform:scale(1.04);}
+.service-body{padding:1.4rem 1.5rem 1.6rem;color:var(--ink);}
+.service-body h3{font-size:1.05rem;font-weight:700;margin-bottom:.55rem;}
+.service-body p{font-size:.85rem;color:var(--ink2);margin-bottom:.8rem;}
+.service-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:1rem;}
+.service-tag{font-size:.7rem;border:1px solid rgba(22,22,22,.14);border-radius:20px;padding:.2rem .65rem;color:var(--ink2);}
+.service-link{display:inline-flex;align-items:center;gap:.35rem;font-size:.8rem;font-weight:700;color:var(--ink);letter-spacing:.04em;border:1.5px solid var(--ink);border-radius:var(--r);padding:.5rem 1.3rem;transition:all .22s;}
+.service-link:hover{background:var(--ink);color:var(--white);}
+
+/* ═ 導演賣故事（內容渠道）═ */
+.channel-row{display:flex;flex-direction:column;gap:1.6rem;align-items:center;}
+.channel-badge{width:130px;border-radius:50%;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.12);}
+.channel-links{display:flex;flex-direction:column;gap:.7rem;align-items:center;width:100%;}
+.channel-links .mid-btn{width:100%;max-width:280px;}
+
+/* ═ 拜訪／地圖（龍德式資訊列）═ */
+.visit-grid{display:grid;grid-template-columns:1fr;gap:1.8rem;}
+.map-wrap{position:relative;width:100%;aspect-ratio:4/3;border-radius:14px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.12);}
+.map-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.visit-info{display:flex;flex-direction:column;gap:1.2rem;justify-content:center;}
+.info-row{display:flex;gap:.9rem;align-items:flex-start;}
+.info-row-icon{width:20px;height:20px;flex:0 0 20px;margin-top:.2rem;stroke:var(--accent);fill:none;stroke-width:2;}
+.info-label{font-family:'Bebas Neue',sans-serif;font-size:.85rem;letter-spacing:.14em;color:var(--ink3);margin-bottom:.1rem;}
+.info-value{font-size:.92rem;color:var(--ink);line-height:1.6;}
+.visit-info .mid-btn{align-self:flex-start;margin-top:.4rem;}
+
+/* ═ FOOTER ═ */
+.footer-inner{max-width:var(--mw);margin:0 auto;padding:3rem 1.4rem 2rem;text-align:center;position:relative;z-index:1;}
+.footer-logo-wrap{max-width:200px;margin:0 auto 1.6rem;}
+.footer-logo-wrap img{width:100%;height:auto;display:block;opacity:.95;}
+.f-icons{display:flex;justify-content:center;flex-wrap:wrap;gap:.9rem;margin-bottom:1.8rem;}
+.f-icons .hero-icon-link{width:44px;height:44px;}
+.f-icons .hero-icon-link img{width:28px;height:28px;}
+.footer-btns{display:flex;flex-direction:column;align-items:center;gap:.7rem;margin-bottom:2rem;}
+.f-cta{display:flex;flex-direction:column;align-items:center;gap:.1rem;width:100%;max-width:320px;background:var(--accent);color:var(--ink-d);font-weight:700;border-radius:var(--r);padding:.8rem 2rem;font-size:.9rem;letter-spacing:.06em;text-align:center;transition:opacity .25s;}
+.f-cta:hover{opacity:.85;}
+.f-cta.ghost{background:transparent;border:1.5px solid rgba(255,255,255,.38);color:rgba(255,255,255,.9);font-weight:500;}
+.f-cta.ghost:hover{opacity:1;border-color:rgba(255,255,255,.8);}
+.f-cta .btn-en{opacity:.7;}
+.f-divider{height:1px;background:rgba(255,255,255,.12);max-width:300px;margin:0 auto 1.2rem;}
+.f-legal{font-size:.72rem;line-height:1.9;letter-spacing:.03em;color:rgba(255,255,255,.4);margin-bottom:1.2rem;}
+/* design-by 公版（不可用品牌色/Bebas）：預設黑體、LINKET 藍#1685C8 + 米白#F5ECD7、字樣 LINKet */
+a.design-by{display:block;text-align:center;padding:1rem 0 0;font-family:'Noto Sans TC',sans-serif;font-size:.68rem;letter-spacing:.2em;border-top:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.35);text-decoration:none;}
+.db-lin{color:#1685C8;}
+.db-ket{color:#F5ECD7;}
+
+/* ═ 發光印象 跑馬燈 Ticker ═ */
+.ticker{background:var(--ink-d);overflow:hidden;position:relative;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);}
+.ticker::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.04;pointer-events:none;}
+.ticker-track{display:flex;width:max-content;white-space:nowrap;animation:ticker 32s linear infinite;padding:.9rem 0;position:relative;z-index:1;}
+.ticker-item{display:flex;align-items:center;gap:1.6rem;font-weight:700;font-size:.92rem;letter-spacing:.2em;color:rgba(255,255,255,.72);padding:0 1.6rem;}
+.ticker-item .en{font-family:'Bebas Neue',sans-serif;letter-spacing:.24em;font-weight:400;font-size:1.1rem;color:var(--accent);}
+.ticker-item::after{content:'✦';color:var(--accent);font-size:.6rem;opacity:.8;}
+@keyframes ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* ═ 成就數字 導言 ═ */
+.stat-lead{text-align:justify;font-size:.94rem;color:var(--ink2);max-width:640px;margin:0 auto 2.6rem;line-height:1.9;}
+
+/* ═ 導演賣故事 內容簡介＋嵌入 ═ */
+.podcast-head{display:flex;flex-direction:column;align-items:center;gap:1.1rem;margin-bottom:2.2rem;}
+.podcast-desc{text-align:justify;font-size:.96rem;color:var(--ink);max-width:600px;line-height:1.95;}
+.podcast-ratio{font-family:'Bebas Neue',sans-serif;font-size:1.05rem;letter-spacing:.14em;color:var(--accent);}
+.podcast-embeds{display:flex;flex-direction:column;gap:1.1rem;align-items:center;margin-bottom:2rem;}
+.podcast-embeds iframe{width:100%;max-width:660px;border-radius:10px;overflow:hidden;border:0;background:transparent;}
+
+/* ═ 拜訪區 深色模式覆寫 ═ */
+.bg-dark .info-label{color:rgba(255,255,255,.42);}
+.bg-dark .info-value{color:rgba(255,255,255,.9);}
+.bg-dark .info-row-icon{stroke:var(--accent);}
+.bg-dark .mid-btn.outline{border-color:rgba(255,255,255,.4);color:rgba(255,255,255,.9);}
+.bg-dark .mid-btn.outline:hover{border-color:var(--accent);color:var(--accent);}
+.bg-dark .map-wrap{box-shadow:0 8px 24px rgba(0,0,0,.4);}
+
+/* ═ 回頂部 ═ */
+.back-top{position:fixed;bottom:1.4rem;right:1.4rem;width:44px;height:44px;background:var(--ink);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s;z-index:99;border:none;}
+.back-top.show{opacity:1;pointer-events:auto;}
+.back-top svg{width:18px;height:18px;stroke:var(--white);fill:none;stroke-width:2.5;}
+
+@media(min-width:640px){
+  .hero-cols{flex-direction:row;align-items:center;gap:3rem;text-align:left;}
+  .hero-left{flex:1 1 auto;align-items:flex-start;text-align:left;}
+  .hero-slogan{border-top:none;border-left:2px solid var(--accent);padding-top:0;padding-left:.9rem;margin-top:.2rem;}
+  .hero-tags{justify-content:flex-start;}
+  .hero-right{flex:0 0 320px;align-items:stretch;margin:0;max-width:320px;}
+  .hero-icons{justify-content:flex-start;}
+  .service-grid{grid-template-columns:1fr 1fr;}
+  .stat-grid{grid-template-columns:repeat(4,1fr);}
+  .cert-cards{grid-template-columns:1fr 1fr;}
+  .visit-grid{grid-template-columns:1.2fr 1fr;align-items:stretch;}
+}
+</style>
+</head>
+<body id="top">
+
+<!-- ═ HERO ═ -->
+<header class="hero-section" id="hero">
+  <div class="hero-content">
+    <h1 class="sr-only">李孟璁 導演｜發光映像 GLOWING FILMS｜故事建築師／人設規劃師｜台北</h1>
+    <div class="hero-cols">
+      <div class="hero-left">
+        <div class="hero-logo"><img src="assets/logo-glowingfilms-h.svg" alt="發光映像 GLOWING FILMS LOGO"></div>
+        <div class="hero-role">導演</div>
+        <div class="hero-name">李孟璁</div>
+        <div class="hero-slogan">故事說得好，客戶追著跑。</div>
+        <div class="hero-tags">
+          <span class="h-tag">#故事建築師</span>
+          <span class="h-tag">#人設規劃師</span>
+          <span class="h-tag">#品牌形象影片</span>
+          <span class="h-tag">#知識課程影音</span>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-icons">
+          <a class="hero-icon-link" href="https://line.me/ti/p/~mengtsungli" target="_blank" rel="noopener" aria-label="LINE"
+            onclick="gtag('event','click_line',{'event_category':'CTA','event_label':'glowing-films'});">
+            <img src="/assets/line.svg" alt="LINE" onerror="this.style.visibility='hidden'">
+          </a>
+          <a class="hero-icon-link" href="tel:0961102370" aria-label="電話"
+            onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'glowing-films'});">
+            <img src="/assets/phone.svg" alt="電話" onerror="this.style.visibility='hidden'">
+          </a>
+          <a class="hero-icon-link" href="mailto:meng@glowingfilms.com.tw" aria-label="Email"
+            onclick="gtag('event','click_mail',{'event_category':'CTA','event_label':'glowing-films'});">
+            <img src="/assets/mail.svg" alt="Email" onerror="this.style.visibility='hidden'">
+          </a>
+          <a class="hero-icon-link" href="https://www.facebook.com/glowingfilms/?locale=zh_TW" target="_blank" rel="noopener" aria-label="Facebook"
+            onclick="gtag('event','click_fb',{'event_category':'CTA','event_label':'glowing-films'});">
+            <img src="/assets/facebook.svg" alt="Facebook" onerror="this.style.visibility='hidden'">
+          </a>
+          <a class="hero-icon-link" href="https://www.youtube.com/@發光映像-u2u" target="_blank" rel="noopener" aria-label="YouTube"
+            onclick="gtag('event','click_youtube',{'event_category':'CTA','event_label':'glowing-films'});">
+            <img src="/assets/youtube.svg" alt="YouTube" onerror="this.style.visibility='hidden'">
+          </a>
+        </div>
+        <a class="hero-btn p1" href="https://line.me/ti/p/~mengtsungli" target="_blank" rel="noopener"
+          onclick="gtag('event','click_line',{'event_category':'CTA','event_label':'glowing-films-hero-cta'});"><span>加LINE談合作</span><span class="btn-en">ADD LINE</span></a>
+        <a class="hero-btn p1" href="tel:0961102370"
+          onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'glowing-films-hero-cta'});"><span>致電李導演</span><span class="btn-en">CONTACT</span></a>
+        <a class="hero-btn ghost" href="#services">四種說故事的方式</a>
+        <a class="hero-btn ghost" href="#visit">拜訪發光映像</a>
+        <div class="hero-btn-row">
+          <button class="btn-sm" onclick="openQrModal();gtag('event','click_qr_modal',{'event_category':'CTA','event_label':'glowing-films'});">QR CODE</button>
+          <button class="btn-sm share" id="shareBtn">SHARE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═ 發光印象 跑馬燈 ═ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ticker-item"><span class="en">GLOWING IMPRESSION</span></span>
+    <span class="ticker-item">發光印象</span>
+    <span class="ticker-item">故事建築師</span>
+    <span class="ticker-item">人設規劃師</span>
+    <span class="ticker-item">品牌形象影片</span>
+    <span class="ticker-item">知識課程影音</span>
+    <span class="ticker-item">劇情微電影</span>
+    <span class="ticker-item">募資專案影片</span>
+    <span class="ticker-item">故事說得好，客戶追著跑</span>
+    <span class="ticker-item"><span class="en">GLOWING IMPRESSION</span></span>
+    <span class="ticker-item">發光印象</span>
+    <span class="ticker-item">故事建築師</span>
+    <span class="ticker-item">人設規劃師</span>
+    <span class="ticker-item">品牌形象影片</span>
+    <span class="ticker-item">知識課程影音</span>
+    <span class="ticker-item">劇情微電影</span>
+    <span class="ticker-item">募資專案影片</span>
+    <span class="ticker-item">故事說得好，客戶追著跑</span>
+  </div>
+</div>
+
+<!-- ═ QR MODAL ═ -->
+<div class="qr-overlay" id="qrOverlay" onclick="closeQrModal()">
+  <div class="qr-box" onclick="event.stopPropagation()">
+    <img class="qr-logo" src="assets/logo-glowingfilms-h.svg" alt="發光映像 GLOWING FILMS">
+    <div id="qrcode"></div>
+    <div class="qr-url">linket.app/glowing-films</div>
+    <button class="qr-close" onclick="closeQrModal()">CLOSE</button>
+  </div>
+</div>
+
+<!-- ═ 正名區塊 ═ -->
+<section class="bg-dark">
+  <div class="sec-inner reveal">
+    <p class="sec-eyebrow">Who I Am</p>
+    <h2 class="sec-title">故事建築師／人設規劃師</h2>
+    <div class="sec-rule"></div>
+    <p class="naming-quote">「沒有大咖小咖，只有好聽的故事」</p>
+    <p class="naming-body">他不只是導演，更是故事建築師、人設規劃師——用好萊塢黃金劇本結構，把企業或個人「最真實的樣子」轉譯成看得懂、記得住的故事。不只是介紹，更是感染。</p>
+  </div>
+</section>
+
+<!-- ═ 成就數字 ═ -->
+<section class="bg-light" id="record">
+  <div class="sec-inner reveal">
+    <p class="sec-eyebrow">Track Record</p>
+    <h2 class="sec-title">發光印象成就</h2>
+    <div class="sec-rule"></div>
+    <p class="stat-lead">從事媒體廣告業十多年，鏡頭走過士農工商、百工百業。從品牌形象、募資到知識變現，每一個數字背後，都是一次「把故事說對」的實戰累積。</p>
+    <div class="stat-grid">
+      <div><div class="stat-num">60+</div><div class="stat-label">品牌合作累積</div></div>
+      <div><div class="stat-num">5,400<small>萬</small></div><div class="stat-label">募資影音銷售總額</div></div>
+      <div><div class="stat-num">30+</div><div class="stat-label">數位知識商品</div></div>
+      <div><div class="stat-num">10<small>+ 年</small></div><div class="stat-label">媒體廣告業界經驗</div></div>
+    </div>
+    <div class="cert-cards">
+      <div class="cert-card reveal">
+        <img src="assets/cert-ttqs.webp" alt="TTQS國家培訓認證" loading="lazy" onerror="this.style.display='none'">
+        <div class="cert-card-text">
+          <div class="cert-card-title">TTQS 國家培訓認證通過</div>
+          <div class="cert-card-desc">通過國家 TTQS 職能訓練認證，確保每一場課程、每一段內容都是值得信賴的品質。</div>
+        </div>
+      </div>
+      <div class="cert-card reveal">
+        <img src="assets/cert-fsc.webp" alt="金管會微電影銀賞獎得獎作品" loading="lazy" onerror="this.style.display='none'">
+        <div class="cert-card-text">
+          <div class="cert-card-title">金管會微電影 銀賞獎</div>
+          <div class="cert-card-desc">微電影作品榮獲金管會銀賞獎，用故事讓最冰冷的制度，也能被觀眾記住。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═ 四大服務 ═ -->
+<section class="bg-dark" id="services">
+  <div class="sec-inner">
+    <div class="reveal" style="margin-bottom:2.2rem;">
+      <p class="sec-eyebrow">Services</p>
+      <h2 class="sec-title">四種說故事的方式</h2>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="service-grid">
+      <div class="service-card reveal">
+        <div class="service-thumb"><img src="https://img.youtube.com/vi/3GYleyC14hM/hqdefault.jpg" alt="品牌形象影片案例縮圖" loading="lazy"></div>
+        <div class="service-body">
+          <h3>🎬 品牌形象影片</h3>
+          <p>用故事塑造企業價值，打開品牌信任開關。結合好萊塢黃金劇本結構與品牌核心價值，打造具情節、情感與策略性的形象影片。</p>
+          <div class="service-tags">
+            <span class="service-tag">企業品牌</span><span class="service-tag">傳產實業</span><span class="service-tag">醫療產業</span><span class="service-tag">科技3C</span><span class="service-tag">餐飲運動</span>
+          </div>
+          <a class="service-link" href="https://youtu.be/3GYleyC14hM" target="_blank" rel="noopener"
+            onclick="gtag('event','click_case_brand',{'event_category':'CTA','event_label':'glowing-films'});">看案例 ▸</a>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-thumb"><img src="https://img.youtube.com/vi/MbVZvIzoKcQ/hqdefault.jpg" alt="知識課程影音案例縮圖" loading="lazy"></div>
+        <div class="service-body">
+          <h3>📚 知識課程影音</h3>
+          <p>讓講師成為品牌，課程成為商品。獨家三階段知識製程「盤點、萃取、架構」，把腦中的專業變成可銷售的數位產品。</p>
+          <div class="service-tags">
+            <span class="service-tag">HaHow</span><span class="service-tag">PressPlay</span><span class="service-tag">Yotta</span><span class="service-tag">金融法律花藝投資瑜伽專利</span>
+          </div>
+          <a class="service-link" href="https://youtu.be/MbVZvIzoKcQ" target="_blank" rel="noopener"
+            onclick="gtag('event','click_case_knowledge',{'event_category':'CTA','event_label':'glowing-films'});">看案例 ▸</a>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-thumb"><img src="https://img.youtube.com/vi/5v9I7WCbLFE/hqdefault.jpg" alt="劇情微電影案例縮圖" loading="lazy"></div>
+        <div class="service-body">
+          <h3>🎞️ 劇情微電影</h3>
+          <p>情節比產品更容易被記住。從創意設定、角色設計、現場製作到後期剪輯，提供完整製作流程。</p>
+          <div class="service-tags">
+            <span class="service-tag">10+檔百萬點閱</span><span class="service-tag">品牌故事</span><span class="service-tag">公共議題</span><span class="service-tag">社會倡議</span>
+          </div>
+          <a class="service-link" href="https://youtu.be/5v9I7WCbLFE" target="_blank" rel="noopener"
+            onclick="gtag('event','click_case_film',{'event_category':'CTA','event_label':'glowing-films'});">看案例 ▸</a>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-thumb"><img src="https://img.youtube.com/vi/JpcY7vwV230/hqdefault.jpg" alt="募資專案影片案例縮圖" loading="lazy"></div>
+        <div class="service-body">
+          <h3>🚀 募資專案影片</h3>
+          <p>打造第一批鐵粉，從0開始引爆銷售。12檔募資成功經驗×累積銷售5,400萬，用故事力與購買動機結合的影片快速培養鐵粉。</p>
+          <div class="service-tags">
+            <span class="service-tag">設計家電</span><span class="service-tag">科技3C</span><span class="service-tag">生活用品</span><span class="service-tag">新創商品</span>
+          </div>
+          <a class="service-link" href="https://youtu.be/JpcY7vwV230" target="_blank" rel="noopener"
+            onclick="gtag('event','click_case_crowdfund',{'event_category':'CTA','event_label':'glowing-films'});">看案例 ▸</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═ 導演賣故事（內容渠道）═ -->
+<section class="bg-light" id="channels">
+  <div class="sec-inner reveal">
+    <p class="sec-eyebrow">Podcast</p>
+    <h2 class="sec-title">導演賣故事</h2>
+    <div class="sec-rule"></div>
+    <div class="podcast-head">
+      <div class="channel-badge"><img src="assets/badge-podcast.jpg" alt="導演賣故事 Podcast"></div>
+      <p class="podcast-desc">阿璁導演從事媒體廣告業十多年，鏡頭下士農工商、百工百業的所見所聞——有意思的人物、有意思的故事、有意思的人生。從行銷、影音幕後到創作哲學，一集一個好故事。</p>
+      <p class="podcast-ratio">70% 故事 · 30% 影音 · 1% 啟發</p>
+    </div>
+    <div class="podcast-embeds reveal">
+      <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" loading="lazy"
+        sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
+        src="https://embed.podcasts.apple.com/tw/podcast/ep12-%E9%8A%80%E8%A1%8C%E9%AC%BC%E6%95%85%E4%BA%8Bx-4-%E8%B6%85%E7%8B%82%E6%A9%9F%E6%99%BA%E5%A5%B3%E8%A1%8C%E5%93%A1%E7%8F%BE%E8%BA%AB%E8%AA%AA%E6%B3%95-ft-%E8%B2%A1%E5%95%86%E6%95%99%E8%82%B2%E5%AE%B6-%E7%91%A9%E7%91%A9/id1845835176?i=1000756541492" title="導演賣故事 EP12"></iframe>
+      <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" loading="lazy"
+        sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
+        src="https://embed.podcasts.apple.com/tw/podcast/ep11%E5%AF%AB%E6%9B%B8%E4%B8%89%E5%80%8B%E6%9C%88%E5%AE%8C%E7%BE%8E%E4%B8%BB%E7%BE%A9-%E5%85%A8%E5%88%AA%E6%8E%89-%E7%85%89%E6%88%90%E6%9A%A2%E9%8A%B7%E6%9B%B8%E7%9A%84%E6%95%85%E4%BA%8B-ft-%E6%A2%81%E5%93%B2%E7%B6%AD-%E9%AB%98%E8%83%BD%E9%87%8F%E6%BA%9D%E9%80%9A-%E4%BD%9C%E8%80%85/id1845835176?i=1000754663919" title="導演賣故事 EP11"></iframe>
+    </div>
+    <div class="channel-links">
+      <a class="mid-btn solid" href="https://podcasts.apple.com/tw/podcast/%E5%B0%8E%E6%BC%94%E8%B3%A3%E6%95%85%E4%BA%8B/id1845835176" target="_blank" rel="noopener"
+        onclick="gtag('event','click_web',{'event_category':'CTA','event_label':'glowing-films-podcast-apple'});">Apple Podcast</a>
+      <a class="mid-btn outline" href="https://open.firstory.me/user/mengdirectorstory/episodes" target="_blank" rel="noopener"
+        onclick="gtag('event','click_web',{'event_category':'CTA','event_label':'glowing-films-podcast-firstory'});">Firstory</a>
+      <a class="mid-btn outline" href="https://vocus.cc/salon/director-storytell" target="_blank" rel="noopener"
+        onclick="gtag('event','click_web',{'event_category':'CTA','event_label':'glowing-films-vocus'});">方格子專欄</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═ 拜訪／地圖（龍德式資訊列，黑底）═ -->
+<section class="bg-dark" id="visit">
+  <div class="sec-inner reveal">
+    <p class="sec-eyebrow">Visit</p>
+    <h2 class="sec-title">發光映像</h2>
+    <div class="sec-rule"></div>
+    <div class="visit-grid">
+      <div class="map-wrap">
+        <iframe src="https://maps.google.com/maps?q=25.0418457,121.5443538&z=16&hl=zh-TW&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="發光映像有限公司 地圖位置"></iframe>
+      </div>
+      <div class="visit-info">
+        <div class="info-row">
+          <svg class="info-row-icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <div>
+            <div class="info-label">Phone</div>
+            <div class="info-value"><a href="tel:0961102370" onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'glowing-films-visit'});">0961-102-370</a></div>
+          </div>
+        </div>
+        <div class="info-row">
+          <svg class="info-row-icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <div>
+            <div class="info-label">Email</div>
+            <div class="info-value"><a href="mailto:meng@glowingfilms.com.tw" onclick="gtag('event','click_mail',{'event_category':'CTA','event_label':'glowing-films-visit'});">meng@glowingfilms.com.tw</a></div>
+          </div>
+        </div>
+        <div class="info-row">
+          <svg class="info-row-icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div>
+            <div class="info-label">Address</div>
+            <div class="info-value">台北市大安區忠孝東路四段15號8樓之1</div>
+          </div>
+        </div>
+        <a class="mid-btn outline" href="https://maps.app.goo.gl/jUk89RG3E1X9XbSQA" target="_blank" rel="noopener"
+          onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'glowing-films'});">在Google地圖開啟 ▸</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═ FOOTER ═ -->
+<footer class="bg-dark" id="footer">
+  <div class="footer-inner">
+    <div class="footer-logo-wrap">
+      <img src="assets/logo-glowingfilms-white.svg" alt="發光映像 GLOWING FILMS" onerror="this.style.display='none'">
+    </div>
+    <div class="f-icons">
+      <a class="hero-icon-link" href="https://line.me/ti/p/~mengtsungli" target="_blank" rel="noopener" aria-label="LINE"
+        onclick="gtag('event','click_line_footer',{'event_category':'CTA','event_label':'glowing-films'});">
+        <img src="/assets/line.svg" alt="LINE" onerror="this.style.visibility='hidden'">
+      </a>
+      <a class="hero-icon-link" href="tel:0961102370" aria-label="電話"
+        onclick="gtag('event','click_tel_footer',{'event_category':'CTA','event_label':'glowing-films'});">
+        <img src="/assets/phone.svg" alt="電話" onerror="this.style.visibility='hidden'">
+      </a>
+      <a class="hero-icon-link" href="mailto:meng@glowingfilms.com.tw" aria-label="Email"
+        onclick="gtag('event','click_mail',{'event_category':'CTA','event_label':'glowing-films-footer'});">
+        <img src="/assets/mail.svg" alt="Email" onerror="this.style.visibility='hidden'">
+      </a>
+      <a class="hero-icon-link" href="https://www.facebook.com/glowingfilms/?locale=zh_TW" target="_blank" rel="noopener" aria-label="Facebook"
+        onclick="gtag('event','click_fb_footer',{'event_category':'CTA','event_label':'glowing-films'});">
+        <img src="/assets/facebook.svg" alt="Facebook" onerror="this.style.visibility='hidden'">
+      </a>
+      <a class="hero-icon-link" href="https://www.youtube.com/@發光映像-u2u" target="_blank" rel="noopener" aria-label="YouTube"
+        onclick="gtag('event','click_youtube_footer',{'event_category':'CTA','event_label':'glowing-films'});">
+        <img src="/assets/youtube.svg" alt="YouTube" onerror="this.style.visibility='hidden'">
+      </a>
+    </div>
+    <div class="footer-btns">
+      <a class="f-cta" href="https://line.me/ti/p/~mengtsungli" target="_blank" rel="noopener"
+        onclick="gtag('event','click_line_footer',{'event_category':'CTA','event_label':'glowing-films'});"><span>加LINE談合作</span><span class="btn-en">ADD LINE</span></a>
+      <a class="f-cta ghost" href="tel:0961102370"
+        onclick="gtag('event','click_tel_footer',{'event_category':'CTA','event_label':'glowing-films'});"><span>致電李導演</span><span class="btn-en">CONTACT</span></a>
+      <a class="f-cta ghost" href="https://maps.app.goo.gl/jUk89RG3E1X9XbSQA" target="_blank" rel="noopener"
+        onclick="gtag('event','click_map_footer',{'event_category':'CTA','event_label':'glowing-films'});"><span>拜訪發光映像</span><span class="btn-en">VISIT</span></a>
+    </div>
+    <div class="f-divider"></div>
+    <p class="f-legal">© 2026 發光映像有限公司 · 統編 52347833<br>台北市大安區忠孝東路四段15號8樓之1</p>
+    <a class="design-by" href="https://linket.app/home" target="_blank" rel="noopener">Design by <span class="db-lin">LIN</span><span class="db-ket">Ket</span></a>
+  </div>
+</footer>
+
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+const obs=new IntersectionObserver(e=>{
+  e.forEach(i=>{if(i.isIntersecting){i.target.classList.add('visible');obs.unobserve(i.target);}});
+},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+const backTop=document.getElementById('backTop');
+window.addEventListener('scroll',()=>backTop.classList.toggle('show',scrollY>300));
+
+function openQrModal(){document.getElementById('qrOverlay').classList.add('open');}
+function closeQrModal(){document.getElementById('qrOverlay').classList.remove('open');}
+new QRCode(document.getElementById('qrcode'),{
+  text:'https://linket.app/glowing-films',
+  width:160,height:160,
+  colorDark:'#161616',colorLight:'#fdfdfb',
+  correctLevel:QRCode.CorrectLevel.M
+});
+/* Share：按鈕永遠顯示，點擊時若主機支援 navigator.share 就喚起系統原生分享視窗；
+   不支援的桌機主機也保留按鈕可按(不隱藏、不退化成複製連結) */
+const shareBtn=document.getElementById('shareBtn');
+shareBtn.addEventListener('click',()=>{
+  if(navigator.share){
+    navigator.share({title:'李孟璁 導演｜發光映像 GLOWING FILMS',text:'故事說得好，客戶追著跑。',url:'https://linket.app/glowing-films'})
+      .then(()=>gtag('event','click_share',{'event_category':'CTA','event_label':'glowing-films'}))
+      .catch(()=>{});
+  }else{
+    gtag('event','click_share',{'event_category':'CTA','event_label':'glowing-films'});
+  }
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeQrModal();});
+</script>
+</body>
+</html>
