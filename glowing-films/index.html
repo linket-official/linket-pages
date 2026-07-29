@@ -12,20 +12,30 @@
         RWD修正；Hero按鈕改LINE/致電李導演/四種說故事的方式/拜訪＋補QR+Share模組；正名區justify刪來源；
         成就區TTQS/金管會改認證照片；四大服務標題→四種說故事的方式；內容渠道→導演賣故事+按鈕直排；拜訪區改龍德式資訊列
   v2.2  2026-07-13  Tony大方向細修：移除viewport maximum-scale(恢復縮放)；全區(含淺底)加噪點漸層質感；Hero icon×1.4/logo margin-bottom 2rem/tags增故事建築師+人設規劃師/Share按鈕常駐+剪貼簿fallback；
-        QR彈窗改放logo刪標題行；新增「發光映像」跑馬燈；成就區加導言+致理教學改業界經驗+TTQS/金管會換真實照片(webp)；四種說故事「看案例」改按鈕；
+        QR彈窗改放logo刪標題行；新增「發光印象」跑馬燈；成就區加導言+致理教學改業界經驗+TTQS/金管會換真實照片(webp)；四種說故事「看案例」改按鈕；
         導演賣故事加官方簡介+嵌入2集Apple Podcast；拜訪區改黑底+換穩定地圖embed；Footer icon×1.4
-  素材已到位：橫式Logo(logo-04)/Footer白色版/TTQS+金管會照片
-  待確認：正名區文案本人措辭、LINE連結格式待實測
+  v2.3  2026-07-13  Share改公版原生分享(按鈕常駐+navigator.share，非剪貼簿fallback)；成就數字區改版(標題/圖文小卡)；design-by校正回LINKET藍+米白公版
+  v3.0  2026-07-29  璁導本人（其AI agent代筆）定位改版，Tony審過後拍板全採用：主打句改「讀懂你的才華，變現你的人設」；Hero頭銜改人設諮詢顧問、h-tag擴充為7個多元身份標籤；
+        跑馬燈8項砍為4項；正名區重寫（師字輩多元身份不安感＋千部廣告片讀人技能，文案由璁導自行負責，不代筆）；成就數字改120+品牌並調序(Tony拍板：客戶自己要拿去對外介紹的數字，不追問來源)；
+        砍除「劇情微電影」「募資專案影片」兩張服務卡(Tony拍板同意)；四大服務→三種敘事行銷（人設IP包裝／品牌形象影片／知識課程商品）；新增「由內而外人設系統」諮詢區塊(#persona，含E_core等璁導自有理論名詞，照其原文不更動)
+  v3.1  2026-07-29  諮詢區 STEP01-03 三卡改為「內外雙軸架構圖」（純 HTML 框框，非圖檔，可直接改字）；
+        Hero 頭銜改「導演 / 人設專家」；交付物說明對齊 2 份母本
+  v3.2  2026-07-29  Hero補上李孟璁形象照(.hero-portrait，logo正下方圓形頭像)；修正雙軸人設系統RWD bug——
+        原本手機版兩欄(對內/對外)會整段垂直堆疊(對內3卡全部→對外3卡全部)，失去雙軸並行匯流的視覺意義，
+        改成手機也維持左右兩欄並排(縮小字級padding)，跟桌機一樣兩欄各自往下流、最後用括號線匯流進交付母本區
+  v3.3  2026-07-29  客戶製作完成的人設IP包裝服務卡實拍圖到位，換掉原本PERSONA IP漸層文字佔位色塊
+        (960×540 jpg，取代.service-thumb.cover-text，該CSS已一併移除)
+  素材已到位：橫式Logo(logo-04)/Footer白色版/TTQS+金管會照片/形象照(portrait-mengtsung.png)/人設IP服務卡圖(service-persona-ip.jpg)
   LINKet by Tony Design Studio
 -->
 <meta charset="UTF-8">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-29J2988Y8J');</script>
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>李孟璁 導演｜發光映像 GLOWING FILMS・故事建築師</title>
-<meta name="description" content="發光映像 GLOWING FILMS，李孟璁導演。品牌形象影片／知識課程影音／劇情微電影／募資專案影片，用故事打造品牌信任。台北市大安區。">
-<meta property="og:title" content="李孟璁 導演｜發光映像 GLOWING FILMS">
-<meta property="og:description" content="故事說得好，客戶追著跑。">
+<title>李孟璁 璁導｜人設顧問｜讀懂你的才華，變現你的人設</title>
+<meta name="description" content="李孟璁（璁導），人設顧問。用千部廣告片的導演眼光，讀懂律師、醫師、會計師、各種設計師等，專注在師字輩專業人士的內核打造。三種敘事行銷：人設IP包裝、品牌形象影片、知識課程商品。台北市大安區。">
+<meta property="og:title" content="李孟璁 璁導｜人設顧問">
+<meta property="og:description" content="讀懂你的才華，變現你的人設。">
 <meta property="og:image" content="https://linket.app/glowing-films/og-image.jpg">
 <meta property="og:url" content="https://linket.app/glowing-films">
 <meta property="og:type" content="website">
@@ -69,8 +79,10 @@ img{max-width:100%;display:block;}
 .hero-left{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.5rem;}
 .hero-logo{margin:.2rem 0 2rem;}
 .hero-logo img{height:58px;width:auto;display:block;}
-.hero-role{font-size:.95rem;font-weight:500;letter-spacing:.62em;color:var(--ink2);padding-left:.62em;}
-.hero-name{font-size:clamp(1.9rem,6vw,2.5rem);font-weight:900;color:var(--ink);letter-spacing:.2em;padding-left:.2em;}
+.hero-portrait{width:clamp(160px,50vw,180px);margin:.5rem 0.6rem;}
+.hero-portrait img{width:100%;height:auto;display:block;}
+.hero-role{font-size:.85rem;font-weight:500;letter-spacing:.4em;color:var(--ink2);padding-left:.62em;}
+.hero-name{font-size:clamp(1.9rem,6vw,2.5rem);font-weight:900;color:var(--ink);letter-spacing:.4em;padding-left:.2em;}
 .hero-slogan{font-size:1.15rem;font-weight:700;color:var(--ink);border-top:2px solid var(--accent);padding-top:.8rem;margin-top:.5rem;}
 .hero-tags{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin-top:.2rem;}
 .h-tag{font-size:.68rem;letter-spacing:.06em;color:var(--accent);border:1px solid var(--accent);border-radius:var(--r);padding:.22rem .65rem;background:transparent;}
@@ -120,7 +132,7 @@ section{position:relative;}
 .mid-btn.outline:hover{border-color:var(--accent);color:var(--accent);}
 
 /* ═ 正名區塊 ═ */
-.naming-quote{font-size:1.3rem;font-weight:700;text-align:center;line-height:1.7;margin-bottom:1.6rem;}
+.naming-quote{font-size:1.05rem;font-weight:700;text-align:center;line-height:1.75;margin-bottom:1.6rem;color:var(--accent);}
 .naming-body{font-size:.94rem;color:rgba(255,255,255,.75);text-align:justify;max-width:580px;margin:0 auto;}
 
 /* ═ 成就數字 ═ */
@@ -148,6 +160,56 @@ section{position:relative;}
 .service-tag{font-size:.7rem;border:1px solid rgba(22,22,22,.14);border-radius:20px;padding:.2rem .65rem;color:var(--ink2);}
 .service-link{display:inline-flex;align-items:center;gap:.35rem;font-size:.8rem;font-weight:700;color:var(--ink);letter-spacing:.04em;border:1.5px solid var(--ink);border-radius:var(--r);padding:.5rem 1.3rem;transition:all .22s;}
 .service-link:hover{background:var(--ink);color:var(--white);}
+
+/* ═ 雙軸人設系統（諮詢）═ */
+.hl{color:var(--accent);font-weight:900;}
+.persona-lead{text-align:justify;font-size:.94rem;color:rgba(255,255,255,.75);max-width:620px;margin:0 auto 2rem;line-height:1.9;}
+.persona-who{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin-bottom:2.4rem;}
+.persona-who span{font-size:.72rem;letter-spacing:.04em;color:var(--accent);border:1px solid var(--accent);border-radius:var(--r);padding:.24rem .8rem;}
+.persona-steps{display:grid;grid-template-columns:1fr;gap:1.1rem;max-width:660px;margin:0 auto 2.2rem;}
+.persona-step{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:1.25rem 1.35rem;}
+.persona-step-no{font-family:'Bebas Neue',sans-serif;font-size:1.05rem;letter-spacing:.18em;color:var(--accent);margin-bottom:.4rem;}
+.persona-step h3{font-size:1rem;font-weight:700;color:rgba(255,255,255,.95);margin-bottom:.45rem;}
+.persona-step p{font-size:.82rem;line-height:1.85;color:rgba(255,255,255,.62);}
+/* ═ 雙軸架構圖（框框式，可直接改字維護）═ */
+.axis-cap{text-align:center;font-size:.88rem;font-weight:700;letter-spacing:.12em;color:var(--accent);margin-bottom:1.5rem;}
+.axis-wrap{max-width:660px;margin:0 auto 2.2rem;}
+.axis-cols{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;}
+.axis-col{display:flex;flex-direction:column;}
+.axis-node{border-radius:10px;padding:.55rem .4rem;text-align:center;font-size:.72rem;font-weight:700;line-height:1.4;color:rgba(255,255,255,.92);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);}
+.axis-node.head{background:rgba(184,146,90,.16);border-color:rgba(184,146,90,.55);letter-spacing:.02em;}
+.axis-node.soft{background:transparent;border-style:dashed;border-color:rgba(255,255,255,.2);font-size:.64rem;font-weight:400;color:rgba(255,255,255,.6);}
+.axis-arrow{height:18px;position:relative;}
+.axis-arrow::before{content:'';position:absolute;left:50%;top:0;transform:translateX(-50%);width:1px;height:10px;background:rgba(184,146,90,.55);}
+.axis-arrow::after{content:'';position:absolute;left:50%;top:9px;transform:translateX(-50%);width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:6px solid var(--accent);}
+.axis-join{position:relative;width:50%;height:26px;margin:.9rem auto 0;background:none;border-left:1px solid rgba(184,146,90,.55);border-right:1px solid rgba(184,146,90,.55);border-bottom:1px solid rgba(184,146,90,.55);border-radius:0 0 12px 12px;}
+.axis-join::after{content:'';position:absolute;left:50%;bottom:-8px;transform:translateX(-50%);width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:7px solid var(--accent);}
+.axis-deliver{margin-top:1.5rem;background:var(--accent);color:var(--ink-d);border-radius:12px;padding:1.2rem 1rem;text-align:center;}
+.axis-deliver-t{font-size:1.15rem;font-weight:900;letter-spacing:.06em;margin-bottom:.3rem;}
+.axis-deliver-s{font-size:.84rem;font-weight:500;opacity:.8;}
+@media(min-width:480px){
+  .axis-cols{gap:1rem;}
+  .axis-node{font-size:.82rem;padding:.7rem .6rem;}
+  .axis-node.soft{font-size:.72rem;}
+}
+@media(min-width:640px){
+  .axis-cols{gap:1.8rem;}
+  .axis-node{font-size:.9rem;padding:.85rem 1rem;}
+  .axis-node.soft{font-size:.8rem;}
+  .axis-node.head{letter-spacing:.06em;}
+  .axis-arrow{height:22px;}
+  .axis-arrow::before{height:13px;}
+  .axis-arrow::after{top:12px;border-left-width:5px;border-right-width:5px;border-top-width:7px;}
+  .axis-join{height:30px;margin-top:.9rem;}
+}
+.persona-card-note{max-width:660px;margin:0 auto 2.2rem;background:rgba(184,146,90,.09);border:1px solid rgba(184,146,90,.35);border-radius:14px;padding:1.15rem 1.35rem;}
+.persona-card-note strong{display:block;font-size:.92rem;color:var(--accent);margin-bottom:.4rem;letter-spacing:.04em;}
+.persona-card-note p{font-size:.82rem;line-height:1.85;color:rgba(255,255,255,.62);}
+.persona-cta{display:flex;flex-direction:column;align-items:center;gap:.7rem;}
+.persona-cta .mid-btn{width:100%;max-width:300px;}
+.persona-cta .mid-btn.solid{background:var(--accent);color:var(--ink-d);}
+.persona-cta .mid-btn.solid:hover{opacity:.85;background:var(--accent);}
+@media(min-width:640px){.persona-steps{grid-template-columns:repeat(3,1fr);}}
 
 /* ═ 導演賣故事（內容渠道）═ */
 .channel-row{display:flex;flex-direction:column;gap:1.6rem;align-items:center;}
@@ -186,7 +248,7 @@ a.design-by{display:block;text-align:center;padding:1rem 0 0;font-family:'Noto S
 .db-lin{color:#1685C8;}
 .db-ket{color:#F5ECD7;}
 
-/* ═ 發光映像 跑馬燈 Ticker ═ */
+/* ═ 發光印象 跑馬燈 Ticker ═ */
 .ticker{background:var(--ink-d);overflow:hidden;position:relative;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);}
 .ticker::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.04;pointer-events:none;}
 .ticker-track{display:flex;width:max-content;white-space:nowrap;animation:ticker 32s linear infinite;padding:.9rem 0;position:relative;z-index:1;}
@@ -225,7 +287,7 @@ a.design-by{display:block;text-align:center;padding:1rem 0 0;font-family:'Noto S
   .hero-tags{justify-content:flex-start;}
   .hero-right{flex:0 0 320px;align-items:stretch;margin:0;max-width:320px;}
   .hero-icons{justify-content:flex-start;}
-  .service-grid{grid-template-columns:1fr 1fr;}
+  .service-grid{grid-template-columns:repeat(3,1fr);}
   .stat-grid{grid-template-columns:repeat(4,1fr);}
   .cert-cards{grid-template-columns:1fr 1fr;}
   .visit-grid{grid-template-columns:1.2fr 1fr;align-items:stretch;}
@@ -237,18 +299,22 @@ a.design-by{display:block;text-align:center;padding:1rem 0 0;font-family:'Noto S
 <!-- ═ HERO ═ -->
 <header class="hero-section" id="hero">
   <div class="hero-content">
-    <h1 class="sr-only">李孟璁 導演｜發光映像 GLOWING FILMS｜故事建築師／人設規劃師｜台北</h1>
+    <h1 class="sr-only">李孟璁 璁導｜人設顧問｜讀懂你的才華，變現你的人設｜雙軸人設系統｜師字輩人設諮詢｜台北</h1>
     <div class="hero-cols">
       <div class="hero-left">
         <div class="hero-logo"><img src="assets/logo-glowingfilms-h.svg" alt="發光映像 GLOWING FILMS LOGO"></div>
-        <div class="hero-role">導演</div>
+        <div class="hero-portrait"><img src="assets/portrait-mengtsung.png" alt="李孟璁" onerror="this.parentElement.style.display='none'"></div>
+        <div class="hero-role">導演｜人設專家</div>
         <div class="hero-name">李孟璁</div>
-        <div class="hero-slogan">故事說得好，客戶追著跑。</div>
+        <div class="hero-slogan">讀懂你的才華，變現你的人設。</div>
         <div class="hero-tags">
-          <span class="h-tag">#故事建築師</span>
-          <span class="h-tag">#人設規劃師</span>
-          <span class="h-tag">#品牌形象影片</span>
-          <span class="h-tag">#知識課程影音</span>
+          <span class="h-tag">#廣告導演</span>
+          <span class="h-tag">#故事工具人</span>
+          <span class="h-tag">#前半導體工程師</span>
+          <span class="h-tag">#科大廣告創意講師</span>
+          <span class="h-tag">#導演賣故事主持人</span>
+          <span class="h-tag">#AI咖啡小聚發起人</span>
+          <span class="h-tag">#影音製作公司負責人</span>
         </div>
       </div>
       <div class="hero-right">
@@ -275,11 +341,13 @@ a.design-by{display:block;text-align:center;padding:1rem 0 0;font-family:'Noto S
           </a>
         </div>
         <a class="hero-btn p1" href="https://line.me/ti/p/~mengtsungli" target="_blank" rel="noopener"
-          onclick="gtag('event','click_line',{'event_category':'CTA','event_label':'glowing-films-hero-cta'});"><span>加LINE談合作</span><span class="btn-en">ADD LINE</span></a>
+          onclick="gtag('event','click_line',{'event_category':'CTA','event_label':'glowing-films-hero-cta'});"><span>預約人設諮詢</span><span class="btn-en">BOOK A SESSION</span></a>
         <a class="hero-btn p1" href="tel:0961102370"
-          onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'glowing-films-hero-cta'});"><span>致電李導演</span><span class="btn-en">CONTACT</span></a>
-        <a class="hero-btn ghost" href="#services">四種說故事的方式</a>
-        <a class="hero-btn ghost" href="#visit">拜訪發光映像</a>
+          onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'glowing-films-hero-cta'});"><span>致電璁導演</span><span class="btn-en">CONTACT</span></a>
+        <a class="hero-btn ghost" href="#services"><span>敘事行銷</span><span class="btn-en">SERVICES</span></a>
+        <a class="hero-btn ghost" href="#persona"><span>雙軸人設系統</span><span class="btn-en">DUAL AXIS</span></a>
+        <a class="hero-btn ghost" href="#channels"><span>導演賣故事</span><span class="btn-en">PODCAST</span></a>
+        <a class="hero-btn ghost" href="#visit"><span>拜訪發光映像</span><span class="btn-en">VISIT</span></a>
         <div class="hero-btn-row">
           <button class="btn-sm" onclick="openQrModal();gtag('event','click_qr_modal',{'event_category':'CTA','event_label':'glowing-films'});">QR CODE</button>
           <button class="btn-sm share" id="shareBtn">SHARE</button>
@@ -289,27 +357,19 @@ a.design-by{display:block;text-align:center;padding:1rem 0 0;font-family:'Noto S
   </div>
 </header>
 
-<!-- ═ 發光映像 跑馬燈 ═ -->
+<!-- ═ 發光印象 跑馬燈 ═ -->
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span class="ticker-item"><span class="en">GLOWING IMPRESSION</span></span>
-    <span class="ticker-item">發光映像</span>
-    <span class="ticker-item">故事建築師</span>
-    <span class="ticker-item">人設規劃師</span>
-    <span class="ticker-item">品牌形象影片</span>
-    <span class="ticker-item">知識課程影音</span>
-    <span class="ticker-item">劇情微電影</span>
-    <span class="ticker-item">募資專案影片</span>
-    <span class="ticker-item">故事說得好，客戶追著跑</span>
-    <span class="ticker-item"><span class="en">GLOWING IMPRESSION</span></span>
-    <span class="ticker-item">發光映像</span>
-    <span class="ticker-item">故事建築師</span>
-    <span class="ticker-item">人設規劃師</span>
-    <span class="ticker-item">品牌形象影片</span>
-    <span class="ticker-item">知識課程影音</span>
-    <span class="ticker-item">劇情微電影</span>
-    <span class="ticker-item">募資專案影片</span>
-    <span class="ticker-item">故事說得好，客戶追著跑</span>
+    <span class="ticker-item"><span class="en">DUAL AXIS</span></span>
+    <span class="ticker-item">讀懂你的才華，變現你的人設</span>
+    <span class="ticker-item">獨創雙軸人設系統</span>
+    <span class="ticker-item">個人IP包裝</span>
+    <span class="ticker-item">才華知識盤點</span>
+    <span class="ticker-item"><span class="en">DUAL AXIS</span></span>
+    <span class="ticker-item">讀懂你的才華，變現你的人設</span>
+    <span class="ticker-item">獨創雙軸人設系統</span>
+    <span class="ticker-item">個人IP包裝</span>
+    <span class="ticker-item">才華知識盤點</span>
   </div>
 </div>
 
@@ -324,13 +384,13 @@ a.design-by{display:block;text-align:center;padding:1rem 0 0;font-family:'Noto S
 </div>
 
 <!-- ═ 正名區塊 ═ -->
-<section class="bg-dark">
+<section class="bg-dark" id="whoami">
   <div class="sec-inner reveal">
     <p class="sec-eyebrow">Who I Am</p>
-    <h2 class="sec-title">故事建築師／人設規劃師</h2>
+    <h2 class="sec-title">導演的工作是讓觀眾三秒看懂一個人</h2>
     <div class="sec-rule"></div>
-    <p class="naming-quote">「沒有大咖小咖，只有好聽的故事」</p>
-    <p class="naming-body">他不只是導演，更是故事建築師、人設規劃師——用好萊塢黃金劇本結構，把企業或個人「最真實的樣子」轉譯成看得懂、記得住的故事。不只是介紹，更是感染。</p>
+    <p class="naming-quote">千部導演的眼光，現在用來讀懂你。</p>
+    <p class="naming-body">從小到大，你累積了多少身份——負責人、講師、顧問、教練、理事長。每一個都是真的，每一個卻都只講到你的一部分。<br><br>於是你開始不安：自我介紹該挑哪一個講？社群要用哪一種口氣寫？客戶問「你到底是做什麼的」，你講了三分鐘，對方眼神還是模糊的。<br><br><b>你的「多元」，反而讓你找不到自己，觀眾更抓不到真實的你。</b><br><br>璁導認為，人本來就是「多元面向」的，真正的用法在於你面對的觀眾是「誰」，才能調用精確的身份、故事去產生內容！<br><br>我拍了一千多部廣告片，練的就是這雙眼睛。現在，我把它轉過來用在你身上——<b>把你早就有的那一個，讀出來。</b><br><br>故事說得好，客戶追著跑。</p>
   </div>
 </section>
 
@@ -340,12 +400,12 @@ a.design-by{display:block;text-align:center;padding:1rem 0 0;font-family:'Noto S
     <p class="sec-eyebrow">Track Record</p>
     <h2 class="sec-title">發光映像成就</h2>
     <div class="sec-rule"></div>
-    <p class="stat-lead">從事媒體廣告業十多年，鏡頭走過士農工商、百工百業。從品牌形象、募資到知識變現，每一個數字背後，都是一次「把故事說對」的實戰累積。</p>
+    <p class="stat-lead">從事媒體廣告業十多年，鏡頭走過士農工商、百工百業。一千多部廣告片、四十多位師字輩專業人士的陪跑經歷——每一個數字背後，都是一次「把人讀對」的實戰累積。</p>
     <div class="stat-grid">
-      <div><div class="stat-num">60+</div><div class="stat-label">品牌合作累積</div></div>
+      <div><div class="stat-num">120+</div><div class="stat-label">品牌合作累積</div></div>
+      <div><div class="stat-num">10<small>+ 年</small></div><div class="stat-label">媒體廣告業界經驗</div></div>
       <div><div class="stat-num">5,400<small>萬</small></div><div class="stat-label">募資影音銷售總額</div></div>
       <div><div class="stat-num">30+</div><div class="stat-label">數位知識商品</div></div>
-      <div><div class="stat-num">10<small>+ 年</small></div><div class="stat-label">媒體廣告業界經驗</div></div>
     </div>
     <div class="cert-cards">
       <div class="cert-card reveal">
@@ -371,10 +431,22 @@ a.design-by{display:block;text-align:center;padding:1rem 0 0;font-family:'Noto S
   <div class="sec-inner">
     <div class="reveal" style="margin-bottom:2.2rem;">
       <p class="sec-eyebrow">Services</p>
-      <h2 class="sec-title">四種說故事的方式</h2>
+      <h2 class="sec-title">三種敘事行銷</h2>
       <div class="sec-rule"></div>
     </div>
     <div class="service-grid">
+      <div class="service-card reveal">
+        <div class="service-thumb"><img src="assets/service-persona-ip.jpg" alt="人設IP包裝服務示意圖" loading="lazy"></div>
+        <div class="service-body">
+          <h3>🧭 人設IP包裝</h3>
+          <p>雙軸人設系統。從前置問卷、深度對談到一張人設卡——挖出只有你講得出來的內核，變成對外能講、對內能跟 AI 協作的定位。</p>
+          <div class="service-tags">
+            <span class="service-tag">律師</span><span class="service-tag">醫師</span><span class="service-tag">會計師</span><span class="service-tag">各種設計師</span><span class="service-tag">專業講師</span>
+          </div>
+          <a class="service-link" href="#persona"
+            onclick="gtag('event','click_persona',{'event_category':'CTA','event_label':'glowing-films'});">了解系統 ▸</a>
+        </div>
+      </div>
       <div class="service-card reveal">
         <div class="service-thumb"><img src="https://img.youtube.com/vi/3GYleyC14hM/hqdefault.jpg" alt="品牌形象影片案例縮圖" loading="lazy"></div>
         <div class="service-body">
@@ -388,41 +460,66 @@ a.design-by{display:block;text-align:center;padding:1rem 0 0;font-family:'Noto S
         </div>
       </div>
       <div class="service-card reveal">
-        <div class="service-thumb"><img src="https://img.youtube.com/vi/MbVZvIzoKcQ/hqdefault.jpg" alt="知識課程影音案例縮圖" loading="lazy"></div>
+        <div class="service-thumb"><img src="https://img.youtube.com/vi/MbVZvIzoKcQ/hqdefault.jpg" alt="知識課程商品案例縮圖" loading="lazy"></div>
         <div class="service-body">
-          <h3>📚 知識課程影音</h3>
+          <h3>📚 知識課程商品</h3>
           <p>讓講師成為品牌，課程成為商品。獨家三階段知識製程「盤點、萃取、架構」，把腦中的專業變成可銷售的數位產品。</p>
           <div class="service-tags">
-            <span class="service-tag">HaHow</span><span class="service-tag">PressPlay</span><span class="service-tag">Yotta</span><span class="service-tag">金融法律花藝投資瑜伽專利</span>
+            <span class="service-tag">HaHow</span><span class="service-tag">PressPlay</span><span class="service-tag">Yotta</span><span class="service-tag">大大學院</span>
           </div>
           <a class="service-link" href="https://youtu.be/MbVZvIzoKcQ" target="_blank" rel="noopener"
             onclick="gtag('event','click_case_knowledge',{'event_category':'CTA','event_label':'glowing-films'});">看案例 ▸</a>
         </div>
       </div>
-      <div class="service-card reveal">
-        <div class="service-thumb"><img src="https://img.youtube.com/vi/5v9I7WCbLFE/hqdefault.jpg" alt="劇情微電影案例縮圖" loading="lazy"></div>
-        <div class="service-body">
-          <h3>🎞️ 劇情微電影</h3>
-          <p>情節比產品更容易被記住。從創意設定、角色設計、現場製作到後期剪輯，提供完整製作流程。</p>
-          <div class="service-tags">
-            <span class="service-tag">10+檔百萬點閱</span><span class="service-tag">品牌故事</span><span class="service-tag">公共議題</span><span class="service-tag">社會倡議</span>
-          </div>
-          <a class="service-link" href="https://youtu.be/5v9I7WCbLFE" target="_blank" rel="noopener"
-            onclick="gtag('event','click_case_film',{'event_category':'CTA','event_label':'glowing-films'});">看案例 ▸</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═ 雙軸人設系統（諮詢）═ -->
+<section class="bg-dark" id="persona">
+  <div class="sec-inner">
+    <div class="reveal" style="margin-bottom:2rem;">
+      <p class="sec-eyebrow">Consulting</p>
+      <h2 class="sec-title">雙軸人設系統</h2>
+      <div class="sec-rule"></div>
+      <p class="persona-lead">為什麼有人拍了影片、做了行銷網頁，三個月就放棄了？答案是「包裝過度」！<br><br>我認為真正的人設，是<b class="hl">由內而外打造出來的</b>。<br><br>市面上的品牌顧問只做「對外包裝」，讓你被看見；心理測驗只做「對內拆解」，告訴你是誰——兩者分開，正是師字輩最累的事。<br><br>何不<b class="hl">內外雙軸都跑</b>，讓別人更快讀懂你！</p>
+      <div class="persona-who">
+        <span>律師</span><span>醫師</span><span>會計師</span><span>各種設計師</span><span>專業講師</span><span>事務所主持人</span>
+      </div>
+    </div>
+    <p class="axis-cap reveal">性格對內　·　人設對外</p>
+    <div class="axis-wrap reveal">
+      <div class="axis-cols">
+        <div class="axis-col">
+          <div class="axis-node head">對內 · 性格萃取</div>
+          <div class="axis-arrow"></div>
+          <div class="axis-node">E_core 12 核心動力學</div>
+          <div class="axis-arrow"></div>
+          <div class="axis-node soft">母體論原創者運算（非 AI）</div>
+        </div>
+        <div class="axis-col">
+          <div class="axis-node head">對外 · 人設萃取</div>
+          <div class="axis-arrow"></div>
+          <div class="axis-node">由內而外人設系統</div>
+          <div class="axis-arrow"></div>
+          <div class="axis-node soft">廣告導演運算</div>
         </div>
       </div>
-      <div class="service-card reveal">
-        <div class="service-thumb"><img src="https://img.youtube.com/vi/JpcY7vwV230/hqdefault.jpg" alt="募資專案影片案例縮圖" loading="lazy"></div>
-        <div class="service-body">
-          <h3>🚀 募資專案影片</h3>
-          <p>打造第一批鐵粉，從0開始引爆銷售。12檔募資成功經驗×累積銷售5,400萬，用故事力與購買動機結合的影片快速培養鐵粉。</p>
-          <div class="service-tags">
-            <span class="service-tag">設計家電</span><span class="service-tag">科技3C</span><span class="service-tag">生活用品</span><span class="service-tag">新創商品</span>
-          </div>
-          <a class="service-link" href="https://youtu.be/JpcY7vwV230" target="_blank" rel="noopener"
-            onclick="gtag('event','click_case_crowdfund',{'event_category':'CTA','event_label':'glowing-films'});">看案例 ▸</a>
-        </div>
+      <div class="axis-join"></div>
+      <div class="axis-deliver">
+        <div class="axis-deliver-t">交付 · 2 份人設母本</div>
+        <div class="axis-deliver-s">對外人設卡　／　對內性格動力報告書</div>
       </div>
+    </div>
+    <div class="persona-card-note reveal">
+      <strong>兩份母本裡，你隨身帶的是那張人設卡</strong>
+      <p>報告書會被收進抽屜，卡不會。寫文章、上台演講、接受訪問、跟 AI 協作的時候，翻開就知道自己該站在哪裡。</p>
+    </div>
+    <div class="persona-cta reveal">
+      <a class="mid-btn solid" href="https://line.me/ti/p/~mengtsungli" target="_blank" rel="noopener"
+        onclick="gtag('event','click_line',{'event_category':'CTA','event_label':'glowing-films-persona'});">預約人設諮詢 ▸</a>
+      <a class="mid-btn outline" href="tel:0961102370"
+        onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'glowing-films-persona'});">直接打給璁導</a>
     </div>
   </div>
 </section>
@@ -527,9 +624,9 @@ a.design-by{display:block;text-align:center;padding:1rem 0 0;font-family:'Noto S
     </div>
     <div class="footer-btns">
       <a class="f-cta" href="https://line.me/ti/p/~mengtsungli" target="_blank" rel="noopener"
-        onclick="gtag('event','click_line_footer',{'event_category':'CTA','event_label':'glowing-films'});"><span>加LINE談合作</span><span class="btn-en">ADD LINE</span></a>
+        onclick="gtag('event','click_line_footer',{'event_category':'CTA','event_label':'glowing-films'});"><span>預約人設諮詢</span><span class="btn-en">BOOK A SESSION</span></a>
       <a class="f-cta ghost" href="tel:0961102370"
-        onclick="gtag('event','click_tel_footer',{'event_category':'CTA','event_label':'glowing-films'});"><span>致電李導演</span><span class="btn-en">CONTACT</span></a>
+        onclick="gtag('event','click_tel_footer',{'event_category':'CTA','event_label':'glowing-films'});"><span>致電璁導演</span><span class="btn-en">CONTACT</span></a>
       <a class="f-cta ghost" href="https://maps.app.goo.gl/jUk89RG3E1X9XbSQA" target="_blank" rel="noopener"
         onclick="gtag('event','click_map_footer',{'event_category':'CTA','event_label':'glowing-films'});"><span>拜訪發光映像</span><span class="btn-en">VISIT</span></a>
     </div>
@@ -563,7 +660,7 @@ new QRCode(document.getElementById('qrcode'),{
 const shareBtn=document.getElementById('shareBtn');
 shareBtn.addEventListener('click',()=>{
   if(navigator.share){
-    navigator.share({title:'李孟璁 導演｜發光映像 GLOWING FILMS',text:'故事說得好，客戶追著跑。',url:'https://linket.app/glowing-films'})
+    navigator.share({title:'李孟璁 璁導｜人設顧問',text:'讀懂你的才華，變現你的人設。',url:'https://linket.app/glowing-films'})
       .then(()=>gtag('event','click_share',{'event_category':'CTA','event_label':'glowing-films'}))
       .catch(()=>{});
   }else{
