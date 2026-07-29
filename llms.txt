@@ -1,0 +1,33 @@
+# LINKet 品牌數位名片頁
+
+> LINKet 宇驛數位整合工作室——台灣傳統產業與在地品牌的數位名片頁服務。
+> 每個路徑是一個獨立品牌的頁面，內容由該品牌授權刊登。
+
+## 官方
+
+- [LINKet 官網](https://linket.app/home): 品牌數位化服務介紹與方案
+- [Tony Lin 林志昇](https://linket.app/tony): LINKet 創辦人、品牌連結設計師，南投埔里
+- [LINKet Case 數位名片夾](https://linket.app/case): 收藏與管理數位名片的工具頁
+
+## 客戶品牌頁
+
+- [順騎自然 R立方學堂](https://linket.app/545bike): 埔里自行車與 Gogoro 租借、領騎導覽、空間租借
+- [ASMRT 永康健康管理工作室](https://linket.app/asmrt-puli): 埔里健康管理師陳名葳，筋膜張力整合與體態管理
+- [貝拉美學 BELLA SPA](https://linket.app/bella-spa): 竹北女性舒養空間，INDIBA 英特波、筋膜芳療、皮膚管理
+- [博幼社會福利基金會](https://linket.app/boyo-org): 深耕偏鄉教育 22 年的基金會，讓知識帶希望回家
+- [丹佐興業 DENZEL](https://linket.app/denzel-tech): 智慧無人化場域整合商，智慧居家、餐飲、宮廟解決方案
+- [桑心餐飲 emoLab](https://linket.app/emolab): 台中埔里餐飲集團，山上山下、桑心實驗室、桑心合作社
+- [富宗電機行](https://linket.app/fuzong-electric): 埔里沉水馬達、抽水機、加壓機買賣修理
+- [嵐爵私選](https://linket.app/lanjue): 日本清酒選品專門，主理人親選
+- [萊漾 León Day](https://linket.app/leon-day): 健康餐飲品牌，簡單吃健康過
+- [龍德數位科技 LONGDER](https://linket.app/longder-digital-tech): 台南標籤貼紙上游廠商，60 年歷史、免製版數位印刷
+- [膜仕 MOST](https://linket.app/most): 台灣汽車貼膜品牌，TPU 犀牛皮與改色膜一條龍
+- [MuMu Cafe & Dessert Shop](https://linket.app/mumu-cafe): 埔里義式咖啡與手工甜點，客製蛋糕與甜點禮盒
+- [坪頂人家](https://linket.app/passionfly): 埔里大坪頂百香果產地品牌，四代傳承與永續農業
+- [余永康｜仁愛鄉公所民政課](https://linket.app/renai-civil): 南投仁愛鄉公所民政課課長，服務鄉親守護部落文化
+- [阮二哥玫瑰園](https://linket.app/ruan-rose): 埔里第三代花農，獨有桃紅色系迷你玫瑰
+- [小上海 S.H. Bar](https://linket.app/sh-bar): 埔里深夜酒吧，海潮部落
+- [陳詠琳 Sheila](https://linket.app/sheila): 風水命理師，紫微斗數、陽宅風水、擇日服務
+- [陳宥霖 Rion｜Women Talk](https://linket.app/women-talk): 頌缽師，服務月子中心、長照與企業的身心靈療癒
+- [張淑伶 Taris｜XWEB網頁設計](https://linket.app/x-web-tech): 網頁設計／SEO優化／廣告代操，把關每個網站案子從報價到上線
+- [賴泓名｜洋果實業](https://linket.app/yang-kuo): 台中農產批發到冷鏈物流一站整合
