@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<!--
+  張淑伶 Taris｜LINKet T2
+  slug: x-web-tech（2026-06-30 Tony拍板，依官網網域命名，不受公司名稱待確認影響）
+  v4.3  2026-07-29  Tony自行用CotEditor直接改檔（Hero人像照放大clamp下限180px、中文姓名字級縮小、
+        右欄間距12px→20px、ghost按鈕字重加粗900、hero-btn文案改「服務項目｜Service/客戶案例｜Works」+
+        新增「趨勢與觀點｜Insights」連結#blog、Works區標題「精選服務案例」→「客戶案例」、
+        Hero與Footer icon列新增Web連結（href https://x-web.tech/，icon圖檔assets/web.svg待Tony補齊，
+        目前onerror隱藏不影響版面））；Claude後續修正兩處：①Ticker跑馬燈修正無縫循環bug
+        （根因：.wm-track是block-level flex容器預設width=父層100%而非內容真實寬度，
+        導致translateX(-25%)算的是容器寬度而非四份重複內容的真實1/4寬，造成視覺跳幀，
+        修正加width:max-content;讓寬度回歸內容實際寬度）+速度調快30%(17s→11.9s)；
+        ②關於Xweb段落精簡成單句slogan（原本兩段含重複數字，數字已在下方服務項目stat-row呈現過）
+  v4.1  2026-07-28  Hero人物照換成Tony指定的圓形去背版（暫存/20260714-x web素材/portrait.png，
+        存為assets/hero-portrait-circle.png）：確認與舊照同一張人物照-1但已預裁圓形+透明背景，
+        img移除border-radius/box-shadow改用原生透明形狀，搭配既有::before藍光暈剛好貼合；
+        舊檔assets/hero-portrait.jpg保留未刪，回滾只需把img src改回它+CSS加回
+        border-radius:10px;box-shadow:0 10px 26px rgba(1,51,160,.14)。
+        Tony同時拍板：Taris拼字確認正確（非Tyrus誤植）、地址項維持現狀不變、
+        icon SVG原檔待之後改用GitHub路徑（暫緩，非本輪動作）。
+  v4.0  2026-07-14  Tony看完v3.0後細修回饋（見對話紀錄）：
+        Hero背景改淺黃、姓名職稱重排(職稱在上/中英名平行在下)、字距加寬、刪除自介三行、logo換真SVG(從.ai檔page5向量匯出)、
+        精選作品重組為SEO三案例+網頁設計三案例(刪電商卡)、服務項目改背景區隔式排版+導流官網報價頁(刪除合作方式區塊)、
+        部落格區塊加真實封面圖、Footer改純色背景+補mail icon+CTA白底+新增BackToTop按鈕、
+        全站配色改白-藍-白-藍-白-藍交替(Hero淺黃/About藍/Works白/Services藍/Blog白/Footer藍)
+  v3.0  2026-07-14  Tony訪談後大改版：Hero/About/Works/Services/新增Blog區塊/Ticker/Footer全面改版
+  v2.0  2026-07-06  依 page-skeleton.html v1.0 骨架重建（v1備份於 index.html.v1-bak）
+  v1.0  2026-06-30  初版建置（已因架構偏離重做）
+  待確認：LINE/FB/IG icon原始SVG（之後改GitHub路徑）、地址（確認前不加Google Map區塊）
+  人物照：v4.1(7/28)已換成Tony指定的圓形去背版，見上方版本記錄
+  視覺色系取自x-web.tech官網CSS實測（#0133a0/#1f50b7/#8dbdf5/#fbf7f3），非憑空配色
+  精選作品/服務報價/部落格文章均查證自x-web.tech官網真實資料，非憑空編造
+  LINKet by Tony Design Studio
+-->
+<meta charset="UTF-8">
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}if(/(^|\.)linket\.app$/.test(location.hostname)){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J';document.head.appendChild(s);gtag('js',new Date());gtag('config','G-29J2988Y8J');}</script>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+<title>張淑伶 Taris｜XWEB網頁設計 營運總監・網站把關人</title>
+<meta name="description" content="張淑伶 Taris，XWEB網頁設計營運總監。從報價、設計、開發到上線，把關每個網站案子。7年經驗、100+成功案例、3週快速上線。">
+<meta property="og:title" content="張淑伶 Taris｜營運總監・網站把關人">
+<meta property="og:description" content="把關每個網站案件，從報價到設計開發上線，每一關都經過 Xweb。">
+<meta property="og:image" content="https://linket.app/x-web-tech/assets/og-image.jpg">
+<meta property="og:url" content="https://linket.app/x-web-tech">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"張淑伶","alternateName":"Taris","jobTitle":"營運總監","worksFor":{"@type":"Organization","name":"XWEB網頁設計"},"telephone":"+886-975-537-527","email":"service@x-web.tech","url":"https://x-web.tech"}
+</script>
+<style>
+:root{
+  /* 色票取自 x-web.tech 官網 CSS 實測（Brief 查證），文字色與品牌主色分開命名 */
+  --blue:#0133a0;
+  --blue-deep:#001c5c; /* 2026-07-28 Tony反饋CTA/Footer藍太淺廉價，加深一階 */
+  --blue2:#1f50b7;
+  --blue-lt:#8dbdf5;
+  --ink:#1d2433;
+  --ink2:rgba(29,36,51,.62);
+  --ink3:rgba(29,36,51,.32);
+  --cream:#fdf3d7; /* 2026-07-14 改淺黃色（Tony拍板，全站白-藍-白-藍交替的「白」段） */
+  --white:#ffffff;
+  --r:999px;
+  --mw:920px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Serif TC',serif;background:var(--cream);color:var(--ink);line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+.en{font-family:'Playfair Display',serif;}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+
+/* HERO — LINKet 制式：桌機左右兩欄／手機單欄堆疊 */
+.hero-section{position:relative;min-height:100svh;display:flex;flex-direction:column;background:var(--cream);overflow:hidden;}
+.hero-overlay{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(circle at 75% 25%,rgba(141,189,245,.22),transparent 55%);}
+.hero-content{position:relative;z-index:2;flex:1;display:flex;align-items:center;max-width:var(--mw);margin:0 auto;padding:4rem 1.4rem;width:100%;}
+.hero-cols{display:flex;align-items:stretch;gap:2.5rem;width:100%;}
+
+.hero-left{flex:1 1 0;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:.6rem;}
+.hero-left>*{opacity:0;animation:fadeUp .5s ease both;}
+.hero-left>*:nth-child(1){animation-delay:.05s;}
+.hero-left>*:nth-child(2){animation-delay:.14s;}
+.hero-left>*:nth-child(3){animation-delay:.24s;}
+.hero-left>*:nth-child(4){animation-delay:.34s;}
+.hero-left>*:nth-child(5){animation-delay:.44s;}
+.hero-logo{width:150px;}
+.hero-logo img{width:100%;height:auto;display:block;}
+.hero-logo-ph{width:64px;height:64px;border:1.5px solid var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--blue);}
+/* 人物照（個人頁選配） */
+.hero-portrait{width:clamp(180px,26vw,210px);margin:.4rem 0;position:relative;}
+.hero-portrait::before{content:'';position:absolute;inset:-8%;z-index:-1;border-radius:50%;background:radial-gradient(circle,rgba(141,189,245,.4),transparent 70%);}
+.hero-portrait img{width:100%;height:auto;display:block;}
+/* 職稱優先：小字職稱在上、中英姓名平行排列在下（2026-07-14再修） */
+.hero-title-cap{font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;letter-spacing:.28em;color:var(--blue2);}
+.hero-name{font-size:clamp(2rem,5vw,2.3rem);font-weight:700;color:var(--ink);letter-spacing:.15em;display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap;}
+.hero-name .en{font-weight:500;font-style:italic;color:var(--blue2);font-size:.7em;letter-spacing:.06em;}
+.hero-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.3rem;}
+.h-tag{font-size:.68rem;letter-spacing:.06em;color:var(--blue);border:1px solid rgba(1,51,160,.4);border-radius:var(--r);padding:.22rem .65rem;background:rgba(1,51,160,.05);}
+
+.hero-right{flex:1 1 0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;max-width:340px;margin:0 auto;}
+.hero-right>*{opacity:0;animation:fadeUp .5s ease both;}
+.hero-right>*:nth-child(1){animation-delay:.2s;}
+.hero-right>*:nth-child(2){animation-delay:.3s;}
+.hero-right>*:nth-child(3){animation-delay:.4s;}
+.hero-right>*:nth-child(4){animation-delay:.5s;}
+.hero-right>*:nth-child(5){animation-delay:.6s;}
+.hero-right>*:nth-child(6){animation-delay:.7s;}
+.hero-icons{display:flex;justify-content:center;gap:.7rem;width:100%;flex-wrap:wrap;}
+.hero-icon-link{width:46px;height:46px;display:flex;align-items:center;justify-content:center;background:transparent;border:none;transition:transform .2s;}
+.hero-icon-link:hover{transform:translateY(-3px);}
+.hero-icon-link img{width:34px;height:34px;display:block;}
+.hero-btn{width:100%;border-radius:var(--r);font-family:'Noto Serif TC',serif;font-size:.875rem;font-weight:500;letter-spacing:.06em;padding:.85rem 1rem;line-height:1.3;text-align:center;transition:all .2s;}
+.hero-btn.p1{background:var(--blue-deep);color:var(--white);font-weight:700;}
+.hero-btn.p1:hover{background:var(--blue);}
+.hero-btn.ghost{background:rgba(1,51,160,.04);border:1.5px solid rgba(1,51,160,.38);color:var(--blue);font-weight:900;}
+.hero-btn.ghost:hover{background:rgba(1,51,160,.08);}
+.hero-btn-row{display:flex;gap:.6rem;width:100%;}
+.btn-sm{flex:1;display:flex;align-items:center;justify-content:center;background:rgba(29,36,51,.04);border:1px solid var(--ink3);color:var(--ink2);font-size:.72rem;letter-spacing:.12em;padding:.6rem .4rem;border-radius:var(--r);cursor:pointer;font-family:'Noto Serif TC',serif;transition:all .2s;}
+.btn-sm:hover{border-color:var(--blue);color:var(--blue);}
+
+/* QR MODAL */
+.qr-overlay{display:none;position:fixed;inset:0;z-index:999;background:rgba(29,36,51,.55);backdrop-filter:blur(8px);align-items:center;justify-content:center;}
+.qr-overlay.open{display:flex;}
+.qr-box{background:var(--cream);border:1px solid var(--ink3);border-radius:8px;padding:2rem 1.8rem;text-align:center;max-width:300px;width:90%;display:flex;flex-direction:column;align-items:center;}
+.qr-logo{width:120px;margin-bottom:.6rem;}
+#qrcode{margin:.8rem auto 1rem;}
+.qr-url{font-size:.7rem;letter-spacing:.1em;color:var(--ink3);margin-bottom:1.2rem;}
+.qr-close{cursor:pointer;font-size:.72rem;letter-spacing:.2em;color:var(--blue);border:1px solid rgba(1,51,160,.4);padding:.5rem 1.4rem;border-radius:var(--r);background:transparent;font-family:'Noto Serif TC',serif;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+
+/* TICKER — 黑底無襯線粗體 */
+.watermark{overflow:hidden;background:#0a0a0c;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);}
+.wm-track{display:flex;width:max-content;white-space:nowrap;animation:tick 11.9s linear infinite;padding:.7rem 0;will-change:transform;}
+.wm-item{font-family:'Noto Serif TC',serif;font-weight:700;font-size:.82rem;letter-spacing:.22em;padding:0 1.8rem;color:var(--white);opacity:.85;}
+.wm-item::after{content:'◆';color:var(--blue-lt);margin-left:1.8rem;opacity:.7;}
+@keyframes tick{from{transform:translateX(0);}to{transform:translateX(-25%);}}
+
+/* SECTIONS — 白(淺黃)/藍交替，背景圖疊scrim；手機版background-position調整避免橫式圖裁切難看 */
+section{position:relative;}
+.bg-light{background:var(--cream) url('assets/bg-image-y.jpg') center/cover no-repeat;color:var(--ink);}
+.bg-light::before{content:'';position:absolute;inset:0;background:rgba(253,243,215,.32);z-index:0;}
+.bg-dark{background:var(--blue) url('assets/bg-image-b.jpg') center/cover no-repeat;color:rgba(255,255,255,.94);}
+.bg-dark::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,20,64,.32),rgba(1,20,64,.46));z-index:0;}
+.bg-flat{background:var(--blue-deep) url('assets/bg-image-b.jpg') center/cover no-repeat;color:rgba(255,255,255,.94);position:relative;}
+.bg-flat::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,15,48,.5),rgba(1,15,48,.68));z-index:0;}
+.sec-inner{max-width:var(--mw);margin:0 auto;padding:clamp(3rem,7vw,6rem) 1.4rem;position:relative;z-index:1;}
+.sec-eyebrow{font-family:'Playfair Display',serif;font-style:italic;font-size:.78rem;letter-spacing:.3em;color:var(--blue-lt);text-align:center;margin-bottom:.5rem;display:block;}
+.bg-light .sec-eyebrow{color:var(--blue2);}
+.sec-title{font-size:clamp(1.4rem,4vw,1.8rem);font-weight:700;text-align:center;margin-bottom:.8rem;}
+.sec-rule{width:2.5rem;height:1px;background:var(--blue-lt);margin:0 auto 1.8rem;}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease;}
+.reveal.visible{opacity:1;transform:none;}
+
+/* ABOUT（深色底，圖文左右對齊靠左） */
+.about-slogan{font-family:'Noto Serif TC',serif;font-weight:700;font-size:clamp(1.4rem,4vw,1.8rem);line-height:1.65;text-align:center;max-width:640px;margin:0 auto 1.3rem;color:rgba(255,255,255,.97);}
+.about-slogan::before{content:'「';color:var(--blue-lt);opacity:.6;}
+.about-slogan::after{content:'」';color:var(--blue-lt);opacity:.6;}
+.about-support{max-width:480px;margin:0 auto;text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-weight:400;font-size:.9rem;line-height:1.9;color:rgba(255,255,255,.62);letter-spacing:.02em;}
+.about-support strong{color:var(--blue-lt);font-weight:600;font-style:normal;}
+
+/* WORKS — premium 卡片，分兩組各三案例 */
+.work-group{margin-top:2.4rem;}
+.work-group:first-child{margin-top:1rem;}
+.work-group-title{font-size:1.15rem;font-weight:700;color:var(--blue-lt);letter-spacing:.1em;margin-bottom:1.2rem;border-left:3px solid var(--blue-lt);padding-left:.8rem;}
+.work-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.2rem;}
+.work-card{background:var(--white);border-radius:14px;overflow:hidden;box-shadow:0 8px 24px rgba(1,51,160,.16);transition:transform .3s;}
+.work-thumb{aspect-ratio:16/10;overflow:hidden;background:var(--blue);}
+.work-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+.work-card:hover .work-thumb img{transform:scale(1.04);}
+.work-body{padding:1.1rem 1.2rem 1.3rem;}
+.work-tag{font-size:.68rem;color:var(--blue);letter-spacing:.08em;margin-bottom:.3rem;display:inline-block;border:1px solid rgba(1,51,160,.3);border-radius:var(--r);padding:.15rem .55rem;}
+.work-name{font-size:.98rem;font-weight:700;margin:.45rem 0 .45rem;}
+.work-note{font-size:.8rem;color:var(--ink2);margin-bottom:.7rem;}
+.work-link{display:inline-flex;align-items:center;gap:.3rem;font-size:.74rem;font-weight:700;color:var(--blue);letter-spacing:.04em;border:1.5px solid var(--blue);border-radius:var(--r);padding:.35rem .9rem;transition:all .2s;}
+.work-link:hover{background:var(--blue);color:var(--white);}
+
+/* SERVICES — Accordion 上下收合（Tony參考家具站選單改版，桌機/手機統一收合，不分版型，2026-07-28 v3，取代橫向捲動卡片） */
+.stat-row{display:flex;justify-content:center;gap:2.2rem;margin:.4rem 0 2.6rem;text-align:center;}
+.stat-num{font-family:'Playfair Display',serif;font-weight:600;font-size:1.8rem;color:var(--blue2);}
+.stat-label{font-size:.74rem;color:var(--ink2);}
+
+.svc-accordion{max-width:640px;margin:0 auto;border-top:1px solid rgba(1,51,160,.18);}
+.svc-item{border-bottom:1px solid rgba(1,51,160,.18);}
+.svc-item-head{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.3rem .2rem;background:none;border:none;cursor:pointer;text-align:left;font-family:'Noto Serif TC',serif;color:var(--ink);}
+.svc-item-title{flex:1 1 auto;min-width:0;font-size:1.8rem;font-weight:700;}
+.svc-item-title .en{font-size:1em;font-weight:500;color:var(--blue2);margin-left:.4em;}
+.svc-item-icon{flex:0 0 auto;font-size:1.5rem;font-weight:300;color:var(--blue2);line-height:1;width:1.2rem;text-align:center;}
+.svc-item-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease;}
+.svc-item-panel>div{overflow:hidden;}
+.svc-item.open .svc-item-panel{grid-template-rows:1fr;}
+.svc-item-panel-inner{padding:0 .2rem 1.5rem;}
+.svc-item .svc-price{font-family:'Playfair Display',serif;font-weight:600;font-size:1.3rem;color:var(--blue2);margin-bottom:.5rem;}
+.svc-item .svc-price small{font-size:.66rem;font-weight:400;color:var(--ink3);}
+.svc-item-panel-inner p{font-size:.85rem;color:var(--ink2);line-height:1.8;margin-bottom:1rem;}
+.svc-item .svc-more{display:inline-flex;align-items:center;gap:.3rem;font-size:.78rem;font-weight:700;color:var(--blue);letter-spacing:.04em;border:1.5px solid rgba(1,51,160,.4);border-radius:var(--r);padding:.55rem 1.2rem;transition:all .2s;}
+.svc-item .svc-more:hover{background:var(--blue);color:var(--white);}
+@media(max-width:640px){.svc-item .svc-more{width:100%;justify-content:center;}}
+
+/* BLOG — 真實封面圖 */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:1rem;}
+.blog-card{background:var(--white);border-radius:14px;overflow:hidden;box-shadow:0 8px 24px rgba(1,51,160,.14);transition:transform .3s;}
+.blog-thumb{aspect-ratio:16/9;overflow:hidden;}
+.blog-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+.blog-card:hover .blog-thumb img{transform:scale(1.04);}
+.blog-body{padding:1.1rem 1.2rem 1.3rem;}
+.blog-date{font-family:'Playfair Display',serif;font-size:.76rem;letter-spacing:.1em;color:var(--blue2);margin-bottom:.5rem;}
+.blog-title{font-size:.9rem;font-weight:700;color:var(--ink);margin-bottom:.6rem;line-height:1.6;}
+.blog-more{font-size:.74rem;color:var(--blue);letter-spacing:.06em;font-weight:700;}
+
+/* FOOTER 制式：純色底(修正原本背景圖顏色問題)，logo→icons→CTA(LINE/電話白底)+BackToTop→分隔線→法定資訊→design-by */
+.footer-inner{max-width:var(--mw);margin:0 auto;padding:3rem 1.4rem 2rem;text-align:center;position:relative;z-index:1;}
+.footer-logo-wrap{max-width:200px;margin:0 auto 1.8rem;background:var(--white);border-radius:10px;padding:.9rem 1.4rem;}
+.footer-logo-wrap img{width:100%;height:auto;display:block;}
+.f-icons{display:flex;justify-content:center;gap:1rem;margin-bottom:1.6rem;flex-wrap:wrap;}
+.f-icons .hero-icon-link{width:44px;height:44px;}
+.f-icons .hero-icon-link img{width:32px;height:32px;}
+.footer-btns{display:flex;flex-direction:column;align-items:center;gap:.7rem;margin-bottom:2rem;}
+.f-cta{display:inline-block;width:100%;max-width:320px;background:var(--white);color:var(--blue);border-radius:var(--r);padding:.85rem 2rem;font-size:.88rem;letter-spacing:.06em;font-weight:700;text-align:center;border:1.5px solid var(--white);}
+.f-cta.top{background:transparent;color:rgba(255,255,255,.85);font-weight:500;border-color:rgba(255,255,255,.38);cursor:pointer;}
+.f-cta.top:hover{background:rgba(255,255,255,.08);}
+.f-divider{height:1px;background:rgba(255,255,255,.12);max-width:300px;margin:0 auto 1.2rem;}
+.f-legal{font-size:.72rem;line-height:1.9;letter-spacing:.05em;color:rgba(255,255,255,.55);margin-bottom:1.2rem;}
+a.design-by{display:block;text-align:center;padding:1rem 0 0;font-family:-apple-system,'Segoe UI',sans-serif;font-size:.68rem;letter-spacing:.1em;border-top:1px solid rgba(255,255,255,.1);}
+.db-lin{color:#1685C8;}
+.db-ket{color:#F5ECD7;}
+
+/* 回頂部浮動圓鈕 */
+.back-top{position:fixed;bottom:1.4rem;right:1.4rem;width:44px;height:44px;background:var(--blue-deep);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s;z-index:99;border:none;}
+.back-top.show{opacity:1;pointer-events:auto;}
+.back-top svg{width:18px;height:18px;stroke:var(--white);fill:none;stroke-width:2.5;}
+
+/* RWD */
+@media(max-width:900px) and (min-width:641px){
+  .work-grid,.blog-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:640px){
+  .hero-cols{flex-direction:column;gap:2.2rem;}
+  .hero-left{align-items:center;text-align:center;}
+  .hero-name{justify-content:center;}
+  .hero-tags{justify-content:center;}
+  .work-grid,.blog-grid{grid-template-columns:1fr;}
+  .svc-more{width:100%;justify-content:center;}
+  /* 橫式背景圖在窄長手機版section改置中偏上，保留較有層次的區域，避免裁到平淡色塊 */
+  .bg-light,.bg-dark{background-position:center 15%;}
+}
+</style>
+</head>
+<body id="top">
+
+<!-- HERO -->
+<header class="hero-section" id="hero">
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-content">
+    <h1 class="sr-only">張淑伶 Taris｜XWEB網頁設計 營運總監・網站把關人｜網頁設計・SEO優化・廣告代操</h1>
+    <div class="hero-cols">
+      <div class="hero-left">
+        <div class="hero-logo">
+          <img src="assets/xweb-logo.svg" alt="XWEB網頁設計" onerror="this.parentElement.innerHTML='<div class=\'hero-logo-ph\'>X</div>'">
+        </div>
+        <div class="hero-portrait">
+          <img src="assets/hero-portrait-circle.png" alt="張淑伶 Taris" onerror="this.style.display='none'">
+        </div>
+        <div class="hero-title-cap">營運總監</div>
+        <div class="hero-name">張淑伶<span class="en">Taris</span></div>
+        <div class="hero-tags">
+          <span class="h-tag">#網頁設計</span>
+          <span class="h-tag">#SEO優化</span>
+          <span class="h-tag">#廣告代操</span>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-icons">
+          <a class="hero-icon-link" href="https://line.me/ti/p/~@148hiuyg" target="_blank" rel="noopener" aria-label="LINE"
+            onclick="gtag('event','click_line',{'event_category':'CTA','event_label':'x-web-tech'});">
+            <img src="/assets/line.svg" alt="LINE" onerror="this.style.display='none'">
+          </a>
+          <a class="hero-icon-link" href="tel:0975537527" aria-label="電話"
+            onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'x-web-tech'});">
+            <img src="/assets/phone.svg" alt="Phone" onerror="this.style.display='none'">
+          </a>
+          <a class="hero-icon-link" href="mailto:service@x-web.tech" aria-label="Email"
+            onclick="gtag('event','click_email',{'event_category':'CTA','event_label':'x-web-tech'});">
+            <img src="/assets/mail.svg" alt="Email" onerror="this.style.display='none'">
+          </a>
+          <a class="hero-icon-link" href="https://www.facebook.com/xweb.marketing/" target="_blank" rel="noopener" aria-label="Facebook"
+            onclick="gtag('event','click_fb',{'event_category':'CTA','event_label':'x-web-tech'});">
+            <img src="/assets/facebook.svg" alt="Facebook" onerror="this.style.display='none'">
+          </a>
+          <a class="hero-icon-link" href="https://www.instagram.com/xweb.marketing" target="_blank" rel="noopener" aria-label="Instagram"
+            onclick="gtag('event','click_ig',{'event_category':'CTA','event_label':'x-web-tech'});">
+            <img src="/assets/instagram.svg" alt="Instagram" onerror="this.style.display='none'">
+          </a>
+          <a class="hero-icon-link" href="https://x-web.tech/" target="_blank" rel="noopener" aria-label="Web"
+            onclick="gtag('event','click_ig',{'event_category':'CTA','event_label':'x-web-tech'});">
+            <img src="/assets/web.svg" alt="Web" onerror="this.style.display='none'">
+          </a>
+        </div>
+        <a class="hero-btn p1" href="https://line.me/ti/p/~@148hiuyg" target="_blank" rel="noopener"
+          onclick="gtag('event','click_line',{'event_category':'CTA','event_label':'x-web-tech'});">官方帳號｜LINE@</a>
+        <a class="hero-btn p1" href="tel:0975537527"
+          onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'x-web-tech'});">聯繫 Taris｜Contact</a>
+        <a class="hero-btn ghost" href="#services">服務項目｜Service</a>
+        <a class="hero-btn ghost" href="#works">客戶案例｜Works</a>
+        <a class="hero-btn ghost" href="#blog">趨勢與觀點｜Insights</a>
+        <div class="hero-btn-row">
+          <button class="btn-sm" onclick="openQrModal();gtag('event','click_qr_modal',{'event_category':'CTA','event_label':'x-web-tech'});">QR CODE</button>
+          <button class="btn-sm" id="shareBtn">SHARE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- QR MODAL -->
+<div class="qr-overlay" id="qrOverlay" onclick="closeQrModal()">
+  <div class="qr-box" onclick="event.stopPropagation()">
+    <img class="qr-logo" src="assets/xweb-logo.svg" alt="XWEB網頁設計" onerror="this.style.display='none'">
+    <div id="qrcode"></div>
+    <div class="qr-url">linket.app/x-web-tech</div>
+    <button class="qr-close" onclick="closeQrModal()">關 閉</button>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="watermark" aria-hidden="true">
+  <div class="wm-track">
+    <span class="wm-item">TARIS</span><span class="wm-item">網站把關人</span><span class="wm-item">XWEB DESIGN</span><span class="wm-item">3週快速上線</span>
+    <span class="wm-item">TARIS</span><span class="wm-item">網站把關人</span><span class="wm-item">XWEB DESIGN</span><span class="wm-item">3週快速上線</span>
+    <span class="wm-item">TARIS</span><span class="wm-item">網站把關人</span><span class="wm-item">XWEB DESIGN</span><span class="wm-item">3週快速上線</span>
+    <span class="wm-item">TARIS</span><span class="wm-item">網站把關人</span><span class="wm-item">XWEB DESIGN</span><span class="wm-item">3週快速上線</span>
+  </div>
+</div>
+
+<!-- ABOUT XWEB（藍） -->
+<section class="bg-dark" id="about">
+  <div class="sec-inner reveal">
+    <p class="sec-eyebrow">About Xweb</p>
+    <h2 class="about-slogan">每一個網站，都先嚴格通過我們這一關，<br>才能抵達使用者那一關。</h2>
+    <div class="sec-rule"></div>
+    <p class="about-support">在 <strong>Xweb</strong>，從報價、設計到上線，每一關，我們都不放過。</p>
+  </div>
+</section>
+
+<!-- SERVICES（白，Accordion 上下收合：桌機/手機統一；無圖片；合作方式區塊已刪除；2026-07-28搬到About下面） -->
+<section class="bg-light" id="services">
+  <div class="sec-inner">
+    <div class="sec-head reveal">
+      <p class="sec-eyebrow">Services</p>
+      <h2 class="sec-title">主要服務項目</h2>
+      <div class="sec-rule"></div>
+    </div>
+
+    <div class="stat-row reveal">
+      <div><div class="stat-num en">7+</div><div class="stat-label">年經驗</div></div>
+      <div><div class="stat-num en">100+</div><div class="stat-label">成功案例</div></div>
+      <div><div class="stat-num en">3週</div><div class="stat-label">快速上線</div></div>
+    </div>
+
+    <div class="svc-accordion reveal">
+      <div class="svc-item open">
+        <button class="svc-item-head" aria-expanded="true" onclick="toggleSvcItem(this)">
+          <span class="svc-item-title">網頁設計<span class="en">Web Design</span></span>
+          <span class="svc-item-icon">−</span>
+        </button>
+        <div class="svc-item-panel"><div>
+          <div class="svc-item-panel-inner">
+            <div class="svc-price en">NT$16,800<small> 起</small></div>
+            <p>RWD響應式設計，兼顧品牌形象與使用者體驗。</p>
+            <a class="svc-more" href="https://x-web.tech/charge/web" target="_blank" rel="noopener"
+              onclick="gtag('event','click_svc_web',{'event_category':'CTA','event_label':'x-web-tech'});">看更多詳細服務 →</a>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="svc-item">
+        <button class="svc-item-head" aria-expanded="false" onclick="toggleSvcItem(this)">
+          <span class="svc-item-title">SEO優化<span class="en">SEO</span></span>
+          <span class="svc-item-icon">+</span>
+        </button>
+        <div class="svc-item-panel"><div>
+          <div class="svc-item-panel-inner">
+            <div class="svc-price en">NT$20,000<small> ／月起</small></div>
+            <p>從技術結構到內容策略，提升搜尋能見度。</p>
+            <a class="svc-more" href="https://x-web.tech/charge/seo" target="_blank" rel="noopener"
+              onclick="gtag('event','click_svc_seo',{'event_category':'CTA','event_label':'x-web-tech'});">看更多詳細服務 →</a>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="svc-item">
+        <button class="svc-item-head" aria-expanded="false" onclick="toggleSvcItem(this)">
+          <span class="svc-item-title">廣告代操<span class="en">Ads</span></span>
+          <span class="svc-item-icon">+</span>
+        </button>
+        <div class="svc-item-panel"><div>
+          <div class="svc-item-panel-inner">
+            <div class="svc-price en">NT$6,000<small> ／月起</small></div>
+            <p>Meta/Google廣告投放與素材優化，提升轉換成效。</p>
+            <a class="svc-more" href="https://x-web.tech/charge/ad" target="_blank" rel="noopener"
+              onclick="gtag('event','click_svc_ad',{'event_category':'CTA','event_label':'x-web-tech'});">看更多詳細服務 →</a>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKS（藍，SEO三案例+網頁設計三案例；2026-07-28搬到Services後面） -->
+<section class="bg-dark" id="works">
+  <div class="sec-inner">
+    <div class="sec-head reveal">
+      <p class="sec-eyebrow">Selected Works</p>
+      <h2 class="sec-title">客戶案例</h2>
+      <div class="sec-rule"></div>
+    </div>
+
+    <div class="work-group">
+      <p class="work-group-title en">SEO 優化案例</p>
+      <div class="work-grid">
+        <div class="work-card reveal">
+          <div class="work-thumb"><img src="assets/work-bakery.webp" alt="麵包烘焙坊 SEO優化案例" loading="lazy"></div>
+          <div class="work-body">
+            <span class="work-tag en">BAKERY</span>
+            <p class="work-name">麵包烘焙坊</p>
+            <p class="work-note">6個月自然流量成長150%，線上訂單成長超過200%。</p>
+            <a class="work-link" href="https://x-web.tech/works/seo/cases-9" target="_blank" rel="noopener">查看案例 →</a>
+          </div>
+        </div>
+        <div class="work-card reveal">
+          <div class="work-thumb"><img src="assets/work-biotech.webp" alt="生物科技公司 SEO優化案例" loading="lazy"></div>
+          <div class="work-body">
+            <span class="work-tag en">BIOTECH</span>
+            <p class="work-name">生物科技公司</p>
+            <p class="work-note">22個月點擊量成長超過130倍，首頁關鍵字數從5組成長至120+組。</p>
+            <a class="work-link" href="https://x-web.tech/works/seo/cases-11" target="_blank" rel="noopener">查看案例 →</a>
+          </div>
+        </div>
+        <div class="work-card reveal">
+          <div class="work-thumb"><img src="assets/work-baozi.webp" alt="包子店 SEO優化案例" loading="lazy"></div>
+          <div class="work-body">
+            <span class="work-tag en">BAKERY&nbsp;GOODS</span>
+            <p class="work-name">包子店</p>
+            <p class="work-note">6個月自然流量增長450%，轉換率從1.5%提升至3.8%。</p>
+            <a class="work-link" href="https://x-web.tech/works/seo/cases-10" target="_blank" rel="noopener">查看案例 →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="work-group">
+      <p class="work-group-title en">網頁設計作品</p>
+      <div class="work-grid">
+        <div class="work-card reveal">
+          <div class="work-thumb"><img src="assets/work-305.jpg" alt="三年五班黑糖珍珠舖官網" loading="lazy"></div>
+          <div class="work-body">
+            <span class="work-tag en">F&amp;B</span>
+            <p class="work-name">三年五班黑糖珍珠舖</p>
+            <p class="work-note">餐飲業品牌官網，從菜單到品牌故事一次到位。</p>
+            <a class="work-link" href="https://305.com.tw/" target="_blank" rel="noopener">查看案例 →</a>
+          </div>
+        </div>
+        <div class="work-card reveal">
+          <div class="work-thumb"><img src="assets/work-jioucing.jpg" alt="久慶船業官網" loading="lazy"></div>
+          <div class="work-body">
+            <span class="work-tag en">SHIPBUILDING</span>
+            <p class="work-name">久慶船業</p>
+            <p class="work-note">傳產造船廠官網，把專業技術門檻轉譯成清楚易懂的網站語言。</p>
+            <a class="work-link" href="https://jioucingyachts.com.tw/" target="_blank" rel="noopener">查看案例 →</a>
+          </div>
+        </div>
+        <div class="work-card reveal">
+          <div class="work-thumb"><img src="assets/work-daliang.jpg" alt="大亮建築股份有限公司官網" loading="lazy"></div>
+          <div class="work-body">
+            <span class="work-tag en">CONSTRUCTION</span>
+            <p class="work-name">大亮建築股份有限公司</p>
+            <p class="work-note">建築業官網，強調案例實績與專業形象的視覺呈現。</p>
+            <a class="work-link" href="https://www.daliang.tw/" target="_blank" rel="noopener">查看案例 →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG（白，新增：產業趨勢，真實文章+真實封面圖） -->
+<section class="bg-light" id="blog">
+  <div class="sec-inner">
+    <div class="sec-head reveal">
+      <p class="sec-eyebrow">Insights</p>
+      <h2 class="sec-title">產業趨勢與觀點</h2>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="blog-grid">
+      <a class="blog-card reveal" href="https://x-web.tech/blog/should-corporate-websites-prioritize-design-trends-or-content-and-flow" target="_blank" rel="noopener">
+        <div class="blog-thumb"><img src="assets/blog-1.png" alt="企業網站該追設計潮流，還是先追內容與動線？" loading="lazy"></div>
+        <div class="blog-body">
+          <p class="blog-date en">2026.07.14</p>
+          <p class="blog-title">企業網站該追設計潮流，還是先追內容與動線？</p>
+          <p class="blog-more">閱讀全文 →</p>
+        </div>
+      </a>
+      <a class="blog-card reveal" href="https://x-web.tech/blog/do-dark-mode-motion-and-interactions-really-make-websites-better" target="_blank" rel="noopener">
+        <div class="blog-thumb"><img src="assets/blog-2.png" alt="Dark mode、動態效果、互動設計，真的會讓網站更厲害嗎？" loading="lazy"></div>
+        <div class="blog-body">
+          <p class="blog-date en">2026.07.08</p>
+          <p class="blog-title">Dark mode、動態效果、互動設計，真的會讓網站更厲害嗎？</p>
+          <p class="blog-more">閱讀全文 →</p>
+        </div>
+      </a>
+      <a class="blog-card reveal" href="https://x-web.tech/blog/website-design-trends-2026" target="_blank" rel="noopener">
+        <div class="blog-thumb"><img src="assets/blog-3.png" alt="2026 網頁設計趨勢有哪些？" loading="lazy"></div>
+        <div class="blog-body">
+          <p class="blog-date en">2026.07.02</p>
+          <p class="blog-title">2026 網頁設計趨勢有哪些？</p>
+          <p class="blog-more">閱讀全文 →</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER（藍，純色底修正原本背景圖顏色問題） -->
+<footer class="bg-flat" id="footer">
+  <div class="footer-inner">
+    <div class="footer-logo-wrap">
+      <img src="assets/xweb-logo.svg" alt="XWEB網頁設計" onerror="this.parentElement.style.display='none'">
+    </div>
+    <div class="f-icons">
+      <a class="hero-icon-link" href="https://line.me/ti/p/~@148hiuyg" target="_blank" rel="noopener" aria-label="LINE"
+        onclick="gtag('event','click_line_footer',{'event_category':'CTA','event_label':'x-web-tech'});">
+        <img src="/assets/line.svg" alt="LINE" onerror="this.style.display='none'">
+      </a>
+      <a class="hero-icon-link" href="tel:0975537527" aria-label="電話"
+        onclick="gtag('event','click_tel_footer',{'event_category':'CTA','event_label':'x-web-tech'});">
+        <img src="/assets/phone.svg" alt="Phone" onerror="this.style.display='none'">
+      </a>
+      <a class="hero-icon-link" href="mailto:service@x-web.tech" aria-label="Email"
+        onclick="gtag('event','click_email_footer',{'event_category':'CTA','event_label':'x-web-tech'});">
+        <img src="/assets/mail.svg" alt="Email" onerror="this.style.display='none'">
+      </a>
+      <a class="hero-icon-link" href="https://www.facebook.com/xweb.marketing/" target="_blank" rel="noopener" aria-label="Facebook"
+        onclick="gtag('event','click_fb_footer',{'event_category':'CTA','event_label':'x-web-tech'});">
+        <img src="/assets/facebook.svg" alt="Facebook" onerror="this.style.display='none'">
+      </a>
+      <a class="hero-icon-link" href="https://www.instagram.com/xweb.marketing" target="_blank" rel="noopener" aria-label="Instagram"
+        onclick="gtag('event','click_ig_footer',{'event_category':'CTA','event_label':'x-web-tech'});">
+        <img src="/assets/instagram.svg" alt="Instagram" onerror="this.style.display='none'">
+      </a>
+      <a class="hero-icon-link" href="https://x-web.tech/" target="_blank" rel="noopener" aria-label="Web"
+            onclick="gtag('event','click_ig',{'event_category':'CTA','event_label':'x-web-tech'});">
+            <img src="/assets/web.svg" alt="Web" onerror="this.style.display='none'">
+      </a>
+    </div>
+    <div class="footer-btns">
+      <a class="f-cta" href="https://line.me/ti/p/~@148hiuyg" target="_blank" rel="noopener"
+        onclick="gtag('event','click_line_footer',{'event_category':'CTA','event_label':'x-web-tech'});">官方帳號｜LINE@</a>
+      <a class="f-cta" href="tel:0975537527"
+        onclick="gtag('event','click_tel_footer',{'event_category':'CTA','event_label':'x-web-tech'});">聯繫 Taris｜Contact</a>
+      <button class="f-cta top" onclick="document.getElementById('hero').scrollIntoView({behavior:'smooth'});" aria-label="Back to top"><span class="en">Back to top</span></button>
+    </div>
+    <div class="f-divider"></div>
+    <!-- 公司名稱(云齊vs新澄)訪談時仍待張淑伶最終確認，Tony 2026-07-14指示本輪維持云齊 -->
+    <p class="f-legal">© 2026 云齊有限公司 · 統編 60301568<br>張淑伶 Taris｜營運總監</p>
+    <a class="design-by" href="https://linket.app/home" target="_blank" rel="noopener">Design by <span class="db-lin">LIN</span><span class="db-ket">Ket</span></a>
+  </div>
+</footer>
+
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+const obs=new IntersectionObserver(e=>{
+  e.forEach(i=>{if(i.isIntersecting){i.target.classList.add('visible');obs.unobserve(i.target);}});
+},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+const backTop=document.getElementById('backTop');
+window.addEventListener('scroll',()=>backTop.classList.toggle('show',scrollY>300));
+
+function openQrModal(){document.getElementById('qrOverlay').classList.add('open');}
+function closeQrModal(){document.getElementById('qrOverlay').classList.remove('open');}
+function toggleSvcItem(btn){
+  const item=btn.parentElement;
+  const wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.svc-item').forEach(i=>{
+    i.classList.remove('open');
+    const b=i.querySelector('.svc-item-head');
+    b.setAttribute('aria-expanded','false');
+    b.querySelector('.svc-item-icon').textContent='+';
+  });
+  if(!wasOpen){
+    item.classList.add('open');
+    btn.setAttribute('aria-expanded','true');
+    btn.querySelector('.svc-item-icon').textContent='−';
+  }
+}
+new QRCode(document.getElementById('qrcode'),{
+  text:'https://linket.app/x-web-tech',
+  width:160,height:160,
+  colorDark:'#0133a0',colorLight:'#fbf7f3',
+  correctLevel:QRCode.CorrectLevel.M
+});
+/* §硬性框架：Share 按鈕永遠顯示（含桌機），監聽無條件掛上；點擊時才判斷有無原生分享 */
+const shareBtn=document.getElementById('shareBtn');
+shareBtn.addEventListener('click',async()=>{
+  if(navigator.share){
+    try{
+      await navigator.share({title:'張淑伶 Taris｜XWEB網頁設計',url:'https://linket.app/x-web-tech'});
+      gtag('event','click_share',{'event_category':'CTA','event_label':'x-web-tech'});
+    }catch(e){}
+  }else{
+    gtag('event','click_share',{'event_category':'CTA','event_label':'x-web-tech'});
+  }
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeQrModal();});
+</script>
+</body>
+</html>
