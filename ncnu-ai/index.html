@@ -6,41 +6,44 @@
   <!-- Google tag (gtag.js) — GA4 G-29J2988Y8J -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-29J2988Y8J');</script>
-  <title>零到一 AI 基礎溝通課｜暨南大學 AI 協作實戰課</title>
-  <meta name="description" content="一堂專為非技術背景設計的 AI 協作實戰課。7/25 於暨南大學開課，學會用 Claude Pro 或 ChatGPT Plus 建立真正可交付的 AI 協作流程。">
+  <title>用 AI 經營社群｜暨南大學 AI 協作實戰課系列 C02</title>
+  <meta name="description" content="暨南大學 AI 協作實戰課系列第二堂：用 AI 經營社群。第一堂「零到一 AI 基礎溝通課」7/25 已成功開課，8/22 起帶你把 AI 溝通思維用在內容產出、貼文發想、社群圖製作上。">
   <meta property="og:url" content="https://linket.app/ncnu-ai">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="零到一 AI 基礎溝通課｜暨南大學">
-  <meta property="og:description" content="花一天，當一次「非工程師用 AI 跑工作室」的學徒。不背公式、不寫程式，帶走一套不會過期的 AI 協作思維。">
+  <meta property="og:title" content="用 AI 經營社群｜暨南大學 AI 協作實戰課 C02">
+  <meta property="og:description" content="C01 已成功開課，C02 報名中。8/22 帶你把 AI 溝通思維用在內容產出、貼文發想與社群圖製作。">
   <meta property="og:image" content="https://linket.app/ncnu-ai/assets/clay-ai-communication-v2.png">
   <link rel="canonical" href="https://linket.app/ncnu-ai">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="零到一 AI 基礎溝通課｜暨南大學">
-  <meta name="twitter:description" content="花一天，當一次「非工程師用 AI 跑工作室」的學徒。不背公式、不寫程式。">
+  <meta name="twitter:title" content="用 AI 經營社群｜暨南大學 AI 協作實戰課 C02">
+  <meta name="twitter:description" content="C01 已成功開課，C02 報名中。8/22 把 AI 溝通思維用進社群經營。">
   <meta name="twitter:image" content="https://linket.app/ncnu-ai/assets/clay-ai-communication-v2.png">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Event",
-    "name": "零到一 AI 基礎溝通課",
-    "startDate": "2026-07-25T09:00+08:00",
-    "endDate": "2026-07-25T16:00+08:00",
+    "name": "用 AI 經營社群",
+    "startDate": "2026-08-22T09:00+08:00",
+    "endDate": "2026-08-22T16:00+08:00",
     "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
     "eventStatus": "https://schema.org/EventScheduled",
     "location": {
       "@type": "Place",
-      "name": "國立暨南國際大學",
+      "name": "國立暨南國際大學 管理學院109",
       "address": { "@type": "PostalAddress", "addressLocality": "南投縣埔里鎮", "addressCountry": "TW" }
     },
     "image": "https://linket.app/ncnu-ai/assets/clay-ai-communication-v2.png",
-    "description": "一堂專為非技術背景設計的 AI 協作實戰課，用專業級付費 AI 帶你建立能交付的協作流程。",
+    "description": "AI 自媒體經營課：內容生成、視覺圖文與數據實務課。暨南大學 AI 協作實戰課系列第二堂，用 AI 建立穩定的社群內容產出節奏。",
     "organizer": { "@type": "Organization", "name": "國立暨南國際大學（研發處／創業育成中心）" },
     "offers": {
       "@type": "Offer",
       "price": "2500",
       "priceCurrency": "TWD",
       "availability": "https://schema.org/InStock",
-      "url": "https://cell.ncnu.edu.tw/Course/InfoListDetail?COU_ID=aaa5800c-905c-4703-b3e3-5f33fb06c32b"
+      "url": "https://cell.ncnu.edu.tw/Course/InfoListDetail?COU_ID\u003d6e117e3e-63f2-4d90-9f16-1f360d06ac5f"
     }
   }
   </script>
@@ -50,9 +53,13 @@
       --blue: #1685C8;
       --white: #FFFFFF;
       --soft: #EAF3FA;
+      --soft2: #D9E9F5;
       --line: rgba(0, 21, 38, .12);
       --shadow: 0 22px 60px rgba(0, 21, 38, .12);
-      --radius: 8px;
+      --card-shadow: 0 8px 28px rgba(0, 21, 38, .08);
+      --radius: 12px;
+      --serif: "Noto Serif TC", "Noto Sans TC", "PingFang TC", serif;
+      --accent-font: "Cormorant Garamond", "Noto Serif TC", serif;
     }
 
     * {
@@ -67,7 +74,7 @@
       margin: 0;
       color: var(--ink);
       background: var(--white);
-      font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      font-family: var(--serif);
       line-height: 1.75;
       letter-spacing: 0;
       font-weight: 400;
@@ -165,6 +172,13 @@
 
     .section {
       padding: clamp(4rem, 9vw, 7rem) 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section.statement,
+    .section.signup,
+    .hero + .section {
+      border-top: none;
     }
 
     .wrap {
@@ -174,10 +188,22 @@
 
     .eyebrow {
       margin: 0 0 .9rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
       color: #185FA5;
-      font-size: .82rem;
+      font-family: var(--accent-font);
+      font-variant-numeric: lining-nums;
+      font-style: italic;
+      font-size: .95rem;
       font-weight: 600;
-      letter-spacing: .08em;
+      letter-spacing: .05em;
+    }
+
+    .eyebrow::before {
+      content: "✦";
+      color: var(--blue);
+      font-style: normal;
     }
 
     .nb {
@@ -194,18 +220,18 @@
     h1 {
       margin-bottom: 1.1rem;
       font-size: clamp(1.8rem, 5.2vw, 3.1rem);
-      line-height: 1.2;
-      letter-spacing: 0;
-      font-weight: 800;
+      line-height: 1.28;
+      letter-spacing: .01em;
+      font-weight: 700;
       text-wrap: balance;
     }
 
     h2 {
       margin-bottom: 1.1rem;
       font-size: clamp(1.5rem, 3.4vw, 2.35rem);
-      line-height: 1.32;
-      font-weight: 800;
-      letter-spacing: 0;
+      line-height: 1.38;
+      font-weight: 700;
+      letter-spacing: .01em;
       text-wrap: balance;
     }
 
@@ -338,6 +364,10 @@
       color: rgba(255, 255, 255, .78);
     }
 
+    .statement .point-list li {
+      color: rgba(255, 255, 255, .9);
+    }
+
     .pain-list,
     .cards,
     .industry-grid {
@@ -358,7 +388,6 @@
     .visual-panel {
       position: relative;
       overflow: hidden;
-      border: 1px solid var(--line);
       border-radius: var(--radius);
       background: var(--soft);
     }
@@ -374,27 +403,143 @@
       background: var(--ink);
     }
 
+    .visual-panel.inset {
+      max-width: 380px;
+      margin: 1.5rem 0 0;
+    }
+
+    .photo-panel img {
+      max-height: 520px;
+      object-fit: cover;
+    }
+
+    .photo-panel figcaption {
+      padding: .8rem 1.1rem;
+      background: var(--ink);
+      color: rgba(255, 255, 255, .82);
+      font-size: .82rem;
+      letter-spacing: .04em;
+    }
+
+    .photo-mosaic {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 4px;
+      height: 480px;
+    }
+
+    .photo-mosaic img {
+      width: 100%;
+      height: 100%;
+      max-height: none;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-mosaic .mosaic-main {
+      grid-row: 1 / 3;
+    }
+
     .section-intro {
       max-width: 680px;
     }
 
-    .pain-item,
     .card,
-    .industry-card,
     .timeline-item,
     .teacher-panel,
     .fit-panel,
     .signup-panel {
-      border: 1px solid var(--line);
       border-radius: var(--radius);
       background: var(--white);
+      box-shadow: var(--card-shadow);
     }
 
     .pain-item,
-    .card,
     .industry-card {
-      padding: 1.25rem;
+      border-radius: var(--radius);
+      background: var(--soft);
     }
+
+	    .pain-item,
+	    .card,
+	    .industry-card {
+	      padding: 1.25rem;
+	    }
+
+	    .result-metrics {
+	      margin-top: 1.8rem;
+	    }
+
+	    .metric-card strong {
+	      display: block;
+	      color: var(--blue);
+	      font-family: var(--accent-font);
+      font-variant-numeric: lining-nums;
+	      font-style: italic;
+	      font-size: clamp(2.4rem, 8vw, 4.2rem);
+	      line-height: 1;
+	      font-weight: 600;
+	    }
+
+	    .series-feature {
+	      position: relative;
+	      overflow: hidden;
+	      margin: 2rem 0 1.5rem;
+	      padding: clamp(1.4rem, 4vw, 2rem);
+	      background: var(--ink);
+	      color: var(--white);
+	      box-shadow: var(--shadow);
+	    }
+
+	    .series-feature::before {
+	      content: "";
+	      position: absolute;
+	      top: 1.2rem;
+	      right: -2rem;
+	      width: 220px;
+	      height: 54px;
+	      background: var(--blue);
+	      transform: skewY(-7deg);
+	      opacity: .86;
+	    }
+
+	    .series-feature > * {
+	      position: relative;
+	      z-index: 1;
+	    }
+
+	    .series-feature h3,
+	    .series-feature p {
+	      color: var(--white);
+	    }
+
+	    .series-feature .series-meta {
+	      color: rgba(255, 255, 255, .78);
+	      font-weight: 700;
+	    }
+
+	    .series-tag {
+	      display: inline-flex;
+	      align-items: center;
+	      min-height: 44px;
+	      margin-bottom: .9rem;
+	      padding: .55rem .8rem;
+	      background: var(--blue);
+	      color: var(--white);
+	      font-weight: 700;
+	    }
+
+	    .series-list .card {
+	      min-height: 100%;
+	    }
+
+	    .series-list .series-tag {
+	      min-height: 36px;
+	      margin-bottom: .8rem;
+	      padding: .35rem .55rem;
+	      font-size: .82rem;
+	    }
 
     .pain-number {
       display: inline-flex;
@@ -403,9 +548,14 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 1rem;
+      border-radius: var(--radius);
       background: var(--blue);
       color: var(--white);
-      font-weight: 700;
+      font-family: var(--accent-font);
+      font-variant-numeric: lining-nums;
+      font-style: italic;
+      font-size: 1.3rem;
+      font-weight: 600;
     }
 
     .section.soft {
@@ -435,6 +585,38 @@
       font-weight: 700;
     }
 
+    .point-list {
+      display: grid;
+      gap: .85rem;
+      margin: 1.4rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .point-list li {
+      position: relative;
+      padding-left: 1.6rem;
+      color: var(--ink);
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    .point-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .55em;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+
+    .point-list.lg li {
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
     .timeline {
       display: grid;
       gap: 1rem;
@@ -457,7 +639,11 @@
 
     .time {
       color: #185FA5;
-      font-weight: 700;
+      font-family: var(--accent-font);
+      font-variant-numeric: lining-nums;
+      font-style: italic;
+      font-size: 1.15rem;
+      font-weight: 600;
       letter-spacing: .03em;
     }
 
@@ -661,7 +847,11 @@
       border-radius: var(--radius);
       background: var(--blue);
       color: var(--white);
-      font-weight: 700;
+      font-family: var(--accent-font);
+      font-variant-numeric: lining-nums;
+      font-style: italic;
+      font-size: 1.3rem;
+      font-weight: 600;
     }
 
     .step-help {
@@ -801,7 +991,7 @@
         <a href="#teacher">講師</a>
         <a href="#faq">FAQ</a>
       </div>
-      <a class="btn blue" href="https://cell.ncnu.edu.tw/Course/InfoListDetail?COU_ID=aaa5800c-905c-4703-b3e3-5f33fb06c32b" onclick="gtag('event','click_signup',{'event_category':'CTA','event_label':'ncnu-ai'});" target="_blank" rel="noopener">立即報名 →</a>
+      <a class="btn blue" href="https://cell.ncnu.edu.tw/Course/InfoListDetail?COU_ID=6e117e3e-63f2-4d90-9f16-1f360d06ac5f" onclick="gtag('event','click_signup',{'event_category':'CTA','event_label':'ncnu-ai-c02'});" target="_blank" rel="noopener">立即報名 →</a>
     </div>
   </nav>
 
@@ -809,24 +999,29 @@
     <header class="hero" id="top">
       <div class="wrap hero-grid">
         <section class="hero-title" aria-labelledby="hero-title">
-          <p class="eyebrow">國立暨南國際大學 · AI 協作實戰課</p>
-          <h1 id="hero-title">花一天，當一次「<span class="nb">非工程師</span>用 <span class="blue-text">AI</span> <span class="nb">跑工作室</span>」的學徒</h1>
-          <p class="lead">一堂專為非技術背景設計的 AI 協作實戰課。不背公式、不寫程式，帶走一套工具再怎麼變都不會過期的協作思維。</p>
+	          <p class="eyebrow">國立暨南國際大學 · AI 協作實戰課系列 C02</p>
+	          <h1 id="hero-title">花一天，當一次「用 <span class="blue-text">AI</span> <span class="nb">穩定經營社群</span>」的學徒</h1>
+	          <p class="lead">一堂用 AI 建立「穩定產出」節奏的社群經營實戰課，帶你打造一套自己撐得住的內容產出方法。</p>
+          <ul class="point-list lg">
+            <li>從零開始，打造你自己的 AI 社群小編</li>
+            <li>從你自己出發，產出真正屬於你的社群圖文</li>
+            <li>建立社群經營儀表板，持續追蹤成效</li>
+          </ul>
           <div class="info-strip" aria-label="課程資訊">
-            <span>7/25（六）09:00–16:00</span>
+            <span>8/22（六）09:00–16:00</span>
             <span>暨南大學｜NT$2,500／人</span>
             <span>名額有限，額滿為止</span>
             <span>自備付費 AI：Claude Pro 或 ChatGPT Plus</span>
           </div>
           <div class="hero-actions">
-            <a class="btn blue" href="https://cell.ncnu.edu.tw/Course/InfoListDetail?COU_ID=aaa5800c-905c-4703-b3e3-5f33fb06c32b" onclick="gtag('event','click_signup',{'event_category':'CTA','event_label':'ncnu-ai'});" target="_blank" rel="noopener">立即報名 →</a>
-            <a class="btn ghost" href="#faq">先看 FAQ</a>
+            <a class="btn blue" href="https://cell.ncnu.edu.tw/Course/InfoListDetail?COU_ID=6e117e3e-63f2-4d90-9f16-1f360d06ac5f" onclick="gtag('event','click_signup',{'event_category':'CTA','event_label':'ncnu-ai-c02'});" target="_blank" rel="noopener">立即報名 →</a>
+            <a class="btn ghost" href="#schedule">先看課程內容 ↓</a>
           </div>
         </section>
         <figure class="hero-visual">
           <picture>
             <source srcset="assets/clay-ai-communication-v2-920.webp" type="image/webp">
-            <img src="assets/clay-ai-communication-v2.png" width="1254" height="1254" alt="真人與 AI 機器人黏土公仔對話協作">
+            <img src="assets/clay-ai-communication-v2.png" width="1254" height="1254" alt="黏土人角色用平板與手機管理社群貼文的 3D 示意圖">
           </picture>
         </figure>
       </div>
@@ -834,22 +1029,22 @@
 
     <section class="section" aria-labelledby="pain-title">
       <div class="wrap split-feature">
-        <figure class="visual-panel">
-          <picture>
-            <source srcset="assets/section-pain-clay-920.webp" type="image/webp">
-            <img loading="lazy" src="assets/section-pain-clay.png" width="1536" height="1112" alt="工作者面對大量 AI 工具與資訊而卡住的 3D 黏土示意圖">
-          </picture>
-        </figure>
         <div>
           <p class="eyebrow">為什麼開這堂</p>
           <h2 id="pain-title">你是不是也有這種感覺——</h2>
           <div class="pain-list">
-            <article class="pain-item"><span class="pain-number">1</span><p>AI 每週都有新工具，學不完、也不知道哪個真的有用。</p></article>
-            <article class="pain-item"><span class="pain-number">2</span><p>網路上一堆「prompt 公式」，背了一堆，真的要用還是卡住。</p></article>
-            <article class="pain-item"><span class="pain-number">3</span><p>上過 AI 課，帶回一疊筆記，回到工作還是不會用。</p></article>
-          </div>
-          <p class="lead" style="margin-top:2rem;">問題不在工具，在<strong>沒有人示範「真的靠 AI 在工作」是什麼樣子</strong>。</p>
+	            <article class="pain-item"><span class="pain-number">1</span><p>天天想破頭要發什麼，發著發著就沒了動力，內容斷更。</p></article>
+	            <article class="pain-item"><span class="pain-number">2</span><p>追熱門公式、模仿爆紅貼文，數字還是起不來，也搞不懂哪裡出了問題。</p></article>
+	            <article class="pain-item"><span class="pain-number">3</span><p>上過社群經營課，學了一堆技巧，回去還是自己一個人埋頭做，撐不了幾週又停掉。</p></article>
+	          </div>
+	          <p class="lead" style="margin-top:2rem;">問題不在你不會發文，在<strong>沒有一套「自己撐得住」的產出節奏跟判斷方法</strong>。</p>
         </div>
+        <figure class="visual-panel inset">
+          <picture>
+            <source srcset="assets/section-pain-clay-920.webp" type="image/webp">
+            <img loading="lazy" src="assets/section-pain-clay.png" width="1536" height="1112" alt="黏土人角色面對空白貼文草稿而苦惱的 3D 示意圖">
+          </picture>
+        </figure>
       </div>
     </section>
 
@@ -858,19 +1053,22 @@
         <div>
           <p class="eyebrow">這堂課的定位</p>
           <h2 id="different-title">這不是工具教學，是一次「協作」的示範</h2>
-          <p class="lead">我是 Tony，一個看不懂程式碼的品牌設計師。但我真的用 AI 在經營一間工作室、接真實客戶案。這堂課我不教你背指令——因為公式會過期；我帶你建立一套跟 AI 協作的思維：給它脈絡、看它產出、告訴它哪裡不對、一起收斂。這套流程不管工具怎麼換都用得上。整天用真實客戶案示範，你看我做一次，再做你自己的版本。</p>
+	          <p class="lead">我是 Tony，這堂課要教的不是理論，是我自己每天在用的方法：</p>
+          <ul class="point-list">
+            <li>這次招生你在 Threads 上看到的每一篇貼文、每一張圖，都是我自己用 AI 一步步做出來的</li>
+            <li>不是教你「怎麼寫出一篇爆款」，是把我真實經營 Threads、LINE 私域社群的協作方法攤開來教你</li>
+            <li>公式會過期、平台規則一直在變，但這套協作思維，不管工具或演算法怎麼變都用得上</li>
+          </ul>
         </div>
         <div class="feature-copy">
-          <figure class="visual-panel dark">
-            <picture>
-              <source srcset="assets/section-collaboration-clay-920.webp" type="image/webp">
-              <img loading="lazy" src="assets/section-collaboration-clay.png" width="1536" height="1112" alt="人與 AI 來回協作的 3D 黏土示意圖">
-            </picture>
+          <figure class="visual-panel dark photo-panel">
+            <img loading="lazy" src="assets/statement-classroom-photo.jpg" width="1050" height="1400" alt="Tony 在暨南大學課堂上實際授課、投影片可見 LINKet 品牌視覺的照片">
+            <figcaption>2026/7/25．Tony 現場授課實況</figcaption>
           </figure>
           <div class="feature-row">
-            <div class="feature-pill">師徒觀摩制，不是聽講</div>
-            <div class="feature-pill">全程真實客戶案，不用假例子</div>
-            <div class="feature-pill">產出導向，帶走成品不是筆記</div>
+	            <div class="feature-pill">用我自己真實的 Threads／LINE 經營經驗示範</div>
+	            <div class="feature-pill">只教穩定產出，不追一次爆紅</div>
+	            <div class="feature-pill">產出導向，帶走一套自己的節奏</div>
           </div>
         </div>
       </div>
@@ -884,15 +1082,15 @@
           <figure class="visual-panel">
             <picture>
               <source srcset="assets/section-takeaway-clay-920.webp" type="image/webp">
-              <img loading="lazy" src="assets/section-takeaway-clay.png" width="1536" height="1112" alt="課程完成後帶走工具包與協作成果的 3D 黏土示意圖">
+              <img loading="lazy" src="assets/section-takeaway-clay.png" width="1536" height="1112" alt="黏土人角色抱著顯示成長曲線的平板、自信滿足的 3D 示意圖">
             </picture>
           </figure>
         </div>
         <div class="cards four">
-          <article class="card"><h3>一個數位同事</h3><p>針對你的職業，現場建好一個專屬 AI 協作夥伴，設定存好帶回工作用。</p></article>
-          <article class="card"><h3>一套協作思維</h3><p>不綁工具的 AI 溝通流程，工具再變都適用。</p></article>
-          <article class="card"><h3>一份判斷力</h3><p>知道什麼時候讓 AI 生成、什麼時候要它查證。</p></article>
-          <article class="card"><h3>一個 AI 共學包</h3><p>課程材料＋AI 助教引導詞，回家讓 AI 帶你繼續練。</p></article>
+	          <article class="card"><h3>一份自我定位＋平台分析</h3><p>想清楚 Threads／IG／FB／LINE 要往哪走，不再亂槍打鳥。</p></article>
+	          <article class="card"><h3>一條內容產出流水線</h3><p>從發想到成品能重複用的貼文產出方法。</p></article>
+	          <article class="card"><h3>一個社群指標儀表板</h3><p>知道什麼時候該回頭看數據、怎麼判斷要不要調整。</p></article>
+	          <article class="card"><h3>一套不追爆款的經營節奏</h3><p>建立自己撐得住、不會做兩週就倦怠的習慣。</p></article>
         </div>
       </div>
     </section>
@@ -901,19 +1099,17 @@
       <div class="wrap schedule-grid">
         <div>
           <p class="eyebrow">課程流程</p>
-          <h2 id="schedule-title">6 小時，四段，從第一分鐘就動手</h2>
-          <div class="timeline">
-            <article class="timeline-item"><div class="time">09:00–10:30</div><h3>AI 不只是工具，更是你的合作夥伴</h3><p>看我用 AI 接案，然後你用自己的真實需求做出「第一版」。</p></article>
-            <article class="timeline-item"><div class="time">10:30–12:00</div><h3>打造你的數位同事</h3><p>用多面向提問把指令強化成「第二版」，建成你的專屬 AI 夥伴。</p></article>
-            <article class="timeline-item"><div class="time">13:00–14:30</div><h3>像資深設計師一樣改稿</h3><p>學四個改稿動作，把 AI 初稿修到能交付。</p></article>
-            <article class="timeline-item"><div class="time">14:30–16:00</div><h3>交出你的第一個作品</h3><p>分組共創、發表，帶走你的 AI 共學包。</p></article>
-          </div>
+	          <h2 id="schedule-title">單日 09:00–16:00，四段從自我剖析走到成果分享</h2>
+	          <div class="timeline">
+	            <article class="timeline-item"><div class="time">段 1</div><h3>剖析自我＋分析平台，AI 共學</h3><p>釐清自己的目標與定位，用 AI 一起拆解 Threads／IG／FB／LINE 四大平台的規則、流量與特性。</p></article>
+	            <article class="timeline-item"><div class="time">段 2</div><h3>與 AI 擬定貼文策略，實際產出測試</h3><p>發散多個方向、實際產出貼文測試，建立一條從發想到成品能重複用的圖文產出流水線。</p></article>
+	            <article class="timeline-item"><div class="time">段 3</div><h3>建立社群指標儀表板，策略修正</h3><p>用數據回頭檢視內容成效，跟 AI 夥伴一起調整發文頻率與經營方向。</p></article>
+	            <article class="timeline-item"><div class="time">段 4</div><h3>成果分享</h3><p>展現自己的定位與儀表板監測成果，規劃下一步的社群經營策略。</p></article>
+	          </div>
         </div>
-        <figure class="visual-panel">
-          <picture>
-            <source srcset="assets/section-schedule-clay-920.webp" type="image/webp">
-            <img loading="lazy" src="assets/section-schedule-clay.png" width="1536" height="1109" alt="四段課程從需求到作品的 3D 黏土路線示意圖">
-          </picture>
+        <figure class="visual-panel photo-panel">
+          <img loading="lazy" src="assets/schedule-classroom-photo.jpg" width="1050" height="1400" alt="C01 課堂現場學員分組實作、Tony 現場指導的照片">
+          <figcaption>2026/7/25．C01 現場分組實作</figcaption>
         </figure>
       </div>
     </section>
@@ -922,24 +1118,24 @@
       <div class="wrap industry-layout">
         <div>
           <p class="eyebrow">各行各業</p>
-          <h2 id="industry-title">不管你做哪一行，AI 都能變成你的即戰力</h2>
-          <p class="lead">這堂課不綁定某個職業——你帶你自己的真實需求來，帶一個能立刻用的成果走。</p>
-          <figure class="visual-panel">
+	          <h2 id="industry-title">不管你經營哪一種社群，AI 都能幫你穩定產出</h2>
+	          <p class="lead">這堂課不綁定某個身分——你帶你自己正在經營（或想開始經營）的帳號來，帶一套能立刻上手的產出方法走。</p>
+          <figure class="visual-panel inset">
             <picture>
               <source srcset="assets/section-industry-clay-920.webp" type="image/webp">
-              <img loading="lazy" src="assets/section-industry-clay.png" width="1536" height="1112" alt="不同行業把 AI 變成工作夥伴的 3D 黏土示意圖">
+              <img loading="lazy" src="assets/section-industry-clay.png" width="1536" height="1112" alt="不同身分的黏土人角色各自用手機經營社群貼文的 3D 示意圖">
             </picture>
           </figure>
         </div>
         <div class="industry-grid">
-          <article class="industry-card"><h3>行政／總務</h3><p>一個照你語氣草擬公文與回信的 AI 助理</p></article>
-          <article class="industry-card"><h3>業務／客服</h3><p>一套問答與跟進話術庫，回覆速度翻倍</p></article>
-          <article class="industry-card"><h3>行銷／小編</h3><p>一個懂品牌調性的貼文與標題發想夥伴</p></article>
-          <article class="industry-card"><h3>設計／接案</h3><p>一條拆需求到對稿的 AI 協作流程</p></article>
-          <article class="industry-card"><h3>餐飲／店家</h3><p>一個餐飲行銷與評論回覆的 AI 小幫手</p></article>
-          <article class="industry-card"><h3>教育／講師</h3><p>一個幫你出教案與練習題的備課夥伴</p></article>
-          <article class="industry-card"><h3>自營／一人公司</h3><p>一個當第二大腦、分擔雜事的 AI 同事</p></article>
-          <article class="industry-card"><h3>傳產第二代</h3><p>一套用 AI 梳理品牌、對外溝通的起手式</p></article>
+	          <article class="industry-card"><h3>個人品牌經營者</h3><p>建立自己的內容策略，不再三天打魚兩天曬網</p></article>
+	          <article class="industry-card"><h3>在地店家／小農</h3><p>把產品故事變成能重複用的貼文素材</p></article>
+	          <article class="industry-card"><h3>學生／自媒體新手</h3><p>從零搞懂平台規則，少走冤枉路</p></article>
+	          <article class="industry-card"><h3>接案／自由工作者</h3><p>用內容累積長期信任感跟客源</p></article>
+	          <article class="industry-card"><h3>社群小編／行銷人員</h3><p>一套產出流水線，不用每天想梗想到頭痛</p></article>
+	          <article class="industry-card"><h3>品牌經營者</h3><p>學會用數據修正策略，不再憑感覺發文</p></article>
+	          <article class="industry-card"><h3>餐飲／服務業主</h3><p>把每天的營業日常，變成看得到成效的內容</p></article>
+	          <article class="industry-card"><h3>傳產第二代</h3><p>用 AI 幫品牌建立現代化的社群溝通方式</p></article>
         </div>
       </div>
     </section>
@@ -955,14 +1151,19 @@
         <section class="teacher-panel">
           <p class="eyebrow">講師介紹</p>
           <h2 id="teacher-title">你的講師：一個真的在用 AI 跑工作室的設計師</h2>
-          <p>林志昇 Tony Lin。國立臺灣科技大學設計系商業設計組畢業，LINKet 創辦人／Tony Design Studio 設計總監，十年跨領域設計經驗，橫跨品牌整合、商業空間與展場設計。現在他把 AI 協作深度整合進工作室日常——從客戶溝通、提案到設計交付，AI 是真正的協作夥伴。這堂課，就是把他每天在做的事，攤開來教你。</p>
+	          <p class="lead">林志昇 Tony Lin，LINKet 創辦人／Tony Design Studio 設計總監：</p>
+          <ul class="point-list">
+            <li>國立臺灣科技大學設計系商業設計組畢業，十年跨領域設計經驗，橫跨品牌整合、商業空間與展場設計</li>
+            <li>把 AI 協作深度整合進工作室日常——從客戶溝通、提案到設計交付，AI 是真正的協作夥伴</li>
+            <li>親自用 AI 經營自己的 Threads 帳號跟 LINE 私域社群，這堂課要教的，就是他自己每天在用的那一套方法</li>
+          </ul>
         </section>
       </div>
     </section>
 
-    <section class="section soft" aria-labelledby="fit-title">
-      <div class="wrap">
-        <p class="eyebrow">適合誰</p>
+	    <section class="section soft" aria-labelledby="fit-title">
+	      <div class="wrap">
+	        <p class="eyebrow">適合誰</p>
         <h2 id="fit-title">這堂課為你而開，如果你——</h2>
         <div class="fit-grid">
           <section class="fit-panel">
@@ -980,10 +1181,56 @@
             <p>這是協作思維課，不是某軟體的操作班；當天大量動手，請帶筆電。</p>
           </section>
         </div>
-      </div>
-    </section>
+	      </div>
+	    </section>
 
-    <section class="section" id="faq" aria-labelledby="faq-title">
+	    <section class="section" aria-labelledby="c01-result-title">
+	      <div class="wrap split-feature">
+	        <div>
+	          <p class="eyebrow">C01 開課成果</p>
+	          <h2 id="c01-result-title">7/25 第一堂，我們真的做到了</h2>
+	          <p class="lead">「零到一 AI 基礎溝通課」7/25 於暨南大學開課，實到 7 位學員，現場口頭回饋踴躍、滿意度高——課程用真實客戶案示範「非工程師靠 AI 跑工作室」的協作思維，證實這套方法真的教得會、學得起來。</p>
+	          <div class="cards result-metrics" aria-label="C01 課程成果摘要">
+	            <article class="card metric-card"><strong>7</strong><h3>位學員實到</h3><p>C01 已於 2026/7/25 完成實體開課。</p></article>
+	            <article class="card"><h3>口頭回饋踴躍</h3><p>現場互動熱絡，學員對課程內容與實作安排給予高度定性肯定。</p></article>
+	            <article class="card"><h3>協作思維通過驗證</h3><p>同一套 AI 溝通流程，接著延伸到 C02 的社群內容產出與經營節奏。</p></article>
+	          </div>
+	        </div>
+	        <figure class="visual-panel photo-panel">
+	          <div class="photo-mosaic">
+	            <img class="mosaic-main" loading="lazy" src="assets/c01-classroom-photo.jpg" width="1050" height="1400" alt="Tony 在暨南大學 C01 課堂現場實際授課的照片">
+	            <img class="mosaic-sub" loading="lazy" src="assets/c01-coaching-photo-1.jpg" width="1400" height="1050" alt="Tony 與學員一對一討論貼文內容的照片">
+	            <img class="mosaic-sub" loading="lazy" src="assets/c01-coaching-photo-2.jpg" width="787" height="1400" alt="Tony 現場指導學員操作筆電的照片">
+	          </div>
+	          <figcaption>2026/7/25．暨南大學 C01 開課現場</figcaption>
+	        </figure>
+	      </div>
+	    </section>
+
+	    <section class="section soft" aria-labelledby="series-title">
+	      <div class="wrap">
+	        <p class="eyebrow">課程系列預告</p>
+	        <h2 id="series-title">8 堂課系列，從協作地基走到獨立開發</h2>
+	        <article class="card series-feature">
+	          <span class="series-tag">C02・報名中</span>
+	          <h3>用 AI 經營社群</h3>
+	          <p class="series-meta">官方正式課名：AI 自媒體經營課：內容生成、視覺圖文與數據實務課</p>
+	          <p class="series-meta">2026/8/22（六）09:00–16:00｜暨南大學（管理學院109）｜NT$2,500／人</p>
+	          <p>把 C01 學到的 AI 溝通思維，用在內容產出、貼文發想、社群圖製作上——建立一套自己撐得住的產出節奏，不是追求一次爆紅。</p>
+	          <a class="btn blue" href="https://cell.ncnu.edu.tw/Course/InfoListDetail?COU_ID=6e117e3e-63f2-4d90-9f16-1f360d06ac5f" onclick="gtag('event','click_signup',{'event_category':'CTA','event_label':'ncnu-ai-c02-preview'});" target="_blank" rel="noopener">立即報名 →</a>
+	        </article>
+	        <div class="cards series-list" aria-label="C03 到 C08 課程預告">
+	          <article class="card"><span class="series-tag">C03・敬請期待</span><h3>AI Vibe Coding 基礎 App 製作課：零基礎打造個人數位工具</h3><p>2026/9/19</p></article>
+	          <article class="card"><span class="series-tag">C04・敬請期待</span><h3>AI VC 課：一頁式網站實務（圖文整合與 Google Sites 上架）</h3><p>2026/10/17</p></article>
+	          <article class="card"><span class="series-tag">C05・敬請期待</span><h3>AI VC 課：數位名片實務（NFC 虛實整合與品牌展示）</h3><p>2026/11/21</p></article>
+	          <article class="card"><span class="series-tag">C06・敬請期待</span><h3>AI VC 課：微型官網實務（GitHub 上架與自定義網域應用）</h3><p>2026/12/12</p></article>
+	          <article class="card"><span class="series-tag">C07・敬請期待</span><h3>AI VC 課：應用系統 App 實務（數位菜單、課表與行政工具製作）</h3><p>2027/1/16</p></article>
+	          <article class="card"><span class="series-tag">C08・敬請期待</span><h3>AI VC 課：模擬微型電商實務（商品管理、購物車與銷售流程開發）</h3><p>2027/2/13</p></article>
+	        </div>
+	      </div>
+	    </section>
+
+	    <section class="section" id="faq" aria-labelledby="faq-title">
       <div class="wrap">
         <p class="eyebrow">常見問題</p>
         <h2 id="faq-title">常見問題</h2>
@@ -991,7 +1238,8 @@
           <article class="faq-item"><button type="button" aria-expanded="false">Q：完全零基礎跟得上嗎？</button><div class="faq-answer">跟得上。開場有超簡單暖身，全程手把手，你用自己的需求做。</div></article>
           <article class="faq-item"><button type="button" aria-expanded="false">Q：需要自備付費 AI 嗎？</button><div class="faq-answer">需要。這堂玩真的，用專業級付費 AI（Claude Pro 或 ChatGPT Plus，月費約 US$20）帶你做出能交付的成果，不是入門工具的 demo。現場講師幫你把環境建置好，零基礎不用怕。</div></article>
           <article class="faq-item"><button type="button" aria-expanded="false">Q：要帶什麼？</button><div class="faq-answer">一台能上網的筆電、一個付費 AI 帳號（Claude Pro／ChatGPT Plus），和一個你真正想解決的工作問題。</div></article>
-          <article class="faq-item"><button type="button" aria-expanded="false">Q：跟後面的課有關係嗎？</button><div class="faq-answer">這是 8 堂系列第一堂，先打好 AI 協作地基，後面進到更進階應用。</div></article>
+	          <article class="faq-item"><button type="button" aria-expanded="false">Q：跟其他堂課有關係嗎？</button><div class="faq-answer">這是 8 堂系列第二堂。第一堂「零到一 AI 基礎溝通課」7/25 已開課，打好了 AI 協作地基；這堂接著把同一套溝通思維用在社群經營上，沒上過第一堂也能單獨參加。</div></article>
+	          <article class="faq-item"><button type="button" aria-expanded="false">Q：這堂課會教剪片嗎？</button><div class="faq-answer">不會。這堂課聚焦圖文內容——貼文文案、社群圖、內容策略，不涉及影片剪輯。</div></article>
           <article class="faq-item"><button type="button" aria-expanded="false">Q：課後有東西複習嗎？</button><div class="faq-answer">有。你會帶走「AI 共學包」，回家用瀏覽器就能讓 AI 助教帶你繼續練。</div></article>
         </div>
       </div>
@@ -1010,7 +1258,7 @@
           <article class="step-card">
             <span class="step-number">2</span>
             <h3>搜尋課程</h3>
-            <p>搜尋「零到一 AI 基礎溝通課」</p>
+	            <p>搜尋「AI 自媒體經營課」</p>
           </article>
           <article class="step-card">
             <span class="step-number">3</span>
@@ -1024,15 +1272,15 @@
           </article>
         </div>
         <p class="step-help">報名卡住？在貼文留言或私訊 Tony，我幫你完成。</p>
-        <h2 id="signup-title">7/25，來當一天的 AI 學徒</h2>
-        <p class="lead">時間 7/25（六）09:00–16:00｜地點 暨南大學｜費用 NT$2,500／人｜即日起報名至 7/25，額滿為止</p>
+	        <h2 id="signup-title">8/22，來當一天的 AI 學徒</h2>
+	        <p class="lead">時間 8/22（六）09:00–16:00｜地點 暨南大學｜費用 NT$2,500／人｜即日起報名至 8/22，額滿為止</p>
         <div class="signup-panel">
           <div>
             <h3>課程資訊</h3>
             <p>自備付費 AI：Claude Pro 或 ChatGPT Plus（月費約 US$20），現場講師幫建置。</p>
           </div>
           <div>
-            <a class="btn blue" href="https://cell.ncnu.edu.tw/Course/InfoListDetail?COU_ID=aaa5800c-905c-4703-b3e3-5f33fb06c32b" onclick="gtag('event','click_signup',{'event_category':'CTA','event_label':'ncnu-ai'});" target="_blank" rel="noopener">立即報名 →</a>
+	            <a class="btn blue" href="https://cell.ncnu.edu.tw/Course/InfoListDetail?COU_ID=6e117e3e-63f2-4d90-9f16-1f360d06ac5f" onclick="gtag('event','click_signup',{'event_category':'CTA','event_label':'ncnu-ai-c02'});" target="_blank" rel="noopener">立即報名 →</a>
           </div>
         </div>
       </div>
@@ -1043,8 +1291,7 @@
     <div class="footer-inner">
       <img src="assets/logo-white.svg" width="145" height="39" alt="LINKet">
       <div>
-        <strong>主辦：國立暨南國際大學（研發處／創業育成中心）</strong><br>
-        <a href="https://cell.ncnu.edu.tw/Course/InfoListDetail?COU_ID=aaa5800c-905c-4703-b3e3-5f33fb06c32b" onclick="gtag('event','click_signup',{'event_category':'CTA','event_label':'ncnu-ai'});" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:underline;">前往報名頁 →</a>
+        <strong>主辦：國立暨南國際大學（研發處／創業育成中心）</strong>
       </div>
     </div>
   </footer>
