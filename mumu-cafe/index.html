@@ -34,12 +34,104 @@
                     - Google Sheets v4（各分類獨立 Sheet tab）
                     - CACHE_KEY 升級為 mumu_v4
 
-  待辦（Next）
-                    - IG Reel shortcode × 4 替換 PLACEHOLDER
-                    - 上傳素材（mumu-logo.png / hero-bg.jpg / og-image.jpg）
-                    - /mumu-cafe/cake/ 客製蛋糕銷售頁
-                    - Meta Pixel 安裝（確認廣告帳號後）
-                    - 頁面整體設計優化與配圖
+  v1.4  2026-05-06  思源宋體 + 雜誌排版 + 咖啡靜態預載
+                    - editorial-section 雜誌圖文排版（大引言 + 4組左右交替）
+                    - IG Reel embed × 4（客製化甜點展示）
+                    - Canvas 名片動態生成 + 雙 QR / QR Code Modal 完成
+
+  v1.5  2026-05-08  Tony 手動調整
+                    - Logo 放大 / Slogan 加粗引號 / Tags 加 #
+                    - LINE PAY 按鈕新增（click_linepay）
+                    - Hero 按鈕加英文對照
+
+  2026-06-20        cake/、share/ 接上 _shared/（詳見各頁檔案）
+
+  v1.6  2026-07-30  §26-K 規範校正（登場頁 🔴 優先項，技術/框架修正，不涉及文案內容）
+                    - Share 按鈕改永遠顯示（原本只在支援 Web Share API 才顯示）
+                    - 補 <h1 class="sr-only">（原本整頁沒有 h1，SEO 缺口）
+                    - QR / 名片 Modal 加 Esc 鍵關閉
+                    - Ghost 按鈕邊框 1px → 1.5px（符合規範最低值）
+                    - Hero 按鈕 letter-spacing .22em → .12em（原超過 .15em 上限）
+
+  v1.7  2026-07-30  Tony 第二輪修正需求（Hero結構/按鈕/IG嵌入）
+                    - 拿掉 TOP BADGE（白底 Design by LINKet sticky bar）
+                    - 「查看完整菜單」「品牌服務介紹」按鈕加英文（Menu / Service）
+                    - IG 嵌入三張輪替修正（甜點自助吧↔季節限定甜點↔客製蛋糕，節日禮品不動）：
+                      甜點自助吧 embed 改 DTFu6D6ErTF；
+                      原「甜點禮品」卡改名「季節限定甜點 Seasonal Desserts」，embed 改 DWOz9j_iYSh（依季節在地水果，大福/馬卡龍）；
+                      客製蛋糕 embed 改 DSBrToNkk83
+                    - Hero icon 路徑不變（本來就是正確的 /assets/*.svg 共用庫，本機預覽另外補了 symlink 讓本機也顯示真圖）
+
+  v1.8  2026-07-30  修正 v1.7 兩處理解錯誤
+                    - TICKER 正確位置：移到原 WATERMARK 的位置（Hero 與 Our Story 之間），不是塞進 Hero 內部；Hero 結構/CSS 復原成原本 row 置中
+                    - LINE PAY 按鈕加回來（v1.7 誤刪）
+
+  v1.9  2026-07-30  Menu 分類改手風琴（取代橫向捲動Tab，比照 x-web-tech svc-accordion 同套邏輯）
+                    - 問題根源：.menu-tabs 用 overflow-x:auto + 隱藏捲軸，手機上「鮮奶特調」「輕食甜點」滑出可視範圍且無任何視覺提示
+                    - 6個分類改垂直手風琴（單開，預設咖啡展開），資料渲染邏輯完全不動（pane-咖啡等id/renderTab/loadMenuData都沿用）
+                    - 只換外層容器：.menu-tabs+#menu-panes → .menu-accordion（.menu-acc-item/.menu-acc-head/.menu-acc-panel，grid-template-rows動畫）
+                    - switchTab() → toggleMenuAcc()，新增 click_menu_category GA4事件
+                    - 價位標籤字級 .55rem→.68rem（原本8.8px過小，現在10.9px）
+                    - 本機驗證：6分類全部可見不再被裝置藏起來、單開手風琴運作正常、Sheets資料照常載入、375px手機版截圖確認可讀性大幅改善
+                    - 🔴 意外發現（跟本次改版無關，資料層問題）：「冰沙」分類目前顯示內容跟「特調茶飲」完全相同（都是紅茶/奶茶資料），研判是 Google Sheets/Apps Script 資料錯置，待查證修正
+
+  v2.0  2026-07-30  新增 VISIT 區塊（拜訪 MuMu：地圖＋聯繫，放在 Menu 之後、Footer 之前）
+                    - Google Map embed（q=南投縣埔里鎮中正路454號&output=embed，同博幼/日清森已驗證寫法，無需API金鑰）
+                    - 聯繫卡：地址/電話/營業時間 + 電話按鈕 + Google導航按鈕
+                    - 純新增區塊，未動任何既有邏輯；本機驗證console乾淨、無重複id、無dead anchor
+
+  v2.1  2026-07-30  Menu 版面第二輪細修
+                    - Our Story 區加咖啡豆背景（重用hero-bg.jpg，opacity.32，跟下方Menu純色底做區隔）
+                    - Menu 標題重複問題：拿掉「菜單．Menu」h2，「MENU」眉標放大成H1級（clamp(2.4rem,8vw,4rem)）
+                    - 6大分類手風琴標題放大成H2級（clamp(1.4rem,3.5vw,1.9rem)），英文子標同步放大
+                    - 品項文字全面放大1.2倍：品名1rem→1.2rem／英文.75rem→.9rem／價位標籤.68rem→.82rem／價格數字.9rem→1.08rem
+                    - JS層濾掉Sheets資料表結尾的「💡備註列」（renderTab/updateCoffeePrices新增filter，不管Sheets內容如何都不會顯示）
+                    - 本機驗證：console乾淨、💡文字確認消失、字級數值逐一核對（64px/30.4px/19.2px/17.28px）
+
+  2026-07-30  Tony 已於 Google Sheet 後台修正「冰沙」分頁資料，Claude 直接打 Apps Script API 核對：
+              7項品項（巧克力冰沙/卡布奇諾咖啡冰砂/鴉片咖啡冰砂/抹茶咖啡冰砂/焦糖咖啡冰砂/飄浮咖啡冰砂/雙脆咖啡冰砂）
+              價格與本機備份mumu-sheets-v4.xlsx完全一致，跟特調茶飲不再重複。此項待辦結案。
+
+  v2.2  2026-08-02  Logo 更新 + 細節修正 6 項
+                    - Logo 換新：Hero/Footer 用 mumu-logo-05.svg（原mumu-logo-2.png），QR彈窗用 mumu-logo-06.svg（原mumu-logo.png），Canvas名片生成同步更新
+                    - 背景圖顆粒過大：hero-bg-img/editorial-bg-img 從 object-fit:cover 改成 background-image 平鋪（background-size:480px auto; repeat），顆粒明顯縮小
+                    - 全站按鈕圓角：--r 從4px改10px；.hero-btn/.btn-sm 原本寫死 border-radius:0 改用 var(--r)（原本直角是這兩個class硬寫0，非--r本身問題）
+                    - Hero「名片下載」按鈕移除（功能未齊全，先下架），hero-btn-row只留QR Code+Share；drawCard()相關JS保留未刪，之後要復原很快
+                    - Ticker 高度：padding .5rem→.6rem（1.2倍）
+                    - Menu標題再放大0.5倍：clamp(2.4rem,8vw,4rem)→clamp(3.6rem,12vw,6rem)；6大分類標題再放大0.3倍：clamp(1.4rem,3.5vw,1.9rem)→clamp(1.8rem,4.5vw,2.5rem)，英文子標同步
+                    - Footer：移除「MuMu Cafe / Coffee & Handmade Desserts」文字（新logo已含品牌名，文字冗餘）；新增.f-icons社群圖示列比照Hero（5顆，footer專屬GA4事件_footer後綴）；按鈕圓角隨--r全站生效
+                    - 本機驗證：console乾淨、logo src逐一核對、footer-name/sub確認移除、f-icons數量確認5顆、按鈕radius確認10px、視覺截圖確認
+
+  v2.3  2026-08-02  Menu 手風琴 2 項小修正
+                    - 捲動定位：開新分類時畫面停留在舊分類捲動過的位置，使用者要自己往上滑。toggleMenuAcc()新增setTimeout(380ms，等grid-template-rows收合動畫跑完)後scrollIntoView({block:'start'})，自動定位到新分類最上方；.menu-acc-item加scroll-margin-top:1.2rem避免貼死頂端
+                    - 配色區隔：.menu-acc-head 加背景色（未開啟var(--bg3)咖啡色／已開啟var(--gold2)金色高亮，順便讓使用者一眼看出目前開哪一類），面板內容維持原本深色底不變；手風琴改用gap排列取代hairline border，加border-radius:var(--r)呼應全站圓角
+                    - 本機驗證：scrollIntoView後量測目標元素top值=19px（=scroll-margin-top設定值，定位精準），視覺截圖確認配色區隔效果
+
+  2026-08-02  Tony 手動微調（CotEditor直接改，Claude讀完全文比對記錄）
+              - Ticker速度28s→16s、Hero logo放大220px、hero-tags合併成單行文字（拿掉#井字號跟外框pill樣式）
+              - hero-hours順序調整（地址移到最前）、Section全面收緊padding（5-6rem→2rem，垂直節奏大幅壓縮）
+              - Footer logo放大220px、f-icons放大50px、back-to-top文字加箭頭
+              - VISIT區塊Hours那排icon留空（原本規劃clock圖示，/assets/沒有這隻，Tony留白處理）
+              - Footer三顆按鈕位置問題：Tony反映找不到程式碼，查證後回覆——來自_shared/footer-cta.html注入，非index.html本體，同時影響cake/share三頁
+
+  v2.4  2026-08-02  部署前三審 + SEO三項補強
+                    - owasp-audit：中風險1項（Sheets資料未跳脫直接innerHTML，已知風險先記錄未修，信任邊界=Sheet編輯權限目前僅Tony）、低風險1項（target=_blank缺rel=noopener，未修）
+                    - secrets-audit：乾淨，無外洩憑證
+                    - linket-seo-audit：發現5項，其中3項本輪修復——
+                      補canonical（https://linket.app/mumu-cafe）
+                      補LocalBusiness JSON-LD schema
+                      Menu區塊補<h2 class="sr-only">（v2.1拿掉重複標題時連語意化h2一併拿掉，本次修正）
+                    - 🔴 待辦（範圍超出本頁，記錄不修）：curl線上robots.txt發現GPTBot/ClaudeBot/Google-Extended/meta-externalagent全部被Disallow，Cloudflare網域層級設定，影響linket.app全站非MuMu單頁能改，需另開一輪跟Tony確認是否為刻意的防爬蟲政策
+                    - 本機驗證：canonical/ld+json/h2數量(4個)/Menu h2文字內容逐一核對，console乾淨
+
+  待辦（Next，2026-08-02 核對更新，詳見 mumu-cafe-handoff-v4.md）
+                    - 蛋糕銷售頁 5 張圖補齊（og-cake.jpg / img-cake-01~04.jpg，目前全404，先擱置）
+                    - 業主訪談，產出真實文案確認（Tony 自行校正中，不用 Claude 代寫；SEO審查也發現同一缺口：具名引言能提升AI引擎引用率30%）
+                    - GA4/GTM 過渡期共存清理
+                    - Sheets資料innerHTML跳脫（owasp-audit中風險，低優先）
+                    - target=_blank補rel=noopener（owasp-audit低風險）
+                    - 網域層級AI bot封鎖政策待跟Tony確認（見上方v2.4）
+                    - 🟡 待排：英文裝飾字混用/Hero overlay/img width-height屬性
 ================================================================
 -->
 <html lang="zh-Hant">
@@ -70,6 +162,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:image" content="https://linket.app/mumu-cafe/og-image.jpg">
 <meta property="og:url" content="https://linket.app/mumu-cafe">
 <meta property="og:type" content="website">
+<link rel="canonical" href="https://linket.app/mumu-cafe">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "MuMu Cafe & Dessert Shop",
+  "url": "https://linket.app/mumu-cafe",
+  "telephone": "+886-49-2997250",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "中正路454號",
+    "addressLocality": "埔里鎮",
+    "addressRegion": "南投縣",
+    "addressCountry": "TW"
+  },
+  "openingHours": "We-Mo 09:00-21:30",
+  "image": "https://linket.app/mumu-cafe/og-image.jpg"
+}
+</script>
 <link rel="icon" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -91,7 +202,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   --ink3:  rgba(245,236,215,.45);
   --b:     rgba(200,168,112,.18);
   --b2:    rgba(200,168,112,.32);
-  --r:     4px;
+  --r:     10px;
   --mw:    900px;
   --sp:    2.8rem 1.4rem;
 }
@@ -140,8 +251,8 @@ img { display:block; }
 .event-banner-btn { background:var(--bg); color:var(--gold); font-size:.68rem; font-weight:700; padding:.22rem .75rem; border-radius:var(--r); letter-spacing:.15em; }
 
 /* ── TICKER ── */
-.ticker { background:var(--bg2); border-top:1px solid var(--b); border-bottom:1px solid var(--b); padding:.5rem 0; overflow:hidden; }
-.ticker-inner { display:flex; white-space:nowrap; animation:tick 28s linear infinite; }
+.ticker { background:var(--bg2); border-top:1px solid var(--b); border-bottom:1px solid var(--b); padding:.6rem 0; overflow:hidden; }
+.ticker-inner { display:flex; white-space:nowrap; animation:tick 16s linear infinite; }
 .ticker-inner:hover { animation-play-state:paused; }
 .ticker-item { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:.85rem; color:var(--ink3); letter-spacing:.22em; padding:0 1.8rem; }
 .ticker-item.gold { color:var(--gold); }
@@ -149,14 +260,19 @@ img { display:block; }
 
 /* ── HERO ── */
 .hero { position:relative; min-height:100svh; display:flex; align-items:center; justify-content:center; background:var(--bg); overflow:hidden; }
-.hero-bg-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; z-index:0; opacity:.22; }
+.hero-bg-img {
+  position:absolute; inset:0; width:100%; height:100%; z-index:0; opacity:.22;
+  background-color:var(--bg);
+  background-image:url('hero-bg.jpg');
+  background-size:480px auto; background-repeat:repeat; background-position:center;
+}
 .hero-content { position:relative; z-index:2; width:100%; max-width:var(--mw); padding:var(--sp); }
 .hero-cols { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
 @media(max-width:640px){ .hero-cols{grid-template-columns:1fr; gap:2.5rem;} }
 
 /* 左欄：全部置中 */
 .hero-left { display:flex; flex-direction:column; align-items:center; text-align:center; gap:.5rem; }
-.hero-logo-wrap { width:200px; margin:1rem; }
+.hero-logo-wrap { width:220px; margin:1.5rem; }
 .hero-logo-img { width:100%; height:auto; }
 .hero-logo-fallback { height:55px; width:120px; }
 
@@ -178,15 +294,14 @@ img { display:block; }
 }
 .hero-slogan {
   font-family:'Noto Serif TC',serif;
-  font-size:1rem; font-weight:700; color:var(--ink2); line-height:2.1;
-  max-width:280px;margin:0 auto 1rem;
-  max-width:280px;
+  font-size:.8rem; font-weight:500; color:var(--ink2); line-height:2.1;
+  max-width:300px;margin:0 auto 1rem;
+  max-width:300px;
 }
 .hero-tags { display:flex; flex-wrap:wrap; gap:.4rem; justify-content:center; }
 .h-tag {
-  font-size:.75rem; color:var(--gold);
-  border:1px solid var(--b2); padding:.12rem .6rem;
-  border-radius:0; letter-spacing:.12em;
+  font-size:.9rem; color:var(--gold);
+  padding:.12rem .6rem;letter-spacing:.12em;
   font-family:'Noto Serif TC',serif;
 }
 .hero-hours {
@@ -196,7 +311,7 @@ img { display:block; }
 }
 
 /* 右欄 */
-.hero-right { display:flex; flex-direction:column; align-items:center; gap:.8rem; }
+.hero-right { display:flex; flex-direction:column; align-items:center; gap:1rem; }
 .hero-icons { display:flex; justify-content:center; gap:1.2rem; margin-bottom:.4rem; }
 .hero-icon-link { width:44px; height:44px; background:transparent; border:none; display:flex; align-items:center; justify-content:center; transition:transform .25s; }
 .hero-icon-link:hover { transform:translateY(-2px); }
@@ -208,8 +323,8 @@ img { display:block; }
   display:flex; align-items:center; justify-content:center; width:100%;
   padding:.95rem 1.4rem;
   font-family:'Noto Serif TC',serif;
-  font-size:.9rem; font-weight:700; letter-spacing:.22em;
-  border-radius:0; border:1px solid var(--gold); transition:all .3s; cursor:pointer;
+  font-size:.9rem; font-weight:700; letter-spacing:.12em;
+  border-radius:var(--r); border:1.5px solid var(--gold); transition:all .3s; cursor:pointer;
 }
 .hero-btn.p1 { background:var(--gold); color:var(--bg); }
 .hero-btn.p1:hover { background:var(--gold2); border-color:var(--gold2); }
@@ -226,12 +341,10 @@ img { display:block; }
 .btn-sm {
   flex:1; display:flex; align-items:center; justify-content:center;
   background:transparent; border:1px solid var(--b2); color:var(--ink3);
-  font-size:.9rem; letter-spacing:.2em; padding:.8rem .4rem; border-radius:0;
+  font-size:.9rem; letter-spacing:.2em; padding:.8rem .4rem; border-radius:var(--r);
   transition:.3s; cursor:pointer; font-family:'Noto Serif TC',serif;
 }
 .btn-sm:hover { border-color:var(--gold); color:var(--gold); }
-.btn-sm.share { display:none; }
-.btn-sm.share.visible { display:flex; }
 
 /* ── WATERMARK（精簡版）── */
 .watermark {
@@ -255,7 +368,7 @@ img { display:block; }
 }
 
 /* ── 通用 Section ── */
-.section { padding:5rem 0; }
+.section { padding:2rem 0; }
 .section.dark { background:var(--bg2); }
 .content-wrap { max-width:var(--mw); margin:0 auto; padding:var(--sp); }
 .sec-eyebrow {
@@ -271,13 +384,24 @@ img { display:block; }
   margin-bottom:.5rem; letter-spacing:.04em; line-height:1.25;
 }
 .sec-title span { color:var(--gold); }
+.menu-title-big {
+  font-size:clamp(3.6rem,12vw,6rem); letter-spacing:.14em;
+  margin-bottom:1.2rem;
+}
 .sec-rule {
   width:32px; height:1px; background:var(--gold);
   margin:1rem 0 2rem;
 }
 
-/* ── 品牌介紹區：雜誌圖文排版 ── */
-.editorial-section { padding:6rem 0; }
+/* ── 品牌介紹區：雜誌圖文排版（咖啡豆背景，2026-07-30 新增，跟下方Menu區的純色底做區隔）── */
+.editorial-section { padding:2rem 0; position:relative; overflow:hidden; }
+.editorial-bg-img {
+  position:absolute; inset:0; width:100%; height:100%; z-index:0; opacity:.32;
+  background-color:var(--bg);
+  background-image:url('hero-bg.jpg');
+  background-size:480px auto; background-repeat:repeat; background-position:center;
+}
+.editorial-section .content-wrap { position:relative; z-index:1; }
 
 /* 大引言 */
 .editorial-quote {
@@ -292,7 +416,7 @@ img { display:block; }
 /* 雜誌圖文區：左圖右文 / 左文右圖 */
 .ed-row {
   display:grid; grid-template-columns:1fr 1fr; gap:0;
-  margin-bottom:4rem; border:1px solid var(--b);
+  margin-bottom:2rem; border:1px solid var(--b);
 }
 .ed-row.reverse { direction:rtl; }
 .ed-row.reverse > * { direction:ltr; }
@@ -350,34 +474,33 @@ img { display:block; }
 }
 
 /* ── MENU 區塊 ── */
-.menu-section { background:var(--bg); padding:5rem 0; }
+.menu-section { background:var(--bg); padding:2rem 0; }
 
-/* Tab 導航：雜誌風橫線樣式 */
-.menu-tabs {
-  display:flex; flex-wrap:nowrap; overflow-x:auto;
-  gap:0; margin-bottom:0;
-  border-bottom:1px solid var(--b);
-  scrollbar-width:none;
+/* 菜單分類：手風琴收合（2026-07-30 取代橫向捲動Tab，解決手機看不到後段分類的問題，比照 x-web-tech svc-accordion 同一套邏輯）*/
+.menu-accordion { display:flex; flex-direction:column; gap:.8rem; }
+.menu-acc-item { border:none; scroll-margin-top:1.2rem; }
+.menu-acc-head {
+  width:100%; display:flex; align-items:center; justify-content:space-between; gap:1rem;
+  padding:1.1rem 1.3rem; background:var(--bg3); border:none; border-radius:var(--r);
+  cursor:pointer; text-align:left; transition:background .25s;
+  font-family:'Noto Serif TC',serif; color:var(--cream);
 }
-.menu-tabs::-webkit-scrollbar { display:none; }
-.menu-tab-btn {
-  background:transparent; border:none; border-bottom:2px solid transparent;
-  color:var(--ink3); padding:.7rem 1.2rem;
-  font-family:'Noto Serif TC',serif;
-  font-size:.72rem; letter-spacing:.2em; cursor:pointer;
-  transition:.2s; white-space:nowrap; flex-shrink:0;
-  margin-bottom:-1px;
+.menu-acc-item.open .menu-acc-head { background:var(--gold2); color:var(--bg); }
+.menu-acc-item.open .menu-acc-head .menu-acc-title .en { color:var(--bg); opacity:.7; }
+.menu-acc-item.open .menu-acc-icon { color:var(--bg); }
+.menu-acc-title { font-size:clamp(1.8rem,4.5vw,2.5rem); font-weight:500; letter-spacing:.04em; }
+.menu-acc-title .en {
+  font-family:'Cormorant Garamond',serif; font-style:italic;
+  font-size:1.24rem; font-weight:400; color:var(--gold); margin-left:.6em; letter-spacing:.1em;
 }
-.menu-tab-btn:hover { color:var(--cream); }
-.menu-tab-btn.active {
-  color:var(--gold); border-bottom-color:var(--gold);
-  font-weight:500;
-}
+.menu-acc-icon { flex:0 0 auto; font-size:1.6rem; font-weight:300; color:var(--gold); line-height:1; width:1.2rem; text-align:center; }
+.menu-acc-panel { display:grid; grid-template-rows:0fr; transition:grid-template-rows .35s ease; }
+.menu-acc-panel > div { overflow:hidden; }
+.menu-acc-item.open .menu-acc-panel { grid-template-rows:1fr; }
+.menu-acc-panel-inner { padding:0 .3rem 1.8rem; }
 
-/* Tab 內容面板 */
-.menu-pane { display:none; padding-top:1.8rem; animation:fadeInTab .3s ease both; }
-.menu-pane.active { display:block; }
-@keyframes fadeInTab { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:none} }
+/* Tab 內容面板（沿用既有 pane 資料渲染邏輯，顯示改由 .menu-acc-panel 控制）*/
+.menu-pane { padding-top:1rem; }
 
 /* ── 咖啡豆讀取動畫 ── */
 .bean-loader { display:flex; align-items:center; justify-content:center; padding:4rem 0; }
@@ -422,13 +545,13 @@ img { display:block; }
 .mi-name {
   display:block;
   font-family:'Noto Serif TC',serif;
-  font-size:1rem; font-weight:400; color:var(--cream);
+  font-size:1.2rem; font-weight:400; color:var(--cream);
   letter-spacing:.05em; line-height:1.5;
 }
 .mi-name-en {
   display:block;
   font-family:'Cormorant Garamond',serif; font-style:italic;
-  font-size:.75rem; color:var(--ink3); letter-spacing:.1em;
+  font-size:.9rem; color:var(--ink3); letter-spacing:.1em;
   font-weight:400; margin-top:.15rem; line-height:1.5;
 }
 .mi-prices { display:flex; gap:.9rem; flex-shrink:0; align-items:baseline; }
@@ -436,15 +559,15 @@ img { display:block; }
 .mi-price-label {
   display:block;
   font-family:'Noto Serif TC',serif;
-  font-size:.55rem; color:var(--ink3); letter-spacing:.08em; margin-bottom:.1rem;
+  font-size:.82rem; color:var(--ink3); letter-spacing:.08em; margin-bottom:.1rem;
 }
 .mi-price-val {
   font-family:'Playfair Display',serif;
-  font-size:.9rem; color:var(--gold); font-weight:500;
+  font-size:1.08rem; color:var(--gold); font-weight:500;
 }
 .mi-price-single {
   font-family:'Playfair Display',serif;
-  font-size:.95rem; color:var(--gold); font-weight:500; flex-shrink:0;
+  font-size:1.14rem; color:var(--gold); font-weight:500; flex-shrink:0;
 }
 .mi-cat-badge {
   display:inline-block; font-size:.45rem; color:var(--ink3);
@@ -462,14 +585,31 @@ img { display:block; }
 .ig-embed-wrap { overflow:hidden; }
 .ig-embed-wrap .instagram-media { margin:0 !important; min-width:100% !important; }
 
+/* ── VISIT（拜訪 MuMu：地圖＋聯繫）2026-07-30 新增 ── */
+.visit-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:2.5rem; align-items:stretch; }
+@media(max-width:768px){ .visit-grid { grid-template-columns:1fr; } }
+.visit-map { width:100%; aspect-ratio:4/3; border:none; border-radius:var(--r); display:block; filter:grayscale(.2) contrast(1.05); }
+.visit-card {
+  background:var(--bg2); border:1px solid var(--b); border-radius:var(--r);
+  padding:2.2rem 1.8rem; display:flex; flex-direction:column; justify-content:center; gap:1.3rem;
+}
+.visit-row { display:flex; align-items:flex-start; gap:.9rem; }
+.visit-icon { flex:0 0 auto; width:20px; height:20px; margin-top:.15rem; opacity:.85; }
+.visit-label {
+  font-family:'Cormorant Garamond',serif; font-style:italic;
+  font-size:.68rem; color:var(--gold); letter-spacing:.2em; text-transform:uppercase; margin-bottom:.25rem;
+}
+.visit-text { font-size:.88rem; color:var(--ink2); line-height:1.7; }
+.visit-btns { display:flex; flex-direction:column; gap:.7rem; margin-top:.4rem; }
+
 /* ── FOOTER ── */
 .footer { background:var(--bg2); border-top:1px solid var(--b); padding:5rem 1.4rem 4rem; text-align:center; }
-.footer-logo-wrap { width:80px; margin:0 auto 1.5rem; }
-.footer-name { font-size:1.8rem; font-weight:700; letter-spacing:.2em; color:var(--cream); margin-bottom:.4rem; }
-.footer-name span { color:var(--gold); }
-.footer-sub { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:.88rem; color:var(--ink3); letter-spacing:.25em; margin-bottom:2.5rem; }
+.footer-logo-wrap { width:220px; margin:0 auto 2rem; }
+.f-icons { display:flex; justify-content:center; gap:1rem; margin-bottom:1.5rem; flex-wrap:wrap; }
+.f-icons .hero-icon-link { width:50px; height:50px; }
+.f-icons .hero-icon-link img { width:40px; height:40px; }
 .footer-cta-wrap { display:flex; flex-direction:column; gap:.8rem; max-width:320px; margin:0 auto 3rem; }
-.footer-btn { display:flex; align-items:center; justify-content:center; padding:1rem 1.4rem; font-size:.88rem; font-weight:400; letter-spacing:.2em; border-radius:var(--r); border:1px solid var(--gold); transition:.3s; }
+.footer-btn { display:flex; align-items:center; justify-content:center; padding:1rem 1.4rem; font-size:.9rem; font-weight:500; letter-spacing:.2em; border-radius:var(--r); border:1px solid var(--gold); transition:.3s; }
 .footer-btn.p1 { background:var(--gold); color:var(--bg); }
 .footer-btn.p1:hover { background:var(--gold2); }
 .footer-btn.ghost { background:transparent; color:var(--gold); }
@@ -491,7 +631,7 @@ img { display:block; }
 .qr-overlay.active { display:flex; }
 @keyframes fadeIn { from{opacity:0} to{opacity:1} }
 .qr-modal { background:var(--bg2); border:1px solid var(--b2); padding:3rem 2.5rem; max-width:320px; width:90%; display:flex; flex-direction:column; align-items:center; text-align:center; border-radius:var(--r); }
-.qr-modal-logo { width:120px; margin-bottom:2rem; }
+.qr-modal-logo { width:170px; margin-bottom:2rem; }
 .qr-code-box { width:190px; height:190px; margin-bottom:2rem; border:1px solid var(--b); padding:8px; background:#fff; border-radius:var(--r); }
 .qr-code-box img { width:100%; height:100%; }
 .qr-url { font-size:.72rem; color:var(--ink3); letter-spacing:.2em; margin-bottom:2rem; }
@@ -511,6 +651,12 @@ img { display:block; }
 .card-dl-btn.ghost { background:transparent; color:var(--gold); }
 .card-dl-close { background:transparent; border:none; color:var(--ink3); font-size:.75rem; letter-spacing:.2em; cursor:pointer; margin-top:.4rem; font-family:'Noto Serif TC',serif; }
 
+/* ── SR Only（SEO用，視覺隱藏）── */
+.sr-only {
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+}
+
 /* ── Scroll Reveal ── */
 .reveal { opacity:0; transform:translateY(16px); transition:.7s cubic-bezier(.2,.8,.2,1); }
 .reveal.visible { opacity:1; transform:none; }
@@ -519,58 +665,19 @@ img { display:block; }
 
 <body id="top">
 
+<h1 class="sr-only">MuMu Cafe & Dessert Shop｜義式咖啡・手工甜點・埔里</h1>
+
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8PS42TD"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<!-- ① TOP BADGE（_shared 注入）-->
-<div id="shared-top-badge"></div>
-
 <!-- ② EVENT BANNER（_shared 注入）-->
 <div id="shared-event-banner"></div>
 
-<!-- ③ TICKER -->
-<div class="ticker">
-  <div class="ticker-inner" aria-hidden="true">
-    <span class="ticker-item gold">MuMu Cafe & Dessert Shop</span>
-    <span class="ticker-item">義式咖啡</span>
-    <span class="ticker-item gold">·</span>
-    <span class="ticker-item">手工甜點</span>
-    <span class="ticker-item gold">·</span>
-    <span class="ticker-item">客製化蛋糕</span>
-    <span class="ticker-item gold">·</span>
-    <span class="ticker-item">甜點禮盒</span>
-    <span class="ticker-item gold">·</span>
-    <span class="ticker-item">埔里中正路</span>
-    <span class="ticker-item gold">·</span>
-    <span class="ticker-item">週三至週一 09:00–21:30</span>
-    <span class="ticker-item gold">·</span>
-    <span class="ticker-item">電話外送服務</span>
-    <span class="ticker-item gold">·</span>
-    <!-- 第二組（無縫循環） -->
-    <span class="ticker-item gold">MuMu Cafe & Dessert Shop</span>
-    <span class="ticker-item">義式咖啡</span>
-    <span class="ticker-item gold">·</span>
-    <span class="ticker-item">手工甜點</span>
-    <span class="ticker-item gold">·</span>
-    <span class="ticker-item">客製化蛋糕</span>
-    <span class="ticker-item gold">·</span>
-    <span class="ticker-item">甜點禮盒</span>
-    <span class="ticker-item gold">·</span>
-    <span class="ticker-item">埔里中正路</span>
-    <span class="ticker-item gold">·</span>
-    <span class="ticker-item">週三至週一 09:00–21:30</span>
-    <span class="ticker-item gold">·</span>
-    <span class="ticker-item">電話外送服務</span>
-    <span class="ticker-item gold">·</span>
-  </div>
-</div>
-
 <!-- ④ HERO -->
 <section class="hero">
-  <img src="hero-bg.jpg" class="hero-bg-img" aria-hidden="true"
-       onerror="this.style.display='none'">
+  <div class="hero-bg-img" aria-hidden="true"></div>
 
   <div class="hero-content">
     <div class="hero-cols">
@@ -578,23 +685,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <!-- 左欄 -->
       <div class="hero-left">
         <div class="hero-logo-wrap">
-          <img src="mumu-logo-2.png" alt="MuMu Cafe" class="hero-logo-img"
+          <img src="mumu-logo-05.svg" alt="MuMu Cafe" class="hero-logo-img"
                onerror="this.outerHTML='<div class=\'fallback-box hero-logo-fallback\' style=\'height:80px;width:160px;\'>MuMu</div>'">
         </div>
         <div class="hero-slogan" id="hero-slogan">
           「每一口甜點，都是埔里的日常溫度。」
         </div>
         <div class="hero-tags">
-          <span class="h-tag">#義式咖啡</span>
-          <span class="h-tag">#手工甜點</span>
-          <span class="h-tag">#客製蛋糕</span>
-          <span class="h-tag">#餐會佈置</span>
+          <span class="h-tag">義式咖啡｜手工甜點｜客製蛋糕｜餐會佈置</span>
         </div>
         <div class="hero-hours" id="hero-hours">
+          南投縣埔里鎮中正路454號<br>
           <span id="hours-text">週三～週一 09:00–21:30</span>
           <span id="closed-text">｜每週二公休</span><br>
           <span id="hours-special" style="display:none;color:var(--gold)"></span>
-          南投縣埔里鎮中正路454號
         </div>
       </div>
 
@@ -632,8 +736,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
            onclick="gtag('event','click_line',{'event_category':'CTA','event_label':'mumu-cafe'})">
           客製化甜點蛋糕｜LINE@
         </a>
-        <a href="#menu" class="hero-btn ghost">查看完整菜單</a>
-        <a href="#service" class="hero-btn ghost">品牌服務介紹</a>
+        <a href="#menu" class="hero-btn ghost">查看完整菜單｜Menu</a>
+        <a href="#service" class="hero-btn ghost">品牌服務介紹｜Service</a>
         <a href="https://line.me/R/pay/payment?action=reserve&encPath=Gbn2iTI00yECy1BofVdEMMzIhXt3i71C1WrSylutEXzYbspIxrbALC1O1m6lnsy8&merchantProvider=LINEPAY" target="_blank" class="hero-btn ghost"
            onclick="gtag('event','click_linepay',{'event_category':'CTA','event_label':'mumu-cafe'})">
           線上付款｜LINE PAY
@@ -642,12 +746,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="hero-btn-row">
           <button class="btn-sm" onclick="openQr()"
             aria-label="QR Code">QR Code</button>
-          <button class="btn-sm" onclick="openCardModal()"
-            aria-label="下載名片"
-            data-ga='{"event":"click_download_card","label":"mumu-cafe"}'>
-            名片下載
-          </button>
-          <button class="btn-sm share" id="shareBtn" onclick="shareThisPage()">Share</button>
+          <button class="btn-sm" id="shareBtn" onclick="shareThisPage()">Share</button>
         </div>
       </div>
 
@@ -655,15 +754,46 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- ⑤ WATERMARK -->
-<div class="watermark reveal">
-  <div class="wm-main">MuMu</div>
-  <div class="wm-sep">—</div>
-  <div class="wm-sub">Coffee & Handmade Desserts · Puli</div>
+<!-- ⑤ TICKER（取代原 WATERMARK 位置，2026-07-30）-->
+<div class="ticker reveal">
+  <div class="ticker-inner" aria-hidden="true">
+    <span class="ticker-item gold">MuMu Cafe & Dessert Shop</span>
+    <span class="ticker-item">義式咖啡</span>
+    <span class="ticker-item gold">·</span>
+    <span class="ticker-item">手工甜點</span>
+    <span class="ticker-item gold">·</span>
+    <span class="ticker-item">客製化蛋糕</span>
+    <span class="ticker-item gold">·</span>
+    <span class="ticker-item">甜點禮盒</span>
+    <span class="ticker-item gold">·</span>
+    <span class="ticker-item">埔里中正路</span>
+    <span class="ticker-item gold">·</span>
+    <span class="ticker-item">週三至週一 09:00–21:30</span>
+    <span class="ticker-item gold">·</span>
+    <span class="ticker-item">電話外送服務</span>
+    <span class="ticker-item gold">·</span>
+    <!-- 第二組（無縫循環） -->
+    <span class="ticker-item gold">MuMu Cafe & Dessert Shop</span>
+    <span class="ticker-item">義式咖啡</span>
+    <span class="ticker-item gold">·</span>
+    <span class="ticker-item">手工甜點</span>
+    <span class="ticker-item gold">·</span>
+    <span class="ticker-item">客製化蛋糕</span>
+    <span class="ticker-item gold">·</span>
+    <span class="ticker-item">甜點禮盒</span>
+    <span class="ticker-item gold">·</span>
+    <span class="ticker-item">埔里中正路</span>
+    <span class="ticker-item gold">·</span>
+    <span class="ticker-item">週三至週一 09:00–21:30</span>
+    <span class="ticker-item gold">·</span>
+    <span class="ticker-item">電話外送服務</span>
+    <span class="ticker-item gold">·</span>
+  </div>
 </div>
 
 <!-- ⑥ 品牌服務介紹：雜誌圖文排版 -->
 <section class="editorial-section" id="service">
+  <div class="editorial-bg-img" aria-hidden="true"></div>
   <div class="content-wrap">
     <span class="sec-eyebrow reveal">Our Story</span>
     <h2 class="sec-title reveal">不只是咖啡館</h2>
@@ -672,7 +802,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- 大引言 -->
     <p class="editorial-quote reveal">
       每一杯咖啡，每一口甜點，<br>
-      都是 MuMu 對這座小鎮日常的回應。
+      都是MuMu對這座小鎮日常的回應。
     </p>
 
     <!-- 圖文區塊 01：義式咖啡 -->
@@ -749,68 +879,125 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ⑦ 菜單 -->
 <section class="menu-section" id="menu">
   <div class="content-wrap">
-    <span class="sec-eyebrow reveal">Menu</span>
-    <h2 class="sec-title reveal">菜單 <span>· Menu</span></h2>
+    <h2 class="sr-only">菜單 Menu</h2>
+    <span class="sec-eyebrow menu-title-big reveal">Menu</span>
 
-    <!-- Tab 導航 -->
-    <div class="menu-tabs reveal" id="menu-tabs">
-      <button class="menu-tab-btn active" data-tab="咖啡" onclick="switchTab(this,'咖啡')">咖啡</button>
-      <button class="menu-tab-btn" data-tab="新鮮果汁" onclick="switchTab(this,'新鮮果汁')">果汁</button>
-      <button class="menu-tab-btn" data-tab="特調茶飲" onclick="switchTab(this,'特調茶飲')">茶飲</button>
-      <button class="menu-tab-btn" data-tab="冰沙" onclick="switchTab(this,'冰沙')">冰沙</button>
-      <button class="menu-tab-btn" data-tab="鮮奶特調" onclick="switchTab(this,'鮮奶特調')">鮮奶特調</button>
-      <button class="menu-tab-btn" data-tab="輕食甜點" onclick="switchTab(this,'輕食甜點')">輕食甜點</button>
-    </div>
+    <!-- 菜單分類手風琴（2026-07-30 取代橫向捲動Tab）-->
+    <div class="menu-accordion reveal" id="menu-accordion">
 
-    <!-- Tab 內容區 -->
-    <div id="menu-panes">
-      <!-- 咖啡：靜態預載，API 回來後更新價格 -->
-      <div class="menu-pane active" id="pane-咖啡">
-        <div class="cat-note" id="coffee-note">冷美式另有小杯 S NT$50（冷飲限定）</div>
-        <div id="coffee-list">
-          <!-- 靜態品項，API 回來後補價格 -->
-          <div class="menu-item" data-item="美式咖啡">
-            <div class="mi-name-wrap">
-              <span class="mi-name">美式咖啡</span>
-              <span class="mi-name-en">Americano</span>
-            </div>
-            <div class="mi-prices" id="price-美式咖啡">
-              <div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">50</span></div>
-              <div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">65</span></div>
-              <div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">65</span></div>
-              <div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">75</span></div>
+      <div class="menu-acc-item open" data-tab="咖啡">
+        <button class="menu-acc-head" aria-expanded="true" onclick="toggleMenuAcc(this,'咖啡')">
+          <span class="menu-acc-title">咖啡<span class="en">Coffee</span></span>
+          <span class="menu-acc-icon">−</span>
+        </button>
+        <div class="menu-acc-panel"><div>
+          <div class="menu-acc-panel-inner">
+            <!-- 咖啡：靜態預載，API 回來後更新價格 -->
+            <div class="menu-pane" id="pane-咖啡">
+              <div class="cat-note" id="coffee-note">冷美式另有小杯 S NT$50（冷飲限定）</div>
+              <div id="coffee-list">
+                <!-- 靜態品項，API 回來後補價格 -->
+                <div class="menu-item" data-item="美式咖啡">
+                  <div class="mi-name-wrap">
+                    <span class="mi-name">美式咖啡</span>
+                    <span class="mi-name-en">Americano</span>
+                  </div>
+                  <div class="mi-prices" id="price-美式咖啡">
+                    <div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">50</span></div>
+                    <div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">65</span></div>
+                    <div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">65</span></div>
+                    <div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">75</span></div>
+                  </div>
+                </div>
+                <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">卡布奇諾</span><span class="mi-name-en">Cappuccino</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">60</span></div><div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">75</span></div><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">90</span></div></div></div>
+                <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">拿鐵咖啡</span><span class="mi-name-en">Coffee Latte</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">60</span></div><div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">75</span></div><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">90</span></div></div></div>
+                <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">提拉米蘇咖啡</span><span class="mi-name-en">Coffee Tiramisu</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">60</span></div><div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">75</span></div><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">90</span></div></div></div>
+                <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">冰點咖啡</span><span class="mi-name-en">Coffee with Mint</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">90</span></div></div></div>
+                <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">焦糖瑪奇朵</span><span class="mi-name-en">Caramel Macchiato</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">60</span></div><div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">75</span></div><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">90</span></div></div></div>
+                <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">黑糖瑪奇朵</span><span class="mi-name-en">Brown Sugar Macchiato</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">60</span></div><div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">75</span></div><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">90</span></div></div></div>
+                <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">黑森林咖啡</span><span class="mi-name-en">Black Forest Coffee</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">70</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">95</span></div></div></div>
+                <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">威士忌咖啡</span><span class="mi-name-en">Coffee with Whiskey</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">80</span></div><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">70</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">95</span></div></div></div>
+                <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">香草 / 橘香 拿鐵</span><span class="mi-name-en">Coffee Latte — Vanilla or Tangerine</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">80</span></div><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">70</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">95</span></div></div></div>
+                <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">榛果 / 摩卡 拿鐵</span><span class="mi-name-en">Coffee Latte — Hazelnut or Mocha</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">80</span></div><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">70</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">95</span></div></div></div>
+                <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">焦糖 / 玫瑰 拿鐵</span><span class="mi-name-en">Coffee Latte — Caramel or Rose</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">80</span></div><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">70</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">95</span></div></div></div>
+                <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">黑糖 / 抹茶 拿鐵</span><span class="mi-name-en">Coffee Latte — Brown Sugar or Matcha</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">80</span></div><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">70</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">95</span></div></div></div>
+              </div>
+              <!-- API 讀取後如有差異自動更新，此為靜態預載版本 -->
             </div>
           </div>
-          <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">卡布奇諾</span><span class="mi-name-en">Cappuccino</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">60</span></div><div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">75</span></div><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">90</span></div></div></div>
-          <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">拿鐵咖啡</span><span class="mi-name-en">Coffee Latte</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">60</span></div><div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">75</span></div><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">90</span></div></div></div>
-          <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">提拉米蘇咖啡</span><span class="mi-name-en">Coffee Tiramisu</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">60</span></div><div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">75</span></div><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">90</span></div></div></div>
-          <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">冰點咖啡</span><span class="mi-name-en">Coffee with Mint</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">90</span></div></div></div>
-          <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">焦糖瑪奇朵</span><span class="mi-name-en">Caramel Macchiato</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">60</span></div><div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">75</span></div><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">90</span></div></div></div>
-          <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">黑糖瑪奇朵</span><span class="mi-name-en">Brown Sugar Macchiato</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">60</span></div><div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">75</span></div><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">90</span></div></div></div>
-          <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">黑森林咖啡</span><span class="mi-name-en">Black Forest Coffee</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">70</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">95</span></div></div></div>
-          <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">威士忌咖啡</span><span class="mi-name-en">Coffee with Whiskey</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">80</span></div><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">70</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">95</span></div></div></div>
-          <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">香草 / 橘香 拿鐵</span><span class="mi-name-en">Coffee Latte — Vanilla or Tangerine</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">80</span></div><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">70</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">95</span></div></div></div>
-          <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">榛果 / 摩卡 拿鐵</span><span class="mi-name-en">Coffee Latte — Hazelnut or Mocha</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">80</span></div><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">70</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">95</span></div></div></div>
-          <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">焦糖 / 玫瑰 拿鐵</span><span class="mi-name-en">Coffee Latte — Caramel or Rose</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">80</span></div><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">70</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">95</span></div></div></div>
-          <div class="menu-item"><div class="mi-name-wrap"><span class="mi-name">黑糖 / 抹茶 拿鐵</span><span class="mi-name-en">Coffee Latte — Brown Sugar or Matcha</span></div><div class="mi-prices"><div class="mi-price-group"><span class="mi-price-label">熱M</span><span class="mi-price-val">65</span></div><div class="mi-price-group"><span class="mi-price-label">熱L</span><span class="mi-price-val">80</span></div><div class="mi-price-group"><span class="mi-price-label">冷M</span><span class="mi-price-val">70</span></div><div class="mi-price-group"><span class="mi-price-label">冷L</span><span class="mi-price-val">95</span></div></div></div>
-        </div>
-        <!-- API 讀取後如有差異自動更新，此為靜態預載版本 -->
+        </div></div>
       </div>
-      <div class="menu-pane" id="pane-新鮮果汁">
-        <div class="bean-loader" id="menu-loader-juice"><div class="bean-wrap"><div class="bean-icon"></div><div class="bean-text">載入中</div></div></div>
+
+      <div class="menu-acc-item" data-tab="新鮮果汁">
+        <button class="menu-acc-head" aria-expanded="false" onclick="toggleMenuAcc(this,'新鮮果汁')">
+          <span class="menu-acc-title">新鮮果汁<span class="en">Fresh Juice</span></span>
+          <span class="menu-acc-icon">+</span>
+        </button>
+        <div class="menu-acc-panel"><div>
+          <div class="menu-acc-panel-inner">
+            <div class="menu-pane" id="pane-新鮮果汁">
+              <div class="bean-loader" id="menu-loader-juice"><div class="bean-wrap"><div class="bean-icon"></div><div class="bean-text">載入中</div></div></div>
+            </div>
+          </div>
+        </div></div>
       </div>
-      <div class="menu-pane" id="pane-特調茶飲">
-        <div class="bean-loader"><div class="bean-wrap"><div class="bean-icon"></div><div class="bean-text">載入中</div></div></div>
+
+      <div class="menu-acc-item" data-tab="特調茶飲">
+        <button class="menu-acc-head" aria-expanded="false" onclick="toggleMenuAcc(this,'特調茶飲')">
+          <span class="menu-acc-title">特調茶飲<span class="en">Tea</span></span>
+          <span class="menu-acc-icon">+</span>
+        </button>
+        <div class="menu-acc-panel"><div>
+          <div class="menu-acc-panel-inner">
+            <div class="menu-pane" id="pane-特調茶飲">
+              <div class="bean-loader"><div class="bean-wrap"><div class="bean-icon"></div><div class="bean-text">載入中</div></div></div>
+            </div>
+          </div>
+        </div></div>
       </div>
-      <div class="menu-pane" id="pane-冰沙">
-        <div class="bean-loader"><div class="bean-wrap"><div class="bean-icon"></div><div class="bean-text">載入中</div></div></div>
+
+      <div class="menu-acc-item" data-tab="冰沙">
+        <button class="menu-acc-head" aria-expanded="false" onclick="toggleMenuAcc(this,'冰沙')">
+          <span class="menu-acc-title">冰沙<span class="en">Smoothie</span></span>
+          <span class="menu-acc-icon">+</span>
+        </button>
+        <div class="menu-acc-panel"><div>
+          <div class="menu-acc-panel-inner">
+            <div class="menu-pane" id="pane-冰沙">
+              <div class="bean-loader"><div class="bean-wrap"><div class="bean-icon"></div><div class="bean-text">載入中</div></div></div>
+            </div>
+          </div>
+        </div></div>
       </div>
-      <div class="menu-pane" id="pane-鮮奶特調">
-        <div class="bean-loader"><div class="bean-wrap"><div class="bean-icon"></div><div class="bean-text">載入中</div></div></div>
+
+      <div class="menu-acc-item" data-tab="鮮奶特調">
+        <button class="menu-acc-head" aria-expanded="false" onclick="toggleMenuAcc(this,'鮮奶特調')">
+          <span class="menu-acc-title">鮮奶特調<span class="en">Milk Series</span></span>
+          <span class="menu-acc-icon">+</span>
+        </button>
+        <div class="menu-acc-panel"><div>
+          <div class="menu-acc-panel-inner">
+            <div class="menu-pane" id="pane-鮮奶特調">
+              <div class="bean-loader"><div class="bean-wrap"><div class="bean-icon"></div><div class="bean-text">載入中</div></div></div>
+            </div>
+          </div>
+        </div></div>
       </div>
-      <div class="menu-pane" id="pane-輕食甜點">
-        <div class="bean-loader"><div class="bean-wrap"><div class="bean-icon"></div><div class="bean-text">載入中</div></div></div>
+
+      <div class="menu-acc-item" data-tab="輕食甜點">
+        <button class="menu-acc-head" aria-expanded="false" onclick="toggleMenuAcc(this,'輕食甜點')">
+          <span class="menu-acc-title">輕食甜點<span class="en">Light Bites</span></span>
+          <span class="menu-acc-icon">+</span>
+        </button>
+        <div class="menu-acc-panel"><div>
+          <div class="menu-acc-panel-inner">
+            <div class="menu-pane" id="pane-輕食甜點">
+              <div class="bean-loader"><div class="bean-wrap"><div class="bean-icon"></div><div class="bean-text">載入中</div></div></div>
+            </div>
+          </div>
+        </div></div>
       </div>
+
     </div>
   </div>
 </section>
@@ -827,16 +1014,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="ig-card-desc">活動場合甜點桌服務</div>
         </div>
         <div class="ig-embed-wrap">
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DSBrToNkk83/?utm_source=ig_embed&utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;margin:0;max-width:100%;min-width:100%;padding:0;width:100%;"></blockquote>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DTFu6D6ErTF/?utm_source=ig_embed&utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;margin:0;max-width:100%;min-width:100%;padding:0;width:100%;"></blockquote>
         </div>
       </div>
       <div class="ig-card reveal">
         <div class="ig-card-label">
-          <div class="ig-card-title">甜點禮品 Grand Buying Dessert</div>
-          <div class="ig-card-desc">大量採購禮盒服務</div>
+          <div class="ig-card-title">季節限定甜點 Seasonal Desserts</div>
+          <div class="ig-card-desc">依季節選用埔里在地水果，大福・馬卡龍不定期推出</div>
         </div>
         <div class="ig-embed-wrap">
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DTFu6D6ErTF/?utm_source=ig_embed&utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;margin:0;max-width:100%;min-width:100%;padding:0;width:100%;"></blockquote>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DWOz9j_iYSh/?utm_source=ig_embed&utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;margin:0;max-width:100%;min-width:100%;padding:0;width:100%;"></blockquote>
         </div>
       </div>
       <div class="ig-card reveal">
@@ -845,7 +1032,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="ig-card-desc">生日造型蛋糕設計</div>
         </div>
         <div class="ig-embed-wrap">
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DWOz9j_iYSh/?utm_source=ig_embed&utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;margin:0;max-width:100%;min-width:100%;padding:0;width:100%;"></blockquote>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DSBrToNkk83/?utm_source=ig_embed&utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;margin:0;max-width:100%;min-width:100%;padding:0;width:100%;"></blockquote>
         </div>
       </div>
       <div class="ig-card reveal">
@@ -871,14 +1058,85 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- IG Embed Script -->
 <script async src="//www.instagram.com/embed.js"></script>
 
+<!-- ⑧-2 VISIT：拜訪 MuMu（地圖＋聯繫，2026-07-30 新增）-->
+<section class="section" id="visit">
+  <div class="content-wrap">
+    <span class="sec-eyebrow reveal">Visit Us</span>
+    <h2 class="sec-title reveal">拜訪 <span>MuMu</span></h2>
+    <div class="sec-rule reveal"></div>
+
+    <div class="visit-grid reveal">
+      <iframe class="visit-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=%E5%8D%97%E6%8A%95%E7%B8%A3%E5%9F%94%E9%87%8C%E9%8E%AE%E4%B8%AD%E6%AD%A3%E8%B7%AF454%E8%99%9F&output=embed"
+        title="MuMu Cafe 地圖"></iframe>
+
+      <div class="visit-card">
+        <div class="visit-row">
+          <img class="visit-icon" src="/assets/map.svg" alt="地址" onerror="this.style.display='none'">
+          <div>
+            <div class="visit-label">Address</div>
+            <div class="visit-text">南投縣埔里鎮中正路454號</div>
+          </div>
+        </div>
+        <div class="visit-row">
+          <img class="visit-icon" src="/assets/phone.svg" alt="電話" onerror="this.style.display='none'">
+          <div>
+            <div class="visit-label">Phone</div>
+            <div class="visit-text">049-2997250</div>
+          </div>
+        </div>
+        <div class="visit-row">
+          <div class="visit-icon"></div>
+          <div>
+            <div class="visit-label">Hours</div>
+            <div class="visit-text" id="visit-hours-text">週三～週一 09:00–21:30｜每週二公休</div>
+          </div>
+        </div>
+
+        <div class="visit-btns">
+          <a href="tel:0492997250" class="hero-btn p1"
+             onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'mumu-cafe'})">
+            電話預約外送｜Contact us
+          </a>
+          <a href="https://maps.app.goo.gl/3aw1pcVv3f4S57Qy6" target="_blank" class="hero-btn ghost"
+             onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'mumu-cafe'})">
+            開啟 Google 導航｜Navigate
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ⑨ FOOTER -->
 <footer class="footer">
   <div class="footer-logo-wrap reveal">
-    <img src="mumu-logo-2.png?v=2" alt="MuMu" style="width:100%;"
+    <img src="mumu-logo-05.svg" alt="MuMu Cafe" style="width:100%;"
          onerror="this.style.display='none'">
   </div>
-  <div class="footer-name reveal">MuMu <span>Cafe</span></div>
-  <div class="footer-sub reveal">Coffee & Handmade Desserts · Puli</div>
+
+  <div class="f-icons reveal">
+    <a class="hero-icon-link" href="tel:0492997250" aria-label="電話"
+       onclick="gtag('event','click_tel_footer',{'event_category':'CTA','event_label':'mumu-cafe'})">
+      <img src="/assets/phone.svg" alt="Phone" onerror="this.style.display='none'">
+    </a>
+    <a class="hero-icon-link" href="https://lin.ee/jQ5axSf" target="_blank" aria-label="LINE"
+       onclick="gtag('event','click_line_footer',{'event_category':'CTA','event_label':'mumu-cafe'})">
+      <img src="/assets/line.svg" alt="LINE" onerror="this.style.display='none'">
+    </a>
+    <a class="hero-icon-link" href="https://www.instagram.com/mumu2997250" target="_blank" aria-label="Instagram"
+       onclick="gtag('event','click_ig_footer',{'event_category':'CTA','event_label':'mumu-cafe'})">
+      <img src="/assets/instagram.svg" alt="Instagram" onerror="this.style.display='none'">
+    </a>
+    <a class="hero-icon-link" href="https://www.facebook.com/profile.php?id=100064305570403" target="_blank" aria-label="Facebook"
+       onclick="gtag('event','click_fb_footer',{'event_category':'CTA','event_label':'mumu-cafe'})">
+      <img src="/assets/facebook.svg" alt="Facebook" onerror="this.style.display='none'">
+    </a>
+    <a class="hero-icon-link" href="https://maps.app.goo.gl/3aw1pcVv3f4S57Qy6" target="_blank" aria-label="Map"
+       onclick="gtag('event','click_map_footer',{'event_category':'CTA','event_label':'mumu-cafe'})">
+      <img src="/assets/map.svg" alt="Map" onerror="this.style.display='none'">
+    </a>
+  </div>
 
   <!-- Footer CTA（_shared 注入）-->
   <div id="shared-footer-cta" class="reveal"></div>
@@ -891,7 +1149,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </ul>
 
   <div class="footer-copyright reveal">© 2026 MuMu Cafe & Dessert Shop</div>
-  <a href="#top" class="back-to-top reveal">BACK TO TOP ↑</a>
+  <a href="#top" class="back-to-top reveal">↑ BACK TO TOP ↑</a>
 </footer>
 
 <!-- LINKET BAR（_shared 注入）-->
@@ -900,7 +1158,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ⑩ QR MODAL -->
 <div class="qr-overlay" id="qrOverlay" onclick="closeQrBg(event)">
   <div class="qr-modal">
-    <img src="mumu-logo.png" alt="MuMu" class="qr-modal-logo"
+    <img src="mumu-logo-06.svg" alt="MuMu" class="qr-modal-logo"
          onerror="this.style.display='none'">
     <div class="qr-code-box"><div id="qrcode-canvas"></div></div>
     <div class="qr-url">linket.app/mumu-cafe</div>
@@ -983,12 +1241,23 @@ async function loadMenuData() {
 }
 
 /* ── Tab 切換 ── */
-function switchTab(btn, tab) {
-  document.querySelectorAll('.menu-tab-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.menu-pane').forEach(p => p.classList.remove('active'));
-  btn.classList.add('active');
-  const pane = document.getElementById('pane-' + tab);
-  if (pane) pane.classList.add('active');
+function toggleMenuAcc(btn, tab) {
+  const item = btn.parentElement;
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.menu-acc-item').forEach(i => {
+    i.classList.remove('open');
+    const b = i.querySelector('.menu-acc-head');
+    b.setAttribute('aria-expanded', 'false');
+    b.querySelector('.menu-acc-icon').textContent = '+';
+  });
+  if (!wasOpen) {
+    item.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+    btn.querySelector('.menu-acc-icon').textContent = '−';
+    gtag('event', 'click_menu_category', {'event_category':'CTA','event_label':tab});
+    // 等收合動畫跑完（.35s）再捲動，確保定位到正確的最終位置
+    setTimeout(() => { item.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 380);
+  }
 }
 
 /* ── 咖啡靜態預載的價格靜默更新（API 回來後比對）── */
@@ -998,6 +1267,8 @@ function updateCoffeePrices(items) {
   if (!pane) return;
   const list = document.getElementById('coffee-list');
   if (!list) return;
+  // 濾掉 Sheets 資料表最後一列的「💡備註列」，不在頁面顯示
+  items = items.filter(item => !String(item.zh || '').startsWith('💡'));
   // 靜默重繪（不影響用戶正在瀏覽的體驗）
   let html = '';
   items.forEach(item => { html += buildDrinkRow(item, TAB_CONFIG['咖啡'] || {}); });
@@ -1008,6 +1279,8 @@ function updateCoffeePrices(items) {
 function renderTab(tab, items) {
   const pane = document.getElementById('pane-' + tab);
   if (!pane || !items) return;
+  // 濾掉 Sheets 資料表最後一列的「💡備註列」，不在頁面顯示
+  items = items.filter(item => !String(item.zh || '').startsWith('💡'));
   const cfg = TAB_CONFIG[tab] || {};
   let html = '';
 
@@ -1195,7 +1468,7 @@ function drawCard() {
   bgImg.onload = onLoad; bgImg.onerror = onLoad;
   logoImg.onload = onLoad; logoImg.onerror = onLoad;
   bgImg.src = 'hero-bg.jpg';
-  logoImg.src = 'mumu-logo-2.png';
+  logoImg.src = 'mumu-logo-05.svg';
 }
 
 // 雙 QR Code 繪製（用 qrcodejs 產生 canvas 後 drawImage）
@@ -1313,16 +1586,23 @@ function openQr() {
 function closeQr() { document.getElementById('qrOverlay').classList.remove('active'); }
 function closeQrBg(e) { if(e.target===document.getElementById('qrOverlay')) closeQr(); }
 
+document.addEventListener('keydown', (e) => {
+  if (e.key !== 'Escape') return;
+  closeQr();
+  closeCardModal();
+});
+
 /* ═══════════════════════════════════════
    Share API
    ═══════════════════════════════════════ */
-const shareBtn = document.getElementById('shareBtn');
-if (navigator.share && shareBtn) shareBtn.classList.add('visible');
 function shareThisPage() {
-  if (!navigator.share) return;
-  navigator.share({ title: 'MuMu Cafe & Dessert Shop', url: window.location.href })
-    .then(() => gtag('event','click_share',{'event_category':'CTA','event_label':'mumu-cafe'}))
-    .catch(()=>{});
+  if (navigator.share) {
+    navigator.share({ title: 'MuMu Cafe & Dessert Shop', url: window.location.href })
+      .then(() => gtag('event','click_share',{'event_category':'CTA','event_label':'mumu-cafe'}))
+      .catch(()=>{});
+  } else {
+    gtag('event','click_share',{'event_category':'CTA','event_label':'mumu-cafe'});
+  }
 }
 
 /* ═══════════════════════════════════════
