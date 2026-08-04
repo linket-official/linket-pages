@@ -1,0 +1,36 @@
+# linket.app 安全標頭設定（Cloudflare Pages `_headers` 格式）
+# 建立：2026-08-04
+# 說明：這個檔案全站生效，改動前務必確認不會影響任何客戶頁面的既有功能。
+#       規則由上而下比對，路徑越精確的區塊會疊加套用。
+
+# ─────────────────────────────────────────────
+# 全站通用
+# 這四項只做「防護」，不限制任何資源載入，所以不會弄壞任何客戶頁面。
+# ─────────────────────────────────────────────
+/*
+  # 防點擊劫持：禁止本站以外的網站用 iframe 嵌入我們的頁面
+  # （已確認全站沒有任何頁面互相嵌入，也沒有客戶頁面需要被外部嵌入）
+  X-Frame-Options: SAMEORIGIN
+  # 禁止瀏覽器擅自猜測檔案類型（防止圖片被當成腳本執行）
+  X-Content-Type-Options: nosniff
+  # 連到外部網站時只送出網域，不洩漏完整網址
+  Referrer-Policy: strict-origin-when-cross-origin
+  # 強制一年內都只走 HTTPS，防止中間人把連線降級成 HTTP
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+# ─────────────────────────────────────────────
+# MuMu Cafe 登場頁
+# ─────────────────────────────────────────────
+/mumu-cafe/*
+  # 關掉本頁用不到的裝置權限
+  # 注意：/case 頁面有掃描功能需要相機，所以這條「不能」設在全站
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  #
+  # CSP 先用 Report-Only（只記錄、不攔截），確認白名單完整後再改成正式攔截。
+  # 白名單依照 2026-08-04 瀏覽器執行期實測的 9 個網域設定，其中兩個是靜態掃描
+  # 找不到、只有實際跑頁面才會出現的：
+  #   - www.instagram.com   → IG 嵌入貼文的 embed.js 動態載入
+  #   - www.clarity.ms      → Microsoft Clarity 由 GTM 注入，原始碼裡沒有
+  # ⚠️ 未來若在 GTM 後台新增任何追蹤工具，一定要回來這裡補對應網域，
+  #    否則改成正式攔截後那個工具會靜默失效。
+  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdnjs.cloudflare.com https://www.instagram.com https://www.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://www.googletagmanager.com https://www.google-analytics.com https://www.clarity.ms https://*.cdninstagram.com https://*.fbcdn.net; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.clarity.ms https://www.instagram.com; frame-src https://www.google.com https://www.googletagmanager.com https://www.instagram.com; base-uri 'self'; form-action 'self'; object-src 'none'

@@ -128,10 +128,15 @@
                     - 蛋糕銷售頁 5 張圖補齊（og-cake.jpg / img-cake-01~04.jpg，目前全404，先擱置）
                     - 業主訪談，產出真實文案確認（Tony 自行校正中，不用 Claude 代寫；SEO審查也發現同一缺口：具名引言能提升AI引擎引用率30%）
                     - GA4/GTM 過渡期共存清理
-                    - Sheets資料innerHTML跳脫（owasp-audit中風險，低優先）
-                    - target=_blank補rel=noopener（owasp-audit低風險）
                     - 網域層級AI bot封鎖政策待跟Tony確認（見上方v2.4）
                     - 🟡 待排：英文裝飾字混用/Hero overlay/img width-height屬性
+
+  v2.5  2026-08-02  階段復盤：現在就改3項落地
+                    - 新增esc()跳脫函式，套用到buildDrinkRow/renderTab(輕食甜點分類)，修復owasp-audit中風險（Sheets資料innerHTML未跳脫）
+                    - 全站13處target="_blank"補rel="noopener"（index.html本體），另外3處在_shared/event-banner.html／footer-cta.html／linket-bar.html也一併補上（同時影響cake/share頁，純安全屬性無視覺功能影響）
+                    - 清掉孤兒CSS：.watermark/.wm-main/.wm-sep/.wm-sub（v1.8改用ticker取代watermark位置後，這段CSS就沒被任何HTML用到了）
+                    - 本機驗證：0處target=_blank缺rel、16處全部補到、菜單品項(含非同步載入分類)顯示正常無跳脫破壞、console乾淨
+                    - 復盤同時把手風琴模式正式寫入 skills/linket-page/interactive-modules.md §9-Q（MuMu當LINKet模板的第一個具體落地）
 ================================================================
 -->
 <html lang="zh-Hant">
@@ -345,27 +350,6 @@ img { display:block; }
   transition:.3s; cursor:pointer; font-family:'Noto Serif TC',serif;
 }
 .btn-sm:hover { border-color:var(--gold); color:var(--gold); }
-
-/* ── WATERMARK（精簡版）── */
-.watermark {
-  background:var(--bg2);
-  border-top:1px solid var(--b); border-bottom:1px solid var(--b);
-  padding:1.4rem 1.4rem;
-  text-align:center;
-  display:flex; align-items:center; justify-content:center; gap:1.5rem;
-}
-.wm-main {
-  font-family:'Playfair Display',serif;
-  font-style:italic;
-  font-size:clamp(1rem,2.5vw,1.4rem);
-  color:var(--gold); letter-spacing:.25em;
-}
-.wm-sep { color:var(--b2); font-size:.7rem; }
-.wm-sub {
-  font-family:'Cormorant Garamond',serif;
-  font-style:italic;
-  font-size:.75rem; color:var(--ink3); letter-spacing:.28em; text-transform:uppercase;
-}
 
 /* ── 通用 Section ── */
 .section { padding:2rem 0; }
@@ -709,19 +693,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
              onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'mumu-cafe'})">
             <img src="/assets/phone.svg" alt="Phone" onerror="this.outerHTML='<div class=\'fallback-box icon-fallback\' style=\'width:36px;height:36px;\'>☎</div>'">
           </a>
-          <a class="hero-icon-link" href="https://lin.ee/jQ5axSf" target="_blank" aria-label="LINE"
+          <a class="hero-icon-link" href="https://lin.ee/jQ5axSf" target="_blank" rel="noopener" aria-label="LINE"
              onclick="gtag('event','click_line',{'event_category':'CTA','event_label':'mumu-cafe'})">
             <img src="/assets/line.svg" alt="LINE" onerror="this.outerHTML='<div class=\'fallback-box icon-fallback\' style=\'width:36px;height:36px;\'>L</div>'">
           </a>
-          <a class="hero-icon-link" href="https://www.instagram.com/mumu2997250" target="_blank" aria-label="Instagram"
+          <a class="hero-icon-link" href="https://www.instagram.com/mumu2997250" target="_blank" rel="noopener" aria-label="Instagram"
              onclick="gtag('event','click_ig',{'event_category':'CTA','event_label':'mumu-cafe'})">
             <img src="/assets/instagram.svg" alt="Instagram" onerror="this.outerHTML='<div class=\'fallback-box icon-fallback\' style=\'width:36px;height:36px;\'>IG</div>'">
           </a>
-          <a class="hero-icon-link" href="https://www.facebook.com/profile.php?id=100064305570403" target="_blank" aria-label="Facebook"
+          <a class="hero-icon-link" href="https://www.facebook.com/profile.php?id=100064305570403" target="_blank" rel="noopener" aria-label="Facebook"
              onclick="gtag('event','click_fb',{'event_category':'CTA','event_label':'mumu-cafe'})">
             <img src="/assets/facebook.svg" alt="Facebook" onerror="this.outerHTML='<div class=\'fallback-box icon-fallback\' style=\'width:36px;height:36px;\'>FB</div>'">
           </a>
-          <a class="hero-icon-link" href="https://maps.app.goo.gl/3aw1pcVv3f4S57Qy6" target="_blank" aria-label="Map"
+          <a class="hero-icon-link" href="https://maps.app.goo.gl/3aw1pcVv3f4S57Qy6" target="_blank" rel="noopener" aria-label="Map"
              onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'mumu-cafe'})">
             <img src="/assets/map.svg" alt="Map" onerror="this.outerHTML='<div class=\'fallback-box icon-fallback\' style=\'width:36px;height:36px;\'>Map</div>'">
           </a>
@@ -732,13 +716,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
            onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'mumu-cafe'})">
           電話預約外送｜Contact us
         </a>
-        <a href="https://lin.ee/jQ5axSf" target="_blank" class="hero-btn p1"
+        <a href="https://lin.ee/jQ5axSf" target="_blank" rel="noopener" class="hero-btn p1"
            onclick="gtag('event','click_line',{'event_category':'CTA','event_label':'mumu-cafe'})">
           客製化甜點蛋糕｜LINE@
         </a>
         <a href="#menu" class="hero-btn ghost">查看完整菜單｜Menu</a>
         <a href="#service" class="hero-btn ghost">品牌服務介紹｜Service</a>
-        <a href="https://line.me/R/pay/payment?action=reserve&encPath=Gbn2iTI00yECy1BofVdEMMzIhXt3i71C1WrSylutEXzYbspIxrbALC1O1m6lnsy8&merchantProvider=LINEPAY" target="_blank" class="hero-btn ghost"
+        <a href="https://line.me/R/pay/payment?action=reserve&encPath=Gbn2iTI00yECy1BofVdEMMzIhXt3i71C1WrSylutEXzYbspIxrbALC1O1m6lnsy8&merchantProvider=LINEPAY" target="_blank" rel="noopener" class="hero-btn ghost"
            onclick="gtag('event','click_linepay',{'event_category':'CTA','event_label':'mumu-cafe'})">
           線上付款｜LINE PAY
         </a>
@@ -1046,7 +1030,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
     <div style="text-align:center;margin-top:2rem;">
-      <a href="https://lin.ee/jQ5axSf" target="_blank" class="hero-btn p1"
+      <a href="https://lin.ee/jQ5axSf" target="_blank" rel="noopener" class="hero-btn p1"
          style="display:inline-flex;max-width:280px;margin:0 auto;"
          onclick="gtag('event','click_line',{'event_category':'CTA','event_label':'mumu-cafe'})">
         LINE 洽詢客製甜點
@@ -1098,7 +1082,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
              onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'mumu-cafe'})">
             電話預約外送｜Contact us
           </a>
-          <a href="https://maps.app.goo.gl/3aw1pcVv3f4S57Qy6" target="_blank" class="hero-btn ghost"
+          <a href="https://maps.app.goo.gl/3aw1pcVv3f4S57Qy6" target="_blank" rel="noopener" class="hero-btn ghost"
              onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'mumu-cafe'})">
             開啟 Google 導航｜Navigate
           </a>
@@ -1120,19 +1104,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        onclick="gtag('event','click_tel_footer',{'event_category':'CTA','event_label':'mumu-cafe'})">
       <img src="/assets/phone.svg" alt="Phone" onerror="this.style.display='none'">
     </a>
-    <a class="hero-icon-link" href="https://lin.ee/jQ5axSf" target="_blank" aria-label="LINE"
+    <a class="hero-icon-link" href="https://lin.ee/jQ5axSf" target="_blank" rel="noopener" aria-label="LINE"
        onclick="gtag('event','click_line_footer',{'event_category':'CTA','event_label':'mumu-cafe'})">
       <img src="/assets/line.svg" alt="LINE" onerror="this.style.display='none'">
     </a>
-    <a class="hero-icon-link" href="https://www.instagram.com/mumu2997250" target="_blank" aria-label="Instagram"
+    <a class="hero-icon-link" href="https://www.instagram.com/mumu2997250" target="_blank" rel="noopener" aria-label="Instagram"
        onclick="gtag('event','click_ig_footer',{'event_category':'CTA','event_label':'mumu-cafe'})">
       <img src="/assets/instagram.svg" alt="Instagram" onerror="this.style.display='none'">
     </a>
-    <a class="hero-icon-link" href="https://www.facebook.com/profile.php?id=100064305570403" target="_blank" aria-label="Facebook"
+    <a class="hero-icon-link" href="https://www.facebook.com/profile.php?id=100064305570403" target="_blank" rel="noopener" aria-label="Facebook"
        onclick="gtag('event','click_fb_footer',{'event_category':'CTA','event_label':'mumu-cafe'})">
       <img src="/assets/facebook.svg" alt="Facebook" onerror="this.style.display='none'">
     </a>
-    <a class="hero-icon-link" href="https://maps.app.goo.gl/3aw1pcVv3f4S57Qy6" target="_blank" aria-label="Map"
+    <a class="hero-icon-link" href="https://maps.app.goo.gl/3aw1pcVv3f4S57Qy6" target="_blank" rel="noopener" aria-label="Map"
        onclick="gtag('event','click_map_footer',{'event_category':'CTA','event_label':'mumu-cafe'})">
       <img src="/assets/map.svg" alt="Map" onerror="this.style.display='none'">
     </a>
@@ -1145,7 +1129,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li><a href="#service">服務</a></li>
     <li><a href="#menu">菜單</a></li>
     <li><a href="#dessert-service">客製甜點</a></li>
-    <li><a href="https://www.instagram.com/mumu2997250" target="_blank">Instagram</a></li>
+    <li><a href="https://www.instagram.com/mumu2997250" target="_blank" rel="noopener">Instagram</a></li>
   </ul>
 
   <div class="footer-copyright reveal">© 2026 MuMu Cafe & Dessert Shop</div>
@@ -1188,6 +1172,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwtpV84HGDiV1yrURm6RUrJjbizZU0g3dwtfBeZwipzYd4oDboWh_pcGTQUFF8gVkGj/exec';
 const CACHE_KEY = 'mumu_v4';
 const CACHE_TTL = 5 * 60 * 1000;
+
+// Sheets 資料組 HTML 前先跳脫，避免品項欄位被拿來做 XSS（owasp-audit 2026-08-02 發現）
+function esc(s) {
+  return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
 
 // 各分類的欄位顯示規則
 const TAB_CONFIG = {
@@ -1306,16 +1295,16 @@ function renderTab(tab, items) {
       if (!group) return;
       html += `<div style="margin-bottom:1.8rem;">
         <div style="font-size:.75rem;font-weight:700;color:var(--gold);letter-spacing:.2em;border-bottom:1px solid var(--b);padding-bottom:.5rem;margin-bottom:.8rem;">
-          ${cat} <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.7rem;color:var(--ink3);font-weight:400;">${catEn[cat]||''}</span>
+          ${esc(cat)} <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.7rem;color:var(--ink3);font-weight:400;">${esc(catEn[cat]||'')}</span>
         </div>`;
       group.forEach(item => {
         const isInquiry = String(item.price).includes('洽');
         html += `<div class="menu-item">
           <div class="mi-name-wrap">
-            <span class="mi-name">${item.zh}</span>
-            ${item.en ? `<span class="mi-name-en">${item.en}</span>` : ''}
+            <span class="mi-name">${esc(item.zh)}</span>
+            ${item.en ? `<span class="mi-name-en">${esc(item.en)}</span>` : ''}
           </div>
-          <span class="mi-price-single">${isInquiry ? item.price : 'NT$' + item.price}</span>
+          <span class="mi-price-single">${isInquiry ? esc(item.price) : 'NT$' + esc(item.price)}</span>
         </div>`;
       });
       html += '</div>';
@@ -1354,15 +1343,15 @@ function buildDrinkRow(item, cfg) {
 
   const priceHtml = priceFields.map(f =>
     `<div class="mi-price-group">
-      <span class="mi-price-label">${f.label}</span>
-      <span class="mi-price-val">${f.val}</span>
+      <span class="mi-price-label">${esc(f.label)}</span>
+      <span class="mi-price-val">${esc(f.val)}</span>
     </div>`
   ).join('');
 
   return `<div class="menu-item">
     <div class="mi-name-wrap">
-      <span class="mi-name">${item.zh}</span>
-      ${item.en ? `<span class="mi-name-en">${item.en}</span>` : ''}
+      <span class="mi-name">${esc(item.zh)}</span>
+      ${item.en ? `<span class="mi-name-en">${esc(item.en)}</span>` : ''}
     </div>
     <div class="mi-prices">${priceHtml}</div>
   </div>`;
