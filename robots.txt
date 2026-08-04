@@ -1,0 +1,30 @@
+# linket.app · AI 爬蟲存取政策
+# 一般搜尋引擎（Googlebot等）不受影響，全站照常可索引。
+# 以下規則只針對 AI 訓練/答案引擎爬蟲：預設整站不開放，
+# 只有指定的客戶頁面開放給 AI 引擎抓取/引用。
+# 更新：2026-08-04
+
+User-agent: *
+Content-Signal: search=yes, ai-train=no, use=reference
+Allow: /
+
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: PerplexityBot
+User-agent: meta-externalagent
+User-agent: Applebot-Extended
+User-agent: Amazonbot
+User-agent: Bytespider
+User-agent: CCBot
+Disallow: /
+Allow: /boyo-org/
+Allow: /emolab/
+Allow: /mumu-cafe/
+Allow: /home/
+Allow: /tony/
+Allow: /most/
+Allow: /bella-spa/
+Allow: /lanjue/
+Allow: /longder-digital-tech/
+Allow: /leon-day/
