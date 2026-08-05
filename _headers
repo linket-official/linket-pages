@@ -1,15 +1,17 @@
 # linket.app 安全標頭設定（Cloudflare Pages `_headers` 格式）
-# 建立：2026-08-04
+# 建立：2026-08-04　最後更新：2026-08-05（Codex 紅隊審查後修正）
 # 說明：這個檔案全站生效，改動前務必確認不會影響任何客戶頁面的既有功能。
 #       規則由上而下比對，路徑越精確的區塊會疊加套用。
 
 # ─────────────────────────────────────────────
 # 全站通用
-# 這四項只做「防護」，不限制任何資源載入，所以不會弄壞任何客戶頁面。
 # ─────────────────────────────────────────────
 /*
   # 防點擊劫持：禁止本站以外的網站用 iframe 嵌入我們的頁面
-  # （已確認全站沒有任何頁面互相嵌入，也沒有客戶頁面需要被外部嵌入）
+  # ⚠️ 已知限制（2026-08-05 Codex 紅隊指出）：所有客戶共用 linket.app 這個 origin，
+  #    SAMEORIGIN 等於「所有客戶頁面互相信任」——任一頁若被拿到 JS 執行能力，
+  #    就能 iframe/開啟其他客戶頁並操作其 DOM。真正的隔離要各客戶獨立子網域，
+  #    屬於架構級改動，目前刻意接受此限制。
   X-Frame-Options: SAMEORIGIN
   # 禁止瀏覽器擅自猜測檔案類型（防止圖片被當成腳本執行）
   X-Content-Type-Options: nosniff
@@ -17,20 +19,26 @@
   Referrer-Policy: strict-origin-when-cross-origin
   # 強制一年內都只走 HTTPS，防止中間人把連線降級成 HTTP
   Strict-Transport-Security: max-age=31536000; includeSubDomains
+  # 裝置權限：麥克風/定位/付款/USB 全站關閉。
+  # camera 用 (self) 不用 ()，因為 /case 頁面有掃描功能需要相機——
+  # (self) 允許同源自家程式使用、但擋掉第三方 iframe，是不誤傷 /case 的最強設定。
+  # （2026-08-05 修正：原本因為 /case 就整條不敢設全站，等於其他 30+ 頁都沒防護）
+  Permissions-Policy: camera=(self), microphone=(), geolocation=(), payment=(), usb=()
 
 # ─────────────────────────────────────────────
-# MuMu Cafe 登場頁
+# MuMu Cafe 登場頁：CSP 試點
 # ─────────────────────────────────────────────
+# 白名單依照瀏覽器執行期實測產生（靜態 grep 抓不到 GTM 注入的東西）。
+# 2026-08-05 Codex 紅隊補上原本漏掉的 Clarity 實際子網域：
+#   www.clarity.ms 只是 loader，它會再載入 scripts.clarity.ms（腳本）
+#   與 c.clarity.ms（追蹤 gif）、j.clarity.ms（回傳）。原本只放 www 會讓 Clarity 壞掉。
+#
+# ⚠️ 這份 CSP 目前含 'unsafe-inline'（頁面有大量 inline JS），
+#    代表它擋不住 inline event handler 與 javascript: URL——
+#    也就是擋不住我們最需要它擋的那類攻擊。要真正有防護力必須先把 inline JS 抽離，
+#    在那之前不要把這份 CSP 當成防線。
+# ⚠️ 目前沒有 report-uri / report-to 回報端點，違規不會被集中收集，
+#    只有開 DevTools 才看得到。轉正式攔截前要先補回報端點或改用主動實測。
+# ⚠️ 未來在 GTM 後台新增任何追蹤工具，一定要回來補對應網域。
 /mumu-cafe/*
-  # 關掉本頁用不到的裝置權限
-  # 注意：/case 頁面有掃描功能需要相機，所以這條「不能」設在全站
-  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
-  #
-  # CSP 先用 Report-Only（只記錄、不攔截），確認白名單完整後再改成正式攔截。
-  # 白名單依照 2026-08-04 瀏覽器執行期實測的 9 個網域設定，其中兩個是靜態掃描
-  # 找不到、只有實際跑頁面才會出現的：
-  #   - www.instagram.com   → IG 嵌入貼文的 embed.js 動態載入
-  #   - www.clarity.ms      → Microsoft Clarity 由 GTM 注入，原始碼裡沒有
-  # ⚠️ 未來若在 GTM 後台新增任何追蹤工具，一定要回來這裡補對應網域，
-  #    否則改成正式攔截後那個工具會靜默失效。
-  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdnjs.cloudflare.com https://www.instagram.com https://www.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://www.googletagmanager.com https://www.google-analytics.com https://www.clarity.ms https://*.cdninstagram.com https://*.fbcdn.net; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.clarity.ms https://www.instagram.com; frame-src https://www.google.com https://www.googletagmanager.com https://www.instagram.com; base-uri 'self'; form-action 'self'; object-src 'none'
+  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdnjs.cloudflare.com https://www.instagram.com https://www.clarity.ms https://scripts.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://www.googletagmanager.com https://www.google-analytics.com https://*.clarity.ms https://*.cdninstagram.com https://*.fbcdn.net; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.clarity.ms https://www.instagram.com; frame-src https://www.google.com https://www.googletagmanager.com https://www.instagram.com; base-uri 'self'; form-action 'self'; object-src 'none'

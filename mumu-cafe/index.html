@@ -1174,8 +1174,23 @@ const CACHE_KEY = 'mumu_v4';
 const CACHE_TTL = 5 * 60 * 1000;
 
 // Sheets 資料組 HTML 前先跳脫，避免品項欄位被拿來做 XSS（owasp-audit 2026-08-02 發現）
+// ⚠️ esc() 只負責「HTML 文字節點」這一個語境。網址、CSS、inline JS 都不能靠它，
+//    網址一律走下面的 safeUrl()（2026-08-05 Codex 紅隊教訓）
 function esc(s) {
   return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+// 來自 Sheets 的網址只允許 http/https，擋掉 javascript: / data: 這類可執行協定
+// （2026-08-05 Codex 紅隊發現：event_url 原本直接指定給 .href，可被拿來執行任意 JS）
+function safeUrl(u) {
+  const raw = String(u ?? '').trim();
+  if (!raw) return '';
+  try {
+    const parsed = new URL(raw, location.origin);
+    return (parsed.protocol === 'http:' || parsed.protocol === 'https:') ? parsed.href : '';
+  } catch (_) {
+    return '';
+  }
 }
 
 // 各分類的欄位顯示規則
@@ -1283,7 +1298,9 @@ function renderTab(tab, items) {
 
   if (cfg.food) {
     // 輕食甜點：有分類
-    const groups = {};
+    // 用無原型物件，避免 Sheet 分類欄填 __proto__/constructor 時汙染原型導致整區渲染中斷
+    // （2026-08-05 Codex 紅隊發現）
+    const groups = Object.create(null);
     items.forEach(item => {
       if (!groups[item.cat]) groups[item.cat] = [];
       groups[item.cat].push(item);
@@ -1375,7 +1392,9 @@ function renderEventBanner(info) {
   const banner = document.getElementById('event-banner');
   if (!banner) return;
   if (info.event_text) document.getElementById('event-banner-text').textContent = info.event_text;
-  if (info.event_url)  document.getElementById('event-banner-link').href = info.event_url;
+  // 網址必須過 safeUrl()，擋掉 javascript: 這類可執行協定；驗不過就退回不可點的 '#'
+  const evUrl = safeUrl(info.event_url);
+  document.getElementById('event-banner-link').href = evUrl || '#';
   if (info.event_btn_text) document.getElementById('event-banner-btn').textContent = info.event_btn_text;
   banner.style.display = 'block';
 }

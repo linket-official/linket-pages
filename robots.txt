@@ -2,7 +2,15 @@
 # 一般搜尋引擎（Googlebot等）不受影響，全站照常可索引。
 # 以下規則只針對 AI 訓練/答案引擎爬蟲：預設整站不開放，
 # 只有指定的客戶頁面開放給 AI 引擎抓取/引用。
-# 更新：2026-08-04
+# 更新：2026-08-05
+#
+# ⚠️ Allow 路徑「不要」加結尾斜線（2026-08-05 Codex 紅隊發現的錯誤）：
+#    各頁 canonical 是無斜線版本（例：https://linket.app/mumu-cafe），
+#    而 RFC 9309 用實際請求路徑做比對，`/mumu-cafe` 不符合 `/mumu-cafe/`，
+#    會落回 Disallow: / 被擋掉——等於整份白名單形同虛設。
+#    寫成無斜線是前綴比對，`/mumu-cafe`、`/mumu-cafe/`、`/mumu-cafe/xxx` 全部涵蓋。
+# ⚠️ 因為是前綴比對，新增 slug 時要確認不會誤放行別的頁面
+#    （例：有了 `Allow: /tony` 之後，未來若新增 `/tony-xxx` 會被一併放行）。
 
 User-agent: *
 Content-Signal: search=yes, ai-train=no, use=reference
@@ -18,13 +26,13 @@ User-agent: Amazonbot
 User-agent: Bytespider
 User-agent: CCBot
 Disallow: /
-Allow: /boyo-org/
-Allow: /emolab/
-Allow: /mumu-cafe/
-Allow: /home/
-Allow: /tony/
-Allow: /most/
-Allow: /bella-spa/
-Allow: /lanjue/
-Allow: /longder-digital-tech/
-Allow: /leon-day/
+Allow: /boyo-org
+Allow: /emolab
+Allow: /mumu-cafe
+Allow: /home
+Allow: /tony
+Allow: /most
+Allow: /bella-spa
+Allow: /lanjue
+Allow: /longder-digital-tech
+Allow: /leon-day
