@@ -216,11 +216,11 @@ section{position:relative;}
 
 /* ═ 代理酒藏卡片輪播（3D coverflow，JS 等效實作——參考代碼用了瀏覽器多半不支援的實驗性CSS功能，改用 transform 動態計算取代，效果相同但相容性穩） ═ */
 .brand-carousel{position:relative;padding:.4rem 0 .2rem;}
-.cf-stage{position:relative;height:500px;perspective:1600px;}
+.cf-stage{position:relative;height:clamp(300px,54vw,500px);perspective:1600px;overflow:hidden;}
 .cf-track{position:relative;width:100%;height:100%;}
-.cf-slide{position:absolute;top:50%;left:50%;width:344px;height:420px;margin:-210px 0 0 -172px;background:var(--white);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;padding:2rem 1.6rem;text-align:center;transition:transform .5s cubic-bezier(.22,.7,.3,1),opacity .5s ease;cursor:grab;box-shadow:0 16px 40px rgba(0,0,0,.14);}
-.cf-slide img{max-width:100%;max-height:300px;object-fit:contain;}
-.cf-slide span{font-size:1.5rem;font-weight:700;color:var(--ink);letter-spacing:.05em;line-height:1.35;}
+.cf-slide{position:absolute;top:50%;left:50%;width:clamp(210px,74vw,344px);aspect-ratio:344/420;background:var(--white);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;padding:2rem 1.6rem;text-align:center;transition:transform .5s cubic-bezier(.22,.7,.3,1),opacity .5s ease;cursor:pointer;box-shadow:0 16px 40px rgba(0,0,0,.14);}
+.cf-slide img{max-width:100%;max-height:60%;object-fit:contain;}
+.cf-slide span{font-size:clamp(1.05rem,4vw,1.5rem);font-weight:700;color:var(--ink);letter-spacing:.05em;line-height:1.35;}
 .bc-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:var(--white);border:1px solid var(--ink3);color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:20;font-size:1.2rem;padding:0;transition:.2s;}
 .bc-nav:hover{background:var(--accent);color:var(--white);border-color:var(--accent);}
 .bc-nav.prev{left:0;}.bc-nav.next{right:0;}
@@ -693,6 +693,8 @@ document.querySelectorAll('.brand-carousel').forEach(function(carousel){
   });
   const dots=Array.prototype.slice.call(dotsWrap.children);
   function render(){
+    const cardWidth=slides[0].getBoundingClientRect().width||344;
+    const step=cardWidth*0.56;
     slides.forEach(function(slide,i){
       let d=i-idx;
       const half=slides.length/2;
@@ -700,33 +702,44 @@ document.querySelectorAll('.brand-carousel').forEach(function(carousel){
       if(d<-half)d+=slides.length;
       const abs=Math.abs(d);
       const side=d===0?0:(d>0?1:-1);
-      const x=d*192;
+      const x=d*step;
       const rotate=side*-32;
       const scale=Math.max(.62,1-abs*.16);
-      slide.style.transform='translateX('+x+'px) rotateY('+rotate+'deg) scale('+scale+')';
+      slide.style.transform='translate(-50%,-50%) translateX('+x+'px) rotateY('+rotate+'deg) scale('+scale+')';
       slide.style.zIndex=100-Math.round(abs*10);
       slide.style.opacity=abs>3?0:1;
-      slide.style.pointerEvents=d===0?'auto':'none';
+      slide.style.pointerEvents=abs>3?'none':'auto';
     });
     dots.forEach(function(dot,j){dot.classList.toggle('active',j===idx);});
   }
   function goTo(i){idx=(i+slides.length)%slides.length;render();}
   function next(){goTo(idx+1);}
   function prev(){goTo(idx-1);}
+  slides.forEach(function(slide,i){
+    slide.addEventListener('click',function(){
+      if(movedDuringPointer)return;
+      if(i!==idx){goTo(i);resetAuto();}
+    });
+  });
   carousel.querySelector('.bc-nav.next').addEventListener('click',function(e){e.stopPropagation();next();resetAuto();});
   carousel.querySelector('.bc-nav.prev').addEventListener('click',function(e){e.stopPropagation();prev();resetAuto();});
   let timer=setInterval(next,4200);
   function resetAuto(){clearInterval(timer);timer=setInterval(next,4200);}
   carousel.addEventListener('mouseenter',function(){clearInterval(timer);});
   carousel.addEventListener('mouseleave',resetAuto);
-  let startX=0,isDragging=false;
-  track.addEventListener('pointerdown',function(e){isDragging=true;startX=e.clientX;clearInterval(timer);});
+  let startX=0,isDragging=false,movedDuringPointer=false;
+  track.addEventListener('pointerdown',function(e){isDragging=true;movedDuringPointer=false;startX=e.clientX;clearInterval(timer);});
+  track.addEventListener('pointermove',function(e){
+    if(!isDragging)return;
+    if(Math.abs(e.clientX-startX)>8)movedDuringPointer=true;
+  });
   track.addEventListener('pointerup',function(e){
     if(!isDragging)return;isDragging=false;
     const dx=e.clientX-startX;
     if(dx>40)prev();else if(dx<-40)next();
     resetAuto();
   });
+  window.addEventListener('resize',render);
   render();
 });
 
