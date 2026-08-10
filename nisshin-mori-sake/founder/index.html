@@ -370,7 +370,7 @@ a.design-by{display:block;text-align:center;padding:1rem 0 0;font-family:'Noto S
   <div class="qr-box" onclick="event.stopPropagation()">
     <img class="qr-logo" src="../assets/nisshin-logo.svg" alt="日清森清酒 Nisshin Mori Sake" onerror="this.style.display='none'">
     <div id="qrcode"></div>
-    <div class="qr-url">linket.app/nisshin-mori-sake</div>
+    <div class="qr-url">linket.app/nisshin-mori-sake/founder</div>
     <button class="qr-close" onclick="closeQrModal()">關 閉</button>
   </div>
 </div>
@@ -780,7 +780,7 @@ window.addEventListener('scroll',()=>backTop.classList.toggle('show',scrollY>300
 function openQrModal(){document.getElementById('qrOverlay').classList.add('open');}
 function closeQrModal(){document.getElementById('qrOverlay').classList.remove('open');}
 new QRCode(document.getElementById('qrcode'),{
-  text:'https://linket.app/nisshin-mori-sake',
+  text:'https://linket.app/nisshin-mori-sake/founder',
   width:160,height:160,
   colorDark:'#1A1208',colorLight:'#F5EDD8',
   correctLevel:QRCode.CorrectLevel.M
@@ -789,7 +789,7 @@ const shareBtn=document.getElementById('shareBtn');
 shareBtn.addEventListener('click',async()=>{
   if(navigator.share){
     try{
-      await navigator.share({title:'日清森清酒 Nisshin Mori Sake',url:'https://linket.app/nisshin-mori-sake'});
+      await navigator.share({title:'王柏森｜日清森清酒 創辦人・主理人',url:'https://linket.app/nisshin-mori-sake/founder'});
       gtag('event','click_share',{'event_category':'CTA','event_label':'nisshin-mori-sake'});
     }catch(e){}
   }else{
