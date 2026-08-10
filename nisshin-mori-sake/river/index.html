@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<!--
+  日清森清酒 Nisshin Mori Sake｜品牌登場頁 v4.0
+  2026-07-28 二次重建：Tony 判定 v3.0 太陽春，內容深度參考「博幼基金會」案例的結構邏輯
+  （story-section敘事/journey時間軸/countUp數據/品牌牆/單頁沉浸式體驗），改用日清森自己的真實素材填入。
+  本輪範圍收斂：只做品牌登場頁一頁，主理人/店長個人頁本輪不連結（先保留檔案，之後再議）。
+  Tony 兩點修正：①背景改用真實水泥感紋理 bg.jpg，加大可見度 ②LOGO 只用「森」字圖騰單獨呈現，不與「日清森清酒」文字並排
+-->
+<meta charset="UTF-8">
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}if(/(^|\.)linket\.app$/.test(location.hostname)){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J';document.head.appendChild(s);gtag('js',new Date());gtag('config','G-29J2988Y8J');}</script>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+<title>鄭宇菁 River｜日清森清酒 店長</title>
+<meta name="description" content="日清森清酒店長 鄭宇菁 River，台中西區首間沉浸式清酒專賣店，職人選酒服務。">
+<meta property="og:title" content="鄭宇菁 River｜日清森清酒 店長">
+<meta property="og:description" content="超乎預期・森得你心｜台中首間沉浸式清酒專賣店">
+<meta property="og:image" content="https://linket.app/nisshin-mori-sake/assets/og-image.jpg">
+<meta property="og:url" content="https://linket.app/nisshin-mori-sake/river">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://linket.app/nisshin-mori-sake/river">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LiquorStore","name":"日清森清酒 Nisshin Mori Sake","url":"https://linket.app/nisshin-mori-sake","image":"https://linket.app/nisshin-mori-sake/assets/nisshin-logo.svg","address":{"@type":"PostalAddress","streetAddress":"模範街50號","addressLocality":"西區","addressRegion":"台中市","addressCountry":"TW"},"telephone":"+886423012136","openingHours":"Mo-Su 12:30-21:30"}
+</script>
+<style>
+:root{
+  --ink:#2C1A08;
+  --ink-d:#1A1208;
+  --ink2:rgba(44,26,8,.62);
+  --ink3:rgba(44,26,8,.28);
+  --cream:#E9E7E2;
+  --cream2:#DDDBD5;
+  --white:#FAFAF8;
+  --accent:#C8A84B;
+  --red:#8B1A1A;
+  --r:999px;
+  --mw:960px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Serif TC',serif;background:var(--cream);color:var(--ink);line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+.en{font-family:'Cormorant Garamond',serif;}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+
+/* ═ 年齡警示彈窗（interactive-modules.md 9-I，清酒頁面強制使用） ═ */
+.age-overlay{display:flex;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.72);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:1.2rem;}
+.age-overlay.closed{display:none;}
+.age-box{background:var(--cream);border:1px solid var(--ink3);border-radius:8px;padding:2.2rem 1.8rem;max-width:340px;width:100%;text-align:center;}
+.age-title{font-weight:700;font-size:1.2rem;margin-bottom:1rem;color:var(--red);}
+.age-box ul{text-align:left;font-size:.82rem;line-height:1.9;color:var(--ink2);margin:0 0 1.4rem;padding-left:1.2rem;}
+.age-confirm{cursor:pointer;font-size:.78rem;letter-spacing:.14em;color:var(--white);background:var(--ink-d);border:none;padding:.75rem 1.6rem;border-radius:var(--r);font-family:'Noto Serif TC',serif;}
+.age-confirm:hover{background:var(--red);}
+
+/* ═ HERO ═ */
+.hero-section{position:relative;min-height:100svh;display:flex;flex-direction:column;background:var(--cream);overflow:hidden;}
+.hero-bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;z-index:0;opacity:1;}
+.hero-overlay{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(150deg,rgba(233,231,226,.5) 0%,rgba(233,231,226,.28) 55%,rgba(221,219,213,.12) 100%);}
+.hero-content{position:relative;z-index:2;flex:1;display:flex;align-items:center;max-width:var(--mw);margin:0 auto;padding:5rem 1.4rem;width:100%;}
+.hero-cols{display:flex;align-items:stretch;gap:2.5rem;width:100%;}
+
+.hero-left{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:.6rem;}
+.hero-left>*{opacity:0;animation:fadeUp .5s ease both;}
+.hero-left>*:nth-child(1){animation-delay:.05s;}
+.hero-left>*:nth-child(2){animation-delay:.12s;}
+.hero-left>*:nth-child(3){animation-delay:.2s;}
+.hero-left>*:nth-child(4){animation-delay:.28s;}
+.hero-left>*:nth-child(5){animation-delay:.36s;}
+.hero-logo{margin:1rem 0 1.5rem;}
+.hero-logo img{height:clamp(150px,25vw,200px);width:auto;max-width:100%;display:block;filter:drop-shadow(0 4px 14px rgba(0,0,0,.18));}
+.hero-contact{font-size:.92rem;letter-spacing:.12em;color:var(--ink2);line-height:1.6;margin-bottom:1.5rem;}
+.hero-contact b{display:block;font-weight:700;color:var(--ink);font-size:1.18rem;letter-spacing:.12em;}
+.hero-founder{display:flex;flex-direction:column;align-items:flex-start;gap:0;margin:.4rem 0 1.3rem;}
+.hero-founder-photo{width:clamp(160px,24vw,220px);height:auto;object-fit:contain;display:block;margin-bottom:1rem;}
+.hero-founder-info{display:flex;flex-direction:column;gap:.25rem;text-align:left;}
+.hero-founder-info b{font-family:'Noto Serif TC',serif;font-weight:700;font-size:1.4rem;letter-spacing:.12em;color:var(--ink);}
+.hero-founder-info span{font-size:.9rem;font-weight:700;letter-spacing:.2em;color:var(--accent);}
+.hero-tags{display:flex;flex-wrap:wrap;gap:.4rem;}
+.h-tag{font-size:.68rem;font-weight:700;letter-spacing:.06em;color:var(--accent);border:1px solid var(--accent);border-radius:var(--r);padding:.22rem .65rem;background:rgba(255,253,250,.55);}
+
+.hero-right{flex:0 0 320px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;}
+.hero-right>*{opacity:0;animation:fadeUp .5s ease both;}
+.hero-right>*:nth-child(1){animation-delay:.2s;}
+.hero-right>*:nth-child(2){animation-delay:.3s;}
+.hero-right>*:nth-child(3){animation-delay:.4s;}
+.hero-right>*:nth-child(4){animation-delay:.5s;}
+.hero-right>*:nth-child(5){animation-delay:.6s;}
+.hero-icons{display:flex;flex-wrap:nowrap;justify-content:center;gap:clamp(2px,2vw,14px);width:100%;}
+.hero-icon-link{width:44px;height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:center;background:var(--white);border:none;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,.14),0 0 0 1px rgba(0,0,0,.13);transition:opacity .2s,transform .2s;}
+.hero-icon-link:hover{opacity:.78;transform:translateY(-2px);}
+.hero-icon-link img{width:34px;height:34px;display:block;}
+.hero-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.15rem;width:100%;max-width:320px;border-radius:var(--r);font-family:'Noto Serif TC',serif;font-size:.875rem;font-weight:500;letter-spacing:.1em;padding:.85rem 1rem;line-height:1.3;text-align:center;transition:all .25s;}
+.hero-btn.p1{background:var(--ink-d);color:var(--white);font-weight:700;}
+.hero-btn.p1:hover{background:var(--red);}
+.hero-btn.p2{background:var(--accent);color:var(--white);font-weight:700;}
+.hero-btn.p2:hover{background:var(--ink-d);}
+.hero-btn.ghost{background:rgba(255,253,250,.55);border:1.5px solid var(--ink3);color:var(--ink);}
+.hero-btn.ghost:hover{background:rgba(255,253,250,.85);border-color:var(--ink);}
+.hero-btn-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.92rem;letter-spacing:.14em;opacity:.58;line-height:1;font-weight:400;}
+.hero-btn-row{display:flex;gap:.6rem;width:100%;max-width:320px;}
+.btn-sm{flex:1;display:flex;align-items:center;justify-content:center;background:rgba(255,253,250,.55);border:1px solid var(--ink3);color:var(--ink2);font-size:.72rem;letter-spacing:.12em;padding:.6rem .4rem;border-radius:var(--r);cursor:pointer;font-family:'Noto Serif TC',serif;transition:all .2s;}
+.btn-sm:hover{border-color:var(--accent);color:var(--accent);}
+
+/* ═ QR MODAL ═ */
+.qr-overlay{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.55);backdrop-filter:blur(8px);align-items:center;justify-content:center;}
+.qr-overlay.open{display:flex;}
+.qr-box{background:var(--cream);border:1px solid var(--ink3);border-radius:8px;padding:2rem 1.8rem;text-align:center;max-width:300px;width:90%;display:flex;flex-direction:column;align-items:center;}
+.qr-logo{width:110px;height:auto;margin:0 auto .9rem;display:block;}
+#qrcode{margin:.8rem auto 1rem;}
+.qr-url{font-size:.68rem;letter-spacing:.1em;color:var(--ink3);margin-bottom:1.2rem;}
+.qr-close{cursor:pointer;font-size:.72rem;letter-spacing:.2em;color:var(--accent);border:1px solid var(--accent);padding:.5rem 1.4rem;border-radius:var(--r);background:transparent;font-family:'Noto Serif TC',serif;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+
+/* ═ TICKER ═ */
+.ticker{overflow:hidden;background:var(--ink-d);padding:.75rem 0;white-space:nowrap;}
+.ticker-track{display:inline-flex;align-items:center;animation:ticker 30s linear infinite;}
+.ticker-item{color:rgba(255,255,255,.85);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.9rem;letter-spacing:.16em;padding-left:2.5rem;}
+.ticker-item .dot{color:var(--accent);margin:0 0 0 2.5rem;}
+@keyframes ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* ═ SECTIONS 共用 ═ */
+section{position:relative;}
+.bg-light{background:var(--cream);color:var(--ink);}
+.bg-dark{background:var(--ink-d);color:rgba(255,255,255,.92);position:relative;overflow:hidden;}
+.bg-dark::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.04;pointer-events:none;z-index:0;}
+.bg-dark::after{content:'';position:absolute;inset:0;background-image:url(../assets/hero-bg.jpg);background-size:cover;background-position:center;filter:invert(1) brightness(.5) contrast(1.1);opacity:.1;mix-blend-mode:overlay;pointer-events:none;z-index:0;}
+.sec-inner{max-width:var(--mw);margin:0 auto;padding:clamp(3.4rem,7vw,6rem) 1.4rem;position:relative;z-index:1;}
+.sec-eyebrow{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.78rem;letter-spacing:.32em;color:var(--accent);text-align:center;margin-bottom:.6rem;display:block;text-transform:uppercase;}
+.sec-title{font-size:clamp(1.5rem,4.4vw,2rem);font-weight:600;text-align:center;margin-bottom:.9rem;letter-spacing:.06em;}
+.sec-rule{width:2.5rem;height:1px;background:var(--accent);margin:0 auto 1.8rem;}
+.sec-intro{max-width:560px;margin:0 auto 2.6rem;text-align:justify;font-size:.88rem;line-height:2;color:var(--ink2);}
+.bg-dark .sec-intro{color:rgba(255,255,255,.62);}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease;}
+.reveal.visible{opacity:1;transform:none;}
+
+/* ═ BREATHING（品牌精神） ═ */
+.breathing{background:var(--ink-d);padding:clamp(3.4rem,9vw,5.5rem) 1.6rem;text-align:center;position:relative;overflow:hidden;}
+.breathing::before{content:'森';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:clamp(6rem,22vw,11rem);font-weight:700;color:rgba(200,168,75,.05);pointer-events:none;}
+.breathing-inner{position:relative;z-index:1;max-width:640px;margin:0 auto;}
+.breathing-quote{font-size:clamp(1.1rem,3.2vw,1.4rem);font-weight:500;line-height:2.1;letter-spacing:.06em;color:rgba(255,255,255,.92);margin-bottom:1.2rem;}
+.breathing-attr{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.78rem;letter-spacing:.2em;color:var(--accent);}
+
+/* ═ STORY 品牌故事 ═ */
+.quote-hero{max-width:640px;margin:0 auto 4rem;padding-left:1.3rem;border-left:3px solid var(--red);}
+.quote-text{font-size:clamp(1.05rem,2.9vw,1.28rem);line-height:2;color:var(--ink);letter-spacing:.05em;text-align:left;font-weight:500;}
+.storybook-article{display:grid;grid-template-columns:1fr;gap:1.8rem;margin-bottom:3.4rem;align-items:center;}
+.storybook-article:last-child{margin-bottom:0;}
+@media(min-width:800px){.storybook-article{grid-template-columns:1fr 1.1fr;gap:3.2rem;}.storybook-article.reverse .sa-text{order:1;}.storybook-article.reverse .sa-img{order:2;}}
+.sa-img{position:relative;aspect-ratio:4/3;background:var(--cream2);border-radius:12px;overflow:hidden;box-shadow:0 12px 30px rgba(44,26,8,.1);border:6px solid var(--white);}
+.sa-img img{width:100%;height:100%;object-fit:cover;object-position:center 15%;}
+.sa-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:.78rem;color:var(--ink3);letter-spacing:.1em;text-align:center;padding:1rem;line-height:1.8;}
+.store-carousel{position:relative;width:100%;height:100%;}
+.sc-slides{position:relative;width:100%;height:100%;}
+.sc-slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%;opacity:0;transition:opacity 1s ease;}
+.sc-slides img.active{opacity:1;}
+.sc-dots{position:absolute;bottom:.8rem;left:0;right:0;display:flex;justify-content:center;gap:6px;z-index:2;}
+.sc-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.55);cursor:pointer;border:none;padding:0;box-shadow:0 0 3px rgba(0,0,0,.35);}
+.sc-dot.active{background:#fff;width:16px;border-radius:3px;}
+.sa-text{display:flex;flex-direction:column;align-items:flex-start;gap:.6rem;}
+.sa-eyebrow{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.76rem;letter-spacing:.2em;color:var(--accent);}
+.sa-title{font-size:1.5rem;font-weight:700;letter-spacing:.1em;}
+.sa-desc{font-size:.88rem;line-height:1.95;color:var(--ink2);}
+
+/* ═ IMPACT 數據 ═ */
+.num-row{display:flex;justify-content:center;align-items:flex-start;gap:clamp(1.8rem,7vw,4.4rem);flex-wrap:wrap;text-align:center;}
+.num-item{max-width:180px;}
+.num-val{font-family:'Noto Serif TC',serif;font-weight:700;font-size:clamp(2.6rem,8vw,4rem);line-height:1;color:var(--accent);}
+.num-val .unit{font-size:.4em;font-weight:600;opacity:.75;margin-left:.15rem;}
+.num-cap{margin-top:.7rem;font-size:.8rem;letter-spacing:.05em;color:rgba(255,255,255,.7);}
+.stat-list{max-width:600px;margin:0 auto;}
+.stat-line{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;padding:1.3rem 0;border-bottom:1px solid rgba(255,255,255,.14);}
+.stat-line:first-child{border-top:1px solid rgba(255,255,255,.14);}
+.stat-lbl{font-size:.88rem;letter-spacing:.06em;color:rgba(255,255,255,.7);}
+.stat-val{font-family:'Noto Serif TC',serif;font-weight:700;font-size:1.7rem;color:var(--accent);white-space:nowrap;}
+.stat-val .unit{font-size:.82rem;font-weight:500;opacity:.75;margin-left:.15rem;}
+.stat-line.highlight .stat-val{color:var(--white);font-size:2.1rem;}
+.stat-line.highlight .stat-lbl{color:rgba(255,255,255,.92);font-weight:600;}
+.stat-line.highlight{position:relative;background:linear-gradient(90deg,rgba(200,168,75,.14),transparent);border-bottom-color:rgba(200,168,75,.4);margin:0 -1rem;padding-left:1rem;padding-right:1rem;border-radius:6px;}
+.stat-tag{display:inline-block;font-size:.62rem;letter-spacing:.14em;color:var(--ink-d);background:var(--accent);border-radius:var(--r);padding:.18rem .6rem;margin-bottom:.35rem;font-weight:700;}
+
+/* ═ VIP 方案手風琴（比照 mumu-cafe menu-accordion 同一套開收合邏輯） ═ */
+.vip-accordion{display:flex;flex-direction:column;gap:.7rem;max-width:600px;margin:0 auto;}
+.vip-acc-item{scroll-margin-top:1rem;}
+.vip-acc-head{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.2rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:10px;cursor:pointer;text-align:left;transition:background .25s,border-color .25s;font-family:'Noto Serif TC',serif;color:#fff;}
+.vip-acc-item.highlight .vip-acc-head{border-color:rgba(200,168,75,.55);}
+.vip-acc-item.open .vip-acc-head{background:var(--accent);border-color:var(--accent);color:var(--ink-d);}
+.vip-acc-title{display:flex;flex-direction:column;gap:.3rem;}
+.vip-acc-name{font-size:1.5rem;font-weight:900;letter-spacing:.05em;}
+.vip-acc-price{font-size:1.2rem;opacity:1;font-weight:900;}
+.vip-acc-tag{display:inline-block;font-size:.6rem;letter-spacing:.1em;color:var(--ink-d);background:var(--accent);border-radius:var(--r);padding:.15rem .55rem;margin-bottom:.3rem;font-weight:700;align-self:flex-start;}
+.vip-acc-item.open .vip-acc-tag{background:var(--ink-d);color:var(--accent);}
+.vip-acc-icon{flex:0 0 auto;font-size:1.3rem;font-weight:300;line-height:1;width:1.2rem;text-align:center;color:var(--accent);}
+.vip-acc-item.open .vip-acc-icon{color:var(--ink-d);}
+.vip-acc-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease;}
+.vip-acc-panel>div{overflow:hidden;}
+.vip-acc-item.open .vip-acc-panel{grid-template-rows:1fr;}
+.vip-acc-panel-inner{padding:1.1rem 1.2rem .3rem;font-size:1rem;line-height:1.9;color:rgba(255,255,255,.82);}
+.vip-acc-gift{font-size:1rem;color:var(--accent);font-weight:700;margin-top:.5rem;}
+.loc-map-btn.ghost{background:transparent;border:1.5px solid var(--accent);color:var(--accent);}
+.loc-map-btn.ghost:hover{background:rgba(200,168,75,.12);opacity:1;}
+
+/* ═ BRAND WALL 代理酒藏 ═ */
+.brand-tier{max-width:640px;margin:0 auto 2.6rem;}
+.brand-tier:last-child{margin-bottom:0;}
+.brand-tier-label{font-size:1.2rem;letter-spacing:.2em;color:var(--accent);margin-bottom:.6rem;text-transform:uppercase;font-weight:700;}
+.brand-list{columns:1;column-gap:2.6rem;}
+@media(min-width:560px){.brand-list{columns:2;}}
+.brand-item{font-family:'Noto Serif TC',serif;font-size:1rem;letter-spacing:.08em;color:var(--ink);padding:.7rem 0;border-bottom:1px solid var(--ink3);break-inside:avoid;}
+#vip .brand-item{color:rgba(255,255,255,.85);border-bottom-color:rgba(255,255,255,.14);}
+
+/* ═ 代理酒藏卡片輪播（3D coverflow，JS 等效實作——參考代碼用了瀏覽器多半不支援的實驗性CSS功能，改用 transform 動態計算取代，效果相同但相容性穩） ═ */
+.brand-carousel{position:relative;padding:.4rem 0 .2rem;}
+.cf-stage{position:relative;height:500px;perspective:1600px;}
+.cf-track{position:relative;width:100%;height:100%;}
+.cf-slide{position:absolute;top:50%;left:50%;width:344px;height:420px;margin:-210px 0 0 -172px;background:var(--white);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;padding:2rem 1.6rem;text-align:center;transition:transform .5s cubic-bezier(.22,.7,.3,1),opacity .5s ease;cursor:grab;box-shadow:0 16px 40px rgba(0,0,0,.14);}
+.cf-slide img{max-width:100%;max-height:300px;object-fit:contain;}
+.cf-slide span{font-size:1.5rem;font-weight:700;color:var(--ink);letter-spacing:.05em;line-height:1.35;}
+.bc-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:var(--white);border:1px solid var(--ink3);color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:20;font-size:1.2rem;padding:0;transition:.2s;}
+.bc-nav:hover{background:var(--accent);color:var(--white);border-color:var(--accent);}
+.bc-nav.prev{left:0;}.bc-nav.next{right:0;}
+.bc-dots{display:flex;justify-content:center;gap:6px;padding:.9rem 3rem 0;flex-wrap:wrap;}
+.bc-dot{width:6px;height:6px;border-radius:50%;background:var(--ink3);cursor:pointer;transition:.2s;border:none;padding:0;}
+.bc-dot.active{background:var(--accent);width:16px;border-radius:3px;}
+
+/* ═ 門市資訊 ═ */
+.loc-wrap{display:grid;grid-template-columns:1fr;gap:2rem;margin-top:1rem;}
+@media(min-width:760px){.loc-wrap{grid-template-columns:1fr 1fr;}}
+.loc-info{display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:1.2rem;}
+.loc-atmo{font-size:.86rem;line-height:2;color:var(--ink2);}
+.loc-row b{display:block;color:var(--accent);font-size:1.2rem;letter-spacing:.2em;margin-bottom:.3rem;}
+.loc-row{font-size:1rem;line-height:1.8;color:var(--ink);}
+.loc-map-btn{display:inline-block;margin-top:.4rem;background:var(--accent);color:var(--ink-d);font-weight:700;font-size:.84rem;letter-spacing:.08em;padding:.75rem 1.8rem;border-radius:var(--r);transition:opacity .25s;align-self:flex-start;}
+.loc-map-btn:hover{opacity:.85;}
+.loc-map-embed{border-radius:12px;overflow:hidden;border:1px solid var(--ink3);min-height:280px;}
+.loc-map-embed iframe{width:100%;height:100%;min-height:280px;border:0;display:block;}
+
+/* ═ FOOTER ═ */
+.footer-inner{max-width:var(--mw);margin:0 auto;padding:3rem 1.4rem 2rem;text-align:center;position:relative;z-index:1;}
+.footer-logo-wrap{width:132px;height:132px;margin:0 auto 1.6rem;background:var(--white);border-radius:50%;padding:1.1rem;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.18);}
+.footer-logo-wrap img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;}
+.f-icons{display:flex;justify-content:center;gap:clamp(2px,2vw,14px);margin-bottom:1.6rem;flex-wrap:nowrap;}
+.f-icons .hero-icon-link{width:44px;height:44px;flex:0 0 44px;}
+.f-icons .hero-icon-link img{width:32px;height:32px;}
+.footer-btns{display:flex;flex-direction:column;align-items:center;gap:.7rem;margin-bottom:2rem;}
+.f-cta{display:inline-block;width:100%;max-width:320px;background:var(--accent);color:var(--ink-d);border-radius:var(--r);padding:.85rem 2rem;font-size:.88rem;letter-spacing:.08em;font-weight:700;text-align:center;transition:opacity .25s,border-color .25s;cursor:pointer;font-family:inherit;}
+.f-cta:hover{opacity:.85;}
+.f-cta.ghost{background:transparent;border:1.5px solid rgba(255,255,255,.38);color:rgba(255,255,255,.9);font-weight:500;}
+.f-cta.ghost:hover{opacity:1;border-color:rgba(255,255,255,.8);}
+.f-cta .btn-en{opacity:.7;font-size:.82em;letter-spacing:.1em;}
+.f-divider{height:1px;background:rgba(255,255,255,.12);max-width:300px;margin:0 auto 1.2rem;}
+.f-legal{font-size:.72rem;line-height:1.9;letter-spacing:.05em;color:rgba(255,255,255,.4);margin-bottom:1.2rem;}
+.f-alcohol{font-size:1.02rem;line-height:1.8;letter-spacing:.03em;color:rgba(255,255,255,.6);max-width:420px;margin:0 auto 1.2rem;border-top:1px solid rgba(255,255,255,.1);padding-top:1rem;}
+a.design-by{display:block;text-align:center;padding:1rem 0 0;font-family:'Noto Sans TC',sans-serif;font-size:.68rem;letter-spacing:.2em;border-top:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.35);text-decoration:none;}
+.db-lin{color:#1685C8;}
+.db-ket{color:#F5ECD7;}
+
+.back-top{position:fixed;bottom:1.4rem;right:1.4rem;width:44px;height:44px;background:var(--ink-d);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s;z-index:99;border:none;}
+.back-top.show{opacity:1;pointer-events:auto;}
+.back-top svg{width:18px;height:18px;stroke:var(--white);fill:none;stroke-width:2.5;}
+
+@media(max-width:768px){
+  .hero-cols{flex-direction:column;gap:2.2rem;}
+  .hero-left{align-items:center;text-align:center;}
+  .hero-right{flex:0 0 auto;width:100%;max-width:340px;margin:0 auto;}
+  .hero-founder{align-items:center;}
+  .hero-founder-info{text-align:center;}
+}
+@media(max-width:640px){
+  .hero-tags{justify-content:center;}
+}
+</style>
+</head>
+<body id="top">
+
+<!-- ═ 年齡警示彈窗（強制使用，interactive-modules.md 9-I） ═ -->
+<div class="age-overlay" id="ageOverlay">
+  <div class="age-box">
+    <p class="age-title">⚠ 飲酒注意事項 ⚠</p>
+    <ul>
+      <li>未滿 18 歲請關閉此頁面</li>
+      <li>飲酒過量，有礙健康</li>
+      <li>禁止酒後駕車</li>
+    </ul>
+    <button class="age-confirm" onclick="closeAgeModal()">我已閱讀，繼續瀏覽</button>
+  </div>
+</div>
+
+<!-- ═ HERO ═ -->
+<header class="hero-section" id="hero">
+  <img class="hero-bg-img" src="../assets/hero-bg.jpg" alt="日清森清酒質感紋理背景" loading="eager" onerror="this.style.display='none'">
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-content">
+    <h1 class="sr-only">鄭宇菁 River｜日清森清酒 店長｜台中西區</h1>
+    <div class="hero-cols">
+      <div class="hero-left">
+        <div class="hero-logo"><img src="../assets/nisshin-logo.svg" alt="日清森清酒 Nisshin Mori Sake LOGO" onerror="this.style.display='none'"></div>
+        <div class="hero-founder">
+          <div class="hero-founder-info">
+            <b>鄭宇菁 River</b>
+            <span>店長｜Store Manager</span>
+          </div>
+        </div>
+        <div class="hero-tags">
+          <span class="h-tag">#清酒專賣</span>
+          <span class="h-tag">#職人選酒</span>
+          <span class="h-tag">#台中西區</span>
+          <span class="h-tag">#森選VIP</span>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-icons">
+          <a class="hero-icon-link" href="https://lin.ee/LhoduDK" target="_blank" rel="noopener" aria-label="LINE"
+            onclick="gtag('event','click_line',{'event_category':'CTA','event_label':'nisshin-mori-sake'});">
+            <img src="/assets/line.svg" alt="LINE" onerror="this.style.display='none'">
+          </a>
+          <a class="hero-icon-link" href="tel:0423012136" aria-label="電話"
+            onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'nisshin-mori-sake'});">
+            <img src="/assets/phone.svg" alt="Phone" onerror="this.style.display='none'">
+          </a>
+          <a class="hero-icon-link" href="https://instagram.com/nisshinmorisake/" target="_blank" rel="noopener" aria-label="Instagram"
+            onclick="gtag('event','click_ig',{'event_category':'CTA','event_label':'nisshin-mori-sake'});">
+            <img src="/assets/instagram.svg" alt="Instagram" onerror="this.style.display='none'">
+          </a>
+          <a class="hero-icon-link" href="https://www.facebook.com/sakenisshinmori/" target="_blank" rel="noopener" aria-label="Facebook"
+            onclick="gtag('event','click_fb',{'event_category':'CTA','event_label':'nisshin-mori-sake'});">
+            <img src="/assets/facebook.svg" alt="Facebook" onerror="this.style.display='none'">
+          </a>
+          <a class="hero-icon-link" href="https://www.threads.com/@nisshinmorisake" target="_blank" rel="noopener" aria-label="Threads"
+            onclick="gtag('event','click_threads',{'event_category':'CTA','event_label':'nisshin-mori-sake'});">
+            <img src="/assets/threads.svg" alt="Threads" onerror="this.style.display='none'">
+          </a>
+          <a class="hero-icon-link" href="https://sake.com.tw" target="_blank" rel="noopener" aria-label="官方網站"
+            onclick="gtag('event','click_web',{'event_category':'CTA','event_label':'nisshin-mori-sake'});">
+            <img src="/assets/web.svg" alt="官方網站" onerror="this.style.display='none'">
+          </a>
+        </div>
+        <a class="hero-btn p1" href="https://lin.ee/LhoduDK" target="_blank" rel="noopener"
+          onclick="gtag('event','click_line_order',{'event_category':'CTA','event_label':'nisshin-mori-sake'});">LINE 詢問選酒<span class="hero-btn-sub">Ask on LINE</span></a>
+        <a class="hero-btn p2" href="tel:0423012136"
+          onclick="gtag('event','click_tel',{'event_category':'CTA','event_label':'nisshin-mori-sake'});">致電日清森 04-2301-2136<span class="hero-btn-sub">Contact Us</span></a>
+        <a class="hero-btn ghost" href="#brands">獨家代理酒選<span class="hero-btn-sub">Our Selection</span></a>
+        <a class="hero-btn ghost" href="#about">品牌故事<span class="hero-btn-sub">Our Story</span></a>
+        <a class="hero-btn ghost" href="#location">門市資訊<span class="hero-btn-sub">Visit Us</span></a>
+        <div class="hero-btn-row">
+          <button class="btn-sm" onclick="openQrModal();gtag('event','click_qr_modal',{'event_category':'CTA','event_label':'nisshin-mori-sake'});">QR CODE</button>
+          <button class="btn-sm share" id="shareBtn">SHARE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═ TICKER ═ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ticker-item">NISSHIN MORI SAKE<span class="dot">◆</span>台中首間沉浸式清酒專賣店<span class="dot">◆</span>20年職人選酒經驗<span class="dot">◆</span>獨家代理8家日本酒造<span class="dot">◆</span></span>
+    <span class="ticker-item">NISSHIN MORI SAKE<span class="dot">◆</span>台中首間沉浸式清酒專賣店<span class="dot">◆</span>20年職人選酒經驗<span class="dot">◆</span>獨家代理8家日本酒造<span class="dot">◆</span></span>
+  </div>
+</div>
+
+<!-- ═ QR MODAL ═ -->
+<div class="qr-overlay" id="qrOverlay" onclick="closeQrModal()">
+  <div class="qr-box" onclick="event.stopPropagation()">
+    <img class="qr-logo" src="../assets/nisshin-logo.svg" alt="日清森清酒 Nisshin Mori Sake" onerror="this.style.display='none'">
+    <div id="qrcode"></div>
+    <div class="qr-url">linket.app/nisshin-mori-sake</div>
+    <button class="qr-close" onclick="closeQrModal()">關 閉</button>
+  </div>
+</div>
+
+<!-- ═ BREATHING 品牌精神 ═ -->
+<section class="breathing">
+  <div class="breathing-inner">
+    <p class="breathing-quote reveal">「超乎預期・森得你心」<br>替每一位客人挑選一支酒堅持的標準。</p>
+    <div class="breathing-attr reveal">—— 日清森清酒 品牌精神</div>
+  </div>
+</section>
+
+<!-- ═ STORY 品牌故事＋四季品飲節奏（合併） ═ -->
+<section class="bg-light" id="about">
+  <div class="sec-inner">
+    <div class="sec-head reveal">
+      <p class="sec-eyebrow">Our Story</p>
+      <h2 class="sec-title">把日本酒藏，搬進台中西區</h2>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="quote-hero reveal">
+      <p class="quote-text">主理人王柏森擁有 20 年以上酒業實戰經驗，對日本文化與清酒品鑑皆有獨到見解——這是日清森選品與服務的起點。</p>
+      <p class="quote-text" style="margin-top:1rem;">主理人親赴日本各地酒藏，與釀造職人深度交流，建立獨家代理合作，讓每一支酒都有故事可以說，而不是架上一瓶陌生的商品。</p>
+    </div>
+    <div class="storybook-article reveal">
+      <div class="sa-img">
+        <div class="store-carousel" id="storeCarousel">
+          <div class="sc-slides">
+            <img class="active" src="../assets/store-01.jpg" alt="日清森門市外觀" onerror="this.style.display='none'">
+            <img src="../assets/store-02.jpg" alt="日清森門市吧台" onerror="this.style.display='none'">
+            <img src="../assets/store-03.jpg" alt="日清森門市內部座位" onerror="this.style.display='none'">
+          </div>
+          <div class="sc-dots" id="scDots"></div>
+        </div>
+      </div>
+      <div class="sa-text">
+        <p class="sa-eyebrow">The Space</p>
+        <h3 class="sa-title">沉浸式品飲空間</h3>
+        <p class="sa-desc">台中西區首間沉浸式清酒專賣店，暖色木質與竹片妝點，白石子地板搭配光影流動，走進門市就像走進一場日式品飲體驗，不只是買酒，更是文化探索。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═ IMPACT 數據 ═ -->
+<section class="bg-dark">
+  <div class="sec-inner">
+    <div class="sec-head reveal">
+      <p class="sec-eyebrow">By The Numbers</p>
+      <h2 class="sec-title">選酒背後的實力</h2>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="num-row reveal">
+      <div class="num-item">
+        <div class="num-val"><span class="cnt" data-target="20">0</span><span class="unit">年</span></div>
+        <p class="num-cap">酒業實戰經驗</p>
+      </div>
+      <div class="num-item">
+        <div class="num-val"><span class="cnt" data-target="8">0</span><span class="unit">家</span></div>
+        <p class="num-cap">日本酒造獨家代理</p>
+      </div>
+      <div class="num-item">
+        <div class="num-val"><span class="cnt" data-target="20">0</span><span class="unit">+</span></div>
+        <p class="num-cap">清酒．燒酎．果實酒精選款</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═ BRAND WALL 代理酒藏 ═ -->
+<section class="bg-light" id="brands">
+  <div class="sec-inner">
+    <div class="sec-head reveal">
+      <p class="sec-eyebrow">Our Selection</p>
+      <h2 class="sec-title">獨家代理酒藏</h2>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="brand-tier reveal">
+      <p class="brand-tier-label">獨家代理</p>
+      <div class="brand-carousel">
+        <div class="cf-stage">
+          <div class="cf-track">
+            <div class="cf-slide"><img src="../assets/brands/十四代.jpg" alt="十四代" onerror="this.style.display='none'"><span>十四代</span></div>
+            <div class="cf-slide"><img src="../assets/brands/七冠馬.jpg" alt="七冠馬" onerror="this.style.display='none'"><span>七冠馬</span></div>
+            <div class="cf-slide"><img src="../assets/brands/くどき上手.jpg" alt="くどき上手" onerror="this.style.display='none'"><span>くどき上手</span></div>
+            <div class="cf-slide"><img src="../assets/brands/磯自慢.jpg" alt="磯自慢" onerror="this.style.display='none'"><span>磯自慢</span></div>
+            <div class="cf-slide"><img src="../assets/brands/信州銘醸.jpg" alt="信州銘醸" onerror="this.style.display='none'"><span>信州銘醸</span></div>
+            <div class="cf-slide"><img src="../assets/brands/壺坂酒造.jpg" alt="壺坂酒造" onerror="this.style.display='none'"><span>壺坂酒造</span></div>
+            <div class="cf-slide"><img src="../assets/brands/國權.jpg" alt="國權" onerror="this.style.display='none'"><span>國權</span></div>
+          </div>
+          <button class="bc-nav prev" aria-label="上一個品牌">‹</button>
+          <button class="bc-nav next" aria-label="下一個品牌">›</button>
+        </div>
+        <div class="bc-dots"></div>
+      </div>
+    </div>
+    <div class="brand-tier reveal">
+      <p class="brand-tier-label">熱門品牌</p>
+      <div class="brand-carousel">
+        <div class="cf-stage">
+          <div class="cf-track">
+            <div class="cf-slide"><img src="../assets/brands/上川大雪.jpg" alt="上川大雪" onerror="this.style.display='none'"><span>上川大雪</span></div>
+            <div class="cf-slide"><img src="../assets/brands/赤武.jpg" alt="赤武 AKABU" onerror="this.style.display='none'"><span>赤武 AKABU</span></div>
+            <div class="cf-slide"><img src="../assets/brands/仙禽.jpg" alt="仙禽" onerror="this.style.display='none'"><span>仙禽</span></div>
+            <div class="cf-slide"><img src="../assets/brands/風之森.jpg" alt="風之森" onerror="this.style.display='none'"><span>風之森</span></div>
+            <div class="cf-slide"><img src="../assets/brands/鍋島.jpg" alt="鍋島" onerror="this.style.display='none'"><span>鍋島</span></div>
+            <div class="cf-slide"><img src="../assets/brands/而今.jpg" alt="而今" onerror="this.style.display='none'"><span>而今</span></div>
+            <div class="cf-slide"><img src="../assets/brands/黑龍.jpg" alt="黑龍" onerror="this.style.display='none'"><span>黑龍</span></div>
+            <div class="cf-slide"><img src="../assets/brands/北信流.jpg" alt="北信流" onerror="this.style.display='none'"><span>北信流</span></div>
+            <div class="cf-slide"><img src="../assets/brands/村祐.jpg" alt="村祐" onerror="this.style.display='none'"><span>村祐</span></div>
+            <div class="cf-slide"><img src="../assets/brands/町田酒造.jpg" alt="町田酒造" onerror="this.style.display='none'"><span>町田酒造</span></div>
+            <div class="cf-slide"><img src="../assets/brands/產土.jpg" alt="產土" onerror="this.style.display='none'"><span>產土</span></div>
+            <div class="cf-slide"><img src="../assets/brands/上手.jpg" alt="上手" onerror="this.style.display='none'"><span>上手</span></div>
+            <div class="cf-slide"><img src="../assets/brands/田酒.jpg" alt="田酒" onerror="this.style.display='none'"><span>田酒</span></div>
+          </div>
+          <button class="bc-nav prev" aria-label="上一個品牌">‹</button>
+          <button class="bc-nav next" aria-label="下一個品牌">›</button>
+        </div>
+        <div class="bc-dots"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═ 森選 VIP 會員計畫（2026-07-30 官網深爬新發現，全新訂閱制業務） ═ -->
+<section class="bg-dark" id="vip">
+  <div class="sec-inner">
+    <div class="sec-head reveal">
+      <p class="sec-eyebrow">Nisshin Mori Sake Pass</p>
+      <h2 class="sec-title">森選 VIP 會員計畫</h2>
+      <div class="sec-rule"></div>
+      <p class="sec-intro">把日常的喝酒時光，升級為值得期待的儀式。每個月，日清森替會員挑選值得打開的一瓶；每一次到店，都是專屬禮遇。</p>
+    </div>
+    <div class="brand-tier reveal">
+      <p class="brand-tier-label">方案選擇</p>
+      <div class="vip-accordion">
+        <div class="vip-acc-item open" data-plan="3m">
+          <button class="vip-acc-head" aria-expanded="true" onclick="toggleVipAcc(this)">
+            <span class="vip-acc-title">
+              <span class="vip-acc-tag">輕鬆開啟森選生活</span>
+              <span class="vip-acc-name">3 個月・入門體驗</span>
+              <span class="vip-acc-price">NT$9,000</span>
+            </span>
+            <span class="vip-acc-icon">−</span>
+          </button>
+          <div class="vip-acc-panel"><div>
+            <div class="vip-acc-panel-inner">
+              <p>適合想先感受會員制度、體驗每月選酒驚喜的你。短期無負擔，讓品飲變成一種新的日常節奏。</p>
+              <p class="vip-acc-gift">◆ 贈品：市野屋梅酒或 HARIO 聯名杯一組（市值 $750）</p>
+            </div>
+          </div></div>
+        </div>
+        <div class="vip-acc-item" data-plan="6m">
+          <button class="vip-acc-head" aria-expanded="false" onclick="toggleVipAcc(this)">
+            <span class="vip-acc-title">
+              <span class="vip-acc-tag">建立你的品飲深度</span>
+              <span class="vip-acc-name">6 個月・風味探索</span>
+              <span class="vip-acc-price">NT$18,000</span>
+            </span>
+            <span class="vip-acc-icon">+</span>
+          </button>
+          <div class="vip-acc-panel"><div>
+            <div class="vip-acc-panel-inner">
+              <p>適合已有一定品飲習慣、希望穩定入手好酒的你。半年時間，讓味蕾逐步養成，也讓收藏更有系統。</p>
+              <p class="vip-acc-gift">◆ 贈品：能作錫杯 ×1（市值 $1,400）</p>
+            </div>
+          </div></div>
+        </div>
+        <div class="vip-acc-item highlight" data-plan="12m">
+          <button class="vip-acc-head" aria-expanded="false" onclick="toggleVipAcc(this)">
+            <span class="vip-acc-title">
+              <span class="vip-acc-tag">最高價值回饋首選</span>
+              <span class="vip-acc-name">12 個月・尊榮典藏</span>
+              <span class="vip-acc-price">NT$31,800（原價 NT$36,000）</span>
+            </span>
+            <span class="vip-acc-icon">+</span>
+          </button>
+          <div class="vip-acc-panel"><div>
+            <div class="vip-acc-panel-inner">
+              <p>適合真正熱愛清酒、希望優先掌握限量酒款的你。完整年度規劃，專屬禮遇與價值回饋一次到位，年度方案享最高價值回饋。</p>
+              <p class="vip-acc-gift">◆ 贈品：新政（視當時貨況送其一）或能作金達摩、藍色富士山杯擇一（市值 $2,500）</p>
+            </div>
+          </div></div>
+        </div>
+      </div>
+    </div>
+    <div class="brand-tier reveal">
+      <p class="brand-tier-label">會員專屬權益</p>
+      <div class="brand-list">
+        <div class="brand-item">每月專屬定額酒款配送 1–2 支</div>
+        <div class="brand-item">門市消費 VIP 9 折以上優惠</div>
+        <div class="brand-item">限量酒款 VIP 優先選購權</div>
+        <div class="brand-item">生日月專屬加值禮遇</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-top:2.2rem;">
+      <a class="loc-map-btn" href="https://lin.ee/LhoduDK" target="_blank" rel="noopener"
+        onclick="gtag('event','click_vip_line',{'event_category':'CTA','event_label':'nisshin-mori-sake'});">加入森選 VIP</a>
+      <a class="loc-map-btn ghost" href="https://sake.com.tw/news/item/1430.html" target="_blank" rel="noopener"
+        onclick="gtag('event','click_vip_detail',{'event_category':'CTA','event_label':'nisshin-mori-sake'});">進入官網看詳細</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═ 門市資訊 ═ -->
+<section class="bg-light" id="location">
+  <div class="sec-inner">
+    <div class="sec-head reveal">
+      <p class="sec-eyebrow">Visit Us</p>
+      <h2 class="sec-title">台中西區・日清森門市</h2>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="loc-wrap reveal">
+      <div class="loc-map-embed">
+        <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E6%A8%A1%E7%AF%84%E8%A1%9750%E8%99%9F&output=embed" title="日清森清酒門市地圖"></iframe>
+      </div>
+      <div class="loc-info">
+        <p class="loc-atmo">日式風格門市，暖色木質與竹片妝點，白石子地板搭配精緻盆栽，踏進店裡就是一場沉浸式的清酒文化探索。</p>
+        <div class="loc-row"><b>地址</b>403 台中市西區模範街50號</div>
+        <div class="loc-row"><b>營業時間</b>週一至日 12:30–21:30</div>
+        <div class="loc-row"><b>客服電話</b>04-2301-2136</div>
+        <a class="loc-map-btn" href="https://maps.app.goo.gl/dLbURX7N9QUqmbEDA" target="_blank" rel="noopener"
+          onclick="gtag('event','click_map',{'event_category':'CTA','event_label':'nisshin-mori-sake'});">📍 開啟 Google Maps 導航</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═ FOOTER ═ -->
+<footer class="bg-dark" id="footer">
+  <div class="footer-inner">
+    <div class="footer-logo-wrap">
+      <img src="../assets/nisshin-logo.svg" alt="日清森清酒 Nisshin Mori Sake" onerror="this.style.display='none'">
+    </div>
+    <div class="f-icons">
+      <a class="hero-icon-link" href="https://lin.ee/LhoduDK" target="_blank" rel="noopener" aria-label="LINE"
+        onclick="gtag('event','click_line_footer',{'event_category':'CTA','event_label':'nisshin-mori-sake'});">
+        <img src="/assets/line.svg" alt="LINE" onerror="this.style.display='none'">
+      </a>
+      <a class="hero-icon-link" href="https://www.facebook.com/sakenisshinmori/" target="_blank" rel="noopener" aria-label="Facebook"
+        onclick="gtag('event','click_fb_footer',{'event_category':'CTA','event_label':'nisshin-mori-sake'});">
+        <img src="/assets/facebook.svg" alt="Facebook" onerror="this.style.display='none'">
+      </a>
+      <a class="hero-icon-link" href="https://instagram.com/nisshinmorisake/" target="_blank" rel="noopener" aria-label="Instagram"
+        onclick="gtag('event','click_ig_footer',{'event_category':'CTA','event_label':'nisshin-mori-sake'});">
+        <img src="/assets/instagram.svg" alt="Instagram" onerror="this.style.display='none'">
+      </a>
+      <a class="hero-icon-link" href="https://www.threads.com/@nisshinmorisake" target="_blank" rel="noopener" aria-label="Threads"
+        onclick="gtag('event','click_threads_footer',{'event_category':'CTA','event_label':'nisshin-mori-sake'});">
+        <img src="/assets/threads.svg" alt="Threads" onerror="this.style.display='none'">
+      </a>
+      <a class="hero-icon-link" href="https://sake.com.tw" target="_blank" rel="noopener" aria-label="官方網站"
+        onclick="gtag('event','click_web_footer',{'event_category':'CTA','event_label':'nisshin-mori-sake'});">
+        <img src="/assets/web.svg" alt="官方網站" onerror="this.style.display='none'">
+      </a>
+      <a class="hero-icon-link" href="tel:0423012136" aria-label="電話"
+        onclick="gtag('event','click_tel_footer',{'event_category':'CTA','event_label':'nisshin-mori-sake'});">
+        <img src="/assets/phone.svg" alt="Phone" onerror="this.style.display='none'">
+      </a>
+    </div>
+    <div class="footer-btns">
+      <a class="f-cta" href="https://lin.ee/LhoduDK" target="_blank" rel="noopener"
+        onclick="gtag('event','click_line_footer',{'event_category':'CTA','event_label':'nisshin-mori-sake'});">LINE詢問選酒｜LINE @</a>
+      <a class="f-cta ghost" href="tel:0423012136"
+        onclick="gtag('event','click_tel_footer',{'event_category':'CTA','event_label':'nisshin-mori-sake'});">致電日清森｜Contact Us</a>
+      <button class="f-cta ghost" onclick="window.scrollTo({top:0,behavior:'smooth'});" aria-label="回到頂部">Back to Top</button>
+    </div>
+    <div class="f-divider"></div>
+    <!-- ⬜ 統編待客戶提供，未提供前不虛構數字（公司登記名稱已從名片素材確認：日清森有限公司） -->
+    <p class="f-legal">© 2026 日清森有限公司 Nisshin Mori Sake<br>403 台中市西區模範街50號</p>
+    <p class="f-alcohol">⚠ 飲酒過量，有礙健康。禁止酒駕。本頁面含酒精飲品資訊，未滿 18 歲請勿瀏覽。</p>
+    <a class="design-by" href="https://linket.app/home" target="_blank" rel="noopener">Design by <span class="db-lin">LIN</span><span class="db-ket">Ket</span></a>
+  </div>
+</footer>
+
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+function closeAgeModal(){document.getElementById('ageOverlay').classList.add('closed');}
+
+const obs=new IntersectionObserver(e=>{
+  e.forEach(i=>{if(i.isIntersecting){i.target.classList.add('visible');obs.unobserve(i.target);}});
+},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+/* countUp：Hero統計＋Impact數據共用 */
+const countObserver=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){animateCount(e.target);countObserver.unobserve(e.target);}
+  });
+},{threshold:.4});
+document.querySelectorAll('.cnt').forEach(el=>countObserver.observe(el));
+function animateCount(el){
+  const target=parseInt(el.dataset.target,10);
+  if(!target){return;}
+  const dur=1100;const start=performance.now();
+  function step(now){
+    const p=Math.min((now-start)/dur,1);
+    el.textContent=Math.floor(p*target);
+    if(p<1){requestAnimationFrame(step);}else{el.textContent=target;}
+  }
+  requestAnimationFrame(step);
+}
+
+/* 代理酒藏卡片輪播：3D coverflow 等效實作
+   參考代碼用了 sibling-index()／scroll-button() 等草案階段 CSS，多數瀏覽器目前打不開；
+   改用 JS 依每張卡跟目前索引的距離即時算 transform，視覺效果相同、相容性穩定。 */
+document.querySelectorAll('.brand-carousel').forEach(function(carousel){
+  const track=carousel.querySelector('.cf-track');
+  const slides=Array.prototype.slice.call(track.children);
+  const dotsWrap=carousel.querySelector('.bc-dots');
+  let idx=0;
+  slides.forEach(function(_,i){
+    const dot=document.createElement('button');
+    dot.className='bc-dot'+(i===0?' active':'');
+    dot.setAttribute('aria-label','第'+(i+1)+'個品牌');
+    dot.addEventListener('click',function(){goTo(i);resetAuto();});
+    dotsWrap.appendChild(dot);
+  });
+  const dots=Array.prototype.slice.call(dotsWrap.children);
+  function render(){
+    slides.forEach(function(slide,i){
+      let d=i-idx;
+      const half=slides.length/2;
+      if(d>half)d-=slides.length;
+      if(d<-half)d+=slides.length;
+      const abs=Math.abs(d);
+      const side=d===0?0:(d>0?1:-1);
+      const x=d*192;
+      const rotate=side*-32;
+      const scale=Math.max(.62,1-abs*.16);
+      slide.style.transform='translateX('+x+'px) rotateY('+rotate+'deg) scale('+scale+')';
+      slide.style.zIndex=100-Math.round(abs*10);
+      slide.style.opacity=abs>3?0:1;
+      slide.style.pointerEvents=d===0?'auto':'none';
+    });
+    dots.forEach(function(dot,j){dot.classList.toggle('active',j===idx);});
+  }
+  function goTo(i){idx=(i+slides.length)%slides.length;render();}
+  function next(){goTo(idx+1);}
+  function prev(){goTo(idx-1);}
+  carousel.querySelector('.bc-nav.next').addEventListener('click',function(e){e.stopPropagation();next();resetAuto();});
+  carousel.querySelector('.bc-nav.prev').addEventListener('click',function(e){e.stopPropagation();prev();resetAuto();});
+  let timer=setInterval(next,4200);
+  function resetAuto(){clearInterval(timer);timer=setInterval(next,4200);}
+  carousel.addEventListener('mouseenter',function(){clearInterval(timer);});
+  carousel.addEventListener('mouseleave',resetAuto);
+  let startX=0,isDragging=false;
+  track.addEventListener('pointerdown',function(e){isDragging=true;startX=e.clientX;clearInterval(timer);});
+  track.addEventListener('pointerup',function(e){
+    if(!isDragging)return;isDragging=false;
+    const dx=e.clientX-startX;
+    if(dx>40)prev();else if(dx<-40)next();
+    resetAuto();
+  });
+  render();
+});
+
+/* VIP 方案手風琴（比照 mumu-cafe menu-accordion 單開單合邏輯） */
+function toggleVipAcc(btn){
+  const item=btn.parentElement;
+  const wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.vip-acc-item').forEach(function(i){
+    i.classList.remove('open');
+    const b=i.querySelector('.vip-acc-head');
+    b.setAttribute('aria-expanded','false');
+    b.querySelector('.vip-acc-icon').textContent='+';
+  });
+  if(!wasOpen){
+    item.classList.add('open');
+    btn.setAttribute('aria-expanded','true');
+    btn.querySelector('.vip-acc-icon').textContent='−';
+    gtag('event','click_vip_plan',{'event_category':'CTA','event_label':item.dataset.plan});
+  }
+}
+
+/* 門市照片輪播（官網真實照片，淡入淡出） */
+(function(){
+  const wrap=document.getElementById('storeCarousel');
+  if(!wrap)return;
+  const imgs=Array.prototype.slice.call(wrap.querySelectorAll('.sc-slides img'));
+  const dotsWrap=document.getElementById('scDots');
+  let idx=0;
+  imgs.forEach(function(_,i){
+    const dot=document.createElement('button');
+    dot.className='sc-dot'+(i===0?' active':'');
+    dot.setAttribute('aria-label','第'+(i+1)+'張門市照片');
+    dot.addEventListener('click',function(){show(i);resetAuto();});
+    dotsWrap.appendChild(dot);
+  });
+  const dots=Array.prototype.slice.call(dotsWrap.children);
+  function show(i){
+    idx=i;
+    imgs.forEach(function(img,j){img.classList.toggle('active',j===idx);});
+    dots.forEach(function(d,j){d.classList.toggle('active',j===idx);});
+  }
+  let timer=setInterval(function(){show((idx+1)%imgs.length);},4000);
+  function resetAuto(){clearInterval(timer);timer=setInterval(function(){show((idx+1)%imgs.length);},4000);}
+  wrap.addEventListener('mouseenter',function(){clearInterval(timer);});
+  wrap.addEventListener('mouseleave',resetAuto);
+})();
+
+const backTop=document.getElementById('backTop');
+window.addEventListener('scroll',()=>backTop.classList.toggle('show',scrollY>300));
+
+function openQrModal(){document.getElementById('qrOverlay').classList.add('open');}
+function closeQrModal(){document.getElementById('qrOverlay').classList.remove('open');}
+new QRCode(document.getElementById('qrcode'),{
+  text:'https://linket.app/nisshin-mori-sake',
+  width:160,height:160,
+  colorDark:'#1A1208',colorLight:'#F5EDD8',
+  correctLevel:QRCode.CorrectLevel.M
+});
+const shareBtn=document.getElementById('shareBtn');
+shareBtn.addEventListener('click',async()=>{
+  if(navigator.share){
+    try{
+      await navigator.share({title:'日清森清酒 Nisshin Mori Sake',url:'https://linket.app/nisshin-mori-sake'});
+      gtag('event','click_share',{'event_category':'CTA','event_label':'nisshin-mori-sake'});
+    }catch(e){}
+  }else{
+    gtag('event','click_share',{'event_category':'CTA','event_label':'nisshin-mori-sake'});
+  }
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeQrModal();});
+</script>
+</body>
+</html>
