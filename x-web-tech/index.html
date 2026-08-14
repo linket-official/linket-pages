@@ -4,6 +4,17 @@
 <!--
   張淑伶 Taris｜LINKet T2
   slug: x-web-tech（2026-06-30 Tony拍板，依官網網域命名，不受公司名稱待確認影響）
+  v4.4  2026-08-14  Taris本人自行下載HTML用AI工具改版（8/13拜訪後回傳），Claude內部QC後合併：
+        ①Hero新增自我介紹句(hero-value)＋標籤改「#課程系統/#網頁設計/#SEO優化」(拿掉#廣告代操)
+        ②服務項目改分組（專用網站系統：票券酷NT$1,280/月起、禮雲NT$1,680/月起／數位成長服務：
+        網頁設計改洽詢制、SEO優化文案更新、廣告代操NT$6,000→8,000／月起）
+        ③SEO優化案例從3組擴充到6組(新增法夏爾牙醫/B2B汽車配件/B2B金屬加工)，改頭像+數據卡呈現，
+        既有3組案例名稱更新為具名客戶(馬可先生/達弘生物科技/福穀樂安心包子)，新增底部case-cta引導
+        ④網頁設計作品3組拿掉外部查看連結，改加一句話結果摘要(work-result)
+        ⑤部落格第2篇文章全換(Dark mode舊文→「被AI引用會不會比排第一名更重要」新文，含新封面圖)
+        ⑥stat-row年資7+→10+（同步meta description）
+        Claude修正：①原文「预約」簡體字誤植改回「預約」②統一svc-more連結加GA4 onclick事件
+        （原檔部分新項目缺事件）③三審+preflight全過後才合併進正式檔
   v4.3  2026-07-29  Tony自行用CotEditor直接改檔（Hero人像照放大clamp下限180px、中文姓名字級縮小、
         右欄間距12px→20px、ghost按鈕字重加粗900、hero-btn文案改「服務項目｜Service/客戶案例｜Works」+
         新增「趨勢與觀點｜Insights」連結#blog、Works區標題「精選服務案例」→「客戶案例」、
@@ -38,7 +49,7 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}if(/(^|\.)linket\.app$/.test(location.hostname)){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-29J2988Y8J';document.head.appendChild(s);gtag('js',new Date());gtag('config','G-29J2988Y8J');}</script>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
 <title>張淑伶 Taris｜XWEB網頁設計 營運總監</title>
-<meta name="description" content="張淑伶 Taris，XWEB網頁設計營運總監。從報價、設計、開發到上線，把關每個網站案子。7年經驗、100+成功案例、3週快速上線。">
+<meta name="description" content="張淑伶 Taris，XWEB網頁設計營運總監。從報價、設計、開發到上線，把關每個網站案子。10年經驗、100+成功案例、3週快速上線。">
 <meta property="og:title" content="張淑伶 Taris｜營運總監">
 <meta property="og:description" content="每一個網站，都先嚴格通過我們這一關，才能抵達使用者那一關。">
 <meta property="og:image" content="https://linket.app/x-web-tech/assets/og-image.jpg">
@@ -100,6 +111,7 @@ img{max-width:100%;display:block;}
 .hero-name .en{font-weight:500;font-style:italic;color:var(--blue2);font-size:.7em;letter-spacing:.06em;}
 .hero-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.3rem;}
 .h-tag{font-size:.68rem;letter-spacing:.06em;color:var(--blue);border:1px solid rgba(1,51,160,.4);border-radius:var(--r);padding:.22rem .65rem;background:rgba(1,51,160,.05);}
+.hero-value{max-width:360px;font-size:.9rem;line-height:1.75;color:rgba(29,36,51,.8);text-align:justify;margin-top:.2rem;}
 
 .hero-right{flex:1 1 0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;max-width:340px;margin:0 auto;}
 .hero-right>*{opacity:0;animation:fadeUp .5s ease both;}
@@ -160,7 +172,7 @@ section{position:relative;}
 .about-slogan{font-family:'Noto Serif TC',serif;font-weight:700;font-size:clamp(1.4rem,4vw,1.8rem);line-height:1.65;text-align:justify;max-width:640px;margin:0 auto 1.3rem;color:rgba(255,255,255,.97);}
 .about-slogan::before{content:'「';color:var(--blue-lt);opacity:.6;}
 .about-slogan::after{content:'」';color:var(--blue-lt);opacity:.6;}
-.about-support{max-width:480px;margin:0 auto;text-align:justify;font-family:'Playfair Display',serif;font-style:italic;font-weight:400;font-size:.9rem;line-height:1.9;color:rgba(255,255,255,.62);letter-spacing:.02em;}
+.about-support{max-width:480px;margin:0 auto;text-align:justify;font-family:'Playfair Display',serif;font-style:italic;font-weight:400;font-size:.9rem;line-height:1.9;color:rgba(255,255,255,.76);letter-spacing:.02em;}
 .about-support strong{color:var(--blue-lt);font-weight:600;font-style:normal;}
 
 /* WORKS — premium 卡片，分兩組各三案例 */
@@ -174,28 +186,51 @@ section{position:relative;}
 .work-card:hover .work-thumb img{transform:scale(1.04);}
 .work-body{padding:1.1rem 1.2rem 1.3rem;}
 .work-tag{font-size:.68rem;color:var(--blue);letter-spacing:.08em;margin-bottom:.3rem;display:inline-block;border:1px solid rgba(1,51,160,.3);border-radius:var(--r);padding:.15rem .55rem;}
-.work-name{font-size:.98rem;font-weight:700;margin:.45rem 0 .45rem;}
+.work-name{font-size:.98rem;font-weight:700;color:var(--ink);margin:.45rem 0 .45rem;}
+.work-result{font-family:'Playfair Display','Noto Serif TC',serif;font-size:1.02rem;font-weight:700;line-height:1.55;color:var(--blue);margin:.5rem 0 .65rem;}
 .work-note{font-size:.8rem;color:var(--ink2);margin-bottom:.7rem;}
 .work-link{display:inline-flex;align-items:center;gap:.3rem;font-size:.74rem;font-weight:700;color:var(--blue);letter-spacing:.04em;border:1.5px solid var(--blue);border-radius:var(--r);padding:.35rem .9rem;transition:all .2s;}
 .work-link:hover{background:var(--blue);color:var(--white);}
+
+/* SEO 案例：頭像+數據卡列表（8/13 Taris自改版新增，取代原本 work-card 卡片） */
+.seo-results{border-top:1px solid rgba(141,189,245,.35);}
+.seo-result{display:grid;grid-template-columns:1.15fr 1fr;gap:2rem;align-items:center;padding:1.8rem .2rem;border-bottom:1px solid rgba(141,189,245,.35);}
+.seo-result-main{display:grid;grid-template-columns:92px 1fr;gap:1.2rem;align-items:center;}
+.seo-result-thumb{width:92px;aspect-ratio:1/1;border-radius:50%;overflow:hidden;border:1px solid rgba(255,255,255,.28);}
+.seo-result-thumb img{width:100%;height:100%;object-fit:cover;}
+.seo-result-tag{font-size:.7rem;letter-spacing:.12em;color:var(--blue-lt);margin-bottom:.2rem;}
+.seo-result-name{font-size:1.08rem;font-weight:700;margin-bottom:.35rem;}
+.seo-result-note{font-size:.82rem;line-height:1.75;color:rgba(255,255,255,.82);}
+.seo-result-metrics{display:flex;justify-content:flex-end;gap:1.8rem;}
+.seo-metric{min-width:90px;}
+.seo-metric-num{font-family:'Playfair Display','Noto Serif TC',serif;font-size:1.55rem;font-weight:600;line-height:1.2;color:var(--blue-lt);white-space:nowrap;}
+.seo-metric-label{font-size:.75rem;color:rgba(255,255,255,.76);margin-top:.3rem;}
+.case-cta{max-width:640px;margin:3rem auto 0;padding:1.8rem;text-align:center;border:1px solid rgba(141,189,245,.42);border-radius:14px;background:rgba(255,255,255,.08);}
+.case-cta-title{font-size:1.2rem;font-weight:700;margin-bottom:.4rem;}
+.case-cta p{font-size:.82rem;color:rgba(255,255,255,.68);margin-bottom:1rem;}
+.case-cta a{display:inline-flex;padding:.7rem 1.5rem;border-radius:var(--r);background:var(--white);color:var(--blue);font-size:.82rem;font-weight:700;}
 
 /* SERVICES — Accordion 上下收合（Tony參考家具站選單改版，桌機/手機統一收合，不分版型，2026-07-28 v3，取代橫向捲動卡片） */
 .stat-row{display:flex;justify-content:center;gap:2.2rem;margin:.4rem 0 2.6rem;text-align:center;}
 .stat-num{font-family:'Playfair Display',serif;font-weight:600;font-size:1.8rem;color:var(--blue2);}
 .stat-label{font-size:.74rem;color:var(--ink2);}
 
-.svc-accordion{max-width:640px;margin:0 auto;border-top:1px solid rgba(1,51,160,.18);}
+.svc-accordion{max-width:640px;margin:0 auto;}
+.svc-group-label{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin:0 0 .25rem;padding:.72rem 1rem;background:var(--blue);border-radius:6px;color:var(--white);font-size:.88rem;font-weight:700;letter-spacing:.14em;}
+.svc-group-label .en{color:rgba(255,255,255,.78);font-size:.72rem;font-weight:400;font-style:italic;letter-spacing:.08em;}
+.svc-group-label:not(:first-child){margin-top:2.2rem;}
 .svc-item{border-bottom:1px solid rgba(1,51,160,.18);}
 .svc-item-head{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.3rem .2rem;background:none;border:none;cursor:pointer;text-align:left;font-family:'Noto Serif TC',serif;color:var(--ink);}
 .svc-item-title{flex:1 1 auto;min-width:0;font-size:1.8rem;font-weight:700;}
 .svc-item-title .en{font-size:1em;font-weight:500;color:var(--blue2);margin-left:.4em;}
+.svc-item-title .zh-sub{font-size:.62em;font-weight:500;color:var(--blue2);margin-left:.65em;}
 .svc-item-icon{flex:0 0 auto;font-size:1.5rem;font-weight:300;color:var(--blue2);line-height:1;width:1.2rem;text-align:center;}
 .svc-item-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease;}
 .svc-item-panel>div{overflow:hidden;}
 .svc-item.open .svc-item-panel{grid-template-rows:1fr;}
 .svc-item-panel-inner{padding:0 .2rem 1.5rem;}
 .svc-item .svc-price{font-family:'Playfair Display',serif;font-weight:600;font-size:1.3rem;color:var(--blue2);margin-bottom:.5rem;}
-.svc-item .svc-price small{font-size:.66rem;font-weight:400;color:var(--ink3);}
+.svc-item .svc-price small{font-size:.7rem;font-weight:400;color:rgba(29,36,51,.6);}
 .svc-item-panel-inner p{font-size:.85rem;color:var(--ink2);line-height:1.8;margin-bottom:1rem;}
 .svc-item .svc-more{display:inline-flex;align-items:center;gap:.3rem;font-size:.78rem;font-weight:700;color:var(--blue);letter-spacing:.04em;border:1.5px solid rgba(1,51,160,.4);border-radius:var(--r);padding:.55rem 1.2rem;transition:all .2s;}
 .svc-item .svc-more:hover{background:var(--blue);color:var(--white);}
@@ -224,7 +259,7 @@ section{position:relative;}
 .f-cta.top{background:transparent;color:rgba(255,255,255,.85);font-weight:500;border-color:rgba(255,255,255,.38);cursor:pointer;}
 .f-cta.top:hover{background:rgba(255,255,255,.08);}
 .f-divider{height:1px;background:rgba(255,255,255,.12);max-width:300px;margin:0 auto 1.2rem;}
-.f-legal{font-size:.72rem;line-height:1.9;letter-spacing:.05em;color:rgba(255,255,255,.55);margin-bottom:1.2rem;}
+.f-legal{font-size:.72rem;line-height:1.9;letter-spacing:.05em;color:rgba(255,255,255,.7);margin-bottom:1.2rem;}
 a.design-by{display:block;text-align:center;padding:1rem 0 0;font-family:-apple-system,'Segoe UI',sans-serif;font-size:.68rem;letter-spacing:.1em;border-top:1px solid rgba(255,255,255,.1);}
 .db-lin{color:#1685C8;}
 .db-ket{color:#F5ECD7;}
@@ -242,8 +277,15 @@ a.design-by{display:block;text-align:center;padding:1rem 0 0;font-family:-apple-
   .hero-cols{flex-direction:column;gap:2.2rem;}
   .hero-left{align-items:center;text-align:center;}
   .hero-name{justify-content:center;}
+  .hero-value{text-align:center;}
   .hero-tags{justify-content:center;}
   .work-grid,.blog-grid{grid-template-columns:1fr;}
+  .seo-result{grid-template-columns:1fr;gap:1rem;padding:1.5rem 0;}
+  .seo-result-main{grid-template-columns:72px 1fr;gap:.9rem;}
+  .seo-result-thumb{width:72px;}
+  .seo-result-metrics{justify-content:flex-start;padding-left:81px;gap:1.1rem;flex-wrap:wrap;}
+  .seo-metric{min-width:76px;}
+  .seo-metric-num{font-size:1.25rem;}
   .svc-more{width:100%;justify-content:center;}
   /* 橫式背景圖在窄長手機版section改置中偏上，保留較有層次的區域，避免裁到平淡色塊 */
   .bg-light,.bg-dark{background-position:center 15%;}
@@ -267,10 +309,11 @@ a.design-by{display:block;text-align:center;padding:1rem 0 0;font-family:-apple-
         </div>
         <div class="hero-title-cap">營運總監</div>
         <div class="hero-name">張淑伶<span class="en">Taris</span></div>
+        <p class="hero-value">8+ 年軟體工程經驗，懂技術，也懂行銷。替企業打造不只好看，更能被搜尋、帶來詢問與創造生意的網站。</p>
         <div class="hero-tags">
+          <span class="h-tag">#課程系統</span>
           <span class="h-tag">#網頁設計</span>
           <span class="h-tag">#SEO優化</span>
-          <span class="h-tag">#廣告代操</span>
         </div>
       </div>
       <div class="hero-right">
@@ -351,28 +394,60 @@ a.design-by{display:block;text-align:center;padding:1rem 0 0;font-family:-apple-
   <div class="sec-inner">
     <div class="sec-head reveal">
       <p class="sec-eyebrow">Services</p>
-      <h2 class="sec-title">主要服務項目</h2>
+      <h2 class="sec-title">服務項目</h2>
       <div class="sec-rule"></div>
     </div>
 
     <div class="stat-row reveal">
-      <div><div class="stat-num en">7+</div><div class="stat-label">年經驗</div></div>
+      <div><div class="stat-num en">10+</div><div class="stat-label">年經驗</div></div>
       <div><div class="stat-num en">100+</div><div class="stat-label">成功案例</div></div>
       <div><div class="stat-num en">3週</div><div class="stat-label">快速上線</div></div>
     </div>
 
     <div class="svc-accordion reveal">
+      <p class="svc-group-label"><span>專用網站系統</span><span class="en">Product Solutions</span></p>
       <div class="svc-item open">
         <button class="svc-item-head" aria-expanded="true" onclick="toggleSvcItem(this)">
-          <span class="svc-item-title">網頁設計<span class="en">Web Design</span></span>
+          <span class="svc-item-title">票券酷<span class="zh-sub">講師專用系統</span></span>
           <span class="svc-item-icon">−</span>
         </button>
         <div class="svc-item-panel"><div>
           <div class="svc-item-panel-inner">
-            <div class="svc-price en">NT$16,800<small> 起</small></div>
-            <p>RWD響應式設計，兼顧品牌形象與使用者體驗。</p>
+            <div class="svc-price en">NT$1,280<small> ／月起</small></div>
+            <p>實體活動課程、線上課程、電子商品販售、報名管理一站完成，幫助講師、顧問與教育品牌快速開賣，把專業變成收入。</p>
+            <a class="svc-more" href="https://ticketcool.co/" target="_blank" rel="noopener"
+              onclick="gtag('event','click_svc_ticketcool',{'event_category':'CTA','event_label':'x-web-tech'});">立即了解票券酷 →</a>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="svc-item">
+        <button class="svc-item-head" aria-expanded="false" onclick="toggleSvcItem(this)">
+          <span class="svc-item-title">禮雲<span class="zh-sub">禮儀公司專用系統</span></span>
+          <span class="svc-item-icon">+</span>
+        </button>
+        <div class="svc-item-panel"><div>
+          <div class="svc-item-panel-inner">
+            <div class="svc-price en">NT$1,680<small> ／月起</small></div>
+            <p>從電子訃聞、追思留言到線上花禮訂購一站完成，幫助禮儀公司提供更貼心的數位服務，也讓每一份思念被妥善傳遞。</p>
+            <a class="svc-more" href="https://remori.co/" target="_blank" rel="noopener"
+              onclick="gtag('event','click_svc_remori',{'event_category':'CTA','event_label':'x-web-tech'});">立即了解禮雲 →</a>
+          </div>
+        </div></div>
+      </div>
+
+      <p class="svc-group-label"><span>數位成長服務</span><span class="en">Growth Services</span></p>
+      <div class="svc-item">
+        <button class="svc-item-head" aria-expanded="false" onclick="toggleSvcItem(this)">
+          <span class="svc-item-title">網頁設計<span class="en">Web Design</span></span>
+          <span class="svc-item-icon">+</span>
+        </button>
+        <div class="svc-item-panel"><div>
+          <div class="svc-item-panel-inner">
+            <div class="svc-price en">$ 洽詢</div>
+            <p>從需求規劃、UIUX 設計到開發上線全程把關，打造兼顧品牌形象、使用體驗與行銷轉換的專業網站。</p>
             <a class="svc-more" href="https://x-web.tech/charge/web" target="_blank" rel="noopener"
-              onclick="gtag('event','click_svc_web',{'event_category':'CTA','event_label':'x-web-tech'});">看更多詳細服務 →</a>
+              onclick="gtag('event','click_svc_web',{'event_category':'CTA','event_label':'x-web-tech'});">立即了解網頁設計 →</a>
           </div>
         </div></div>
       </div>
@@ -385,9 +460,9 @@ a.design-by{display:block;text-align:center;padding:1rem 0 0;font-family:-apple-
         <div class="svc-item-panel"><div>
           <div class="svc-item-panel-inner">
             <div class="svc-price en">NT$20,000<small> ／月起</small></div>
-            <p>從技術結構到內容策略，提升搜尋能見度。</p>
-            <a class="svc-more" href="https://x-web.tech/charge/seo" target="_blank" rel="noopener"
-              onclick="gtag('event','click_svc_seo',{'event_category':'CTA','event_label':'x-web-tech'});">看更多詳細服務 →</a>
+            <p>從網站體質、關鍵字策略到內容優化持續佈局，提升自然搜尋曝光，讓更多潛在客戶主動找到你。</p>
+            <a class="svc-more" href="https://x-web.tech/service/seo" target="_blank" rel="noopener"
+              onclick="gtag('event','click_svc_seo',{'event_category':'CTA','event_label':'x-web-tech'});">立即了解 SEO 優化 →</a>
           </div>
         </div></div>
       </div>
@@ -399,10 +474,10 @@ a.design-by{display:block;text-align:center;padding:1rem 0 0;font-family:-apple-
         </button>
         <div class="svc-item-panel"><div>
           <div class="svc-item-panel-inner">
-            <div class="svc-price en">NT$6,000<small> ／月起</small></div>
-            <p>Meta/Google廣告投放與素材優化，提升轉換成效。</p>
+            <div class="svc-price en">NT$8,000<small> ／月起</small></div>
+            <p>整合 Meta、Google 廣告投放，持續監測數據與優化素材，減少無效預算，把廣告流量轉成更多詢問與訂單。</p>
             <a class="svc-more" href="https://x-web.tech/charge/ad" target="_blank" rel="noopener"
-              onclick="gtag('event','click_svc_ad',{'event_category':'CTA','event_label':'x-web-tech'});">看更多詳細服務 →</a>
+              onclick="gtag('event','click_svc_ad',{'event_category':'CTA','event_label':'x-web-tech'});">立即了解廣告代操 →</a>
           </div>
         </div></div>
       </div>
@@ -421,34 +496,49 @@ a.design-by{display:block;text-align:center;padding:1rem 0 0;font-family:-apple-
 
     <div class="work-group">
       <p class="work-group-title en">SEO 優化案例</p>
-      <div class="work-grid">
-        <div class="work-card reveal">
-          <div class="work-thumb"><img src="assets/work-bakery.webp" alt="麵包烘焙坊 SEO優化案例" loading="lazy"></div>
-          <div class="work-body">
-            <span class="work-tag en">BAKERY</span>
-            <p class="work-name">麵包烘焙坊</p>
-            <p class="work-note">6個月自然流量成長150%，線上訂單成長超過200%。</p>
-            <a class="work-link" href="https://x-web.tech/works/seo/cases-9" target="_blank" rel="noopener">查看案例 →</a>
+      <div class="seo-results">
+        <article class="seo-result reveal">
+          <div class="seo-result-main">
+            <div class="seo-result-thumb"><img src="assets/work-bakery.webp" alt="馬可先生 SEO 優化案例" loading="lazy"></div>
+            <div><p class="seo-result-tag en">BAKERY</p><p class="seo-result-name">馬可先生 Mr. Mark</p><p class="seo-result-note">官網結構、關鍵字策略與內容優化，將搜尋曝光轉化為線上訂單。</p></div>
           </div>
-        </div>
-        <div class="work-card reveal">
-          <div class="work-thumb"><img src="assets/work-biotech.webp" alt="生物科技公司 SEO優化案例" loading="lazy"></div>
-          <div class="work-body">
-            <span class="work-tag en">BIOTECH</span>
-            <p class="work-name">生物科技公司</p>
-            <p class="work-note">22個月點擊量成長超過130倍，首頁關鍵字數從5組成長至120+組。</p>
-            <a class="work-link" href="https://x-web.tech/works/seo/cases-11" target="_blank" rel="noopener">查看案例 →</a>
+          <div class="seo-result-metrics"><div class="seo-metric"><div class="seo-metric-num">+150%</div><div class="seo-metric-label">自然流量</div></div><div class="seo-metric"><div class="seo-metric-num">+200%</div><div class="seo-metric-label">線上訂單</div></div></div>
+        </article>
+        <article class="seo-result reveal">
+          <div class="seo-result-main">
+            <div class="seo-result-thumb"><img src="assets/work-biotech.webp" alt="達弘生物科技 SEO 優化案例" loading="lazy"></div>
+            <div><p class="seo-result-tag en">BIOTECH</p><p class="seo-result-name">達弘生物科技</p><p class="seo-result-note">純 SEO 策略，整合技術優化、關鍵字佈局與長期內容經營。</p></div>
           </div>
-        </div>
-        <div class="work-card reveal">
-          <div class="work-thumb"><img src="assets/work-baozi.webp" alt="包子店 SEO優化案例" loading="lazy"></div>
-          <div class="work-body">
-            <span class="work-tag en">BAKERY&nbsp;GOODS</span>
-            <p class="work-name">包子店</p>
-            <p class="work-note">6個月自然流量增長450%，轉換率從1.5%提升至3.8%。</p>
-            <a class="work-link" href="https://x-web.tech/works/seo/cases-10" target="_blank" rel="noopener">查看案例 →</a>
+          <div class="seo-result-metrics"><div class="seo-metric"><div class="seo-metric-num">130+ 倍</div><div class="seo-metric-label">22 個月點擊成長</div></div><div class="seo-metric"><div class="seo-metric-num">173 組</div><div class="seo-metric-label">首頁關鍵字</div></div></div>
+        </article>
+        <article class="seo-result reveal">
+          <div class="seo-result-main">
+            <div class="seo-result-thumb"><img src="assets/work-baozi.webp" alt="福穀樂安心包子 SEO 優化案例" loading="lazy"></div>
+            <div><p class="seo-result-tag en">BAKERY GOODS</p><p class="seo-result-name">福穀樂安心包子</p><p class="seo-result-note">從零建立品牌搜尋聲量，以關鍵字研究、內容行銷與技術優化提高轉換。</p></div>
           </div>
-        </div>
+          <div class="seo-result-metrics"><div class="seo-metric"><div class="seo-metric-num">+83%</div><div class="seo-metric-label">8 個月曝光成長</div></div><div class="seo-metric"><div class="seo-metric-num">3 倍</div><div class="seo-metric-label">點擊成長</div></div><div class="seo-metric"><div class="seo-metric-num">3.8%</div><div class="seo-metric-label">網站轉換率</div></div></div>
+        </article>
+        <article class="seo-result reveal">
+          <div class="seo-result-main">
+            <div class="seo-result-thumb"><img src="assets/work-dental.jpg" alt="法夏爾牙醫診所 SEO 優化案例" loading="lazy"></div>
+            <div><p class="seo-result-tag en">HEALTHCARE</p><p class="seo-result-name">法夏爾牙醫診所</p><p class="seo-result-note">重建網站、布局地區與醫療關鍵字，並整合口碑行銷，讓 25 年在地品牌擴大線上預約來源。</p></div>
+          </div>
+          <div class="seo-result-metrics"><div class="seo-metric"><div class="seo-metric-num">+800%</div><div class="seo-metric-label">半年網站流量</div></div><div class="seo-metric"><div class="seo-metric-num">搜尋首頁</div><div class="seo-metric-label">基隆牙醫、智慧植牙</div></div></div>
+        </article>
+        <article class="seo-result reveal">
+          <div class="seo-result-main">
+            <div class="seo-result-thumb"><img src="assets/work-auto-parts.webp" alt="B2B 汽車配件 SEO 優化案例" loading="lazy"></div>
+            <div><p class="seo-result-tag en">B2B AUTO PARTS</p><p class="seo-result-name">B2B 汽車配件企業</p><p class="seo-result-note">從產業研究與買家需求出發，重整關鍵字、內容與頁面結構，同步優化網站速度與行動體驗。</p></div>
+          </div>
+          <div class="seo-result-metrics"><div class="seo-metric"><div class="seo-metric-num">30 → 2,400</div><div class="seo-metric-label">月均自然流量</div></div><div class="seo-metric"><div class="seo-metric-num">+700%</div><div class="seo-metric-label">1 年 2 個月整體成長</div></div></div>
+        </article>
+        <article class="seo-result reveal">
+          <div class="seo-result-main">
+            <div class="seo-result-thumb"><img src="assets/work-metal.webp" alt="B2B 金屬加工 SEO 優化案例" loading="lazy"></div>
+            <div><p class="seo-result-tag en">B2B MANUFACTURING</p><p class="seo-result-name">B2B 金屬加工企業</p><p class="seo-result-note">持續進行關鍵字佈局、網站結構優化與內容策略調整，在高競爭的製造業市場建立穩定自然流量。</p></div>
+          </div>
+          <div class="seo-result-metrics"><div class="seo-metric"><div class="seo-metric-num">5 萬 → 12 萬</div><div class="seo-metric-label">月均自然流量</div></div><div class="seo-metric"><div class="seo-metric-num">111 萬+</div><div class="seo-metric-label">年自然流量</div></div><div class="seo-metric"><div class="seo-metric-num">+240%</div><div class="seo-metric-label">整體流量成長</div></div></div>
+        </article>
       </div>
     </div>
 
@@ -458,10 +548,10 @@ a.design-by{display:block;text-align:center;padding:1rem 0 0;font-family:-apple-
         <div class="work-card reveal">
           <div class="work-thumb"><img src="assets/work-305.jpg" alt="三年五班黑糖珍珠舖官網" loading="lazy"></div>
           <div class="work-body">
-            <span class="work-tag en">F&amp;B</span>
+            <span class="work-tag en">BEVERAGE&nbsp;SHOP</span>
             <p class="work-name">三年五班黑糖珍珠舖</p>
-            <p class="work-note">餐飲業品牌官網，從菜單到品牌故事一次到位。</p>
-            <a class="work-link" href="https://305.com.tw/" target="_blank" rel="noopener">查看案例 →</a>
+            <p class="work-result">品牌故事、菜單與加盟資訊整合</p>
+            <p class="work-note">將產品特色、門市資訊與品牌故事整合在同一官網，幫助消費者快速了解品牌與產品。</p>
           </div>
         </div>
         <div class="work-card reveal">
@@ -469,8 +559,8 @@ a.design-by{display:block;text-align:center;padding:1rem 0 0;font-family:-apple-
           <div class="work-body">
             <span class="work-tag en">SHIPBUILDING</span>
             <p class="work-name">久慶船業</p>
-            <p class="work-note">傳產造船廠官網，把專業技術門檻轉譯成清楚易懂的網站語言。</p>
-            <a class="work-link" href="https://jioucingyachts.com.tw/" target="_blank" rel="noopener">查看案例 →</a>
+            <p class="work-result">專業造船技術視覺化</p>
+            <p class="work-note">重整船型、製程與工程實績的資訊架構，將高技術門檻內容轉譯為客戶容易理解的官網體驗。</p>
           </div>
         </div>
         <div class="work-card reveal">
@@ -478,11 +568,18 @@ a.design-by{display:block;text-align:center;padding:1rem 0 0;font-family:-apple-
           <div class="work-body">
             <span class="work-tag en">CONSTRUCTION</span>
             <p class="work-name">大亮建築股份有限公司</p>
-            <p class="work-note">建築業官網，強調案例實績與專業形象的視覺呈現。</p>
-            <a class="work-link" href="https://www.daliang.tw/" target="_blank" rel="noopener">查看案例 →</a>
+            <p class="work-result">建築實績與品牌形象整合</p>
+            <p class="work-note">以建築案例為視覺核心，系統化呈現公司理念、實績與服務內容，建立一致的企業專業形象。</p>
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="case-cta reveal">
+      <p class="case-cta-title">想知道哪一種方案適合你？</p>
+      <p>告訴我你目前的目標與困難，我會協助你釐清適合的網站與行銷方向。</p>
+      <a href="https://line.me/ti/p/~@148hiuyg" target="_blank" rel="noopener"
+        onclick="gtag('event','click_line_works',{'event_category':'CTA','event_label':'x-web-tech'});">和 Taris 聊聊你的需求 →</a>
     </div>
   </div>
 </section>
@@ -504,11 +601,11 @@ a.design-by{display:block;text-align:center;padding:1rem 0 0;font-family:-apple-
           <p class="blog-more">閱讀全文 →</p>
         </div>
       </a>
-      <a class="blog-card reveal" href="https://x-web.tech/blog/do-dark-mode-motion-and-interactions-really-make-websites-better" target="_blank" rel="noopener">
-        <div class="blog-thumb"><img src="assets/blog-2.png" alt="Dark mode、動態效果、互動設計，真的會讓網站更厲害嗎？" loading="lazy"></div>
+      <a class="blog-card reveal" href="https://x-web.tech/blog/ai-citation-more-important-than-ranking-first" target="_blank" rel="noopener">
+        <div class="blog-thumb"><img src="assets/blog-2.png" alt="被 AI 引用，會不會比排第一名更重要？" loading="lazy"></div>
         <div class="blog-body">
-          <p class="blog-date en">2026.07.08</p>
-          <p class="blog-title">Dark mode、動態效果、互動設計，真的會讓網站更厲害嗎？</p>
+          <p class="blog-date en">2026.06.03</p>
+          <p class="blog-title">被 AI 引用，會不會比排第一名更重要？</p>
           <p class="blog-more">閱讀全文 →</p>
         </div>
       </a>
