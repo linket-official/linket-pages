@@ -11,7 +11,7 @@
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>張志銘 Stanly｜丹佐興業 DENZEL 執行長</title>
-<meta name="description" content="丹佐興業，智慧無人化場域整合商。提供智慧居家、智慧餐飲、智慧宮廟解決方案，協助場域降低人力依存、提升營運效率。">
+<meta name="description" content="丹佐興業，臺中智慧無人化場域整合商。提供智慧居家、智慧餐飲、智慧宮廟解決方案，協助社區、餐飲、廟宇降低人力依存、提升營運效率，打造安心高效的無人化空間。">
 <meta property="og:title" content="張志銘｜丹佐興業 DENZEL 執行長">
 <meta property="og:description" content="丹佐興業，把「自助化」變成日常。">
 <meta property="og:image" content="https://linket.app/denzel-tech/og-image.jpg">
@@ -46,7 +46,6 @@
     "jobTitle": "執行長"
   },
   "sameAs": [
-    "https://www.facebook.com/stanly.chang",
     "https://www.instagram.com/stanly.startup/"
   ]
 }
@@ -65,20 +64,16 @@
   --white    : #fff;
   --gold     : #e1b168;   /* 主金色 */
   --gold-l   : #ffd3a6;   /* 金色亮端 */
-  --gold-d   : #f6a62f;   /* 金色暗端 */
   --ink      : #F0F0F0;   /* 主文字 */
   --ink2     : rgba(240,240,240,.9);
   --line     : rgba(240,240,240,.75);
 
-  --fs-display : clamp(3.2rem, 9vw, 6.5rem);
   --fs-h1      : clamp(2.2rem, 5vw, 3.6rem);
   --fs-h2      : clamp(1.5rem, 3vw, 2.1rem);
   --fs-h3      : clamp(1.1rem, 2vw, 1.3rem);
-  --fs-body    : 1rem;
   --fs-sm      : 0.875rem;
 
   --mw  : min(1080px, 86vw);
-  --gap : 30px;
 }
 @media(max-width: 768px) { :root { --mw: calc(100vw - 40px); } }
 
@@ -93,6 +88,8 @@ body {
 img { display: block; max-width: 100%; }
 a { text-decoration: none; color: inherit; }
 .inner { max-width: var(--mw); margin: 0 auto; }
+/* 視覺隱藏但保留在 DOM／可被搜尋引擎讀到，不佔版面（給 H1 補品牌關鍵字用） */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
 .noise::before {
   content: ''; position: absolute; inset: 0; z-index: 1;
@@ -106,7 +103,7 @@ a { text-decoration: none; color: inherit; }
 .hero-section { background: var(--bg); position: relative; overflow: hidden; }
 .hero-bg-img {
   position: absolute; inset: 0; z-index: 0; pointer-events: none;
-  background: url('https://denzel-tech.com/images/stack-image-1.jpg') center/cover no-repeat;
+  background: url('./assets/denzel-stack-bg.jpg') center/cover no-repeat;
   opacity: .32; filter: grayscale(1) brightness(.55);
 }
 .hero-section::before {
@@ -217,8 +214,6 @@ a { text-decoration: none; color: inherit; }
   background: transparent; color: var(--ink2); cursor: pointer; transition: .2s;
 }
 .btn-sm:hover { border-color: var(--gold); color: var(--gold-l); }
-.btn-sm.share { display: none; }
-.btn-sm.share.visible { display: block; }
 .hero-legal {
   font-family: 'Noto Serif TC', serif; font-size: .72rem; letter-spacing: .08em;
   color: rgba(240,240,240,.4); margin-top: 6px;
@@ -335,7 +330,7 @@ a { text-decoration: none; color: inherit; }
   color: #fff; background: linear-gradient(to top, rgba(0,0,0,.75), transparent);
 }
 .cc-nav {
-  position: absolute; top: 50%; transform: translateY(-50%); width: 36px; height: 36px;
+  position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px;
   border-radius: 50%; background: rgba(16,16,16,.55); border: 1px solid var(--line);
   color: #fff; display: flex; align-items: center; justify-content: center;
   cursor: pointer; transition: .2s; font-size: 1.1rem; z-index: 2; padding: 0;
@@ -418,7 +413,7 @@ a { text-decoration: none; color: inherit; }
 .footer { background: var(--bg); padding: 60px clamp(16px, 5vw, 60px) 0; position: relative; overflow: hidden; }
 .footer-bg-img {
   position: absolute; inset: 0; z-index: 0; pointer-events: none;
-  background: url('https://denzel-tech.com/images/stack-image-1.jpg') center/cover no-repeat;
+  background: url('./assets/denzel-stack-bg.jpg') center/cover no-repeat;
   opacity: .32; filter: grayscale(1) brightness(.55);
 }
 .footer::after {
@@ -453,13 +448,12 @@ a { text-decoration: none; color: inherit; }
 .footer-copy { font-family: 'Noto Serif TC', serif; font-size: .72rem; letter-spacing: .14em; color: rgba(240,240,240,.4); margin-bottom: 24px; }
 .design-by {
   display: block; text-align: center; padding: 16px;
-  font-family: 'Noto Serif TC', serif; font-size: .72rem; letter-spacing: .2em;
-  border-top: 1px solid var(--line); transition: color .2s;
+  font-family: 'Noto Sans', sans-serif; font-size: .68rem; letter-spacing: .2em;
+  border-top: 1px solid var(--line); transition: opacity .2s;
 }
-.db-lin { color: var(--gold-l); }
-.db-ket { color: rgba(240,240,240,.4); }
-.design-by:hover .db-lin { color: var(--gold); }
-.design-by:hover .db-ket { color: var(--white); }
+.db-lin { color: #1685C8; }
+.db-ket { color: #F5ECD7; }
+.design-by:hover { opacity: .82; }
 
 /* ══ REVEAL（easing 改用 LINKet 標準 luxury 曲線） ══ */
 .reveal {
@@ -518,7 +512,7 @@ a { text-decoration: none; color: inherit; }
 
       <div class="hero-name-block">
         <div class="hero-role">執行長</div>
-        <h1 class="hero-name">張志銘</h1>
+        <h1 class="hero-name">張志銘<span class="sr-only">｜丹佐興業 DENZEL 執行長</span></h1>
         <div class="hero-name-en">Stanly</div>
       </div>
 
@@ -533,10 +527,6 @@ a { text-decoration: none; color: inherit; }
         <a class="hero-icon-link" href="https://line.me/ti/p/xS84Cco_iW" target="_blank" rel="noopener noreferrer" aria-label="LINE"
           onclick="gtag('event','click_line_hero',{'event_category':'CTA','event_label':'denzel-tech'});">
           <img src="/assets/line.svg" alt="LINE" onerror="this.style.display='none'">
-        </a>
-        <a class="hero-icon-link" href="https://www.facebook.com/stanly.chang" target="_blank" rel="noopener noreferrer" aria-label="Facebook"
-          onclick="gtag('event','click_fb',{'event_category':'CTA','event_label':'denzel-tech'});">
-          <img src="/assets/facebook.svg" alt="Facebook" onerror="this.style.display='none'">
         </a>
         <a class="hero-icon-link" href="https://www.instagram.com/stanly.startup/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
           onclick="gtag('event','click_ig',{'event_category':'CTA','event_label':'denzel-tech'});">
@@ -575,7 +565,7 @@ a { text-decoration: none; color: inherit; }
 
       <div class="hero-util-row">
         <button class="btn-sm" onclick="openQr()">QR Code</button>
-        <button class="btn-sm share" id="shareBtn" onclick="shareThis()">Share</button>
+        <button class="btn-sm" id="shareBtn" onclick="shareThis()">Share</button>
       </div>
       <p class="hero-legal">丹佐興業有限公司 · 統編 00233617</p>
     </div>
@@ -636,9 +626,8 @@ a { text-decoration: none; color: inherit; }
       <div class="proof-block reveal rd1">
         <div class="proof-body">
           <span class="proof-tag">智慧居家 · HomeLink 智取櫃</span>
-          <div class="proof-name">智慧居家</div>
-          <p class="proof-claim">不只是櫃子，是讓整個社區物流自動化，降低額外人力處理包裹、監督外送、糾正密碼。</p>
-          <p class="proof-evidence">HomeLink 智取櫃方案目前導入規模從 11 戶、145 戶到 <strong>438 戶</strong>的大型社區都有實績——案場越大，越考驗系統在高頻使用下的穩定性，這正是丹佐接得住的等級。</p>
+          <h3 class="proof-name">智慧居家</h3>
+          <p class="proof-claim">不只是櫃子，是讓整個社區物流自動化——從 11 戶到 <strong>438 戶</strong>大型社區都有實績。</p>
           <div class="proof-brand">合作夥伴：HomeLink</div>
         </div>
         <div class="case-carousel">
@@ -656,9 +645,8 @@ a { text-decoration: none; color: inherit; }
       <div class="proof-block reveal rd2">
         <div class="proof-body">
           <span class="proof-tag">智慧餐飲 · 電小二智慧點餐</span>
-          <div class="proof-name">智慧餐飲</div>
-          <p class="proof-claim">大缺工時代，善用系統將人力從點餐、收銀裡解放。</p>
-          <p class="proof-evidence">當餐飲品牌導入丹佐<strong>自助點餐機、POS 系統、KDS 廚房顯示系統、CDS 叫號顯示系統與掃碼點餐</strong>，透過多項技術串聯起整條點餐到出餐的流程，把人力留在出餐與核心位置而不是收銀台前。餐飲品牌服務與系統自動化，用最少的人力創造最大效益。</p>
+          <h3 class="proof-name">智慧餐飲</h3>
+          <p class="proof-claim">大缺工時代，善用<strong>自助點餐機、POS、KDS／CDS</strong>系統將人力從點餐、收銀裡解放。</p>
           <div class="proof-brand">合作夥伴：電小二智慧點餐</div>
         </div>
         <div class="case-carousel">
@@ -677,9 +665,8 @@ a { text-decoration: none; color: inherit; }
       <div class="proof-block reveal rd3">
         <div class="proof-body">
           <span class="proof-tag">智慧宮廟 · 丹佐自有技術<span class="proof-star">自有特色</span></span>
-          <div class="proof-name">智慧宮廟</div>
-          <p class="proof-claim">信仰可以很傳統，系統可以很現代。</p>
-          <p class="proof-evidence">已導入近 <strong>兩百年歷史</strong>的松山霞海城隍廟，把點燈、捐獻全面數位化。讓兩百年老廟做現代化系統升級，是丹佐融合信仰情感、文化習慣與自動化系統的巧妙結合。</p>
+          <h3 class="proof-name">智慧宮廟</h3>
+          <p class="proof-claim">信仰可以很傳統，系統可以很現代——已導入近 <strong>兩百年歷史</strong>的松山霞海城隍廟，點燈、捐獻全面數位化。</p>
           <div class="proof-brand">與冠宇數位科技聯合開發</div>
         </div>
         <div class="case-carousel">
@@ -696,9 +683,9 @@ a { text-decoration: none; color: inherit; }
     </div>
 
     <div class="sect-cta-wrap reveal">
-      <a href="https://denzel-tech.com/contact" target="_blank" rel="noopener noreferrer" class="sect-cta"
-        onclick="gtag('event','click_service_consult',{'event_category':'CTA','event_label':'denzel-tech'});">
-        服務諮詢 →
+      <a href="https://denzel-tech.com/services" target="_blank" rel="noopener noreferrer" class="sect-cta"
+        onclick="gtag('event','click_service_more',{'event_category':'CTA','event_label':'denzel-tech'});">
+        看更多服務 →
       </a>
       <a href="https://denzel-tech.com/contact" target="_blank" rel="noopener noreferrer" class="sect-cta"
         onclick="gtag('event','click_partnership_dev',{'event_category':'CTA','event_label':'denzel-tech'});">
@@ -718,25 +705,31 @@ a { text-decoration: none; color: inherit; }
     <div class="partners-cards">
       <div class="partner-card reveal rd1" style="background-image: linear-gradient(rgba(16,16,16,.55), rgba(16,16,16,.55)), url('./assets/cases/homelink-438.jpg');">
         <div class="partner-card-inner">
-          <img class="partner-card-logo" src="https://denzel-tech.com/storage/partners/01KVAXV8PJBQAX5JFC3THDP3PG.jpg" alt="HomeLink">
+          <img class="partner-card-logo" src="./assets/partners/homelink-logo.jpg" alt="HomeLink">
           <div class="partner-card-name">HomeLink</div>
           <p class="partner-card-desc">代理智慧居家解決方案，涵蓋科技智取櫃、智能居家系統等產品，協助社區與住宅場域實現安全、便利的無人化居住體驗。</p>
         </div>
       </div>
       <div class="partner-card reveal rd2" style="background-image: linear-gradient(rgba(16,16,16,.55), rgba(16,16,16,.55)), url('./assets/cases/dianxiaoer-shiyuan.jpg');">
         <div class="partner-card-inner">
-          <img class="partner-card-logo" src="https://denzel-tech.com/storage/partners/01KVAXX9FY04P5B6YN4R5AY17Q.png" alt="電小二">
+          <img class="partner-card-logo" src="./assets/partners/dianxiaoer-logo.png" alt="電小二">
           <div class="partner-card-name">電小二</div>
           <p class="partner-card-desc">提供自助點餐機、POS 機、掃碼點餐、候位系統、KDS 廚房、CDS 叫號等完整智慧餐飲生態，助力餐飲業提升翻桌率與營運效率。</p>
         </div>
       </div>
       <div class="partner-card reveal rd3" style="background-image: linear-gradient(rgba(16,16,16,.55), rgba(16,16,16,.55)), url('./assets/cases/temple-xiahai.jpg');">
         <div class="partner-card-inner">
-          <img class="partner-card-logo" src="https://denzel-tech.com/storage/partners/01KVAY2MH8KAR19ATC918RK2P6.png" alt="冠宇數位科技 CHAMPION">
+          <img class="partner-card-logo" src="./assets/partners/champion-logo.png" alt="冠宇數位科技 CHAMPION">
           <div class="partner-card-name">冠宇數位科技</div>
           <p class="partner-card-desc">與丹佐興業聯合開發廟務系統、智慧功德箱、自動點燈、智能廟公等解決方案，以數位科技輔助廟務管理，實現信仰傳承與智慧營運並行。</p>
         </div>
       </div>
+    </div>
+    <div class="sect-cta-wrap reveal" style="margin-top:32px;">
+      <a href="https://denzel-tech.com/about" target="_blank" rel="noopener noreferrer" class="sect-cta"
+        onclick="gtag('event','click_partners_more',{'event_category':'CTA','event_label':'denzel-tech'});">
+        看更多合作夥伴 →
+      </a>
     </div>
     <!-- 底圖暫用既有實績案例照片，若 Tony 提供合作夥伴專屬背景圖，直接換掉各 .partner-card 的 style="background-image" -->
   </div>
@@ -801,10 +794,6 @@ a { text-decoration: none; color: inherit; }
         onclick="gtag('event','click_line_footer',{'event_category':'CTA','event_label':'denzel-tech'});">
         <img src="/assets/line.svg" alt="LINE" onerror="this.style.display='none'">
       </a>
-      <a class="hero-icon-link" href="https://www.facebook.com/stanly.chang" target="_blank" rel="noopener noreferrer" aria-label="Facebook"
-        onclick="gtag('event','click_fb_footer',{'event_category':'CTA','event_label':'denzel-tech'});">
-        <img src="/assets/facebook.svg" alt="Facebook" onerror="this.style.display='none'">
-      </a>
       <a class="hero-icon-link" href="https://www.instagram.com/stanly.startup/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
         onclick="gtag('event','click_ig_footer',{'event_category':'CTA','event_label':'denzel-tech'});">
         <img src="/assets/instagram.svg" alt="Instagram" onerror="this.style.display='none'">
@@ -830,7 +819,7 @@ a { text-decoration: none; color: inherit; }
     <div class="footer-divider"></div>
     <p class="footer-copy">© 2026 丹佐興業有限公司 · 統編 00233617</p>
   </div>
-  <a class="design-by" href="https://linket.app/home" target="_blank" rel="noopener noreferrer">Design by <span class="db-lin">LIN</span><span class="db-ket">KET</span></a>
+  <a class="design-by" href="https://linket.app/home" target="_blank" rel="noopener noreferrer">Design by <span class="db-lin">LIN</span><span class="db-ket">Ket</span></a>
 </footer>
 
 <script>
@@ -847,13 +836,15 @@ document.addEventListener('scroll', () => {
   }
 }, { once: true, passive: true });
 
-/* QR Code / Web Share */
-(function(){ const b = document.getElementById('shareBtn'); if (b && navigator.share) b.classList.add('visible'); })();
+/* QR Code / Web Share：按鈕永遠顯示，點擊才判斷裝置支不支援原生分享 */
 function shareThis(){
-  if (!navigator.share) return;
-  navigator.share({ title: '丹佐興業 DENZEL', text: '張志銘｜丹佐興業執行長', url: 'https://linket.app/denzel-tech/' })
-    .then(() => gtag('event','click_share',{'event_category':'CTA','event_label':'denzel-tech'}))
-    .catch(() => {});
+  if (navigator.share) {
+    navigator.share({ title: '丹佐興業 DENZEL', text: '張志銘｜丹佐興業執行長', url: 'https://linket.app/denzel-tech/' })
+      .then(() => gtag('event','click_share',{'event_category':'CTA','event_label':'denzel-tech'}))
+      .catch(() => {});
+  } else {
+    gtag('event','click_share',{'event_category':'CTA','event_label':'denzel-tech'});
+  }
 }
 let qrL = false, qrI = null;
 function openQr(){
@@ -863,6 +854,8 @@ function openQr(){
   if (!qrL) {
     const s = document.createElement('script');
     s.src = 'https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
+    s.integrity = 'sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==';
+    s.crossOrigin = 'anonymous';
     s.onload = () => { qrL = true; if (!qrI) qrI = new QRCode(document.getElementById('qrcode-canvas'), { text: url, width: 164, height: 164, colorDark: '#101010', colorLight: '#fff', correctLevel: QRCode.CorrectLevel.M }); };
     document.head.appendChild(s);
   } else if (!qrI) {
