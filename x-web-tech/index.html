@@ -4,6 +4,13 @@
 <!--
   張淑伶 Taris｜LINKet T2
   slug: x-web-tech（2026-06-30 Tony拍板，依官網網域命名，不受公司名稱待確認影響）
+  v4.5  2026-08-14  Taris手機看到色差+logo糊，回報後給V2修正檔，比對後只挑客戶明確點出的兩處合併：
+        ①bg-light/bg-dark/bg-flat拿掉url()背景圖+::before scrim，改回純色（她本機檔案本來就是純色，
+        部署後被加上背景圖跟她看到的不同）②logo三處(.hero-logo/.qr-logo/footer)從xweb-logo.svg
+        換成她新給的xweb-logo.png(SVG漸層有dither雜訊，PNG乾淨許多)③順手換掉hero-portrait-circle.png
+        （原檔案臉部去背破損有明顯瑕疵，V2給的hero-portrait-circle2.png是正常照，同檔名覆蓋不用改HTML）
+        其餘V2檔案內的文案微調（hero-value/about-slogan/about-support/年資7+等）是Taris用舊版底稿再編輯，
+        會蓋掉v4.4已修正過的內容，故不採用，維持現有正式文案
   v4.4  2026-08-14  Taris本人自行下載HTML用AI工具改版（8/13拜訪後回傳），Claude內部QC後合併：
         ①Hero新增自我介紹句(hero-value)＋標籤改「#課程系統/#網頁設計/#SEO優化」(拿掉#廣告代操)
         ②服務項目改分組（專用網站系統：票券酷NT$1,280/月起、禮雲NT$1,680/月起／數位成長服務：
@@ -152,14 +159,11 @@ img{max-width:100%;display:block;}
 .wm-item::after{content:'◆';color:var(--blue-lt);margin-left:1.8rem;opacity:.7;}
 @keyframes tick{from{transform:translateX(0);}to{transform:translateX(-25%);}}
 
-/* SECTIONS — 白(淺黃)/藍交替，背景圖疊scrim；手機版background-position調整避免橫式圖裁切難看 */
+/* SECTIONS — 白(淺黃)/藍交替，純色底（8/14 Taris回饋：部署後背景是圖，跟她本機檔案用CSS不同，改回純色） */
 section{position:relative;}
-.bg-light{background:var(--cream) url('assets/bg-image-y.jpg') center/cover no-repeat;color:var(--ink);}
-.bg-light::before{content:'';position:absolute;inset:0;background:rgba(253,243,215,.32);z-index:0;}
-.bg-dark{background:var(--blue) url('assets/bg-image-b.jpg') center/cover no-repeat;color:rgba(255,255,255,.94);}
-.bg-dark::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,20,64,.32),rgba(1,20,64,.46));z-index:0;}
-.bg-flat{background:var(--blue-deep) url('assets/bg-image-b.jpg') center/cover no-repeat;color:rgba(255,255,255,.94);position:relative;}
-.bg-flat::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,15,48,.5),rgba(1,15,48,.68));z-index:0;}
+.bg-light{background:var(--cream);color:var(--ink);}
+.bg-dark{background:var(--blue);color:rgba(255,255,255,.94);}
+.bg-flat{background:var(--blue-deep);color:rgba(255,255,255,.94);position:relative;}
 .sec-inner{max-width:var(--mw);margin:0 auto;padding:clamp(3rem,7vw,6rem) 1.4rem;position:relative;z-index:1;}
 .sec-eyebrow{font-family:'Playfair Display',serif;font-style:italic;font-size:.78rem;letter-spacing:.3em;color:var(--blue-lt);text-align:center;margin-bottom:.5rem;display:block;}
 .bg-light .sec-eyebrow{color:var(--blue2);}
@@ -287,8 +291,6 @@ a.design-by{display:block;text-align:center;padding:1rem 0 0;font-family:-apple-
   .seo-metric{min-width:76px;}
   .seo-metric-num{font-size:1.25rem;}
   .svc-more{width:100%;justify-content:center;}
-  /* 橫式背景圖在窄長手機版section改置中偏上，保留較有層次的區域，避免裁到平淡色塊 */
-  .bg-light,.bg-dark{background-position:center 15%;}
 }
 </style>
 </head>
@@ -302,7 +304,7 @@ a.design-by{display:block;text-align:center;padding:1rem 0 0;font-family:-apple-
     <div class="hero-cols">
       <div class="hero-left">
         <div class="hero-logo">
-          <img src="assets/xweb-logo.svg" alt="XWEB網頁設計" onerror="this.parentElement.innerHTML='<div class=\'hero-logo-ph\'>X</div>'">
+          <img src="assets/xweb-logo.png" alt="XWEB網頁設計" onerror="this.parentElement.innerHTML='<div class=\'hero-logo-ph\'>X</div>'">
         </div>
         <div class="hero-portrait">
           <img src="assets/hero-portrait-circle.png" alt="張淑伶 Taris" onerror="this.style.display='none'">
@@ -362,7 +364,7 @@ a.design-by{display:block;text-align:center;padding:1rem 0 0;font-family:-apple-
 <!-- QR MODAL -->
 <div class="qr-overlay" id="qrOverlay" onclick="closeQrModal()">
   <div class="qr-box" onclick="event.stopPropagation()">
-    <img class="qr-logo" src="assets/xweb-logo.svg" alt="XWEB網頁設計" onerror="this.style.display='none'">
+    <img class="qr-logo" src="assets/xweb-logo.png" alt="XWEB網頁設計" onerror="this.style.display='none'">
     <div id="qrcode"></div>
     <div class="qr-url">linket.app/x-web-tech</div>
     <button class="qr-close" onclick="closeQrModal()">關 閉</button>
@@ -625,7 +627,7 @@ a.design-by{display:block;text-align:center;padding:1rem 0 0;font-family:-apple-
 <footer class="bg-flat" id="footer">
   <div class="footer-inner">
     <div class="footer-logo-wrap">
-      <img src="assets/xweb-logo.svg" alt="XWEB網頁設計" onerror="this.parentElement.style.display='none'">
+      <img src="assets/xweb-logo.png" alt="XWEB網頁設計" onerror="this.parentElement.style.display='none'">
     </div>
     <div class="f-icons">
       <a class="hero-icon-link" href="https://line.me/ti/p/~@148hiuyg" target="_blank" rel="noopener" aria-label="LINE"
@@ -669,7 +671,7 @@ a.design-by{display:block;text-align:center;padding:1rem 0 0;font-family:-apple-
 
 <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha384-3zSEDfvllQohrq0PHL1fOXJuC/jSOO34H46t6UQfobFOmxE5BpjjaIJY5F2/bMnU" crossorigin="anonymous"></script>
 <script>
 const obs=new IntersectionObserver(e=>{
   e.forEach(i=>{if(i.isIntersecting){i.target.classList.add('visible');obs.unobserve(i.target);}});
